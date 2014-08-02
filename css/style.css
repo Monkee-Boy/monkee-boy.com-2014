@@ -397,59 +397,61 @@ th {
 /* Snippets */
 /* Functions */
 /* Media Queries */
-/* Structure */
-.container {
+.row {
   max-width: 64.063em;
   margin-left: auto;
   margin-right: auto;
 }
-.container:after {
+.row:after {
   content: " ";
   display: block;
   clear: both;
 }
 
 @media only screen and (max-width: 40em) {
-  .container {
+  .row {
     max-width: 40em;
     margin-left: auto;
     margin-right: auto;
   }
-  .container:after {
+  .row:after {
     content: " ";
     display: block;
     clear: both;
   }
 }
+/* Structure */
 /* Header */
 /* Main */
 [role="main"] {
-  width: 74.57627%;
+  width: 73.33333%;
   float: left;
-  margin-right: 1.69492%;
+  margin-left: 0.83333%;
+  margin-right: 0.83333%;
 }
 
 @media only screen and (max-width: 40em) {
   [role="main"] {
-    width: 100%;
+    width: 98.33333%;
     float: left;
-    margin-left: 0;
-    margin-right: 0;
+    margin-left: 0.83333%;
+    margin-right: 0.83333%;
   }
 }
 /* Sidebar */
 [role="complementary"] {
-  width: 23.72881%;
+  width: 23.33333%;
   float: right;
-  margin-right: 0;
+  margin-left: 0.83333%;
+  margin-right: 0.83333%;
 }
 
 @media only screen and (max-width: 40em) {
   [role="complementary"] {
-    width: 100%;
+    width: 98.33333%;
     float: left;
-    margin-left: 0;
-    margin-right: 0;
+    margin-left: 0.83333%;
+    margin-right: 0.83333%;
   }
 }
 /* Footer */
@@ -723,4 +725,11 @@ a:hover, a:focus {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.column {
+  width: 48%;
+  float: left;
+  margin-left: 1%;
+  margin-right: 1%;
 }
