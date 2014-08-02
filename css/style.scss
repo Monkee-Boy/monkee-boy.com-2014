@@ -7,6 +7,6 @@
 @import "forms";
 @import "blog";
 
-.column {
-  @include span(5 of 10);
+.column { // Testing grid settings; will remove.
+  @include span(3 of 12);
 }
