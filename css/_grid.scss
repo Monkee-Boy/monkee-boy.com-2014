@@ -1,0 +1,12 @@
+@import '../bower_components/susy/sass/_susy';
+
+$susy: (
+  columns: 12
+);
+
+/* Media Queries */
+$bpSmall: 'only screen and (max-width: 40em)';
+$bpMedium: 'only screen and (min-width: 40.063em)';
+$bpLarge: 'only screen and (min-width: 64.063em)';
+$bpXLarge: 'only screen and (min-width: 90.063em)';
+$bpXXLarge: 'only screen and (min-width: 120.063em)';
