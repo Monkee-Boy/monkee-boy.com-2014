@@ -7,3 +7,6 @@
 @import "forms";
 @import "blog";
 @import "sliders";
+.column {
+  @include span(5 of 10);
+}

@@ -3,16 +3,6 @@ body {
 
 }
 
-.container {
-  @include container(64.063em);
-}
-
-@media #{$bpSmall} {
-  .container {
-    @include container(40em);
-  }
-}
-
 /* Header */
 [role="banner"] {
 
