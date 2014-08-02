@@ -62,7 +62,7 @@ gulp.task('connect', function() {
   connect.server({
     livereload: true
   });
-})
+});
 
 // Rerun the task when a file changes
 gulp.task('watch', function() {
@@ -72,4 +72,4 @@ gulp.task('watch', function() {
 });
 
 // The default task (called when you run `gulp` from cli)
-gulp.task('default', ['styles', 'scripts', 'watch', 'connect']);
+gulp.task('default', ['styles', 'scripts', 'connect']);
