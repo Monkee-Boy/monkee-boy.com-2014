@@ -398,7 +398,11 @@ th {
 /* Functions */
 /* Media Queries */
 .row {
+<<<<<<< HEAD
   max-width: 1200px;
+=======
+  max-width: 1200;
+>>>>>>> 14f41f7843d678b1de103bf7029ac1a58fcdbed2
   margin-left: auto;
   margin-right: auto;
 }
@@ -410,7 +414,11 @@ th {
 
 @media only screen and (max-width: 40em) {
   .row {
+<<<<<<< HEAD
     max-width: 1200px;
+=======
+    max-width: 1200;
+>>>>>>> 14f41f7843d678b1de103bf7029ac1a58fcdbed2
     margin-left: auto;
     margin-right: auto;
   }
@@ -758,6 +766,31 @@ a:hover, a:focus {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.port-slider .thumbs:before, .port-slider .thumbs:after {
+  content: " ";
+  display: table;
+}
+.port-slider .thumbs:after {
+  clear: both;
+}
+.port-slider .thumbnail, .port-slider .instructions {
+  display: block;
+  width: 23.33333%;
+  float: left;
+  margin-left: 0.83333%;
+  margin-right: 0.83333%;
+}
+.port-slider .thumbnail {
+  font-size: 0;
+  line-height: 0;
+}
+.port-slider .thumbnail:after {
+  content: "";
+  display: block;
+  width: 100%;
+  padding-bottom: 75%;
 }
 
 .column {
