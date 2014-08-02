@@ -41,11 +41,6 @@ gulp.task('scripts', ['lint', 'plugins'], function() {
     .pipe(gulp.dest('./js/'));
 });
 
-gulp.task('html', function () {
-  gulp.src('*.html')
-    .pipe(connect.reload());
-});
-
 gulp.task('plugins', function() {
   return gulp.src(['./bower_components/jquery/dist/jquery.min.js'])
   .pipe(rename('jquery.min.js'))
@@ -64,12 +59,17 @@ gulp.task('connect', function() {
   });
 });
 
+gulp.task('html', function () {
+  gulp.src('*.html')
+    .pipe(connect.reload());
+});
+
 // Rerun the task when a file changes
-gulp.task('watch', function() {
+gulp.task('watch', ['connect'], function() {
   gulp.watch('./js/*.js', ['scripts']);
   gulp.watch('./css/*.scss', ['styles']);
   gulp.watch(['./app/*.html'], ['html']);
 });
 
 // The default task (called when you run `gulp` from cli)
-gulp.task('default', ['styles', 'scripts', 'connect']);
+gulp.task('default', ['styles', 'scripts']);
