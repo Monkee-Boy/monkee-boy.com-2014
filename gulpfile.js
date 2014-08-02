@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
     sass = require('gulp-ruby-sass'),
     concat = require('gulp-concat'),
+    connect = require('gulp-connect'),
     uglify = require('gulp-uglify'),
     minifyCSS = require('gulp-minify-css'),
     jshint = require('gulp-jshint'),
@@ -20,7 +21,8 @@ gulp.task('styles', ['components'], function () {
     .pipe(rename({ suffix: '.min' }))
     .pipe(minifyCSS())
     .pipe(size())
-    .pipe(gulp.dest('./css/'));
+    .pipe(gulp.dest('./css/'))
+    .pipe(connect.reload());
 });
 
 gulp.task('components', function() {
@@ -39,6 +41,11 @@ gulp.task('scripts', ['lint', 'plugins'], function() {
     .pipe(gulp.dest('./js/'));
 });
 
+gulp.task('html', function () {
+  gulp.src('*.html')
+    .pipe(connect.reload());
+});
+
 gulp.task('plugins', function() {
   return gulp.src(['./bower_components/jquery/dist/jquery.min.js'])
   .pipe(rename('jquery.min.js'))
@@ -51,11 +58,18 @@ gulp.task('lint', function () {
     .pipe(jshint.reporter('jshint-stylish'));
 });
 
+gulp.task('connect', function() {
+  connect.server({
+    livereload: true
+  });
+})
+
 // Rerun the task when a file changes
 gulp.task('watch', function() {
   gulp.watch('./js/*.js', ['scripts']);
   gulp.watch('./css/*.scss', ['styles']);
+  gulp.watch(['./app/*.html'], ['html']);
 });
 
 // The default task (called when you run `gulp` from cli)
-gulp.task('default', ['styles', 'scripts']);
+gulp.task('default', ['styles', 'scripts', 'watch', 'connect']);
