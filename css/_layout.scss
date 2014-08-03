@@ -5,7 +5,7 @@ body {
 
 /* Header */
 [role="banner"] {
-
+  margin-bottom: 45px;
 }
 
 .top-bar {
@@ -85,6 +85,7 @@ body {
 
 .main-nav {
   background: $dark-black;
+  border-bottom: 4px solid $grey;
 
   ul {
     margin: 0;
@@ -186,7 +187,34 @@ body {
 
 /* Footer */
 [role="contentinfo"] {
+  padding: 22px 0;
+  color: $grey;
+  font-size: 16px;
+  background: $black;
+  border-bottom: 4px solid #000;
 
+  .footer-social {
+    @include span(5 of 12);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+  }
+
+  .bananas {
+    @include span(2 of 12);
+    background: #000;
+    text-align: center;
+  }
+
+  .footer-meta {
+    @include span(5 of 12);
+    text-align: right;
+  }
 }
 
 /* Helper Classes */

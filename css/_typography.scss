@@ -6,6 +6,7 @@ html, body {
   font-style: normal;
   font-weight: normal;
   color: $dark-grey;
+  background: $light-grey;
 }
 
 // headings
@@ -84,7 +85,6 @@ a {
     text-decoration: underline;
   }
 }
-
 
 .button {
   position: relative;

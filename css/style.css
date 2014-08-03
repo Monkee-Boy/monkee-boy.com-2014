@@ -443,6 +443,10 @@ th {
 }
 /* Structure */
 /* Header */
+[role="banner"] {
+  margin-bottom: 45px;
+}
+
 .top-bar {
   text-align: right;
   background: #acca32;
@@ -533,6 +537,7 @@ th {
 
 .main-nav {
   background: #1c1c1e;
+  border-bottom: 4px solid #b2b2b2;
 }
 .main-nav ul {
   margin: 0;
@@ -644,6 +649,51 @@ th {
   }
 }
 /* Footer */
+[role="contentinfo"] {
+  padding: 22px 0;
+  color: #b2b2b2;
+  font-size: 16px;
+  background: #242529;
+  border-bottom: 4px solid #000;
+}
+[role="contentinfo"] .footer-social {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 41.66667%;
+  float: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+[role="contentinfo"] .footer-social li {
+  display: inline-block;
+  margin-right: 10px;
+}
+[role="contentinfo"] .bananas {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 16.66667%;
+  float: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  background: #000;
+  text-align: center;
+}
+[role="contentinfo"] .footer-meta {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 41.66667%;
+  float: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: right;
+}
+
 /* Helper Classes */
 .pull-left {
   float: left;
@@ -744,6 +794,7 @@ html, body {
   font-style: normal;
   font-weight: normal;
   color: #5e5e5e;
+  background: #ededed;
 }
 
 h1, h2, h4 {
@@ -944,12 +995,6 @@ a:hover, a:focus {
   padding-bottom: 75%;
 }
 
-.column {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 25%;
-  float: left;
-  padding-left: 15px;
-  padding-right: 15px;
+.hero {
+  margin-bottom: 65px;
 }
