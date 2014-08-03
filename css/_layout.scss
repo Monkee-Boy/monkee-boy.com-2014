@@ -8,6 +8,117 @@ body {
 
 }
 
+.top-bar {
+  text-align: right;
+  background: $green;
+}
+
+.super-nav {
+  display: inline-block;
+  vertical-align: top;
+  padding: em-calc(13) 0;
+  margin: 0;
+  list-style-type: none;
+
+  li {
+    float: right;
+  }
+
+  a {
+    display: block;
+    padding: 0 0.625em;
+    font-family: 'effra', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: italic;
+    color: #5f730d;
+    text-transform: uppercase;
+  }
+}
+
+.logo {
+  position: absolute;
+  top: 0;
+  padding: 15px 0 25px;
+  width: 256px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.96);
+  @include transition(all 0.5s ease);
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -9px;
+    left: 0;
+    width: 100%;
+    height: 15px;
+    @include transform(rotate(-2deg));
+    border-bottom: 4px solid #d5d5d5;
+    background: #fff;
+    @include transition(all 0.5s ease);
+  }
+
+  .speak {
+    position: absolute;
+    top: 70px;
+    left: 14px;
+    opacity: 0;
+    visibility: hidden;
+    @include transition(all 0.6s ease);
+  }
+
+  &:hover {
+    padding-top: 40px;
+
+    &:after {
+      @include transform(rotate(0deg));
+    }
+
+    .speak {
+      opacity: 1;
+      visibility: visible;
+      top: 90px;
+    }
+  }
+}
+
+.main-nav {
+  background: $dark-black;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    float: right;
+    list-style-type: none;
+
+    li {
+      float: left;
+      position: relative;
+    }
+
+    a {
+      display: block;
+      padding: 44px 23px;
+      color: $grey;
+      font-family: 'effra', sans-serif;
+      font-size: 24px;
+      text-transform: uppercase;
+      border-left: 1px solid #131316;
+
+      &:hover {
+        color: $green;
+        text-decoration: none;
+        background: #222224;
+      }
+    }
+
+    li:first-child a {
+      border-left: 0;
+    }
+  }
+}
+
 /* Main */
 [role="main"] {
   @include span(9 of 12);
