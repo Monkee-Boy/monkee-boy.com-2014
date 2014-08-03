@@ -1,13 +1,4 @@
-@font-face {
-  font-family: 'icomoon';
-  src:url('fonts/icomoon.eot?6dg410');
-  src:url('fonts/icomoon.eot?#iefix6dg410') format('embedded-opentype'),
-    url('fonts/icomoon.woff?6dg410') format('woff'),
-    url('fonts/icomoon.ttf?6dg410') format('truetype'),
-    url('fonts/icomoon.svg?6dg410#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
+@include font-face(icomoon, /fonts/icomoon);
 
 html, body {
   font-size: $em-base;

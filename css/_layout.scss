@@ -95,21 +95,64 @@ body {
     li {
       float: left;
       position: relative;
+      padding: 44px 23px;
     }
 
     a {
       display: block;
-      padding: 44px 23px;
       color: $grey;
       font-family: 'effra', sans-serif;
       font-size: 24px;
       text-transform: uppercase;
       border-left: 1px solid #131316;
+      border-bottom: 1px solid $grey;
+      position: relative;
+      padding-bottom: 21px;
+
+      &:after {
+        content: '\e600';
+        position: absolute;
+        left: 0;
+        right: 0;
+        display: block;
+        margin: 0 auto;
+        padding: 10px 15px;
+        @include size(22px, 22px);
+        color: $grey;
+        font-size: 22px;
+        font-family: 'icomoon';
+        background: $dark-black;
+      }
+
+      &.nav-who:after {
+        content: '\e600';
+      }
+
+      &.nav-what:after {
+        content: '\e602';
+      }
+
+      &.nav-work:after {
+        content: '\e604';
+      }
+
+      &.nav-contact:after {
+        content: '\e603';
+      }
+
+      &.nav-blog:after {
+        content: '\e601';
+      }
 
       &:hover {
         color: $green;
         text-decoration: none;
         background: #222224;
+        border-bottom-color: $green;
+
+        &:after {
+          color: $green;
+        }
       }
     }
 

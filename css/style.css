@@ -543,20 +543,57 @@ th {
 .main-nav ul li {
   float: left;
   position: relative;
+  padding: 44px 23px;
 }
 .main-nav ul a {
   display: block;
-  padding: 44px 23px;
   color: #b2b2b2;
   font-family: 'effra', sans-serif;
   font-size: 24px;
   text-transform: uppercase;
   border-left: 1px solid #131316;
+  border-bottom: 1px solid #b2b2b2;
+  position: relative;
+  padding-bottom: 21px;
+}
+.main-nav ul a:after {
+  content: '\e600';
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: block;
+  margin: 0 auto;
+  padding: 10px 15px;
+  width: 22px;
+  height: 22px;
+  color: #b2b2b2;
+  font-size: 22px;
+  font-family: 'icomoon';
+  background: #1c1c1e;
+}
+.main-nav ul a.nav-who:after {
+  content: '\e600';
+}
+.main-nav ul a.nav-what:after {
+  content: '\e602';
+}
+.main-nav ul a.nav-work:after {
+  content: '\e604';
+}
+.main-nav ul a.nav-contact:after {
+  content: '\e603';
+}
+.main-nav ul a.nav-blog:after {
+  content: '\e601';
 }
 .main-nav ul a:hover {
   color: #acca32;
   text-decoration: none;
   background: #222224;
+  border-bottom-color: #acca32;
+}
+.main-nav ul a:hover:after {
+  color: #acca32;
 }
 .main-nav ul li:first-child a {
   border-left: 0;
@@ -695,11 +732,11 @@ th {
 }
 
 @font-face {
-  font-family: 'icomoon';
-  src: url("fonts/icomoon.eot?6dg410");
-  src: url("fonts/icomoon.eot?#iefix6dg410") format("embedded-opentype"), url("fonts/icomoon.woff?6dg410") format("woff"), url("fonts/icomoon.ttf?6dg410") format("truetype"), url("fonts/icomoon.svg?6dg410#icomoon") format("svg");
+  font-family: icomoon;
   font-weight: normal;
   font-style: normal;
+  src: url("/fonts/icomoon.eot");
+  src: url("/fonts/icomoon.eot?#iefix") format("embedded-opentype"), url("/fonts/icomoon.woff") format("woff"), url("/fonts/icomoon.ttf") format("truetype"), url("/fonts/icomoon.svg#icomoon") format("svg");
 }
 html, body {
   font-size: 18px;
