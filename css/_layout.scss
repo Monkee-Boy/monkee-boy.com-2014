@@ -126,23 +126,23 @@ body {
       }
 
       &.nav-who:after {
-        content: '\e600';
+        content: $icon-banana-small;
       }
 
       &.nav-what:after {
-        content: '\e602';
+        content: $icon-monitor;
       }
 
       &.nav-work:after {
-        content: '\e604';
+        content: $icon-awards-small;
       }
 
       &.nav-contact:after {
-        content: '\e603';
+        content: $icon-contact;
       }
 
       &.nav-blog:after {
-        content: '\e601';
+        content: $icon-blog;
       }
 
       &:hover {

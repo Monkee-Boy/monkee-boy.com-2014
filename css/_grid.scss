@@ -25,6 +25,10 @@ $bpXXLarge: 'only screen and (min-width: 120.063em)';
   }
 }
 
+.full {
+  @include span(12 of 12);
+}
+
 .half {
   @include span(6 of 12);
 }
