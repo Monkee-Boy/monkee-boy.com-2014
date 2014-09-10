@@ -5,7 +5,7 @@
   padding: 0;
   margin-top: 0;
   margin-bottom: 0;
-  li {
+  > li {
     @include span(4 of 12);
     padding-top: #{$gutter-width/2}px;
     padding-bottom: #{$gutter-width/2}px;
@@ -31,6 +31,10 @@
     }
     &.active {
       background-color: $teal;
+      .profile {
+        @include opacity(1);
+        visibility: visible;
+      }
     }
   }
   .trigger {
@@ -76,5 +80,39 @@
     position: absolute;
     @include opacity(0);
     visibility: hidden;
+    left: 0;
+    right: 0;
+    background-color: $dark-black;
+    z-index: 4;
+  }
+  .profile-header,
+  .profile-content,
+  .profile-footer {
+    @include clearfix;
+    padding: em-calc(20) em-calc(15);
+  }
+  .profile-header {
+    background-color: $teal;
+    .name {
+      @include span(5 of 12);
+      font-size: 50px;
+      line-height: 1;
+      color: #fff;
+      span {
+        display: block;
+        font-size: 30px;
+        color: $yellow;
+        text-transform: uppercase;
+      }
+    }
+    blockquote {
+      margin: 0;
+      @include span(7 of 12);
+    }
+  }
+  .profile-content {
+  }
+  .profile-footer {
+    background-color: $black;
   }
 }
