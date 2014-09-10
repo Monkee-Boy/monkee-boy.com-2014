@@ -1123,6 +1123,32 @@ a:hover, a:focus {
   filter: alpha(opacity=100);
   visibility: visible;
 }
+.troop-list > li.active .trigger:before {
+  -webkit-transform: rotate(0);
+  -moz-transform: rotate(0);
+  -ms-transform: rotate(0);
+  -o-transform: rotate(0);
+  transform: rotate(0);
+  bottom: -60px;
+}
+.troop-list > li.active .trigger:after {
+  bottom: -40px;
+}
+.troop-list > li.inactive {
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+}
+.troop-list > li.inactive .trigger:before {
+  -webkit-transform: rotate(0);
+  -moz-transform: rotate(0);
+  -ms-transform: rotate(0);
+  -o-transform: rotate(0);
+  transform: rotate(0);
+  bottom: -60px;
+}
+.troop-list > li.inactive .trigger:after {
+  bottom: -40px;
+}
 .troop-list .trigger {
   display: block;
   position: relative;
@@ -1185,30 +1211,33 @@ a:hover, a:focus {
   filter: alpha(opacity=0);
   visibility: hidden;
   left: 0;
-  right: 0;
+  right: 1px;
   background-color: #1c1c1e;
+  color: #b2b2b2;
   z-index: 4;
 }
-.troop-list .profile-header,
-.troop-list .profile-content,
-.troop-list .profile-footer {
-  padding: 1.11111em 0.83333em;
+.troop-list .profile-header {
+  position: relative;
+  padding: 1.33333em 0.83333em;
+  background-color: #23a38f;
 }
-.troop-list .profile-header:before, .troop-list .profile-header:after,
-.troop-list .profile-content:before,
-.troop-list .profile-content:after,
-.troop-list .profile-footer:before,
-.troop-list .profile-footer:after {
+.troop-list .profile-header:before, .troop-list .profile-header:after {
   content: " ";
   display: table;
 }
-.troop-list .profile-header:after,
-.troop-list .profile-content:after,
-.troop-list .profile-footer:after {
+.troop-list .profile-header:after {
   clear: both;
 }
-.troop-list .profile-header {
-  background-color: #23a38f;
+.troop-list .profile-header blockquote:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -22px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 600px 22px 0;
+  border-color: transparent #23a38f transparent transparent;
 }
 .troop-list .profile-header .name {
   -webkit-box-sizing: border-box;
@@ -1219,17 +1248,19 @@ a:hover, a:focus {
   padding-left: 15px;
   padding-right: 15px;
   font-size: 50px;
+  font-family: "effra", sans-serif;
   line-height: 1;
   color: #fff;
 }
 .troop-list .profile-header .name span {
   display: block;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 30px;
   color: #fcc721;
   text-transform: uppercase;
 }
 .troop-list .profile-header blockquote {
-  margin: 0;
+  margin: 8px 0 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -1237,9 +1268,84 @@ a:hover, a:focus {
   float: left;
   padding-left: 15px;
   padding-right: 15px;
+  color: #fff;
+}
+.troop-list .profile-content {
+  padding: 2.33333em 0.83333em 1.33333em;
+}
+.troop-list .profile-content:before, .troop-list .profile-content:after {
+  content: " ";
+  display: table;
+}
+.troop-list .profile-content:after {
+  clear: both;
+}
+.troop-list .profile-block:before, .troop-list .profile-block:after {
+  content: " ";
+  display: table;
+}
+.troop-list .profile-block:after {
+  clear: both;
+}
+.troop-list .profile-block .title {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 25%;
+  float: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: right;
+  font-family: "effra", sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  color: #23a38f;
+  text-transform: uppercase;
+}
+.troop-list .profile-block p {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 75%;
+  float: left;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .troop-list .profile-footer {
+  padding: 2.22222em 0.83333em;
   background-color: #242529;
+  text-transform: uppercase;
+}
+.troop-list .profile-footer:before, .troop-list .profile-footer:after {
+  content: " ";
+  display: table;
+}
+.troop-list .profile-footer:after {
+  clear: both;
+}
+.troop-list .profile-footer .latest-update, .troop-list .profile-footer .profile-socials {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 50%;
+  float: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0;
+}
+.troop-list .profile-footer .latest-update a {
+  color: #acca32;
+  text-decoration: underline;
+}
+.troop-list .profile-footer .latest-update a:hover {
+  text-decoration: none;
+}
+.troop-list .profile-socials {
+  list-style-type: none;
+  text-align: right;
+}
+.troop-list .profile-socials li {
+  display: inline-block;
 }
 
 .strategy blockquote {

@@ -17,7 +17,7 @@
     }
 
     $troop_list.children('li').not($li).removeClass('active').addClass('inactive');
-    $li.addClass('active');
+    $li.removeClass('inactive').addClass('active');
 
     // set dropdown top to correct value
     var offset_top = $li.position().top + $li.outerHeight();

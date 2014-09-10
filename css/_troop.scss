@@ -35,6 +35,27 @@
         @include opacity(1);
         visibility: visible;
       }
+      .trigger {
+        &:before {
+          @include rotate(0);
+          bottom: -60px;
+        }
+        &:after {
+          bottom: -40px;
+        }
+      }
+    }
+    &.inactive {
+      @include opacity(0.7);
+      .trigger {
+        &:before {
+          @include rotate(0);
+          bottom: -60px;
+        }
+        &:after {
+          bottom: -40px;
+        }
+      }
     }
   }
   .trigger {
@@ -81,38 +102,87 @@
     @include opacity(0);
     visibility: hidden;
     left: 0;
-    right: 0;
+    right: 1px;
     background-color: $dark-black;
+    color: $grey;
     z-index: 4;
   }
-  .profile-header,
-  .profile-content,
-  .profile-footer {
-    @include clearfix;
-    padding: em-calc(20) em-calc(15);
-  }
   .profile-header {
+    position: relative;
+    @include clearfix;
+    padding: em-calc(24) em-calc(15);
     background-color: $teal;
+    // this is attached to blockquote b/c we need clearfix and no overflow:hidden on the profile-header
+    blockquote:after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: -22px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 600px 22px 0;
+      border-color: transparent $teal transparent transparent;
+    }
     .name {
       @include span(5 of 12);
       font-size: 50px;
+      font-family: $heading-font;
       line-height: 1;
       color: #fff;
       span {
         display: block;
+        font-family: $body-font;
         font-size: 30px;
         color: $yellow;
         text-transform: uppercase;
       }
     }
     blockquote {
-      margin: 0;
+      margin: 8px 0 0;
       @include span(7 of 12);
+      color: #fff;
     }
   }
   .profile-content {
+    @include clearfix;
+    padding: em-calc(42) em-calc(15) em-calc(24);
+  }
+  .profile-block {
+    @include clearfix;
+    .title {
+      @include span(3 of 12);
+      text-align: right;
+      font-family: $heading-font;
+      font-weight: 800;
+      font-size: 24px;
+      color: $teal;
+      text-transform: uppercase;
+    }
+    p {
+      @include span(9 of 12);
+    }
   }
   .profile-footer {
+    @include clearfix;
+    padding: em-calc(40) em-calc(15);
     background-color: $black;
+    text-transform: uppercase;
+    .latest-update, .profile-socials {
+      @include span(6 of 12);
+      margin: 0;
+    }
+    .latest-update a {
+      color: $green;
+      text-decoration: underline;
+      &:hover { text-decoration: none; }
+    }
+  }
+  .profile-socials {
+    list-style-type: none;
+    text-align: right;
+    li {
+      display: inline-block;
+    }
   }
 }
