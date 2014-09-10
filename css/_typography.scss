@@ -19,7 +19,7 @@ h1 {
   font-size: 76px;
   font-weight: 500;
   color: $dark-green;
-  margin: 0;
+  margin: 0 0 em-calc(10, 76);
   @media #{bpMedium} { font-size: 46px; }
   @media #{$bpSmall} { font-size: 46px; }
 }
@@ -69,7 +69,7 @@ h5 {
   margin: 0 0 em-calc(18, 18);
 }
 
-p, ul, ol {
+p, ul, ol, blockquote {
   margin: 0 0 $paragraph-margin;
 }
 
@@ -77,6 +77,22 @@ p.intro {
   color: $black;
   font-size: em-calc(20px);
   font-weight: bold;
+}
+
+blockquote {
+  padding-left: em-calc(17px);
+  color: $black;
+  font-family: 'effra', sans-serif;
+  font-weight: bold;
+  font-size: em-calc(24px);
+  border-left: 17px solid $yellow;
+
+  cite {
+    display: block;
+    text-align: right;
+    font-weight: bolder;
+    font-style: normal;
+  }
 }
 
 img {

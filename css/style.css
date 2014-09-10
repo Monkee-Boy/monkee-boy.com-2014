@@ -587,19 +587,19 @@ th {
   background: #1c1c1e;
 }
 .main-nav ul a.nav-who:after {
-  content: '\e600';
+  content: "\e60d";
 }
 .main-nav ul a.nav-what:after {
-  content: '\e602';
+  content: "\e610";
 }
 .main-nav ul a.nav-work:after {
-  content: '\e604';
+  content: "\e60c";
 }
 .main-nav ul a.nav-contact:after {
-  content: '\e603';
+  content: "\e60e";
 }
 .main-nav ul a.nav-blog:after {
-  content: '\e601';
+  content: "\e60f";
 }
 .main-nav ul a:hover {
   color: #acca32;
@@ -816,7 +816,7 @@ h1 {
   font-size: 76px;
   font-weight: 500;
   color: #8fa82a;
-  margin: 0;
+  margin: 0 0 0.13158em;
 }
 @media bpMedium {
   h1 {
@@ -902,7 +902,7 @@ h5 {
   margin: 0 0 1em;
 }
 
-p, ul, ol {
+p, ul, ol, blockquote {
   margin: 0 0 1.66667em;
 }
 
@@ -910,6 +910,21 @@ p.intro {
   color: #242529;
   font-size: 1.11111em;
   font-weight: bold;
+}
+
+blockquote {
+  padding-left: 0.94444em;
+  color: #242529;
+  font-family: 'effra', sans-serif;
+  font-weight: bold;
+  font-size: 1.33333em;
+  border-left: 17px solid #fcc721;
+}
+blockquote cite {
+  display: block;
+  text-align: right;
+  font-weight: bolder;
+  font-style: normal;
 }
 
 img {
@@ -995,6 +1010,13 @@ a:hover, a:focus {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.page-title {
+  margin-bottom: 1.66667em;
+  padding: 3em 0;
+  text-align: center;
+  background: #e5e5e5;
 }
 
 .main-cta .button {
