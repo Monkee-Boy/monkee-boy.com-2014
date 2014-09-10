@@ -395,6 +395,17 @@ th {
 }
 
 /* Snippets */
+/*
+  # USAGE #
+  $large: "(min-width: 1024px)";
+
+  header {
+    @include breakpoint($large){
+      width: 100%;
+      margin: 5em 0;
+    }
+  }
+*/
 /* Functions */
 /* Media Queries */
 .row {
@@ -997,4 +1008,115 @@ a:hover, a:focus {
 
 .hero {
   margin-bottom: 65px;
+}
+
+.troop-list {
+  position: relative;
+  list-style-type: none;
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.troop-list li {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 33.33333%;
+  float: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  -webkit-transition: background 0.3s ease;
+  -moz-transition: background 0.3s ease;
+  -ms-transition: background 0.3s ease;
+  -o-transition: background 0.3s ease;
+  transition: background 0.3s ease;
+}
+.troop-list li:hover .trigger .hover-image, .troop-list li.active .trigger .hover-image {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.troop-list li:hover .trigger:before {
+  -webkit-transform: rotate(-14deg);
+  -moz-transform: rotate(-14deg);
+  -ms-transform: rotate(-14deg);
+  -o-transform: rotate(-14deg);
+  transform: rotate(-14deg);
+  bottom: -40px;
+  background-color: #23a38f;
+}
+.troop-list li:hover .trigger:after {
+  color: #fff;
+  -webkit-transform: scale(1.4);
+  -moz-transform: scale(1.4);
+  -ms-transform: scale(1.4);
+  -o-transform: scale(1.4);
+  transform: scale(1.4);
+  bottom: 10px;
+}
+.troop-list li.active {
+  background-color: #23a38f;
+}
+.troop-list .trigger {
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+.troop-list .trigger:before {
+  content: "";
+  position: absolute;
+  right: -40px;
+  bottom: -50px;
+  width: 110%;
+  height: 60px;
+  -webkit-transform: rotate(-10deg);
+  -moz-transform: rotate(-10deg);
+  -ms-transform: rotate(-10deg);
+  -o-transform: rotate(-10deg);
+  transform: rotate(-10deg);
+  background-color: rgba(255, 255, 255, 0.85);
+  z-index: 2;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.troop-list .trigger:after {
+  content: "+";
+  position: absolute;
+  right: 15px;
+  bottom: 0px;
+  font-size: 32px;
+  line-height: 1;
+  color: #23a38f;
+  z-index: 3;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.troop-list .trigger img {
+  display: block;
+  width: 100%;
+}
+.troop-list .trigger .hover-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.2s ease;
+  -moz-transition: opacity 0.2s ease;
+  -ms-transition: opacity 0.2s ease;
+  -o-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+}
+.troop-list .profile {
+  position: absolute;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  visibility: hidden;
 }
