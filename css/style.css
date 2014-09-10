@@ -1030,9 +1030,31 @@ a:hover, a:focus {
   background: #e5e5e5;
 }
 
+.main-cta {
+  margin: 0 0 1.66667em;
+  padding: 3.33333em 0;
+  background: #23a38f url(/images/noise-pattern.png) repeat 0 0;
+}
+.main-cta .cta-inner {
+  color: #fff;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 66.66667%;
+  float: left;
+  padding-left: 15px;
+  padding-right: 15px;
+}
 .main-cta .button {
   border-bottom-color: #d8ae2a;
   background-color: #fcc721;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 33.33333%;
+  float: left;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .main-cta .button:before {
   background: #d8ae2a;
