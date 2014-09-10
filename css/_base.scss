@@ -28,6 +28,9 @@ $dark-green: #8fa82a;
 $teal: #23a38f;
 $dark-teal: #1a7a6c;
 $yellow: #fcc721;
+$dark-yellow: #d8ae2a;
+$red: #ff6c5c;
+$dark-red: #f05e4e;
 $black: #242529;
 $dark-black: #1c1c1e;
 $light-grey: #ededed;
@@ -36,10 +39,10 @@ $medium-grey: #979797;
 $dark-grey: #5e5e5e;
 
 // Vertical Spacing
-$paragraph-margin: 30;
-$content-block-margin: 100;
-$mobile-paragraph-margin: 24;
-$mobile-content-block-margin: 60;
+$paragraph-margin: em-calc(30px);
+$content-block-margin: em-calc(100);
+$mobile-paragraph-margin: em-calc(24);
+$mobile-content-block-margin: em-calc(60);
 
 // Fonts
 $heading-font: 'effra', sans-serif;

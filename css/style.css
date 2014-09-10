@@ -420,6 +420,16 @@ th {
     clear: both;
   }
 }
+.full {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  float: left;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 .half {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -803,10 +813,10 @@ h1, h2, h4 {
 }
 
 h1 {
-  font-size: 84px;
+  font-size: 76px;
   font-weight: 500;
   color: #8fa82a;
-  margin: 0 0 0.3em;
+  margin: 0;
 }
 @media bpMedium {
   h1 {
@@ -824,7 +834,7 @@ h2 {
   font-weight: normal;
   color: #acca32;
   text-transform: uppercase;
-  margin: 0 0 1.1em;
+  margin: 0 0 0.5em;
 }
 @media bpMedium {
   h2 {
@@ -840,7 +850,7 @@ h2 {
 .subtitle {
   font-size: 26px;
   color: #23a38f;
-  margin: 0 0 1.30769em;
+  margin: 0;
 }
 @media only screen and (max-width: 40em) {
   .subtitle {
@@ -853,7 +863,7 @@ h3 {
   font-weight: normal;
   color: #1c1c1e;
   text-transform: uppercase;
-  margin: 0 0 1.09375em;
+  margin: 0 0 0.65625em;
 }
 @media bpMedium {
   h3 {
@@ -871,7 +881,7 @@ h4 {
   font-weight: bold;
   color: #23a38f;
   text-transform: uppercase;
-  margin: 0 0 1.25em;
+  margin: 0 0 0.70833em;
 }
 @media bpMedium {
   h4 {
@@ -889,7 +899,17 @@ h5 {
   font-weight: normal;
   color: #979797;
   text-transform: uppercase;
+  margin: 0 0 1em;
+}
+
+p, ul, ol {
   margin: 0 0 1.66667em;
+}
+
+p.intro {
+  color: #242529;
+  font-size: 1.11111em;
+  font-weight: bold;
 }
 
 img {
@@ -897,7 +917,7 @@ img {
 }
 
 a {
-  color: #1a7a6c;
+  color: #ff6c5c;
   text-decoration: none;
 }
 a, a:before, a:after {
@@ -908,7 +928,7 @@ a, a:before, a:after {
   transition: color 0.25s ease, background 0.25s ease;
 }
 a:hover, a:focus {
-  color: #23a38f;
+  color: #f05e4e;
   text-decoration: underline;
 }
 
@@ -918,7 +938,7 @@ a:hover, a:focus {
   padding: 0.83333em 1.25em 0.58333em;
   color: #fff;
   font-family: 'effra', sans-serif;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   line-height: 1;
   text-transform: uppercase;
@@ -954,6 +974,16 @@ a:hover, a:focus {
 .button:hover:before {
   top: 0;
 }
+.button.button-alt {
+  border-bottom-color: #1a7a6c;
+  background-color: #23a38f;
+}
+.button.button-alt:before {
+  background: #1a7a6c;
+}
+.button.button-full {
+  display: block;
+}
 
 .icon {
   font-family: "icomoon";
@@ -965,6 +995,14 @@ a:hover, a:focus {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.main-cta .button {
+  border-bottom-color: #d8ae2a;
+  background-color: #fcc721;
+}
+.main-cta .button:before {
+  background: #d8ae2a;
 }
 
 .port-slider .thumbs:before, .port-slider .thumbs:after {
