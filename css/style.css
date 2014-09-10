@@ -1060,25 +1060,25 @@ a:hover, a:focus {
 }
 
 .strategy blockquote {
-  border-left: 17px solid #acca32;
+  border-left-color: #acca32;
 }
 
 .design blockquote {
-  border-left: 17px solid #8fa82a;
+  border-left-color: #8fa82a;
 }
 
 .development blockquote {
-  border-left: 17px solid #23a38f;
+  border-left-color: #23a38f;
 }
 
 .maintenance blockquote {
-  border-left: 17px solid #1a7a6c;
+  border-left-color: #1a7a6c;
 }
 
 .marketing blockquote {
-  border-left: 17px solid #fcc721;
+  border-left-color: #fcc721;
 }
 
 .growth blockquote {
-  border-left: 17px solid #d8ae2a;
+  border-left-color: #d8ae2a;
 }

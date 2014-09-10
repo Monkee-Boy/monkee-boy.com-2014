@@ -14,7 +14,7 @@ $services: strategy $color-strategy, design $color-design, development $color-de
 @each $service in $services {
   .#{nth($service, 1)} {
     blockquote {
-      border-left: 17px solid nth($service, 2);
+      border-left-color: nth($service, 2);
     }
   }
 }
