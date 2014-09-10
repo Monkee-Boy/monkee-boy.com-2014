@@ -165,12 +165,16 @@
   }
   .profile-footer {
     @include clearfix;
-    padding: em-calc(40) em-calc(15);
-    background-color: $black;
+    padding: em-calc(24) em-calc(15);
+    background: $black url(/images/noise-pattern.png);
     text-transform: uppercase;
     .latest-update, .profile-socials {
       @include span(6 of 12);
       margin: 0;
+    }
+    .latest-update {
+      padding-top: em-calc(16);
+      padding-bottom: em-calc(16);
     }
     .latest-update a {
       color: $green;
@@ -179,10 +183,32 @@
     }
   }
   .profile-socials {
+    float: right;
     list-style-type: none;
     text-align: right;
     li {
       display: inline-block;
     }
+    a {
+      font-size: 0;
+      line-height: 0;
+      text-align: center;
+      &:before, &:after {
+        font-size: 54px;
+        line-height: 1;
+        font-family: 'icomoon';
+      }
+      &:before {
+        content: $icon-hexagon-back;
+        color: $green;
+      }
+      &:after { color: #fff; }
+    }
+    .twitter:after { content: ""; }
+    .facebook:after { content: ""; }
+    .linkedin:after { content: ""; }
+    .gplus:after { content: ""; }
+    .instagram:after { content: ""; }
+    .pinterest:after { content: ""; }
   }
 }

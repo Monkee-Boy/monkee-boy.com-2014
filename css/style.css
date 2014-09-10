@@ -1334,8 +1334,8 @@ a:hover, a:focus {
   padding-right: 15px;
 }
 .troop-list .profile-footer {
-  padding: 2.22222em 0.83333em;
-  background-color: #242529;
+  padding: 1.33333em 0.83333em;
+  background: #242529 url(/images/noise-pattern.png);
   text-transform: uppercase;
 }
 .troop-list .profile-footer:before, .troop-list .profile-footer:after {
@@ -1355,6 +1355,10 @@ a:hover, a:focus {
   padding-right: 15px;
   margin: 0;
 }
+.troop-list .profile-footer .latest-update {
+  padding-top: 0.88889em;
+  padding-bottom: 0.88889em;
+}
 .troop-list .profile-footer .latest-update a {
   color: #acca32;
   text-decoration: underline;
@@ -1363,11 +1367,47 @@ a:hover, a:focus {
   text-decoration: none;
 }
 .troop-list .profile-socials {
+  float: right;
   list-style-type: none;
   text-align: right;
 }
 .troop-list .profile-socials li {
   display: inline-block;
+}
+.troop-list .profile-socials a {
+  font-size: 0;
+  line-height: 0;
+  text-align: center;
+}
+.troop-list .profile-socials a:before, .troop-list .profile-socials a:after {
+  font-size: 54px;
+  line-height: 1;
+  font-family: 'icomoon';
+}
+.troop-list .profile-socials a:before {
+  content: "\e60b";
+  color: #acca32;
+}
+.troop-list .profile-socials a:after {
+  color: #fff;
+}
+.troop-list .profile-socials .twitter:after {
+  content: "";
+}
+.troop-list .profile-socials .facebook:after {
+  content: "";
+}
+.troop-list .profile-socials .linkedin:after {
+  content: "";
+}
+.troop-list .profile-socials .gplus:after {
+  content: "";
+}
+.troop-list .profile-socials .instagram:after {
+  content: "";
+}
+.troop-list .profile-socials .pinterest:after {
+  content: "";
 }
 
 .strategy blockquote {
