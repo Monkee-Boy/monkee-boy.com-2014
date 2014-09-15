@@ -1,15 +1,12 @@
 @import '../bower_components/susy/sass/_susy';
 
 $susy: (
-  global-box-sizing: border-box,
   columns: 12,
   container: 1200px,
-  gutter-position: split
+  column-width: 70px,
+  gutter-position: inside-static,
+  gutters: 30px/70px
 );
-
-$row-width: em-calc(1200);
-$total-columns: 12;
-$column-gutter: em-calc(30);
 
 /* Media Queries */
 $bpSmall: 'only screen and (max-width: 40em)';
@@ -18,7 +15,6 @@ $bpLarge: 'only screen and (min-width: 64.063em)';
 $bpXLarge: 'only screen and (min-width: 90.063em)';
 $bpXXLarge: 'only screen and (min-width: 120.063em)';
 
-
 .row {
   @include container();
 }
@@ -26,5 +22,19 @@ $bpXXLarge: 'only screen and (min-width: 120.063em)';
 @media #{$bpSmall} {
   .row {
     @include container();
+  }
+}
+
+.full {
+  @include span(12 of 12);
+}
+
+.half {
+  @include span(6 of 12);
+}
+
+@media #{$bpSmall} {
+  .half {
+    @include span(12 of 12);
   }
 }

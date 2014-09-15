@@ -1,12 +1,21 @@
-@import '../bower_components/normalize.css/_normalize';
-@import '../bower_components/monkee-mixins/_mixins';
-@import 'grid';
+@import "../bower_components/normalize.css/_normalize";
+@import "../bower_components/monkee-mixins/_mixins";
+@import "grid";
 @import "base";
 @import "layout";
 @import "typography";
+@import "content-blocks";
 @import "forms";
-@import "blog";
 @import "sliders";
-.column {
-  @include span(5 of 10);
+@import "home";
+@import "blog";
+@import "troop";
+
+$services: strategy $color-strategy, design $color-design, development $color-development, maintenance $color-maintenance, marketing $color-marketing, growth $color-growth;
+@each $service in $services {
+  .#{nth($service, 1)} {
+    blockquote {
+      border-left-color: nth($service, 2);
+    }
+  }
 }

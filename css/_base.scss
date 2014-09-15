@@ -22,12 +22,22 @@ $em-base: 18px;
   @return $emValues;
 }
 
+// mixin for triangular border
+@mixin triangle($color, $width, $height) {
+  border-style: solid;
+  border-width: 0 $width $height 0;
+  border-color: transparent $color transparent transparent;
+}
+
 // Colors
 $green: #acca32;
 $dark-green: #8fa82a;
 $teal: #23a38f;
 $dark-teal: #1a7a6c;
 $yellow: #fcc721;
+$dark-yellow: #d8ae2a;
+$red: #ff6c5c;
+$dark-red: #f05e4e;
 $black: #242529;
 $dark-black: #1c1c1e;
 $light-grey: #ededed;
@@ -35,11 +45,22 @@ $grey: #b2b2b2;
 $medium-grey: #979797;
 $dark-grey: #5e5e5e;
 
+$color-strategy: $green;
+$color-design: $dark-green;
+$color-development: $teal;
+$color-maintenance: $dark-teal;
+$color-marketing: $yellow;
+$color-growth: $dark-yellow;
+
 // Vertical Spacing
-$paragraph-margin: 30;
-$content-block-margin: 100;
-$mobile-paragraph-margin: 24;
-$mobile-content-block-margin: 60;
+$paragraph-margin: em-calc(30px);
+$content-block-margin: em-calc(100);
+$mobile-paragraph-margin: em-calc(24);
+$mobile-content-block-margin: em-calc(60);
+
+// Grid widths
+$column-width: 70;
+$gutter-width: 30;
 
 // Fonts
 $heading-font: 'effra', sans-serif;
@@ -47,4 +68,40 @@ $body-font: 'Source Sans Pro', sans-serif;
 $icon-font: 'icomoon';
 
 // Icons
-$icon-monkee: "\f002";
+$icon-hexagon-border: "\e606";
+$icon-hexagon-back: "\e60b";
+$icon-monkee: "\e60a";
+$icon-cat: "\e601";
+$icon-tacos: "\e605";
+$icon-banana: "\e600";
+$icon-banana-small: "\e60d";
+$icon-contact: "\e60e";
+$icon-blog: "\e60f";
+$icon-monitor: "\e610";
+$icon-design: "\e611";
+$icon-development: "\e612";
+$icon-marketing: "\e615";
+$icon-growth: "\e613";
+$icon-maintenance: "\e614";
+$icon-strategy: "\e616";
+$icon-launch: "\e609";
+$icon-handshake: "\e608";
+$icon-awards: "\e607";
+$icon-awards-small: "\e60c";
+$icon-phone: "\e604";
+$icon-computer: "\e603";
+$icon-keyboard: "\e602";
+$icon-eye: "\e617";
+$icon-dots: "\e623";
+$icon-twitter: "\e61b";
+$icon-facebook: "\e61c";
+$icon-gplus: "\e61d";
+$icon-pinterest: "\e61e";
+$icon-tumblr: "\e61f";
+$icon-linkedin: "\e620";
+$icon-github: "\e618";
+$icon-instagram: "\e621";
+$icon-youtube: "\f167";
+$icon-vimeo: "\e61a";
+$icon-behance: "\e622";
+$icon-flickr: "\e619";
