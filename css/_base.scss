@@ -22,6 +22,13 @@ $em-base: 18px;
   @return $emValues;
 }
 
+// mixin for triangular border
+@mixin triangle($color, $width, $height) {
+  border-style: solid;
+  border-width: 0 $width $height 0;
+  border-color: transparent $color transparent transparent;
+}
+
 // Colors
 $green: #acca32;
 $dark-green: #8fa82a;
@@ -84,3 +91,17 @@ $icon-awards-small: "\e60c";
 $icon-phone: "\e604";
 $icon-computer: "\e603";
 $icon-keyboard: "\e602";
+$icon-eye: "\e617";
+$icon-dots: "\e623";
+$icon-twitter: "\e61b";
+$icon-facebook: "\e61c";
+$icon-gplus: "\e61d";
+$icon-pinterest: "\e61e";
+$icon-tumblr: "\e61f";
+$icon-linkedin: "\e620";
+$icon-github: "\e618";
+$icon-instagram: "\e621";
+$icon-youtube: "\f167";
+$icon-vimeo: "\e61a";
+$icon-behance: "\e622";
+$icon-flickr: "\e619";

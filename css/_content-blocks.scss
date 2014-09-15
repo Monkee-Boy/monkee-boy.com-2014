@@ -25,3 +25,20 @@
     }
   }
 }
+
+// things with dots
+.dots {
+  position: relative;
+  &:before, &:after {
+    content: $icon-dots;
+    position: absolute;
+    bottom: 0;
+    color: $light-grey;
+    @include opacity(0.16);
+    @extend .icon;
+    font-size: 100px;
+    line-height: 0;
+  }
+  &:before { left: #{$gutter-width/2}px; }
+  &:after { right: #{$gutter-width/2}px; }
+}

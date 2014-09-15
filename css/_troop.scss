@@ -120,9 +120,7 @@
       bottom: -22px;
       width: 0;
       height: 0;
-      border-style: solid;
-      border-width: 0 600px 22px 0;
-      border-color: transparent $teal transparent transparent;
+      @include triangle($teal, 600px, 22px);
     }
     .name {
       @include span(5 of 12);
@@ -190,25 +188,151 @@
       display: inline-block;
     }
     a {
+      position: relative;
+      display: block;
       font-size: 0;
       line-height: 0;
       text-align: center;
       &:before, &:after {
-        font-size: 54px;
-        line-height: 1;
-        font-family: 'icomoon';
+        @extend .icon;
       }
       &:before {
         content: $icon-hexagon-back;
         color: $green;
+        font-size: 54px;
+        line-height: 1;
+        @include rotate(0);
+        @include transition(all 0.3s ease);
       }
-      &:after { color: #fff; }
+      &:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: #fff;
+        font-size: 30px;
+        line-height: 54px;
+        width: 54px;
+      }
+      &:hover {
+        text-decoration: none;
+        &:before {
+          color: $teal;
+          @include rotate(180deg);
+        }
+      }
     }
-    .twitter:after { content: ""; }
-    .facebook:after { content: ""; }
-    .linkedin:after { content: ""; }
-    .gplus:after { content: ""; }
-    .instagram:after { content: ""; }
-    .pinterest:after { content: ""; }
+    .twitter:after { content: $icon-twitter; }
+    .facebook:after { content: $icon-facebook; }
+    .linkedin:after { content: $icon-linkedin; }
+    .gplus:after { content: $icon-gplus; }
+    .instagram:after { content: $icon-instagram; }
+    .pinterest:after { content: $icon-pinterest; }
+  }
+}
+
+// troop stats
+.stats-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: em-calc(30);
+  margin-bottom: em-calc(30);
+  li {
+    position: relative;
+    min-height: 310px;
+    &:before {
+      content: "";
+      position: absolute;
+      left: #{$gutter-width/2}px;
+      right: #{$gutter-width/2}px;
+      top: 0;
+      height: 310px;
+      background-color: rgba($light-grey, 0.11);
+    }
+    //1d8c7c
+    &:after {
+      position: absolute;
+      left: 0;
+      top: -26px;
+      width: 100%;
+      text-align: center;
+      font-size: 360px;
+      @extend .icon;
+    }
+    &.mobile-os:after { content: $icon-phone; }
+    &.bananas:after { content: $icon-banana; }
+    &.tacos:after { content: $icon-tacos; }
+    &.code:after { content: $icon-keyboard; }
+    &.desktop-os:after { content: $icon-computer; }
+    p {
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      @include translate(0, -50%);
+      margin: 0;
+      text-align: center;
+      z-index: 1;
+    }
+    .number {
+      display: block;
+      color: #fff;
+      font-family: $heading-font;
+      font-size: 180px;
+      line-height: 1;
+    }
+    .percent { font-size: 0.6em; }
+  }
+}
+
+.troop-stats-pt1 {
+  position: relative;
+  background-color: $teal;
+  padding-top: em-calc(40);
+  .section-head, .subtitle {
+    color: #fff;
+  }
+  li {
+    @include span(4 of 12);
+    &:after { color: $dark-teal; }
+    p { color: $yellow; }
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -40px;
+    @include triangle($teal, 1200px, 40px);
+  }
+}
+.office-cat {
+  text-align: center;
+  margin-top: em-calc(50);
+  p {
+    margin-bottom: 0;
+    font-family: $heading-font;
+    font-size: 40px;
+    color: $yellow;
+    &:before {
+      content: $icon-cat;
+      @extend .icon;
+      font-size: 100px;
+      color: $dark-teal;
+      padding-right: 30px;
+      vertical-align: bottom;
+    }
+  }
+  .number {
+    font-size: 86px;
+    color: #fff;
+  }
+  .percent { font-size: 0.6em; }
+}
+.troop-stats-pt2 {
+  padding: 20px 0 1px;
+  background-color: $green;
+  li {
+    @include span(6 of 12);
+    &:after { color: $dark-green; }
+    p { color: $dark-teal; }
+    &.code .number { font-size: 120px; }
   }
 }
