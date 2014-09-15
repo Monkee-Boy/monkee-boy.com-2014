@@ -398,7 +398,7 @@ th {
 /* Functions */
 /* Media Queries */
 .row {
-  max-width: 1200;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -410,7 +410,7 @@ th {
 
 @media only screen and (max-width: 40em) {
   .row {
-    max-width: 1200;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -727,6 +727,31 @@ a:hover, a:focus {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.port-slider .screens {
+  position: relative;
+  margin-bottom: 2em;
+}
+.port-slider .screens:after {
+  content: "";
+  display: block;
+  width: 100%;
+  padding-bottom: 58.5%;
+}
+.port-slider .screens .screen {
+  position: absolute;
+}
+.port-slider .screens .screen-inner {
+  border: 10px solid #000;
+}
+.port-slider .screens .active {
+  z-index: 2;
+}
+.port-slider .screens .active img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  max-height: 100%;
+}
 .port-slider .thumbs:before, .port-slider .thumbs:after {
   content: " ";
   display: table;
@@ -744,12 +769,19 @@ a:hover, a:focus {
 .port-slider .thumbnail {
   font-size: 0;
   line-height: 0;
+  background-position: center center;
+  background-size: cover;
 }
 .port-slider .thumbnail:after {
   content: "";
   display: block;
   width: 100%;
   padding-bottom: 75%;
+}
+.port-slider .thumbnail.active {
+  -webkit-box-shadow: 0px 0px 0px 8px #acca32;
+  -moz-box-shadow: 0px 0px 0px 8px #acca32;
+  box-shadow: 0px 0px 0px 8px #acca32;
 }
 
 .column {

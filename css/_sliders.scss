@@ -1,5 +1,32 @@
 // portfolio slider
 .port-slider {
+  .screens {
+    position: relative;
+    margin-bottom: em-calc(36);
+    &:after {
+      content: "";
+      display: block;
+      width: 100%;
+      padding-bottom: 58.5%;
+    }
+    .screen {
+      position: absolute;
+    }
+    .screen-inner {
+      border: 10px solid #000;
+    }
+    .active {
+      z-index: 2;
+      img {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+    &.initial {
+    }
+  }
   .thumbs {
     @include clearfix;
   }
@@ -10,11 +37,16 @@
   .thumbnail {
     font-size: 0;
     line-height: 0;
+    background-position: center center;
+    background-size: cover;
     &:after {
       content: "";
       display: block;
       width: 100%;
       padding-bottom: 75%;
+    }
+    &.active {
+      @include box-shadow(0px 0px 0px 8px $green);
     }
   }
 }

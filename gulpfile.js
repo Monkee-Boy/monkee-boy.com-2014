@@ -68,7 +68,7 @@ gulp.task('connect', function() {
 gulp.task('watch', function() {
   gulp.watch('./js/*.js', ['scripts']);
   gulp.watch('./css/*.scss', ['styles']);
-  gulp.watch(['./app/*.html'], ['html']);
+  gulp.watch(['*.html'], ['html']);
 });
 
 // The default task (called when you run `gulp` from cli)
