@@ -6,6 +6,7 @@
     "susy": "latest",
     "monkee-mixins": "latest",
     "normalize.css": "latest",
-    "polymer": "Polymer/polymer#~0.3.4"
+    "polymer": "Polymer/polymer#~0.3.4",
+    "gsap": "1.13.1"
   }
 }

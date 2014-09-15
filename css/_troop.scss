@@ -307,10 +307,13 @@
   text-align: center;
   margin-top: em-calc(50);
   p {
+    position: relative;
+    top: 14px;
     margin-bottom: 0;
     font-family: $heading-font;
     font-size: 40px;
     color: $yellow;
+    z-index: 1;
     &:before {
       content: $icon-cat;
       @extend .icon;

@@ -11,14 +11,63 @@
       phone: 2.08
     };
     this.margin = 160;
+    this.width = this.$screenContainer.width();
+    this.thumbScale = 0.2;
+    this.activeSlide = 'desktop';
+  };
+
+  PortfolioSlider.prototype._getX = function(pos, slide) {
+    // get the x-translate value
+    var abs_value = ( this.width - ($(slide).width() * this.thumbScale) ) / 2;
+    if ( pos == 'prev' ) {
+      return -abs_value;
+    } else {
+      return abs_value;
+    }
+  };
+
+  PortfolioSlider.prototype._moveSlide = function(el, pos) {
+    var scale = pos == 'active' ? 1 : this.thumbScale,
+        x = pos == 'active' ? 0 : this._getX(pos, el);
+
+    console.log("moving slide", el, "to position", pos);
+
+    TweenLite.to(el, 0.5, {
+      scale: scale,
+      x: x
+    });
+  };
+
+  PortfolioSlider.prototype.transitionSlides = function(direction) {
+
+    for (var key in this.$screens) {
+      var el = this.$screens[key],
+          curPos = el.hasClass('active')? 'active' : el.hasClass('next')? 'next' : 'prev',
+          nextPos;
+
+      if ( (curPos == 'active' && direction == 'next') || (curPos == 'prev' && direction == 'prev') )
+        nextPos = 'next';
+      else if ( (curPos == 'next' && direction == 'next') || (curPos == 'active' && direction == 'prev') )
+        nextPos = 'prev';
+      else
+        nextPos = 'active';
+
+      this._moveSlide(el, nextPos);
+
+      // add correct class
+      el.removeClass(curPos).addClass(nextPos);
+    }
   };
 
   PortfolioSlider.prototype.init = function() {
-    var containerWidth = this.$screenContainer.width() - this.margin*2,
+    var containerWidth = this.width - this.margin*2,
         containerHeight = this.$screenContainer.height(),
         self = this;
 
     console.log("container width", containerWidth, "container height", containerHeight);
+
+    // we'll want to save screens by device type
+    var screens = {};
 
     // set height, width, and position for all screens
     this.$screens.each(function() {
@@ -33,8 +82,32 @@
         left: containerWidth/2 - width/2 + self.margin + 'px'
       });
 
+      screens[type] = $this;
+
       console.log("set screen", $this[0], 'width', width, 'height', height);
 
+    });
+
+    // save new screens object so we can access by device type
+    this.$screens = screens;
+
+    // set phone and tablet to be right and left
+    self._moveSlide(this.$screens.phone, 'prev');
+    self._moveSlide(this.$screens.tablet, 'next');
+
+    // add click event to portfolio nav
+    $('.slider-nav').on('click', 'a', function(e) {
+      e.preventDefault();
+
+      console.log("clicked slide nav");
+
+      if ( $(this).hasClass('port-next') ) {
+        console.log("transitioning to next slide");
+        self.transitionSlides('next');
+      } else {
+        console.log("transitioning to prev slide");
+        self.transitionSlides('prev');
+      }
     });
 
   };
