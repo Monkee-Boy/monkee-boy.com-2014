@@ -12,13 +12,13 @@
     };
     this.margin = 160;
     this.width = this.$screenContainer.width();
-    this.thumbScale = 0.2;
+    this.thumbRatio = 0.2;
     this.activeSlide = 'desktop';
   };
 
-  PortfolioSlider.prototype._getX = function(pos, slide) {
+  PortfolioSlider.prototype._getX = function(pos, slide, ratio) {
     // get the x-translate value
-    var abs_value = ( this.width - ($(slide).width() * this.thumbScale) ) / 2;
+    var abs_value = ( this.width - ($(slide).width() * ratio) ) / 2;
     if ( pos == 'prev' ) {
       return -abs_value;
     } else {
@@ -26,9 +26,10 @@
     }
   };
 
-  PortfolioSlider.prototype._moveSlide = function(el, pos) {
-    var scale = pos == 'active' ? 1 : this.thumbScale,
-        x = pos == 'active' ? 0 : this._getX(pos, el);
+  PortfolioSlider.prototype._moveSlide = function(el, pos, ratio) {
+    var thumbRatio = ratio ? ratio : this.thumbRatio,
+        scale = pos == 'active' ? 1 : thumbRatio,
+        x = pos == 'active' ? 0 : this._getX(pos, el, thumbRatio);
 
     console.log("moving slide", el, "to position", pos);
 
@@ -51,6 +52,13 @@
         nextPos = 'prev';
       else
         nextPos = 'active';
+
+      // do z-index stuff
+      if ( curPos == 'active' || nextPos == 'active' ) {
+        el.css('z-index', 2);
+      } else {
+        el.css('z-index', 1);
+      }
 
       this._moveSlide(el, nextPos);
 
@@ -92,8 +100,8 @@
     this.$screens = screens;
 
     // set phone and tablet to be right and left
-    self._moveSlide(this.$screens.phone, 'prev');
-    self._moveSlide(this.$screens.tablet, 'next');
+    self._moveSlide(this.$screens.phone, 'prev', 0.6);
+    self._moveSlide(this.$screens.tablet, 'next', 0.6);
 
     // add click event to portfolio nav
     $('.slider-nav').on('click', 'a', function(e) {
