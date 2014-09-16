@@ -1107,11 +1107,11 @@ a:hover, a:focus {
 }
 .port-slider .screens .screen {
   position: absolute;
+  background-size: 100% 100%;
 }
 .port-slider .screens .screen-inner {
-  border: 10px solid #000;
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  overflow-y: scroll;
 }
 .port-slider .screens .active {
   z-index: 2;
@@ -1124,7 +1124,44 @@ a:hover, a:focus {
 }
 .port-slider .screens img {
   width: 100%;
-  height: 100%;
+  height: auto;
+}
+.port-slider .desktop {
+  background: url(../images/desktop.png) no-repeat center center;
+}
+.port-slider .desktop:after {
+  content: "";
+  position: absolute;
+  width: 126.2%;
+  height: 9.55%;
+  left: -13.1%;
+  bottom: -4%;
+  background: url(../images/desktop_bottom.png) no-repeat center center;
+  background-size: 100% 100%;
+}
+.port-slider .desktop .screen-inner {
+  width: 93.45%;
+  left: 3.27%;
+  top: 6.05%;
+  height: 84.08%;
+}
+.port-slider .tablet {
+  background: url(../images/ipad.png) no-repeat center center;
+}
+.port-slider .tablet .screen-inner {
+  width: 80.27%;
+  height: 80.59%;
+  left: 9.86%;
+  top: 9.85%;
+}
+.port-slider .phone {
+  background: url(../images/iphone.png) no-repeat center center;
+}
+.port-slider .phone .screen-inner {
+  width: 83.94%;
+  height: 71.43%;
+  left: 8.03%;
+  top: 14.14%;
 }
 .port-slider .thumbs:before, .port-slider .thumbs:after {
   content: " ";
@@ -1143,22 +1180,13 @@ a:hover, a:focus {
   padding-left: 15px;
   padding-right: 15px;
 }
-.port-slider .thumbnail {
-  font-size: 0;
-  line-height: 0;
-  background-position: center center;
-  background-size: cover;
-}
-.port-slider .thumbnail:after {
-  content: "";
+.port-slider .thumbnail img {
   display: block;
-  width: 100%;
-  padding-bottom: 75%;
 }
-.port-slider .thumbnail.active {
-  -webkit-box-shadow: 0px 0px 0px 8px #acca32;
-  -moz-box-shadow: 0px 0px 0px 8px #acca32;
-  box-shadow: 0px 0px 0px 8px #acca32;
+.port-slider .thumbnail.active img {
+  -webkit-box-shadow: 0 0 0 8px #acca32;
+  -moz-box-shadow: 0 0 0 8px #acca32;
+  box-shadow: 0 0 0 8px #acca32;
 }
 
 .hero {

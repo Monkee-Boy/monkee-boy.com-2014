@@ -34,9 +34,15 @@
       </div>
       <div class="thumbs">
         <span class="instructions">please pick a screen to the right to view in the device above</span>
-        <a href="#" class="thumbnail active" style="background-image:url(/images/temp-port-screen1.jpg)">Home Page</a>
-        <a href="#" class="thumbnail" style="background-image:url(/images/temp-port-screen2.jpg)">Sub Page 1</a>
-        <a href="#" class="thumbnail" style="background-image:url(/images/temp-port-screen3.jpg)">Sub Page 2a</a>
+        <a href="#" class="thumbnail active">
+          <img src="/images/temp-port-screen1.jpg" alt="Home Page">
+        </a>
+        <a href="#" class="thumbnail">
+          <img src="/images/temp-port-screen2.jpg" alt="Sub Page 1">
+        </a>
+        <a href="#" class="thumbnail">
+          <img src="/images/temp-port-screen3.jpg" alt="Sub Page 2">
+        </a>
       </div>
     </div><!-- /.port-slider -->
 
