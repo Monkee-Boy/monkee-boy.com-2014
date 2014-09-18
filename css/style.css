@@ -395,17 +395,6 @@ th {
 }
 
 /* Snippets */
-/*
-  # USAGE #
-  $large: "(min-width: 1024px)";
-
-  header {
-    @include breakpoint($large){
-      width: 100%;
-      margin: 5em 0;
-    }
-  }
-*/
 /* Functions */
 /* Media Queries */
 .row {
@@ -722,6 +711,14 @@ th {
 
 .pull-right {
   float: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
 }
 
 .cf:before, .cf:after {
@@ -1048,6 +1045,7 @@ a:hover, a:focus {
 .main-cta {
   margin: 0 0 1.66667em;
   padding: 3.33333em 0;
+  font-family: "effra", sans-serif;
   background: #23a38f url(/images/noise-pattern.png) repeat 0 0;
 }
 .main-cta .cta-inner {
@@ -1055,19 +1053,26 @@ a:hover, a:focus {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  width: 66.66667%;
+  width: 58.33333%;
   float: left;
   padding-left: 15px;
   padding-right: 15px;
 }
+.main-cta .cta-inner p {
+  margin: 0;
+  font-size: 4.22222em;
+}
 .main-cta .button {
-  border-bottom-color: #d8ae2a;
+  margin-top: 1.38889em;
+  padding-top: 2.5em;
+  padding-bottom: 2.5em;
+  border-bottom: #d8ae2a solid 12px;
   background-color: #fcc721;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: 33.33333%;
-  float: left;
+  float: right;
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -1124,7 +1129,6 @@ a:hover, a:focus {
   height: 100%;
 }
 .service-icon i:before {
-  content: "\e614";
   line-height: inherit;
 }
 .service-icon.strategy:after {

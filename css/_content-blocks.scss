@@ -8,17 +8,26 @@
 .main-cta {
   margin: 0 0 $paragraph-margin;
   padding: em-calc(60px) 0;
+  font-family: $heading-font;
   background: $teal url(/images/noise-pattern.png) repeat 0 0;
 
   .cta-inner {
     color: #fff;
-    @include span(8 of 12);
+    @include span(7 of 12);
+
+    p {
+      margin: 0;
+      font-size: em-calc(76px);
+    }
   }
 
   .button {
-    border-bottom-color: $dark-yellow;
+    margin-top: em-calc(25px);
+    padding-top: em-calc(45px);
+    padding-bottom: em-calc(45px);
+    border-bottom: $dark-yellow solid 12px;
     background-color: $yellow;
-    @include span(4 of 12);
+    @include span(last 4 of 12);
 
     &:before {
       background: $dark-yellow;

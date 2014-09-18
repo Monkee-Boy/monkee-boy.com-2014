@@ -226,6 +226,14 @@ body {
   float: right;
 }
 
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
 .cf {
   @include clearfix();
 }
