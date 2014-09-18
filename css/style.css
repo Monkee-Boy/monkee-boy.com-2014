@@ -1026,7 +1026,7 @@ a:hover, a:focus {
   display: block;
 }
 
-.icon, .dots:before, .dots:after, .troop-list .profile-socials a:before, .troop-list .profile-socials a:after, .stats-list li:after, .office-cat p:before {
+.icon, .dots:before, .dots:after, .service-icon:before, .service-icon:after, .service-icon i:before, .troop-list .profile-socials a:before, .troop-list .profile-socials a:after, .stats-list li:after, .office-cat p:before {
   font-family: "icomoon";
   speak: none;
   font-style: normal;
@@ -1095,6 +1095,106 @@ a:hover, a:focus {
   right: 15px;
 }
 
+.service-icon {
+  display: block;
+  position: relative;
+  text-align: center;
+  font-size: 100px;
+  line-height: 100px;
+}
+.service-icon:before {
+  content: "\e60b";
+  color: #fff;
+}
+.service-icon:after {
+  content: "\e606";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.service-icon i {
+  color: #242529;
+  font-size: 0.45em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.service-icon i:before {
+  content: "\e614";
+  line-height: inherit;
+}
+.service-icon.strategy:after {
+  color: #acca32;
+}
+.service-icon.strategy i:before {
+  content: "\e616";
+}
+.service-icon.design:after {
+  color: #23a38f;
+}
+.service-icon.design i:before {
+  content: "\e611";
+}
+.service-icon.development:after {
+  color: #8fa82a;
+}
+.service-icon.development i:before {
+  content: "\e612";
+}
+.service-icon.marketing:after {
+  color: #1a7a6c;
+}
+.service-icon.marketing i:before {
+  content: "\e615";
+}
+.service-icon.maintenance:after {
+  color: #fcc721;
+}
+.service-icon.maintenance i:before {
+  content: "\e614";
+}
+.service-icon.growth:after {
+  color: #b2b2b2;
+}
+.service-icon.growth i:before {
+  content: "\e613";
+}
+
+.service-icons {
+  position: relative;
+  list-style-type: none;
+  padding: 1.22222em 0;
+  border-top: 4px solid #b2b2b2;
+  border-bottom: 4px solid #b2b2b2;
+}
+.service-icons:before, .service-icons:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #b2b2b2;
+}
+.service-icons:before {
+  top: -16px;
+}
+.service-icons:after {
+  bottom: -16px;
+}
+.service-icons li {
+  display: inline-block;
+  font-family: "effra", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  font-style: italic;
+  text-align: center;
+  color: #242529;
+}
+
 .port-slider .screens {
   position: relative;
   margin-bottom: 2em;
@@ -1108,19 +1208,23 @@ a:hover, a:focus {
 .port-slider .screens .screen {
   position: absolute;
   background-size: 100% 100%;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+.port-slider .screens .screen.active {
+  opacity: 1;
+  filter: alpha(opacity=100);
 }
 .port-slider .screens .screen-inner {
   position: absolute;
   overflow-y: scroll;
 }
 .port-slider .screens .active {
-  z-index: 2;
+  z-index: 3;
 }
-.port-slider .screens .active img {
-  display: block;
-  margin: 0 auto;
-  max-width: 100%;
-  max-height: 100%;
+.port-slider .screens.initial .screen {
+  opacity: 1;
+  filter: alpha(opacity=100);
 }
 .port-slider .screens img {
   width: 100%;
@@ -1162,6 +1266,38 @@ a:hover, a:focus {
   height: 71.43%;
   left: 8.03%;
   top: 14.14%;
+}
+.port-slider .slider-nav a {
+  position: absolute;
+  top: 25%;
+  display: block;
+  height: 50%;
+  width: 160px;
+  font-size: 0;
+  line-height: 0;
+  z-index: 2;
+}
+.port-slider .slider-nav a:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+}
+.port-slider .slider-nav .port-left {
+  left: 0;
+}
+.port-slider .slider-nav .port-left:after {
+  left: 15px;
+  border-right: 35px solid #242529;
+}
+.port-slider .slider-nav .port-right {
+  right: 0;
+}
+.port-slider .slider-nav .port-right:after {
+  right: 15px;
+  border-left: 35px solid #242529;
 }
 .port-slider .thumbs:before, .port-slider .thumbs:after {
   content: " ";

@@ -12,21 +12,18 @@
     .screen {
       position: absolute;
       background-size: 100% 100%;
+      @include opacity(0.5);
+      &.active { @include opacity(1); }
     }
     .screen-inner {
       position: absolute;
       overflow-y: scroll;
     }
     .active {
-      z-index: 2;
-      img {
-        display: block;
-        margin: 0 auto;
-        max-width: 100%;
-        max-height: 100%;
-      }
+      z-index: 3;
     }
     &.initial {
+      .screen { @include opacity(1); }
     }
     img {
       width: 100%;
@@ -68,6 +65,40 @@
       height: 71.43%;
       left: 8.03%;
       top: 14.14%;
+    }
+  }
+  .slider-nav {
+    a {
+      position: absolute;
+      top: 25%;
+      display: block;
+      height: 50%;
+      width: 160px;
+      font-size: 0;
+      line-height: 0;
+      z-index: 2;
+      &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        margin-top: -10px;
+        border-top: 20px solid transparent;
+        border-bottom: 20px solid transparent;
+      }
+    }
+    .port-left {
+      left: 0;
+      &:after {
+        left: 15px;
+        border-right: 35px solid $black;
+      }
+    }
+    .port-right {
+      right: 0;
+      &:after {
+        right: 15px;
+        border-left: 35px solid $black;
+      }
     }
   }
   .thumbs {
