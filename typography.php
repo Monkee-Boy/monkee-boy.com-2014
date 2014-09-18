@@ -16,8 +16,7 @@
       <h3>Buttons</h3>
 
       <p><a href="#" title="A Button" class="button">Subscribe!</a>
-        <a href="#" title="Alt Button" class="button button-alt">View the project!</a>
-        <span class="main-cta"><a href="#" title="CTA Button" class="button">Let's Get In Touch!</a></span></p>
+        <a href="#" title="Alt Button" class="button button-alt">View the project!</a></p>
 
       <h2>Header Level 2</h2>
 
