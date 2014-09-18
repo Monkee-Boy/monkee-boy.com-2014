@@ -9,6 +9,7 @@
 @import "sliders";
 @import "home";
 @import "blog";
+@import "troop";
 
 $services: strategy $color-strategy, design $color-design, development $color-development, maintenance $color-maintenance, marketing $color-marketing, growth $color-growth;
 @each $service in $services {

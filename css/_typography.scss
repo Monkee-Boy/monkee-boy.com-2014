@@ -69,6 +69,22 @@ h5 {
   margin: 0 0 em-calc(18, 18);
 }
 
+// section headings
+.section-head {
+  text-align: center;
+  .subtitle {
+    display: block;
+    margin-bottom: -8px;
+  }
+  .section-title {
+    display: block;
+    font-family: $heading-font;
+    font-size: 110px;
+    font-weight: bold;
+    line-height: 1;
+  }
+}
+
 p, ul, ol, blockquote {
   margin: 0 0 $paragraph-margin;
 }
