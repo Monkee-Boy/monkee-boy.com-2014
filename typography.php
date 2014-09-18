@@ -99,4 +99,41 @@
     </div>
   </div>
 
+  <div class="panel">
+    <aside class="text-center">
+      <img src="http://www.fillmurray.com/g/436/328" alt="">
+    </aside>
+
+    <div class="panel-content">
+      <h4>Balcones Pain Consultants</h4>
+
+      <p>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea con al commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+      <ul class="service-icons">
+        <li><span class="strategy service-icon"><i></i></span></li>
+        <li><span class="design service-icon"><i></i></span></li>
+        <li><span class="development service-icon"><i></i></span></li>
+        <li><span class="marketing service-icon"><i></i></span></li>
+        <li><span class="maintenance service-icon"><i></i></span></li>
+        <li><span class="growth service-icon"><i></i></span></li>
+      </ul>
+
+      <a href="#" title="Alt Button" class="button button-alt button-full">View the project!</a>
+    </div>
+  </div>
+
+  <div class="panel">
+    <aside class="text-center">
+      <img src="http://www.fillmurray.com/g/436/330" alt="">
+    </aside>
+
+    <div class="panel-content">
+      <h4>Pellentesque habitant morbi tristique</h4>
+
+      <p>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea con al commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed.</p>
+
+      <p>Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed.</p>
+    </div>
+  </div>
+
 <?php include('inc_footer.php'); ?>

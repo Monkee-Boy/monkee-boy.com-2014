@@ -398,6 +398,7 @@ th {
 /* Functions */
 /* Media Queries */
 .row {
+  margin-bottom: 1.94444em;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
@@ -721,6 +722,10 @@ th {
   text-align: right;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .cf:before, .cf:after {
   content: " ";
   display: table;
@@ -1036,7 +1041,6 @@ a:hover, a:focus {
 }
 
 .page-title {
-  margin-bottom: 1.66667em;
   padding: 3em 0;
   text-align: center;
   background: #e5e5e5;
@@ -1080,6 +1084,43 @@ a:hover, a:focus {
   background: #d8ae2a;
 }
 
+.panel {
+  margin-bottom: 1.94444em;
+  padding: 35px 0;
+  color: #b2b2b2;
+  background: #242529;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.panel:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+.panel aside {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 41.66667%;
+  float: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-left: 1.94444em;
+  padding-right: 1.94444em;
+}
+.panel .panel-content {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 58.33333%;
+  float: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-left: 1.94444em;
+  padding-right: 1.94444em;
+}
+
 .dots {
   position: relative;
 }
@@ -1104,6 +1145,10 @@ a:hover, a:focus {
   display: block;
   position: relative;
   text-align: center;
+  font-size: 50px;
+  line-height: 50px;
+}
+.portfolio .service-icon {
   font-size: 100px;
   line-height: 100px;
 }
@@ -1171,11 +1216,17 @@ a:hover, a:focus {
 .service-icons {
   position: relative;
   list-style-type: none;
+  padding: 0;
+}
+.service-icons li {
+  display: inline-block;
+}
+.service-icons.portfolio {
   padding: 1.22222em 0;
   border-top: 4px solid #b2b2b2;
   border-bottom: 4px solid #b2b2b2;
 }
-.service-icons:before, .service-icons:after {
+.service-icons.portfolio:before, .service-icons.portfolio:after {
   content: "";
   position: absolute;
   left: 0;
@@ -1183,20 +1234,19 @@ a:hover, a:focus {
   height: 4px;
   background-color: #b2b2b2;
 }
-.service-icons:before {
+.service-icons.portfolio:before {
   top: -16px;
 }
-.service-icons:after {
+.service-icons.portfolio:after {
   bottom: -16px;
 }
-.service-icons li {
-  display: inline-block;
+.service-icons.portfolio li {
+  color: #242529;
   font-family: "effra", sans-serif;
   font-size: 16px;
   font-weight: bold;
   font-style: italic;
   text-align: center;
-  color: #242529;
 }
 
 .port-slider .screens {
