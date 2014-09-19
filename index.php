@@ -10,7 +10,7 @@
       <ul>
         <li>
           <span class="border"></span>
-          <div class="circle" data-name="discover">
+          <div class="discover circle" data-name="discover">
             <div class="bg" style="background-image:url(/images/home-discover.png)" data-bg="/images/home-discover.png"></div>
           </div>
           <p class="tagline first">
@@ -20,7 +20,7 @@
         </li>
         <li>
           <span class="border"></span>
-          <div class="circle" data-name="create">
+          <div class="create circle" data-name="create">
             <div class="bg" style="background-image:url(/images/home-create.png)" data-bg="/images/home-create.png"></div>
           </div>
           <p class="tagline second">
@@ -30,7 +30,7 @@
         </li>
         <li>
           <span class="border"></span>
-          <div class="circle" data-name="evolve">
+          <div class="evolve circle" data-name="evolve">
             <div class="bg" style="background-image:url(/images/home-evolve.png)" data-bg="/images/home-evolve.png"></div>
           </div>
           <p class="tagline third">
@@ -41,6 +41,7 @@
       </ul>
     </div>
     <div class="circle-expander">
+      <span class="bg"></span>
       <div class="title-overlay"></div>
       <a href="#" class="close-btn">Close</a>
       <div class="expander-nav">

@@ -149,6 +149,7 @@
     this.$el = $(el);
     this.$circles = this.$el.find('.circle');
     this.$expander = this.$el.find('.circle-expander');
+    this.$cur_circle = null;
   };
 
   HeroCircles.prototype._placeBG = function() {
@@ -175,23 +176,70 @@
 
   };
 
+  HeroCircles.prototype._animateInTitle = function(delay) {
+    var self = this,
+        $title = this.$expander.children('.title-overlay'),
+        cur_class = this.$cur_circle.data('name'),
+        $expander_nav = this.$expander.children('.expander-nav').children('a').not('.' + cur_class);
+
+    TweenLite.set($expander_nav.last(), { x: 160, right: 0,  left: 'auto', delay: delay });
+    TweenLite.set($expander_nav.first(), {
+      x: -160,
+      left: 0,
+      right: 'auto',
+      delay: delay,
+      onComplete: function() {
+        // add content to title overlay after delay
+        $title.html(self.$cur_circle.siblings('.tagline').html());
+      }
+    });
+
+    // animate in title overlay
+    TweenLite.to($title, 0.5, {
+      y: 40,
+      delay: delay,
+      ease: Back.easeOut
+    });
+
+    TweenLite.to($expander_nav, 0.15, {
+      x: 0,
+      delay: delay + 0.5
+    });
+  };
+
+  HeroCircles.prototype._animateOutTitle = function() {
+    var $title = this.$expander.children('.title-overlay'),
+        cur_class = this.$cur_circle.data('name'),
+        $expander_nav = this.$expander.children('.expander-nav').children('a').not('.' + cur_class);
+
+    // animate out title overlay
+    TweenLite.to($title, 0.5, {
+      y: $title.outerHeight()
+    });
+
+    // animate out circles
+    TweenLite.to($expander_nav.first(), 0.15, {
+      x: -160
+    });
+    TweenLite.to($expander_nav.last(), 0.15, {
+      x: 160
+    });
+  };
+
   HeroCircles.prototype._animateIn = function(circle) {
     var $circle = $(circle),
         $border = $circle.siblings('.border'),
-        img = $circle.children('.bg').data('bg'),
-        $title_overlay = this.$expander.children('.title-overlay');
+        img = $circle.children('.bg').data('bg');
+
+    // set current circle
+    this.$cur_circle = $circle;
 
     // set bg image for expander div
-    this.$expander.css({
-      'background-image': 'url(' + img + ')',
-      'z-index': 4
-    });
+    this.$expander.css('z-index', 4);
+    this.$expander.children('.bg').css('background-image', 'url(' + img + ')');
 
     // add active class to li
     $circle.parent('li').addClass('active');
-
-    // add content to title overlay
-    $title_overlay.append($circle.siblings('.tagline').html());
 
     // expand circle
     TweenLite.to($border, 0.3, {
@@ -201,25 +249,60 @@
     // fade in expander
     TweenLite.to(this.$expander, 0.5, {
       opacity: 1,
-      delay: 0.5
+      delay: 0.5,
+      onComplete: function() {
+        TweenLite.set($border, { scale: 1 });
+      }
     });
 
     // animate in title overlay
-    TweenLite.to($title_overlay, 0.5, {
-      y: '40px',
-      delay: 1,
-      ease: Back.easeOut
+    this._animateInTitle(1);
+  };
+
+  HeroCircles.prototype._animateOut = function() {
+    var self = this;
+
+    // remove active class and scale down border
+    this.$el.find('li').removeClass('active');
+
+    // animate out title
+    this._animateOutTitle();
+
+    // fade out expander
+    TweenLite.to(this.$expander, 0.5, {
+      opacity: 0,
+      delay: 0.5,
+      onComplete: function() {
+        self.$expander.css({
+          'z-index': -1
+        });
+      }
     });
 
-    // circle links to the other two slides + animation
-    var cur_circle = $circle.data('name'),
-        $expander_nav = this.$expander.children('.expander-nav').children('a').not('.' + cur_circle);
+  };
 
-    TweenLite.set($expander_nav.last(), { x: 160, right: 0 });
-    TweenLite.to($expander_nav, 0.15, {
-      x: 0,
-      delay: 1.5
+  HeroCircles.prototype._animateSwitch = function(circle) {
+    this._animateOutTitle();
+
+    this.$cur_circle = $(circle);
+
+    var img = this.$cur_circle.children('.bg').data('bg'),
+        $bg = this.$expander.children('.bg');
+
+    // switch active class
+    this.$el.find('li').removeClass('active');
+    this.$cur_circle.parent('li').addClass('active');
+
+    TweenLite.to($bg, 0.3, {
+      opacity: 0,
+      delay: 0.5,
+      onComplete: function() {
+        $bg.css('background-image', 'url(' + img + ')');
+        TweenLite.to($bg, 0.3, { opacity: 1 });
+      }
     });
+
+    this._animateInTitle(1);
   };
 
   HeroCircles.prototype.init = function() {
@@ -227,9 +310,21 @@
 
     this._placeBG();
 
-    // add click event
+    // add click events
     this.$el.on('click', '.circle', function() {
       self._animateIn(this);
+    });
+    this.$el.find('.close-btn').on('click', function(e) {
+      e.preventDefault();
+      self._animateOut();
+    });
+    this.$expander.children('.expander-nav').on('click', 'a', function(e) {
+      e.preventDefault();
+      var new_class = $(this).attr('class'),
+          $circle = self.$el.find('ul .' + new_class);
+
+      console.log("new class is", new_class, "new circle is", $circle[0]);
+      self._animateSwitch($circle);
     });
   };
 

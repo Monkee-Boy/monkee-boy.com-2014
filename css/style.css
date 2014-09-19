@@ -1482,10 +1482,15 @@ a:hover, a:focus {
   bottom: 0;
   opacity: 0;
   filter: alpha(opacity=0);
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-color: #ededed;
   z-index: -1;
   overflow: hidden;
+}
+.hero-circles .circle-expander .bg {
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
 }
 .hero-circles .circle-expander .title-overlay {
   position: absolute;
@@ -1597,6 +1602,14 @@ a:hover, a:focus {
   -ms-transform: translate(-160px, 0);
   -o-transform: translate(-160px, 0);
   transform: translate(-160px, 0);
+}
+.hero-circles .expander-nav a:hover {
+  text-decoration: none;
+  -webkit-transform: translate(0, 40px);
+  -moz-transform: translate(0, 40px);
+  -ms-transform: translate(0, 40px);
+  -o-transform: translate(0, 40px);
+  transform: translate(0, 40px);
 }
 .hero-circles .expander-nav .create {
   background-image: url(../images/home-create-thumb.png);

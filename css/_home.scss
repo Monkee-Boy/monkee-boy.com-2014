@@ -63,10 +63,15 @@
     top: 0;
     bottom: 0;
     @include opacity(0);
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-color: $light-grey;
     z-index: -1;
     overflow: hidden;
+    .bg {
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+    }
     .title-overlay {
       position: absolute;
       bottom: 0;
@@ -137,6 +142,10 @@
       color: #fff;
       background-size: cover;
       @include translate(-160px, 0);
+      &:hover {
+        text-decoration: none;
+        @include translate(0, 40px);
+      }
     }
     .create { background-image: url(../images/home-create-thumb.png); }
     .evolve { background-image: url(../images/home-evolve-thumb.png); }
