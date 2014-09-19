@@ -148,7 +148,7 @@
   var HeroCircles = function(el) {
     this.$el = $(el);
     this.$circles = this.$el.find('.circle');
-    this.$expander = $('<div class="circle-expander" />');
+    this.$expander = this.$el.find('.circle-expander');
   };
 
   HeroCircles.prototype._placeBG = function() {
@@ -178,7 +178,9 @@
   HeroCircles.prototype._animateIn = function(circle) {
     var $circle = $(circle),
         $border = $circle.siblings('.border'),
-        img = $circle.children('.bg').data('bg');
+        img = $circle.children('.bg').data('bg'),
+        $title_overlay = this.$expander.children('.title-overlay');
+
     // set bg image for expander div
     this.$expander.css({
       'background-image': 'url(' + img + ')',
@@ -188,14 +190,35 @@
     // add active class to li
     $circle.parent('li').addClass('active');
 
+    // add content to title overlay
+    $title_overlay.append($circle.siblings('.tagline').html());
+
+    // expand circle
     TweenLite.to($border, 0.3, {
-      scale: 7,
-      //backgroundColor: '#000'
+      scale: 7
     });
 
+    // fade in expander
     TweenLite.to(this.$expander, 0.5, {
       opacity: 1,
       delay: 0.5
+    });
+
+    // animate in title overlay
+    TweenLite.to($title_overlay, 0.5, {
+      y: '40px',
+      delay: 1,
+      ease: Back.easeOut
+    });
+
+    // circle links to the other two slides + animation
+    var cur_circle = $circle.data('name'),
+        $expander_nav = this.$expander.children('.expander-nav').children('a').not('.' + cur_circle);
+
+    TweenLite.set($expander_nav.last(), { x: 160, right: 0 });
+    TweenLite.to($expander_nav, 0.15, {
+      x: 0,
+      delay: 1.5
     });
   };
 
@@ -203,10 +226,6 @@
     var self = this;
 
     this._placeBG();
-
-    // add expander div
-    this.$expander.append('<span />');
-    this.$el.append(this.$expander);
 
     // add click event
     this.$el.on('click', '.circle', function() {
