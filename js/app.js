@@ -14,12 +14,13 @@
     this.width = this.$screenContainer.width();
     this.thumbRatio = 0.2;
     this.activeSlide = 'desktop';
+    this.siteName = this.$el.data('site');
   };
 
   PortfolioSlider.prototype._getX = function(pos, slide, ratio) {
     // get the x-translate value
     var abs_value = ( this.width - ($(slide).width() * ratio) ) / 2;
-    if ( pos == 'prev' ) {
+    if ( pos == 'left' ) {
       return -abs_value;
     } else {
       return abs_value;
@@ -40,16 +41,19 @@
   };
 
   PortfolioSlider.prototype.transitionSlides = function(direction) {
+    // if it's the first transition, remove the class "initial"
+    if ( this.$screenContainer.hasClass('initial') )
+      this.$screenContainer.removeClass('initial');
 
     for (var key in this.$screens) {
       var el = this.$screens[key],
-          curPos = el.hasClass('active')? 'active' : el.hasClass('next')? 'next' : 'prev',
+          curPos = el.hasClass('active')? 'active' : el.hasClass('right')? 'right' : 'left',
           nextPos;
 
-      if ( (curPos == 'active' && direction == 'next') || (curPos == 'prev' && direction == 'prev') )
-        nextPos = 'next';
-      else if ( (curPos == 'next' && direction == 'next') || (curPos == 'active' && direction == 'prev') )
-        nextPos = 'prev';
+      if ( (curPos == 'active' && direction == 'right') || (curPos == 'right' && direction == 'left') )
+        nextPos = 'left';
+      else if ( (curPos == 'left' && direction == 'right') || (curPos == 'active' && direction == 'left') )
+        nextPos = 'right';
       else
         nextPos = 'active';
 
@@ -67,12 +71,21 @@
     }
   };
 
+  PortfolioSlider.prototype.updateScreen = function(screenName) {
+    for (var key in this.$screens) {
+      var el = this.$screens[key].children('.screen-inner'),
+          fileName = '/assets/port-' + this.siteName + '-' + key + '-' + screenName + '.png',
+          image = document.createElement('img');
+
+      image.src = fileName;
+      el.html(image);
+    }
+  };
+
   PortfolioSlider.prototype.init = function() {
     var containerWidth = this.width - this.margin*2,
         containerHeight = this.$screenContainer.height(),
         self = this;
-
-    console.log("container width", containerWidth, "container height", containerHeight);
 
     // we'll want to save screens by device type
     var screens = {};
@@ -87,12 +100,11 @@
       $this.css({
         height: height + 'px',
         width: width + 'px',
-        left: containerWidth/2 - width/2 + self.margin + 'px'
+        left: containerWidth/2 - width/2 + self.margin + 'px',
+        top: containerHeight/2 - height/2 + 'px'
       });
 
       screens[type] = $this;
-
-      console.log("set screen", $this[0], 'width', width, 'height', height);
 
     });
 
@@ -100,22 +112,29 @@
     this.$screens = screens;
 
     // set phone and tablet to be right and left
-    self._moveSlide(this.$screens.phone, 'prev', 0.6);
-    self._moveSlide(this.$screens.tablet, 'next', 0.6);
+    self._moveSlide(this.$screens.phone, 'left', 0.6);
+    self._moveSlide(this.$screens.tablet, 'right', 0.6);
 
     // add click event to portfolio nav
     $('.slider-nav').on('click', 'a', function(e) {
       e.preventDefault();
 
-      console.log("clicked slide nav");
-
-      if ( $(this).hasClass('port-next') ) {
-        console.log("transitioning to next slide");
-        self.transitionSlides('next');
+      if ( $(this).hasClass('port-left') ) {
+        self.transitionSlides('left');
       } else {
-        console.log("transitioning to prev slide");
-        self.transitionSlides('prev');
+        self.transitionSlides('right');
       }
+    });
+
+    // add click event to portfolio thumbs
+    this.$thumbs.on('click', '.thumbnail', function(e) {
+      e.preventDefault();
+
+      self.$thumbs.find('.thumbnail').removeClass('active');
+      $(this).addClass('active');
+
+      var screenName = $(this).data('screen');
+      self.updateScreen(screenName);
     });
 
   };

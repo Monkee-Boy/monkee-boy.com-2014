@@ -1,5 +1,4 @@
 .page-title {
-  margin-bottom: em-calc(30px);
   padding: em-calc(54px) 0;
   text-align: center;
   background: #e5e5e5;
@@ -8,21 +7,48 @@
 .main-cta {
   margin: 0 0 $paragraph-margin;
   padding: em-calc(60px) 0;
+  font-family: $heading-font;
   background: $teal url(/images/noise-pattern.png) repeat 0 0;
 
   .cta-inner {
     color: #fff;
-    @include span(8 of 12);
+    @include span(7 of 12);
+
+    p {
+      margin: 0;
+      font-size: em-calc(76px);
+    }
   }
 
   .button {
-    border-bottom-color: $dark-yellow;
+    margin-top: em-calc(25px);
+    padding-top: em-calc(45px);
+    padding-bottom: em-calc(45px);
+    border-bottom: $dark-yellow solid 12px;
     background-color: $yellow;
-    @include span(4 of 12);
+    @include span(last 4 of 12);
 
     &:before {
       background: $dark-yellow;
     }
+  }
+}
+
+.panel {
+  margin-bottom: em-calc(35px);
+  padding: 35px 0;
+  color: $grey;
+  background: $black;
+  @include container();
+
+  aside {
+    @include span(5 of 12);
+    @include pad(em-calc(35px));
+  }
+
+  .panel-content {
+    @include span(7 of 12);
+    @include pad(em-calc(35px));
   }
 }
 
@@ -41,4 +67,152 @@
   }
   &:before { left: #{$gutter-width/2}px; }
   &:after { right: #{$gutter-width/2}px; }
+}
+
+// service icons
+.service-icon {
+  display: block;
+  position: relative;
+  text-align: center;
+  font-size: 50px;
+  line-height: 50px;
+
+  .portfolio & {
+    font-size: 100px;
+    line-height: 100px;
+  }
+
+  &:before, &:after, i:before {
+    @extend .icon;
+  }
+
+  &:before {
+    content: $icon-hexagon-back;
+    color: #fff;
+  }
+
+  &:after {
+    content: $icon-hexagon-border;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  i {
+    color: $black;
+    font-size: 0.45em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    &:before {
+      line-height: inherit;
+    }
+  }
+
+  &.strategy {
+    &:after {
+      color: $green;
+    }
+
+    i:before {
+      content: $icon-strategy;
+    }
+  }
+
+  &.design {
+    &:after {
+      color: $teal;
+    }
+
+    i:before {
+      content: $icon-design;
+    }
+  }
+
+  &.development {
+    &:after {
+      color: $dark-green;
+    }
+
+    i:before {
+      content: $icon-development;
+    }
+  }
+
+  &.marketing {
+    &:after {
+      color: $dark-teal;
+    }
+
+    i:before {
+      content: $icon-marketing;
+    }
+  }
+
+  &.maintenance {
+    &:after {
+      color: $yellow;
+    }
+
+    i:before {
+      content: $icon-maintenance;
+    }
+  }
+
+  &.growth {
+    &:after {
+      color: $grey;
+    }
+
+    i:before {
+      content: $icon-growth;
+    }
+  }
+}
+// service icon list
+.service-icons {
+  position: relative;
+  list-style-type: none;
+  padding: 0;
+
+  li {
+    display: inline-block;
+  }
+
+  &.portfolio {
+    padding: em-calc(22) 0;
+    border-top: 4px solid $grey;
+    border-bottom: 4px solid $grey;
+
+    &:before, &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background-color: $grey;
+    }
+
+    &:before {
+      top: -16px;
+    }
+
+    &:after {
+      bottom: -16px;
+    }
+
+    li {
+      color: $black;
+      font-family: $heading-font;
+      font-size: 16px;
+      font-weight: bold;
+      font-style: italic;
+      text-align: center;
+    }
+  }
 }
