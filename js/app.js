@@ -120,8 +120,83 @@
 
   };
 
-  var port_slider = new PortfolioSlider('.port-slider');
-  port_slider.init();
+  if ( $('.port-slider').length > 0 ) {
+    var port_slider = new PortfolioSlider('.port-slider');
+    port_slider.init();
+  }
+
+  // home page hero circles
+  var HeroCircles = function(el) {
+    this.$el = $(el);
+    this.$circles = this.$el.find('.circle');
+    this.$expander = $('<div class="circle-expander" />');
+  };
+
+  HeroCircles.prototype._placeBG = function() {
+
+    // get parent position and dimensions
+    var self = this,
+        parent_pos = this.$el.offset(),
+        parent_width = this.$el.width(),
+        parent_height = this.$el.height();
+
+    this.$circles.each(function() {
+      var $circle = $(this),
+          offset = $circle.offset(),
+          $bg = $circle.children('.bg');
+
+      // set position
+      $bg.css({
+        'top': parent_pos.top - offset.top + 'px',
+        'left': parent_pos.left - offset.left + 'px',
+        'width': parent_width + 'px',
+        'height': parent_height + 'px'
+      });
+    });
+
+  };
+
+  HeroCircles.prototype._animateIn = function(circle) {
+    var $circle = $(circle),
+        $border = $circle.siblings('.border'),
+        img = $circle.children('.bg').data('bg');
+    // set bg image for expander div
+    this.$expander.css({
+      'background-image': 'url(' + img + ')',
+      'z-index': 4
+    });
+
+    // add active class to li
+    $circle.parent('li').addClass('active');
+
+    TweenLite.to($border, 0.3, {
+      scale: 7,
+      //backgroundColor: '#000'
+    });
+
+    TweenLite.to(this.$expander, 0.5, {
+      opacity: 1,
+      delay: 0.5
+    });
+  };
+
+  HeroCircles.prototype.init = function() {
+    var self = this;
+
+    this._placeBG();
+
+    // add expander div
+    this.$expander.append('<span />');
+    this.$el.append(this.$expander);
+
+    // add click event
+    this.$el.on('click', '.circle', function() {
+      self._animateIn(this);
+    });
+  };
+
+  var hero_circles = new HeroCircles('.hero-circles');
+  hero_circles.init();
 
   // troop dropdowns
   $('.troop-list').on('click', '.trigger', function(e) {

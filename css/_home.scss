@@ -1,3 +1,66 @@
-.hero {
-  margin-bottom: 65px;
+.hero-circles {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  overflow: hidden;
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    position: relative;
+    @include span(4 of 12);
+    &.active {
+      .border {
+        z-index: 2;
+      }
+      .circle { z-index: 3; }
+    }
+  }
+  .border {
+    // grey border
+    position: absolute;
+    display: block;
+    top: -4px;
+    right: #{$gutter-width/2 - 4}px;
+    left: #{$gutter-width/2 - 4}px;
+    background-color: $grey;
+    @include border-radius(50%);
+    @include transition(transform 0.3s ease);
+    &:after {
+      content: "";
+      display: block;
+      width: 100%;
+      padding-bottom: 100%;
+    }
+  }
+  .circle {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    cursor: pointer;
+    @include border-radius(50%);
+    overflow: hidden;
+    @include translate(0, 0); // prevent square corners when page elements transform
+  }
+  .bg {
+    position: absolute;
+  }
+  .circle-expander {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    @include opacity(0);
+    z-index: -1;
+    span {
+      display: block;
+      position: absolute;
+      background-color: #000;
+      @include opacity(0);
+      @include border-radius(50%);
+    }
+  }
 }
