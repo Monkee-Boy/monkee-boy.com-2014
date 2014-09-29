@@ -52,4 +52,22 @@
     </div>
   </div>
 
+  <div class="panel-wide">
+    <div class="row-flush">
+test
+    </div>
+  </div>
+
+  <div class="panel-wide" data-panel-color="teal" data-panel-style="slash">
+    <div class="row-flush">
+test
+    </div>
+  </div>
+
+  <div class="panel-wide" data-panel-color="green">
+    <div class="row-flush">
+test
+    </div>
+  </div>
+
 <?php include('inc_footer.php'); ?>

@@ -202,11 +202,11 @@
   </ul>
 
   <aside class="troop-stats-pt1">
-    <div class="row section-head">
+    <div class="row-flush section-head">
       <span class="subtitle">a little more about us for the curious.</span>
       <span class="section-title dots">troop stats</span>
     </div>
-    <ul class="row stats-list">
+    <ul class="row-flush stats-list">
       <li class="mobile-os">
         <p><span class="number">2:1</span> <b>apple</b> vs <b>android</b></p>
       </li>
@@ -217,12 +217,12 @@
         <p><span class="number">2:1</span> <b>torchy's vs. tacodeli</b></p>
       </li>
     </ul>
-    <div class="row office-cat">
+    <div class="row-flush office-cat">
       <p><span class="number">67<span class="percent">%</span></span> in favor of an <b>office cat</b></p>
     </div>
   </aside>
   <aside class="troop-stats-pt2">
-    <ul class="row stats-list">
+    <ul class="row-flush stats-list">
       <li class="code">
         <p><span class="number">6,000,000</span> <b>lines of code</b> lovingly handcrafted in a year</p>
       </li>
