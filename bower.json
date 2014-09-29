@@ -7,6 +7,10 @@
     "monkee-mixins": "latest",
     "normalize.css": "latest",
     "polymer": "Polymer/polymer#~0.3.4",
-    "gsap": "1.13.1"
+    "gsap": "1.13.1",
+    "validationEngine": "2.6.4"
+  },
+  "resolutions": {
+    "platform": "^0.4.0"
   }
 }
