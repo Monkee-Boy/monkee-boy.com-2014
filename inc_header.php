@@ -28,7 +28,7 @@
 
   <header role="banner">
     <div class="top-bar">
-      <div class="row">
+      <div class="row-flush">
         <ul class="super-nav">
           <li><a href="#" title="Request A Quote">Request A Quote &raquo;</a></li>
         </ul>
@@ -36,7 +36,7 @@
     </div> <!-- /.top-bar -->
 
     <nav class="main-nav" role="navigation">
-      <div class="row">
+      <div class="row-flush">
         <div class="logo">
           <img src="/images/monkee-speak.png" alt="I'll Take You Home" class="speak">
           <a href="/" title="Monkee-Boy Web Design"><img src="/images/logo.png" alt="Monkee-Boy"></a>
