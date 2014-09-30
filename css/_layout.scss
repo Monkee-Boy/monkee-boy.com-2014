@@ -17,6 +17,7 @@ body {
 .top-bar {
   text-align: right;
   background: $green;
+  .row { margin-bottom: 0; }
 }
 
 .super-nav {

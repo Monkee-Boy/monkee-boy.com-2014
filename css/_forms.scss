@@ -1,3 +1,113 @@
+.form-title {
+  background-color: $black;
+  text-align: center;
+  padding: 0.85em;
+}
+
+.form-step {
+  margin: 0 -#{em-calc($gutter-width/2)} em-calc(50);
+  @include clearfix;
+}
+
+label {
+  display: block;
+  font-family: $heading-font;
+  font-weight: bold;
+  font-size: 24px;
+  text-transform: uppercase;
+  color: $teal;
+  margin-bottom: 8px;
+}
+
+.input-wrapper {
+  display: block;
+  position: relative;
+  padding: 0 #{em-calc($gutter-width/2)};
+  &:before {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: em-calc($gutter-width/2);
+    right: em-calc($gutter-width/2);
+    border: 0px solid #fff;
+    pointer-events: none;
+    @include transition(border 0.3s ease);
+  }
+  &:after {
+    content: "";
+    @include triangle(#fff, 120px, 6px);
+    position: absolute;
+    right: em-calc($gutter-width/2);
+    bottom: -6px;
+    @include transition(border 0.3s ease);
+  }
+  &.focused {
+    &:before {
+      border: 15px solid $teal;
+    }
+    &:after { border-right-color: $teal; }
+  }
+  &.phone {
+    float: left;
+    width: 480px;
+    max-width: 100%;
+  }
+  input {
+    width: 100%;
+    background-color: #fff;
+    border: none;
+    padding: em-calc(16, 24) em-calc(18, 24);
+    font-size: 24px;
+    &:focus { outline: none; }
+  }
+}
+
+// error styling
+.formError {
+  top: 68px !important;
+  color: $red;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: italic;
+}
+
+// specific inputs
+.request-quote-form {
+}
+
+// work with us page layout
+.form-monkee {
+  @include span(5 of 12);
+  .monkee {
+    display: block;
+    position: relative;
+    margin: 0 15%;
+    background: url(../images/form-monkee.png) no-repeat center center;
+    background-size: contain;
+    &:after {
+      content: "";
+      display: block;
+      padding-bottom: 208.2%;
+    }
+  }
+  .dark-monkee {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: url(../images/form-monkee-dark.png) no-repeat center center;
+    background-size: contain;
+    @include transition(opacity 0.3s ease);
+  }
+}
+
+.form-part1 {
+  @include span(7 of 12);
+}
+
 input[type=submit] {
   border-top: 0;
   border-right: 0;
