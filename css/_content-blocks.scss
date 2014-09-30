@@ -52,6 +52,45 @@
   }
 }
 
+/*
+  Full Width Panels
+  @params:
+    data-panel-style
+    data-panel-color
+*/
+.panel-wide {
+  padding-top: em-calc(40);
+  background-color: $dark-black;
+
+  &[data-panel-style='slash'] {
+    position: relative;
+  }
+
+  &[data-panel-style='slash']:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -40px;
+    @include triangle($dark-black, 1200px, 40px);
+  }
+
+  &[data-panel-color='teal'] {
+    background-color: $teal;
+
+    &[data-panel-style='slash']:after {
+      @include triangle($teal, 1200px, 40px);
+    }
+  }
+
+  &[data-panel-color='green'] {
+    background-color: $dark-green;
+
+    &[data-panel-style='slash']:after {
+      @include triangle($dark-green, 1200px, 40px);
+    }
+  }
+}
+
 // things with dots
 .dots {
   position: relative;

@@ -21,6 +21,8 @@
 <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
 <script>window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')</script>
 <script src="/bower_components/gsap/src/uncompressed/TweenMax.js"></script>
+<script src="/bower_components/validationEngine/js/languages/jquery.validationEngine-en.js" type="text/javascript" charset="utf-8"></script>
+<script src="/bower_components/validationEngine/js/jquery.validationEngine.js"></script>
 <script src="/js/app.js"></script>
 <script>
 (function(m,o,n,k,e,y){m.GoogleAnalyticsObject=k;m[k]||(m[k]=
