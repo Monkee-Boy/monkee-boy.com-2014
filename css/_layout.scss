@@ -232,15 +232,15 @@ body {
   float: right;
 }
 
-.text-left {
+.text-left, [data-text-align='left'] {
   text-align: left;
 }
 
-.text-right {
+.text-right, [data-text-align='right'] {
   text-align: right;
 }
 
-.text-center {
+.text-center, [data-text-align='center'] {
   text-align: center;
 }
 

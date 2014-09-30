@@ -59,8 +59,12 @@
     data-panel-color
 */
 .panel-wide {
-  padding-top: em-calc(40);
+  padding: em-calc(40) 0 em-calc(80);
   background-color: $dark-black;
+
+  .section-head {
+    color: $light-grey;
+  }
 
   &[data-panel-style='slash'] {
     position: relative;
@@ -89,12 +93,76 @@
       @include triangle($dark-green, 1200px, 40px);
     }
   }
+
+  &[data-panel-color='light-grey'] {
+    background-color: $light-grey;
+
+    &[data-panel-style='slash']:after {
+      @include triangle($light-grey, 1200px, 40px);
+    }
+
+    .section-head {
+      color: $green;
+    }
+
+    .dots:before, .dots:after {
+      color: $darker-light-grey;
+      @include opacity(1);
+    }
+  }
+}
+
+.item-panel {
+  h4 {
+    position: relative;
+    margin: 0;
+    padding: em-calc(17) 0;
+    font-size: em-calc(18);
+    font-family: $body-font;
+    font-weight: normal;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    background: $dark-teal;
+
+    &:after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: -5px;
+      border-style: solid;
+      border-width: 0 100px 5px 0;
+      border-color: transparent $dark-teal transparent transparent;
+    }
+  }
+
+  .item-panel-inside {
+    padding: 20px;
+    color: #fff;
+    font-size: 22px;
+    background: #42b09f;
+
+    time {
+      display: block;
+      margin-top: 25px;
+      font-weight: bold;
+    }
+
+    a {
+      color: $yellow;
+    }
+  }
+
+  &.alt .item-panel-inside {
+    background: transparent;
+  }
 }
 
 // things with dots
 .dots {
   position: relative;
-  &:before, &:after {
+
+  &[data-dots='dual']:before, &[data-dots='dual']:after, &[data-dots='left']:before, &[data-dots='right']:after {
     content: $icon-dots;
     position: absolute;
     bottom: 0;
@@ -104,8 +172,14 @@
     font-size: 100px;
     line-height: 0;
   }
-  &:before { left: #{$gutter-width/2}px; }
-  &:after { right: #{$gutter-width/2}px; }
+
+  &[data-dots='dual']:before, &[data-dots='left']:before {
+    left: #{$gutter-width/2}px;
+  }
+
+  &[data-dots='dual']:after, &[data-dots='right']:after {
+    right: #{$gutter-width/2}px;
+  }
 }
 
 // service icons

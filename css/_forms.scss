@@ -1,0 +1,42 @@
+input[type=submit] {
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  @extend .button;
+}
+
+
+.form-newsletter {
+  label {
+    display: block;
+    margin-bottom: 10px;
+    color: $dark-teal;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: $heading-font;
+    text-transform: uppercase;
+  }
+
+  input[type=text], input[type=email] {
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+    font-size: 24px;
+    color: $black;
+    border: 0;
+  }
+
+  input[type=submit] {
+    width: 100%;
+  }
+
+  .subscribe-status {
+    margin: 0 auto 20px;
+    @include size(114px, 79px);
+    background: url(/images/subscribe-sprite.png) no-repeat 0 0;
+
+    &.success {
+      background-position: 0 -79px;
+    }
+  }
+}
