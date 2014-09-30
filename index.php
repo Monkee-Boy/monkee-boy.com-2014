@@ -120,7 +120,26 @@
     </div>
 
     <div class="row-flush">
-      [lorem ipsum]
+      <div class="one-third post-panel" data-text-align="center">
+        <div class="post-panel-inside">
+          <a href="" title=""><img src="/assets/blog-post.jpg" alt=""></a>
+          <h4><a href="" title="">Freebie Friday: 25 Colorful Polygon Backgrounds</a></h4>
+        </div>
+      </div>
+
+      <div class="one-third post-panel" data-text-align="center">
+        <div class="post-panel-inside">
+          <a href="" title=""><img src="/assets/blog-post.jpg" alt=""></a>
+          <h4><a href="" title="">Freebie Friday: 25 Colorful Polygon Backgrounds</a></h4>
+        </div>
+      </div>
+
+      <div class="one-third post-panel" data-text-align="center">
+        <div class="post-panel-inside">
+          <a href="" title=""><img src="/assets/blog-post.jpg" alt=""></a>
+          <h4><a href="" title="">Freebie Friday: 25 Colorful Polygon Backgrounds</a></h4>
+        </div>
+      </div>
     </div>
   </div>
 

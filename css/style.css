@@ -2011,6 +2011,23 @@ input[type=submit] {
   min-height: 300px;
 }
 
+.home-blog .section-title {
+  font-size: 4.22222em;
+}
+
+.post-panel .post-panel-inside {
+  background: #fefefe;
+}
+.post-panel h4 {
+  margin: 0;
+  padding: 25px;
+}
+.post-panel a {
+  color: #1a7a6c;
+  font-size: 18px;
+  font-weight: normal;
+}
+
 .troop-list {
   position: relative;
   list-style-type: none;
