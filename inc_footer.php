@@ -10,13 +10,14 @@
     </ul>
 
     <div class="bananas"> <!-- TODO: This should be a black triangle behind the bananas. -->
-      <img src="/images/bananas.png" alt="Nom Nom Nom">
+      <a href="#"></a>
     </div>
 
     <p class="footer-meta"><strong>&copy; Monkee-Boy Web Design, Inc. 2014</strong> // <a href="#" title="Privacy">Privacy</a><br />
       9390 Research Blvd. Suite 425 Austin, TX  78759 // 512-335-2221</p>
   </div>
 </footer>
+</div><!-- /.container -->
 
 <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
 <script>window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')</script>

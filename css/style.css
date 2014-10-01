@@ -395,6 +395,17 @@ th {
 }
 
 /* Snippets */
+/*
+  # USAGE #
+  $large: "(min-width: 1024px)";
+
+  header {
+    @include breakpoint($large){
+      width: 100%;
+      margin: 5em 0;
+    }
+  }
+*/
 /* Functions */
 /* Media Queries */
 .row {
@@ -478,6 +489,10 @@ th {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+.container {
+  overflow: hidden;
 }
 
 /* Header */
@@ -691,11 +706,14 @@ th {
 }
 /* Footer */
 [role="contentinfo"] {
-  padding: 22px 0;
+  padding: 22px 0 0;
   color: #b2b2b2;
   font-size: 16px;
   background: #242529;
   border-bottom: 4px solid #000;
+}
+[role="contentinfo"] .row {
+  margin-bottom: 0;
 }
 [role="contentinfo"] .footer-social {
   -webkit-box-sizing: border-box;
@@ -714,6 +732,7 @@ th {
   margin-right: 10px;
 }
 [role="contentinfo"] .bananas {
+  position: relative;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -721,8 +740,52 @@ th {
   float: left;
   padding-left: 15px;
   padding-right: 15px;
-  background: #000;
   text-align: center;
+}
+[role="contentinfo"] .bananas:after {
+  content: "";
+  background-color: #000;
+  position: absolute;
+  left: 50%;
+  bottom: -75px;
+  margin-left: -75px;
+  width: 150px;
+  height: 150px;
+  -webkit-transform: rotate(45deg) skew(5deg, 5deg);
+  -moz-transform: rotate(45deg) skew(5deg, 5deg);
+  -ms-transform: rotate(45deg) skew(5deg, 5deg);
+  -o-transform: rotate(45deg) skew(5deg, 5deg);
+  transform: rotate(45deg) skew(5deg, 5deg);
+  -webkit-transition: transform 0.3s ease;
+  -moz-transition: transform 0.3s ease;
+  -ms-transition: transform 0.3s ease;
+  -o-transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
+}
+[role="contentinfo"] .bananas:hover:after {
+  -webkit-animation: pewpew 0.3s 2;
+  -moz-animation: pewpew 0.3s 2;
+  -o-animation: pewpew 0.3s 2;
+  animation: pewpew 0.3s 2;
+}
+[role="contentinfo"] .bananas:hover a:before {
+  content: "";
+  position: absolute;
+  left: -20px;
+  bottom: -40px;
+  top: -60px;
+  right: -20px;
+  background: url(../images/explosion.gif) no-repeat center center;
+}
+[role="contentinfo"] .bananas a {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  left: 10px;
+  width: 70px;
+  height: 70px;
+  background: url(../images/bananas.png) no-repeat center center;
+  z-index: 1;
 }
 [role="contentinfo"] .footer-meta {
   -webkit-box-sizing: border-box;
@@ -735,6 +798,106 @@ th {
   text-align: right;
 }
 
+@-webkit-keyframes pewpew {
+  0% {
+    -webkit-transform: rotate(45deg) skew(5deg, 5deg);
+    -moz-transform: rotate(45deg) skew(5deg, 5deg);
+    -ms-transform: rotate(45deg) skew(5deg, 5deg);
+    -o-transform: rotate(45deg) skew(5deg, 5deg);
+    transform: rotate(45deg) skew(5deg, 5deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(45deg) skew(10deg, 10deg);
+    -moz-transform: rotate(45deg) skew(10deg, 10deg);
+    -ms-transform: rotate(45deg) skew(10deg, 10deg);
+    -o-transform: rotate(45deg) skew(10deg, 10deg);
+    transform: rotate(45deg) skew(10deg, 10deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(45deg) skew(5deg, 5deg);
+    -moz-transform: rotate(45deg) skew(5deg, 5deg);
+    -ms-transform: rotate(45deg) skew(5deg, 5deg);
+    -o-transform: rotate(45deg) skew(5deg, 5deg);
+    transform: rotate(45deg) skew(5deg, 5deg);
+  }
+}
+@-moz-keyframes pewpew {
+  0% {
+    -webkit-transform: rotate(45deg) skew(5deg, 5deg);
+    -moz-transform: rotate(45deg) skew(5deg, 5deg);
+    -ms-transform: rotate(45deg) skew(5deg, 5deg);
+    -o-transform: rotate(45deg) skew(5deg, 5deg);
+    transform: rotate(45deg) skew(5deg, 5deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(45deg) skew(10deg, 10deg);
+    -moz-transform: rotate(45deg) skew(10deg, 10deg);
+    -ms-transform: rotate(45deg) skew(10deg, 10deg);
+    -o-transform: rotate(45deg) skew(10deg, 10deg);
+    transform: rotate(45deg) skew(10deg, 10deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(45deg) skew(5deg, 5deg);
+    -moz-transform: rotate(45deg) skew(5deg, 5deg);
+    -ms-transform: rotate(45deg) skew(5deg, 5deg);
+    -o-transform: rotate(45deg) skew(5deg, 5deg);
+    transform: rotate(45deg) skew(5deg, 5deg);
+  }
+}
+@-o-keyframes pewpew {
+  0% {
+    -webkit-transform: rotate(45deg) skew(5deg, 5deg);
+    -moz-transform: rotate(45deg) skew(5deg, 5deg);
+    -ms-transform: rotate(45deg) skew(5deg, 5deg);
+    -o-transform: rotate(45deg) skew(5deg, 5deg);
+    transform: rotate(45deg) skew(5deg, 5deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(45deg) skew(10deg, 10deg);
+    -moz-transform: rotate(45deg) skew(10deg, 10deg);
+    -ms-transform: rotate(45deg) skew(10deg, 10deg);
+    -o-transform: rotate(45deg) skew(10deg, 10deg);
+    transform: rotate(45deg) skew(10deg, 10deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(45deg) skew(5deg, 5deg);
+    -moz-transform: rotate(45deg) skew(5deg, 5deg);
+    -ms-transform: rotate(45deg) skew(5deg, 5deg);
+    -o-transform: rotate(45deg) skew(5deg, 5deg);
+    transform: rotate(45deg) skew(5deg, 5deg);
+  }
+}
+@keyframes pewpew {
+  0% {
+    -webkit-transform: rotate(45deg) skew(5deg, 5deg);
+    -moz-transform: rotate(45deg) skew(5deg, 5deg);
+    -ms-transform: rotate(45deg) skew(5deg, 5deg);
+    -o-transform: rotate(45deg) skew(5deg, 5deg);
+    transform: rotate(45deg) skew(5deg, 5deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(45deg) skew(10deg, 10deg);
+    -moz-transform: rotate(45deg) skew(10deg, 10deg);
+    -ms-transform: rotate(45deg) skew(10deg, 10deg);
+    -o-transform: rotate(45deg) skew(10deg, 10deg);
+    transform: rotate(45deg) skew(10deg, 10deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(45deg) skew(5deg, 5deg);
+    -moz-transform: rotate(45deg) skew(5deg, 5deg);
+    -ms-transform: rotate(45deg) skew(5deg, 5deg);
+    -o-transform: rotate(45deg) skew(5deg, 5deg);
+    transform: rotate(45deg) skew(5deg, 5deg);
+  }
+}
 /* Helper Classes */
 .pull-left {
   float: left;
