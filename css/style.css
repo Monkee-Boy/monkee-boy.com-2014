@@ -1255,6 +1255,44 @@ a:hover, a:focus {
   background: transparent;
 }
 
+.panel-wide[data-panel-style='callout'] {
+  position: relative;
+}
+.panel-wide[data-panel-style='callout'] .row-flush:before {
+  position: absolute;
+  width: 500px;
+  content: '';
+  z-index: 1;
+  top: -10px;
+  bottom: -10px;
+  background: #242529;
+}
+.panel-wide[data-panel-style='callout'] .item-callout {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 41.66667%;
+  float: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  position: relative;
+  z-index: 1;
+  background: #242529;
+}
+.panel-wide[data-panel-style='callout'] .item-callout h3 {
+  font-size: 2.22222em;
+  color: #ededed;
+}
+.panel-wide[data-panel-style='callout'] .item-panel {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 50%;
+  float: right;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 .dots {
   position: relative;
 }

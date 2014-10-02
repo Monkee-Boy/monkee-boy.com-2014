@@ -158,6 +158,36 @@
   }
 }
 
+.panel-wide[data-panel-style='callout'] {
+  position: relative;
+
+  .row-flush:before {
+    position: absolute;
+    width: 500px;
+    content: '';
+    z-index: 1;
+    top: -10px;
+    bottom: -10px;
+    background: $black;
+  }
+
+  .item-callout {
+    @include span(5 of 12);
+    position: relative;
+    z-index: 1;
+    background: $black;
+
+    h3 {
+      font-size: em-calc(40);
+      color: $light-grey;
+    }
+  }
+
+  .item-panel {
+    @include span(6 of 12 last);
+  }
+}
+
 // things with dots
 .dots {
   position: relative;
