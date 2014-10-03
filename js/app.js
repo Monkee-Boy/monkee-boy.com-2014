@@ -1,45 +1,57 @@
 (function($) {
 
   // forms
-  $('.input-wrapper input').on('focus', function() {
+  $('.input-wrapper').on('focus', 'input, textarea', function() {
     $(this).parent('.input-wrapper').addClass('focused');
-  }).on('blur', function() {
+  }).on('blur', 'input, textarea', function() {
     $(this).parent('.input-wrapper').removeClass('focused');
   });
 
   // monkee quote form
-  // attach validation
-  $('.request-quote-form').validationEngine('attach', {
-    showArrow: false,
-    binded: false,
-    promptPosition: "bottomLeft",
-    'custom_error_messages' : {
-      'required': { 'message': 'Oops, looks like you forgot to add this field' },
-      '#url' : {
-        'custom[url]': { 'message': 'That doesn\'t look like the URLs we\'re used to.' }
+  if ($('.request-quote-form').length > 0) {
+
+    // attach validation
+    $('.request-quote-form').validationEngine('attach', {
+      showArrow: false,
+      binded: false,
+      promptPosition: "bottomLeft",
+      'custom_error_messages' : {
+        'required': { 'message': 'Oops, looks like you forgot to add this field' },
+        '#url' : {
+          'custom[url]': { 'message': 'That doesn\'t look like the URLs we\'re used to.' }
+        }
       }
-    }
-  });
-  $('.request-quote-form').on('blur', '.form-part1 input', function() {
-    var $this = $(this),
-        $steps = $('.request-quote-form').find('.monkee-step'),
-        is_valid = !$this.validationEngine('validate');
+    });
+    
+    // on blur, validate and set opacity
+    $('.request-quote-form').on('blur', '.form-part1 input', function() {
+      var $this = $(this),
+          $steps = $('.request-quote-form').find('.monkee-step'),
+          $monkee = $('.request-quote-form').find('.monkee'),
+          is_valid = !$this.validationEngine('validate');
 
-    // test if parent should be marked complete
-    if (is_valid) {
-      if ( $this.parent().is(':last-child') ) $this.parents('.form-step').addClass('complete');
-    } else {
-      $this.parents('.form-step').removeClass('complete');
-    }
+      // test if parent should be marked complete
+      if (is_valid) {
+        if ( $this.parent().is(':last-child') ) $this.parents('.form-step').addClass('complete');
+      } else {
+        $this.parents('.form-step').removeClass('complete');
+      }
 
-    // change opacity of monkee
-    var complete_steps = $steps.filter('.complete').length;
-    if (complete_steps > 0) {
-      var opacity = 1 - complete_steps/$steps.length;
-      $('.request-quote-form').find('.dark-monkee').css('opacity', opacity);
-      console.log("opacity should be", opacity);
-    }
-  });
+      // change opacity of monkee
+      var complete_steps = $steps.filter('.complete').length;
+      if (complete_steps > 0) {
+        var opacity = 1 - complete_steps/$steps.length;
+        $monkee.children('.dark-monkee').css('opacity', opacity);
+        console.log("opacity should be", opacity);
+      }
+      // speech bubble
+      if ( complete_steps === $steps.length ) {
+        $monkee.addClass('speak');
+      } else {
+        $monkee.removeClass('speak');
+      }
+    });
+  }
 
   var PortfolioSlider = function(el) {
     this.$el = $(el);
