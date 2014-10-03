@@ -71,17 +71,22 @@ h5 {
 
 // section headings
 .section-head {
-  text-align: center;
   .subtitle {
     display: block;
     margin-bottom: -8px;
   }
+
   .section-title {
     display: block;
     font-family: $heading-font;
     font-size: 110px;
     font-weight: bold;
     line-height: 1;
+
+    em {
+      font-size: 32px;
+      font-weight: normal;
+    }
   }
 }
 
@@ -109,6 +114,12 @@ blockquote {
     font-weight: bolder;
     font-style: normal;
   }
+}
+
+ul.styleless {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 img {

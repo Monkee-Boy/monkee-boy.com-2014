@@ -202,9 +202,9 @@
   </ul>
 
   <aside class="troop-stats-pt1">
-    <div class="row-flush section-head">
+    <div class="row-flush section-head" data-text-align="center">
       <span class="subtitle">a little more about us for the curious.</span>
-      <span class="section-title dots">troop stats</span>
+      <span class="section-title dots" data-dots="dual">troop stats</span>
     </div>
     <ul class="row-flush stats-list">
       <li class="mobile-os">

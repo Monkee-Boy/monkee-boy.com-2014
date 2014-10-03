@@ -9,6 +9,10 @@ body {
 
 }
 
+.container {
+  overflow: hidden;
+}
+
 /* Header */
 [role="banner"] {
   margin-bottom: 45px;
@@ -194,11 +198,13 @@ body {
 
 /* Footer */
 [role="contentinfo"] {
-  padding: 22px 0;
+  padding: 22px 0 0;
   color: $grey;
   font-size: 16px;
   background: $black;
   border-bottom: 4px solid #000;
+
+  .row { margin-bottom: 0; }
 
   .footer-social {
     @include span(5 of 12);
@@ -213,15 +219,86 @@ body {
   }
 
   .bananas {
+    position: relative;
     @include span(2 of 12);
-    background: #000;
     text-align: center;
+    &:after {
+      content: "";
+      background-color: #000;
+      position: absolute;
+      left: 50%;
+      bottom: -75px;
+      margin-left: -75px;
+      width: 150px;
+      height: 150px;
+      @include transform(rotate(45deg) skew(5deg, 5deg));
+      @include transition(transform 0.3s ease);
+    }
+    &:hover {
+      &:after {
+        @include animation(pewpew 0.3s 2);
+      }
+      a {
+        &:before {
+          content: "";
+          position: absolute;
+          left: -20px;
+          bottom: -40px;
+          top: -60px;
+          right: -20px;
+          background: url(../images/explosion.gif) no-repeat center center;
+        }
+      }
+    }
+    a {
+      display: block;
+      margin: 0 auto;
+      position: relative;
+      left: 10px;
+      width: 70px;
+      height: 70px;
+      background: url(../images/bananas.png) no-repeat center center;
+      z-index: 1;
+    }
+    .shooting-banana {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 40px;
+      height: 40px;
+      margin-left: -20px;
+      margin-top: -20px;
+      background: url(../images/bananas.png) no-repeat center center;
+      background-size: contain;
+      z-index: 1;
+    }
   }
 
   .footer-meta {
     @include span(5 of 12);
     text-align: right;
   }
+}
+
+@-webkit-keyframes pewpew {
+  0%   { @include transform(rotate(45deg) skewX(5deg) skewY(5deg)); }
+  50% { @include transform(rotate(45deg) skewX(10deg) skewY(10deg)); }
+  100%   { @include transform(rotate(45deg) skewX(5deg) skewY(5deg)); }
+}
+@-moz-keyframes pewpew {
+  0%   { @include transform(rotate(45deg) skewX(5deg) skewY(5deg)); }
+  50% { @include transform(rotate(45deg) skewX(10deg) skewY(10deg)); }
+  100%   { @include transform(rotate(45deg) skewX(5deg) skewY(5deg)); }
+}
+@-o-keyframes pewpew {
+  0%   { @include transform(rotate(45deg) skewX(5deg) skewY(5deg)); }
+  50% { @include transform(rotate(45deg) skewX(10deg) skewY(10deg)); }
+  100%   { @include transform(rotate(45deg) skewX(5deg) skewY(5deg)); }
+}
+@keyframes pewpew {
+  0%   { @include transform(rotate(45deg) skewX(5deg) skewY(5deg)); }
+  50% { @include transform(rotate(45deg) skewX(10deg) skewY(10deg)); }
+  100%   { @include transform(rotate(45deg) skewX(5deg) skewY(5deg)); }
 }
 
 /* Helper Classes */
@@ -233,15 +310,15 @@ body {
   float: right;
 }
 
-.text-left {
+.text-left, [data-text-align='left'] {
   text-align: left;
 }
 
-.text-right {
+.text-right, [data-text-align='right'] {
   text-align: right;
 }
 
-.text-center {
+.text-center, [data-text-align='center'] {
   text-align: center;
 }
 

@@ -409,4 +409,53 @@
 
   });
 
+  // shoot bananas from the footer
+  function shoot_bananas() {
+    console.log("shooting bananas");
+    var a = 0.8, // vertical accelleration
+        num_bananas = Math.ceil(Math.random() * 4 + 1),
+        pos = [0, -20],
+        $banana_triangle = $('.bananas');
+
+
+    // create some bananas and shoot them
+    for (var i = 0; i < num_bananas; i++) {
+      var banana = $('<div class="shooting-banana" />'),
+          vx = (0.5 - Math.random()) * 10, // horizontal velocity, can be positive or negative
+          vy = -Math.random() * 20; // initial vertical velocity
+
+      console.log("initial x velocity:", vx + ", initial y velocity:", vy);
+      $banana_triangle.append(banana);
+      update_banana_pos(banana, pos, vx, vy, a);
+    }
+  }
+
+  $('.bananas').on('mouseenter', shoot_bananas);
+
+  function update_banana_pos(banana, p0, vx, vy, a) {
+    // we're under the assumption that 1 time unit has passed each iteration
+    var posX = p0[0] + vx,
+        posY = p0[1] + vy,
+        transform = 'matrix(1, 0, 0, 1, '+ posX + ', '+ posY +')';
+
+    // update velocity
+    vy += a;
+
+    // set the transform
+    banana[0].style.webkitTransform = transform;
+    banana[0].style.MozTransform = transform;
+    banana[0].style.msTransform = transform;
+    banana[0].style.OTransform = transform;
+    banana[0].style.transform = transform;
+
+    // if posX is greater than 20px below, keep going
+    if ( posY < 20) {
+      requestAnimationFrame(function() {
+        update_banana_pos(banana, [posX, posY], vx, vy, a);
+      });
+    } else {
+      banana.remove();
+    }
+  }
+
 }(jQuery));

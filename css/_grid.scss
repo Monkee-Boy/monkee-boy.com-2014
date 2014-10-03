@@ -26,7 +26,7 @@ $bpXXLarge: 'only screen and (min-width: 120.063em)';
 
 @media #{$bpSmall} {
   .row {
-    @include container();
+    
   }
 }
 
@@ -41,6 +41,16 @@ $bpXXLarge: 'only screen and (min-width: 120.063em)';
 
 @media #{$bpSmall} {
   .half {
+    @include span(12 of 12);
+  }
+}
+
+.one-third {
+  @include span(4 of 12);
+}
+
+@media #{$bpSmall} {
+  .one-third {
     @include span(12 of 12);
   }
 }
