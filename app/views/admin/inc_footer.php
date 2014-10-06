@@ -5,7 +5,7 @@
 		<hr>
 		<footer>
 			<p class="pull-left">&copy; <?= date("Y") ?>, All Rights Reserved.</p>
-			<p class="pull-right">Powered by <strong>cwCMS</strong> v<?= $cmsVersion ?></p>
+			<p class="pull-right">Powered by <strong>monkeeSimpleCMS</strong> v<?= $cmsVersion ?></p>
 		</footer>
 	</div><!--/.fluid-container-->
 

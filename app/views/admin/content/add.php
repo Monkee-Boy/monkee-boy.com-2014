@@ -94,6 +94,29 @@
 
 				<div class="accordion-group">
 					<div class="accordion-heading">
+						<span class="accordion-toggle">SEO</span>
+					</div>
+					<div id="pageseo" class="accordion-body">
+						<div class="accordion-inner">
+							<div class="control-group">
+								<label class="control-label" for="form-tag">Description</label>
+								<div class="controls">
+									<textarea name="seo_description" id="form-tags" style="height:95px;" class="span12"><?= $aPage['seo_description'] ?></textarea>
+								</div>
+							</div>
+
+							<div class="control-group">
+								<label class="control-label" for="form-tag">Keywords</label>
+								<div class="controls">
+									<textarea name="seo_keywords" id="form-tags" style="height:95px;" class="span12"><?= $aPage['seo_keywords'] ?></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="accordion-group">
+					<div class="accordion-heading">
 						<span class="accordion-toggle">Tags</span>
 					</div>
 					<div id="pagetags" class="accordion-body in collapse">

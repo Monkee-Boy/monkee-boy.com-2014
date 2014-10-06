@@ -10,7 +10,7 @@ class Stratum {
 	private $error;
 
 	public $fetchMode = "assoc";
-	public $debug = true;
+	public $debug = false;
 
 	public function __construct($dbuser = "", $dbpassword = "", $dbname = "", $dbhost = "") {
 		if(!empty($dbuser) && !empty($dbname) && !empty($dbhost)) {
@@ -48,7 +48,7 @@ class Stratum {
 		// Perform the query
 		$sth = $this->dbh->prepare($query);
 		$sth->execute($data);
-		if($sth->errorCode() == '00000') {
+		if($sth->errorCode() === '00000') {
 			$oResult = $sth->fetchAll(PDO::FETCH_OBJ);
 			if(count($oResult) > 0) {
 				// Store Query Results

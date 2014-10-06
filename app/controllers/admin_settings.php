@@ -2,10 +2,10 @@
 class admin_settings extends adminController {
 	function __construct() {
 		parent::__construct();
-		
+
 		$this->menuPermission("settings");
 	}
-	
+
 	### DISPLAY ######################
 	function index() {
 		$aSettingsFull = $this->dbQuery(
@@ -16,7 +16,7 @@ class admin_settings extends adminController {
 				." ORDER BY `groups`.`sort_order`, `sortOrder`, `title`"
 			,"all"
 		);
-		
+
 		$aSettings = array();
 		include($this->settings->root."helpers/Form.php");
 		foreach($aSettingsFull as $aSetting) {
@@ -39,10 +39,10 @@ class admin_settings extends adminController {
 				." ORDER BY `group`, `sortOrder`, `title`"
 			,"all"
 		);
-		
+
 		include($this->settings->root."helpers/Form.php");
 		foreach($aSettings as $aSetting) {
-			$oField = new Form($aSetting);	
+			$oField = new Form($aSetting);
 			$this->dbUpdate(
 				"settings",
 				array(
@@ -53,30 +53,30 @@ class admin_settings extends adminController {
 				"text"
 			);
 		}
-		
+
 		$this->forward("/admin/settings/?success=".urlencode("Settings saved successfully!"));
 	}
 	function manageIndex() {
 		if($this->superAdmin == false)
 			$this->forward("/admin/settings/?error=".urlencode("You do not have permissions to view that page."));
-		
+
 		// Clear saved form info
 		$_SESSION["admin"]["admin_settings"] = null;
-		
+
 		$aSettings = $this->dbQuery(
 			"SELECT `settings`.*, `groups`.`name` AS `group`, `groups`.`id` AS `groupid` FROM `{dbPrefix}settings` AS `settings`"
 				." LEFT JOIN `{dbPrefix}settings_groups` as `groups` ON `settings`.`group` = `groups`.`id`"
 				." ORDER BY `groups`.`sort_order`, `settings`.`sortOrder`, `settings`.`title`"
 			,"all"
 		);
-		
+
 		$this->tplAssign("aSettings", $aSettings);
 		$this->tplDisplay("settings/manage/index.php");
 	}
 	function manageAdd() {
 		if($this->superAdmin == false)
 			$this->forward("/admin/settings/?error=".urlencode("You do not have permissions to view that page."));
-		
+
 		if(!empty($_SESSION["admin"]["admin_settings"]))
 			$this->tplAssign("aSetting", $_SESSION["admin"]["admin_settings"]);
 		else {
@@ -87,7 +87,7 @@ class admin_settings extends adminController {
 				)
 			);
 		}
-		
+
 		$aSettingGroups = $this->dbQuery(
 			"SELECT * FROM `{dbPrefix}settings_groups`"
 			,"all"
@@ -101,7 +101,7 @@ class admin_settings extends adminController {
 			$_SESSION["admin"]["admin_settings"] = $_POST;
 			$this->forward("/admin/settings/manage/add/?error=".urlencode("Please fill in all required fields!"));
 		}
-		
+
 		$sID = $this->dbInsert(
 			"settings",
 			array(
@@ -116,15 +116,15 @@ class admin_settings extends adminController {
 				,"active" => $this->boolCheck($_POST["active"])
 			)
 		);
-		
+
 		$_SESSION["admin"]["admin_settings"] = null;
-		
+
 		$this->forward("/admin/settings/manage/?success=".urlencode("Setting created successfully!"));
 	}
 	function manageEdit() {
 		if($this->superAdmin == false)
 			$this->forward("/admin/settings/?error=".urlencode("You do not have permissions to view that page."));
-		
+
 		if(!empty($_SESSION["admin"]["admin_settings"])) {
 			$aSetting = $_SESSION["admin"]["admin_settings"];
 		} else {
@@ -139,14 +139,14 @@ class admin_settings extends adminController {
 			$aSetting["validation"] = json_decode($aSetting["validation"], true);
 		else
 			$aSetting["validation"] = array();
-		
+
 		$aSettingGroups = $this->dbQuery(
 			"SELECT * FROM `{dbPrefix}settings_groups`"
 			,"all"
 		);
 
 		$this->tplAssign("aSettingGroups", $aSettingGroups);
-		$this->tplAssign("aSetting", $aSetting);		
+		$this->tplAssign("aSetting", $aSetting);
 		$this->tplDisplay("settings/manage/edit.php");
 	}
 	function manageEdit_s() {
@@ -154,7 +154,7 @@ class admin_settings extends adminController {
 			$_SESSION["admin"]["admin_settings"] = $_POST;
 			$this->forward("/admin/settings/manage/edit/".$_POST["id"]."/?error=".urlencode("Please fill in all required fields!"));
 		}
-		
+
 		$this->dbUpdate(
 			"settings",
 			array(
@@ -170,20 +170,20 @@ class admin_settings extends adminController {
 			),
 			$_POST["id"]
 		);
-		
+
 		$_SESSION["admin"]["admin_settings"] = null;
-		
+
 		$this->forward("/admin/settings/manage/?success=".urlencode("Changes saved successfully!"));
 	}
 	function manageDelete() {
 		$this->dbDelete("settings", $this->urlVars->dynamic["id"]);
-		
+
 		$this->forward("/admin/settings/manage/?success=".urlencode("Setting removed successfully!"));
 	}
 	function manageGroupsAdd() {
 		if($this->superAdmin == false)
 			$this->forward("/admin/settings/?error=".urlencode("You do not have permissions to view that page."));
-		
+
 		if(!empty($_SESSION["admin"]["admin_settings_groups"]))
 			$this->tplAssign("aGroup", $_SESSION["admin"]["admin_settings_groups"]);
 		else {
@@ -193,7 +193,7 @@ class admin_settings extends adminController {
 				)
 			);
 		}
-		
+
 		$this->tplDisplay("settings/manage/groups/add.php");
 	}
 	function manageGroupsAdd_s() {
@@ -201,15 +201,15 @@ class admin_settings extends adminController {
 			$_SESSION["admin"]["admin_settings_groups"] = $_POST;
 			$this->forward("/admin/settings/manage/groups/add/?error=".urlencode("Please fill in all required fields!"));
 		}
-		
+
 		$sOrder = $this->dbQuery(
 			"SELECT MAX(`sort_order`) + 1 FROM `{dbPrefix}settings_groups`"
 			,"one"
 		);
-		
+
 		if(empty($sOrder))
 			$sOrder = 1;
-		
+
 		$sID = $this->dbInsert(
 			"settings_groups",
 			array(
@@ -220,18 +220,18 @@ class admin_settings extends adminController {
 				,"restricted" => $this->boolCheck($_POST["restricted"])
 			)
 		);
-		
+
 		$_SESSION["admin"]["admin_settings_groups"] = null;
-		
+
 		$this->forward("/admin/settings/manage/?success=".urlencode("Group created successfully!"));
 	}
 	function manageGroupsEdit() {
 		if($this->superAdmin == false)
 			$this->forward("/admin/settings/?error=".urlencode("You do not have permissions to view that page."));
-		
+
 		if(!empty($_SESSION["admin"]["admin_settings_groups"])) {
 			$aGroup = $_SESSION["admin"]["admin_settings_groups"];
-			
+
 			$this->tplAssign("aGroup", $aGroup);
 		} else {
 			$aGroup = $this->dbQuery(
@@ -239,10 +239,10 @@ class admin_settings extends adminController {
 					." WHERE `id` = ".$this->dbQuote($this->urlVars->dynamic["id"], "integer")
 				,"row"
 			);
-			
+
 			$this->tplAssign("aGroup", $aGroup);
 		}
-		
+
 		$this->tplDisplay("settings/manage/groups/edit.php");
 	}
 	function manageGroupsEdit_s() {
@@ -250,7 +250,7 @@ class admin_settings extends adminController {
 			$_SESSION["admin"]["admin_settings_groups"] = $_POST;
 			$this->forward("/admin/settings/manage/groups/edit/".$_POST["id"]."/?error=".urlencode("Please fill in all required fields!"));
 		}
-		
+
 		$this->dbUpdate(
 			"settings_groups",
 			array(
@@ -261,14 +261,14 @@ class admin_settings extends adminController {
 			),
 			$_POST["id"]
 		);
-		
+
 		$_SESSION["admin"]["admin_settings_groups"] = null;
-		
+
 		$this->forward("/admin/settings/manage/?success=".urlencode("Changes saved successfully!"));
 	}
 	function manageGroupsDelete() {
 		$this->dbDelete("settings_groups", $this->urlVars->dynamic["id"]);
-		
+
 		$this->forward("/admin/settings/manage/?success=".urlencode("Group removed successfully!"));
 	}
 	function manageGroupsSort() {
@@ -277,7 +277,7 @@ class admin_settings extends adminController {
 				." WHERE `id` = ".$this->dbQuote($this->urlVars->dynamic["id"], "integer")
 			,"row"
 		);
-		
+
 		if($this->urlVars->dynamic["sort"] == "up") {
 			$aOld = $this->dbQuery(
 				"SELECT * FROM `{dbPrefix}settings_groups`"
@@ -293,7 +293,7 @@ class admin_settings extends adminController {
 				,"row"
 			);
 		}
-			
+
 		$this->dbUpdate(
 			"settings_groups",
 			array(
@@ -301,7 +301,7 @@ class admin_settings extends adminController {
 			),
 			$aGroup["id"]
 		);
-		
+
 		$this->dbUpdate(
 			"settings_groups",
 			array(
@@ -309,37 +309,37 @@ class admin_settings extends adminController {
 			),
 			$aOld["id"]
 		);
-		
+
 		$this->forward("/admin/settings/manage/?success=".urlencode("Sort order saved successfully!"));
 	}
 	function plugins_index() {
 		if($this->superAdmin == false)
 			$this->forward("/admin/settings/?error=".urlencode("You do not have permissions to view that page."));
-		
+
 		// Loop plugins. Find installed, and not installed
 		$aPlugins = array();
-		
+
 		$oPlugins = dir($this->settings->root."plugins");
 		while (false !== ($sPlugin = $oPlugins->read())) {
 			if(substr($sPlugin, 0, 1) != ".")
 				$aPlugins[] = $sPlugin;
 		}
 		$oPlugins->close();
-		
+
 		$aNotices = array();
 		foreach($aPlugins as $k => &$aPlugin) {
 			// Load config
 			$aPluginInfo = array();
 			if(is_file($this->settings->root."plugins/".$aPlugin."/config.php"))
 				include($this->settings->root."plugins/".$aPlugin."/config.php");
-			
+
 			if(!empty($aPluginInfo)) {
 				$aPluginInstalled = $this->dbQuery(
 					"SELECT * FROM `{dbPrefix}plugins`"
 						." WHERE `plugin` = ".$this->dbQuote($aPlugin, "text")
 					,"row"
 				);
-				
+
 				$aPlugin = array(
 					"tag" => $aPlugin,
 					"description" => htmlspecialchars(stripslashes($aPluginInfo["description"])),
@@ -347,12 +347,12 @@ class admin_settings extends adminController {
 					"author" => htmlspecialchars(stripslashes($aPluginInfo["author"])),
 					"website" => $aPluginInfo["website"]
 				);
-			
+
 				if(!empty($aPluginInfo["name"]))
 					$aPlugin["name"] = htmlspecialchars(stripslashes($aPluginInfo["name"]));
 				else
 					$aPlugin["name"] = $aPlugin["tag"];
-			
+
 				if(!empty($aPluginInstalled))
 					$aPlugin["status"] = 1;
 				else
@@ -368,88 +368,56 @@ class admin_settings extends adminController {
 	}
 	function plugins_install() {
 		global $objDB;
-		
+
 		$sPlugin = $this->urlVars->dynamic["plugin"];
-		
+
 		// Set defaults
 		$aTables = $aSettings = $aMenuAdmin = array();
-		
-		// Include isntall
+
+		// Include install
 		$sPluginStatus = 1;
 		if(is_file($this->settings->root."plugins/".$sPlugin."/install.php"))
 			include($this->settings->root."plugins/".$sPlugin."/install.php");
-		
-		// Database
-		$objDB->loadModule('Manager');
 
-		foreach($aTables as $sTable => $aTable) {
+		// Database
+		foreach($aTables as $sTable => $sTableSQL) {
 			$sTableRaw = $sTable;
 			$sTable = $this->settings->dbPrefix.$sTable;
-			
-			// Add database
-			$oTable = $objDB->createTable($sTable, $aTable["fields"]);
-			
-			// Add indexes
-			if(is_array($aTable["index"])) {
-				$aDefinitions = array(
-					"fields" => array(
-					)
-				);
-				foreach($aTable["index"] as $x => $sIndex) {
-					$aDefinitions["fields"][$sIndex] = array();
-				}
-				
-				$objDB->createIndex($sTable, "Indexes", $aDefinitions);
-			}
-			
-			// Add unique indexes
-			if(is_array($aTable["unique"])) {
-				$aUnique = array(
-					"unique" => true,
-					"fields" => array()
-				);
-				
-				foreach($aTable["unique"] as $x => $sUnique) {
-					$aUnique["fields"][$sUnique] = array();
-				}
-				
-				$objDB->createConstraint($sTable, "Uniques", $aUnique);
-			}
-			
-			if(is_array($aTable["fulltext"]))
-				$this->dbQuery("ALTER TABLE  `".$sTable."` ADD FULLTEXT (`".implode("`,`", $aTable["fulltext"])."`);", "alter");
-			
-			if(is_array($aTable["search"])) {
-				$this->dbInsert(
-					"search",
-					array(
-						"plugin" => $sPlugin
-						,"table" => $sTableRaw
-						,"column_title" => $aTable["search"]["title"]
-						,"column_content" => $aTable["search"]["content"]
-						,"rows" => json_encode($aTable["search"]["rows"])
-						,"filter" => $aTable["search"]["filter"]
-					)
-				);
-			}
+
+			// Add table
+			$s = $this->dbQuery($sTableSQL);
+
+			// if(is_array($aTable["search"])) {
+			// 	$this->dbInsert(
+			// 		"search",
+			// 		array(
+			// 			"plugin" => $sPlugin
+			// 			,"table" => $sTableRaw
+			// 			,"column_title" => $aTable["search"]["title"]
+			// 			,"column_content" => $aTable["search"]["content"]
+			// 			,"rows" => json_encode($aTable["search"]["rows"])
+			// 			,"filter" => $aTable["search"]["filter"]
+			// 		)
+			// 	);
+			// }
 		}
-		
+
 		// Settings
 		foreach($aSettings as $aSetting) {
 			$sGroup = $this->dbQuery("SELECT `id` FROM `{dbPrefix}settings_groups`"
 					." WHERE `name` = ".$this->dbQuote($aSetting["group"], "text")
 				, "one"
 			);
-			
+
 			if(empty($sGroup)) {
 				$sOrder = $this->dbQuery(
 					"SELECT MAX(`sort_order`) + 1 FROM `{dbPrefix}settings_groups`"
 					,"one"
 				);
-	
+
 				if(empty($sOrder))
 					$sOrder = 1;
-				
+
 				$sGroup = $this->dbInsert(
 					"settings_groups",
 					array(
@@ -459,7 +427,7 @@ class admin_settings extends adminController {
 					)
 				);
 			}
-			
+
 			$this->dbInsert(
 				"settings",
 				array(
@@ -473,7 +441,7 @@ class admin_settings extends adminController {
 				)
 			);
 		}
-		
+
 		// Admin Menu
 		if(!empty($aMenuAdmin)) {
 			$sOrder = $this->dbQuery(
@@ -481,7 +449,7 @@ class admin_settings extends adminController {
 				,"one"
 			);
 			$sOrder++;
-			
+
 			$this->dbInsert(
 				"menu_admin",
 				array(
@@ -491,7 +459,7 @@ class admin_settings extends adminController {
 				)
 			);
 		}
-		
+
 		// Plugin Status
 		$this->dbInsert(
 			"plugins",
@@ -499,61 +467,59 @@ class admin_settings extends adminController {
 				"plugin" => $sPlugin
 			)
 		);
-		
+
 		$this->forward("/admin/settings/plugins/?success=".urlencode("Plugin installed successfully!"));
 	}
 	function plugins_uninstall() {
 		global $objDB;
-		
+
 		$sPlugin = $this->urlVars->dynamic["plugin"];
-		
+
 		// Set defaults
 		$aTables = $aSettings = $aMenuAdmin = array();
-		
+
 		// Include isntall
 		$sPluginStatus = 0;
 		if(is_file($this->settings->root."plugins/".$sPlugin."/install.php"))
 			include($this->settings->root."plugins/".$sPlugin."/install.php");
-			
-		// Database
-		$objDB->loadModule('Manager');
 
+		// Database
 		foreach($aTables as $sTable => $aTable) {
-			$objDB->dropTable($this->settings->dbPrefix.$sTable);
+			$this->dbQuery('DROP TABLE '.$this->settings->dbPrefix.$sTable);
 		}
-		
+
 		// Settings
 		foreach($aSettings as $aSetting) {
 			$this->dbDelete("settings", $aSetting["tag"], "tag", "text");
 		}
-		
+
 		//Search
-		$this->dbDelete("search", $sPlugin, "plugin", "text");
-		
+		// $this->dbDelete("search", $sPlugin, "plugin", "text");
+
 		// Admin Menu
 		$this->dbDelete("menu_admin", $sPlugin, "tag", "text");
-		
+
 		// Plugin status
 		$this->dbDelete("plugins", $sPlugin, "plugin", "text");
-		
+
 		$this->forward("/admin/settings/plugins/?success=".urlencode("Plugin uninstalled successfully!"));
 	}
 	function admin_menu_index() {
 		if($this->superAdmin == false)
 			$this->forward("/admin/settings/?error=".urlencode("You do not have permissions to view that page."));
-		
+
 		$aAdminMenuResult = $this->dbQuery(
 			"SELECT * FROM `{dbPrefix}menu_admin`"
 				." ORDER BY `sort_order`"
 			,"all"
 		);
-		
+
 		$aAdminMenu = array();
 		foreach($aAdminMenuResult as $aMenu) {
 			$aAdminMenu[$aMenu["tag"]] = json_decode($aMenu["info"], true);
 		}
-		
-		$this->tplAssign("aAdminMenu", $aAdminMenu);		
+
+		$this->tplAssign("aAdminMenu", $aAdminMenu);
 		$this->tplDisplay("settings/admin_menu/index.php");
 	}
 	function admin_menu_s() {
@@ -568,7 +534,7 @@ class admin_settings extends adminController {
 				"text"
 			);
 		}
-		
+
 		$this->forward("/admin/settings/admin-menu/?success=".urlencode("Menu updated successfully!"));
 	}
 	##################################

@@ -283,7 +283,7 @@ class appController {
 				$aReturn = $this->_db->lastInsertID($sSQL);
 				break;
 			default:
-				$aReturn = true;
+				$aReturn = $this->_db->query($sSQL);
 		}
 
 		$this->_db->free();
@@ -305,11 +305,6 @@ class appController {
 	}
 	function dbUpdate($sTable, $aData, $sId, $sIdField = "id", $sIdType = "integer") {
 		$sTable = $this->settings->dbPrefix.$sTable;
-
-		if($sIdType != 'integer') {
-			$sId = $this->_db->escape($sId);
-		}
-
 		$sWhere = '`'.$sIdField.'` = ?';
 		$aData['.Where'] = $sId;
 
@@ -317,10 +312,6 @@ class appController {
 	}
 	function dbDelete($sTable, $sId, $sIdField = "id", $sIdType = "integer") {
 		$sTable = $this->settings->dbPrefix.$sTable;
-
-		if($sIdType != 'integer') {
-			$sId = $this->_db->escape($sId);
-		}
 
 		$sWhere = '`'.$sIdField.'` = ?';
 		$aData = array($sId);
@@ -343,12 +334,20 @@ class appController {
 	}
 	public function tplDisplay($sTemplate, $aAssign = array(), $sReturn = false) {
 		if(is_file($this->settings->tplDir.$sTemplate)) {
+			$sDirectory = $this->settings->tplDir.$sTemplate;
+		} elseif(!empty($this->_plugin) && is_file(APP."plugins/".$this->_plugin."/views/".$sTemplate)) {
+			$sDirectory = APP."plugins/".$this->_plugin."/views/".$sTemplate;
+		} else {
+			$sDirectory = false;
+		}
+
+		if($sDirectory) {
 			extract($aAssign);
 			extract($this->assign);
 
 			ob_start();
 
-			include($this->settings->tplDir.$sTemplate);
+			include($sDirectory);
 
 			if($sReturn == true) {
 				$sView = ob_get_contents();
