@@ -15,6 +15,20 @@
     }
   });
 
+  $('.date-input input').datepicker({
+    autoclose: true,
+    format: "mm/dd/yyyy"
+  }).on('changeDate', function() {
+    $(this).parent().addClass('selected');
+  });
+
+  $('.input-switch').on('change', function() {
+    var switch_id = $(this).data('switchto'),
+        $targets = $(this).parents('.row').find('.switch-target');
+
+    $targets.removeClass('active').filter('#' + switch_id).addClass('active');
+  });
+
   // monkee quote form
   if ($('.request-quote-form').length > 0) {
 

@@ -91,6 +91,9 @@
         </div>
         <div id="datepicker" class="switch-target">
           <a href="#" class="datepicker">Pick a Date</a>
+          <div class="date-input">
+            <input type="text" value="Select a Date">
+          </div>
         </div>
       </div>
     </div>
