@@ -1663,6 +1663,11 @@ label {
   border-top: 12px solid #b2b2b2;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
+  -webkit-transition: border 0.3s ease;
+  -moz-transition: border 0.3s ease;
+  -ms-transition: border 0.3s ease;
+  -o-transition: border 0.3s ease;
+  transition: border 0.3s ease;
 }
 .select-box select {
   display: block;
@@ -1694,6 +1699,14 @@ label {
 }
 .select-box select:focus {
   border-color: #23a38f;
+}
+.select-box.selected:after {
+  border-top-color: #fff;
+}
+.select-box.selected select {
+  border-color: #23a38f;
+  background: #23a38f;
+  color: #fff;
 }
 
 .input-wrapper {

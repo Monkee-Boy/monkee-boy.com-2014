@@ -7,6 +7,14 @@
     $(this).parent('.input-wrapper').removeClass('focused');
   });
 
+  $('.select-box').on('change', 'select', function(e) {
+    if (this.value) {
+      $(this).parent('.select-box').addClass('selected');
+    } else {
+      $(this).parent('.select-box').removeClass('selected');
+    }
+  });
+
   // monkee quote form
   if ($('.request-quote-form').length > 0) {
 
@@ -22,7 +30,7 @@
         }
       }
     });
-    
+
     // on blur, validate and set opacity
     $('.request-quote-form').on('blur', '.form-part1 input', function() {
       var $this = $(this),

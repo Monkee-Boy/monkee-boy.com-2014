@@ -83,6 +83,7 @@ label {
     border-top: 12px solid $grey;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
+    @include transition(border 0.3s ease);
   }
   select {
     display: block;
@@ -107,6 +108,14 @@ label {
     @include transition(all 0.3s ease);
     &:focus {
       border-color: $teal;
+    }
+  }
+  &.selected {
+    &:after { border-top-color: #fff; }
+    select {
+      border-color: $teal;
+      background: $teal;
+      color: #fff;
     }
   }
 }
