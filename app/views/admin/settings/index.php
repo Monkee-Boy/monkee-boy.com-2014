@@ -1,6 +1,6 @@
 <?php $this->tplDisplay("inc_header.php", ['menu'=>'settings','subMenu'=>'Site Settings','sPageTitle'=>"Site Settings"]); ?>
 
-	<h1>Site Settings</h1>
+	<h2>Site Settings<a href="/admin/settings/plugins/" title="Manage Plugins" class="btn btn-primary pull-right" rel="tooltip" data-placement="bottom">Manage Plugins</a></h2>
 	<?php $this->tplDisplay('inc_alerts.php'); ?>
 
 	<?php if($sSuperAdmin): ?>
