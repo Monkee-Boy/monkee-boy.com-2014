@@ -1,45 +1,79 @@
 (function($) {
 
   // forms
-  $('.input-wrapper input').on('focus', function() {
+  $('.input-wrapper').on('focus', 'input, textarea', function() {
     $(this).parent('.input-wrapper').addClass('focused');
-  }).on('blur', function() {
+  }).on('blur', 'input, textarea', function() {
     $(this).parent('.input-wrapper').removeClass('focused');
   });
 
-  // monkee quote form
-  // attach validation
-  $('.request-quote-form').validationEngine('attach', {
-    showArrow: false,
-    binded: false,
-    promptPosition: "bottomLeft",
-    'custom_error_messages' : {
-      'required': { 'message': 'Oops, looks like you forgot to add this field' },
-      '#url' : {
-        'custom[url]': { 'message': 'That doesn\'t look like the URLs we\'re used to.' }
-      }
-    }
-  });
-  $('.request-quote-form').on('blur', '.form-part1 input', function() {
-    var $this = $(this),
-        $steps = $('.request-quote-form').find('.monkee-step'),
-        is_valid = !$this.validationEngine('validate');
-
-    // test if parent should be marked complete
-    if (is_valid) {
-      if ( $this.parent().is(':last-child') ) $this.parents('.form-step').addClass('complete');
+  $('.select-box').on('change', 'select', function(e) {
+    if (this.value) {
+      $(this).parent('.select-box').addClass('selected');
     } else {
-      $this.parents('.form-step').removeClass('complete');
-    }
-
-    // change opacity of monkee
-    var complete_steps = $steps.filter('.complete').length;
-    if (complete_steps > 0) {
-      var opacity = 1 - complete_steps/$steps.length;
-      $('.request-quote-form').find('.dark-monkee').css('opacity', opacity);
-      console.log("opacity should be", opacity);
+      $(this).parent('.select-box').removeClass('selected');
     }
   });
+
+  $('.date-input input').datepicker({
+    autoclose: true,
+    format: "mm/dd/yyyy"
+  }).on('changeDate', function() {
+    $(this).parent().addClass('selected');
+  });
+
+  $('.input-switch').on('change', function() {
+    var switch_id = $(this).data('switchto'),
+        $targets = $(this).parents('.row').find('.switch-target');
+
+    $targets.removeClass('active').filter('#' + switch_id).addClass('active');
+  });
+
+  // monkee quote form
+  if ($('.request-quote-form').length > 0) {
+
+    // attach validation
+    $('.request-quote-form').validationEngine('attach', {
+      showArrow: false,
+      binded: false,
+      promptPosition: "bottomLeft",
+      'custom_error_messages' : {
+        'required': { 'message': 'Oops, looks like you forgot to add this field' },
+        '#url' : {
+          'custom[url]': { 'message': 'That doesn\'t look like the URLs we\'re used to.' }
+        }
+      }
+    });
+
+    // on blur, validate and set opacity
+    $('.request-quote-form').on('blur', '.form-part1 input', function() {
+      var $this = $(this),
+          $steps = $('.request-quote-form').find('.monkee-step'),
+          $monkee = $('.request-quote-form').find('.monkee'),
+          is_valid = !$this.validationEngine('validate');
+
+      // test if parent should be marked complete
+      if (is_valid) {
+        if ( $this.parent().is(':last-child') ) $this.parents('.form-step').addClass('complete');
+      } else {
+        $this.parents('.form-step').removeClass('complete');
+      }
+
+      // change opacity of monkee
+      var complete_steps = $steps.filter('.complete').length;
+      if (complete_steps > 0) {
+        var opacity = 1 - complete_steps/$steps.length;
+        $monkee.children('.dark-monkee').css('opacity', opacity);
+        console.log("opacity should be", opacity);
+      }
+      // speech bubble
+      if ( complete_steps === $steps.length ) {
+        $monkee.addClass('speak');
+      } else {
+        $monkee.removeClass('speak');
+      }
+    });
+  }
 
   var PortfolioSlider = function(el) {
     this.$el = $(el);
@@ -396,5 +430,54 @@
     $dropdown.css('top', offset_top + 'px');
 
   });
+
+  // shoot bananas from the footer
+  function shoot_bananas() {
+    console.log("shooting bananas");
+    var a = 0.8, // vertical accelleration
+        num_bananas = Math.ceil(Math.random() * 4 + 1),
+        pos = [0, -20],
+        $banana_triangle = $('.bananas');
+
+
+    // create some bananas and shoot them
+    for (var i = 0; i < num_bananas; i++) {
+      var banana = $('<div class="shooting-banana" />'),
+          vx = (0.5 - Math.random()) * 10, // horizontal velocity, can be positive or negative
+          vy = -Math.random() * 20; // initial vertical velocity
+
+      console.log("initial x velocity:", vx + ", initial y velocity:", vy);
+      $banana_triangle.append(banana);
+      update_banana_pos(banana, pos, vx, vy, a);
+    }
+  }
+
+  $('.bananas').on('mouseenter', shoot_bananas);
+
+  function update_banana_pos(banana, p0, vx, vy, a) {
+    // we're under the assumption that 1 time unit has passed each iteration
+    var posX = p0[0] + vx,
+        posY = p0[1] + vy,
+        transform = 'matrix(1, 0, 0, 1, '+ posX + ', '+ posY +')';
+
+    // update velocity
+    vy += a;
+
+    // set the transform
+    banana[0].style.webkitTransform = transform;
+    banana[0].style.MozTransform = transform;
+    banana[0].style.msTransform = transform;
+    banana[0].style.OTransform = transform;
+    banana[0].style.transform = transform;
+
+    // if posX is greater than 20px below, keep going
+    if ( posY < 20) {
+      requestAnimationFrame(function() {
+        update_banana_pos(banana, [posX, posY], vx, vy, a);
+      });
+    } else {
+      banana.remove();
+    }
+  }
 
 }(jQuery));
