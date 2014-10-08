@@ -34,6 +34,25 @@
   }
 }
 
+.list-style-alt {
+  list-style: none;
+
+  li {
+    margin-top: 15px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  li:before {
+    content: '+';
+    color: #acca32;
+    margin-left: -25px;
+    margin-right: 10px;
+  }
+}
+
 .panel {
   margin-bottom: em-calc(35px);
   padding: 35px 0;
@@ -175,16 +194,38 @@
     @include span(5 of 12);
     position: relative;
     z-index: 1;
+    color: $light-grey;
+    font-size: 22px;
     background: $black;
 
     h3 {
-      font-size: em-calc(40);
+      font-size: em-calc(40px);
+      line-height: 1;
       color: $light-grey;
+    }
+
+    p {
+
+    }
+
+    a {
+      color: $light-grey;
+
+      &:hover, &:focus {
+        color: $green;
+      }
     }
   }
 
   .item-panel {
     @include span(6 of 12 last);
+
+    h3 {
+      font-size: 24px;
+      font-weight: bold;
+      color: $teal;
+      margin: 0 0 em-calc(17, 24);
+    }
   }
 }
 

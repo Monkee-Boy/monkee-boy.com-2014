@@ -15,7 +15,7 @@
   <link rel="sitemap" href="/sitemap.xml" type="application/xml" title="Sitemap">
   <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/">
 
-  <link rel="stylesheet" href="/css/style.min.css?v=1">
+  <link rel="stylesheet" href="/css/style.min.css?v=2">
 
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
   <script type="text/javascript" src="//use.typekit.net/shc0zig.js"></script>
@@ -26,6 +26,7 @@
 <body>
   <!--[if lt IE 9]><p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p><![endif]-->
 
+<div class="container" role="document">
   <header role="banner">
     <div class="top-bar">
       <div class="row-flush">
