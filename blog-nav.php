@@ -20,4 +20,17 @@ $header_img = $is_post? '/assets/blog-post-featured.png': '/assets/blog-landing-
     </ul>
   </nav>
 
+  <?php if($is_post): ?>
+  <div class="post-header row">
+    <h1>Once Upon a Time There Was a Website</h1>
+    <img src="/assets/troop-autumn-default.jpg" alt="Autumn Hutchins" class="author-pic">
+    <span class="source">By Autumn Hutchins</span>
+    <ul class="menu-lite">
+      <li>Category</li>
+      <li>3 Comments</li>
+      <li>May 29th 2014</li>
+    </ul>
+  </div>
+  <?php endif; ?>
+
 </header>

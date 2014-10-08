@@ -12,10 +12,12 @@
     left: 0;
     right: 0;
     z-index: 0;
+    background-color: $teal;
+    @include opacity(0.8);
   }
   &.listing-page {
     padding-bottom: em-calc(120);
-    &:after { background-color: rgba($green, 0.8); }
+    &:after { background-color: $green; }
   }
   .blog-nav { margin-bottom: 0; }
   .row {
@@ -48,9 +50,8 @@
     font-size: 26px;
     a {
       color: #fff;
-      @include transition(all 0.3s ease);
       &:hover, &:focus {
-        @include scale(1.2);
+        color: $red;
         text-decoration: none;
       }
     }
@@ -58,7 +59,83 @@
 
 }
 
+.post-header {
+  text-align: center;
+  h1 {
+    max-width: 800px;
+    margin: 80px auto;
+    color: #fff;
+  }
+  .author-pic {
+    display: inline-block;
+    width: 100px;
+    @include border-radius(50%);
+  }
+  .source {
+    display: block;
+    font-size: 24px;
+    font-family: $heading-font;
+    font-weight: bold;
+    color: $yellow;
+    text-transform: uppercase;
+  }
+  .menu-lite {
+    color: #fff;
+    float: none;
+  }
+}
+
+.featured-post {
+  margin-bottom: em-calc(100);
+  .header-meta {
+    position: relative;
+    @include span(8 of 12);
+  }
+  .bg {
+    position: relative;
+    display: block;
+    height: 0;
+    padding-bottom: 66.67%;
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0;
+      top: 0; bottom: 0;
+      background-color: rgba($teal, 0.75);
+    }
+  }
+  .title {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    padding: 0 em-calc(40);
+    @include translate(0, -50%);
+    text-align: center;
+    h1 {
+      color: #fff;
+    }
+    .source {
+      font-size: 24px;
+      font-family: $heading-font;
+      font-weight: bold;
+      color: $yellow;
+      text-transform: uppercase;
+    }
+  }
+  .excerpt {
+    @include span(4 of 12);
+  }
+  .menu-lite { margin-bottom: em-calc(10); }
+  .more-link {
+    float: right;
+    color: $teal;
+    &:after { content: " \00bb"; }
+  }
+}
+
 .post-panel {
+  margin-bottom: em-calc(40);
   .post-panel-inside {
     background: #fefefe;
   }
@@ -72,5 +149,44 @@
     color: $dark-teal;
     font-size: 18px;
     font-weight: normal;
+  }
+}
+
+.blog-list {
+  .filter-bar {
+    text-align: center;
+    margin-bottom: em-calc(50);
+    label {
+      color: $grey;
+      display: inline-block;
+      vertical-align: middle;
+      margin: 10px 20px 0 0;
+    }
+    .select-box {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}
+
+.paging {
+  text-align: center;
+  .load-more {
+    width: 100%;
+    max-width: 1080px;
+  }
+}
+
+// single post content
+.single-post {
+  @include span(8 of 12);
+  float: none;
+  margin: 0 auto;
+  blockquote {
+    float: left;
+    width: 62.5%;
+    margin-left: -12.5%;
+    margin-right: #{$gutter-width/2}px;
+    padding-right: #{$gutter-width/2}px;
   }
 }
