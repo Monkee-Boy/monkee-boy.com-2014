@@ -3154,6 +3154,10 @@ input[type=submit] {
   z-index: 1;
 }
 
+.blog-author {
+  margin-bottom: 3.33333em;
+}
+
 .author-info {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -3225,6 +3229,52 @@ input[type=submit] {
   text-decoration: none;
 }
 .author-articles .list-style-alt a:hover, .author-articles .list-style-alt a:hover:after {
+  color: #ff6c5c;
+}
+
+.comment-section ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.comment-section .comments > li,
+.comment-section .nested-replies > li {
+  position: relative;
+  padding-left: 136px;
+  margin-bottom: 2.22222em;
+}
+.comment-section .nested-replies {
+  padding: 2.22222em 1.66667em 1px;
+  margin-top: 2.22222em;
+  background-color: #fff;
+}
+.comment-section .pic {
+  position: absolute;
+  left: 0;
+  top: -5px;
+  width: 100px;
+  height: 100px;
+  background-position: center center;
+  background-size: cover;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 3px solid #b2b2b2;
+}
+.comment-section .menu-lite {
+  text-align: right;
+}
+.comment-section .menu-lite li {
+  text-transform: none;
+}
+.comment-section .menu-lite li:first-child {
+  text-transform: uppercase;
+}
+.comment-section .menu-lite a {
+  color: #23a38f;
+  font-weight: bold;
+}
+.comment-section .menu-lite a:hover {
   color: #ff6c5c;
 }
 

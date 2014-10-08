@@ -71,7 +71,7 @@
     </div><!-- /.single-post -->
   </div>
 
-  <div class="panel-wide" data-panel-color="green" data-panel-style="slash">
+  <div class="panel-wide blog-author" data-panel-color="green" data-panel-style="slash">
     <div class="row-flush">
       <div class="author-info">
         <img src="/assets/troop-autumn-default.jpg" alt="">
@@ -93,6 +93,64 @@
         </ul>
       </div>
     </div>
+  </div>
+
+  <div class="row post-extras">
+    <div class="single-post">
+      <h3 data-text-align="center">You might also like:</h3>
+      <div class="row-pop">
+        <div class="half post-panel" data-text-align="center">
+          <div class="post-panel-inside">
+            <a href="" title=""><img src="/assets/blog-post.jpg" alt=""></a>
+            <h4><a href="" title="">Freebie Friday: 25 Colorful Polygon Backgrounds</a></h4>
+          </div>
+        </div>
+        <div class="half post-panel" data-text-align="center">
+          <div class="post-panel-inside">
+            <a href="" title=""><img src="/assets/blog-post.jpg" alt=""></a>
+            <h4><a href="" title="">Freebie Friday: 25 Colorful Polygon Backgrounds</a></h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="comment-section">
+        <h3 data-text-align="center">Reader Comments</h3>
+        <ul class="comments">
+          <li>
+            <span class="pic" style="background-image:url(http://cdn.morguefile.com/imageData/public/files/t/typexnick/preview/fldr_2012_03_03/file5751330778129.jpg)"></span>
+            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia a odio con nec elit. Cras mattis consectetur purus sit amet fermentum.</p>
+            <ul class="menu-lite">
+              <li>Longeruser middlename fullname</li>
+              <li>June 20th, 2014</li>
+              <li><a href="#">reply</a></li>
+            </ul>
+
+            <ul class="nested-replies">
+              <li>
+                <span class="pic" style="background-image:url(http://cdn.morguefile.com/imageData/public/files/e/ecerroni/preview/fldr_2008_11_13/file0002019118431.jpg)"></span>
+                <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia a odio con nec elit. Cras mattis consectetur purus sit amet fermentum.</p>
+                <ul class="menu-lite">
+                  <li>User Fullname</li>
+                  <li>June 27th, 2014</li>
+                  <li><a href="#">reply</a></li>
+                </ul>
+              </li>
+            </ul><!-- /.nested-replies -->
+
+          </li>
+          <li>
+            <span class="pic" style="background-image:url(http://cdn.morguefile.com/imageData/public/files/r/ronnieb/preview/fldr_2005_11_02/file000410741279.jpg)"></span>
+            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia a odio con nec elit. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. </p>
+            <ul class="menu-lite">
+              <li>User Fullname</li>
+              <li>July 1st, 2014</li>
+              <li><a href="#">reply</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.comment-section -->
+
+    </div><!-- /.single-post -->
   </div>
 
 <?php include('inc_footer.php'); ?>
