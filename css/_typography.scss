@@ -216,3 +216,51 @@ a {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+// social link list
+.social-links {
+  list-style-type: none;
+  li {
+    display: inline-block;
+  }
+  a {
+    position: relative;
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    text-align: center;
+    &:before, &:after {
+      @extend .icon;
+    }
+    &:before {
+      content: $icon-hexagon-back;
+      color: $green;
+      font-size: 54px;
+      line-height: 1;
+      @include rotate(0);
+      @include transition(all 0.3s ease);
+    }
+    &:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: #fff;
+      font-size: 30px;
+      line-height: 54px;
+      width: 54px;
+    }
+    &:hover {
+      text-decoration: none;
+      &:before {
+        color: $teal;
+        @include rotate(180deg);
+      }
+    }
+  }
+  .twitter:after { content: $icon-twitter; }
+  .facebook:after { content: $icon-facebook; }
+  .linkedin:after { content: $icon-linkedin; }
+  .gplus:after { content: $icon-gplus; }
+  .instagram:after { content: $icon-instagram; }
+  .pinterest:after { content: $icon-pinterest; }
+}

@@ -71,4 +71,28 @@
     </div><!-- /.single-post -->
   </div>
 
+  <div class="panel-wide" data-panel-color="green" data-panel-style="slash">
+    <div class="row-flush">
+      <div class="author-info">
+        <img src="/assets/troop-autumn-default.jpg" alt="">
+        <span class="name">Autumn Hutchins</span>
+        <ul class="social-links" role="menu">
+          <li><a href="#" class="gplus">Google Plus</a></li>
+          <li><a href="#" class="instagram">Instagram</a></li>
+          <li><a href="#" class="pinterest">Pinterest</a></li>
+        </ul>
+      </div>
+      <div class="author-articles">
+        <h2 class="section-head"><span class="subtitle">more from</span> the author</h2>
+        <ul class="list-style-alt">
+          <li><a href="#">Link item 1</a></li>
+          <li><a href="#">Link item 2</a></li>
+          <li><a href="#">Link item lorem dolor sit amet 3</a></li>
+          <li><a href="#">Link item 4</a></li>
+          <li><a href="#">Link item 5</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
 <?php include('inc_footer.php'); ?>

@@ -264,3 +264,13 @@
     }
   }
 }
+
+// author section
+.author-info {
+  @include span(3 of 12);
+}
+.author-articles {
+  @include span(9 of 12);
+  max-width: 680px;
+  float: right;
+}

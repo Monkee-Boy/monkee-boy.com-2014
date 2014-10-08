@@ -44,7 +44,7 @@
         </div><!-- /.profile-content -->
         <div class="profile-footer">
           <p class="latest-update"></p>
-          <ul class="profile-socials" role="menu">
+          <ul class="social-links" role="menu">
             <li><a href="#" class="twitter">Twitter</a></li>
             <li><a href="#" class="facebook">Facebook</a></li>
             <li><a href="#" class="linkedin">LinkedIn</a></li>
@@ -92,7 +92,7 @@
         </div><!-- /.profile-content -->
         <div class="profile-footer">
           <p class="latest-update"></p>
-          <ul class="profile-socials" role="menu">
+          <ul class="social-links" role="menu">
             <li><a href="#" class="twitter">Twitter</a></li>
             <li><a href="#" class="facebook">Facebook</a></li>
             <li><a href="#" class="linkedin">LinkedIn</a></li>
@@ -140,7 +140,7 @@
         </div><!-- /.profile-content -->
         <div class="profile-footer">
           <p class="latest-update"></p>
-          <ul class="profile-socials" role="menu">
+          <ul class="social-links" role="menu">
             <li><a href="#" class="twitter">Twitter</a></li>
             <li><a href="#" class="facebook">Facebook</a></li>
             <li><a href="#" class="linkedin">LinkedIn</a></li>
@@ -188,7 +188,7 @@
         </div><!-- /.profile-content -->
         <div class="profile-footer">
           <p class="latest-update"></p>
-          <ul class="profile-socials" role="menu">
+          <ul class="social-links" role="menu">
             <li><a href="#" class="twitter">Twitter</a></li>
             <li><a href="#" class="facebook">Facebook</a></li>
             <li><a href="#" class="linkedin">LinkedIn</a></li>
