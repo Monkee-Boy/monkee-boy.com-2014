@@ -83,7 +83,7 @@
         </ul>
       </div>
       <div class="author-articles">
-        <h2 class="section-head"><span class="subtitle">more from</span> the author</h2>
+        <h2><span class="subtitle">more from </span>the author</h2>
         <ul class="list-style-alt">
           <li><a href="#">Link item 1</a></li>
           <li><a href="#">Link item 2</a></li>

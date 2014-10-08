@@ -25,7 +25,8 @@
 <script src="/bower_components/validationEngine/js/languages/jquery.validationEngine-en.js" type="text/javascript" charset="utf-8"></script>
 <script src="/bower_components/validationEngine/js/jquery.validationEngine.js"></script>
 <script src="/bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-<script src="/js/app.js"></script>
+<script src="/js/app.js?v=2"></script>
+
 <script>
 (function(m,o,n,k,e,y){m.GoogleAnalyticsObject=k;m[k]||(m[k]=
 function(){(m[k].q=m[k].q||[]).push(arguments)});m[k].k=+new Date;

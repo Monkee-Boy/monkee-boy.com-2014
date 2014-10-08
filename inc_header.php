@@ -15,7 +15,7 @@
   <link rel="sitemap" href="/sitemap.xml" type="application/xml" title="Sitemap">
   <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed/">
 
-  <link rel="stylesheet" href="/css/style.min.css?v=1">
+  <link rel="stylesheet" href="/css/style.min.css?v=2">
 
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
   <script type="text/javascript" src="//use.typekit.net/shc0zig.js"></script>

@@ -52,9 +52,30 @@
     </div>
   </div>
 
-  <div class="panel-wide">
+  <div class="panel-wide home-marketing" data-panel-style="callout">
     <div class="row-flush">
-      Marketing Section
+      <div class="item-callout">
+        <h3 data-text-align="center">monkee-boy<br />marketing section</h3>
+
+        <p><em>Nullam quis risus eget urna mollis ornare vel eu leo.  Duis mollis, est non commodo luctus, nisi nec elit.
+ante venenatis.</em></p>
+
+        <ul class="list-style-alt">
+          <li><a href="" title="">Lorem ipsum dolor sit amet &raquo;</a></li>
+          <li><a href="" title="">Consectetuer adipiscing elit &raquo;</a></li>
+          <li><a href="" title="">Sed diam nonummy nibh euismod &raquo;</a></li>
+          <li><a href="" title="">Duis mollis, est non commodo &raquo;</a></li>
+          <li><a href="" title="">Sed posuere  lobortis. &raquo;</a></li>
+        </ul>
+      </div>
+
+      <div class="item-panel">
+        <h3>lorem ipsum Ut enim ad minim veniam</h3>
+
+        <p>Quis nostrud exercitation ullamco laboris nisi ut con aliquip ex ea commodo consequat.</p>
+
+          <a href="" title="">Link to take it there</a>
+      </div>
     </div>
   </div>
 
