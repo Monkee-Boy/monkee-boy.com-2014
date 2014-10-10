@@ -116,6 +116,15 @@ blockquote {
   }
 }
 
+hr {
+  border: none;
+  outline: none;
+  height: 8px;
+  background: url(../images/dot-border.png) repeat-x;
+  margin: em-calc(30) 0;
+  @include opacity(0.16);
+}
+
 ul.styleless {
   margin: 0;
   padding: 0;

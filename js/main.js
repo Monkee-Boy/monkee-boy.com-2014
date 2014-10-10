@@ -431,27 +431,6 @@
 
   });
 
-  // shoot bananas from the footer
-  function shoot_bananas() {
-    console.log("shooting bananas");
-    var a = 0.8, // vertical accelleration
-        num_bananas = Math.ceil(Math.random() * 4 + 1),
-        pos = [0, -20],
-        $banana_triangle = $('.bananas');
-
-
-    // create some bananas and shoot them
-    for (var i = 0; i < num_bananas; i++) {
-      var banana = $('<div class="shooting-banana" />'),
-          vx = (0.5 - Math.random()) * 10, // horizontal velocity, can be positive or negative
-          vy = -Math.random() * 20; // initial vertical velocity
-
-      console.log("initial x velocity:", vx + ", initial y velocity:", vy);
-      $banana_triangle.append(banana);
-      update_banana_pos(banana, pos, vx, vy, a);
-    }
-  }
-
   /**************************************
   ** Header Blur on Scroll
   **************************************/
@@ -485,8 +464,6 @@
         height = containerWidth * (imageHeight/imageWidth);
         offsetTop = -(height-containerHeight)/2;
       }
-
-      console.log("container width is", containerWidth, "container height is", containerHeight);
 
       self.$image.css({
         'width': width + 'px',
@@ -531,6 +508,178 @@
   if ($('.blur-image').length > 0 ) {
     var page_header = new BlurHeader('.blur-image');
     page_header.blurImage();
+  }
+
+  // contact page map
+  if ($('#contact-map').length > 0) {
+    var map_styles = [{
+        featureType:'landscape',
+        elementType:'all',
+        stylers:[
+          { color:'#dbf1ee' },
+          { visibility:'on' }
+        ]
+      }, {
+        featureType:'water',
+        elementType:'geometry.fill',
+        stylers:[
+          { color:'#b4d7e6' },
+          { visibility:'on' }
+        ]
+      }, {
+        featureType:'road.highway',
+        elementType:'geometry.fill',
+        stylers:[
+          { color:'#69bfb2' },
+          { visibility:'on' }
+        ]
+      }, {
+        featureType:'road.highway',
+        elementType:'geometry.stroke',
+        stylers:[
+          { color:'#ffffff' },
+          { visibility:'on' }
+        ]
+      }, {
+        featureType:'road.arterial',
+        elementType:'all',
+        stylers:[
+          { color:'#ffffff' },
+          { visibility:'simplified' }
+        ]
+      }, {
+        featureType:'poi.park',
+        elementType:'geometry.fill',
+        stylers:[
+          { color:'#bcca7f' },
+          { visibility:'on' }
+        ]
+      }, {
+        featureType:'road.local',
+        elementType:'all',
+        stylers:[
+          { color:'#d6ebe8' },
+          { visibility:'off' }
+        ]
+      }, {
+        featureType:'poi.attraction',
+        elementType:'geometry.fill',
+        stylers:[
+          { color:'#cce5e1' },
+          { visibility:'on' }
+        ]
+      }, {
+        featureType:'poi.place_of_worship',
+        elementType:'geometry.fill',
+        stylers:[
+          { color:'#cce5e1' },
+          { visibility:'on' }
+        ]
+      }, {
+        featureType:'poi.government',
+        elementType:'geometry.fill',
+        stylers:[
+          { color:'#cce5e1' },
+          { visibility:'on' }
+        ]
+      }, {
+        featureType:'poi.school',
+        elementType:'geometry.fill',
+        stylers:[
+          { color:'#cce5e1' },
+          { visibility:'on' }
+        ]
+      }, {
+        featureType:'poi.business',
+        elementType:'geometry.fill',
+        stylers:[
+          { color:'#bcd7d2' },
+          { visibility:'on' }
+        ]
+      }, {
+        featureType:'poi.medical',
+        elementType:'geometry',
+        stylers:[
+          { color:'#e5fbf8' },
+          { visibility:'off' }
+        ]
+      }, {
+        featureType:'road',
+        elementType:'labels',
+        stylers:[
+          { hue:'#ffffff' },
+          { saturation:-100 },
+          { lightness:100 },
+          { visibility:'off' }
+        ]
+      }, {
+        featureType:'transit',
+        elementType:'labels',
+        stylers:[
+          { hue:'#ffffff' },
+          { saturation:0 },
+          { lightness:100 },
+          { visibility:'off' }
+        ]
+      }, {
+        featureType:'landscape.man_made',
+        elementType:'geometry',
+        stylers:[
+          { color:'#e6faf8' },
+          { visibility:'off' }
+        ]
+      }, {
+        featureType:'administrative.neighborhood',
+        elementType:'labels.text.fill',
+        stylers:[
+          { color:'#42454c' },
+          { visibility:'on' }
+        ]
+      }, {
+        featureType:'road.local',
+        elementType:'all',
+        stylers:[
+          { color:'#cbe7e3' },
+          { visibility:'simplified' }
+        ]
+      }
+    ];
+    var office_loc = new google.maps.LatLng(30.383294, -97.743659),
+        marker_image = '/images/map-marker.png';
+    var map = new google.maps.Map(document.getElementById('contact-map'), {
+      zoom: 14,
+      center: office_loc,
+      'styles': map_styles
+    });
+
+    var office_marker = new google.maps.Marker({
+      map: map,
+      animation: google.maps.Animation.DROP,
+      position: office_loc,
+      icon: marker_image
+    });
+    office_marker.setMap(map);
+  }
+
+  // shoot bananas from the footer
+  function shoot_bananas() {
+    console.log("shooting bananas");
+    var a = 0.8, // vertical accelleration
+        num_bananas = Math.ceil(Math.random() * 4 + 1),
+        pos = [0, -20],
+        $banana_triangle = $('.bananas');
+
+
+    // create some bananas and shoot them
+    for (var i = 0; i < num_bananas; i++) {
+      var banana = $('<div class="shooting-banana" />'),
+          vx = (0.5 - Math.random()) * 10, // horizontal velocity, can be positive or negative
+          vy = -Math.random() * 20; // initial vertical velocity
+
+      console.log("initial x velocity:", vx + ", initial y velocity:", vy);
+      $banana_triangle.append(banana);
+      update_banana_pos(banana, pos, vx, vy, a);
+    }
   }
 
   $('.bananas').on('mouseenter', shoot_bananas);
