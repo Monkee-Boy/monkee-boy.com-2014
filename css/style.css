@@ -1280,7 +1280,7 @@ a:hover, a:focus {
   display: block;
 }
 
-.icon, .social-links a:before, .social-links a:after, .dots[data-dots='dual']:before, .dots[data-dots='dual']:after, .dots[data-dots='left']:before, .dots[data-dots='right']:after, .service-icon:before, .service-icon:after, .service-icon i:before, .date-input:after, .share-section a:before, .stats-list li:after, .office-cat p:before {
+.icon, .social-links a:before, .social-links a:after, .dots[data-dots='dual']:before, .dots[data-dots='dual']:after, .dots[data-dots='left']:before, .dots[data-dots='right']:after, .service-icon:before, .service-icon:after, .service-icon i:before, .date-input:after, .datepicker thead .prev:after, .datepicker thead .next:after, .share-section a:before, .stats-list li:after, .office-cat p:before {
   font-family: "icomoon";
   speak: none;
   font-style: normal;
@@ -2156,8 +2156,6 @@ input[type=submit] {
 }
 
 .datepicker {
-  padding: 4px;
-  border-radius: 4px;
   direction: ltr;
   position: absolute;
   top: 100%;
@@ -2165,22 +2163,11 @@ input[type=submit] {
   z-index: 10;
   display: none;
   float: left;
-  min-width: 160px;
-  padding: 5px 0;
+  min-width: 250px;
   margin: 2px 0 0;
   list-style: none;
   background-color: #ffffff;
-  border: 1px solid #ccc;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
-  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  -webkit-background-clip: padding-box;
-  -moz-background-clip: padding;
-  background-clip: padding-box;
+  border-bottom: 4px solid #b2b2b2;
 }
 .datepicker > div {
   display: none;
@@ -2189,6 +2176,7 @@ input[type=submit] {
   display: block;
 }
 .datepicker table {
+  width: 100%;
   margin: 0;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -2199,20 +2187,20 @@ input[type=submit] {
 }
 .datepicker table tr td, .datepicker table tr th {
   text-align: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 4px;
+  width: 40px;
+  height: 40px;
   border: none;
 }
 .table-striped .datepicker table tr td, .table-striped .datepicker table tr th {
   background-color: transparent;
 }
 .datepicker table tr td.day:hover, .datepicker table tr td.day.focused {
-  background: #ededed;
+  background: #feecb3;
   cursor: pointer;
 }
 .datepicker table tr td.old, .datepicker table tr td.new {
-  color: #ededed;
+  color: #dfdfdf;
+  background-color: #dfdfdf;
 }
 .datepicker table tr td.disabled, .datepicker table tr td.disabled:hover {
   background: none;
@@ -2229,13 +2217,11 @@ input[type=submit] {
 }
 .datepicker table tr td.range, .datepicker table tr td.range:hover, .datepicker table tr td.range.disabled, .datepicker table tr td.range.disabled:hover {
   background: #ededed;
-  border-radius: 0;
 }
 .datepicker table tr td.range.today, .datepicker table tr td.range.today:hover, .datepicker table tr td.range.today.disabled, .datepicker table tr td.range.today.disabled:hover {
   color: #000;
   background-color: #ff6c5c;
   border-color: #cc5649;
-  border-radius: 0;
 }
 .datepicker table tr td.selected, .datepicker table tr td.selected:hover, .datepicker table tr td.selected.disabled, .datepicker table tr td.selected.disabled:hover {
   color: #fff;
@@ -2257,7 +2243,6 @@ input[type=submit] {
   float: left;
   margin: 1%;
   cursor: pointer;
-  border-radius: 4px;
 }
 .datepicker table tr td span:hover {
   background: #ededed;
@@ -2276,16 +2261,46 @@ input[type=submit] {
 .datepicker table tr td span.old, .datepicker table tr td span.new {
   color: #b2b2b2;
 }
-.datepicker th.datepicker-switch {
-  width: 145px;
+.datepicker thead tr:first-child {
+  background-color: #fcc721;
+  border-bottom: 8px solid #d8ae2a;
 }
-.datepicker thead tr:first-child th,
-.datepicker tfoot tr th {
+.datepicker thead .datepicker-switch {
+  font-family: "effra", sans-serif;
+  font-size: 16px;
+  color: #fff;
+  text-transform: uppercase;
+  padding-top: 2px;
+}
+.datepicker thead .datepicker-switch:hover {
+  color: #ff6c5c;
   cursor: pointer;
 }
-.datepicker thead tr:first-child th:hover,
-.datepicker tfoot tr th:hover {
-  background: #ededed;
+.datepicker thead .prev, .datepicker thead .next {
+  font-size: 0;
+  line-height: 0;
+}
+.datepicker thead .prev:after, .datepicker thead .next:after {
+  font-size: 20px;
+  line-height: 1;
+  color: #d8ae2a;
+}
+.datepicker thead .prev:hover:after, .datepicker thead .next:hover:after {
+  color: #ff6c5c;
+  cursor: pointer;
+}
+.datepicker thead .prev:after {
+  content: "\e627";
+}
+.datepicker thead .next:after {
+  content: "\e628";
+}
+.datepicker thead .dow {
+  font-weight: normal;
+  text-transform: uppercase;
+  color: #23a38f;
+  font-family: "effra", sans-serif;
+  font-size: 16px;
 }
 .datepicker .cw {
   font-size: 10px;
@@ -2306,12 +2321,6 @@ input[type=submit] {
 
 .input-daterange input {
   text-align: center;
-}
-.input-daterange input:first-child {
-  border-radius: 3px 0 0 3px;
-}
-.input-daterange input:last-child {
-  border-radius: 0 3px 3px 0;
 }
 .input-daterange .input-group-addon {
   width: auto;
@@ -2347,19 +2356,9 @@ input[type=submit] {
 .datepicker-dropdown:before {
   content: '';
   display: inline-block;
-  border-left: 7px solid transparent;
-  border-right: 7px solid transparent;
-  border-bottom: 7px solid #ccc;
-  border-top: 0;
-  border-bottom-color: rgba(0, 0, 0, 0.2);
-  position: absolute;
-}
-.datepicker-dropdown:after {
-  content: '';
-  display: inline-block;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-bottom: 6px solid #fff;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #fcc721;
   border-top: 0;
   position: absolute;
 }
@@ -2381,15 +2380,13 @@ input[type=submit] {
 .datepicker-dropdown.datepicker-orient-top:after {
   top: -6px;
 }
-.datepicker-dropdown.datepicker-orient-bottom:before {
-  bottom: -7px;
-  border-bottom: 0;
-  border-top: 7px solid #999;
+.datepicker-dropdown.datepicker-orient-bottom {
+  margin-top: -10px;
 }
-.datepicker-dropdown.datepicker-orient-bottom:after {
-  bottom: -6px;
+.datepicker-dropdown.datepicker-orient-bottom:before {
+  bottom: -14px;
   border-bottom: 0;
-  border-top: 6px solid #fff;
+  border-top: 10px solid #b2b2b2;
 }
 
 .port-slider .screens {
