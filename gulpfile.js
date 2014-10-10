@@ -11,7 +11,7 @@ var gulp = require('gulp'),
 
 var paths = {
   styles: './css/style.scss',
-  scripts: ['./js/main.js']
+  scripts: ['./js/StackBlur.js', './js/main.js']
 };
 
 gulp.task('styles', ['components'], function () {

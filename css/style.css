@@ -1912,10 +1912,10 @@ label {
   transition: border 0.3s ease;
 }
 .input-wrapper.focused:before {
-  border: 15px solid #23a38f;
+  border: 8px solid #acca32;
 }
 .input-wrapper.focused:after {
-  border-right-color: #23a38f;
+  border-right-color: #acca32;
 }
 .input-wrapper.phone {
   float: left;
@@ -2542,6 +2542,7 @@ input[type=submit] {
   padding-right: 15px;
 }
 .hero-circles li.active .border {
+  background-color: #1c1c1e;
   z-index: 2;
 }
 .hero-circles li.active .circle {
@@ -2841,10 +2842,9 @@ input[type=submit] {
 
 .blog-header {
   position: relative;
-  background-size: cover;
-  background-position: center center;
   padding-top: 2em;
   border-bottom: 4px solid #b2b2b2;
+  overflow: hidden;
 }
 .blog-header:after {
   content: "";
@@ -2863,6 +2863,13 @@ input[type=submit] {
 }
 .blog-header.listing-page:after {
   background-color: #acca32;
+}
+.blog-header .image-bg, .blog-header canvas {
+  position: absolute;
+}
+.blog-header canvas {
+  opacity: 0;
+  filter: alpha(opacity=0);
 }
 .blog-header .blog-nav {
   margin-bottom: 0;

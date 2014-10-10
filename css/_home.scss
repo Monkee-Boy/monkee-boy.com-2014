@@ -20,6 +20,7 @@
     @include span(4 of 12);
     &.active {
       .border {
+        background-color: $dark-black;
         z-index: 2;
       }
       .circle { z-index: 3; }

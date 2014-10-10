@@ -1,9 +1,8 @@
 .blog-header {
   position: relative;
-  background-size: cover;
-  background-position: center center;
   padding-top: em-calc(36);
   border-bottom: 4px solid $grey;
+  overflow: hidden;
   &:after {
     content: "";
     position: absolute;
@@ -18,6 +17,12 @@
   &.listing-page {
     padding-bottom: em-calc(120);
     &:after { background-color: $green; }
+  }
+  .image-bg, canvas {
+    position: absolute;
+  }
+  canvas {
+    @include opacity(0);
   }
   .blog-nav { margin-bottom: 0; }
   .row {

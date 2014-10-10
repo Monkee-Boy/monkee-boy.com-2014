@@ -147,9 +147,9 @@ label {
   }
   &.focused {
     &:before {
-      border: 15px solid $teal;
+      border: 8px solid $green;
     }
-    &:after { border-right-color: $teal; }
+    &:after { border-right-color: $green; }
   }
   &.phone {
     float: left;

@@ -452,6 +452,87 @@
     }
   }
 
+  /**************************************
+  ** Header Blur on Scroll
+  **************************************/
+
+  function BlurHeader(el) {
+    this.$el = $(el);
+  }
+
+  BlurHeader.prototype.blurImage = function() {
+    console.log("blur image");
+    this.$image = this.$el.find('.image-bg');
+    var self = this;
+
+    this.$image.on('load', function() {
+
+      // position and size image in center
+      var containerWidth = self.$el.outerWidth(),
+          containerHeight = self.$el.outerHeight(),
+          imageWidth = self.$image.width(),
+          imageHeight = self.$image.height(),
+          width = 0,
+          height = 0,
+          offsetLeft = 0,
+          offsetTop = 0;
+      if ( imageWidth/imageHeight > containerWidth/containerHeight ) {
+        width = containerHeight * (imageWidth/imageHeight);
+        height = containerHeight;
+        offsetLeft = -(width - containerWidth)/2;
+      } else {
+        width = containerWidth;
+        height = containerWidth * (imageHeight/imageWidth);
+        offsetTop = -(height-containerHeight)/2;
+      }
+
+      console.log("container width is", containerWidth, "container height is", containerHeight);
+
+      self.$image.css({
+        'width': width + 'px',
+        'height': height + 'px',
+        'left': offsetLeft + 'px',
+        'top': offsetTop + 'px',
+        'display': 'block'
+      });
+
+      if ( Modernizr.canvas && !Modernizr.touch ) {
+        // create and append canvas
+        var canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        canvas.style.left = offsetLeft + 'px';
+        canvas.style.top = offsetTop + 'px';
+        self.$el.append(canvas);
+
+        // set up blurry canvas
+        var $window = $(window),
+            transitionBlur = new TweenLite.to(canvas, 1, {opacity: 1, paused: true});
+
+        var blurScroll = function() {
+          var pos = $window.scrollTop(),
+              progress = ( 1/(self.$el.height() - 80) ) * pos;
+
+          // set tween to current progress
+          if(progress >= 0 && progress <= 1) {
+            transitionBlur.progress(progress);
+          }
+        };
+
+        stackBlurImage( self.$image[0], canvas, 40, false );
+        $window.on('scroll', blurScroll);
+      }
+    }).each(function() {
+      // catch cached images -- seems to be causing it to run twice right now
+      //if(this.complete) $(this).load();
+    });
+  };
+
+  if ($('.blur-image').length > 0 ) {
+    var page_header = new BlurHeader('.blur-image');
+    page_header.blurImage();
+  }
+
   $('.bananas').on('mouseenter', shoot_bananas);
 
   function update_banana_pos(banana, p0, vx, vy, a) {

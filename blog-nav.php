@@ -10,7 +10,8 @@ if (strpos($path,'post') !== false) {
 // need to get header image from CMS
 $header_img = $is_post? '/assets/blog-post-featured.png': '/assets/blog-landing-featured.jpg';
 ?>
-<header role="banner" class="blog-header<?php if(!$is_post) echo ' listing-page'; ?>" style="background-image:url(<?php echo $header_img; ?>)">
+<header role="banner" class="blog-header blur-image <?php if(!$is_post) echo ' listing-page'; ?>">
+  <img src="<?php echo $header_img; ?>" alt="" class="image-bg">
   <nav class="blog-nav row" role="navigation">
     <a href="#" class="blog-logo">The Blog</a>
     <ul class="menu-lite">
