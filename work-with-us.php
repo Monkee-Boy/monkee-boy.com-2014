@@ -67,12 +67,20 @@
           <p>Please tell us about your project. What are your current challenges? What are you looking to accomplish?</p>
           <div class="input-wrapper"><textarea cols="10" rows="4" id="project-desc" name="project-desc"></textarea></div>
         </div>
-        <div id="brief-upload" class="switch-target"></div>
+        <div id="brief-upload" class="switch-target">
+          <h4>Lovely! Upload it here:</h4>
+          <div class="upload-box">
+            <div class="uploaded-files"></div>
+            <a href="#" class="add-files">select files</a>
+            <a href="#" class="upload">upload files</a>
+            <span class="file-size">0 MB of 100 MB</span>
+          </div>
+        </div>
       </div>
     </div>
     <div class="row">
       <div class="left">
-        <h4>Have a project brief?</h4>
+        <h4>Have a project deadline?</h4>
         <label class="radio" for="date1">
           No specific date in mind.
           <input type="radio" id="date1" name="deadline" class="input-switch" data-switchto="no-date" checked>

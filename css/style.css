@@ -3739,6 +3739,9 @@ input[type=submit] {
   left: 0;
   width: 100%;
 }
+#contact-map img {
+  max-width: none;
+}
 
 .phone-directory {
   position: relative;

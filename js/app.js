@@ -640,6 +640,57 @@ function BlurStack()
     $targets.removeClass('active').filter('#' + switch_id).addClass('active');
   });
 
+  // file upload
+  var uploader = new plupload.Uploader({
+    runtimes : 'html5,flash,silverlight,html4',
+
+    browse_button : 'pickfiles', // you can pass in id...
+    container: $('.uploaded-files'), // ... or DOM Element itself
+
+    url : "/examples/upload",
+
+    filters : {
+        max_file_size : '50mb',
+        mime_types: [
+            {title : "Image files", extensions : "jpg,gif,png"},
+            {title : "Zip files", extensions : "zip"}
+        ]
+    },
+
+    // Flash settings
+    flash_swf_url : '/bower_components/plupload/js/Moxie.swf',
+
+    // Silverlight settings
+    silverlight_xap_url : '/bower_components/plupload/js/Moxie.xap',
+
+
+    init: {
+        PostInit: function() {
+            //document.getElementById('filelist').innerHTML = '';
+            $('.add-files').on('click', function() {
+              uploader.start();
+              return false;
+            });
+        },
+
+        FilesAdded: function(up, files) {
+            /*plupload.each(files, function(file) {
+                document.getElementById('filelist').innerHTML += '<div id="' + file.id + '">' + file.name + ' (' + plupload.formatSize(file.size) + ') <b></b></div>';
+            });*/
+        },
+
+        UploadProgress: function(up, file) {
+          console.log("percent complete:", file.percent);
+        },
+
+        Error: function(up, err) {
+          console.log("error:", err.code, err.message);
+        }
+    }
+  });
+
+  uploader.init();
+
   // monkee quote form
   if ($('.request-quote-form').length > 0) {
 
