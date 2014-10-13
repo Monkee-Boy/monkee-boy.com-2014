@@ -30,11 +30,11 @@
   });
 
   // file upload
-  var uploader = new plupload.Uploader({
+  var brief_uploader = new plupload.Uploader({
     runtimes : 'html5,flash,silverlight,html4',
 
-    browse_button : 'pickfiles', // you can pass in id...
-    container: $('.uploaded-files'), // ... or DOM Element itself
+    browse_button : $('.add-files')[0], // you can pass in id...
+    container: $('.uploaded-files')[0], // ... or DOM Element itself
 
     url : "/examples/upload",
 
@@ -56,16 +56,17 @@
     init: {
         PostInit: function() {
             //document.getElementById('filelist').innerHTML = '';
-            $('.add-files').on('click', function() {
-              uploader.start();
+            $('.upload').on('click', function() {
+              brief_uploader.start();
               return false;
             });
         },
 
         FilesAdded: function(up, files) {
-            /*plupload.each(files, function(file) {
-                document.getElementById('filelist').innerHTML += '<div id="' + file.id + '">' + file.name + ' (' + plupload.formatSize(file.size) + ') <b></b></div>';
-            });*/
+            plupload.each(files, function(file) {
+              $('.uploaded-files').append('<div id="' + file.id + '">' + file.name + ' (' + plupload.formatSize(file.size) + ')</div>');
+                //document.getElementById('filelist').innerHTML += '<div id="' + file.id + '">' + file.name + ' (' + plupload.formatSize(file.size) + ') <b></b></div>';
+            });
         },
 
         UploadProgress: function(up, file) {
@@ -78,7 +79,7 @@
     }
   });
 
-  uploader.init();
+  brief_uploader.init();
 
   // monkee quote form
   if ($('.request-quote-form').length > 0) {

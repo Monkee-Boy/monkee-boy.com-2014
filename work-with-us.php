@@ -52,22 +52,22 @@
         <h4>Have a project brief?</h4>
         <label class="radio" for="brief1">
           Not yet but I can tell you about it.
-          <input type="radio" id="brief1" name="brief" class="input-switch" data-switchto="no-brief" checked>
+          <input type="radio" id="brief1" name="brief" class="input-switch" data-switchto="no-brief">
           <span class="control-indicator"></span>
         </label>
         <label class="radio" for="brief2">
           Yes I sure do!
-          <input type="radio" id="brief2" name="brief" class="input-switch" data-switchto="brief-upload">
+          <input type="radio" id="brief2" name="brief" class="input-switch" data-switchto="brief-upload" checked>
           <span class="control-indicator"></span>
         </label>
       </div>
       <div class="right">
-        <div id="no-brief" class="switch-target active">
+        <div id="no-brief" class="switch-target">
           <label for="project-desc">No brief, no problem</label>
           <p>Please tell us about your project. What are your current challenges? What are you looking to accomplish?</p>
           <div class="input-wrapper"><textarea cols="10" rows="4" id="project-desc" name="project-desc"></textarea></div>
         </div>
-        <div id="brief-upload" class="switch-target">
+        <div id="brief-upload" class="switch-target active">
           <h4>Lovely! Upload it here:</h4>
           <div class="upload-box">
             <div class="uploaded-files"></div>
