@@ -15,11 +15,33 @@
       </div>
 
       <ul>
-        <li><a href="#" title="" class="nav-who">Who We Are</a></li>
-        <li><a href="#" title="" class="nav-what">What We Do</a></li>
-        <li><a href="#" title="" class="nav-work">The Work</a></li>
-        <li><a href="#" title="" class="nav-contact">Contact</a></li>
-        <li><a href="#" title="" class="nav-blog">The Blog</a></li>
+        <li class="primary">
+          <a href="#" class="nav-who">Who We Are</a>
+          <ul>
+            <li><a href="#">Why Monkee-Boy?</a></li>
+            <li><a href="#">The Troop</a></li>
+            <li><a href="#">Latest News</a></li>
+            <li><a href="#">Join the Troop</a></li>
+          </ul>
+        </li>
+        <li class="primary">
+          <a href="#" title="" class="nav-what">What We Do</a>
+          <ul>
+            <li><a href="#">Design</a></li>
+            <li><a href="#">Development</a></li>
+            <li><a href="#">Marketing</a></li>
+            <li><a href="#">Maintenance</a></li>
+          </ul>
+        </li>
+        <li class="primary">
+          <a href="#" title="" class="nav-work">The Work</a>
+          <ul>
+            <li><a href="#">Featured Clients</a></li>
+            <li><a href="#">Testimonials</a></li>
+          </ul>
+        </li>
+        <li class="primary"><a href="#" title="" class="nav-contact">Contact</a></li>
+        <li class="primary"><a href="#" title="" class="nav-blog">The Blog</a></li>
       </ul>
     </div> <!-- /.row -->
   </nav>

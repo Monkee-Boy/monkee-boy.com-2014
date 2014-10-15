@@ -104,13 +104,62 @@ body {
     float: right;
     list-style-type: none;
 
-    li {
+    li.primary {
       float: left;
       position: relative;
       padding: 44px 23px;
+      @include transition(background 0.3s ease);
+      &:hover {
+        background-color: #222224;
+        > a {
+          color: $green;
+          text-decoration: none;
+          border-bottom-color: $green;
+          &:after {
+            color: $green;
+            background-color: #222224;
+          }
+        }
+        ul {
+          visibility: visible;
+          @include opacity(1);
+          @include translate(0, 0);
+        }
+      }
+      ul {
+        position: absolute;
+        left: 0;
+        top: 120px;
+        width: 330px;
+        padding: em-calc(24) em-calc(10) 0;
+        background-color: #222224;
+        background-color: rgba(#222224, 0.95);
+        @include box-shadow(0 4px 0 0 rgba($dark-black, 0.18));
+        @include opacity(0);
+        @include translate(0, 20px);
+        visibility: hidden;
+        @include transition(all 0.3s ease);
+      }
+      &:last-child ul {
+        left: auto;
+        right: 0;
+      }
+      li {
+        font-family: $heading-font;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: em-calc(20, 24);
+        a { color: $grey; }
+        a:hover {
+          color: #fff;
+          text-decoration: none;
+        }
+      }
     }
 
-    a {
+    .primary > a {
       display: block;
       color: $grey;
       font-family: 'effra', sans-serif;
@@ -154,17 +203,6 @@ body {
 
       &.nav-blog:after {
         content: $icon-blog;
-      }
-
-      &:hover {
-        color: $green;
-        text-decoration: none;
-        background: #222224;
-        border-bottom-color: $green;
-
-        &:after {
-          color: $green;
-        }
       }
     }
 
