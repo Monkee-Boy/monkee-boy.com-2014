@@ -1741,8 +1741,9 @@ a:hover, a:focus {
 }
 .service-icons.portfolio {
   padding: 1.22222em 0;
-  border-top: 4px solid #b2b2b2;
-  border-bottom: 4px solid #b2b2b2;
+  border-top: 4px solid #dfdfdf;
+  border-bottom: 4px solid #dfdfdf;
+  text-align: center;
 }
 .service-icons.portfolio:before, .service-icons.portfolio:after {
   content: "";
@@ -1750,7 +1751,7 @@ a:hover, a:focus {
   left: 0;
   width: 100%;
   height: 4px;
-  background-color: #b2b2b2;
+  background-color: #dfdfdf;
 }
 .service-icons.portfolio:before {
   top: -16px;
@@ -1759,12 +1760,27 @@ a:hover, a:focus {
   bottom: -16px;
 }
 .service-icons.portfolio li {
+  width: 150px;
+  max-width: 16%;
+  vertical-align: top;
   color: #242529;
   font-family: "effra", sans-serif;
   font-size: 16px;
   font-weight: bold;
   font-style: italic;
   text-align: center;
+}
+@media only screen and (min-width: 481px) and (max-width: 740px) {
+  .service-icons.portfolio li {
+    max-width: 33.33%;
+    margin-bottom: 1.33333em;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .service-icons.portfolio li {
+    max-width: 50%;
+    margin-bottom: 1.33333em;
+  }
 }
 
 .form-title {

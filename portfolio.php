@@ -50,7 +50,7 @@
 
   <div class="row">
     <div class="full">
-      <h2>Services Provided</h2>
+      <h2 data-text-align="center">Services Provided</h2>
       <ul class="service-icons portfolio">
         <li><span class="strategy service-icon"><i></i></span>Research &amp; Strategy</li>
         <li><span class="design service-icon"><i></i></span>Design</li>
