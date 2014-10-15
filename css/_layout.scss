@@ -10,7 +10,10 @@ body {
 }
 
 .container {
+  position: relative;
   overflow: hidden;
+  z-index: 1;
+  background-color: $light-grey;
 }
 
 /* Header */
@@ -22,6 +25,7 @@ body {
   text-align: right;
   background: $green;
   .row { margin-bottom: 0; }
+  @media #{$medium-down} { display: none; }
 }
 
 .super-nav {
@@ -97,7 +101,7 @@ body {
 .main-nav {
   background: $dark-black;
   border-bottom: 4px solid $grey;
-
+  @media #{$medium-down} { display: none; }
   ul {
     margin: 0;
     padding: 0;
@@ -109,7 +113,7 @@ body {
       position: relative;
       padding: 44px 23px;
       @include transition(background 0.3s ease);
-      &:hover {
+      .no-touch &:hover, &.active {
         background-color: #222224;
         > a {
           color: $green;
@@ -208,6 +212,120 @@ body {
 
     li:first-child a {
       border-left: 0;
+    }
+  }
+}
+
+.mobile-menu-container {
+  display: none;
+  @media #{$medium-down} {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: em-calc(8) 0;
+    z-index: 0;
+    background: $dark-black url(../images/noise-pattern.png);
+    border-left: 4px solid #000;
+    border-right: 4px solid #000;
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      padding: em-calc(4) em-calc(8);
+    }
+    .button {
+      width: 100%;
+      font-size: 18px;
+    }
+    .primary { border-bottom: 1px solid #000; }
+    .primary > a {
+      display: block;
+      padding: em-calc(6, 24) em-calc(20, 24);
+      font-size: 24px;
+      font-family: $heading-font;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: $grey;
+    }
+    .has-dropdown {
+      @include transition(background 0.3s ease);
+      &.active {
+        background-color: #000;
+      }
+      > a:after {
+        content: "";
+        width: 0;
+        height: 0;
+        float: right;
+        margin: 10px -15px 0 0;
+        border-top: 8px solid $grey;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+      }
+      ul {
+        display: none;
+        background-color: #000;
+        margin: 0 em-calc(-8);
+        padding: em-calc(4) 0;
+        a {
+          font-size: 18px;
+          font-family: $heading-font;
+          color: $teal;
+          padding: em-calc(4, 24) em-calc(20, 24);
+        }
+      }
+    }
+
+  }
+}
+
+.mobile-header {
+  display: none;
+  @media #{$medium-down} {
+    display: block;
+    padding: em-calc(8) em-calc(16) em-calc(4);
+    background-color: $dark-black;
+    border-bottom: 4px solid $green;
+    @include box-shadow(0 2px 0 0 rgba(#000, 0.25));
+    @include clearfix;
+    .mobile-logo {
+      float: left;
+      margin: 6px 0;
+    }
+    .mobile-menu-trigger {
+      display: block;
+      float: right;
+      padding: em-calc(4, 12) em-calc(6, 12) em-calc(6, 12);
+      text-align: center;
+      color: #fff;
+      font-family: $heading-font;
+      text-transform: uppercase;
+      font-size: 12px;
+      background-color: #2c2d32;
+      border-bottom: 4px solid #000;
+      &:before {
+        content: $icon-menuburger;
+        display: block;
+        font-size: 48px;
+        font-family: $icon-font;
+        color: #fff;
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 0.8;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      &:hover, &.active {
+        text-decoration: none;
+        color: $yellow;
+        &:before { color: $yellow; }
+      }
     }
   }
 }

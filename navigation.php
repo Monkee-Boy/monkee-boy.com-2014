@@ -14,8 +14,8 @@
         <a href="/" title="Monkee-Boy Web Design"><img src="/images/logo.png" alt="Monkee-Boy"></a>
       </div>
 
-      <ul>
-        <li class="primary">
+      <ul class="main-menu">
+        <li class="primary has-dropdown">
           <a href="#" class="nav-who">Who We Are</a>
           <ul>
             <li><a href="#">Why Monkee-Boy?</a></li>
@@ -24,7 +24,7 @@
             <li><a href="#">Join the Troop</a></li>
           </ul>
         </li>
-        <li class="primary">
+        <li class="primary has-dropdown">
           <a href="#" title="" class="nav-what">What We Do</a>
           <ul>
             <li><a href="#">Design</a></li>
@@ -33,7 +33,7 @@
             <li><a href="#">Maintenance</a></li>
           </ul>
         </li>
-        <li class="primary">
+        <li class="primary has-dropdown">
           <a href="#" title="" class="nav-work">The Work</a>
           <ul>
             <li><a href="#">Featured Clients</a></li>
@@ -45,4 +45,9 @@
       </ul>
     </div> <!-- /.row -->
   </nav>
+
+  <div class="mobile-header">
+    <img src="/images/logo-horizontal.png" alt="Monkee-Boy Web Design" class="mobile-logo">
+    <a href="#" class="mobile-menu-trigger">Menu</a>
+  </div>
 </header>

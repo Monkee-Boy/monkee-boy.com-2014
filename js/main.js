@@ -5,6 +5,24 @@
       medium_break = 740,
       small_break = 480;
 
+  // menu
+  $('.has-dropdown > a').on('focus, click', function(e) {
+    e.preventDefault();
+    $(this).parent('li').toggleClass('active');
+  }).on('mouseout', function() {
+    $(this).parent('li').removeClass('active');
+  });
+
+  // move menu to mobile menu for tablet & down
+  if ( Modernizr.mq('only screen and (max-width:' + medium_break + 'px)') ) {
+    console.log("medium screen or down");
+    // add main nav to mobile menu
+    var $mobile_menu = $('.mobile-menu'),
+        $main_nav = $('.main-menu').children('li');
+
+    $mobile_menu.append($main_nav);
+  }
+
   // forms
   $('.input-wrapper').on('focus', 'input, textarea', function() {
     $(this).parent('.input-wrapper').addClass('focused');

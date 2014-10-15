@@ -19,6 +19,14 @@
 </footer>
 </div><!-- /.container -->
 
+<div class="mobile-menu-container">
+  <ul class="mobile-menu">
+    <li><a href="#" class="button">Request a Quote</a></li>
+    <li><a href="tel:5123352221" class="button button-alt">Call Us</a></li>
+    <li class="primary"><a href="/">Home</a></li>
+  </ul>
+</div>
+
 <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
 <script>window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')</script>
 <script src="/bower_components/gsap/src/uncompressed/TweenMax.js"></script>
