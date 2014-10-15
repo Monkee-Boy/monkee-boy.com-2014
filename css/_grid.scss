@@ -8,13 +8,6 @@ $susy: (
   gutters: 30px/70px
 );
 
-/* Media Queries */
-$bpSmall: 'only screen and (max-width: 40em)';
-$bpMedium: 'only screen and (min-width: 40.063em)';
-$bpLarge: 'only screen and (min-width: 64.063em)';
-$bpXLarge: 'only screen and (min-width: 90.063em)';
-$bpXXLarge: 'only screen and (min-width: 120.063em)';
-
 .row {
   margin-bottom: em-calc(35px);
   @include container();
@@ -30,12 +23,6 @@ $bpXXLarge: 'only screen and (min-width: 120.063em)';
   margin-right: -#{$gutter-width/2}px;
 }
 
-@media #{$bpSmall} {
-  .row {
-    
-  }
-}
-
 .full {
   @include span(12 of 12);
   float: none;
@@ -43,20 +30,16 @@ $bpXXLarge: 'only screen and (min-width: 120.063em)';
 
 .half {
   @include span(6 of 12);
-}
-
-@media #{$bpSmall} {
-  .half {
-    @include span(12 of 12);
+  @media #{$small-only} {
+    width: 100%;
+    margin-bottom: $mobile-paragraph-margin;
   }
 }
 
 .one-third {
   @include span(4 of 12);
-}
-
-@media #{$bpSmall} {
-  .one-third {
-    @include span(12 of 12);
+  @media #{$small-only} {
+    width: 100%;
+    margin-bottom: $mobile-paragraph-margin;
   }
 }

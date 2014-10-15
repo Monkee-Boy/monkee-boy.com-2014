@@ -179,7 +179,7 @@ body {
   @include span(9 of 12);
 }
 
-@media #{$bpSmall} {
+@media #{$small-only} {
   [role="main"] {
     @include span(12 of 12);
   }
@@ -190,7 +190,7 @@ body {
   @include span(3 of 12 last);
 }
 
-@media #{$bpSmall} {
+@media #{$small-only} {
   [role="complementary"] {
     @include span(12 of 12);
   }

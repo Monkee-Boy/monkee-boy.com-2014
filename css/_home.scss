@@ -18,7 +18,13 @@
   li {
     position: relative;
     @include span(4 of 12);
-    &.active {
+    @media #{$small-only} {
+      width: 100%;
+      max-width: 300px;
+      float: none;
+      margin: 0 auto $mobile-paragraph-margin;
+    }
+    &.active, &:hover {
       .border {
         background-color: $dark-black;
         z-index: 2;
@@ -56,6 +62,7 @@
     position: absolute;
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center center;
   }
   .circle-expander {
     position: absolute;
@@ -162,6 +169,10 @@
     line-height: 140px;
     color: $black;
     margin: em-calc(30, 50) 0 0;
+    @media #{$small-only} {
+      font-size: 36px;
+      margin: 0;
+    }
     .subtitle { display: none; }
     &:before {
       position: absolute;
@@ -193,7 +204,14 @@
     text-align: center;
     @include opacity(0.70);
     @include transition(0.8s ease-in);
-
+    @media #{$medium-only} {
+      width: 50%;
+      margin-bottom: $paragraph-margin;
+    }
+    @media #{$small-only} {
+      width: 100%;
+      margin-bottom: $mobile-paragraph-margin;
+    }
     &:hover {
       @include opacity(1);
       @include transition(0.4s ease-in);
@@ -231,5 +249,6 @@
 .home-blog {
   .section-title {
     font-size: em-calc(76);
+    @media #{$medium-down} { font-size: em-calc(46); }
   }
 }

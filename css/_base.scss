@@ -5,6 +5,19 @@
   border-color: transparent $color transparent transparent;
 }
 
+// Breakpoints
+$small-bound: 480;
+$medium-bound: 740;
+$large-bound: 980;
+
+$small-only: "only screen and (max-width: #{$small-bound}px)";
+$medium-only: "only screen and (min-width: #{$small-bound + 1}px) and (max-width: #{$medium-bound}px)";
+$medium-up: "only screen and (min-width: #{$small-bound + 1}px)";
+$medium-down: "only screen and (max-width: #{$medium-bound}px)";
+$large-only: "only screen and (min-width: #{$medium-bound + 1}px) and (max-width: #{$large-bound}px)";
+$large-up: "only screen and (min-width: #{$medium-bound + 1}px)";
+$large-down: "only screen and (max-width: #{$large-bound}px)";
+
 // Colors
 $green: #acca32;
 $dark-green: #8fa82a;

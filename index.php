@@ -81,7 +81,7 @@ ante venenatis.</em></p>
 
   <div class="panel-wide home-clients" data-panel-color="green" data-panel-style="slash">
     <div class="row section-head" data-text-align="right">
-      <span class="section-title dots" data-dots="left"><em>a few of our</em> lovely clients</span>
+      <span class="section-title full dots" data-dots="left"><em>a few of our</em> lovely clients</span>
     </div>
 
     <div class="row-flush">
@@ -96,7 +96,7 @@ ante venenatis.</em></p>
 
   <div class="panel-wide home-pulse" data-panel-color="teal">
     <div class="row section-head" data-text-align="left">
-      <span class="section-title dots" data-dots="right"><em>the</em><br />pulse</span>
+      <span class="section-title full dots" data-dots="right"><em>the</em><br />pulse</span>
     </div>
 
     <div class="row-flush">

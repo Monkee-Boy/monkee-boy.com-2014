@@ -95,7 +95,9 @@
         <p class="text-right"><strong>what you need?</strong></p>
       </div>
 
-      <a href="#" title="CTA Button" class="button">Let's Get In Touch!</a>
+      <div class="cta-button">
+        <a href="#" title="CTA Button" class="button">Let's Get In Touch!</a>
+      </div>
     </div>
   </div>
 

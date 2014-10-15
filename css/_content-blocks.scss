@@ -13,21 +13,27 @@
   .cta-inner {
     color: #fff;
     @include span(7 of 12);
+    @media #{$small-only} { width: 100%; }
 
     p {
       margin: 0;
       font-size: em-calc(76px);
+      @media #{$large-down} { font-size: 40px; }
     }
   }
 
-  .button {
+  .cta-button {
+    @include span(last 4 of 12);
     margin-top: em-calc(25px);
-    padding-top: em-calc(45px);
-    padding-bottom: em-calc(45px);
+    @media #{$small-only} { width: 100%; }
+  }
+
+  .button {
+    display: block;
+    padding: em-calc(45px) em-calc(10);
     border-bottom: $dark-yellow solid 12px;
     background-color: $yellow;
-    @include span(last 4 of 12);
-
+    @media #{$large-down} { padding: em-calc(24) em-calc(10); }
     &:before {
       background: $dark-yellow;
     }
@@ -63,11 +69,16 @@
   aside {
     @include span(5 of 12);
     @include pad(em-calc(35px));
+    @media #{$small-only} {
+      width: 100%;
+      margin-bottom: em-calc(20, 18);
+    }
   }
 
   .panel-content {
     @include span(7 of 12);
     @include pad(em-calc(35px));
+    @media #{$small-only} { width: 100%; }
   }
 }
 
@@ -179,15 +190,20 @@
 
 .panel-wide[data-panel-style='callout'] {
   position: relative;
+  @media #{$medium-down} { padding-top: 0; }
 
-  .row-flush:before {
-    position: absolute;
-    width: 500px;
-    content: '';
-    z-index: 1;
-    top: -10px;
-    bottom: -10px;
-    background: $black;
+  .row-flush {
+    position: relative;
+    &:before {
+      position: absolute;
+      width: 42%;
+      content: '';
+      z-index: 1;
+      top: -50px;
+      bottom: -90px;
+      background: $black;
+      @media #{$medium-down} { display: none; }
+    }
   }
 
   .item-callout {
@@ -197,7 +213,11 @@
     color: $light-grey;
     font-size: 22px;
     background: $black;
-
+    @media #{$medium-down} {
+      width: 100%;
+      padding-top: em-calc(40);
+      margin-bottom: $paragraph-margin;
+    }
     h3 {
       font-size: em-calc(40px);
       line-height: 1;
@@ -219,7 +239,7 @@
 
   .item-panel {
     @include span(6 of 12 last);
-
+    @media #{$medium-down} { width: 100%; }
     h3 {
       font-size: 24px;
       font-weight: bold;
