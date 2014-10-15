@@ -8,6 +8,7 @@
       display: block;
       width: 100%;
       padding-bottom: 58.5%;
+      @media #{$small-only} { padding-bottom: 98.2%; }
     }
     .screen {
       position: absolute;
@@ -66,8 +67,12 @@
       left: 8.03%;
       top: 14.14%;
     }
+    @media #{$small-only} {
+      z-index: 3;
+    }
   }
   .slider-nav {
+    @media #{$small-only} { display: none; }
     a {
       position: absolute;
       top: 25%;
@@ -108,12 +113,23 @@
     display: block;
     @include span(3 of 12);
   }
+  @media #{$small-only} {
+    .instructions {
+      width: 100%;
+      margin-bottom: $mobile-paragraph-margin;
+    }
+    .thumbnail {
+      width: 33.3333%;
+      padding: 0 8px;
+    }
+  }
   .thumbnail {
     img {
       display: block;
     }
     &.active img {
       @include box-shadow(0 0 0 8px $green);
+      @media #{$small-only} { @include box-shadow(0 0 0 4px $green); }
     }
   }
 }

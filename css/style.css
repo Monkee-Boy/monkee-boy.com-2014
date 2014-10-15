@@ -2463,6 +2463,11 @@ input[type=submit] {
   width: 100%;
   padding-bottom: 58.5%;
 }
+@media only screen and (max-width: 480px) {
+  .port-slider .screens:after {
+    padding-bottom: 98.2%;
+  }
+}
 .port-slider .screens .screen {
   position: absolute;
   background-size: 100% 100%;
@@ -2525,6 +2530,16 @@ input[type=submit] {
   left: 8.03%;
   top: 14.14%;
 }
+@media only screen and (max-width: 480px) {
+  .port-slider .phone {
+    z-index: 3;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .port-slider .slider-nav {
+    display: none;
+  }
+}
 .port-slider .slider-nav a {
   position: absolute;
   top: 25%;
@@ -2574,6 +2589,16 @@ input[type=submit] {
   padding-left: 15px;
   padding-right: 15px;
 }
+@media only screen and (max-width: 480px) {
+  .port-slider .instructions {
+    width: 100%;
+    margin-bottom: 1.33333em;
+  }
+  .port-slider .thumbnail {
+    width: 33.3333%;
+    padding: 0 8px;
+  }
+}
 .port-slider .thumbnail img {
   display: block;
 }
@@ -2581,6 +2606,13 @@ input[type=submit] {
   -webkit-box-shadow: 0 0 0 8px #acca32;
   -moz-box-shadow: 0 0 0 8px #acca32;
   box-shadow: 0 0 0 8px #acca32;
+}
+@media only screen and (max-width: 480px) {
+  .port-slider .thumbnail.active img {
+    -webkit-box-shadow: 0 0 0 4px #acca32;
+    -moz-box-shadow: 0 0 0 4px #acca32;
+    box-shadow: 0 0 0 4px #acca32;
+  }
 }
 
 .hero-circles {

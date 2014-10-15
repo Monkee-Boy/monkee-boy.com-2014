@@ -611,6 +611,11 @@ function BlurStack()
 }
 (function($) {
 
+  // breakpoint vars
+  var large_break = 980,
+      medium_break = 740,
+      small_break = 480;
+
   // forms
   $('.input-wrapper').on('focus', 'input, textarea', function() {
     $(this).parent('.input-wrapper').addClass('focused');
@@ -820,7 +825,7 @@ function BlurStack()
     }
   };
 
-  PortfolioSlider.prototype.init = function() {
+  PortfolioSlider.prototype.initFullSlider = function() {
     var containerWidth = this.width - this.margin*2,
         containerHeight = this.$screenContainer.height(),
         self = this;
@@ -863,6 +868,63 @@ function BlurStack()
         self.transitionSlides('right');
       }
     });
+  };
+
+  PortfolioSlider.prototype.initMobileSlider = function() {
+    var containerWidth = this.width,
+        self = this;
+
+    // we'll want to save screens by device type
+    var screens = {};
+
+    // set height, width, and position for all screens
+    this.$screens.each(function() {
+      var $this = $(this),
+          type = $this.data('device'),
+          height = null,
+          width = null,
+          left = 0,
+          top = 0;
+
+      // no tablet view on mobile
+      if ( type == 'tablet' ) return true;
+
+      // set mobile and desktop sizes
+      if ( type == 'desktop' ) {
+        width = containerWidth * 1.2;
+        height = width * self.ratios[type];
+        left = containerWidth * 0.2;
+      } else if ( type == 'phone' ) {
+        width = containerWidth * 0.4;
+        height = width * self.ratios[type];
+        top = height * 0.15;
+        left = containerWidth * 0.05;
+      }
+
+      $this.css({
+        height: height + 'px',
+        width: width + 'px',
+        left: left + 'px',
+        top: top + 'px'
+      });
+
+      screens[type] = $this;
+
+    });
+
+    // save new screens object so we can access by device type
+    this.$screens = screens;
+  };
+
+  PortfolioSlider.prototype.init = function() {
+    var self = this;
+
+    // init full slider if not mobile
+    if ( Modernizr.mq('only screen and (min-width: ' + small_break + 'px)') ) {
+      this.initFullSlider();
+    } else {
+      this.initMobileSlider();
+    }
 
     // add click event to portfolio thumbs
     this.$thumbs.on('click', '.thumbnail', function(e) {
