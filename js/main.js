@@ -6,11 +6,26 @@
       small_break = 480;
 
   // menu
-  $('.has-dropdown > a').on('focus, click', function(e) {
+  $('.main-nav').on('focus, click', '.has-dropdown > a', function(e) {
     e.preventDefault();
+
     $(this).parent('li').toggleClass('active');
   }).on('mouseout', function() {
     $(this).parent('li').removeClass('active');
+  });
+
+  $('.mobile-menu').on('click', '.has-dropdown > a', function(e) {
+    var $this = $(this);
+
+    if ($this.parent('li').hasClass('active')) {
+      $this.parent('li').removeClass('active');
+      close_mobile_accordion($this.siblings('ul'));
+    } else {
+      close_mobile_accordion($mobile_menu.find('.has-dropdown.active ul'));
+      $mobile_menu.find('.has-dropdown').removeClass('active');
+      $this.parent('li').addClass('active');
+      open_mobile_accordion($this.siblings('ul'));
+    }
   });
 
   // move menu to mobile menu for tablet & down
@@ -21,6 +36,84 @@
         $main_nav = $('.main-menu').children('li');
 
     $mobile_menu.append($main_nav);
+
+    $('.mobile-menu-trigger').on('click', function(e) {
+      e.preventDefault();
+      if ( $(this).hasClass('active') ) {
+        $(this).removeClass('active');
+        close_mobile_menu();
+      } else {
+        $(this).addClass('active');
+        open_mobile_menu();
+      }
+    });
+  }
+
+  // mobile menu fn's3
+  function open_mobile_menu() {
+    $('body').addClass('menu-open');
+
+    var $container = $('.container'),
+        $menu_items = $('.mobile-menu').children('li');
+
+    // set up li's to be off screen
+    TweenLite.set($menu_items, {
+      x: 250,
+      opacity: 0.5
+    });
+
+    // animate container to the left
+    TweenLite.to($container, 0.3, {
+      x: -250,
+      ease: Power3.easeOut
+    });
+
+    // stagger animation of menu items
+    for (var i = 0; i < $menu_items.length; i++) {
+      TweenLite.to($menu_items[i], 0.2, {
+        x: 0,
+        opacity: 1,
+        delay: 0.075*i + 0.05
+      });
+    }
+  }
+
+  function close_mobile_menu() {
+    $('body').removeClass('menu-open');
+    TweenLite.to($('.container'), 0.3, {
+      x: 0,
+      ease: Power3.easeOut
+    });
+  }
+
+  function open_mobile_accordion(ul) {
+    var $menu_items = ul.children('li'),
+        height = $menu_items.length * 31 + 8;
+
+    TweenLite.set($menu_items, {
+      x: 150,
+      opacity: 0.5
+    });
+
+    TweenLite.to(ul, 0.25, {
+      height: height,
+      ease: Power3.easeOut
+    });
+
+    for (var i = 0; i < $menu_items.length; i++) {
+      TweenLite.to($menu_items[i], 0.15, {
+        x: 0,
+        opacity: 1,
+        delay: 0.05*i + 0.025
+      });
+    }
+  }
+
+  function close_mobile_accordion(ul) {
+    TweenLite.to(ul, 0.25, {
+      height: 0,
+      ease: Power3.easeOut
+    });
   }
 
   // forms

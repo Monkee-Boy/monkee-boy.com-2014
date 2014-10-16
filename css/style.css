@@ -493,6 +493,10 @@ th {
   box-sizing: border-box;
 }
 
+body.menu-open .container {
+  position: fixed;
+}
+
 .container {
   position: relative;
   overflow: hidden;
@@ -746,6 +750,7 @@ th {
     position: absolute;
     right: 0;
     top: 0;
+    width: 250px;
     padding: 0.44444em 0;
     z-index: 0;
     background: #1c1c1e url(../images/noise-pattern.png);
@@ -797,7 +802,8 @@ th {
     border-right: 5px solid transparent;
   }
   .mobile-menu-container .has-dropdown ul {
-    display: none;
+    height: 0;
+    overflow: hidden;
     background-color: #000;
     margin: 0 -0.44444em;
     padding: 0.22222em 0;
