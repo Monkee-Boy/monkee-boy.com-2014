@@ -2229,6 +2229,11 @@ label {
   padding-left: 15px;
   padding-right: 15px;
 }
+@media only screen and (max-width: 480px) {
+  .form-monkee {
+    display: none;
+  }
+}
 .form-monkee .monkee {
   display: block;
   position: relative;
@@ -2299,6 +2304,11 @@ label {
   padding-left: 15px;
   padding-right: 15px;
 }
+@media only screen and (max-width: 480px) {
+  .form-part1 {
+    width: 100%;
+  }
+}
 
 .request-quote-form .left {
   -webkit-box-sizing: border-box;
@@ -2309,6 +2319,11 @@ label {
   padding-left: 15px;
   padding-right: 15px;
 }
+@media only screen and (max-width: 740px) {
+  .request-quote-form .left {
+    width: 100%;
+  }
+}
 .request-quote-form .right {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -2317,6 +2332,14 @@ label {
   float: left;
   padding-left: 15px;
   padding-right: 15px;
+}
+@media only screen and (max-width: 740px) {
+  .request-quote-form .right {
+    width: 100%;
+    padding-bottom: 2.22222em;
+    border-bottom: 1px solid #b2b2b2;
+    margin-bottom: 2.22222em;
+  }
 }
 
 .switch-target {

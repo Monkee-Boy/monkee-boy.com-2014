@@ -182,6 +182,7 @@ label {
 // work with us page layout
 .form-monkee {
   @include span(5 of 12);
+  @media #{$small-only} { display: none; }
   .monkee {
     display: block;
     position: relative;
@@ -230,14 +231,24 @@ label {
 
 .form-part1 {
   @include span(7 of 12);
+  @media #{$small-only} { width: 100%; }
 }
 
 .request-quote-form {
   .left {
     @include span(4 of 12);
+    @media #{$medium-down} {
+      width: 100%;
+    }
   }
   .right {
     @include span(8 of 12);
+    @media #{$medium-down} {
+      width: 100%;
+      padding-bottom: em-calc(40);
+      border-bottom: 1px solid $grey;
+      margin-bottom: em-calc(40);
+    }
   }
 }
 
