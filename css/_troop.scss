@@ -10,6 +10,8 @@
     padding-top: #{$gutter-width/2}px;
     padding-bottom: #{$gutter-width/2}px;
     @include transition(background 0.3s ease);
+    @media #{$medium-only} { width: 50%; }
+    @media #{$small-only} { width: 100%; }
     &:hover, &.active {
       .trigger .hover-image {
         @include opacity(1);
@@ -128,10 +130,15 @@
       font-family: $heading-font;
       line-height: 1;
       color: #fff;
+      @media #{$large-down} { font-size: 40px; }
+      @media #{$small-only} {
+        width: 100%;
+        margin-bottom: em-calc(14, 40);
+      }
       span {
         display: block;
         font-family: $body-font;
-        font-size: 30px;
+        font-size: em-calc(30, 50);
         color: $yellow;
         text-transform: uppercase;
       }
@@ -140,6 +147,7 @@
       margin: 8px 0 0;
       @include span(7 of 12);
       color: #fff;
+      @media #{$small-only} { width: 100%; }
     }
   }
   .profile-content {
@@ -156,9 +164,11 @@
       font-size: 24px;
       color: $teal;
       text-transform: uppercase;
+      @media #{$large-down} { float: none; width: 100%; } 
     }
     p {
       @include span(9 of 12);
+      @media #{$large-down} { width: 100%; } 
     }
   }
   .profile-footer {
@@ -169,6 +179,10 @@
     .latest-update, .social-links {
       @include span(6 of 12);
       margin: 0;
+      @media #{$small-only} {
+        width: 100%;
+        margin-bottom: $mobile-paragraph-margin;
+      }
     }
     .latest-update {
       padding-top: em-calc(16);
@@ -195,6 +209,7 @@
   li {
     position: relative;
     min-height: 310px;
+    @media #{$medium-down} { min-height: 210px; }
     &:before {
       content: "";
       position: absolute;
@@ -203,8 +218,8 @@
       top: 0;
       height: 310px;
       background-color: rgba($light-grey, 0.11);
+      @media #{$medium-down} { height: 210px; }
     }
-    //1d8c7c
     &:after {
       position: absolute;
       left: 0;
@@ -213,6 +228,14 @@
       text-align: center;
       font-size: 360px;
       @extend .icon;
+      @media #{$large-only} {
+        font-size: 260px;
+        line-height: 360px;
+      }
+      @media #{$medium-down} {
+        font-size: 150px;
+        line-height: 250px;
+      }
     }
     &.mobile-os:after { content: $icon-phone; }
     &.bananas:after { content: $icon-banana; }
@@ -227,6 +250,9 @@
       margin: 0;
       text-align: center;
       z-index: 1;
+      @media #{$medium-down} {
+        width: 90%;
+      }
     }
     .number {
       display: block;
@@ -234,6 +260,8 @@
       font-family: $heading-font;
       font-size: 180px;
       line-height: 1;
+      @media #{$large-only} { font-size: 120px; }
+      @media #{$medium-down} { font-size: 80px; }
     }
     .percent { font-size: 0.6em; }
   }
@@ -250,6 +278,10 @@
     @include span(4 of 12);
     &:after { color: $dark-teal; }
     p { color: $yellow; }
+    @media #{$small-only} {
+      width: 100%;
+      margin-bottom: $mobile-paragraph-margin;
+    }
   }
   &:after {
     content: "";
@@ -270,6 +302,7 @@
     font-size: 40px;
     color: $yellow;
     z-index: 1;
+    @media #{$medium-down} { font-size: 30px; }
     &:before {
       content: $icon-cat;
       @extend .icon;
@@ -282,6 +315,7 @@
   .number {
     font-size: 86px;
     color: #fff;
+    @media #{$medium-down} { font-size: 60px; }
   }
   .percent { font-size: 0.6em; }
 }
@@ -290,8 +324,15 @@
   background-color: $green;
   li {
     @include span(6 of 12);
+    @media #{$small-only} {
+      width: 100%;
+      margin-bottom: $mobile-paragraph-margin;
+    }
     &:after { color: $dark-green; }
     p { color: $dark-teal; }
-    &.code .number { font-size: 120px; }
+    &.code .number {
+      font-size: 120px;
+      @media #{$large-down} { font-size: 60px; }
+    }
   }
 }

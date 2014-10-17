@@ -139,12 +139,13 @@ body {
         width: 330px;
         padding: em-calc(24) em-calc(10) 0;
         background-color: #222224;
-        background-color: rgba(#222224, 0.95);
+        background-color: rgba(#222224, 0.97);
         @include box-shadow(0 4px 0 0 rgba($dark-black, 0.18));
         @include opacity(0);
         @include translate(0, 20px);
         visibility: hidden;
         @include transition(all 0.3s ease);
+        z-index: 5;
       }
       &:last-child ul {
         left: auto;
@@ -152,7 +153,8 @@ body {
       }
       li {
         font-family: $heading-font;
-        font-size: 24px;
+        font-size: 22px;
+        line-height: #{28/22};
         font-weight: bold;
         text-align: center;
         text-transform: uppercase;
@@ -169,7 +171,8 @@ body {
       display: block;
       color: $grey;
       font-family: 'effra', sans-serif;
-      font-size: 24px;
+      font-size: 22px;
+      font-weight: bold;
       text-transform: uppercase;
       border-left: 1px solid #131316;
       border-bottom: 1px solid $grey;
@@ -273,7 +276,6 @@ body {
         overflow: hidden;
         background-color: #000;
         margin: 0 em-calc(-8);
-        padding: em-calc(4) 0;
         a {
           font-size: 18px;
           font-family: $heading-font;

@@ -15,6 +15,8 @@
   });
 
   $('.mobile-menu').on('click', '.has-dropdown > a', function(e) {
+    e.preventDefault();
+    
     var $this = $(this);
 
     if ($this.parent('li').hasClass('active')) {
@@ -101,10 +103,10 @@
     });
 
     for (var i = 0; i < $menu_items.length; i++) {
-      TweenLite.to($menu_items[i], 0.15, {
+      TweenLite.to($menu_items[i], 0.2, {
         x: 0,
         opacity: 1,
-        delay: 0.05*i + 0.025
+        delay: 0.06*i + 0.025
       });
     }
   }
