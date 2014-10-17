@@ -17,6 +17,7 @@
   &.listing-page {
     padding-bottom: em-calc(120);
     &:after { background-color: $green; }
+    @media #{$large-down} { padding-bottom: em-calc(80); }
   }
   .image-bg, canvas {
     position: absolute;
@@ -53,6 +54,11 @@
     margin-bottom: 0;
     color: #fff;
     font-size: 26px;
+    @media #{$large-down} {
+      float: left;
+      width: 100%;
+      padding: 1em 15px;
+    }
     a {
       color: #fff;
       &:hover, &:focus {
@@ -95,6 +101,12 @@
   .header-meta {
     position: relative;
     @include span(8 of 12);
+    @media #{$large-down} {
+      width: 100%;
+      float: none;
+      max-width: 800px;
+      margin: 0 auto em-calc(40);
+    }
   }
   .bg {
     position: relative;
@@ -130,6 +142,12 @@
   }
   .excerpt {
     @include span(4 of 12);
+    @media #{$large-down} {
+      width: 100%;
+      float: none;
+      max-width: 800px;
+      margin: 0 auto;
+    }
   }
   .menu-lite { margin-bottom: em-calc(10); }
   .more-link {
