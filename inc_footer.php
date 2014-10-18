@@ -13,9 +13,10 @@
       <a href="#"></a>
     </div>
 
-    <p class="footer-meta"><strong>&copy; Monkee-Boy Web Design, Inc. 2014</strong> // <a href="#" title="Privacy">Privacy</a><br />
-      9390 Research Blvd. Suite 425 Austin, TX  78759 // 512-335-2221</p>
+    <p class="footer-meta"><strong>&copy; Monkee-Boy Web Design, Inc. 2014</strong> // <a href="#" title="Privacy">Privacy</a><br>
+      <span class="address">9390 Research Blvd. Suite 425 Austin, TX  78759 // 512-335-2221</span></p>
   </div>
+  <a href="#" class="mobile-home button">Back to Home</a>
 </footer>
 </div><!-- /.container -->
 

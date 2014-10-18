@@ -373,7 +373,7 @@ body {
     margin: 0;
     padding: 0;
     list-style: none;
-
+    @media #{$small-only} { display: none; }
     li {
       display: inline-block;
       margin-right: 10px;
@@ -384,6 +384,10 @@ body {
     position: relative;
     @include span(2 of 12);
     text-align: center;
+    @media #{$small-only} {
+      width: 30%;
+      margin: 0 5%;
+    }
     &:after {
       content: "";
       background-color: #000;
@@ -439,6 +443,19 @@ body {
   .footer-meta {
     @include span(5 of 12);
     text-align: right;
+    @media #{$small-only} { width: 60%; }
+  }
+  .address {
+    @media #{$small-only} { display: none; }
+  }
+  .mobile-home {
+    display: none;
+    @media#{$small-only} {
+      display: block;
+      border-bottom: #d8ae2a solid 12px;
+      background-color: #fcc721;
+      &:before { background: #d8ae2a; }
+    }
   }
 }
 
