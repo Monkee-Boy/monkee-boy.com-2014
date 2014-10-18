@@ -624,11 +624,15 @@ body.menu-open .container {
   float: left;
   position: relative;
   padding: 44px 23px;
+  border-left: 1px solid #131316;
   -webkit-transition: background 0.3s ease;
   -moz-transition: background 0.3s ease;
   -ms-transition: background 0.3s ease;
   -o-transition: background 0.3s ease;
   transition: background 0.3s ease;
+}
+.main-nav ul li.primary:first-child {
+  border-left: 0;
 }
 .no-touch .main-nav ul li.primary:hover, .main-nav ul li.primary.active {
   background-color: #222224;
@@ -705,7 +709,6 @@ body.menu-open .container {
   font-size: 22px;
   font-weight: bold;
   text-transform: uppercase;
-  border-left: 1px solid #131316;
   border-bottom: 1px solid #b2b2b2;
   position: relative;
   padding-bottom: 21px;
@@ -739,9 +742,6 @@ body.menu-open .container {
 }
 .main-nav ul .primary > a.nav-blog:after {
   content: "\e60f";
-}
-.main-nav ul li:first-child a {
-  border-left: 0;
 }
 
 .mobile-menu-container {
@@ -3237,6 +3237,11 @@ input[type=submit] {
   border-bottom: 4px solid #b2b2b2;
   overflow: hidden;
 }
+@media only screen and (max-width: 740px) {
+  .blog-header {
+    display: none;
+  }
+}
 .blog-header:after {
   content: "";
   position: absolute;
@@ -3254,6 +3259,11 @@ input[type=submit] {
 }
 .blog-header.listing-page:after {
   background-color: #acca32;
+}
+@media only screen and (max-width: 980px) {
+  .blog-header.listing-page {
+    padding-bottom: 4.44444em;
+  }
 }
 .blog-header .image-bg, .blog-header canvas {
   position: absolute;
@@ -3293,12 +3303,38 @@ input[type=submit] {
   color: #fff;
   font-size: 26px;
 }
+@media only screen and (max-width: 980px) {
+  .blog-header .menu-lite {
+    float: left;
+    width: 100%;
+    padding: 1em 15px;
+  }
+}
 .blog-header .menu-lite a {
   color: #fff;
 }
 .blog-header .menu-lite a:hover, .blog-header .menu-lite a:focus {
   color: #ff6c5c;
   text-decoration: none;
+}
+
+.mobile-blog-header {
+  padding-bottom: 0;
+  border-bottom: 0;
+  margin-bottom: 2.5em;
+}
+
+.blog-banner {
+  clear: both;
+  padding: 0.6em 0.3em 0.3em;
+  background-color: #acca32;
+  color: #fff;
+  font-family: "effra", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0 -16px;
 }
 
 .post-header {
@@ -3341,6 +3377,14 @@ input[type=submit] {
   float: left;
   padding-left: 15px;
   padding-right: 15px;
+}
+@media only screen and (max-width: 980px) {
+  .featured-post .header-meta {
+    width: 100%;
+    float: none;
+    max-width: 800px;
+    margin: 0 auto 2.22222em;
+  }
 }
 .featured-post .bg {
   position: relative;
@@ -3389,6 +3433,14 @@ input[type=submit] {
   padding-left: 15px;
   padding-right: 15px;
 }
+@media only screen and (max-width: 980px) {
+  .featured-post .excerpt {
+    width: 100%;
+    float: none;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
 .featured-post .menu-lite {
   margin-bottom: 0.55556em;
 }
@@ -3402,6 +3454,11 @@ input[type=submit] {
 
 .post-panel {
   margin-bottom: 2.22222em;
+}
+@media only screen and (min-width: 481px) and (max-width: 740px) {
+  .post-panel {
+    width: 50%;
+  }
 }
 .post-panel .post-panel-inside {
   background: #fefefe;
@@ -3450,12 +3507,28 @@ input[type=submit] {
   float: none;
   margin: 0 auto;
 }
+@media only screen and (max-width: 740px) {
+  .single-post {
+    width: 100%;
+  }
+}
 .single-post blockquote {
   float: left;
   width: 62.5%;
   margin-left: -12.5%;
   margin-right: 15px;
   padding-right: 15px;
+}
+@media only screen and (max-width: 740px) {
+  .single-post blockquote {
+    margin-left: 0;
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .single-post blockquote {
+    width: 100%;
+  }
 }
 
 .large-photo {
@@ -3566,6 +3639,11 @@ input[type=submit] {
   padding-right: 15px;
   text-align: center;
 }
+@media only screen and (max-width: 480px) {
+  .author-info {
+    width: 100%;
+  }
+}
 .author-info img {
   width: 250px;
   margin-top: -15%;
@@ -3605,6 +3683,11 @@ input[type=submit] {
   max-width: 680px;
   float: right;
 }
+@media only screen and (max-width: 480px) {
+  .author-articles {
+    width: 100%;
+  }
+}
 .author-articles h2 {
   color: #fff;
   font-size: 76px;
@@ -3613,6 +3696,11 @@ input[type=submit] {
 }
 .author-articles .subtitle {
   color: #fff;
+}
+@media only screen and (max-width: 740px) {
+  .author-articles .subtitle {
+    display: block;
+  }
 }
 .author-articles .list-style-alt li:before {
   color: #fcc721;
@@ -3641,10 +3729,21 @@ input[type=submit] {
   padding-left: 136px;
   margin-bottom: 2.22222em;
 }
+@media only screen and (max-width: 480px) {
+  .comment-section .comments > li,
+  .comment-section .nested-replies > li {
+    padding-left: 100px;
+  }
+}
 .comment-section .nested-replies {
   padding: 2.22222em 1.66667em 1px;
   margin-top: 2.22222em;
   background-color: #fff;
+}
+@media only screen and (max-width: 480px) {
+  .comment-section .nested-replies {
+    margin-left: -80px;
+  }
 }
 .comment-section .pic {
   position: absolute;
@@ -3658,6 +3757,12 @@ input[type=submit] {
   -moz-border-radius: 50%;
   border-radius: 50%;
   border: 3px solid #b2b2b2;
+}
+@media only screen and (max-width: 480px) {
+  .comment-section .pic {
+    width: 80px;
+    height: 80px;
+  }
 }
 .comment-section .menu-lite {
   text-align: right;

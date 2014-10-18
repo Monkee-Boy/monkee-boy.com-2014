@@ -3,6 +3,7 @@
   padding-top: em-calc(36);
   border-bottom: 4px solid $grey;
   overflow: hidden;
+  @media #{$medium-down} { display: none; }
   &:after {
     content: "";
     position: absolute;
@@ -68,6 +69,25 @@
     }
   }
 
+}
+
+// mobile header
+.mobile-blog-header {
+  padding-bottom: 0;
+  border-bottom: 0;
+  margin-bottom: em-calc(45);
+}
+.blog-banner {
+  clear: both;
+  padding: em-calc(12, 20) em-calc(6, 20) em-calc(6, 20);
+  background-color: $green;
+  color: #fff;
+  font-family: $heading-font;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0 -16px;
 }
 
 .post-header {
@@ -159,6 +179,7 @@
 
 .post-panel {
   margin-bottom: em-calc(40);
+  @media #{$medium-only} { width: 50%; }
   .post-panel-inside {
     background: #fefefe;
   }
@@ -205,12 +226,18 @@
   @include span(8 of 12);
   float: none;
   margin: 0 auto;
+  @media #{$medium-down} { width: 100%; }
   blockquote {
     float: left;
     width: 62.5%;
     margin-left: -12.5%;
     margin-right: #{$gutter-width/2}px;
     padding-right: #{$gutter-width/2}px;
+    @media #{$medium-down}  {
+      margin-left: 0;
+      width: 50%;
+    }
+    @media #{$small-only} { width: 100%; }
   }
 }
 
@@ -293,6 +320,7 @@
 .author-info {
   @include span(5 of 12);
   text-align: center;
+  @media #{$small-only} { width: 100%; }
   img {
     width: 250px;
     margin-top: -15%;
@@ -319,13 +347,17 @@
   @include span(7 of 12);
   max-width: 680px;
   float: right;
+  @media #{$small-only} { width: 100%; }
   h2 {
     color: #fff;
     font-size: 76px;
     text-transform: lowercase;
     margin-bottom: 0.4em;
   }
-  .subtitle { color: #fff; }
+  .subtitle {
+    color: #fff;
+    @media #{$medium-down} { display: block; }
+  }
   .list-style-alt {
     li:before { color: $yellow; }
     a {
@@ -351,11 +383,13 @@
     position: relative;
     padding-left: 136px;
     margin-bottom: em-calc(40);
+    @media #{$small-only} { padding-left: 100px; }
   }
   .nested-replies {
     padding: em-calc(40) em-calc(30) 1px;
     margin-top: em-calc(40);
     background-color: #fff;
+    @media #{$small-only} { margin-left: -80px; }
   }
   .pic {
     position: absolute;
@@ -367,6 +401,10 @@
     background-size:cover;
     @include border-radius(50%);
     border: 3px solid $grey;
+    @media #{$small-only} {
+      width: 80px;
+      height: 80px;
+    }
   }
   .menu-lite {
     text-align: right;

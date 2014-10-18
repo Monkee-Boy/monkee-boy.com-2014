@@ -15,9 +15,9 @@ $header_img = $is_post? '/assets/blog-post-featured.png': '/assets/blog-landing-
   <nav class="blog-nav row" role="navigation">
     <a href="#" class="blog-logo">The Blog</a>
     <ul class="menu-lite main-menu">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Portfolio</a></li>
-      <li><a href="#">Request a quote</a></li>
+      <li class="primary"><a href="#">Home</a></li>
+      <li class="primary"><a href="#">Portfolio</a></li>
+      <li class="primary"><a href="#">Request a quote</a></li>
     </ul>
   </nav>
 
@@ -34,10 +34,9 @@ $header_img = $is_post? '/assets/blog-post-featured.png': '/assets/blog-landing-
   </div>
   <?php endif; ?>
 
-  <div class="mobile-header">
-    <img src="/images/logo-horizontal.png" alt="Monkee-Boy Web Design" class="mobile-logo">
-    <a href="#" class="mobile-menu-trigger">Menu</a>
-    <div class="blog-banner">The Blog</div>
-  </div>
-
 </header>
+<div class="mobile-header mobile-blog-header">
+  <img src="/images/logo-horizontal.png" alt="Monkee-Boy Web Design" class="mobile-logo">
+  <a href="#" class="mobile-menu-trigger">Menu</a>
+  <div class="blog-banner">The Blog</div>
+</div>
