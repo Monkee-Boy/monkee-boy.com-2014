@@ -627,7 +627,7 @@ function BlurStack()
 
   $('.mobile-menu').on('click', '.has-dropdown > a', function(e) {
     e.preventDefault();
-    
+
     var $this = $(this);
 
     if ($this.parent('li').hasClass('active')) {
@@ -1095,10 +1095,10 @@ function BlurStack()
         cur_class = this.$cur_circle.data('name'),
         $expander_nav = this.$expander.children('.expander-nav').children('a').not('.' + cur_class);
 
-    TweenLite.set($expander_nav.last(), { x: 160, right: 0,  left: 'auto', delay: delay });
+    TweenLite.set($expander_nav.last(), { x: 160, right: 4,  left: 'auto', delay: delay });
     TweenLite.set($expander_nav.first(), {
       x: -160,
-      left: 0,
+      left: 4,
       right: 'auto',
       delay: delay,
       onComplete: function() {

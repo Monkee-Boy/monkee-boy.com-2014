@@ -30,7 +30,7 @@
 
   .button {
     display: block;
-    padding: em-calc(45px) em-calc(10);
+    padding: em-calc(44, 22) em-calc(10);
     border-bottom: $dark-yellow solid 12px;
     background-color: $yellow;
     @media #{$large-down} { padding: em-calc(24) em-calc(10); }

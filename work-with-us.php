@@ -123,6 +123,11 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="full" data-text-align="center">
+        <button type="submit" class="submit">Submit your request !</button>
+      </div>
+    </div>
   </form>
 
 <?php include('inc_footer.php'); ?>

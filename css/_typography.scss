@@ -100,6 +100,7 @@ p.intro {
 blockquote {
   padding-left: em-calc(17px);
   color: $black;
+  text-transform: uppercase;
   font-family: 'effra', sans-serif;
   font-weight: bold;
   font-size: em-calc(24px);
@@ -163,11 +164,11 @@ a {
 .button {
   position: relative;
   display: inline-block;
-  padding: em-calc(20, 24) em-calc(30, 24) em-calc(20-6, 24);
+  padding: em-calc(20, 22) em-calc(25, 22) em-calc(14, 22);
   color: #fff;
   font-family: 'effra', sans-serif;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 22px;
+  font-weight: 500;
   line-height: 1;
   text-transform: uppercase;
   text-align: center;

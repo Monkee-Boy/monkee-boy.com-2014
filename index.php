@@ -1,7 +1,7 @@
 <?php include('inc_header.php'); ?>
 
   <div class="row">
-    <p class="subtitle" data-text-align="center">We're a web design &amp; marketing agency that loves process.</p>
+    <p class="subtitle hero-subtitle" data-text-align="center">We're a web design &amp; marketing agency that loves process.</p>
   </div>
 
   <div class="hero-circles">
