@@ -15,6 +15,7 @@
         <div class="desktop screen active" data-device="desktop">
           <div class="screen-inner">
             <img src="/assets/port-balcones-desktop-home.png">
+            <div class="scroll-msg"><span>Want to see it all?</span> Scroll Here</div>
           </div>
         </div>
         <div class="tablet screen right" data-device="tablet">

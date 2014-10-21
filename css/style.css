@@ -2821,6 +2821,27 @@ button[type=submit] {
   top: 6.05%;
   height: 84.08%;
 }
+.port-slider .desktop .scroll-msg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.76923em;
+  background-color: rgba(36, 37, 41, 0.92);
+  color: #fff;
+  text-align: center;
+  font-family: "effra", sans-serif;
+  font-size: 26px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.port-slider .desktop .scroll-msg span {
+  display: block;
+  text-transform: none;
+  font-weight: normal;
+  font-size: 18px;
+  font-style: italic;
+}
 .port-slider .tablet {
   background: url(../images/ipad.png) no-repeat center center;
 }

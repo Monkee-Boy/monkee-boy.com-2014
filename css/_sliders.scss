@@ -49,6 +49,27 @@
       top: 6.05%;
       height: 84.08%;
     }
+    .scroll-msg {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: em-calc(20, 26);
+      background-color: rgba($black, 0.92);
+      color: #fff;
+      text-align: center;
+      font-family: $heading-font;
+      font-size: 26px;
+      font-weight: bold;
+      text-transform: uppercase;
+      span {
+        display: block;
+        text-transform: none;
+        font-weight: normal;
+        font-size: 18px;
+        font-style: italic;
+      }
+    }
   }
   .tablet {
     background: url(../images/ipad.png) no-repeat center center;

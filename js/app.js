@@ -980,6 +980,10 @@ function BlurStack()
       } else {
         self.transitionSlides('right');
       }
+
+      // remove scroll callout, if still present
+      if (self.$screens.desktop.find('.scroll-msg').length > 0)
+        self.$screens.desktop.find('.scroll-msg').remove();
     });
   };
 
@@ -1048,6 +1052,13 @@ function BlurStack()
 
       var screenName = $(this).data('screen');
       self.updateScreen(screenName);
+    });
+
+    // remove scroll callout on scroll
+    console.log("screens are", this.$screens);
+    this.$screens.desktop.children('.screen-inner').on('scroll', function() {
+      $(this).children('.scroll-msg').remove();
+      $(this).off('scroll');
     });
 
   };
