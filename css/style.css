@@ -2962,6 +2962,12 @@ button[type=submit] {
   font-size: 80px;
   font-weight: 400;
 }
+@media only screen and (max-width: 740px) {
+  .hero-circles h1 {
+    font-size: 30px;
+    margin-bottom: 1em;
+  }
+}
 .hero-circles ul {
   list-style-type: none;
   margin: 0;
@@ -2979,9 +2985,7 @@ button[type=submit] {
 }
 @media only screen and (max-width: 480px) {
   .hero-circles li {
-    width: 100%;
-    max-width: 300px;
-    float: none;
+    padding: 0 5px;
     margin: 0 auto 1.33333em;
   }
 }
@@ -3014,6 +3018,11 @@ button[type=submit] {
   width: 100%;
   padding-bottom: 100%;
 }
+@media only screen and (max-width: 480px) {
+  .hero-circles .border {
+    display: none;
+  }
+}
 .hero-circles .circle {
   position: relative;
   width: 100%;
@@ -3029,11 +3038,27 @@ button[type=submit] {
   -o-transform: translate(0, 0);
   transform: translate(0, 0);
 }
+@media only screen and (max-width: 480px) {
+  .hero-circles .circle {
+    border: 4px solid #b2b2b2;
+  }
+  .hero-circles .circle.active {
+    border-color: #acca32;
+  }
+}
 .hero-circles .bg {
   position: absolute;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+}
+@media only screen and (max-width: 480px) {
+  .hero-circles .bg {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
 .hero-circles .circle-expander {
   position: absolute;
@@ -3078,6 +3103,11 @@ button[type=submit] {
 .hero-circles .circle-expander .title-overlay .subtitle {
   font-size: 52px;
   color: #fff;
+}
+@media only screen and (min-width: 481px) and (max-width: 740px) {
+  .hero-circles .circle-expander .title-overlay .subtitle {
+    font-size: 30px;
+  }
 }
 .hero-circles .circle-expander .title-overlay .subtitle span {
   color: #5e5e5e;
@@ -3190,6 +3220,14 @@ button[type=submit] {
   -o-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
 }
+@media only screen and (min-width: 481px) and (max-width: 740px) {
+  .hero-circles .expander-nav a {
+    width: 100px;
+    height: 100px;
+    padding-top: 2.625em;
+    font-size: 16px;
+  }
+}
 .hero-circles .expander-nav .create {
   background-image: url(../images/home-create-thumb.png);
 }
@@ -3210,9 +3248,16 @@ button[type=submit] {
   color: #242529;
   margin: 0.6em 0 0;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 740px) {
   .hero-circles .tagline {
     font-size: 36px;
+    margin: 0;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .hero-circles .tagline {
+    font-size: 30px;
+    line-height: 80px;
     margin: 0;
   }
 }
@@ -3229,6 +3274,11 @@ button[type=submit] {
   font-style: normal;
   color: #dfdfdf;
 }
+@media only screen and (max-width: 480px) {
+  .hero-circles .tagline:before {
+    font-size: 2.5em;
+  }
+}
 .hero-circles .tagline.first:before {
   content: "1";
 }
@@ -3242,9 +3292,45 @@ button[type=submit] {
   position: relative;
   z-index: 1;
 }
+@media only screen and (max-width: 480px) {
+  .hero-circles .mobile-slider {
+    display: block;
+    position: relative;
+    padding-bottom: 70%;
+    margin-bottom: 0.66667em;
+    background-size: cover;
+    background-position: center center;
+  }
+  .hero-circles .mobile-slider div {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.66667em;
+    background: rgba(36, 37, 41, 0.92) url(../images/noise-pattern.png);
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "effra", sans-serif;
+  }
+  .hero-circles .mobile-slider .title {
+    display: block;
+    font-size: 18px;
+    color: #acca32;
+    font-weight: bold;
+  }
+  .hero-circles .mobile-slider .subtitle {
+    font-size: 24px;
+    color: #fff;
+  }
+}
 
 .hero-subtitle {
   font-size: 34px;
+}
+@media only screen and (max-width: 740px) {
+  .hero-subtitle {
+    font-size: 18px;
+  }
 }
 
 .featured-clients:before, .featured-clients:after {

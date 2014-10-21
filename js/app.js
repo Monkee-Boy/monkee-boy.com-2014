@@ -1252,8 +1252,30 @@ function BlurStack()
     });
   };
 
+  HeroCircles.prototype.initMobile = function() {
+    var self = this,
+        $mobile_slider = this.$el.find('.mobile-slider');
+
+    this.$el.on('click', '.circle', function() {
+      var $this = $(this),
+          bg = $this.children('.bg').data('bg');
+
+      self.$circles.removeClass('active');
+      $this.addClass('active');
+
+      $mobile_slider.html('<div>' + $this.siblings('.tagline').html() + '</div>');
+      $mobile_slider.css('background-image', 'url(' + bg + ')');
+    });
+
+    this.$circles.first().trigger('click');
+  };
+
   var hero_circles = new HeroCircles('.hero-circles');
-  hero_circles.init();
+  if ( Modernizr.mq('only screen and (min-width: ' + small_break + 'px)') ) {
+    hero_circles.init();
+  } else {
+    hero_circles.initMobile();
+  }
 
   // troop dropdowns
   $('.troop-list').on('click', '.trigger', function(e) {

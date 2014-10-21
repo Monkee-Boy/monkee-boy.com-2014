@@ -7,6 +7,7 @@
   <div class="hero-circles">
     <div class="row">
       <h1>Let's build something <i>amazing</i> together.</h1>
+      <div class="mobile-slider"></div>
       <ul>
         <li>
           <span class="border"></span>
