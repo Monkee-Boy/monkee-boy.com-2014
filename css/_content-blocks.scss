@@ -318,63 +318,11 @@
     }
   }
 
-  &.strategy {
-    &:after {
-      color: $green;
-    }
-
-    i:before {
-      content: $icon-strategy;
-    }
-  }
-
-  &.design {
-    &:after {
-      color: $teal;
-    }
-
-    i:before {
-      content: $icon-design;
-    }
-  }
-
-  &.development {
-    &:after {
-      color: $dark-green;
-    }
-
-    i:before {
-      content: $icon-development;
-    }
-  }
-
-  &.marketing {
-    &:after {
-      color: $dark-teal;
-    }
-
-    i:before {
-      content: $icon-marketing;
-    }
-  }
-
-  &.maintenance {
-    &:after {
-      color: $yellow;
-    }
-
-    i:before {
-      content: $icon-maintenance;
-    }
-  }
-
-  &.growth {
-    &:after {
-      color: $grey;
-    }
-
-    i:before {
-      content: $icon-growth;
+  @each $service in $services {
+    $i: index($services, $service);
+    &.#{$service} {
+      &:after { color: nth($service-colors, $i); }
+      i:before { content: nth($service-icons, $i); }
     }
   }
 }
