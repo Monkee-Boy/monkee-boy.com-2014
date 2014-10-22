@@ -53,6 +53,35 @@
     </div>
   </div>
 
+  <div class="home-portfolio">
+    <div class="row-flush">
+      <div class="half">
+        <div class="section-head" data-text-align="left">
+          <span class="section-title dots" data-dots="right"><em>featured from the</em><br>portfolio</span>
+          <h3>Balcones Pain Consultants Redesign</h3>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam et nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+          <ul class="menu-lite">
+            <li><a href="#">View project</a></li>
+            <li><a href="#">View full portfolio</a></li>
+          </ul>
+          <ul class="service-icons text-hover">
+            <li><span class="strategy service-icon"><i></i></span><span class="hover">Research &amp; Strategy</span></li>
+            <li><span class="design service-icon"><i></i></span><span class="hover">Design</span></li>
+            <li><span class="development service-icon"><i></i></span><span class="hover">Development</span></li>
+            <li><span class="marketing service-icon"><i></i></span><span class="hover">Marketing</span></li>
+            <li><span class="maintenance service-icon"><i></i></span><span class="hover">Maintenance</span></li>
+            <li><span class="growth service-icon"><i></i></span><span class="hover">Growth</span></li>
+          </ul>
+        </div>
+      </div><!-- /.half -->
+    </div>
+    <div class="desktop screen">
+      <div class="screen-inner">
+        <img src="/assets/port-balcones-desktop-home.png">
+      </div>
+    </div>
+  </div><!-- /.home-portfolio -->
+
   <div class="panel-wide home-marketing" data-panel-style="callout">
     <div class="row-flush">
       <div class="item-callout">

@@ -31,67 +31,6 @@
       height: auto;
     }
   }
-  .desktop {
-    background: url(../images/desktop.png) no-repeat center center;
-    &:after {
-      content: "";
-      position: absolute;
-      width: 126.2%;
-      height: 9.55%;
-      left: -13.1%;
-      bottom: -4%;
-      background: url(../images/desktop_bottom.png) no-repeat center center;
-      background-size: 100% 100%;
-    }
-    .screen-inner {
-      width: 93.45%;
-      left: 3.27%;
-      top: 6.05%;
-      height: 84.08%;
-    }
-    .scroll-msg {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      padding: em-calc(20, 26);
-      background-color: rgba($black, 0.92);
-      color: #fff;
-      text-align: center;
-      font-family: $heading-font;
-      font-size: 26px;
-      font-weight: bold;
-      text-transform: uppercase;
-      span {
-        display: block;
-        text-transform: none;
-        font-weight: normal;
-        font-size: 18px;
-        font-style: italic;
-      }
-    }
-  }
-  .tablet {
-    background: url(../images/ipad.png) no-repeat center center;
-    .screen-inner {
-      width: 80.27%;
-      height: 80.59%;
-      left: 9.86%;
-      top: 9.85%;
-    }
-  }
-  .phone {
-    background: url(../images/iphone.png) no-repeat center center;
-    .screen-inner {
-      width: 83.94%;
-      height: 71.43%;
-      left: 8.03%;
-      top: 14.14%;
-    }
-    @media #{$small-only} {
-      z-index: 3;
-    }
-  }
   .slider-nav {
     @media #{$small-only} { display: none; }
     a {
@@ -151,6 +90,69 @@
     &.active img {
       @include box-shadow(0 0 0 8px $green);
       @media #{$small-only} { @include box-shadow(0 0 0 4px $green); }
+    }
+  }
+}
+.screen {
+  &.desktop {
+    background: url(../images/desktop.png) no-repeat center center;
+    &:after {
+      content: "";
+      position: absolute;
+      width: 126.2%;
+      height: 9.55%;
+      left: -13.1%;
+      bottom: -4%;
+      background: url(../images/desktop_bottom.png) no-repeat center center;
+      background-size: 100% 100%;
+    }
+    .screen-inner {
+      width: 93.45%;
+      left: 3.27%;
+      top: 6.05%;
+      height: 84.08%;
+    }
+    .scroll-msg {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: em-calc(20, 26);
+      background-color: rgba($black, 0.92);
+      color: #fff;
+      text-align: center;
+      font-family: $heading-font;
+      font-size: 26px;
+      font-weight: bold;
+      text-transform: uppercase;
+      span {
+        display: block;
+        text-transform: none;
+        font-weight: normal;
+        font-size: 18px;
+        font-style: italic;
+      }
+    }
+  }
+  &.tablet {
+    background: url(../images/ipad.png) no-repeat center center;
+    .screen-inner {
+      width: 80.27%;
+      height: 80.59%;
+      left: 9.86%;
+      top: 9.85%;
+    }
+  }
+  &.phone {
+    background: url(../images/iphone.png) no-repeat center center;
+    .screen-inner {
+      width: 83.94%;
+      height: 71.43%;
+      left: 8.03%;
+      top: 14.14%;
+    }
+    @media #{$small-only} {
+      z-index: 3;
     }
   }
 }
