@@ -1,48 +1,197 @@
 <?php $this->tplDisplay("inc_header.php", ['menu'=>'home']); ?>
 
-	<h2>HTML Ipsum Presents</h2>
+  <div class="row">
+    <p class="subtitle hero-subtitle" data-text-align="center">We're a web design &amp; marketing agency that loves process.</p>
+  </div>
 
-	<p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
+  <div class="hero-circles">
+    <div class="row">
+      <h1>Let's build something <i>amazing</i> together.</h1>
+      <div class="mobile-slider"></div>
+      <ul>
+        <li>
+          <span class="border"></span>
+          <div class="discover circle" data-name="discover">
+            <div class="bg" style="background-image:url(/images/home-discover.png)" data-bg="/images/home-discover.png"></div>
+          </div>
+          <p class="tagline first">
+            <span class="title">Discover</span>
+            <span class="subtitle">Strategy <span>+</span> Long Meetings</span>
+          </p>
+        </li>
+        <li>
+          <span class="border"></span>
+          <div class="create circle" data-name="create">
+            <div class="bg" style="background-image:url(/images/home-create.png)" data-bg="/images/home-create.png"></div>
+          </div>
+          <p class="tagline second">
+            <span class="title">Create</span>
+            <span class="subtitle">Design <span>+</span> Code</span>
+          </p>
+        </li>
+        <li>
+          <span class="border"></span>
+          <div class="evolve circle" data-name="evolve">
+            <div class="bg" style="background-image:url(/images/home-evolve.png)" data-bg="/images/home-evolve.png"></div>
+          </div>
+          <p class="tagline third">
+            <span class="title">Evolve</span>
+            <span class="subtitle">Maintenance <span>+</span> Growth</span>
+          </p>
+        </li>
+      </ul>
+    </div>
+    <div class="circle-expander">
+      <span class="bg"></span>
+      <div class="title-overlay"></div>
+      <a href="#" class="close-btn">Close</a>
+      <div class="expander-nav">
+        <a href="#" class="discover">Discover</a>
+        <a href="#" class="create">Create</a>
+        <a href="#" class="evolve">Evolve</a>
+      </div>
+    </div>
+  </div>
 
-	<h3>Header Level 3</h3>
+  <div class="home-portfolio">
+    <div class="row-flush">
+      <div class="half">
+        <div class="section-head" data-text-align="left">
+          <span class="section-title dots" data-dots="right"><em>featured from the</em><br>portfolio</span>
+          <h3>Balcones Pain Consultants Redesign</h3>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam et nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+          <ul class="menu-lite">
+            <li><a href="#">View project</a></li>
+            <li><a href="#">View full portfolio</a></li>
+          </ul>
+          <ul class="service-icons text-hover">
+            <li><span class="strategy service-icon"><i></i></span><span class="hover">Research &amp; Strategy</span></li>
+            <li><span class="design service-icon"><i></i></span><span class="hover">Design</span></li>
+            <li><span class="development service-icon"><i></i></span><span class="hover">Development</span></li>
+            <li><span class="marketing service-icon"><i></i></span><span class="hover">Marketing</span></li>
+            <li><span class="maintenance service-icon"><i></i></span><span class="hover">Maintenance</span></li>
+            <li><span class="growth service-icon"><i></i></span><span class="hover">Growth</span></li>
+          </ul>
+        </div>
+      </div><!-- /.half -->
+    </div>
+    <div class="desktop screen">
+      <div class="screen-inner">
+        <img src="/assets/port-balcones-desktop-home.png">
+      </div>
+    </div>
+  </div><!-- /.home-portfolio -->
 
-	<ol>
-		<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-		<li>Aliquam tincidunt mauris eu risus.</li>
-	</ol>
+  <div class="panel-wide home-marketing" data-panel-style="callout">
+    <div class="row-flush">
+      <div class="item-callout">
+        <h3 data-text-align="center">monkee-boy<br />marketing section</h3>
 
-	<blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</blockquote>
+        <p><em>Nullam quis risus eget urna mollis ornare vel eu leo.  Duis mollis, est non commodo luctus, nisi nec elit.
+ante venenatis.</em></p>
 
-	<h4>Header Level 4</h4>
+        <ul class="list-style-alt">
+          <li><a href="" title="">Lorem ipsum dolor sit amet &raquo;</a></li>
+          <li><a href="" title="">Consectetuer adipiscing elit &raquo;</a></li>
+          <li><a href="" title="">Sed diam nonummy nibh euismod &raquo;</a></li>
+          <li><a href="" title="">Duis mollis, est non commodo &raquo;</a></li>
+          <li><a href="" title="">Sed posuere  lobortis. &raquo;</a></li>
+        </ul>
+      </div>
 
-	<ul>
-		<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-		<li>Aliquam tincidunt mauris eu risus.</li>
-	</ul>
+      <div class="item-panel">
+        <h3>lorem ipsum Ut enim ad minim veniam</h3>
 
-	<pre><code>
-	#header h1 a {
-		display: block;
-		width: 300px;
-		height: 80px;
-	}
-	</code></pre>
+        <p>Quis nostrud exercitation ullamco laboris nisi ut con aliquip ex ea commodo consequat.</p>
 
-	<h2>Heading Two</h2>
-	<h3>Heading Three</h3>
-	<h4>Heading Four</h4>
-	<h5>Heading Five</h5>
-	<h6>Heading Six</h6>
+          <a href="" title="">Link to take it there</a>
+      </div>
+    </div>
+  </div>
 
-	<form>
-		<fieldset>
-			<legend>This is known as a form.</legend>
+  <div class="panel-wide home-clients" data-panel-color="green" data-panel-style="slash">
+    <div class="row section-head" data-text-align="right">
+      <span class="section-title full dots" data-dots="left"><em>a few of our</em> lovely clients</span>
+    </div>
 
-			<p><label for="form-name">Your Name <input type="text" name="name" id="form-name"></label></p>
-			<p><label for="form-email">Your Email <input type="text" name="email" id="form-email"></label></p>
-			<p><label for="form-comments">Your Comments <textarea name="comments" id="form-comments"></textarea></label></p>
-			<p><input type="submit" value="Submit"></p>
-		</fieldset>
-	</form>
+    <div class="row-flush">
+      <ul class="featured-clients styleless">
+        <li><a href="" title=""><img src="/assets/client-bullock.png" alt=""></a></li>
+        <li><a href="" title=""><img src="/assets/client-austinchamber.png" alt=""></a></li>
+        <li><a href="" title=""><img src="/assets/client-bullock.png" alt=""></a></li>
+        <li><a href="" title=""><img src="/assets/client-austinchamber.png" alt=""></a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="panel-wide home-pulse" data-panel-color="teal">
+    <div class="row section-head" data-text-align="left">
+      <span class="section-title full dots" data-dots="right"><em>the</em><br />pulse</span>
+    </div>
+
+    <div class="row-flush">
+      <div class="one-third item-panel">
+        <h4>Latest News</h4>
+
+        <div class="item-panel-inside" data-text-align="center">
+          <figure><img src="/assets/news-icon.png" alt=""></figure>
+
+          <p><a href="#" title="">Former Superhero joins team Monkee-Boy »</a></p>
+          <time>09-03</time>
+        </div>
+      </div>
+
+      <div class="one-third item-panel alt">
+        <h4>Sign Up For Our Newsletter</h4>
+
+        <div class="item-panel-inside" data-text-align="center">
+          <form class="form-newsletter" action="" method="post">
+            <div class="subscribe-status success"></div>
+
+            <label for="form-email">Enter your email</label>
+            <input type="email" name="email" id="form-email">
+            <input type="submit" value="Subscribe!">
+          </form>
+        </div>
+      </div>
+
+      <div class="one-third item-panel">
+        <h4>On Twitter</h4>
+
+        <div class="item-panel-inside">
+          [insert twitter widget]
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel-wide home-blog" data-panel-color="light-grey">
+    <div class="row section-head" data-text-align="center">
+      <span class="section-title dots" data-dots="dual">from the blog</span>
+    </div>
+
+    <div class="row-flush">
+      <div class="one-third post-panel" data-text-align="center">
+        <div class="post-panel-inside">
+          <a href="" title=""><img src="/assets/blog-post.jpg" alt=""></a>
+          <h4><a href="" title="">Freebie Friday: 25 Colorful Polygon Backgrounds</a></h4>
+        </div>
+      </div>
+
+      <div class="one-third post-panel" data-text-align="center">
+        <div class="post-panel-inside">
+          <a href="" title=""><img src="/assets/blog-post.jpg" alt=""></a>
+          <h4><a href="" title="">Freebie Friday: 25 Colorful Polygon Backgrounds</a></h4>
+        </div>
+      </div>
+
+      <div class="one-third post-panel" data-text-align="center">
+        <div class="post-panel-inside">
+          <a href="" title=""><img src="/assets/blog-post.jpg" alt=""></a>
+          <h4><a href="" title="">Freebie Friday: 25 Colorful Polygon Backgrounds</a></h4>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <?php $this->tplDisplay("inc_footer.php"); ?>

@@ -59,14 +59,14 @@
 	</form>
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="/js/jquery-1.8.3.min.js"><\/script>')</script>
-	<script src="/js/jqueryui/jquery-ui-1.9.0.custom.min.js"></script>
-	<script src="/js/bootstrap.js"></script>
-	<script src="/js/validationEngine/jquery.validationEngine-en.js"></script>
-	<script src="/js/validationEngine/jquery.validationEngine.js"></script>
-	<script src="/js/datatables/jquery.dataTables.min.js"></script>
-	<script src="/js/chosen/chosen.jquery.min.js"></script>
-	<script src="/js/main.admin-min.js"></script>
+	<script>window.jQuery || document.write('<script src="/js/admin/jquery-1.8.3.min.js"><\/script>')</script>
+	<script src="/js/admin/jqueryui/jquery-ui-1.9.0.custom.min.js"></script>
+	<script src="/js/admin/bootstrap.js"></script>
+	<script src="/js/admin/validationEngine/jquery.validationEngine-en.js"></script>
+	<script src="/js/admin/validationEngine/jquery.validationEngine.js"></script>
+	<script src="/js/admin/datatables/jquery.dataTables.min.js"></script>
+	<script src="/js/admin/chosen/chosen.jquery.min.js"></script>
+	<script src="/js/admin/main.admin-min.js"></script>
 
 	<script>
 	$('.change-password').click(function() {
