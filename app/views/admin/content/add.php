@@ -15,6 +15,11 @@
 							<div class="controls">
 								<input type="text" name="title" id="form-title" value="<?= $aPage['title'] ?>" class="span12 validate[required]">
 								<p class="help-block permalink hide"><strong>Permalink</strong>: http://<?= $_SERVER['SERVER_NAME'] ?>/<span></span>/</p>
+
+								<hr>
+
+								<label for="form-subtitle">Subtitle</label>
+								<input type="text" name="subtitle" id="form-subtitle" value="<?= $aPage['subtitle'] ?>" class="span12 validate[required]">
 							</div>
 						</div>
 					</div>

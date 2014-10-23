@@ -1,9 +1,18 @@
-<?php
-$aContent = $this->getContent("contact");
+<!--
+@Name: Contact Form
+@Description: Generic template that includes a Contact Form
+@Version: 1.0
+@Restricted: true
+@Author: Monkee-Boy
+-->
+
+<?php $aContent = getContent(null, 'contact');
 if(!empty($aContent)) {
 	$sTitle = $aContent['title'];
+	$sSubtitle = $aContent['subtitle'];
 } else {
 	$sTitle = "Contact Us";
+	$sSubtitle = "";
 }
 
 $this->tplDisplay("inc_header.php", ['menu'=>'contact','sPageTitle'=>$sTitle]);
@@ -22,12 +31,8 @@ if($_GET['captcha_error'] != 1) {
 	$_SESSION["post_data"] = null;
 } ?>
 
-	<?php if(!empty($aContent)): ?>
-		<h2><?= $aContent['title'] ?></h2>
-		<?= $aConten['content'] ?>
-	<?php else: ?>
-		<h2>Contact Us</h2>
-	<?php endif; ?>
+	<h2><?php echo $aContent['title']; ?></h2>
+	<?php echo $aContent['content']; ?>
 
 	<form name="contact" method="post" action="/sendform/" id="contactForm" class="contactForm">
 		<?php
@@ -66,22 +71,5 @@ if($_GET['captcha_error'] != 1) {
 
 		<input type="submit" value="Send Email">
 	</form>
-
-	<!-- {head}
-	<link rel="stylesheet" href="/scripts/validationEngine/validationEngine.jquery.css" type="text/css">
-	{/head}
-	{footer}
-	<script src="/scripts/validationEngine/jquery.validationEngine-en.js"></script>
-	<script src="/scripts/validationEngine/jquery.validationEngine.js"></script>
-	<script>
-	$(function(){
-		jQuery("#contactForm").validationEngine();
-
-		{if !empty($smarty.get.captcha_error)}
-			$(".form-errors").html('<p>The captcha you entered is incorrect. Please try again. Clicking the refresh icon next to the captcha field will give you two new words if needed.').show();
-		{/if}
-	});
-	</script>
-	{/footer} -->
 
 <?php $this->tplDisplay("inc_footer.php"); ?>
