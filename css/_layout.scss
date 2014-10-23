@@ -1,0 +1,573 @@
+/* Structure */
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  &.menu-open {
+    .container { position: fixed; }
+  }
+}
+
+.container {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  background-color: $light-grey;
+}
+
+/* Header */
+[role="banner"] {
+  margin-bottom: 45px;
+}
+
+.top-bar {
+  text-align: right;
+  background: $green;
+  .row { margin-bottom: 0; }
+  @media #{$medium-down} { display: none; }
+}
+
+.super-nav {
+  display: inline-block;
+  vertical-align: top;
+  padding-top: em-calc(13);
+  padding-bottom: em-calc(13);
+  margin: 0;
+  list-style-type: none;
+
+  li {
+    float: right;
+  }
+
+  a {
+    display: block;
+    padding: 0 0.625em;
+    font-family: 'effra', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: italic;
+    color: #5f730d;
+    text-transform: uppercase;
+  }
+}
+
+.logo {
+  position: absolute;
+  top: 0;
+  padding: 15px 0 25px;
+  width: 256px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.96);
+  @include transition(all 0.5s ease);
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -9px;
+    left: 0;
+    width: 100%;
+    height: 15px;
+    @include transform(rotate(-2deg));
+    border-bottom: 4px solid #d5d5d5;
+    background: #fff;
+    @include transition(all 0.5s ease);
+  }
+
+  .speak {
+    position: absolute;
+    top: 70px;
+    left: 14px;
+    opacity: 0;
+    visibility: hidden;
+    @include transition(all 0.6s ease);
+  }
+
+  &:hover {
+    padding-top: 40px;
+
+    &:after {
+      @include transform(rotate(0deg));
+    }
+
+    .speak {
+      opacity: 1;
+      visibility: visible;
+      top: 90px;
+    }
+  }
+}
+
+.main-nav {
+  background: $dark-black;
+  border-bottom: 4px solid $grey;
+  @media #{$medium-down} { display: none; }
+  ul {
+    margin: 0;
+    padding: 0;
+    float: right;
+    list-style-type: none;
+
+    li.primary {
+      float: left;
+      position: relative;
+      padding: 44px 23px;
+      border-left: 1px solid #000;
+      @include transition(background 0.3s ease);
+      &:first-child {
+        border-left: 0;
+      }
+      .no-touch &:hover, &.active {
+        background-color: #222224;
+        > a {
+          color: $green;
+          text-decoration: none;
+          border-bottom-color: $green;
+          &:after {
+            color: $green;
+            background-color: #222224;
+          }
+        }
+        ul {
+          visibility: visible;
+          @include opacity(1);
+          @include translate(0, 0);
+        }
+      }
+      ul {
+        position: absolute;
+        left: 0;
+        top: 120px;
+        width: 330px;
+        padding: em-calc(24) em-calc(10) 0;
+        background-color: #222224;
+        background-color: rgba(#222224, 0.97);
+        @include box-shadow(0 4px 0 0 rgba($dark-black, 0.18));
+        @include opacity(0);
+        @include translate(0, 20px);
+        visibility: hidden;
+        @include transition(all 0.3s ease);
+        z-index: 5;
+      }
+      &:last-child ul {
+        left: auto;
+        right: 0;
+      }
+      li {
+        font-family: $heading-font;
+        font-size: 22px;
+        line-height: #{28/22};
+        font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: em-calc(20, 24);
+        a { color: $grey; }
+        a:hover {
+          color: #fff;
+          text-decoration: none;
+        }
+      }
+    }
+
+    .primary > a {
+      display: block;
+      color: $grey;
+      font-family: 'effra', sans-serif;
+      font-size: 22px;
+      font-weight: bold;
+      text-transform: uppercase;
+      border-bottom: 1px solid $grey;
+      position: relative;
+      padding-bottom: 21px;
+
+      &:after {
+        content: '\e600';
+        position: absolute;
+        left: 0;
+        right: 0;
+        display: block;
+        margin: 0 auto;
+        padding: 10px 15px;
+        @include size(52px, 42px);
+        color: $grey;
+        font-size: 24px;
+        background: $dark-black;
+        @extend .icon;
+      }
+
+      &.nav-who:after {
+        content: $icon-banana-small;
+      }
+
+      &.nav-what:after {
+        content: $icon-monitor;
+      }
+
+      &.nav-work:after {
+        content: $icon-awards-small;
+      }
+
+      &.nav-contact:after {
+        content: $icon-contact;
+      }
+
+      &.nav-blog:after {
+        content: $icon-blog;
+      }
+    }
+  }
+}
+
+.mobile-menu-container {
+  display: none;
+  @media #{$medium-down} {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 250px;
+    padding: em-calc(8) 0;
+    z-index: 0;
+    background: $dark-black url(../images/noise-pattern.png);
+    border-left: 4px solid #000;
+    border-right: 4px solid #000;
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      padding: em-calc(4) em-calc(8);
+    }
+    .button {
+      width: 100%;
+      font-size: 18px;
+    }
+    .primary { border-bottom: 1px solid #000; }
+    .primary > a {
+      display: block;
+      padding: em-calc(6, 24) em-calc(20, 24);
+      font-size: 24px;
+      font-family: $heading-font;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: $grey;
+    }
+    .has-dropdown {
+      @include transition(background 0.3s ease);
+      &.active {
+        background-color: #000;
+      }
+      > a:after {
+        content: "";
+        width: 0;
+        height: 0;
+        float: right;
+        margin: 10px -15px 0 0;
+        border-top: 8px solid $grey;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+      }
+      ul {
+        height: 0;
+        overflow: hidden;
+        background-color: #000;
+        margin: 0 em-calc(-8);
+        a {
+          font-size: 18px;
+          font-family: $heading-font;
+          color: $teal;
+          padding: em-calc(4, 24) em-calc(20, 24);
+        }
+      }
+    }
+
+  }
+}
+
+.mobile-header {
+  display: none;
+  @media #{$medium-down} {
+    display: block;
+    padding: em-calc(8) em-calc(16) em-calc(4);
+    background-color: $dark-black;
+    border-bottom: 4px solid $green;
+    @include box-shadow(0 2px 0 0 rgba(#000, 0.25));
+    @include clearfix;
+    .mobile-logo {
+      float: left;
+      margin: 6px 0;
+    }
+    .mobile-menu-trigger {
+      display: block;
+      float: right;
+      padding: em-calc(4, 12) em-calc(6, 12) em-calc(6, 12);
+      text-align: center;
+      color: #fff;
+      font-family: $heading-font;
+      text-transform: uppercase;
+      font-size: 12px;
+      background-color: #2c2d32;
+      border-bottom: 4px solid #000;
+      &:before {
+        content: $icon-menuburger;
+        display: block;
+        font-size: 48px;
+        font-family: $icon-font;
+        color: #fff;
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 0.8;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      &:hover, &.active {
+        text-decoration: none;
+        color: $yellow;
+        &:before { color: $yellow; }
+      }
+    }
+  }
+}
+
+/* Main */
+[role="main"] {
+  @include span(9 of 12);
+}
+
+@media #{$small-only} {
+  [role="main"] {
+    @include span(12 of 12);
+  }
+}
+
+/* Sidebar */
+[role="complementary"] {
+  @include span(3 of 12 last);
+}
+
+@media #{$small-only} {
+  [role="complementary"] {
+    @include span(12 of 12);
+  }
+}
+
+/* Footer */
+[role="contentinfo"] {
+  padding: 22px 0 0;
+  color: $grey;
+  font-size: 16px;
+  background: $black;
+  border-bottom: 4px solid #000;
+  margin-top: em-calc(80);
+
+  .row { margin-bottom: 0; }
+
+  .footer-social {
+    @include span(5 of 12);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    @media #{$small-only} { display: none; }
+    li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+  }
+
+  .bananas {
+    position: relative;
+    @include span(2 of 12);
+    text-align: center;
+    @media #{$small-only} {
+      width: 30%;
+      margin: 0 5%;
+    }
+    &:after {
+      content: "";
+      background-color: #000;
+      position: absolute;
+      left: 50%;
+      bottom: -75px;
+      margin-left: -75px;
+      width: 150px;
+      height: 150px;
+      @include transform(rotate(45deg) skew(5deg, 5deg));
+      @include transition(transform 0.3s ease);
+    }
+    &:hover {
+      &:after {
+        @include animation(pewpew 0.3s 2);
+      }
+      a {
+        &:before {
+          content: "";
+          position: absolute;
+          left: -20px;
+          bottom: -40px;
+          top: -60px;
+          right: -20px;
+          background: url(../images/explosion.gif) no-repeat center center;
+        }
+      }
+    }
+    a {
+      display: block;
+      margin: 0 auto;
+      position: relative;
+      left: 10px;
+      width: 70px;
+      height: 70px;
+      background: url(../images/bananas.png) no-repeat center center;
+      z-index: 1;
+    }
+    .shooting-banana {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 40px;
+      height: 40px;
+      margin-left: -20px;
+      margin-top: -20px;
+      background: url(../images/bananas.png) no-repeat center center;
+      background-size: contain;
+      z-index: 1;
+    }
+  }
+
+  .footer-meta {
+    @include span(5 of 12);
+    text-align: right;
+    @media #{$small-only} { width: 60%; }
+  }
+  .address {
+    @media #{$small-only} { display: none; }
+  }
+  .mobile-home {
+    display: none;
+    @media#{$small-only} {
+      display: block;
+      border-bottom: #d8ae2a solid 12px;
+      background-color: #fcc721;
+      &:before { background: #d8ae2a; }
+    }
+  }
+}
+
+@-webkit-keyframes pewpew {
+  0%   { @include transform(rotate(45deg) skewX(5deg) skewY(5deg)); }
+  50% { @include transform(rotate(45deg) skewX(10deg) skewY(10deg)); }
+  100%   { @include transform(rotate(45deg) skewX(5deg) skewY(5deg)); }
+}
+@-moz-keyframes pewpew {
+  0%   { @include transform(rotate(45deg) skewX(5deg) skewY(5deg)); }
+  50% { @include transform(rotate(45deg) skewX(10deg) skewY(10deg)); }
+  100%   { @include transform(rotate(45deg) skewX(5deg) skewY(5deg)); }
+}
+@-o-keyframes pewpew {
+  0%   { @include transform(rotate(45deg) skewX(5deg) skewY(5deg)); }
+  50% { @include transform(rotate(45deg) skewX(10deg) skewY(10deg)); }
+  100%   { @include transform(rotate(45deg) skewX(5deg) skewY(5deg)); }
+}
+@keyframes pewpew {
+  0%   { @include transform(rotate(45deg) skewX(5deg) skewY(5deg)); }
+  50% { @include transform(rotate(45deg) skewX(10deg) skewY(10deg)); }
+  100%   { @include transform(rotate(45deg) skewX(5deg) skewY(5deg)); }
+}
+
+/* Helper Classes */
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+.text-left, [data-text-align='left'] {
+  text-align: left;
+}
+
+.text-right, [data-text-align='right'] {
+  text-align: right;
+}
+
+.text-center, [data-text-align='center'] {
+  text-align: center;
+}
+
+.cf {
+  @include clearfix();
+}
+
+.show {
+  display: block;
+}
+
+/* Hide from browsers */
+.hide, [hidden] {
+  display: none;
+}
+
+/* Hide from browsers & screenreaders */
+.hidden {
+  display: none !important;
+  visibility: hidden;
+}
+
+/* Hide from browsers, available to screenreaders */
+.visuallyHidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+/* Hide from browsers & screenreaders, maintain layout */
+.invisible {
+  visibility: hidden;
+}
+
+/* The Kellum Method */
+.hide-text {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Clearfix: contain floats */
+.cf {
+  @include clearfix();
+}
+
+::-moz-selection {
+  background: #62aaf2;
+  color:#fff;
+  text-shadow: none;
+}
+
+::selection {
+  background:#62aaf2;
+  color:#fff;
+  text-shadow: none;
+}

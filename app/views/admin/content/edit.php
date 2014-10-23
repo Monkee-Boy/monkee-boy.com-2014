@@ -78,7 +78,7 @@
 									<select name="template" id="form-template">
 										<option value="">Default Template</option>
 										<?php foreach($aTemplates as $aTemplate): ?>
-											<option value="<?= $aTemplate['file'] ?>"<?php if($aPage['template'] == $aTemplate['file']){ echo ' selected="selected"'; } ?>><?= $aTemplate['name'] ?></option>
+											<option value="<?= $aTemplate['file'] ?>"<?php if($aPage['template'] == $aTemplate['file']){ echo ' selected="selected"'; } ?>><?php echo $aTemplate['Name'] ?></option>
 										<?php endforeach; ?>
 									</select>
 								</div>

@@ -1,0 +1,20 @@
+{
+  "name": "MBoy",
+  "version": "4.0.0",
+  "dependencies": {
+    "jquery": "2.1.1",
+    "susy": "latest",
+    "monkee-mixins": "latest",
+    "normalize.css": "latest",
+    "polymer": "Polymer/polymer#~0.3.4",
+    "gsap": "1.13.1",
+    "validationEngine": "2.6.4",
+    "plupload": "2.1.2",
+    "bootstrap-datepicker": "latest"
+  },
+  "resolutions": {
+    "platform": "^0.4.0",
+    "core-component-page": "^0.4.0",
+    "polymer": "^0.4.0"
+  }
+}

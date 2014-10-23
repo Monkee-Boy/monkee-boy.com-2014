@@ -1,0 +1,338 @@
+// troop grid/accordions
+.troop-list {
+  position: relative;
+  list-style-type: none;
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  > li {
+    @include span(4 of 12);
+    padding-top: #{$gutter-width/2}px;
+    padding-bottom: #{$gutter-width/2}px;
+    @include transition(background 0.3s ease);
+    @media #{$medium-only} { width: 50%; }
+    @media #{$small-only} { width: 100%; }
+    &:hover, &.active {
+      .trigger .hover-image {
+        @include opacity(1);
+      }
+    }
+    &:hover {
+      .trigger {
+        &:before {
+          @include rotate(-14deg);
+          bottom: -40px;
+          background-color: $teal;
+        }
+        &:after {
+          color: #fff;
+          @include scale(1.4);
+          bottom: 10px;
+        }
+      }
+    }
+    &.active {
+      background-color: $teal;
+      .profile {
+        @include opacity(1);
+        visibility: visible;
+      }
+      .trigger {
+        &:before {
+          @include rotate(0);
+          bottom: -60px;
+        }
+        &:after {
+          bottom: -40px;
+        }
+      }
+    }
+    &.inactive {
+      @include opacity(0.7);
+      .trigger {
+        &:before {
+          @include rotate(0);
+          bottom: -60px;
+        }
+        &:after {
+          bottom: -40px;
+        }
+      }
+    }
+  }
+  .trigger {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    &:before {
+      content: "";
+      position: absolute;
+      right: -40px;
+      bottom: -50px;
+      width: 110%;
+      height: 60px;
+      @include rotate(-10deg);
+      background-color: rgba(#fff, 0.85);
+      z-index: 2;
+      @include transition(all 0.3s ease);
+    }
+    &:after {
+      content: "+";
+      position: absolute;
+      right: 15px;
+      bottom: 0px;
+      font-size: 32px;
+      line-height: 1;
+      color: $teal;
+      z-index: 3;
+      @include transition(all 0.3s ease);
+    }
+    img {
+      display: block;
+      width: 100%;
+    }
+    .hover-image {
+      position: absolute;
+      left: 0;
+      top: 0;
+      @include opacity(0);
+      @include transition(opacity 0.2s ease);
+    }
+  }
+  .profile {
+    position: absolute;
+    @include opacity(0);
+    visibility: hidden;
+    left: 0;
+    right: 1px;
+    background-color: $dark-black;
+    color: $grey;
+    z-index: 4;
+  }
+  .profile-header {
+    position: relative;
+    @include clearfix;
+    padding: em-calc(24) em-calc(15);
+    background-color: $teal;
+    // this is attached to blockquote b/c we need clearfix and no overflow:hidden on the profile-header
+    blockquote:after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: -22px;
+      width: 0;
+      height: 0;
+      @include triangle($teal, 600px, 22px);
+    }
+    .name {
+      @include span(5 of 12);
+      font-size: 50px;
+      font-family: $heading-font;
+      line-height: 1;
+      color: #fff;
+      @media #{$large-down} { font-size: 40px; }
+      @media #{$small-only} {
+        width: 100%;
+        margin-bottom: em-calc(14, 40);
+      }
+      span {
+        display: block;
+        font-family: $body-font;
+        font-size: em-calc(30, 50);
+        color: $yellow;
+        text-transform: uppercase;
+      }
+    }
+    blockquote {
+      margin: 8px 0 0;
+      @include span(7 of 12);
+      color: #fff;
+      @media #{$small-only} { width: 100%; }
+    }
+  }
+  .profile-content {
+    @include clearfix;
+    padding: em-calc(42) em-calc(15) em-calc(24);
+  }
+  .profile-block {
+    @include clearfix;
+    .title {
+      @include span(3 of 12);
+      text-align: right;
+      font-family: $heading-font;
+      font-weight: 800;
+      font-size: 24px;
+      color: $teal;
+      text-transform: uppercase;
+      @media #{$large-down} { float: none; width: 100%; } 
+    }
+    p {
+      @include span(9 of 12);
+      @media #{$large-down} { width: 100%; } 
+    }
+  }
+  .profile-footer {
+    @include clearfix;
+    padding: em-calc(24) em-calc(15);
+    background: $black url(/images/noise-pattern.png);
+    text-transform: uppercase;
+    .latest-update, .social-links {
+      @include span(6 of 12);
+      margin: 0;
+      @media #{$small-only} {
+        width: 100%;
+        margin-bottom: $mobile-paragraph-margin;
+      }
+    }
+    .latest-update {
+      padding-top: em-calc(16);
+      padding-bottom: em-calc(16);
+    }
+    .latest-update a {
+      color: $green;
+      text-decoration: underline;
+      &:hover { text-decoration: none; }
+    }
+  }
+  .social-links {
+    float: right;
+    text-align: right;
+  }
+}
+
+// troop stats
+.stats-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: em-calc(30);
+  margin-bottom: em-calc(30);
+  li {
+    position: relative;
+    min-height: 310px;
+    @media #{$medium-down} { min-height: 210px; }
+    &:before {
+      content: "";
+      position: absolute;
+      left: #{$gutter-width/2}px;
+      right: #{$gutter-width/2}px;
+      top: 0;
+      height: 310px;
+      background-color: rgba($light-grey, 0.11);
+      @media #{$medium-down} { height: 210px; }
+    }
+    &:after {
+      position: absolute;
+      left: 0;
+      top: -26px;
+      width: 100%;
+      text-align: center;
+      font-size: 360px;
+      @extend .icon;
+      @media #{$large-only} {
+        font-size: 260px;
+        line-height: 360px;
+      }
+      @media #{$medium-down} {
+        font-size: 150px;
+        line-height: 250px;
+      }
+    }
+    &.mobile-os:after { content: $icon-phone; }
+    &.bananas:after { content: $icon-banana; }
+    &.tacos:after { content: $icon-tacos; }
+    &.code:after { content: $icon-keyboard; }
+    &.desktop-os:after { content: $icon-computer; }
+    p {
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      @include translate(0, -50%);
+      margin: 0;
+      text-align: center;
+      z-index: 1;
+      @media #{$medium-down} {
+        width: 90%;
+      }
+    }
+    .number {
+      display: block;
+      color: #fff;
+      font-family: $heading-font;
+      font-size: 180px;
+      line-height: 1;
+      @media #{$large-only} { font-size: 120px; }
+      @media #{$medium-down} { font-size: 80px; }
+    }
+    .percent { font-size: 0.6em; }
+  }
+}
+
+.troop-stats-pt1 {
+  position: relative;
+  background-color: $teal;
+  padding-top: em-calc(40);
+  .section-head, .subtitle {
+    color: #fff;
+  }
+  li {
+    @include span(4 of 12);
+    &:after { color: $dark-teal; }
+    p { color: $yellow; }
+    @media #{$small-only} {
+      width: 100%;
+      margin-bottom: $mobile-paragraph-margin;
+    }
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -40px;
+    @include triangle($teal, 1200px, 40px);
+  }
+}
+.office-cat {
+  text-align: center;
+  margin-top: em-calc(50);
+  p {
+    position: relative;
+    top: 14px;
+    margin-bottom: 0;
+    font-family: $heading-font;
+    font-size: 40px;
+    color: $yellow;
+    z-index: 1;
+    @media #{$medium-down} { font-size: 30px; }
+    &:before {
+      content: $icon-cat;
+      @extend .icon;
+      font-size: 100px;
+      color: $dark-teal;
+      padding-right: 30px;
+      vertical-align: bottom;
+    }
+  }
+  .number {
+    font-size: 86px;
+    color: #fff;
+    @media #{$medium-down} { font-size: 60px; }
+  }
+  .percent { font-size: 0.6em; }
+}
+.troop-stats-pt2 {
+  padding: 20px 0 1px;
+  background-color: $green;
+  li {
+    @include span(6 of 12);
+    @media #{$small-only} {
+      width: 100%;
+      margin-bottom: $mobile-paragraph-margin;
+    }
+    &:after { color: $dark-green; }
+    p { color: $dark-teal; }
+    &.code .number {
+      font-size: 120px;
+      @media #{$large-down} { font-size: 60px; }
+    }
+  }
+}
