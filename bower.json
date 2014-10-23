@@ -11,5 +11,10 @@
     "validationEngine": "2.6.4",
     "plupload": "2.1.2",
     "bootstrap-datepicker": "latest"
+  },
+  "resolutions": {
+    "platform": "^0.4.0",
+    "core-component-page": "^0.4.0",
+    "polymer": "^0.4.0"
   }
 }
