@@ -1,16 +1,16 @@
 <?php
 $aPluginInfo = array(
   /* Plugin Details */
-  "name" => "Clients",
+  "name" => "Portfolio",
   "version" => "1.0",
-  "author" => "Monkee-Boy Dev",
+  "author" => "Monkee-Boy",
   "website" => "http://monkee-boy.com/",
   "email" => "webmaster@monkee-boy.com",
   "description" => "",
 
   /* Plugin Configuration */
   "config" => array(
-    "imageFolder" => "/uploads/clients/",
+    "imageFolder" => "/uploads/portfolio/",
     "sort" => "name-asc" // manual, name, subname, created, updated, random - asc, desc
   )
 );

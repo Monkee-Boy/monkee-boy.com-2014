@@ -1,22 +1,22 @@
 <?php
-class admin_clients extends adminController {
+class admin_portfolio extends adminController {
   function __construct(){
-    parent::__construct("clients");
+    parent::__construct("portfolio");
 
-    $this->menuPermission("clients");
+    $this->menuPermission("portfolio");
   }
 
   ### DISPLAY ######################
   function index() {
     // Clear saved form info
-    $_SESSION["admin"]["admin_clients"] = null;
+    $_SESSION["admin"]["admin_portfolio"] = null;
 
     $sMinSort = $this->dbQuery(
-      "SELECT MIN(`sort_order`) FROM `{dbPrefix}clients`"
+      "SELECT MIN(`sort_order`) FROM `{dbPrefix}portfolio`"
       ,"one"
     );
     $sMaxSort = $this->dbQuery(
-      "SELECT MAX(`sort_order`) FROM `{dbPrefix}clients`"
+      "SELECT MAX(`sort_order`) FROM `{dbPrefix}portfolio`"
       ,"one"
     );
 
@@ -29,8 +29,8 @@ class admin_clients extends adminController {
     $this->tplDisplay("admin/index.php");
   }
   function add() {
-    if(!empty($_SESSION["admin"]["admin_clients"]))
-      $this->tplAssign("aClient", $_SESSION["admin"]["admin_clients"]);
+    if(!empty($_SESSION["admin"]["admin_portfolio"]))
+      $this->tplAssign("aClient", $_SESSION["admin"]["admin_portfolio"]);
     else {
       $aClient = array(
         "menu" => array()
@@ -44,12 +44,12 @@ class admin_clients extends adminController {
   }
   function add_s() {
     if(empty($_POST["name"])) {
-      $_SESSION["admin"]["admin_clients"] = $_POST;
-      $this->forward("/admin/clients/add/?error=".urlencode("Please fill in all required fields!"));
+      $_SESSION["admin"]["admin_portfolio"] = $_POST;
+      $this->forward("/admin/portfolio/add/?error=".urlencode("Please fill in all required fields!"));
     }
 
     $sOrder = $this->dbQuery(
-      "SELECT MAX(`sort_order`) + 1 FROM `{dbPrefix}clients`"
+      "SELECT MAX(`sort_order`) + 1 FROM `{dbPrefix}portfolio`"
       ,"one"
     );
 
@@ -57,7 +57,7 @@ class admin_clients extends adminController {
       $sOrder = 1;
 
     $sID = $this->dbInsert(
-      "clients",
+      "portfolio",
       array(
         "name" => $_POST["name"],
         "website" => $_POST["website"],
@@ -72,7 +72,7 @@ class admin_clients extends adminController {
 
     if($_FILES["logo"]["error"] != 4) {
       if($_FILES["logo"]["error"] == 1 || $_FILES["logo"]["error"] == 2) {
-        $this->forward("/admin/clients/?error=".urlencode("Photo file size was too large!"));
+        $this->forward("/admin/portfolio/?error=".urlencode("Photo file size was too large!"));
       } else {
         $upload_dir = $this->settings->rootPublic.substr($this->model->imageFolder, 1);
         $file_ext = pathinfo($_FILES["logo"]["name"], PATHINFO_EXTENSION);
@@ -80,7 +80,7 @@ class admin_clients extends adminController {
 
         if(move_uploaded_file($_FILES["logo"]["tmp_name"], $upload_dir.$upload_file)) {
           $this->dbUpdate(
-            "clients",
+            "portfolio",
             array(
               "logo" => $upload_file
             ),
@@ -88,31 +88,31 @@ class admin_clients extends adminController {
           );
         } else {
           $this->dbUpdate(
-            "clients",
+            "portfolio",
             array(
               "active" => 0
             ),
             $sID
           );
 
-          $this->forward("/admin/clients/?info=".urlencode("Failed to upload file!"));
+          $this->forward("/admin/portfolio/?info=".urlencode("Failed to upload file!"));
         }
       }
     }
 
-    $_SESSION["admin"]["admin_clients"] = null;
+    $_SESSION["admin"]["admin_portfolio"] = null;
 
-    $this->forward("/admin/clients/?info=".urlencode("Client created successfully!"));
+    $this->forward("/admin/portfolio/?info=".urlencode("Client created successfully!"));
   }
   function edit() {
-    if(!empty($_SESSION["admin"]["admin_clients"])) {
+    if(!empty($_SESSION["admin"]["admin_portfolio"])) {
       $aClientRow = $this->dbQuery(
-        "SELECT * FROM `{dbPrefix}clients`"
+        "SELECT * FROM `{dbPrefix}portfolio`"
           ." WHERE `id` = ".$this->urlVars->dynamic["id"]
         ,"row"
       );
 
-      $aClient = $_SESSION["admin"]["admin_clients"];
+      $aClient = $_SESSION["admin"]["admin_portfolio"];
 
       $aClient["updated_datetime"] = $aClientRow["updated_datetime"];
       $aClient["updated_by"] = $this->dbQuery(
@@ -136,12 +136,12 @@ class admin_clients extends adminController {
   }
   function edit_s() {
     if(empty($_POST["name"])) {
-      $_SESSION["admin"]["admin_clients"] = $_POST;
-      $this->forward("/admin/clients/edit/".$_POST["id"]."/?error=".urlencode("Please fill in all required fields!"));
+      $_SESSION["admin"]["admin_portfolio"] = $_POST;
+      $this->forward("/admin/portfolio/edit/".$_POST["id"]."/?error=".urlencode("Please fill in all required fields!"));
     }
 
     $this->dbUpdate(
-      "clients",
+      "portfolio",
       array(
         "name" => $_POST["name"],
         "website" => $_POST["website"],
@@ -155,14 +155,14 @@ class admin_clients extends adminController {
 
     if($_FILES["logo"]["error"] != 4) {
       if($_FILES["logo"]["error"] == 1 || $_FILES["logo"]["error"] == 2) {
-        $this->forward("/admin/clients/?error=".urlencode("Photo file size was too large!"));
+        $this->forward("/admin/portfolio/?error=".urlencode("Photo file size was too large!"));
       } else {
         $upload_dir = $this->settings->rootPublic.substr($this->model->imageFolder, 1);
         $file_ext = pathinfo($_FILES["logo"]["name"], PATHINFO_EXTENSION);
         $upload_file = $_POST["id"].".".strtolower($file_ext);
 
         $sClient = $this->dbQuery(
-          "SELECT `logo` FROM `{dbPrefix}clients`"
+          "SELECT `logo` FROM `{dbPrefix}portfolio`"
             ." WHERE `id` = ".$_POST["id"]
           ,"one"
         );
@@ -170,7 +170,7 @@ class admin_clients extends adminController {
 
         if(move_uploaded_file($_FILES["logo"]["tmp_name"], $upload_dir.$upload_file)) {
           $this->dbUpdate(
-            "clients",
+            "portfolio",
             array(
               "logo" => $upload_file
             ),
@@ -178,44 +178,44 @@ class admin_clients extends adminController {
           );
         } else {
           $this->dbUpdate(
-            "clients",
+            "portfolio",
             array(
               "active" => 0
             ),
             $_POST["id"]
           );
 
-          $this->forward("/admin/clients/?error=".urlencode("Failed to upload file!"));
+          $this->forward("/admin/portfolio/?error=".urlencode("Failed to upload file!"));
         }
       }
     }
 
-    $_SESSION["admin"]["admin_clients"] = null;
+    $_SESSION["admin"]["admin_portfolio"] = null;
 
-    $this->forward("/admin/clients/?info=".urlencode("Changes saved successfully!"));
+    $this->forward("/admin/portfolio/?info=".urlencode("Changes saved successfully!"));
   }
   function delete() {
     $aClient = $this->model->getClient($this->urlVars->dynamic["id"], true);
 
-    $this->dbDelete("clients", $this->urlVars->dynamic["id"]);
+    $this->dbDelete("portfolio", $this->urlVars->dynamic["id"]);
 
     @unlink($this->settings->rootPublic.substr($this->model->imageFolder, 1).$aClient["logo"]);
 
-    $this->forward("/admin/clients/?info=".urlencode("Client removed successfully!"));
+    $this->forward("/admin/portfolio/?info=".urlencode("Client removed successfully!"));
   }
   function sort() {
     $aClient = $this->model->getClient($this->urlVars->dynamic["id"], true);
 
     if($this->urlVars->dynamic["sort"] == "up") {
       $aOld = $this->dbQuery(
-        "SELECT * FROM `{dbPrefix}clients`"
+        "SELECT * FROM `{dbPrefix}portfolio`"
           ." WHERE `sort_order` < ".$aClient["sort_order"]
           ." ORDER BY `sort_order` DESC"
         ,"row"
       );
     } elseif($this->urlVars->dynamic["sort"] == "down") {
       $aOld = $this->dbQuery(
-        "SELECT * FROM `{dbPrefix}clients`"
+        "SELECT * FROM `{dbPrefix}portfolio`"
           ." WHERE `sort_order` > ".$aClient["sort_order"]
           ." ORDER BY `sort_order` ASC"
         ,"row"
@@ -223,7 +223,7 @@ class admin_clients extends adminController {
     }
 
     $this->dbUpdate(
-      "clients",
+      "portfolio",
       array(
         "sort_order" => 0
       ),
@@ -231,7 +231,7 @@ class admin_clients extends adminController {
     );
 
     $this->dbUpdate(
-      "clients",
+      "portfolio",
       array(
         "sort_order" => $aClient["sort_order"]
       ),
@@ -239,14 +239,14 @@ class admin_clients extends adminController {
     );
 
     $this->dbUpdate(
-      "clients",
+      "portfolio",
       array(
         "sort_order" => $aOld["sort_order"]
       ),
       $aClient["id"]
     );
 
-    $this->forward("/admin/clients/?info=".urlencode("Sort order saved successfully!"));
+    $this->forward("/admin/portfolio/?info=".urlencode("Sort order saved successfully!"));
   }
   ##################################
 }

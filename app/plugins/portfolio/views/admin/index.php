@@ -1,6 +1,6 @@
-<?php $this->tplDisplay("inc_header.php", ['menu'=>'clients','sPageTitle'=>"Clients"]); ?>
+<?php $this->tplDisplay("inc_header.php", ['menu'=>'portfolio','sPageTitle'=>"Portfolio"]); ?>
 
-  <h2>Manage Clients <a href="/admin/clients/add/" title="Add Client" class="btn btn-primary pull-right" rel="tooltip" data-placement="bottom"><i class="icon-plus icon-white"></i> Add Client</a></h2>
+  <h2>Manage Portfolio <a href="/admin/portfolio/add/" title="Add Client" class="btn btn-primary pull-right" rel="tooltip" data-placement="bottom"><i class="icon-plus icon-white"></i> Add Client</a></h2>
 
   <table  class="data-table table table-striped">
     <thead>
@@ -28,20 +28,20 @@
             <td class="small center">
               <span class="hidden"><?= $aClient['sort_order'] ?></span>
               <?php if($aClient['sort_order'] != $minSort): ?>
-                <a href="/admin/clients/sort/<?= $aClient['id'] ?>/up/" title="Move Up One"><img src="/images/admin/icons/bullet_arrow_up.png" style="width:16px;height:16px;"></a>
+                <a href="/admin/portfolio/sort/<?= $aClient['id'] ?>/up/" title="Move Up One"><img src="/images/admin/icons/bullet_arrow_up.png" style="width:16px;height:16px;"></a>
               <?php else: ?>
                 <img src="/images/blank.gif" style="width:16px;height:16px;">
               <?php endif; ?>
               <?php if($aClient['sort_order'] != $maxSort && count($aClient) > 1): ?>
-                <a href="/admin/clients/sort/<?= $aClient['id'] ?>/down/" title="Move Down One"><img src="/images/admin/icons/bullet_arrow_down.png" style="width:16px;height:16px;"></a>
+                <a href="/admin/portfolio/sort/<?= $aClient['id'] ?>/down/" title="Move Down One"><img src="/images/admin/icons/bullet_arrow_down.png" style="width:16px;height:16px;"></a>
               <?php else: ?>
                 <img src="/images/blank.gif" style="width:16px;height:16px;">
               <?php endif; ?>
             </td>
           <?php endif; ?>
           <td class="center">
-            <a href="/admin/clients/edit/<?= $aClient['id'] ?>/" title="Edit Client" rel="tooltip"><i class="icon-pencil"></i></a>
-            <a href="/admin/clients/delete/<?= $aClient['id'] ?>/" title="Delete Client" rel="tooltip" onclick="return confirm('Are you sure you would like to delete: <?= $aClient['name'] ?>?');"><i class="icon-trash"></i></a>
+            <a href="/admin/portfolio/edit/<?= $aClient['id'] ?>/" title="Edit Client" rel="tooltip"><i class="icon-pencil"></i></a>
+            <a href="/admin/portfolio/delete/<?= $aClient['id'] ?>/" title="Delete Client" rel="tooltip" onclick="return confirm('Are you sure you would like to delete: <?= $aClient['name'] ?>?');"><i class="icon-trash"></i></a>
           </td>
         </tr>
       <?php endforeach; ?>

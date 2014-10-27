@@ -12,32 +12,32 @@
  #   /<tag:[a-z]+>/
 */
 $aPluginUrlPatterns = array(
-  "/admin/clients/" => array(
-    "cmd" => "admin_clients",
+  "/admin/portfolio/" => array(
+    "cmd" => "admin_portfolio",
     "action" => "index"
   ),
-  "/admin/clients/add/" => array(
-    "cmd" => "admin_clients",
+  "/admin/portfolio/add/" => array(
+    "cmd" => "admin_portfolio",
     "action" => "add"
   ),
-  "/admin/clients/add/s/" => array(
-    "cmd" => "admin_clients",
+  "/admin/portfolio/add/s/" => array(
+    "cmd" => "admin_portfolio",
     "action" => "add_s"
   ),
-  "/admin/clients/edit/<id:[0-9]+>/" => array(
-    "cmd" => "admin_clients",
+  "/admin/portfolio/edit/<id:[0-9]+>/" => array(
+    "cmd" => "admin_portfolio",
     "action" => "edit"
   ),
-  "/admin/clients/edit/s/" => array(
-    "cmd" => "admin_clients",
+  "/admin/portfolio/edit/s/" => array(
+    "cmd" => "admin_portfolio",
     "action" => "edit_s"
   ),
-  "/admin/clients/delete/<id:[0-9]+>/" => array(
-    "cmd" => "admin_clients",
+  "/admin/portfolio/delete/<id:[0-9]+>/" => array(
+    "cmd" => "admin_portfolio",
     "action" => "delete"
   ),
-  "/admin/clients/sort/<id:[0-9]+>/<sort:[a-z]+>/" => array(
-    "cmd" => "admin_clients",
+  "/admin/portfolio/sort/<id:[0-9]+>/<sort:[a-z]+>/" => array(
+    "cmd" => "admin_portfolio",
     "action" => "sort"
   ),
 );

@@ -1,3 +1,4 @@
 app/inc_config.php
 uploads
 .DS_Store
+.htaccess

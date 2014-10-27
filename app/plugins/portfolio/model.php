@@ -1,5 +1,5 @@
 <?php
-class clients_model extends appModel {
+class portfolio_model extends appModel {
   public $imageFolder;
   public $sort;
 
@@ -62,10 +62,10 @@ class clients_model extends appModel {
       $sOrderBy = " ORDER BY RAND() ";
 
     $aClients = $this->dbQuery(
-      "SELECT `clients`.* FROM `{dbPrefix}clients` as `clients`"
+      "SELECT `portfolio`.* FROM `{dbPrefix}portfolio` as `portfolio`"
         .$sJoin
         .$sWhere
-        ." GROUP BY `clients`.`id`"
+        ." GROUP BY `portfolio`.`id`"
         .$sOrderBy
       ,"all"
     );
@@ -86,7 +86,7 @@ class clients_model extends appModel {
       $sWhere .= " AND `active` = 1";
 
     $aClient = $this->dbQuery(
-      "SELECT * FROM `{dbPrefix}clients`"
+      "SELECT * FROM `{dbPrefix}portfolio`"
         .$sWhere
         ." LIMIT 1"
       ,"row"
