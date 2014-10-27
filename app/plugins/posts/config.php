@@ -10,11 +10,11 @@ $aPluginInfo = array(
 
 	/* Plugin Configuration */
 	"config" => array(
-		"useImage" => true,
+		"useImage" => false,
 		"imageMinWidth" => 200,
 		"imageMinHeight" => 100,
 		"imageFolder" => "/uploads/posts/",
-		"useCategories" => true,
+		"useCategories" => false,
 		"perPage" => 10,
 		"useComments" => true,
 		"excerptCharacters" => 250, // character limit for excerpt

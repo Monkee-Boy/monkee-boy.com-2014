@@ -359,7 +359,7 @@ class appController {
 			}
 		} else {
 			$aTrace = debug_backtrace();
-			echo 'Could not load view \''.$sTemplate.'\'. File not found. ('.$this->settings->tplDir.$sTemplate.')';
+			echo 'Could not load view \''.$sTemplate.'\'. File not found. ('.$sDirectory.$sTemplate.')';
 			echo "<pre>";
 			print_r($aTrace);
 			echo "</pre>";
