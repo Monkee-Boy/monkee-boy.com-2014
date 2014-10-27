@@ -1,0 +1,641 @@
+.form-title {
+  background-color: $black;
+  text-align: center;
+  padding: 0.85em;
+}
+
+.form-step {
+  margin: 0 -#{em-calc($gutter-width/2)} em-calc(50);
+  @include clearfix;
+}
+
+label {
+  display: block;
+  font-family: $heading-font;
+  font-weight: bold;
+  font-size: 24px;
+  text-transform: uppercase;
+  color: $teal;
+  margin-bottom: 8px;
+}
+
+// radio btn label
+.radio {
+  position: relative;
+  padding-left: em-calc(60);
+  margin-bottom: em-calc(28);
+  font-family: $body-font;
+  font-size: 18px;
+  line-height: #{(24/18)};
+  font-weight: normal;
+  text-transform: none;
+  color: $dark-grey;
+  cursor: pointer;
+  input {
+    position: absolute;
+    @include opacity(0);
+    z-index: -1;
+  }
+  .control-indicator {
+    position: absolute;
+    left: 18px;
+    top: 0;
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-color: $grey;
+    @include border-radius(50%);
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      @include border-radius(50%);
+      background-color: $green;
+      @include scale(0);
+      @include transition(all 0.5s ease);
+    }
+  }
+  input:checked~.control-indicator {
+    &:before {
+      @include scale(1);
+    }
+  }
+}
+
+// select box
+.select-box {
+  position: relative;
+  width: em-calc(370);
+  max-width: 100%;
+  height: em-calc(70);
+  &:after {
+    content: "";
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    margin-top: -3px;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    border-top: 12px solid $grey;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    @include transition(border 0.3s ease);
+  }
+  select {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0 em-calc(50, 24) 0 em-calc(16, 24);
+    background: transparent;
+    outline: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    @include border-radius(0);
+    border: 3px solid $grey;
+    font-family: $heading-font;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $grey;
+    cursor: pointer;
+    @include transition(all 0.3s ease);
+    &:focus {
+      border-color: $teal;
+    }
+  }
+  &.selected {
+    &:after { border-top-color: #fff; }
+    select {
+      border-color: $teal;
+      background: $teal;
+      color: #fff;
+    }
+  }
+}
+
+.input-wrapper {
+  display: block;
+  position: relative;
+  padding: 0 #{em-calc($gutter-width/2)};
+  &:before {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: em-calc($gutter-width/2);
+    right: em-calc($gutter-width/2);
+    border: 0px solid #fff;
+    pointer-events: none;
+    @include transition(border 0.3s ease);
+  }
+  &:after {
+    content: "";
+    @include triangle(#fff, 120px, 6px);
+    position: absolute;
+    right: em-calc($gutter-width/2);
+    bottom: -6px;
+    @include transition(border 0.3s ease);
+  }
+  &.focused {
+    &:before {
+      border: 8px solid $green;
+    }
+    &:after { border-right-color: $green; }
+  }
+  &.phone {
+    float: left;
+    width: 480px;
+    max-width: 100%;
+  }
+  input, textarea {
+    width: 100%;
+    background-color: #fff;
+    border: none;
+    padding: em-calc(16, 24) em-calc(18, 24);
+    font-size: 24px;
+    &:focus { outline: none; }
+  }
+  textarea {
+    display: block;
+    resize: none;
+  }
+}
+
+// error styling
+.formError {
+  top: 68px !important;
+  color: $red;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: italic;
+}
+
+// work with us page layout
+.form-monkee {
+  @include span(5 of 12);
+  @media #{$small-only} { display: none; }
+  .monkee {
+    display: block;
+    position: relative;
+    margin: 0 15%;
+    background: url(../images/form-monkee.png) no-repeat center center;
+    background-size: contain;
+    // sizing
+    &:after {
+      content: "";
+      display: block;
+      padding-bottom: 208.2%; // image height/width ratio
+    }
+    // speech bubble
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 20%;
+      left: 80%;
+      margin-left: -194px;
+      width: 194px;
+      height: 102px;
+      background: url(../images/form-monkee-speech.png) no-repeat center center;
+      background-size: 100% 100%;
+      @include transform(scale(0));
+      @include opacity(0);
+      @include transition(all 0.3s ease);
+    }
+    &.speak:before {
+      left: 43%;
+      @include transform(scale(1));
+      @include opacity(1);
+    }
+  }
+  .dark-monkee {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: url(../images/form-monkee-dark.png) no-repeat center center;
+    background-size: contain;
+    @include transition(opacity 0.3s ease);
+  }
+}
+
+.form-part1 {
+  @include span(7 of 12);
+  @media #{$small-only} { width: 100%; }
+}
+
+.request-quote-form {
+  .left {
+    @include span(4 of 12);
+    @media #{$medium-down} {
+      width: 100%;
+    }
+  }
+  .right {
+    @include span(8 of 12);
+    @media #{$medium-down} {
+      width: 100%;
+      padding-bottom: em-calc(40);
+      border-bottom: 1px solid $grey;
+      margin-bottom: em-calc(40);
+    }
+    .input-wrapper { margin: 0 -15px; }
+  }
+  .submit { width: 100%; }
+}
+
+.switch-target {
+  display: none;
+  &.active {
+    display: block;
+  }
+}
+
+input[type=submit],
+button[type=submit] {
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  @extend .button;
+}
+
+
+.form-newsletter {
+  label {
+    display: block;
+    margin-bottom: 10px;
+    color: $dark-teal;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: $heading-font;
+    text-transform: uppercase;
+  }
+
+  input[type=text], input[type=email] {
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+    font-size: 24px;
+    color: $black;
+    border: 0;
+  }
+
+  input[type=submit] {
+    width: 100%;
+  }
+
+  .subscribe-status {
+    margin: 0 auto 20px;
+    @include size(114px, 79px);
+    background: url(/images/subscribe-sprite.png) no-repeat 0 0;
+
+    &.success {
+      background-position: 0 -79px;
+    }
+  }
+}
+
+// upload styles
+.upload-box {
+  border: 4px solid $grey;
+}
+.uploaded-files {
+  div {
+    position: relative;
+    padding: em-calc(10, 18) em-calc(16, 18);
+    font-size: 18px;
+    color: $dark-grey;
+    background-color: #fff;
+    @include transition(color 0.3s ease);
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 0;
+      background-color: $green;
+      @include transition(background 0.3s ease);
+    }
+  }
+}
+
+// datepicker styles
+.date-input {
+  position: relative;
+  position: relative;
+  width: em-calc(370);
+  max-width: 100%;
+  height: em-calc(70);
+  &:after {
+    content: $icon-calendar;
+    @extend .icon;
+    position: absolute;
+    right: 20px;
+    top: 0;
+    font-size: 30px;
+    line-height: 70px;
+    color: $grey;
+    pointer-events: none;
+    @include transition(color 0.3s ease);
+  }
+  input {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0 em-calc(50, 24) 0 em-calc(16, 24);
+    background: transparent;
+    outline: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    @include border-radius(0);
+    border: 3px solid $grey;
+    font-family: $heading-font;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $grey;
+    cursor: pointer;
+    @include transition(all 0.3s ease);
+  }
+  &.selected {
+    &:after { color: #fff; }
+    input {
+      border-color: $teal;
+      background: $teal;
+      color: #fff;
+    }
+  }
+}
+.datepicker {
+  direction: ltr;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 10;
+  display: none;
+  float: left;
+  min-width: 250px;
+  margin: 2px 0 0;
+  list-style: none;
+  background-color: #ffffff;
+  border-bottom: 4px solid $grey;
+  > div {
+    display: none;
+  }
+  &.days div.datepicker-days,
+  &.months div.datepicker-months,
+  &.years div.datepicker-years {
+    display: block;
+  }
+  table{
+    width: 100%;
+    margin: 0;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    tr {
+      td, th {
+        text-align: center;
+        width: 40px;
+        height: 40px;
+        border: none;
+      }
+    }
+  }
+  // Inline display inside a table presents some problems with
+  // border and background colors.
+  .table-striped & table tr {
+    td, th {
+      background-color:transparent;
+    }
+  }
+  table tr td {
+    &.day:hover, &.day.focused {
+      background: $light-yellow;
+      cursor: pointer;
+    }
+    &.old,
+    &.new {
+      color: $darker-light-grey;
+      background-color: $darker-light-grey;
+    }
+    &.disabled,
+    &.disabled:hover {
+      background: none;
+      color: $light-grey;
+      cursor: default;
+    }
+    &.today,
+    &.today:hover,
+    &.today.disabled,
+    &.today.disabled:hover {
+      color: #000;
+      background-color: $red;
+      border-color: darken($red, 20%);
+    }
+    &.today.active:hover {
+      color: #fff;
+    }
+    &.range,
+    &.range:hover,
+    &.range.disabled,
+    &.range.disabled:hover {
+      background: $light-grey;
+    }
+    &.range.today,
+    &.range.today:hover,
+    &.range.today.disabled,
+    &.range.today.disabled:hover {
+      color: #000;
+      background-color: $red;
+      border-color: darken($red, 20%);
+    }
+    &.selected,
+    &.selected:hover,
+    &.selected.disabled,
+    &.selected.disabled:hover {
+      color: #fff;
+      background-color: $light-grey;
+      border-color: $grey;
+      text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+    }
+    &.active,
+    &.active:hover,
+    &.active.disabled,
+    &.active.disabled:hover {
+      color: #fff;
+      background-color: $teal;
+      border-color: darken($teal, 20%);
+      text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+    }
+    span {
+      display: block;
+      width: 23%;
+      height: 54px;
+      line-height: 54px;
+      float: left;
+      margin: 1%;
+      cursor: pointer;
+      &:hover {
+        background: $light-grey;
+      }
+      &.disabled,
+      &.disabled:hover {
+        background: none;
+        color: $grey;
+        cursor: default;
+      }
+      &.active,
+      &.active:hover,
+      &.active.disabled,
+      &.active.disabled:hover {
+        color: #fff;
+        background-color: $teal;
+        border-color: darken($teal, 20%);
+        text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+      }
+      &.old,
+      &.new {
+        color: $grey;
+      }
+    }
+  }
+
+  thead {
+    tr:first-child {
+      background-color: $yellow;
+      border-bottom: 8px solid $dark-yellow;
+    }
+    .datepicker-switch {
+      font-family: $heading-font;
+      font-size: 16px;
+      color: #fff;
+      text-transform: uppercase;
+      padding-top: 2px;
+      &:hover {
+        color: $red;
+        cursor: pointer;
+      }
+    }
+    .prev, .next {
+      font-size: 0;
+      line-height: 0;
+      &:after {
+        @extend .icon;
+        font-size: 20px;
+        line-height: 1;
+        color: $dark-yellow;
+      }
+      &:hover:after {
+        color: $red;
+        cursor: pointer;
+      }
+    }
+    .prev:after { content: $icon-left; }
+    .next:after { content: $icon-right; }
+
+    // days of week
+    .dow {
+      font-weight: normal;
+      text-transform: uppercase;
+      color: $teal;
+      font-family: $heading-font;
+      font-size: 16px;
+    }
+  }
+
+  // Basic styling for calendar-week cells
+  .cw {
+    font-size: 10px;
+    width: 12px;
+    padding: 0 2px 0 5px;
+    vertical-align: middle;
+  }
+  thead tr:first-child th.cw {
+    cursor: default;
+    background-color: transparent;
+  }
+}
+.input-group {
+  &.date {
+    .input-group-addon i {
+      cursor: pointer;
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+.input-daterange {
+  input {
+    text-align:center;
+  }
+  .input-group-addon {
+    width: auto;
+    min-width: 16px;
+    padding: 4px 5px;
+    font-weight: normal;
+    line-height: 1;
+    text-align: center;
+    text-shadow: 0 1px 0 #fff;
+    vertical-align: middle;
+    background-color: $green;
+    border: solid darken($green, 20%);
+    border-width: 1px 0;
+    margin-left:-5px;
+    margin-right:-5px;
+  }
+}
+
+.datepicker-inline {
+  width: 220px;
+}
+.datepicker-rtl {
+  direction: rtl;
+  table tr td span {
+    float: right;
+  }
+}
+.datepicker-dropdown {
+  top: 0;
+  left: 0;
+  &:before {
+    content: '';
+    display: inline-block;
+    border-left:   10px solid transparent;
+    border-right:  10px solid transparent;
+    border-bottom: 10px solid $yellow;
+    border-top:    0;
+    position: absolute;
+  }
+  &.datepicker-orient-left:before   { left: 6px; }
+  &.datepicker-orient-left:after    { left: 7px; }
+  &.datepicker-orient-right:before  { right: 6px; }
+  &.datepicker-orient-right:after   { right: 7px; }
+  &.datepicker-orient-top:before    { top: -7px; }
+  &.datepicker-orient-top:after     { top: -6px; }
+
+  &.datepicker-orient-bottom {
+    margin-top: -10px;
+    &:before {
+      bottom: -14px;
+      border-bottom: 0;
+      border-top: 10px solid $grey;
+    }
+  }
+}

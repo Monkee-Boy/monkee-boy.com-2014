@@ -1,0 +1,158 @@
+// portfolio slider
+.port-slider {
+  .screens {
+    position: relative;
+    margin-bottom: em-calc(36);
+    &:after {
+      content: "";
+      display: block;
+      width: 100%;
+      padding-bottom: 58.5%;
+      @media #{$small-only} { padding-bottom: 98.2%; }
+    }
+    .screen {
+      position: absolute;
+      background-size: 100% 100%;
+      @include opacity(0.5);
+      &.active { @include opacity(1); }
+    }
+    .screen-inner {
+      position: absolute;
+      overflow-y: scroll;
+    }
+    .active {
+      z-index: 3;
+    }
+    &.initial {
+      .screen { @include opacity(1); }
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .slider-nav {
+    @media #{$small-only} { display: none; }
+    a {
+      position: absolute;
+      top: 25%;
+      display: block;
+      height: 50%;
+      width: 160px;
+      font-size: 0;
+      line-height: 0;
+      z-index: 2;
+      &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        margin-top: -10px;
+        border-top: 20px solid transparent;
+        border-bottom: 20px solid transparent;
+      }
+    }
+    .port-left {
+      left: 0;
+      &:after {
+        left: 15px;
+        border-right: 35px solid $black;
+      }
+    }
+    .port-right {
+      right: 0;
+      &:after {
+        right: 15px;
+        border-left: 35px solid $black;
+      }
+    }
+  }
+  .thumbs {
+    @include clearfix;
+  }
+  .thumbnail, .instructions {
+    display: block;
+    @include span(3 of 12);
+  }
+  @media #{$small-only} {
+    .instructions {
+      width: 100%;
+      margin-bottom: $mobile-paragraph-margin;
+    }
+    .thumbnail {
+      width: 33.3333%;
+      padding: 0 8px;
+    }
+  }
+  .thumbnail {
+    img {
+      display: block;
+    }
+    &.active img {
+      @include box-shadow(0 0 0 8px $green);
+      @media #{$small-only} { @include box-shadow(0 0 0 4px $green); }
+    }
+  }
+}
+.screen {
+  &.desktop {
+    background: url(../images/desktop.png) no-repeat center center;
+    &:after {
+      content: "";
+      position: absolute;
+      width: 126.2%;
+      height: 9.55%;
+      left: -13.1%;
+      bottom: -4%;
+      background: url(../images/desktop_bottom.png) no-repeat center center;
+      background-size: 100% 100%;
+    }
+    .screen-inner {
+      width: 93.45%;
+      left: 3.27%;
+      top: 6.05%;
+      height: 84.08%;
+    }
+    .scroll-msg {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: em-calc(20, 26);
+      background-color: rgba($black, 0.92);
+      color: #fff;
+      text-align: center;
+      font-family: $heading-font;
+      font-size: 26px;
+      font-weight: bold;
+      text-transform: uppercase;
+      span {
+        display: block;
+        text-transform: none;
+        font-weight: normal;
+        font-size: 18px;
+        font-style: italic;
+      }
+    }
+  }
+  &.tablet {
+    background: url(../images/ipad.png) no-repeat center center;
+    .screen-inner {
+      width: 80.27%;
+      height: 80.59%;
+      left: 9.86%;
+      top: 9.85%;
+    }
+  }
+  &.phone {
+    background: url(../images/iphone.png) no-repeat center center;
+    .screen-inner {
+      width: 83.94%;
+      height: 71.43%;
+      left: 8.03%;
+      top: 14.14%;
+    }
+    @media #{$small-only} {
+      z-index: 3;
+    }
+  }
+}

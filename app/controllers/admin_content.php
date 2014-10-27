@@ -21,6 +21,7 @@ class admin_content extends adminController
 		foreach($aPages as &$aPage) {
 			$aPage["title"] = htmlspecialchars(stripslashes($aPage["title"]));
 			$aPage["content"] = stripslashes($aPage["content"]);
+			$aPage["subtitle"] = stripslashes($aPage["subtitle"]);
 			$aPage["tags"] = htmlspecialchars(stripslashes($aPage["tags"]));
 		}
 
@@ -79,6 +80,7 @@ class admin_content extends adminController
 			array(
 				"tag" => $sTag
 				,"title" => $_POST["title"]
+				,"subtitle" => $_POST["subtitle"]
 				,"content" => $_POST["content"]
 				,"tags" => $_POST["tags"]
 				,"template" => $_POST["template"]
@@ -137,6 +139,7 @@ class admin_content extends adminController
 			);
 
 			$aPage["title"] = htmlspecialchars(stripslashes($aPage["title"]));
+			$aPage["subtitle"] = htmlspecialchars(stripslashes($aPage["subtitle"]));
 			$aPage["content"] = stripslashes($aPage["content"]);
 			$aPage["tags"] = htmlspecialchars(stripslashes($aPage["tags"]));
 
@@ -169,6 +172,7 @@ class admin_content extends adminController
 			array(
 				"pageid" => $aPage["id"]
 				,"title" => $aPage["title"]
+				,"subtitle" => $aPage["subtitle"]
 				,"content" => $aPage["content"]
 				,"updated_datetime" => $aPage["updated_datetime"]
 				,"updated_by" => $aPage["updated_by"]
@@ -190,6 +194,7 @@ class admin_content extends adminController
 			"content",
 			array(
 				"title" => $_POST["title"]
+				,"subtitle" => $_POST["subtitle"]
 				,"content" => $_POST["content"]
 				,"tags" => $_POST["tags"]
 				,"template" => $_POST["template"]

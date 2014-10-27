@@ -14,15 +14,15 @@
 	<link rel="dns-prefetch" href="//ajax.googleapis.com">
 
 	<link href="/css/admin/style.css?v1" rel="stylesheet">
-	<link href="/js/jqueryui/smoothness/jquery-ui-1.9.0.custom.css" rel="stylesheet">
+	<link href="/js/admin/jqueryui/smoothness/jquery-ui-1.9.0.custom.css" rel="stylesheet">
 
-	<script src="/js/modernizr-2.6.2.min.js"></script>
+	<script src="/js/admin/modernizr-2.6.2.min.js"></script>
 </head>
 <body class="<?= $menu ?>">
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container-fluid">
-				<img src="/images/logo.png" alt="logo" class="pull-left" style="margin-right: 15px;">
+				<!-- <img src="/images/logo.png" alt="logo" class="pull-left" style="margin-right: 15px;"> -->
 
 				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
 					<span class="icon-bar"></span>

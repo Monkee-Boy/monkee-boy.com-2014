@@ -1,0 +1,45 @@
+@import '../bower_components/susy/sass/_susy';
+
+$susy: (
+  columns: 12,
+  container: 1200px,
+  column-width: 70px,
+  gutter-position: inside-static,
+  gutters: 30px/70px
+);
+
+.row {
+  margin-bottom: em-calc(35px);
+  @include container();
+}
+
+.row-flush {
+  @include container();
+}
+
+.row-pop {
+  @include container();
+  margin-left: -#{$gutter-width/2}px;
+  margin-right: -#{$gutter-width/2}px;
+}
+
+.full {
+  @include span(12 of 12);
+  float: none;
+}
+
+.half {
+  @include span(6 of 12);
+  @media #{$small-only} {
+    width: 100%;
+    margin-bottom: $mobile-paragraph-margin;
+  }
+}
+
+.one-third {
+  @include span(4 of 12);
+  @media #{$small-only} {
+    width: 100%;
+    margin-bottom: $mobile-paragraph-margin;
+  }
+}

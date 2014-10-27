@@ -1,19 +1,16 @@
-# KaizenCMS
+![Monkee-Boy](https://dujrsrsgsd3nh.cloudfront.net/img/emoticons/113009/mboy-1403710932.jpg) monkee-boy.com
+==============
 
-Just a CMS that is now open for business.
+This repo is the home of the monkee-boy.com website powered by [KaizenCMS](https://github.com/monkeecreate/KaizenCMS).
 
-## Requirements/Installing
-_SUBJECT TO AND WILL CHANGE_
+## The Dev Team
 
-The requirements are simple. Apache 2+ and PHP 5+. PEAR and Memcache are recommended but not required. KaizenCMS will not work in a sub directory. It must be the root domain or a subdomain.
+Created with ♥ by the entire [Monkee-Boy Troop](http://www.monkee-boy.com/about/the-troop.php) in Austin, Texas.
 
-* Keeping the directory structure upload the files to your server. Remember, upload them to the directory just outside your public_html. This is important to the setup. NOTE: Backup your public_html if you already have files inside. Be sure and double check that all hidden files and folders were also uploaded (might have to show hidden files if your OS is hiding them).
-* If your host/server does not use public_html to store the files, no problem. Just rename the public_html from the repository.
-* Make the following directories writable (CHMOD 777): ./.compiled/ and ./public_html/uploads/
-* Rename ./inc_config_example.php to ./inc_config.php
-* The CMS will guide you through the rest of the setup just visit http://yourdomain.com/admin/.
+| [![James Fleeting](https://avatars0.githubusercontent.com/u/23062?s=144)](https://github.com/fleeting) | [![Sarah Higley](https://avatars3.githubusercontent.com/u/3819570?s=144)](https://github.com/smhigley) | [![John,Hoover](https://avatars2.githubusercontent.com/u/48278?s=144)](https://github.com/defvayne23) |
+|---|---|---|
+| [James Fleeting](http://github.com/fleeting) | [Sarah Higley](https://github.com/smhigley) | [John Hoover](https://github.com/defvayne23) |
 
-## The Team
 
-* James Fleeting @fleetingftw
-* John Hoover @defvayne23
+
+![Monkee-Boy](http://www.monkee-boy.com/img/logo-withtag-vertical-dark.jpg)

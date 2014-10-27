@@ -9,8 +9,8 @@ function html_editor($content = '', $name = '', $label = '', $class = '', $theme
 	$content = stripslashes($content);
 
 	$return = "{footer}\n";
-	$return .= "<script>if(typeof(tinymce) === 'undefined') { document.write('<script src=\"/js/tiny_mce/jquery.tinymce.js\"><\/script><script src=\"/js/tiny_mce/tiny_mce.js\"><\/script>'); }</script>\n";
-	$return .= "<script type='text/javascript' src='/js/tiny_mce/plugins/tinybrowser/tb_tinymce.js.php'></script>\n";
+	$return .= "<script>if(typeof(tinymce) === 'undefined') { document.write('<script src=\"/js/admin/tiny_mce/jquery.tinymce.js\"><\/script><script src=\"/js/admin/tiny_mce/tiny_mce.js\"><\/script>'); }</script>\n";
+	$return .= "<script type='text/javascript' src='/js/admin/tiny_mce/plugins/tinybrowser/tb_tinymce.js.php'></script>\n";
 	$return .= "<script type='text/javascript'>\n";
 	$return .= "tinyMCE.init({\n";
 
@@ -29,7 +29,7 @@ function html_editor($content = '', $name = '', $label = '', $class = '', $theme
 	$return .= "\trelative_urls: false,\n";
 	$return .= "\twidth: '".$width."',\n";
 	$return .= "\theight: '".$height."',\n";
-	$return .= "\tcontent_css: '/css/editor.css',\n";
+	$return .= "\tcontent_css: '/css/admin/editor.css',\n";
 
 	if($theme == "simple") {
 		$return .= "\ttheme_advanced_buttons1 : 'pastetext,pasteword,|,bold,italic,underline,strikethrough,|,numlist,bullist,|,link,unlink,|,undo,redo',\n";
@@ -62,7 +62,6 @@ function html_editor($content = '', $name = '', $label = '', $class = '', $theme
 	$return .= "</script>\n";
 	$return .= "{/footer}\n";
 	$return .= "\t<label class=\"control-label pull-left\" for=\"".$name."_editor\">".$label."</label>\n";
-	$return .= "\t<ul class=\"nav nav-tabs pull-right tinymce-toggle\" style=\"margin-bottom: 0; border-bottom: 0;\"><li class=\"visual_tab active\"><a href=\"javascript:toggleEditorVisual('".$name."_editor');\">Visual</a></li><li class=\"html_tab\"><a href=\"javascript:toggleEditorHTML('".$name."_editor');\">HTML</a></li></ul>\n";
 	$return .= "\t<div class=\"controls\">\n";
 	$return .= "<div id=\"tinymce_editor_".$name."\" class=\"tinymce_editor\" style=\"clear: both;\">\n";
 	$return .= "\t<textarea id='".$name."_editor' name='".$name."' class='".$name."_editor full ".$class."' style=\"width: 98.5%; height: ".($height - 15)."px;\">".$content."</textarea><br>\n";

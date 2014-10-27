@@ -1,0 +1,113 @@
+// mixin for triangular border
+@mixin triangle($color, $width, $height) {
+  border-style: solid;
+  border-width: 0 $width $height 0;
+  border-color: transparent $color transparent transparent;
+}
+
+// Breakpoints
+$small-bound: 480;
+$medium-bound: 740;
+$large-bound: 980;
+
+$small-only: "only screen and (max-width: #{$small-bound}px)";
+$medium-only: "only screen and (min-width: #{$small-bound + 1}px) and (max-width: #{$medium-bound}px)";
+$medium-up: "only screen and (min-width: #{$small-bound + 1}px)";
+$medium-down: "only screen and (max-width: #{$medium-bound}px)";
+$large-only: "only screen and (min-width: #{$medium-bound + 1}px) and (max-width: #{$large-bound}px)";
+$large-up: "only screen and (min-width: #{$medium-bound + 1}px)";
+$large-down: "only screen and (max-width: #{$large-bound}px)";
+
+// Colors
+$green: #acca32;
+$dark-green: #8fa82a;
+$teal: #23a38f;
+$dark-teal: #1a7a6c;
+$yellow: #fcc721;
+$light-yellow: #feecb3;
+$dark-yellow: #d8ae2a;
+$red: #ff6c5c;
+$dark-red: #f05e4e;
+$black: #242529;
+$dark-black: #1c1c1e;
+$light-grey: #ededed;
+$darker-light-grey: #dfdfdf;
+$grey: #b2b2b2;
+$medium-grey: #979797;
+$dark-grey: #5e5e5e;
+
+$color-strategy: $green;
+$color-design: $dark-green;
+$color-development: $teal;
+$color-maintenance: $dark-teal;
+$color-marketing: $yellow;
+$color-growth: $dark-yellow;
+
+// Vertical Spacing
+$paragraph-margin: em-calc(30px);
+$content-block-margin: em-calc(100);
+$mobile-paragraph-margin: em-calc(24);
+$mobile-content-block-margin: em-calc(60);
+
+// Grid widths
+$column-width: 70;
+$gutter-width: 30;
+
+// Fonts
+$heading-font: 'effra', sans-serif;
+$body-font: 'Source Sans Pro', sans-serif;
+$icon-font: 'icomoon';
+
+// Icons
+$icon-menu-who: "\e62a";
+$icon-menu-what: "\e62b";
+$icon-menu-work: "\e62d";
+$icon-menu-contact: "\e62c";
+$icon-pen: "\e624";
+$icon-hexagon-border: "\e606";
+$icon-hexagon-back: "\e60b";
+$icon-menuburger: "\e626";
+$icon-left: "\e627";
+$icon-right: "\e628";
+$icon-monkee: "\e60a";
+$icon-cat: "\e601";
+$icon-tacos: "\e605";
+$icon-banana: "\e600";
+$icon-banana-small: "\e60d";
+$icon-contact: "\e60e";
+$icon-blog: "\e60f";
+$icon-monitor: "\e610";
+$icon-design: "\e611";
+$icon-development: "\e612";
+$icon-marketing: "\e615";
+$icon-growth: "\e613";
+$icon-maintenance: "\e614";
+$icon-strategy: "\e616";
+$icon-launch: "\e609";
+$icon-handshake: "\e608";
+$icon-awards: "\e607";
+$icon-awards-small: "\e60c";
+$icon-phone: "\e604";
+$icon-computer: "\e603";
+$icon-keyboard: "\e602";
+$icon-eye: "\e617";
+$icon-calendar: "\e625";
+$icon-dots: "\e623";
+$icon-twitter: "\e61b";
+$icon-facebook: "\e61c";
+$icon-gplus: "\e61d";
+$icon-pinterest: "\e61e";
+$icon-tumblr: "\e61f";
+$icon-linkedin: "\e620";
+$icon-github: "\e618";
+$icon-instagram: "\e621";
+$icon-youtube: "\f167";
+$icon-vimeo: "\e61a";
+$icon-behance: "\e622";
+$icon-flickr: "\e619";
+$icon-wordpress: "\e629";
+
+// services
+$services: "strategy" "design" "development" "marketing" "maintenance" "growth";
+$service-colors: $green $teal $dark-green $dark-teal $yellow $grey;
+$service-icons: $icon-strategy $icon-design $icon-development $icon-marketing $icon-maintenance $icon-growth;

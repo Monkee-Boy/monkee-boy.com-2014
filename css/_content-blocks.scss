@@ -1,0 +1,418 @@
+.page-title {
+  padding: em-calc(54px) 0;
+  text-align: center;
+  background: #e5e5e5;
+}
+
+.main-cta {
+  margin: 0 0 $paragraph-margin;
+  padding: em-calc(60px) 0;
+  font-family: $heading-font;
+  background: $teal url(/images/noise-pattern.png) repeat 0 0;
+
+  .cta-inner {
+    color: #fff;
+    @include span(7 of 12);
+    @media #{$small-only} { width: 100%; }
+
+    p {
+      margin: 0;
+      font-size: em-calc(76px);
+      @media #{$large-down} { font-size: 40px; }
+    }
+  }
+
+  .cta-button {
+    @include span(last 4 of 12);
+    margin-top: em-calc(25px);
+    @media #{$small-only} { width: 100%; }
+  }
+
+  .button {
+    display: block;
+    padding: em-calc(44, 22) em-calc(10);
+    border-bottom: $dark-yellow solid 12px;
+    background-color: $yellow;
+    @media #{$large-down} { padding: em-calc(24) em-calc(10); }
+    &:before {
+      background: $dark-yellow;
+    }
+  }
+}
+
+.list-style-alt {
+  list-style: none;
+
+  li {
+    margin-top: 15px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  li:before {
+    content: '+';
+    color: #acca32;
+    margin-left: -25px;
+    margin-right: 10px;
+  }
+}
+
+.panel {
+  margin-bottom: em-calc(35px);
+  padding: 35px 0;
+  color: $grey;
+  background: $black;
+  @include container();
+
+  aside {
+    @include span(5 of 12);
+    @include pad(em-calc(35px));
+    @media #{$small-only} {
+      width: 100%;
+      margin-bottom: em-calc(20, 18);
+    }
+  }
+
+  .panel-content {
+    @include span(7 of 12);
+    @include pad(em-calc(35px));
+    @media #{$small-only} { width: 100%; }
+  }
+}
+
+/*
+  Full Width Panels
+  @params:
+    data-panel-style
+    data-panel-color
+*/
+.panel-wide {
+  padding: em-calc(40) 0 em-calc(80);
+  background-color: $dark-black;
+
+  .section-head {
+    color: $light-grey;
+  }
+
+  &[data-panel-style='slash'] {
+    position: relative;
+  }
+
+  &[data-panel-style='slash']:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -40px;
+    @include triangle($dark-black, 1200px, 40px);
+  }
+
+  &[data-panel-color='teal'] {
+    background-color: $teal;
+
+    &[data-panel-style='slash']:after {
+      @include triangle($teal, 1200px, 40px);
+    }
+  }
+
+  &[data-panel-color='green'] {
+    background-color: $green;
+
+    &[data-panel-style='slash']:after {
+      @include triangle($green, 1200px, 40px);
+    }
+  }
+
+  &[data-panel-color='light-grey'] {
+    background-color: $light-grey;
+
+    &[data-panel-style='slash']:after {
+      @include triangle($light-grey, 1200px, 40px);
+    }
+
+    .section-head {
+      color: $green;
+    }
+
+    .dots:before, .dots:after {
+      color: $darker-light-grey;
+      @include opacity(1);
+    }
+  }
+}
+
+.item-panel {
+  h4 {
+    position: relative;
+    margin: 0;
+    padding: em-calc(17) 0;
+    font-size: em-calc(18);
+    font-family: $body-font;
+    font-weight: normal;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    background: $dark-teal;
+
+    &:after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: -5px;
+      border-style: solid;
+      border-width: 0 100px 5px 0;
+      border-color: transparent $dark-teal transparent transparent;
+    }
+  }
+
+  .item-panel-inside {
+    padding: 20px;
+    color: #fff;
+    font-size: 22px;
+    background: #42b09f;
+
+    time {
+      display: block;
+      margin-top: 25px;
+      font-weight: bold;
+    }
+
+    a {
+      color: $yellow;
+    }
+  }
+
+  &.alt .item-panel-inside {
+    background: transparent;
+  }
+}
+
+.panel-wide[data-panel-style='callout'] {
+  position: relative;
+  @media #{$medium-down} { padding-top: 0; }
+
+  .row-flush {
+    position: relative;
+    &:before {
+      position: absolute;
+      width: 42%;
+      content: '';
+      z-index: 1;
+      top: -50px;
+      bottom: -90px;
+      background: $black;
+      @media #{$medium-down} { display: none; }
+    }
+  }
+
+  .item-callout {
+    @include span(5 of 12);
+    position: relative;
+    z-index: 1;
+    color: $light-grey;
+    font-size: 22px;
+    background: $black;
+    @media #{$medium-down} {
+      width: 100%;
+      padding-top: em-calc(40);
+      margin-bottom: $paragraph-margin;
+    }
+    h3 {
+      font-size: em-calc(40px);
+      line-height: 1;
+      color: $light-grey;
+    }
+
+    p {
+
+    }
+
+    a {
+      color: $light-grey;
+
+      &:hover, &:focus {
+        color: $green;
+      }
+    }
+  }
+
+  .item-panel {
+    @include span(6 of 12 last);
+    @media #{$medium-down} { width: 100%; }
+    h3 {
+      font-size: 24px;
+      font-weight: bold;
+      color: $teal;
+      margin: 0 0 em-calc(17, 24);
+    }
+  }
+}
+
+// things with dots
+.dots {
+  position: relative;
+
+  &[data-dots='dual']:before, &[data-dots='dual']:after, &[data-dots='left']:before, &[data-dots='right']:after {
+    content: $icon-dots;
+    position: absolute;
+    bottom: 0;
+    color: $light-grey;
+    @include opacity(0.16);
+    @extend .icon;
+    font-size: 100px;
+    line-height: 0;
+  }
+
+  &[data-dots='dual']:before, &[data-dots='left']:before {
+    left: #{$gutter-width/2}px;
+  }
+
+  &[data-dots='dual']:after, &[data-dots='right']:after {
+    right: #{$gutter-width/2}px;
+  }
+}
+
+// service icons
+.service-icon {
+  display: block;
+  position: relative;
+  text-align: center;
+  font-size: 50px;
+  line-height: 1em;
+
+  .portfolio & {
+    font-size: 100px;
+    line-height: 100px;
+  }
+
+  &:before, &:after, i:before {
+    @extend .icon;
+  }
+
+  &:before {
+    content: $icon-hexagon-back;
+    color: #fff;
+  }
+
+  &:after {
+    content: $icon-hexagon-border;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  i {
+    color: $black;
+    font-size: 0.45em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    &:before {
+      line-height: inherit;
+    }
+  }
+
+  @each $service in $services {
+    $i: index($services, $service);
+    &.#{$service} {
+      &:after { color: nth($service-colors, $i); }
+      i:before { content: nth($service-icons, $i); }
+    }
+  }
+}
+// service icon list
+.service-icons {
+  position: relative;
+  list-style-type: none;
+  padding: 0;
+  &.text-hover {
+    .hover {
+      @include opacity(0);
+      @include transition(opacity 0.3s ease);
+    }
+    .service-icon:hover + .hover { @include opacity(1); }
+  }
+
+  li {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  &.portfolio {
+    padding: em-calc(22) 0;
+    border-top: 4px solid $darker-light-grey;
+    border-bottom: 4px solid $darker-light-grey;
+    text-align: center;
+
+    &:before, &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background-color: $darker-light-grey;
+    }
+
+    &:before {
+      top: -16px;
+    }
+
+    &:after {
+      bottom: -16px;
+    }
+
+    li {
+      width: 150px;
+      max-width: 16%;
+      vertical-align: top;
+      color: $black;
+      font-family: $heading-font;
+      font-size: 16px;
+      font-weight: bold;
+      font-style: italic;
+      text-align: center;
+      @media #{$medium-only} {
+        max-width: 33.33%;
+        margin-bottom: $mobile-paragraph-margin;
+      }
+      @media #{$small-only} {
+        max-width: 50%;
+        margin-bottom: $mobile-paragraph-margin;
+      }
+    }
+  }
+
+  .home-portfolio & {
+    display: inline-block;
+    &:before, &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background-color: $darker-light-grey;
+    }
+    &:before { top: 28px; }
+    &:after { top: 38px; }
+    li {
+      position: relative;
+      width: 80px;
+      z-index: 1;
+    }
+    .service-icon { font-size: 70px; }
+    .hover {
+      display: block;
+      font-family: $heading-font;
+      font-size: 14px;
+      font-weight: bold;
+      font-style: italic;
+      text-align: center;
+    }
+  }
+}

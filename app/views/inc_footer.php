@@ -1,37 +1,49 @@
-	</div> <!-- #main -->
+<footer role="contentinfo">
+  <div class="row">
+    <ul class="footer-social">
+      <li><a href="#" title=""><img src="/images/temp-footer-social-icon.png" alt=""></a></li>
+      <li><a href="#" title=""><img src="/images/temp-footer-social-icon.png" alt=""></a></li>
+      <li><a href="#" title=""><img src="/images/temp-footer-social-icon.png" alt=""></a></li>
+      <li><a href="#" title=""><img src="/images/temp-footer-social-icon.png" alt=""></a></li>
+      <li><a href="#" title=""><img src="/images/temp-footer-social-icon.png" alt=""></a></li>
+      <li><a href="#" title=""><img src="/images/temp-footer-social-icon.png" alt=""></a></li>
+    </ul>
 
-	<aside role="complementary">
-		<form class="searchForm" name="search" method="get" action="/search/">
-			<input type="text" name="query" placeholder="Search...">
-			<input type="submit" value="Search">
-		</form>
+    <div class="bananas">
+      <a href="#"></a>
+    </div>
 
-		<h2>Lorem Ipsum Stuff</h2>
+    <p class="footer-meta"><strong>&copy; <?php echo date("Y"); ?> Monkee-Boy Web Design, Inc.</strong> // <a href="#" title="Privacy">Privacy</a><br>
+      <span class="address">9390 Research Blvd. Suite 425 Austin, TX  78759 // 512-335-2221</span></p>
+  </div>
+  <a href="#" class="mobile-home button">Back to Home</a>
+</footer>
+</div><!-- /.container -->
 
-		<ul>
-			<li>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</li>
-			<li>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</li>
-			<li>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</li>
-			<li>Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc.</li>
-		</ul>
-	</aside>
+<div class="mobile-menu-container">
+  <ul class="mobile-menu">
+    <li><a href="#" class="button">Request a Quote</a></li>
+    <li><a href="tel:5123352221" class="button button-alt">Call Us</a></li>
+    <li class="primary"><a href="/">Home</a></li>
+  </ul>
+</div>
 
-	<footer role="contentinfo">
-		<p>&copy; Copyright <?= date("Y") ?> <?= ''/*getSetting tag="site-title"*/ ?>, All Rights Reserved.</p>
-	</footer>
+<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+<script>window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')</script>
+<script src="/bower_components/gsap/src/uncompressed/TweenMax.js"></script>
+<script src="/bower_components/validationEngine/js/languages/jquery.validationEngine-en.js" type="text/javascript" charset="utf-8"></script>
+<script src="/bower_components/validationEngine/js/jquery.validationEngine.js"></script>
+<script src="/bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="/bower_components/plupload/js/plupload.full.min.js"></script>
+<script src="/js/app.js?v=2"></script>
 
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="/js/jquery-1.8.3.min.js"><\/script>')</script>
-	<script src="/js/main-min.js"></script>
-
-	<?php $sGoogleAnalytics = $this->getSetting("analytics-google"); ?>
-	<?php if(!empty($sGoogleAnalytics)): ?>
-	<script>
-	var _gaq=[['_setAccount','{$sGoogleAnalytics}'],['_trackPageview'],['_trackPageLoadTime']];
-	(function(d,t){ var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-	g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-	s.parentNode.insertBefore(g,s) }(document,'script'));
-	</script>
-<?php endif;?>
+<script>
+(function(m,o,n,k,e,y){m.GoogleAnalyticsObject=k;m[k]||(m[k]=
+function(){(m[k].q=m[k].q||[]).push(arguments)});m[k].k=+new Date;
+e=o.createElement(n);y=o.getElementsByTagName(n)[0];
+e.src='//www.google-analytics.com/analytics.js';
+y.parentNode.insertBefore(e,y)}(window,document,'script','ga'));
+ga('create','UA-XXXXX-X');ga('send','pageview');
+</script>
 </body>
 </html>

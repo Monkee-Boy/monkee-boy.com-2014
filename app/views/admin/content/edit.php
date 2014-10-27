@@ -15,6 +15,11 @@
 							<div class="controls">
 								<input type="text" name="title" id="form-title" value="<?= $aPage['title'] ?>" class="span12 validate[required]">
 								<p class="help-block permalink"><strong>Permalink</strong>: http://<?= $_SERVER['SERVER_NAME'] ?>/<span><?= $aPage['tag'] ?></span>/</p>
+
+								<hr>
+
+								<label for="form-subtitle">Subtitle</label>
+								<input type="text" name="subtitle" id="form-subtitle" value="<?= $aPage['subtitle'] ?>" class="span12 validate[required]">
 							</div>
 						</div>
 					</div>
@@ -78,7 +83,7 @@
 									<select name="template" id="form-template">
 										<option value="">Default Template</option>
 										<?php foreach($aTemplates as $aTemplate): ?>
-											<option value="<?= $aTemplate['file'] ?>"<?php if($aPage['template'] == $aTemplate['file']){ echo ' selected="selected"'; } ?>><?= $aTemplate['name'] ?></option>
+											<option value="<?= $aTemplate['file'] ?>"<?php if($aPage['template'] == $aTemplate['file']){ echo ' selected="selected"'; } ?>><?php echo $aTemplate['Name'] ?></option>
 										<?php endforeach; ?>
 									</select>
 								</div>

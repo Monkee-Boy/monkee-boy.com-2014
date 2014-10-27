@@ -1,5 +1,5 @@
 <?php
-function getContent($id, $tag) {
+function getContent($id, $tag = null) {
 	global $oApp;
 
 	if(!empty($tag))
@@ -16,7 +16,8 @@ function getContent($id, $tag) {
 		);
 
 	$aContent["title"] = htmlspecialchars(stripslashes($aContent["title"]));
+	$aContent["subtitle"] = htmlspecialchars(stripslashes($aContent["subtitle"]));
 	$aContent["content"] = stripslashes($aContent["content"]);
 
-	return $aContent["content"];
+	return $aContent;
 }
