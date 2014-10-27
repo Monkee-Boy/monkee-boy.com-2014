@@ -12,12 +12,3 @@
 @import "blog";
 @import "troop";
 @import "contact";
-
-$services: strategy $color-strategy, design $color-design, development $color-development, maintenance $color-maintenance, marketing $color-marketing, growth $color-growth;
-@each $service in $services {
-  .#{nth($service, 1)} {
-    blockquote {
-      border-left-color: nth($service, 2);
-    }
-  }
-}

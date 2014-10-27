@@ -285,6 +285,10 @@
     font-size: 100px;
     line-height: 100px;
   }
+  .service-section & {
+    font-size: 240px;
+    line-height: 240px;
+  }
 
   &:before, &:after, i:before {
     @extend .icon;
@@ -414,5 +418,111 @@
       font-style: italic;
       text-align: center;
     }
+  }
+}
+
+// tertiary page service section
+.service-section {
+  .service-title {
+    @include span(5 of 12);
+  }
+  .title {
+    display: block;
+    font-family: $heading-font;
+    font-size: 50px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .service-content {
+    @include span(7 of 12);
+  }
+  @each $service in $services {
+    $i: index($services, $service);
+    &.#{$service} {
+      .title { color: nth($service-colors, $i); }
+    }
+  }
+}
+
+// accordion section
+.accordion-section {
+  position: relative;
+  padding: em-calc(40) 0;
+  margin-bottom: em-calc(75px);
+  background-color: $black;
+  color: $grey;
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-style: solid;
+    border-width: 0 0 40px 600px;
+    border-color: transparent transparent transparent $dark-black;
+  }
+  &:after {
+    content: "";
+    @include triangle($dark-black, 600px, 40px);
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .subtitle { color: $green; }
+  h2 {
+    color: #fff;
+    font-weight: bold;
+    text-transform: lowercase;
+    font-size: 76px;
+    margin-bottom: 1em;
+  }
+}
+.accordion {
+  position: relative;
+  padding-bottom: em-calc(8);
+  margin-bottom: em-calc(20);
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: url(../images/dot-border.png) repeat-x;
+    @include opacity(0.16);
+  }
+  .trigger {
+    position: relative;
+    display: block;
+    padding: em-calc(18) 0;
+    font-family: $heading-font;
+    font-size: 24px;
+    font-weight: 900;
+    color: $teal;
+    text-transform: uppercase;
+    &:before, &:after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 4px;
+      right: 16px;
+      top: 50%;
+      margin-top: -2px;
+      background-color: $teal;
+      @include transition(all 0.2s ease);
+    }
+    &:after {
+      @include rotate(90deg);
+    }
+    &:hover, &:focus {
+      color: $red;
+      text-decoration: none;
+      &:before, &:after { background-color: $red; }
+    }
+  }
+  .content {
+    overflow: hidden;
+  }
+  &.open {
+    .trigger:after { @include rotate(0); }
   }
 }

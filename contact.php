@@ -19,7 +19,7 @@
     </div>
   </div>
 
-  <div class="phone-directory">
+  <div class="phone-directory accordion-section">
     <div class="row">
       <div class="full" data-text-align="center">
         <span class="subtitle">give us a ring</span>

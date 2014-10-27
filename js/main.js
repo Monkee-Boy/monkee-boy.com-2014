@@ -51,7 +51,7 @@
     });
   }
 
-  // mobile menu fn's3
+  // mobile menu fn's
   function open_mobile_menu() {
     $('body').addClass('menu-open');
 
@@ -690,6 +690,38 @@
     $dropdown.css('top', offset_top + 'px');
 
   });
+
+  // accordions
+  var $accordions = $('.accordion');
+  if ($accordions.length > 0) {
+    $accordions.each(function() {
+      var $this = $(this),
+          height = $this.children('.content').outerHeight();
+      $this.data('content-height', height);
+      $this.children('.content').css('height', 0);
+    });
+
+    $accordions.on('click', '.trigger', function(e) {
+      e.preventDefault();
+
+      var $accordion = $(this).parent('.accordion'),
+          $content = $accordion.children('.content'),
+          height = $accordion.data('content-height');
+
+      if ($accordion.hasClass('open')){
+        $accordion.removeClass('open');
+        height = 0;
+      } else {
+        $accordion.addClass('open');
+      }
+
+      TweenLite.to($content, 0.5, {
+        height: height,
+        ease: Power3.easeOut
+      });
+
+    });
+  }
 
   /**************************************
   ** Header Blur on Scroll
