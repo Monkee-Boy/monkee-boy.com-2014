@@ -1,9 +1,7 @@
 <?php
 class Stratum {
 	private $dbh; // Database handle
-	private $funcCall; // Last method call
 	private $lastResult;
-	private $lastSQL; // Last SQL ran
 	private $result;
 	private $connected;
 	private $selectedDatabase;
@@ -36,14 +34,8 @@ class Stratum {
 
 	//Basic Query	- see docs for more detail
 	public function query($query, $data = null) {
-		// Log how the function was called
-		$this->funcCall = "\$db->query(\"".$query."\")";
-
 		// Kill this
 		$this->lastResult = null;
-
-		// Keep track of the last query for debug..
-		$this->lastSQL = $query;
 
 		// Perform the query
 		$sth = $this->dbh->prepare($query);
@@ -71,9 +63,6 @@ class Stratum {
 
 	//Get one variable from the DB
 	public function getOne($query = null, $row = 0, $column = 0) {
-		// Log how the function was called
-		$this->funcCall = "\$db->getOne(\"".$query."\", ".$row.", ".$column.")";
-
 		// If there is a query then perform it if not then use cached results..
 		if($query) {
 			$this->query($query);
@@ -98,9 +87,6 @@ class Stratum {
 
 	//Get one row from the DB
 	public function getRow($query = null, $fetchMode = null, $y = 0) {
-		// Log how the function was called
-		$this->funcCall = "\$db->get_row(\"$query\",$y,$fetchMode)";
-
 		// If there is a query then perform it if not then use cached results..
 		if($query) {
 			$this->query($query);
@@ -146,9 +132,6 @@ class Stratum {
 
 	// Return the the query as a result set - see docs for more details
 	public function getAll($query = null, $fetchMode = null) {
-		// Log how the function was called
-		$this->funcCall = "\$db->get_results(\"$query\", $fetchMode)";
-
 		// If there is a query then perform it if not then use cached results..
 		if ($query) {
 			$this->query($query);
@@ -246,7 +229,6 @@ class Stratum {
 	// Removes all stored info of previous query
 	public function free() {
 		unset($this->lastResult);
-		unset($this->lastSQL);
 		unset($this->result);
 		unset($this->error);
 	}

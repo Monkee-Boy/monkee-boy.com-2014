@@ -1,17 +1,17 @@
 <?php
 class posts_model extends appModel {
 	public $useImage, $imageMinWidth, $imageMinHeight, $imageFolder, $useCategories, $perPage, $useComments, $excerptCharacters, $sortCategory;
-	
+
 	function __construct() {
 		parent::__construct();
-		
+
 		include(dirname(__file__)."/config.php");
-		
+
 		foreach($aPluginInfo["config"] as $sKey => $sValue) {
 			$this->$sKey = $sValue;
 		}
 	}
-	
+
 	/**
 	 * Get posts from the database.
 	 * @param  integer $sCategory Filter only posts assigned to this category.
@@ -22,20 +22,20 @@ class posts_model extends appModel {
 	function getPosts($sCategory = null, $sAll = false, $sPopular = false) {
 		$aWhere = array();
 		$sJoin = "";
-		
+
 		// Filter only posts that are active unless told otherwise.
 		if($sAll == false) {
 			$aWhere[] = "`posts`.`publish_on` < ".time();
 			$aWhere[] = "`posts`.`active` = 1";
 		}
-		
+
 		// Filter posts in a category, if category provided.
 		if(!empty($sCategory)) {
 			$aWhere[] = "`categories`.`id` = ".$this->dbQuote($sCategory, "integer");
 			$sJoin .= " LEFT JOIN `{dbPrefix}posts_categories_assign` AS `posts_assign` ON `posts`.`id` = `posts_assign`.`postid`";
 			$sJoin .= " LEFT JOIN `{dbPrefix}posts_categories` AS `categories` ON `posts_assign`.`categoryid` = `categories`.`id`";
 		}
-		
+
 		// Combine the above filters for sql.
 		if(!empty($aWhere)) {
 			$sWhere = " WHERE ".implode(" AND ", $aWhere);
@@ -47,7 +47,7 @@ class posts_model extends appModel {
 		} else {
 			$sOrderBy = "ORDER BY `posts`.`sticky` DESC, `posts`.`publish_on` DESC";
 		}
-		
+
 		$aPosts = $this->dbQuery(
 			"SELECT `posts`.* FROM `{dbPrefix}posts` AS `posts`"
 				.$sJoin
@@ -56,12 +56,12 @@ class posts_model extends appModel {
 				.$sOrderBy
 			,"all"
 		);
-		
+
 		// Clean up each post information and get additional info if needed.
 		foreach($aPosts as &$aPost) {
 			$this->_getPostInfo($aPost);
 		}
-		
+
 		// Posts are ready for use.
 		return $aPosts;
 	}
@@ -78,20 +78,20 @@ class posts_model extends appModel {
 			$sWhere = " WHERE `posts`.`id` = ".$this->dbQuote($sId, "integer");
 		else
 			$sWhere = " WHERE `posts`.`tag` = ".$this->dbQuote($sTag, "text");
-			
+
 		if($sAll == false) {
 			$sWhere .= " AND `posts`.`active` = 1";
 			$sWhere .= " AND `posts`.`publish_on` < ".time();
 		}
-		
+
 		$aPost = $this->dbQuery(
 			"SELECT `posts`.* FROM `{dbPrefix}posts` AS `posts`"
 				.$sWhere
 			,"row"
 		);
-		
+
 		$this->_getPostInfo($aPost);
-		
+
 		return $aPost;
 	}
 
@@ -100,16 +100,17 @@ class posts_model extends appModel {
 	 * @param  array &$aPost An array of a single post.
 	 */
 	private function _getPostInfo(&$aPost) {
-		if(!empty($aPost)) {		
+		if(!empty($aPost)) {
 			$aPost["title"] = htmlspecialchars(stripslashes($aPost["title"]));
 			if(!empty($aPost["excerpt"]))
 				$aPost["excerpt"] = nl2br(htmlspecialchars(stripslashes($aPost["excerpt"])));
 			else
 				$aPost["excerpt"] = (string)substr(nl2br(htmlspecialchars(stripslashes(strip_tags($aPost["content"])))), 0, $this->excerptCharacters);
-		
+
 			$aPost["content"] = stripslashes($aPost["content"]);
 			$aPost["url"] = "/posts/".date("Y", $aPost["created_datetime"])."/".date("m", $aPost["created_datetime"])."/".date("d", $aPost["created_datetime"])."/".$aPost["tag"]."/";
-			
+			$aPost["publish_on"] = strtotime($aPost["publish_on"]);
+
 			$aPost["author"] = $this->dbQuery(
 				"SELECT * FROM `{dbPrefix}users`"
 					." WHERE `id` = ".$this->dbQuote($aPost["authorid"], "integer")
@@ -123,11 +124,11 @@ class posts_model extends appModel {
 					." WHERE `posts_assign`.`postid` = ".$aPost["id"]
 				,"all"
 			);
-		
+
 			foreach($aPost["categories"] as &$aCategory) {
 				$aCategory["name"] = htmlspecialchars(stripslashes($aCategory["name"]));
 			}
-		
+
 			if(file_exists($this->settings->rootPublic.substr($this->imageFolder, 1).$aPost["id"].".jpg")
 			 && $aPost["photo_x2"] > 0
 			 && $this->useImage == true)
@@ -144,7 +145,7 @@ class posts_model extends appModel {
 	 */
 	function getURL($sID) {
 		$aPost = $this->getPost($sID);
-		
+
 		if(!empty($aPost)) {
 			return $aPost["url"];
 		} else {
@@ -159,23 +160,24 @@ class posts_model extends appModel {
 	 */
 	function getCategories($sEmpty = true) {
 		$sJoin = "";
-		
-		if($sEmpty == false) {		
+
+		if($sEmpty == false) {
 			$sJoin .= " INNER JOIN `{dbPrefix}posts_categories_assign` AS `assign` ON `categories`.`id` = `assign`.`categoryid`";
 		} else {
 			$sJoin .= " LEFT JOIN `{dbPrefix}posts_categories_assign` AS `assign` ON `categories`.`id` = `assign`.`categoryid`";
 		}
-		
+
 		// Check if sort direction is set, and clean it up for SQL use
-		$sSortDirection = array_pop(explode("-", $this->sortCategory));
+		$category = explode("-", $this->sortCategory);
+		$sSortDirection = array_pop($category);
 		if(empty($sSortDirection) || !in_array(strtolower($sSortDirection), array("asc", "desc"))) {
 			$sSortDirection = "ASC";
 		} else {
 			$sSortDirection = strtoupper($sSortDirection);
 		}
-		
+
 		// Choose sort method based on model setting
-		switch(array_shift(explode("-", $this->sortCategory))) {
+		switch(array_shift($category)) {
 			case "manual":
 				$sOrderBy = " ORDER BY `sort_order` ".$sSortDirection;
 				break;
@@ -189,7 +191,7 @@ class posts_model extends appModel {
 			default:
 				$sOrderBy = " ORDER BY `name` ".$sSortDirection;
 		}
-		
+
 		$aCategories = $this->dbQuery(
 			"SELECT `categories`.* FROM `{dbPrefix}posts_categories` AS `categories`"
 				.$sJoin
@@ -197,14 +199,14 @@ class posts_model extends appModel {
 				.$sOrderBy
 			,"all"
 		);
-	
+
 		foreach($aCategories as &$aCategory) {
 			$this->_getCategoryInfo($aCategory);
 		}
 
 		return $aCategories;
 	}
-	
+
 	/**
 	 * Get a single category from the database.
 	 * @param  integer $sId   Unique ID for the category or null.
@@ -218,16 +220,16 @@ class posts_model extends appModel {
 			$sWhere = " WHERE `name` LIKE ".$this->dbQuote($sName, "text");
 		else
 			return false;
-		
+
 		$aCategory = $this->dbQuery(
 			"SELECT `categories`.* FROM `{dbPrefix}posts_categories` AS `categories`"
 				." LEFT JOIN `{dbPrefix}posts_categories_assign` AS `assign` ON `categories`.`id` = `assign`.`categoryid`"
 				.$sWhere
 			,"row"
 		);
-		
-		$this->_getCategoryInfo($aCategory);			
-		
+
+		$this->_getCategoryInfo($aCategory);
+
 		return $aCategory;
 	}
 
@@ -236,7 +238,7 @@ class posts_model extends appModel {
 	 * @param  array &$aPost An array of a single category.
 	 */
 	private function _getCategoryInfo(&$aCategory) {
-		if(!empty($aCategory)) {		
+		if(!empty($aCategory)) {
 			$aCategory["name"] = htmlspecialchars(stripslashes($aCategory["name"]));
 
 			if(!empty($aCategory["parentid"]))
@@ -251,14 +253,14 @@ class posts_model extends appModel {
 	 */
 	function getImage($sId) {
 		$aPost = $this->getPost($sId, null, true);
-		
+
 		$sFile = $this->settings->rootPublic.substr($this->imageFolder, 1).$sId.".jpg";
-		
+
 		$aImage = array(
 			"file" => $sFile
 			,"info" => $aPost
 		);
-		
+
 		return $aImage;
 	}
 }

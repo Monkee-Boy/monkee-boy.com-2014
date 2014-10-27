@@ -9,80 +9,48 @@ if($sPluginStatus == 1) {
 }
 
 $aTables = array(
-	"posts" => array(
-		"fields" => array(
-			"id" => array(
-				"type" => "integer",
-				"unsigned" => 1,
-				"notnull" => 1,
-				"default" => 0,
-				"autoincrement" => 1
-			),
-			"title" => array("type" => "text","length" => 255),
-			"tag" => array("type" => "text","length" => 255),
-			"excerpt" => array("type" => "clob"),
-			"content" => array("type" => "clob"),
-			"tags" => array("type" => "clob"),
-			"publish_on" => array("type" => "integer","unsigned" => 1,"notnull" => 1,"default" => 0),
-			"allow_comments" => array("type" => "boolean"),
-			"allow_sharing" => array("type" => "boolean"),
-			"sticky" => array("type" => "boolean"),
-			"active" => array("type" => "boolean"),
-			"authorid" => array("type" => "integer","unsigned" => 1,"notnull" => 1,"default" => 0),
-			"views" => array("type" => "integer","unsigned" => 1,"notnull" => 1,"default" => 0),
-			"photo_x1" => array("type" => "integer","unsigned" => 1,"notnull" => 1,"default" => 0),
-			"photo_y1" => array("type" => "integer","unsigned" => 1,"notnull" => 1,"default" => 0),
-			"photo_x2" => array("type" => "integer","unsigned" => 1,"notnull" => 1,"default" => 0),
-			"photo_y2" => array("type" => "integer","unsigned" => 1,"notnull" => 1,"default" => 0),
-			"photo_width" => array("type" => "integer","unsigned" => 1,"notnull" => 1,"default" => 0),
-			"photo_height" => array("type" => "integer","unsigned" => 1,"notnull" => 1,"default" => 0),
-			"created_datetime" => array("type" => "integer","unsigned" => 1,"notnull" => 1,"default" => 0),
-			"created_by" => array("type" => "integer","unsigned" => 1,"notnull" => 1,"default" => 0),
-			"updated_datetime" => array("type" => "integer","unsigned" => 1,"notnull" => 1,"default" => 0),
-			"updated_by" => array("type" => "integer","unsigned" => 1,"notnull" => 1,"default" => 0)
-		),
-		"index" => array("sticky", "active"),
-		"unique" => array("tag"),
-		"fulltext" => array("title", "excerpt", "content", "tags"),
-		"search" => array(
-			"title" => "title",
-			"content" => "content",
-			"rows" => array("title", "excerpt", "content", "tags"),
-			"filter" => "`active` = 1 AND `publish_on` < {time}"
-		)
-	),
-	"posts_categories" => array(
-		"fields" => array(
-			"id" => array(
-				"type" => "integer",
-				"unsigned" => 1,
-				"notnull" => 1,
-				"default" => 0,
-				"autoincrement" => 1
-			),
-			"name" => array("type" => "text","length" => 255),
-			"parentid" => array("type" => "integer","unsigned" => 1),
-			"sort_order" => array("type" => "integer","unsigned" => 1,"notnull" => 1,"default" => 0)
-		),
-		"unique" => array("sort_order")
-	),
-	"posts_categories_assign" => array(
-		"fields" => array(
-			"postid" => array(
-				"type" => "integer",
-				"unsigned" => 1,
-				"notnull" => 1,
-				"default" => 0
-			),
-			"categoryid" => array(
-				"type" => "integer",
-				"unsigned" => 1,
-				"notnull" => 1,
-				"default" => 0
-			)
-		),
-		"index" => array("postid", "categoryid")
-	)
+	"posts" => 'CREATE TABLE `{dbPrefix}posts` (
+		`id` int(11) unsigned NOT NULL auto_increment,
+		`title` varchar(255),
+		`tag` varchar(255),
+		`excerpt` longtext,
+		`content` longtext,
+		`tags` longtext,
+		`publish_on` datetime NOT NULL,
+		`allow_comments` tinyint(1),
+		`allow_sharing` tinyint(1),
+		`sticky` tinyint(1),
+		`active` tinyint(1),
+		`authorid` int(11) unsigned,
+		`views` int(11) unsigned,
+		`photo_x1` int(11) unsigned,
+		`photo_y1` int(11) unsigned,
+		`photo_x2` int(11) unsigned,
+		`photo_y2` int(11) unsigned,
+		`photo_width` int(11) unsigned,
+		`photo_height` int(11) unsigned,
+		`created_datetime` datetime NOT NULL,
+		`created_by` int(11) unsigned NOT NULL,
+		`updated_datetime` datetime NOT NULL,
+		`updated_by` int(11) unsigned NOT NULL,
+		PRIMARY KEY (`id`),
+		INDEX `index` (`sticky`, `active`),
+		UNIQUE (`tag`),
+		FULLTEXT `fullindex` (`title`, `excerpt`, `content`, `tags`)
+	) Engine=MyISAM;',
+	"posts_categories" => 'CREATE TABLE `{dbPrefix}posts_categories` (
+		`id` int(11) unsigned NOT NULL auto_increment,
+		`name` varchar(255),
+		`parentid` int(11) unsigned,
+		`sort_order` int(11) unsigned,
+		PRIMARY KEY (`id`),
+		UNIQUE (`sort_order`)
+	) Engine=MyISAM;',
+	"posts_categories_assign" => 'CREATE TABLE `{dbPrefix}posts_categories_assign` (
+		`postid` int(11) unsigned,
+		`categoryid` int(11) unsigned,
+		INDEX `index` (`postid`, `categoryid`)
+	) Engine=MyISAM;'
 );
 
 $aSettings = array();
