@@ -53,19 +53,13 @@ gulp.task('lint', function () {
     .pipe(jshint.reporter('jshint-stylish'));
 });
 
-gulp.task('connect', function() {
-  connect.server({
-    livereload: true
-  });
-});
-
 gulp.task('html', function () {
   gulp.src('*.html')
     .pipe(connect.reload());
 });
 
 // Rerun the task when a file changes
-gulp.task('watch', ['connect'], function() {
+gulp.task('watch', function() {
   gulp.watch('./js/*.js', ['scripts']);
   gulp.watch('./css/*.scss', ['styles']);
   gulp.watch(['*.html'], ['html']);

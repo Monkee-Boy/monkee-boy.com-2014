@@ -425,21 +425,39 @@
 .service-section {
   .service-title {
     @include span(5 of 12);
-  }
+    @media #{$medium-down} {
+      width: 100%;
+      margin-bottom: $mobile-paragraph-margin;
+    }
+  };
   .title {
     display: block;
     font-family: $heading-font;
     font-size: 50px;
     text-transform: uppercase;
     text-align: center;
+    @media #{$large-only} { font-size: 36px; }
+    @media #{$small-only} { font-size: 36px; }
   }
   .service-content {
     @include span(7 of 12);
+    @media #{$medium-down} { width: 100%; }
   }
   @each $service in $services {
     $i: index($services, $service);
     &.#{$service} {
       .title { color: nth($service-colors, $i); }
+    }
+  }
+  @media #{$medium-down} {
+    .service-icon, .title {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .service-icon {
+      font-size: 100px;
+      line-height: 100px;
+      margin-right: 20px;
     }
   }
 }
@@ -493,7 +511,7 @@
   .trigger {
     position: relative;
     display: block;
-    padding: em-calc(18) 0;
+    padding: em-calc(18, 24) em-calc(40, 24) em-calc(18, 24) 0;
     font-family: $heading-font;
     font-size: 24px;
     font-weight: 900;

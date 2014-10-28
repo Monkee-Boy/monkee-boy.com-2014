@@ -2124,12 +2124,28 @@ button.button-full[type=submit] {
   padding-left: 15px;
   padding-right: 15px;
 }
+@media only screen and (max-width: 740px) {
+  .service-section .service-title {
+    width: 100%;
+    margin-bottom: 1.33333em;
+  }
+}
 .service-section .title {
   display: block;
   font-family: "effra", sans-serif;
   font-size: 50px;
   text-transform: uppercase;
   text-align: center;
+}
+@media only screen and (min-width: 741px) and (max-width: 980px) {
+  .service-section .title {
+    font-size: 36px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .service-section .title {
+    font-size: 36px;
+  }
 }
 .service-section .service-content {
   -webkit-box-sizing: border-box;
@@ -2139,6 +2155,11 @@ button.button-full[type=submit] {
   float: left;
   padding-left: 15px;
   padding-right: 15px;
+}
+@media only screen and (max-width: 740px) {
+  .service-section .service-content {
+    width: 100%;
+  }
 }
 .service-section.strategy .title {
   color: #acca32;
@@ -2157,6 +2178,17 @@ button.button-full[type=submit] {
 }
 .service-section.growth .title {
   color: #b2b2b2;
+}
+@media only screen and (max-width: 740px) {
+  .service-section .service-icon, .service-section .title {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .service-section .service-icon {
+    font-size: 100px;
+    line-height: 100px;
+    margin-right: 20px;
+  }
 }
 
 .accordion-section {
@@ -2214,7 +2246,7 @@ button.button-full[type=submit] {
 .accordion .trigger {
   position: relative;
   display: block;
-  padding: 1em 0;
+  padding: 0.75em 1.66667em 0.75em 0;
   font-family: "effra", sans-serif;
   font-size: 24px;
   font-weight: 900;
