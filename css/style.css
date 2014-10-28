@@ -1532,7 +1532,7 @@ button.button-full[type=submit] {
   display: block;
 }
 
-.icon, .main-nav ul .primary > a:after, .social-links a:before, .social-links a:after, .dots[data-dots='dual']:before, .dots[data-dots='dual']:after, .dots[data-dots='left']:before, .dots[data-dots='right']:after, .service-icon:before, .service-icon:after, .service-icon i:before, .date-input:after, .datepicker thead .prev:after, .datepicker thead .next:after, .share-section a:before, .stats-list li:after, .office-cat p:before {
+.icon, .main-nav ul .primary > a:after, .social-links a:before, .social-links a:after, .dots[data-dots='dual']:before, .dots[data-dots='dual']:after, .dots[data-dots='left']:before, .dots[data-dots='right']:after, .service-icon:before, .service-icon:after, .service-icon i:before, .date-input:after, .datepicker thead .prev:after, .datepicker thead .next:after, .port-slider .instructions:before, .share-section a:before, .stats-list li:after, .office-cat p:before {
   font-family: "icomoon";
   speak: none;
   font-style: normal;
@@ -3128,6 +3128,16 @@ button[type=submit] {
     box-shadow: 0 0 0 4px #acca32;
   }
 }
+.port-slider .instructions {
+  font-size: 20px;
+  color: #b2b2b2;
+  text-align: center;
+}
+.port-slider .instructions:before {
+  content: "\e617";
+  display: block;
+  font-size: 70px;
+}
 
 .screen.desktop {
   background: url(../images/desktop.png) no-repeat center center;
@@ -3177,6 +3187,15 @@ button[type=submit] {
   height: 80.59%;
   left: 9.86%;
   top: 9.85%;
+}
+.screen.tablet.horizontal {
+  background-image: url(../images/ipad-h.png);
+}
+.screen.tablet.horizontal .screen-inner {
+  width: 80.59%;
+  height: 80.27%;
+  left: 9.85%;
+  top: 9.86%;
 }
 .screen.phone {
   background: url(../images/iphone.png) no-repeat center center;

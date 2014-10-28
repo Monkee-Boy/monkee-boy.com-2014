@@ -941,7 +941,8 @@ function BlurStack()
   PortfolioSlider.prototype.initFullSlider = function() {
     var containerWidth = this.width - this.margin*2,
         containerHeight = this.$screenContainer.height(),
-        self = this;
+        self = this,
+        numScreens = 0;
 
     // we'll want to save screens by device type
     var screens = {};
@@ -949,8 +950,15 @@ function BlurStack()
     // set height, width, and position for all screens
     this.$screens.each(function() {
       var $this = $(this),
-          type = $this.data('device'),
-          height = self.ratios[type] > 1? containerHeight : containerWidth*self.ratios[type],
+          type = $this.data('device');
+
+      // horizontal tablet or phone
+      if ($this.hasClass('horizontal')) {
+        // inverse ratio
+        self.ratios[type] = 1/self.ratios[type];
+      }
+
+      var height = self.ratios[type] > 1? containerHeight : containerWidth*self.ratios[type],
           width = self.ratios[type] < 1? containerWidth : containerHeight/self.ratios[type];
 
       $this.css({
@@ -961,30 +969,36 @@ function BlurStack()
       });
 
       screens[type] = $this;
+      numScreens++;
 
     });
 
     // save new screens object so we can access by device type
     this.$screens = screens;
 
-    // set phone and tablet to be right and left
-    self._moveSlide(this.$screens.phone, 'left', 0.6);
-    self._moveSlide(this.$screens.tablet, 'right', 0.6);
+    // do slider stuff if there are at least three screens
+    console.log("there are this many screens:", numScreens);
+    if ( numScreens > 2 ) {
+      // set phone and tablet to be right and left
+      self._moveSlide(this.$screens.phone, 'left', 0.6);
+      self._moveSlide(this.$screens.tablet, 'right', 0.6);
 
-    // add click event to portfolio nav
-    $('.slider-nav').on('click', 'a', function(e) {
-      e.preventDefault();
+      // add click event to portfolio nav
+      $('.slider-nav').on('click', 'a', function(e) {
+        e.preventDefault();
 
-      if ( $(this).hasClass('port-left') ) {
-        self.transitionSlides('left');
-      } else {
-        self.transitionSlides('right');
-      }
+        if ( $(this).hasClass('port-left') ) {
+          self.transitionSlides('left');
+        } else {
+          self.transitionSlides('right');
+        }
 
-      // remove scroll callout, if still present
-      if (self.$screens.desktop.find('.scroll-msg').length > 0)
-        self.$screens.desktop.find('.scroll-msg').remove();
-    });
+        // remove scroll callout, if still present
+        if (self.$screens.desktop.find('.scroll-msg').length > 0)
+          self.$screens.desktop.find('.scroll-msg').remove();
+      });
+    }
+
   };
 
   PortfolioSlider.prototype.initMobileSlider = function() {
@@ -1054,12 +1068,14 @@ function BlurStack()
       self.updateScreen(screenName);
     });
 
-    // remove scroll callout on scroll
-    console.log("screens are", this.$screens);
-    this.$screens.desktop.children('.screen-inner').on('scroll', function() {
-      $(this).children('.scroll-msg').remove();
-      $(this).off('scroll');
-    });
+    // remove scroll callout on scroll if there is a scroll callout
+    var $scroll_callout = this.$screenContainer.find('.scroll-msg');
+    if ($scroll_callout.length > 0) {
+      $scroll_callout.parent('.screen-inner').on('scroll', function() {
+        $(this).children('.scroll-msg').remove();
+        $(this).off('scroll');
+      });
+    }
 
   };
 

@@ -92,6 +92,17 @@
       @media #{$small-only} { @include box-shadow(0 0 0 4px $green); }
     }
   }
+  .instructions {
+    font-size: 20px;
+    color: $grey;
+    text-align: center;
+    &:before {
+      content: $icon-eye;
+      display: block;
+      font-size: 70px;
+      @extend .icon;
+    }
+  }
 }
 .screen {
   &.desktop {
@@ -141,6 +152,15 @@
       height: 80.59%;
       left: 9.86%;
       top: 9.85%;
+    }
+    &.horizontal {
+      background-image: url(../images/ipad-h.png);
+      .screen-inner {
+        width: 80.59%;
+        height: 80.27%;
+        left: 9.85%;
+        top: 9.86%;
+      }
     }
   }
   &.phone {

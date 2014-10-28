@@ -53,16 +53,10 @@ gulp.task('lint', function () {
     .pipe(jshint.reporter('jshint-stylish'));
 });
 
-gulp.task('html', function () {
-  gulp.src('*.html')
-    .pipe(connect.reload());
-});
-
 // Rerun the task when a file changes
 gulp.task('watch', function() {
   gulp.watch('./js/*.js', ['scripts']);
   gulp.watch('./css/*.scss', ['styles']);
-  gulp.watch(['*.html'], ['html']);
 });
 
 // The default task (called when you run `gulp` from cli)
