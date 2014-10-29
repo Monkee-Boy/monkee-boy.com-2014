@@ -473,6 +473,37 @@
     port_slider.init();
   }
 
+  // slick sliders
+  $('.quote-slider').slick({
+    dots: true,
+    arrows: false,
+    infinite: true,
+    speed: 300,
+    slidesToShow: 1,
+    slide: 'li'
+  });
+
+  $('.fullwidth-slider ul').slick({
+    dots: false,
+    arrows: false,
+    slidesToShow: 1,
+    slide: 'li',
+    centerMode: true,
+    centerPadding: '140px',
+    responsive: [{
+      breakpoint: small_break,
+      settings: {
+        dots: false,
+        arrows: false,
+        infinite: true,
+        slidesToShow: 1,
+        slide: 'li',
+        centerMode: true,
+        centerPadding: '80px'
+      }
+    }]
+  });
+
   // home page hero circles
   var HeroCircles = function(el) {
     this.$el = $(el);

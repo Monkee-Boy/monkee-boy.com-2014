@@ -1,7 +1,7 @@
 <?php include('inc_header.php'); ?>
 
   <div class="row">
-    <div class="single-post">
+    <div class="single-post single-column">
 
       <h2>H2 Lorem Ipsum</h2>
       <p class="intro">Intro paragraph donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi.</p>

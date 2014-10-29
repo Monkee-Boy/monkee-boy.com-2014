@@ -48,4 +48,80 @@
     </div>
   </div>
 
+  <div class="row">
+    <div class="single-column">
+      <h3 data-text-align="center">Other key services:</h3>
+
+      <div class="row-pop">
+        <div class="half">
+          <h4>User Testing</h4>
+
+          <p>Senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.</p>
+        </div>
+
+        <div class="half">
+          <h4>Photography</h4>
+
+          <p>Senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.</p>
+        </div>
+      </div>
+      <div class="row row-pop">
+        <div class="half">
+          <h4>Custom CMS</h4>
+
+          <p>Senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <ul class="unstyled quote-slider">
+          <li><blockquote>“Vivamus sagittis lacus vel augue laore rutrum faucibus dolor auctor. Maecenas sed diam eget risus varius con blandit sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.”</blockquote></li>
+          <li><blockquote>“Senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.”</blockquote></li>
+          <li><blockquote>“Donec eu libero sit amet quam egestas semper.”</blockquote></li>
+        </ul>
+      </div>
+    </div><!-- /.single-column -->
+  </div>
+
+  <div class="fullwidth-slider">
+    <ul class="unstyled">
+      <li>
+        <figure>
+          <img src="/assets/waithappy-sample1.jpg" alt="">
+          <figcaption>Caption lorem dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo.</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <img src="/assets/waithappy-sample2.jpg" alt="">
+          <figcaption>Caption lorem dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo.</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <img src="/assets/waithappy-sample3.jpg" alt="">
+          <figcaption>Caption lorem dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo.</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <img src="/assets/waithappy-sample1.jpg" alt="">
+          <figcaption>Caption lorem dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo.</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <img src="/assets/waithappy-sample2.jpg" alt="">
+          <figcaption>Caption lorem dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo.</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <img src="/assets/waithappy-sample3.jpg" alt="">
+          <figcaption>Caption lorem dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo.</figcaption>
+        </figure>
+      </li>
+    </ul>
+  </div>
+
 <?php include('inc_footer.php'); ?>
