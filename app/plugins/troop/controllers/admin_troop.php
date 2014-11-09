@@ -72,9 +72,9 @@ class admin_troop extends adminController {
         "social_codepen" => $_POST["social_codepen"],
         "sort_order" => $sOrder,
         "active" => $this->boolCheck($_POST["active"]),
-        "created_datetime" => time(),
+        "created_datetime" => date('Y-m-d H:i:s'),
         "created_by" => $_SESSION["admin"]["userid"],
-        "updated_datetime" => time(),
+        "updated_datetime" => date('Y-m-d H:i:s'),
         "updated_by" => $_SESSION["admin"]["userid"]
       )
     );
@@ -195,7 +195,7 @@ class admin_troop extends adminController {
         "social_codepen" => $_POST["social_codepen"],
         "sort_order" => $sOrder,
         "active" => $this->boolCheck($_POST["active"]),
-        "updated_datetime" => time(),
+        "updated_datetime" => date('Y-m-d H:i:s'),
         "updated_by" => $_SESSION["admin"]["userid"]
       ),
       $_POST["id"]
