@@ -40,5 +40,92 @@ $aPluginUrlPatterns = array(
     "cmd" => "admin_portfolio",
     "action" => "sort"
   ),
+
+  "/admin/portfolio/services/" => array(
+    "cmd" => "admin_portfolio_services",
+    "action" => "index"
+  ),
+  "/admin/portfolio/services/add/" => array(
+    "cmd" => "admin_portfolio_services",
+    "action" => "add"
+  ),
+  "/admin/portfolio/services/add/s/" => array(
+    "cmd" => "admin_portfolio_services",
+    "action" => "add_s"
+  ),
+  "/admin/portfolio/services/edit/<id:[0-9]+>/" => array(
+    "cmd" => "admin_portfolio_services",
+    "action" => "edit"
+  ),
+  "/admin/portfolio/services/edit/s/" => array(
+    "cmd" => "admin_portfolio_services",
+    "action" => "edit_s"
+  ),
+  "/admin/portfolio/services/delete/<id:[0-9]+>/" => array(
+    "cmd" => "admin_portfolio_services",
+    "action" => "delete"
+  ),
+  "/admin/portfolio/services/sort/<id:[0-9]+>/<sort:[a-z]+>/" => array(
+    "cmd" => "admin_portfolio_services",
+    "action" => "sort"
+  ),
+
+  "/admin/portfolio/services/<service:[0-9]+>/sub/" => array(
+    "cmd" => "admin_portfolio_services_sub",
+    "action" => "index"
+  ),
+  "/admin/portfolio/services/<service:[0-9]+>/sub/add/" => array(
+    "cmd" => "admin_portfolio_services_sub",
+    "action" => "add"
+  ),
+  "/admin/portfolio/services/<service:[0-9]+>/sub/add/s/" => array(
+    "cmd" => "admin_portfolio_services_sub",
+    "action" => "add_s"
+  ),
+  "/admin/portfolio/services/<service:[0-9]+>/sub/edit/<id:[0-9]+>/" => array(
+    "cmd" => "admin_portfolio_services_sub",
+    "action" => "edit"
+  ),
+  "/admin/portfolio/services/<service:[0-9]+>/sub/edit/s/" => array(
+    "cmd" => "admin_portfolio_services_sub",
+    "action" => "edit_s"
+  ),
+  "/admin/portfolio/services/<service:[0-9]+>/sub/delete/<id:[0-9]+>/" => array(
+    "cmd" => "admin_portfolio_services_sub",
+    "action" => "delete"
+  ),
+  "/admin/portfolio/services/<service:[0-9]+>/sub/sort/<id:[0-9]+>/<sort:[a-z]+>/" => array(
+    "cmd" => "admin_portfolio_services_sub",
+    "action" => "sort"
+  ),
+
+  "/admin/portfolio/services/<service:[0-9]+>/sub/<servicesub:[0-9]+>/item/" => array(
+    "cmd" => "admin_portfolio_services_sub_item",
+    "action" => "index"
+  ),
+  "/admin/portfolio/services/<service:[0-9]+>/sub/<servicesub:[0-9]+>/item/add/" => array(
+    "cmd" => "admin_portfolio_services_sub_item",
+    "action" => "add"
+  ),
+  "/admin/portfolio/services/<service:[0-9]+>/sub/<servicesub:[0-9]+>/item/add/s/" => array(
+    "cmd" => "admin_portfolio_services_sub_item",
+    "action" => "add_s"
+  ),
+  "/admin/portfolio/services/<service:[0-9]+>/sub/<servicesub:[0-9]+>/item/edit/<id:[0-9]+>/" => array(
+    "cmd" => "admin_portfolio_services_sub_item",
+    "action" => "edit"
+  ),
+  "/admin/portfolio/services/<service:[0-9]+>/sub/<servicesub:[0-9]+>/item/edit/s/" => array(
+    "cmd" => "admin_portfolio_services_sub_item",
+    "action" => "edit_s"
+  ),
+  "/admin/portfolio/services/<service:[0-9]+>/sub/<servicesub:[0-9]+>/item/delete/<id:[0-9]+>/" => array(
+    "cmd" => "admin_portfolio_services_sub_item",
+    "action" => "delete"
+  ),
+  "/admin/portfolio/services/<service:[0-9]+>/sub/<servicesub:[0-9]+>/item/sort/<id:[0-9]+>/<sort:[a-z]+>/" => array(
+    "cmd" => "admin_portfolio_services_sub_item",
+    "action" => "sort"
+  ),
 );
 ###############################################

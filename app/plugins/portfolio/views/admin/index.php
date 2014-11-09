@@ -1,12 +1,18 @@
 <?php $this->tplDisplay("inc_header.php", ['menu'=>'portfolio','sPageTitle'=>"Portfolio"]); ?>
 
-  <h2>Manage Portfolio <a href="/admin/portfolio/add/" title="Add Client" class="btn btn-primary pull-right" rel="tooltip" data-placement="bottom"><i class="icon-plus icon-white"></i> Add Client</a></h2>
+  <h2>
+    Manage Portfolio
+    <a href="/admin/portfolio/services/" title="Manage Services" class="btn btn-primary pull-right" rel="tooltip" data-placement="bottom">Manage Services</a>
+    <a href="/admin/portfolio/add/" title="Add Client" class="btn btn-primary pull-right" rel="tooltip" data-placement="bottom"><i class="icon-plus icon-white"></i> Add Client</a>
+  </h2>
 
   <table  class="data-table table table-striped">
     <thead>
       <tr>
         <th class="empty itemStatus">&nbsp;</th>
         <th>Name</th>
+        <th>Featured</th>
+        <th>App</th>
         <?php if($sSort == "manual"): ?>
           <th>Order</th>
         <?php endif; ?>
@@ -18,12 +24,26 @@
         <tr>
           <td>
             <?php if($aClient['active'] == 1): ?>
-              <img src="/images/admin/icons/bullet_green.png" alt="active">
+              <img src="/images/icons/bullet_green.png" alt="active">
             <?php else: ?>
-              <img src="/images/admin/icons/bullet_red.png" alt="inactive">
+              <img src="/images/icons/bullet_red.png" alt="inactive">
             <?php endif; ?>
           </td>
           <td><?= $aClient['name'] ?></td>
+          <td>
+            <?php if($aClient['featured'] == 1): ?>
+              Yes
+            <?php else: ?>
+              No
+            <?php endif; ?>
+          </td>
+          <td>
+            <?php if($aClient['app'] == 1): ?>
+              Yes
+            <?php else: ?>
+              No
+            <?php endif; ?>
+          </td>
           <?php if($sSort == "manual"): ?>
             <td class="small center">
               <span class="hidden"><?= $aClient['sort_order'] ?></span>
@@ -47,10 +67,10 @@
       <?php endforeach; ?>
     </tbody>
   </table>
-  <!-- <ul class="dataTable-legend">
+  <ul class="data-table-legend">
     <li class="bullet-green">Active</li>
     <li class="bullet-red">Inactive</li>
-  </ul> -->
+  </ul>
 
 {footer}
 <script>

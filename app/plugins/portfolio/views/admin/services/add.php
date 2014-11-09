@@ -1,9 +1,9 @@
-<?php $this->tplDisplay("inc_header.php", ['menu'=>'portfolio','sPageTitle'=>"Portfolio &raquo; Manage Client"]); ?>
+<?php $this->tplDisplay("inc_header.php", ['menu'=>'clients','sPageTitle'=>"Portfolio &raquo; Create Client"]); ?>
 
-  <h2>Portfolio &raquo; Manage Client</h2>
+  <h2>Portfolio &raquo; Create Client</h2>
   <?php $this->tplDisplay('inc_alerts.php'); ?>
 
-  <form id="add-form" method="post" action="/admin/portfolio/edit/s/" enctype="multipart/form-data">
+  <form id="add-form" method="post" action="/admin/portfolio/add/s/" enctype="multipart/form-data">
     <div class="row-fluid">
       <div class="span8">
 
@@ -85,25 +85,6 @@
 
         <div class="accordion-group">
           <div class="accordion-heading">
-            <span class="accordion-toggle">Quotes</span>
-          </div>
-          <div class="accordion-body" id="quote_block_body">
-            <div class="accordion-inner">
-              <?php
-              foreach($aClient["quotes"] as $aQuote) {
-                quote_block($aQuote);
-              }
-              quote_block();
-              ?>
-              <a href="#" title="Add Quote" id="quote_more" class="btn btn-primary" rel="tooltip" data-placement="bottom">
-                <i class="icon-plus icon-white"></i> Add Quote
-              </a>
-            </div> <!--/.accordion-inner -->
-          </div> <!-- /.accordion-body -->
-        </div> <!-- /.accordion-group -->
-
-        <div class="accordion-group">
-          <div class="accordion-heading">
             <span class="accordion-toggle">Services</span>
           </div>
           <div class="accordion-body">
@@ -120,8 +101,7 @@
           </div> <!-- /.accordion-body -->
         </div> <!-- /.accordion-group -->
 
-        <input type="hidden" name="id" value="<?php echo $aClient['id']; ?>">
-        <input type="submit" value="Save Changes" class="btn btn-primary">
+        <input type="submit" value="Create Client" class="btn btn-primary">
         <a href="/admin/portfolio/" title="Cancel" class="btn">Cancel</a>
       </div>
 
@@ -164,7 +144,7 @@
             <div class="accordion-inner">
               <?php if(!empty($aClient['logo'])): ?>
                 <div class="control-group photo-show">
-                  <img src="<?php echo $aClient['logo_url']; ?>" alt="Client Logo" style="max-width: 300px;"><br />
+                  <img src="<?php echo $imageFolder.$aClient['logo']; ?>" alt="Client Logo" style="max-width: 300px;"><br />
                   <a href="#">Replace Logo</a>
                 </div>
               <?php endif; ?>
@@ -178,7 +158,7 @@
 
               <?php if(!empty($aClient['listing_image'])): ?>
                 <div class="control-group photo-show">
-                  <img src="<?php echo $aClient['listing_image_url']; ?>" alt="Client Listing Image" style="max-width: 300px;"><br />
+                  <img src="<?php echo $imageFolder.$aClient['listing_image']; ?>" alt="Client Listing Image" style="max-width: 300px;"><br />
                   <a href="#">Replace Listing Image</a>
                 </div>
               <?php endif; ?>
@@ -197,14 +177,6 @@
   </form>
 
 {footer}
-<style>
-.quote_block {
-  border: 1px solid #D4D4D4;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  padding: 10px;
-}
-</style>
 <script>
 $(function(){
   jQuery('#add-form').validationEngine({ promptPosition: "bottomLeft" });
@@ -214,71 +186,7 @@ $(function(){
     $(this).hide();
     $(this).parent().next().show();
   });
-
-  $('#quote_more').on('click', function(e) {
-    e.preventDefault();
-
-    blocks = $('.quote_block:not(#quote_block)').length;
-    console.log(blocks);
-
-    var block = $('#quote_block').clone();
-    block.attr('id', '');
-    block.find('#form-quote').attr('id', '').attr('name', 'quotes['+blocks+'][quote]');
-    block.find('#form-quote-attribution').attr('id', '').attr('name', 'quotes['+blocks+'][attribution]');
-
-    block.insertBefore('#quote_more');
-    block.slideDown();
-  });
-
-  $('#quote_block_body').on('click', '.quote_remove', function(e) {
-    e.preventDefault();
-
-    $(this).parent().remove();
-
-    var blocks = $('.quote_block:not(#quote_block)'),
-        i = 0;
-
-    blocks.each(function() {
-      $(this).find('textarea').attr('name', 'quotes['+i+'][quote]');
-      $(this).find('input').attr('name', 'quotes['+i+'][attribution]');
-      console.log($(this));
-      console.log(i);
-
-      i++;
-    });
-  });
 });
 </script>
 {/footer}
 <?php $this->tplDisplay("inc_footer.php"); ?>
-<?php
-function quote_block($aQuote = null) {
-  if(!empty($aQuote)) {
-    $hide = false;
-  } else {
-    $aQuote = array(
-      "quote" => null,
-      "attribution" => null
-    );
-    $hide = true;
-  }
-
-  $html = '<div class="quote_block"'.(($hide==true)?' id="quote_block" style="display: none;"':'').'>';
-    $html .= '<a href="#" title="Remove Quote" class="quote_remove btn btn-danger btn-mini pull-right" rel="tooltip" data-placement="bottom">Remove Quote</a>';
-    $html .= '<div class="control-group">';
-      $html .= '<label class="control-label" for="form-quote">Quote</label>';
-      $html .= '<div class="controls">';
-        $html .= '<textarea name="" id="form-quote" class="span12" style="height:95px;">'.$aQuote['quote'].'</textarea>';
-      $html .= '</div>';
-    $html .= '</div>';
-    $html .= '<div class="control-group">';
-      $html .= '<label class="control-label" for="form-quote-attribution">Quote Attribution</label>';
-      $html .= '<div class="controls">';
-        $html .= '<input name="" id="form-quote-attribution" class="span12" value="'.$aQuote['attribution'].'">';
-      $html .= '</div>';
-    $html .= '</div>';
-  $html .= '</div>';
-
-  echo $html;
-}
-?>

@@ -35,10 +35,15 @@ class admin_portfolio extends adminController {
       $aClient = array(
         "menu" => array()
         ,"active" => 1
+        ,'services' => array()
+        ,'quotes' => array()
       );
 
       $this->tplAssign("aClient", $aClient);
     }
+
+    $aServices = $this->model->getServices(true);
+    $this->tplAssign('aServices', $aServices);
 
     $this->tplDisplay("admin/add.php");
   }
@@ -60,23 +65,44 @@ class admin_portfolio extends adminController {
       "portfolio",
       array(
         "name" => $_POST["name"],
+        "subtitle" => $_POST["subtitle"],
         "website" => $_POST["website"],
-        "sort_order" => $sOrder,
+        "case_study" => $_POST["case_study"],
+        "synopsis" => $_POST["synopsis"],
+        "short_description" => $_POST["short_description"],
+        "other_services_1" => $_POST["other_services_1"],
+        "other_services_2" => $_POST["other_services_2"],
+        "quotes" => json_encode($_POST["quotes"]),
         "active" => $this->boolCheck($_POST["active"]),
-        "created_datetime" => time(),
+        "featured" => $this->boolCheck($_POST["featured"]),
+        "app" => $this->boolCheck($_POST["app"]),
+        "sort_order" => $sOrder,
+        "created_datetime" => date('Y-m-d H:i:s'),
         "created_by" => $_SESSION["admin"]["userid"],
-        "updated_datetime" => time(),
+        "updated_datetime" => date('Y-m-d H:i:s'),
         "updated_by" => $_SESSION["admin"]["userid"]
       )
     );
 
+    if(!empty($_POST['services'])) {
+      foreach($_POST['services'] as $service) {
+        $this->dbInsert(
+          "portfolio_services_assign",
+          array(
+            "portfolioid" => $sID,
+            "servicesubid" => $service
+          )
+        );
+      }
+    }
+
     if($_FILES["logo"]["error"] != 4) {
       if($_FILES["logo"]["error"] == 1 || $_FILES["logo"]["error"] == 2) {
-        $this->forward("/admin/portfolio/?error=".urlencode("Photo file size was too large!"));
+        $this->forward("/admin/portfolio/?error=".urlencode("Logo file size was too large!"));
       } else {
         $upload_dir = $this->settings->rootPublic.substr($this->model->imageFolder, 1);
         $file_ext = pathinfo($_FILES["logo"]["name"], PATHINFO_EXTENSION);
-        $upload_file = $sID.".".strtolower($file_ext);
+        $upload_file = 'lo_'.$sID.".".strtolower($file_ext);
 
         if(move_uploaded_file($_FILES["logo"]["tmp_name"], $upload_dir.$upload_file)) {
           $this->dbUpdate(
@@ -95,7 +121,37 @@ class admin_portfolio extends adminController {
             $sID
           );
 
-          $this->forward("/admin/portfolio/?info=".urlencode("Failed to upload file!"));
+          $this->forward("/admin/portfolio/?info=".urlencode("Failed to upload logo!"));
+        }
+      }
+    }
+
+    if($_FILES["listing_image"]["error"] != 4) {
+      if($_FILES["listing_image"]["error"] == 1 || $_FILES["listing_image"]["error"] == 2) {
+        $this->forward("/admin/portfolio/?error=".urlencode("Listing image file size was too large!"));
+      } else {
+        $upload_dir = $this->settings->rootPublic.substr($this->model->imageFolder, 1);
+        $file_ext = pathinfo($_FILES["listing_image"]["name"], PATHINFO_EXTENSION);
+        $upload_file = "li_".$sID.".".strtolower($file_ext);
+
+        if(move_uploaded_file($_FILES["listing_image"]["tmp_name"], $upload_dir.$upload_file)) {
+          $this->dbUpdate(
+            "portfolio",
+            array(
+              "listing_image" => $upload_file
+            ),
+            $sID
+          );
+        } else {
+          $this->dbUpdate(
+            "portfolio",
+            array(
+              "active" => 0
+            ),
+            $sID
+          );
+
+          $this->forward("/admin/portfolio/?info=".urlencode("Failed to upload listing image!"));
         }
       }
     }
@@ -121,14 +177,23 @@ class admin_portfolio extends adminController {
         ,"row"
       );
     } else {
-      $aClient = $this->model->getClient($this->urlVars->dynamic["id"], true);
+      $aClient = $this->model->getClient($this->urlVars->dynamic["id"], true, true);
 
       $aClient["updated_by"] = $this->dbQuery(
         "SELECT * FROM `{dbPrefix}users`"
           ." WHERE `id` = ".$aClient["updated_by"]
         ,"row"
       );
+
+      $aServicesIds = array();
+      foreach($aClient['services'] as $aService) {
+        $aServicesIds[] = $aService['id'];
+      }
+      $aClient['services'] = $aServicesIds;
     }
+
+    $aServices = $this->model->getServices(true);
+    $this->tplAssign('aServices', $aServices);
 
     $this->tplAssign("aClient", $aClient);
 
@@ -144,18 +209,41 @@ class admin_portfolio extends adminController {
       "portfolio",
       array(
         "name" => $_POST["name"],
+        "subtitle" => $_POST["subtitle"],
         "website" => $_POST["website"],
-        "sort_order" => $sOrder,
+        "case_study" => $_POST["case_study"],
+        "synopsis" => $_POST["synopsis"],
+        "short_description" => $_POST["short_description"],
+        "other_services_1" => $_POST["other_services_1"],
+        "other_services_2" => $_POST["other_services_2"],
+        "quotes" => json_encode($_POST["quotes"]),
         "active" => $this->boolCheck($_POST["active"]),
-        "updated_datetime" => time(),
+        "featured" => $this->boolCheck($_POST["featured"]),
+        "app" => $this->boolCheck($_POST["app"]),
+        "active" => $this->boolCheck($_POST["active"]),
+        "updated_datetime" => date('Y-m-d H:i:s'),
         "updated_by" => $_SESSION["admin"]["userid"]
       ),
       $_POST["id"]
     );
 
+    if(!empty($_POST['services'])) {
+      $this->dbDelete('portfolio_services_assign', $_POST['id'], 'portfolioid');
+
+      foreach($_POST['services'] as $service) {
+        $this->dbInsert(
+          "portfolio_services_assign",
+          array(
+            "portfolioid" => $_POST["id"],
+            "servicesubid" => $service
+          )
+        );
+      }
+    }
+
     if($_FILES["logo"]["error"] != 4) {
       if($_FILES["logo"]["error"] == 1 || $_FILES["logo"]["error"] == 2) {
-        $this->forward("/admin/portfolio/?error=".urlencode("Photo file size was too large!"));
+        $this->forward("/admin/portfolio/?error=".urlencode("Logo file size was too large!"));
       } else {
         $upload_dir = $this->settings->rootPublic.substr($this->model->imageFolder, 1);
         $file_ext = pathinfo($_FILES["logo"]["name"], PATHINFO_EXTENSION);
@@ -185,7 +273,44 @@ class admin_portfolio extends adminController {
             $_POST["id"]
           );
 
-          $this->forward("/admin/portfolio/?error=".urlencode("Failed to upload file!"));
+          $this->forward("/admin/portfolio/?error=".urlencode("Failed to upload logo!"));
+        }
+      }
+    }
+
+    if($_FILES["listing_image"]["error"] != 4) {
+      if($_FILES["listing_image"]["error"] == 1 || $_FILES["listing_image"]["error"] == 2) {
+        $this->forward("/admin/portfolio/?error=".urlencode("Listing image file size was too large!"));
+      } else {
+        $upload_dir = $this->settings->rootPublic.substr($this->model->imageFolder, 1);
+        $file_ext = pathinfo($_FILES["listing_image"]["name"], PATHINFO_EXTENSION);
+        $upload_file = "li_".$sID.".".strtolower($file_ext);
+
+        $sClient = $this->dbQuery(
+          "SELECT `listing_image` FROM `{dbPrefix}portfolio`"
+            ." WHERE `id` = ".$_POST["id"]
+          ,"one"
+        );
+        @unlink($upload_dir.$sClient);
+
+        if(move_uploaded_file($_FILES["listing_image"]["tmp_name"], $upload_dir.$upload_file)) {
+          $this->dbUpdate(
+            "portfolio",
+            array(
+              "listing_image" => $upload_file
+            ),
+            $sID
+          );
+        } else {
+          $this->dbUpdate(
+            "portfolio",
+            array(
+              "active" => 0
+            ),
+            $sID
+          );
+
+          $this->forward("/admin/portfolio/?info=".urlencode("Failed to upload listing image!"));
         }
       }
     }
@@ -198,8 +323,11 @@ class admin_portfolio extends adminController {
     $aClient = $this->model->getClient($this->urlVars->dynamic["id"], true);
 
     $this->dbDelete("portfolio", $this->urlVars->dynamic["id"]);
+    $this->dbDelete('portfolio_services_assign', $this->urlVars->dynamic["id"], 'portfolioid');
 
     @unlink($this->settings->rootPublic.substr($this->model->imageFolder, 1).$aClient["logo"]);
+
+    @unlink($this->settings->rootPublic.substr($this->model->imageFolder, 1).$aClient["listing_image"]);
 
     $this->forward("/admin/portfolio/?info=".urlencode("Client removed successfully!"));
   }
