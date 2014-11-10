@@ -24,7 +24,7 @@ class admin_portfolio_views extends adminController {
       ,"one"
     );
 
-    $sSort = explode("-", $this->model->sort);
+    $sSort = explode("-", $this->model->sortPortfolioSlides);
 
     $this->tplAssign("aSlides", $this->model->getClientSlides(false, true));
     $this->tplAssign("minSort", $sMinSort);
