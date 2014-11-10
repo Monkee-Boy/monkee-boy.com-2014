@@ -119,10 +119,64 @@ class portfolio_model extends appModel {
         foreach($aClientServices as $aService) {
           $aClient["services"][] = $this->getServicesSub($aService['servicesubid']);
         }
+
+        $aClient["slides"] = $this->getClientSlides($aClient['id']);
       }
     }
 
     return $aClient;
+  }
+
+  /* ########################
+      Portfolio Slides
+     ######################## */
+  public function getClientSlides($sPortfolio = null) {
+    $aWhere = array();
+
+    if(!empty($sPortfolio)) {
+      $aWhere[] = "`portfolioid` = ".$sPortfolio;
+    }
+
+    // Combine filters if atleast one was added
+    if(!empty($aWhere)) {
+      $sWhere = " WHERE ".implode(" AND ", $aWhere);
+    }
+
+    $aSlides = $this->dbQuery(
+      "SELECT * FROM `{dbPrefix}portfolio_views`"
+        .$sWhere
+        ." ORDER BY `sort_order` ASC"
+      ,"all"
+    );
+
+    foreach($aSlides as &$aSlide) {
+      $aSlide = $this->_getClientSlideInfo($aSlide);
+    }
+
+    return $aSlides;
+  }
+  public function getClientSlide($sId) {
+    $aSlide = $this->dbQuery(
+      "SELECT * FROM `{dbPrefix}portfolio_views`"
+        ." WHERE `id` = ".$sId
+      ,"row"
+    );
+
+    $aSlide = $this->_getClientSlideInfo($aSlide);
+
+    return $aSlide;
+  }
+  private function _getClientSlideInfo($aSlide) {
+    if(!empty($aSlide)) {
+      $images = array("listing_image", "desktop_image", "tablet_image", "mobile_image");
+      foreach($images as $image) {
+        if($aSlide[$image]) {
+          $aSlide[$image."_url"] = $this->imageFolder.$aSlide[$image];
+        }
+      }
+    }
+
+    return $aSlide;
   }
 
   /* ########################

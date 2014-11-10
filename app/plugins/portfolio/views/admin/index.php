@@ -16,6 +16,8 @@
         <?php if($sSort == "manual"): ?>
           <th>Order</th>
         <?php endif; ?>
+        <th>Slides</th>
+        <th></th>
         <th></th>
       </tr>
     </thead>
@@ -59,6 +61,10 @@
               <?php endif; ?>
             </td>
           <?php endif; ?>
+          <td class="center"><?= count($aClient['slides']) ?></td>
+          <td class="center">
+            <a href="/admin/portfolio/<?= $aClient['id'] ?>/slides/" title="Manage Slides" rel="tooltip">Manage Slides</a>
+          </td>
           <td class="center">
             <a href="/admin/portfolio/edit/<?= $aClient['id'] ?>/" title="Edit Client" rel="tooltip"><i class="icon-pencil"></i></a>
             <a href="/admin/portfolio/delete/<?= $aClient['id'] ?>/" title="Delete Client" rel="tooltip" onclick="return confirm('Are you sure you would like to delete: <?= $aClient['name'] ?>?');"><i class="icon-trash"></i></a>

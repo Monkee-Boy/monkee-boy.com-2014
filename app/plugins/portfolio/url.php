@@ -41,6 +41,35 @@ $aPluginUrlPatterns = array(
     "action" => "sort"
   ),
 
+  "/admin/portfolio/<client:[0-9]+>/slides/" => array(
+    "cmd" => "admin_portfolio_views",
+    "action" => "index"
+  ),
+  "/admin/portfolio/<client:[0-9]+>/slides/add/" => array(
+    "cmd" => "admin_portfolio_views",
+    "action" => "add"
+  ),
+  "/admin/portfolio/<client:[0-9]+>/slides/add/s/" => array(
+    "cmd" => "admin_portfolio_views",
+    "action" => "add_s"
+  ),
+  "/admin/portfolio/<client:[0-9]+>/slides/edit/<id:[0-9]+>/" => array(
+    "cmd" => "admin_portfolio_views",
+    "action" => "edit"
+  ),
+  "/admin/portfolio/<client:[0-9]+>/slides/edit/s/" => array(
+    "cmd" => "admin_portfolio_views",
+    "action" => "edit_s"
+  ),
+  "/admin/portfolio/<client:[0-9]+>/slides/delete/<id:[0-9]+>/" => array(
+    "cmd" => "admin_portfolio_views",
+    "action" => "delete"
+  ),
+  "/admin/portfolio/<client:[0-9]+>/slides/sort/<id:[0-9]+>/<sort:[a-z]+>/" => array(
+    "cmd" => "admin_portfolio_views",
+    "action" => "sort"
+  ),
+
   "/admin/portfolio/services/" => array(
     "cmd" => "admin_portfolio_services",
     "action" => "index"
