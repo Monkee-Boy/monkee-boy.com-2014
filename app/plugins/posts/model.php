@@ -1,6 +1,6 @@
 <?php
 class posts_model extends appModel {
-	public $useImage, $imageMinWidth, $imageMinHeight, $imageFolder, $useCategories, $perPage, $useComments, $excerptCharacters, $sortCategory;
+	public $useImage, $imageFolder, $useCategories, $perPage, $useComments, $excerptCharacters, $sortCategory;
 
 	function __construct() {
 		parent::__construct();
@@ -112,7 +112,7 @@ class posts_model extends appModel {
 			$aPost["publish_on"] = strtotime($aPost["publish_on"]);
 
 			$aPost["author"] = $this->dbQuery(
-				"SELECT * FROM `{dbPrefix}users`"
+				"SELECT * FROM `{dbPrefix}troop`"
 					." WHERE `id` = ".$this->dbQuote($aPost["authorid"], "integer")
 					." LIMIT 1"
 				,"row"
@@ -129,12 +129,13 @@ class posts_model extends appModel {
 				$aCategory["name"] = htmlspecialchars(stripslashes($aCategory["name"]));
 			}
 
-			if(file_exists($this->settings->rootPublic.substr($this->imageFolder, 1).$aPost["id"].".jpg")
-			 && $aPost["photo_x2"] > 0
-			 && $this->useImage == true)
-				$aPost["image"] = 1;
-			else
-				$aPost["image"] = 0;
+			if(!empty($aPost['listing_image'])) {
+				$aPost['listing_image_url'] = $this->imageFolder.$aPost['listing_image'];
+			}
+
+			if(!empty($aPost['featured_image'])) {
+				$aPost['featured_image_url'] = $this->imageFolder.$aPost['featured_image'];
+			}
 		}
 	}
 
@@ -244,23 +245,5 @@ class posts_model extends appModel {
 			if(!empty($aCategory["parentid"]))
 				$aCategory["parent"] = $this->getCategory($aCategory["parentid"]);
 		}
-	}
-
-	/**
-	 * Get a posts image.
-	 * @param  integer $sID A posts unique ID.
-	 * @return array  		Return the image.
-	 */
-	function getImage($sId) {
-		$aPost = $this->getPost($sId, null, true);
-
-		$sFile = $this->settings->rootPublic.substr($this->imageFolder, 1).$sId.".jpg";
-
-		$aImage = array(
-			"file" => $sFile
-			,"info" => $aPost
-		);
-
-		return $aImage;
 	}
 }

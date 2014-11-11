@@ -22,6 +22,8 @@ class admin_posts extends adminController {
 		$this->tplDisplay("admin/index.php");
 	}
 	function add() {
+		$oTroop = $this->loadModel('troop');
+
 		if(!empty($_SESSION["admin"]["admin_posts"])) {
 			$aPost = $_SESSION["admin"]["admin_posts"];
 			$aPost["publish_on"] = strtotime($aPost["publish_on_date"]." ".$aPost["publish_on_Hour"].":".$aPost["publish_on_Minute"]." ".$aPost["publish_on_Meridian"]);
@@ -38,13 +40,11 @@ class admin_posts extends adminController {
 				)
 			);
 
-		$this->tplAssign("aUsers", $this->dbQuery("SELECT * FROM `{dbPrefix}users`", "all"));
+		$this->tplAssign("aTroop", $oTroop->getTroop());
 		$this->tplAssign("aCategories", $this->model->getCategories());
 		$this->tplAssign("sUseCategories", $this->model->useCategories);
 		$this->tplAssign("sUseImage", $this->model->useImage);
 		$this->tplAssign("useComments", $this->model->useComments);
-		$this->tplAssign("minWidth", $this->model->imageMinWidth);
-		$this->tplAssign("minHeight", $this->model->imageMinHeight);
 		$this->tplAssign("sExcerptCharacters", $this->model->excerptCharacters);
 		$this->tplAssign("sTwitterConnect", $this->getSetting("twitter_connect"));
 		$this->tplAssign("sFacebookConnect", $this->getSetting("facebook_connect"));
@@ -119,23 +119,45 @@ class admin_posts extends adminController {
 			}
 		}
 
+		$images = array("listing_image", "featured_image");
+		foreach($images as $image) {
+			if($_FILES[$image]["error"] != 4) {
+				if($_FILES[$image]["error"] == 1 || $_FILES[$image]["error"] == 2) {
+					$this->forward("/admin/posts/?error=".urlencode($image." file size was too large!"));
+				} else {
+					$upload_dir = $this->settings->rootPublic.substr($this->model->imageFolder, 1);
+					$file_ext = pathinfo($_FILES[$image]["name"], PATHINFO_EXTENSION);
+					$upload_file = $image."_".$sID.".".strtolower($file_ext);
+
+					if(move_uploaded_file($_FILES[$image]["tmp_name"], $upload_dir.$upload_file)) {
+						$this->dbUpdate(
+							"posts",
+							array(
+								$image => $upload_file
+							),
+							$sID
+						);
+					} else {
+						$this->forward("/admin/posts/?info=".urlencode("Failed to upload ".$image."!"));
+					}
+				}
+			}
+		}
+
 		$_SESSION["admin"]["admin_posts"] = null;
 
-		if($_POST["post_twitter"] == 1 && $_POST["active"] == 1) {
-			$this->postTwitter($sID);
-		}
+		// if($_POST["post_twitter"] == 1 && $_POST["active"] == 1) {
+		// 	$this->postTwitter($sID);
+		// }
 
-		if(!empty($_FILES["image"]["type"]) && $this->model->useImage == true) {
-			$_POST["id"] = $sID;
-			$this->image_upload_s();
-		} else {
-			if($_POST["post_facebook"] == 1 && $_POST["active"] == 1)
-				$this->postFacebook($sID);
+		// if($_POST["post_facebook"] == 1 && $_POST["active"] == 1)
+		// 	$this->postFacebook($sID);
 
-			$this->forward("/admin/posts/?success=".urlencode("Post created successfully!")."&".implode("&", $this->errors));
-		}
+		$this->forward("/admin/posts/?success=".urlencode("Post created successfully!")."&".implode("&", $this->errors));
 	}
 	function edit() {
+		$oTroop = $this->loadModel('troop');
+
 		if(!empty($_SESSION["admin"]["admin_posts"])) {
 			$aPostRow = $this->dbQuery(
 				"SELECT * FROM `{dbPrefix}posts`"
@@ -176,13 +198,11 @@ class admin_posts extends adminController {
 			$this->tplAssign("aPost", $aPost);
 		}
 
-		$this->tplAssign("aUsers", $this->dbQuery("SELECT * FROM `{dbPrefix}users`", "all"));
+		$this->tplAssign("aTroop", $oTroop->getTroop());
 		$this->tplAssign("aCategories", $this->model->getCategories());
 		$this->tplAssign("sUseCategories", $this->model->useCategories);
 		$this->tplAssign("sUseImage", $this->model->useImage);
 		$this->tplAssign("useComments", $this->model->useComments);
-		$this->tplAssign("minWidth", $this->model->imageMinWidth);
-		$this->tplAssign("minHeight", $this->model->imageMinHeight);
 		$this->tplAssign("sExcerptCharacters", $this->model->excerptCharacters);
 		$this->tplAssign("sTwitterConnect", $this->getSetting("twitter_connect"));
 		$this->tplAssign("sFacebookConnect", $this->getSetting("facebook_connect"));
@@ -263,131 +283,63 @@ class admin_posts extends adminController {
 			}
 		}
 
+		$images = array("listing_image", "featured_image");
+		foreach($images as $image) {
+			if($_FILES[$image]["error"] != 4) {
+				if($_FILES[$image]["error"] == 1 || $_FILES[$image]["error"] == 2) {
+					$this->forward("/admin/posts/?error=".urlencode($image." file size was too large!"));
+				} else {
+					$upload_dir = $this->settings->rootPublic.substr($this->model->imageFolder, 1);
+					$file_ext = pathinfo($_FILES[$image]["name"], PATHINFO_EXTENSION);
+					$upload_file = $image."_".$_POST['id'].".".strtolower($file_ext);
+
+					$aPost = $this->dbQuery(
+						"SELECT `".$image."` FROM `{dbPrefix}posts`"
+							." WHERE `id` = ".$_POST["id"]
+						,"one"
+					);
+					@unlink($upload_dir.$aPost);
+
+					if(move_uploaded_file($_FILES[$image]["tmp_name"], $upload_dir.$upload_file)) {
+						$this->dbUpdate(
+							"posts",
+							array(
+								$image => $upload_file
+							),
+							$_POST['id']
+						);
+					} else {
+
+											echo $upload_dir.$upload_file.'<br>';
+											echo $_FILES[$image]["tmp_name"];
+											echo "<pre>";print_r($_FILES);echo "</pre>";
+											die;
+
+						$this->forward("/admin/posts/?info=".urlencode("Failed to upload ".$image."!"));
+					}
+				}
+			}
+		}
+
 		$_SESSION["admin"]["admin_posts"] = null;
 		$aPost = $this->model->getPost($_POST["id"]);
 
-		if($_POST["post_twitter"] == 1 && $_POST["active"] == 1) {
-			$this->postTwitter($_POST["id"]);
-		}
+		// if($_POST["post_twitter"] == 1 && $_POST["active"] == 1) {
+		// 	$this->postTwitter($_POST["id"]);
+		// }
 
-		if(!empty($_FILES["image"]["type"]) && $this->model->useImage == true) {
-			$this->image_upload_s();
-		} else {
-			if($_POST["post_facebook"] == 1 && $_POST["active"] == 1)
-				$this->postFacebook($_POST["id"]);
+		// if($_POST["post_facebook"] == 1 && $_POST["active"] == 1)
+		// 	$this->postFacebook($_POST["id"]);
 
-			if($_POST["image-action"] == "edit")
-				$this->forward("/admin/posts/image/".$_POST["id"]."/edit/?".implode("&", $this->errors));
-			elseif($_POST["image-action"] == "delete")
-				$this->forward("/admin/posts/image/".$_POST["id"]."/delete/?".implode("&", $this->errors));
-			else
-				$this->forward("/admin/posts/?success=".urlencode("Changes saved successfully!")."&".implode("&", $this->errors));
-		}
+		$this->forward("/admin/posts/?success=".urlencode("Changes saved successfully!")."&".implode("&", $this->errors));
 	}
 	function delete() {
 		$this->dbDelete("posts", $this->urlVars->dynamic["id"]);
 		$this->dbDelete("posts_categories_assign", $this->urlVars->dynamic["id"], "postid");
 
-		@unlink($this->settings->rootPublic.substr($this->model->imageFolder, 1).$this->urlVars->dynamic["id"].".jpg");
+		// @unlink($this->settings->rootPublic.substr($this->model->imageFolder, 1).$this->urlVars->dynamic["id"].".jpg");
 
 		$this->forward("/admin/posts/?success=".urlencode("Post removed successfully!"));
-	}
-	function image_upload_s() {
-		if(!empty($_GET["post_facebook"]))
-			$sPostFacebook = $_GET["post_facebook"];
-		else
-			$sPostFacebook = $_POST["post_facebook"];
-
-		if(!is_dir($this->settings->rootPublic.substr($this->model->imageFolder, 1)))
-			mkdir($this->settings->rootPublic.substr($this->model->imageFolder, 1), 0777);
-
-		if($_FILES["image"]["type"] == "image/jpeg"
-		 || $_FILES["image"]["type"] == "image/jpg"
-		 || $_FILES["image"]["type"] == "image/pjpeg"
-		) {
-			$sFile = $this->settings->rootPublic.substr($this->model->imageFolder, 1).$_POST["id"].".jpg";
-
-			$aImageSize = getimagesize($_FILES["image"]["tmp_name"]);
-			if($aImageSize[0] < $this->model->imageMinWidth || $aImageSize[1] < $this->model->imageMinHeight) {
-				$this->forward("/admin/posts/image/".$_POST["id"]."/edit/?error=".urlencode("Image does not meet the minimum width and height requirements."));
-			}
-
-			if(move_uploaded_file($_FILES["image"]["tmp_name"], $sFile)) {
-				$this->dbUpdate(
-					"posts",
-					array(
-						"photo_x1" => 0
-						,"photo_y1" => 0
-						,"photo_x2" => $this->model->imageMinWidth
-						,"photo_y2" => $this->model->imageMinHeight
-						,"photo_width" => $this->model->imageMinWidth
-						,"photo_height" => $this->model->imageMinHeight
-					),
-					$_POST["id"]
-				);
-
-				$this->forward("/admin/posts/image/".$_POST["id"]."/edit/?post_facebook=".$sPostFacebook);
-			} else
-				$this->forward("/admin/posts/image/".$_POST["id"]."/edit/?error=".urlencode("Unable to upload image.")."&post_facebook=".$sPostFacebook);
-		} else
-			$this->forward("/admin/posts/image/".$_POST["id"]."/edit/?error=".urlencode("Image not a jpg. Image is (".$_FILES["image"]["type"].").")."&post_facebook=".$sPostFacebook);
-	}
-	function image_edit() {
-		if($this->model->imageMinWidth < 300) {
-			$sPreviewWidth = $this->model->imageMinWidth;
-			$sPreviewHeight = $this->model->imageMinHeight;
-		} else {
-			$sPreviewWidth = 300;
-			$sPreviewHeight = ceil($this->model->imageMinHeight * (300 / $this->model->imageMinWidth));
-		}
-
-		$this->tplAssign("aPost", $this->model->getPost($this->urlVars->dynamic["id"], null, true));
-		$this->tplAssign("sFolder", $this->model->imageFolder);
-		$this->tplAssign("minWidth", $this->model->imageMinWidth);
-		$this->tplAssign("minHeight", $this->model->imageMinHeight);
-		$this->tplAssign("previewWidth", $sPreviewWidth);
-		$this->tplAssign("previewHeight", $sPreviewHeight);
-
-		$this->tplDisplay("admin/image.php");
-	}
-	function image_edit_s() {
-		$this->dbUpdate(
-			"posts",
-			array(
-				"photo_x1" => $_POST["x1"]
-				,"photo_y1" => $_POST["y1"]
-				,"photo_x2" => $_POST["x2"]
-				,"photo_y2" => $_POST["y2"]
-				,"photo_width" => $_POST["width"]
-				,"photo_height" => $_POST["height"]
-			),
-			$_POST["id"]
-		);
-
-		$aPost = $this->model->getPost($_POST["id"]);
-
-		if($_POST["post_facebook"] == 1)
-			$this->postFacebook($aPost["id"]);
-
-		$this->forward("/admin/posts/?success=".urlencode("Post updated."));
-	}
-	function image_delete() {
-		$this->dbUpdate(
-			"posts",
-			array(
-				"photo_x1" => 0
-				,"photo_y1" => 0
-				,"photo_x2" => 0
-				,"photo_y2" => 0
-				,"photo_width" => 0
-				,"photo_height" => 0
-			),
-			$this->urlVars->dynamic["id"]
-		);
-
-		@unlink($this->settings->rootPublic.substr($this->model->imageFolder, 1).$this->urlVars->dynamic["id"].".jpg");
-
-		$this->forward("/admin/posts/?success=".urlencode("Image removed successfully!"));
 	}
 	function categories_index() {
 		$_SESSION["admin"]["admin_posts_categories"] = null;
@@ -499,25 +451,25 @@ class admin_posts extends adminController {
 	 * @param  integer $sID    Unique post ID.
 	 */
 	function postTwitter($sID) {
-		$oTwitter = $this->loadTwitter();
-		$aPost = $this->model->getPost($sID);
-
-		if($oTwitter != false) {
-			$sPrefix = 'http';
-			if ($_SERVER["HTTPS"] == "on") {$sPrefix .= "s";}
-				$sPrefix .= "://";
-
-			$sUrl = $this->urlShorten($sPrefix.$_SERVER["HTTP_HOST"].$aPost["url"]);
-
-			$aParameters = array("status" => $aPost["title"]." ".$aPost["url"]);
-			$status = $oTwitter->post("statuses/update", $aParameters);
-
-			if($oTwitter->http_code != 200) {
-				$this->errors[] = "errors[]=".urlencode("Error posting to Twitter. Please try again later.");
-			}
-		} else {
-			$this->errors[] = "errors[]=".urlencode("Unable to connect with Twitter. Please try again later.");
-		}
+		// $oTwitter = $this->loadTwitter();
+		// $aPost = $this->model->getPost($sID);
+		//
+		// if($oTwitter != false) {
+		// 	$sPrefix = 'http';
+		// 	if ($_SERVER["HTTPS"] == "on") {$sPrefix .= "s";}
+		// 		$sPrefix .= "://";
+		//
+		// 	$sUrl = $this->urlShorten($sPrefix.$_SERVER["HTTP_HOST"].$aPost["url"]);
+		//
+		// 	$aParameters = array("status" => $aPost["title"]." ".$aPost["url"]);
+		// 	$status = $oTwitter->post("statuses/update", $aParameters);
+		//
+		// 	if($oTwitter->http_code != 200) {
+		// 		$this->errors[] = "errors[]=".urlencode("Error posting to Twitter. Please try again later.");
+		// 	}
+		// } else {
+		// 	$this->errors[] = "errors[]=".urlencode("Unable to connect with Twitter. Please try again later.");
+		// }
 	}
 
 	/**
@@ -525,23 +477,23 @@ class admin_posts extends adminController {
 	 * @param  integer $sID Unique post ID.
 	 */
 	function postFacebook($sID) {
-		$aFacebook = $this->loadFacebook();
-		$aPost = $this->model->getPost($sID);
-
-		$sPrefix = 'http';
-		if ($_SERVER["HTTPS"] == "on") {$sPrefix .= "s";}
-			$sPrefix .= "://";
-
-		if($sImage == false)
-			$sImage = $sPrefix.$_SERVER["HTTP_HOST"].'/images/facebookConnect.png';
-		else
-			$sImage = $sPrefix.$_SERVER["HTTP_HOST"].'/image/posts/'.$aPost["id"].'/?width=90';
-
-		try {
-			$aFacebook["obj"]->api('/me/feed/', 'post', array("access_token" => $aFacebook["access_token"], "name" => $aPost["title"], "description" => $aPost["excerpt"], "link" => $sPrefix.$_SERVER["HTTP_HOST"].$aPost["url"], "picture" => $aPost["image"]));
-		} catch (FacebookApiException $e) {
-			error_log($e);
-			$this->errors[] = "errors[]=".urlencode("Error posting to Facebook. Please try again later.");
-		}
+		// $aFacebook = $this->loadFacebook();
+		// $aPost = $this->model->getPost($sID);
+		//
+		// $sPrefix = 'http';
+		// if ($_SERVER["HTTPS"] == "on") {$sPrefix .= "s";}
+		// 	$sPrefix .= "://";
+		//
+		// if($sImage == false)
+		// 	$sImage = $sPrefix.$_SERVER["HTTP_HOST"].'/images/facebookConnect.png';
+		// else
+		// 	$sImage = $sPrefix.$_SERVER["HTTP_HOST"].'/image/posts/'.$aPost["id"].'/?width=90';
+		//
+		// try {
+		// 	$aFacebook["obj"]->api('/me/feed/', 'post', array("access_token" => $aFacebook["access_token"], "name" => $aPost["title"], "description" => $aPost["excerpt"], "link" => $sPrefix.$_SERVER["HTTP_HOST"].$aPost["url"], "picture" => $aPost["image"]));
+		// } catch (FacebookApiException $e) {
+		// 	error_log($e);
+		// 	$this->errors[] = "errors[]=".urlencode("Error posting to Facebook. Please try again later.");
+		// }
 	}
 }

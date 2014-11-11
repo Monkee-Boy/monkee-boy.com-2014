@@ -24,69 +24,51 @@ $aPluginUrlPatterns = array(
 		"cmd" => "posts",
 		"action" => "post"
 	),
+
 	"/admin/posts/" => array(
-        "cmd" => "admin_posts",
-        "action" => "index"
-    ),
+    "cmd" => "admin_posts",
+    "action" => "index"
+  ),
 	"/admin/posts/add/" => array(
-        "cmd" => "admin_posts",
-        "action" => "add"
-    ),
+    "cmd" => "admin_posts",
+    "action" => "add"
+  ),
 	"/admin/posts/add/s/" => array(
-        "cmd" => "admin_posts",
-        "action" => "add_s"
-    ),
+    "cmd" => "admin_posts",
+    "action" => "add_s"
+  ),
 	"/admin/posts/edit/<id:[0-9]+>/" => array(
-        "cmd" => "admin_posts",
-        "action" => "edit"
-    ),
+    "cmd" => "admin_posts",
+    "action" => "edit"
+  ),
 	"/admin/posts/edit/s/" => array(
-        "cmd" => "admin_posts",
-        "action" => "edit_s"
-    ),
+    "cmd" => "admin_posts",
+    "action" => "edit_s"
+  ),
 	"/admin/posts/delete/<id:[0-9]+>/" => array(
-        "cmd" => "admin_posts",
-        "action" => "delete"
-    ),
-	"/admin/posts/image/<id:[0-9]+>/upload/" => array(
-        "cmd" => "admin_posts",
-        "action" => "image_upload"
-    ),
-	"/admin/posts/image/upload/s/" => array(
-        "cmd" => "admin_posts",
-        "action" => "image_upload_s"
-    ),
-	"/admin/posts/image/<id:[0-9]+>/edit/" => array(
-        "cmd" => "admin_posts",
-        "action" => "image_edit"
-    ),
-	"/admin/posts/image/edit/s/" => array(
-        "cmd" => "admin_posts",
-        "action" => "image_edit_s"
-    ),
-	"/admin/posts/image/<id:[0-9]+>/delete/" => array(
-        "cmd" => "admin_posts",
-        "action" => "image_delete"
-    ),
+    "cmd" => "admin_posts",
+    "action" => "delete"
+  ),
+  
 	"/admin/posts/categories/" => array(
-        "cmd" => "admin_posts",
-        "action" => "categories_index"
-    ),
+    "cmd" => "admin_posts",
+    "action" => "categories_index"
+  ),
 	"/admin/posts/categories/add/s/" => array(
-        "cmd" => "admin_posts",
-        "action" => "categories_add_s"
-    ),
+    "cmd" => "admin_posts",
+    "action" => "categories_add_s"
+  ),
 	"/admin/posts/categories/edit/s/" => array(
-        "cmd" => "admin_posts",
-        "action" => "categories_edit_s"
-    ),
+    "cmd" => "admin_posts",
+    "action" => "categories_edit_s"
+  ),
 	"/admin/posts/categories/delete/<id:[0-9]+>/" => array(
-        "cmd" => "admin_posts",
-        "action" => "categories_delete"
-    ),
+    "cmd" => "admin_posts",
+    "action" => "categories_delete"
+  ),
 	"/admin/posts/categories/sort/<id:[0-9]+>/<sort:[a-z]+>/" => array(
-        "cmd" => "admin_posts",
-        "action" => "categories_sort"
-    )
+    "cmd" => "admin_posts",
+    "action" => "categories_sort"
+  )
 );
 ###############################################
