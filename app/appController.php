@@ -333,10 +333,10 @@ class appController {
 		$this->assign[$variable] = $value;
 	}
 	public function tplDisplay($sTemplate, $aAssign = array(), $sReturn = false) {
-		if(is_file($this->settings->tplDir.$sTemplate)) {
-			$sDirectory = $this->settings->tplDir.$sTemplate;
-		} elseif(!empty($this->_plugin) && is_file(APP."plugins/".$this->_plugin."/views/".$sTemplate)) {
+		if(!empty($this->_plugin) && is_file(APP."plugins/".$this->_plugin."/views/".$sTemplate)) {
 			$sDirectory = APP."plugins/".$this->_plugin."/views/".$sTemplate;
+		} elseif(is_file($this->settings->tplDir.$sTemplate)) {
+			$sDirectory = $this->settings->tplDir.$sTemplate;
 		} else {
 			$sDirectory = false;
 		}
