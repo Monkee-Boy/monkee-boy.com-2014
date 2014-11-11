@@ -1,4 +1,5 @@
 <?php $this->tplDisplay("inc_header.php", ['menu'=>'portfolio','sPageTitle'=>"Portfolio &raquo; Manage Client"]); ?>
+<?php //echo '<pre>'; print_r($aClient); ?>
 
   <h2>Portfolio &raquo; Manage Client</h2>
   <?php $this->tplDisplay('inc_alerts.php'); ?>
@@ -17,6 +18,13 @@
                 <label class="control-label" for="form-name">Name</label>
                 <div class="controls">
                   <input type="text" name="name" id="form-name" value="<?php echo $aClient['name']; ?>" class="span12 validate[required]">
+                </div> <!-- /.controls -->
+              </div> <!-- /.control-group -->
+
+              <div class="control-group">
+                <label class="control-label" for="form-tag">Tag</label>
+                <div class="controls">
+                  <input type="text" name="tag" id="form-tag" value="<?php echo $aClient['tag']; ?>" class="span12 validate[required]">
                 </div> <!-- /.controls -->
               </div> <!-- /.control-group -->
 
@@ -74,9 +82,16 @@
               </div> <!-- /.control-group -->
 
               <div class="control-group">
-                <label class="control-label" for="form-shortdescription">Other Services</label>
+                <label class="control-label" for="form-shortdescription">Other Services (Col 1)</label>
                 <div class="controls">
-                  <textarea name="other_services" id="form-shortdescription" class="span12" style="height:95px;"><?php echo $aClient['other_services']; ?></textarea>
+                  <textarea name="other_services_1" id="form-shortdescription" class="span12" style="height:95px;"><?php echo $aClient['other_services_1']; ?></textarea>
+                </div> <!-- /.controls -->
+              </div> <!-- /.control-group -->
+
+              <div class="control-group">
+                <label class="control-label" for="form-shortdescription">Other Services (Col 2)</label>
+                <div class="controls">
+                  <textarea name="other_services_2" id="form-shortdescription" class="span12" style="height:95px;"><?php echo $aClient['other_services_2']; ?></textarea>
                 </div> <!-- /.controls -->
               </div> <!-- /.control-group -->
             </div> <!--/.accordion-inner -->
@@ -90,10 +105,12 @@
           <div class="accordion-body" id="quote_block_body">
             <div class="accordion-inner">
               <?php
-              foreach($aClient["quotes"] as $aQuote) {
-                quote_block($aQuote);
+              if(!empty($aClient['quotes'])) {
+                foreach($aClient["quotes"] as $aQuote) {
+                  quote_block($aQuote);
+                }
+                quote_block();
               }
-              quote_block();
               ?>
               <a href="#" title="Add Quote" id="quote_more" class="btn btn-primary" rel="tooltip" data-placement="bottom">
                 <i class="icon-plus icon-white"></i> Add Quote

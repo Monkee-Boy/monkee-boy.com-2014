@@ -42,12 +42,21 @@
                   <textarea name="description" id="form-shortdescription" class="span12" style="height:95px;"><?php echo $aServiceSub['description']; ?></textarea>
                 </div> <!-- /.controls -->
               </div> <!-- /.control-group -->
+
+              <div class="control-group">
+                <label class="control-label" for="form-intro">Intro</label>
+                <div class="controls">
+                  <input type="text" name="intro" id="form-intro" value="<?php echo $aServiceSub['intro']; ?>" class="span12 validate[required]">
+                </div> <!-- /.controls -->
+              </div> <!-- /.control-group -->
+
               <div class="control-group">
                 <label class="control-label" for="form-shortdescription">Quote</label>
                 <div class="controls">
                   <textarea name="quote" id="form-shortdescription" class="span12" style="height:95px;"><?php echo $aServiceSub['quote']; ?></textarea>
                 </div> <!-- /.controls -->
               </div> <!-- /.control-group -->
+
               <div class="control-group">
                 <label class="control-label" for="form-shortdescription">Quote Attribution</label>
                 <div class="controls">

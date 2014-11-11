@@ -12,6 +12,7 @@ $aTables = array(
   'portfolio' => 'CREATE TABLE `{dbPrefix}portfolio` (
     `id` int(11) unsigned NOT NULL auto_increment,
     `name` varchar(255),
+    `tag` varchar(255),
     `website` varchar(255),
     `subtitle` varchar(255),
     `short_description` longtext,
@@ -70,6 +71,7 @@ $aTables = array(
   "services" => 'CREATE TABLE `{dbPrefix}services` (
     `id` int(11) unsigned NOT NULL auto_increment,
     `name` varchar(255),
+    `tag` varchar(255),
     `subtitle` varchar(255),
     `description` longtext,
     `sort_order` int(11) unsigned,
@@ -78,7 +80,7 @@ $aTables = array(
     `updated_datetime` datetime NOT NULL,
     `updated_by` int(11) unsigned NOT NULL,
     PRIMARY KEY (`id`),
-    UNIQUE (`sort_order`)
+    UNIQUE (`sort_order`, `tag`)
   ) Engine=MyISAM;
   INSERT INTO `{dbPrefix}services` (`name`, `subtitle`, `description`, `sort_order`, `created_datetime`, `created_by`, `updated_datetime`, `updated_by`) VALUES
   (\'Discover\', \'Reaserch + Strategy\', \'\', 1, NOW(), 1, NOW(), 1),
@@ -89,10 +91,12 @@ $aTables = array(
     `id` int(11) unsigned NOT NULL auto_increment,
     `serviceid` int(11) unsigned,
     `name` varchar(255),
+    `tag` varchar(255),
     `subtitle` longtext,
     `description` longtext,
     `quote` longtext,
     `quote_attribution` varchar(255),
+    `services_byline` varchar(255),
     `sort_order` int(11) unsigned,
     `created_datetime` datetime NOT NULL,
     `created_by` int(11) unsigned NOT NULL,
@@ -133,6 +137,10 @@ $aMenuAdmin = array(
     array(
       "text" => "Portfolio",
       "link" => "/admin/portfolio/"
+    ),
+    array(
+      "text" => "Service",
+      "link" => "/admin/portfolio/services/"
     )
   )
 );

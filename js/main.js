@@ -51,7 +51,7 @@
     });
   }
 
-  // mobile menu fn's3
+  // mobile menu fn's
   function open_mobile_menu() {
     $('body').addClass('menu-open');
 
@@ -330,7 +330,8 @@
   PortfolioSlider.prototype.initFullSlider = function() {
     var containerWidth = this.width - this.margin*2,
         containerHeight = this.$screenContainer.height(),
-        self = this;
+        self = this,
+        numScreens = 0;
 
     // we'll want to save screens by device type
     var screens = {};
@@ -338,8 +339,15 @@
     // set height, width, and position for all screens
     this.$screens.each(function() {
       var $this = $(this),
-          type = $this.data('device'),
-          height = self.ratios[type] > 1? containerHeight : containerWidth*self.ratios[type],
+          type = $this.data('device');
+
+      // horizontal tablet or phone
+      if ($this.hasClass('horizontal')) {
+        // inverse ratio
+        self.ratios[type] = 1/self.ratios[type];
+      }
+
+      var height = self.ratios[type] > 1? containerHeight : containerWidth*self.ratios[type],
           width = self.ratios[type] < 1? containerWidth : containerHeight/self.ratios[type];
 
       $this.css({
@@ -350,30 +358,36 @@
       });
 
       screens[type] = $this;
+      numScreens++;
 
     });
 
     // save new screens object so we can access by device type
     this.$screens = screens;
 
-    // set phone and tablet to be right and left
-    self._moveSlide(this.$screens.phone, 'left', 0.6);
-    self._moveSlide(this.$screens.tablet, 'right', 0.6);
+    // do slider stuff if there are at least three screens
+    console.log("there are this many screens:", numScreens);
+    if ( numScreens > 2 ) {
+      // set phone and tablet to be right and left
+      self._moveSlide(this.$screens.phone, 'left', 0.6);
+      self._moveSlide(this.$screens.tablet, 'right', 0.6);
 
-    // add click event to portfolio nav
-    $('.slider-nav').on('click', 'a', function(e) {
-      e.preventDefault();
+      // add click event to portfolio nav
+      $('.slider-nav').on('click', 'a', function(e) {
+        e.preventDefault();
 
-      if ( $(this).hasClass('port-left') ) {
-        self.transitionSlides('left');
-      } else {
-        self.transitionSlides('right');
-      }
+        if ( $(this).hasClass('port-left') ) {
+          self.transitionSlides('left');
+        } else {
+          self.transitionSlides('right');
+        }
 
-      // remove scroll callout, if still present
-      if (self.$screens.desktop.find('.scroll-msg').length > 0)
-        self.$screens.desktop.find('.scroll-msg').remove();
-    });
+        // remove scroll callout, if still present
+        if (self.$screens.desktop.find('.scroll-msg').length > 0)
+          self.$screens.desktop.find('.scroll-msg').remove();
+      });
+    }
+
   };
 
   PortfolioSlider.prototype.initMobileSlider = function() {
@@ -443,12 +457,14 @@
       self.updateScreen(screenName);
     });
 
-    // remove scroll callout on scroll
-    console.log("screens are", this.$screens);
-    this.$screens.desktop.children('.screen-inner').on('scroll', function() {
-      $(this).children('.scroll-msg').remove();
-      $(this).off('scroll');
-    });
+    // remove scroll callout on scroll if there is a scroll callout
+    var $scroll_callout = this.$screenContainer.find('.scroll-msg');
+    if ($scroll_callout.length > 0) {
+      $scroll_callout.parent('.screen-inner').on('scroll', function() {
+        $(this).children('.scroll-msg').remove();
+        $(this).off('scroll');
+      });
+    }
 
   };
 
@@ -456,6 +472,37 @@
     var port_slider = new PortfolioSlider('.port-slider');
     port_slider.init();
   }
+
+  // slick sliders
+  $('.quote-slider').slick({
+    dots: true,
+    arrows: false,
+    infinite: true,
+    speed: 300,
+    slidesToShow: 1,
+    slide: 'li'
+  });
+
+  $('.fullwidth-slider ul').slick({
+    dots: false,
+    arrows: false,
+    slidesToShow: 1,
+    slide: 'li',
+    centerMode: true,
+    centerPadding: '140px',
+    responsive: [{
+      breakpoint: small_break,
+      settings: {
+        dots: false,
+        arrows: false,
+        infinite: true,
+        slidesToShow: 1,
+        slide: 'li',
+        centerMode: true,
+        centerPadding: '80px'
+      }
+    }]
+  });
 
   // home page hero circles
   var HeroCircles = function(el) {
@@ -690,6 +737,38 @@
     $dropdown.css('top', offset_top + 'px');
 
   });
+
+  // accordions
+  var $accordions = $('.accordion');
+  if ($accordions.length > 0) {
+    $accordions.each(function() {
+      var $this = $(this),
+          height = $this.children('.content').outerHeight();
+      $this.data('content-height', height);
+      $this.children('.content').css('height', 0);
+    });
+
+    $accordions.on('click', '.trigger', function(e) {
+      e.preventDefault();
+
+      var $accordion = $(this).parent('.accordion'),
+          $content = $accordion.children('.content'),
+          height = $accordion.data('content-height');
+
+      if ($accordion.hasClass('open')){
+        $accordion.removeClass('open');
+        height = 0;
+      } else {
+        $accordion.addClass('open');
+      }
+
+      TweenLite.to($content, 0.5, {
+        height: height,
+        ease: Power3.easeOut
+      });
+
+    });
+  }
 
   /**************************************
   ** Header Blur on Scroll

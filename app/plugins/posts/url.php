@@ -12,7 +12,7 @@
  #   /<tag:[a-z]+>/
 */
 $aPluginUrlPatterns = array(
-    "/posts/" => array(
+  "/posts/" => array(
 		"cmd" => "posts",
 		"action" => "index"
 	),

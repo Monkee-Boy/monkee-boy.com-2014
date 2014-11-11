@@ -112,6 +112,13 @@ blockquote {
     font-weight: bolder;
     font-style: normal;
   }
+
+  @each $service in $services {
+    $i: index($services, $service);
+    .#{$service} & {
+      border-left-color: nth($service-colors, $i);
+    }
+  }
 }
 
 hr {
