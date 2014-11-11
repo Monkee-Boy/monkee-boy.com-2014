@@ -116,12 +116,12 @@ class portfolio_model extends appModel {
         $aClient["services"] = array();
         $aClientServices = $this->dbQuery(
           "SELECT * FROM `{dbPrefix}portfolio_services_assign`"
-            ." WHERE `portfolioid` = ".$aClient['id']
+            ." WHERE `clientid` = ".$aClient['id']
           ,'all'
         );
 
         foreach($aClientServices as $aService) {
-          $aClient["services"][] = $this->getServicesSub($aService['servicesubid']);
+          $aClient["services"][] = $this->getServicesSub($aService['serviceid'], false);
         }
 
         $aClient["slides"] = $this->getClientSlides($aClient['id']);
@@ -265,14 +265,26 @@ class portfolio_model extends appModel {
 
     return $aServices;
   }
-  public function getService($sId) {
-    $aService = $this->dbQuery(
-      "SELECT * FROM `{dbPrefix}services`"
-        ." WHERE `id` = ".$sId
-      ,"row"
-    );
+  public function getService($sId, $sTag = null, $sRecursive = false) {
+    if(!empty($sTag)) {
+      $aService = $this->dbQuery(
+        "SELECT * FROM `{dbPrefix}services`"
+          ." WHERE `tag` = ".$this->dbQuote($sTag, 'text')
+        ,"row"
+      );
+    } else {
+      $aService = $this->dbQuery(
+        "SELECT * FROM `{dbPrefix}services`"
+          ." WHERE `id` = ".$this->dbQuote($sId, 'integer')
+        ,"row"
+      );
+    }
 
     $aService = $this->_getServiceInfo($aService);
+
+    if($sRecursive == true) {
+      $aService['subs'] = $this->getServicesSubs($aService['id'], true);
+    }
 
     return $aService;
   }
@@ -280,7 +292,7 @@ class portfolio_model extends appModel {
     if(!empty($aService)) {
       $aService["name"] = htmlspecialchars(stripslashes($aService["name"]));
       $aService["subtitle"] = htmlspecialchars(stripslashes($aService["subtitle"]));
-      $aService["description"] = htmlspecialchars(nl2br(stripslashes($aService["description"])));
+      $aService["description"] = stripslashes($aService["description"]);
     }
 
     return $aService;
@@ -339,6 +351,10 @@ class portfolio_model extends appModel {
 
       if($sRecursive == true) {
         $aServicesSub['items'] = $this->getServicesSubsItems($aServicesSub['id'], true);
+
+        $length = count($aServicesSub['items']);
+        $aServicesSub['first_half_items'] = array_slice($aServicesSub['items'], 0, round($length / 2));
+        $aServicesSub['second_half_items'] = array_slice($aServicesSub['items'], round($length / 2));
       }
     }
 
@@ -359,7 +375,7 @@ class portfolio_model extends appModel {
     if(!empty($aServiceSub)) {
       $aServiceSub["name"] = htmlspecialchars(stripslashes($aServiceSub["name"]));
       $aServiceSub["subtitle"] = htmlspecialchars(stripslashes($aServiceSub["subtitle"]));
-      $aServiceSub["description"] = htmlspecialchars(nl2br(stripslashes($aServiceSub["description"])));
+      $aServiceSub["description"] = stripslashes($aServiceSub["description"]);
       $aServiceSub["quote"] = htmlspecialchars(nl2br(stripslashes($aServiceSub["quote"])));
       $aServiceSub["quote_attribution"] = htmlspecialchars(stripslashes($aServiceSub["quote_attribution"]));
     }
@@ -435,7 +451,7 @@ class portfolio_model extends appModel {
   private function _getServicesSubsItemInfo($aServiceSubItem) {
     if(!empty($aServiceSubItem)) {
       $aServiceSubItem["name"] = htmlspecialchars(stripslashes($aServiceSubItem["name"]));
-      $aServiceSubItem["description"] = htmlspecialchars(nl2br(stripslashes($aServiceSubItem["description"])));
+      $aServiceSubItem["description"] = stripslashes($aServiceSubItem["description"]);
     }
 
     return $aServiceSubItem;

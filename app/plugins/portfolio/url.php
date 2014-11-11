@@ -12,6 +12,22 @@
  #   /<tag:[a-z]+>/
 */
 $aPluginUrlPatterns = array(
+  "/the-work/" => array(
+    "cmd" => "portfolio",
+    "action" => "index"
+  ),
+  "/the-work/<tag:[^/]+>/" => array(
+    "cmd" => "portfolio",
+    "action" => "single"
+  ),
+  "/our-process/" => array(
+    "cmd" => "portfolio",
+    "action" => "services_index"
+  ),
+  "/our-process/<tag:[^/]+>/" => array(
+    "cmd" => "portfolio",
+    "action" => "services_single"
+  ),
   "/admin/portfolio/" => array(
     "cmd" => "admin_portfolio",
     "action" => "index"

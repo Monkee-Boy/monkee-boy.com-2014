@@ -43,3 +43,10 @@ $susy: (
     margin-bottom: $mobile-paragraph-margin;
   }
 }
+
+.single-column {
+  @include span(8 of 12);
+  float: none;
+  margin: 0 auto;
+  @media #{$medium-down} { width: 100%; }
+}

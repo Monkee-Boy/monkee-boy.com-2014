@@ -65,6 +65,7 @@ class admin_portfolio extends adminController {
       "portfolio",
       array(
         "name" => $_POST["name"],
+        "tag" => $_POST["tag"],
         "subtitle" => $_POST["subtitle"],
         "website" => $_POST["website"],
         "case_study" => $_POST["case_study"],
@@ -89,8 +90,8 @@ class admin_portfolio extends adminController {
         $this->dbInsert(
           "portfolio_services_assign",
           array(
-            "portfolioid" => $sID,
-            "servicesubid" => $service
+            "clientid" => $sID,
+            "serviceid" => $service
           )
         );
       }
@@ -209,6 +210,7 @@ class admin_portfolio extends adminController {
       "portfolio",
       array(
         "name" => $_POST["name"],
+        "tag" => $_POST["tag"],
         "subtitle" => $_POST["subtitle"],
         "website" => $_POST["website"],
         "case_study" => $_POST["case_study"],
@@ -234,8 +236,8 @@ class admin_portfolio extends adminController {
         $this->dbInsert(
           "portfolio_services_assign",
           array(
-            "portfolioid" => $_POST["id"],
-            "servicesubid" => $service
+            "clientid" => $_POST["id"],
+            "serviceid" => $service
           )
         );
       }

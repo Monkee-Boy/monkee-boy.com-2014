@@ -92,6 +92,17 @@
       @media #{$small-only} { @include box-shadow(0 0 0 4px $green); }
     }
   }
+  .instructions {
+    font-size: 20px;
+    color: $grey;
+    text-align: center;
+    &:before {
+      content: $icon-eye;
+      display: block;
+      font-size: 70px;
+      @extend .icon;
+    }
+  }
 }
 .screen {
   &.desktop {
@@ -142,6 +153,15 @@
       left: 9.86%;
       top: 9.85%;
     }
+    &.horizontal {
+      background-image: url(../images/ipad-h.png);
+      .screen-inner {
+        width: 80.59%;
+        height: 80.27%;
+        left: 9.85%;
+        top: 9.86%;
+      }
+    }
   }
   &.phone {
     background: url(../images/iphone.png) no-repeat center center;
@@ -154,5 +174,156 @@
     @media #{$small-only} {
       z-index: 3;
     }
+  }
+}
+
+// slick sliders
+.slick-slider {
+  position: relative;
+  display: block;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -ms-touch-action: none;
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  overflow: hidden;
+}
+.slick-list {
+  position: relative;
+  // overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0;
+
+  &:focus {
+    outline: none;
+  }
+
+  .slick-loading & {
+    background: #fff slick-image-url("ajax-loader.gif") center center no-repeat;
+  }
+
+  &.dragging {
+    cursor: pointer;
+    cursor: hand;
+  }
+}
+
+.slick-track {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.slick-track {
+  position: relative;
+  left: 0;
+  top: 0;
+  display: block;
+  zoom: 1;
+
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+
+  .slick-loading & {
+    visibility: hidden;
+  }
+}
+.slick-slide {
+  float: left;
+  height: 100%;
+  min-height: 1px;
+  img {
+    display: block;
+  }
+  &.slick-loading img {
+    display: none;
+  }
+
+  display: none;
+
+  &.dragging img {
+    pointer-events: none;
+  }
+
+  .slick-initialized & {
+    display: block;
+  }
+
+  .slick-loading & {
+    visibility: hidden;
+  }
+
+  .slick-vertical & {
+    display: block;
+    height: auto;
+    border: 1px solid transparent;
+  }
+}
+
+.slick-dots {
+  list-style-type: none;
+  margin: em-calc(10) auto;
+  padding: 0;
+  text-align: center;
+  li {
+    display: inline-block;
+    padding: 0 4px;
+  }
+  button {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: $grey;
+    text-indent: -999px;
+    overflow: hidden;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+    @include border-radius(10px);
+    @include transition(background 0.2s ease);
+    &:hover, &:focus {
+      background-color: rgba($green, 0.7);
+      outline: none;
+    }
+  }
+  .slick-active button {
+    background-color: $green;
+  }
+}
+
+.quote-slider {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.fullwidth-slider {
+  background-color: #fff;
+  padding: em-calc(40) 0;
+  figure {
+    padding: 0 em-calc(20);
+    margin: 0;
+    img { width: 100%; }
+  }
+  figcaption {
+    display: block;
+    padding: em-calc(40) em-calc(20) 0;
+    text-align: center;
+    color: $grey;
   }
 }

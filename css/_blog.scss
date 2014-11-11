@@ -223,10 +223,6 @@
 
 // single post content
 .single-post {
-  @include span(8 of 12);
-  float: none;
-  margin: 0 auto;
-  @media #{$medium-down} { width: 100%; }
   blockquote {
     float: left;
     width: 62.5%;

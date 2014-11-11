@@ -21,6 +21,13 @@
               </div> <!-- /.control-group -->
 
               <div class="control-group">
+                <label class="control-label" for="form-tag">Tag</label>
+                <div class="controls">
+                  <input type="text" name="tag" id="form-tag" value="<?php echo $aClient['tag']; ?>" class="span12 validate[required]">
+                </div> <!-- /.controls -->
+              </div> <!-- /.control-group -->
+
+              <div class="control-group">
                 <label class="control-label" for="form-subtitle">Subtitle</label>
                 <div class="controls">
                   <input type="text" name="subtitle" id="form-subtitle" value="<?php echo $aClient['subtitle']; ?>" class="span12 validate[required]">

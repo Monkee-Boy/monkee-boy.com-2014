@@ -12,7 +12,8 @@
     "jshint-stylish": "latest",
     "gulp-rename": "latest",
     "gulp-size": "latest",
-    "gulp-connect": "latest"
+    "gulp-connect": "latest",
+    "tmi": "latest"
   },
   "repository": {
     "type": "git",
