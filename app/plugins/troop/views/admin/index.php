@@ -18,9 +18,9 @@
         <tr>
           <td>
             <?php if($aEmployee['active'] == 1): ?>
-              <img src="/images/admin/icons/bullet_green.png" alt="active">
+              <img src="/images/icons/bullet_green.png" alt="active">
             <?php else: ?>
-              <img src="/images/admin/icons/bullet_red.png" alt="inactive">
+              <img src="/images/icons/bullet_red.png" alt="inactive">
             <?php endif; ?>
           </td>
           <td><?= $aEmployee['name'] ?></td>
@@ -28,14 +28,14 @@
             <td class="small center">
               <span class="hidden"><?= $aEmployee['sort_order'] ?></span>
               <?php if($aEmployee['sort_order'] != $minSort): ?>
-                <a href="/admin/troop/sort/<?= $aEmployee['id'] ?>/up/" title="Move Up One"><img src="/images/admin/icons/bullet_arrow_up.png" style="width:16px;height:16px;"></a>
+                <a href="/admin/troop/sort/<?= $aEmployee['id'] ?>/up/" title="Move Up One"><img src="/images/icons/bullet_arrow_up.png" style="width:16px;height:16px;"></a>
               <?php else: ?>
-                <img src="/images/blank.gif" style="width:16px;height:16px;">
+                <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" style="width:16px;height:16px;">
               <?php endif; ?>
               <?php if($aEmployee['sort_order'] != $maxSort && count($aEmployee) > 1): ?>
-                <a href="/admin/troop/sort/<?= $aEmployee['id'] ?>/down/" title="Move Down One"><img src="/images/admin/icons/bullet_arrow_down.png" style="width:16px;height:16px;"></a>
+                <a href="/admin/troop/sort/<?= $aEmployee['id'] ?>/down/" title="Move Down One"><img src="/images/icons/bullet_arrow_down.png" style="width:16px;height:16px;"></a>
               <?php else: ?>
-                <img src="/images/blank.gif" style="width:16px;height:16px;">
+                <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" style="width:16px;height:16px;">
               <?php endif; ?>
             </td>
           <?php endif; ?>
@@ -47,10 +47,10 @@
       <?php endforeach; ?>
     </tbody>
   </table>
-  <!-- <ul class="dataTable-legend">
+  <ul class="data-table-legend">
     <li class="bullet-green">Active</li>
     <li class="bullet-red">Inactive</li>
-  </ul> -->
+  </ul>
 
 {footer}
 <script>

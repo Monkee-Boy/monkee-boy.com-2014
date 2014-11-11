@@ -1,15 +1,12 @@
 <?php
-$sFolder = $this->settings->rootPublic."uploads/posts/";
 if($sPluginStatus == 1) {
 	// Install
-	mkdir($sFolder);
 } else {
 	// Uninstall
-	$this->deleteDir($sFolder);
 }
 
 $aTables = array(
-	"posts" => 'CREATE TABLE `{dbPrefix}posts` (
+	"news" => 'CREATE TABLE `{dbPrefix}news` (
 		`id` int(11) unsigned NOT NULL auto_increment,
 		`title` varchar(255),
 		`tag` varchar(255),
@@ -17,24 +14,18 @@ $aTables = array(
 		`content` longtext,
 		`tags` longtext,
 		`publish_on` datetime NOT NULL,
-		`allow_comments` tinyint(1),
-		`allow_sharing` tinyint(1),
-		`sticky` tinyint(1),
 		`active` tinyint(1),
-		`authorid` int(11) unsigned,
 		`views` int(11) unsigned,
-		`listing_image` varchar(255),
-		`featured_image` varchar(255),
 		`created_datetime` datetime NOT NULL,
 		`created_by` int(11) unsigned NOT NULL,
 		`updated_datetime` datetime NOT NULL,
 		`updated_by` int(11) unsigned NOT NULL,
 		PRIMARY KEY (`id`),
-		INDEX `index` (`sticky`, `active`),
+		INDEX `index` (`active`),
 		UNIQUE (`tag`),
 		FULLTEXT `fullindex` (`title`, `excerpt`, `content`, `tags`)
 	) Engine=MyISAM;',
-	"posts_categories" => 'CREATE TABLE `{dbPrefix}posts_categories` (
+	"news_categories" => 'CREATE TABLE `{dbPrefix}news_categories` (
 		`id` int(11) unsigned NOT NULL auto_increment,
 		`name` varchar(255),
 		`parentid` int(11) unsigned,
@@ -42,25 +33,25 @@ $aTables = array(
 		PRIMARY KEY (`id`),
 		UNIQUE (`sort_order`)
 	) Engine=MyISAM;',
-	"posts_categories_assign" => 'CREATE TABLE `{dbPrefix}posts_categories_assign` (
-		`postid` int(11) unsigned,
+	"news_categories_assign" => 'CREATE TABLE `{dbPrefix}news_categories_assign` (
+		`articleid` int(11) unsigned,
 		`categoryid` int(11) unsigned,
-		INDEX `index` (`postid`, `categoryid`)
+		INDEX `index` (`articleid`, `categoryid`)
 	) Engine=MyISAM;'
 );
 
 $aSettings = array();
 
 $aMenuAdmin = array(
-	"title" => "Posts",
+	"title" => "News",
 	"menu" => array(
 		array(
-			"text" => "Posts",
-			"link" => "/admin/posts/"
+			"text" => "News",
+			"link" => "/admin/news/"
 		),
 		array(
 			"text" => "Categories",
-			"link" => "/admin/posts/categories/"
+			"link" => "/admin/news/categories/"
 		)
 	),
 	"icon" => "icon-file"

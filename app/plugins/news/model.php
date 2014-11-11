@@ -1,6 +1,6 @@
 <?php
-class posts_model extends appModel {
-	public $useImage, $imageFolder, $useCategories, $perPage, $useComments, $excerptCharacters, $sortCategory;
+class news_model extends appModel {
+	public $useImage, $imageMinWidth, $imageMinHeight, $imageFolder, $useCategories, $perPage, $useComments, $excerptCharacters, $sortCategory;
 
 	function __construct() {
 		parent::__construct();
@@ -13,27 +13,27 @@ class posts_model extends appModel {
 	}
 
 	/**
-	 * Get posts from the database.
+	 * Get news from the database.
 	 * @param  integer $sCategory Filter only posts assigned to this category.
 	 * @param  boolean $sAll      When true returns all posts no matter conditions.
 	 * @param  boolean $sPopular  When true sorts posts by `views` instead of publish date.
 	 * @return array              Return array of posts.
 	 */
-	function getPosts($sCategory = null, $sAll = false, $sPopular = false) {
+	function getArticles($sCategory = null, $sAll = false, $sPopular = false) {
 		$aWhere = array();
 		$sJoin = "";
 
 		// Filter only posts that are active unless told otherwise.
 		if($sAll == false) {
-			$aWhere[] = "`posts`.`publish_on` < ".time();
-			$aWhere[] = "`posts`.`active` = 1";
+			$aWhere[] = "`news`.`publish_on` < ".time();
+			$aWhere[] = "`news`.`active` = 1";
 		}
 
 		// Filter posts in a category, if category provided.
 		if(!empty($sCategory)) {
 			$aWhere[] = "`categories`.`id` = ".$this->dbQuote($sCategory, "integer");
-			$sJoin .= " LEFT JOIN `{dbPrefix}posts_categories_assign` AS `posts_assign` ON `posts`.`id` = `posts_assign`.`postid`";
-			$sJoin .= " LEFT JOIN `{dbPrefix}posts_categories` AS `categories` ON `posts_assign`.`categoryid` = `categories`.`id`";
+			$sJoin .= " LEFT JOIN `{dbPrefix}news_categories_assign` AS `news_assign` ON `news`.`id` = `news_assign`.`articleid`";
+			$sJoin .= " LEFT JOIN `{dbPrefix}news_categories` AS `categories` ON `news_assign`.`categoryid` = `categories`.`id`";
 		}
 
 		// Combine the above filters for sql.
@@ -43,27 +43,27 @@ class posts_model extends appModel {
 
 		// Sort posts by `views` instead of publish date.
 		if($sPopular) {
-			$sOrderBy = " ORDER BY `posts`.`views` DESC";
+			$sOrderBy = " ORDER BY `news`.`views` DESC";
 		} else {
-			$sOrderBy = "ORDER BY `posts`.`sticky` DESC, `posts`.`publish_on` DESC";
+			$sOrderBy = " ORDER BY `news`.`publish_on` DESC";
 		}
 
-		$aPosts = $this->dbQuery(
-			"SELECT `posts`.* FROM `{dbPrefix}posts` AS `posts`"
+		$aArticles = $this->dbQuery(
+			"SELECT `news`.* FROM `{dbPrefix}news` AS `news`"
 				.$sJoin
 				.$sWhere
-				." GROUP BY `posts`.`id`"
+				." GROUP BY `news`.`id`"
 				.$sOrderBy
 			,"all"
 		);
 
 		// Clean up each post information and get additional info if needed.
-		foreach($aPosts as &$aPost) {
-			$this->_getPostInfo($aPost);
+		foreach($aArticles as &$aArticle) {
+			$this->_getArticleInfo($aArticle);
 		}
 
 		// Posts are ready for use.
-		return $aPosts;
+		return $aArticles;
 	}
 
 	/**
@@ -73,68 +73,60 @@ class posts_model extends appModel {
 	 * @param  boolean $sAll When true returns result no matter conditions.
 	 * @return array         Return the post.
 	 */
-	function getPost($sId, $sTag = "", $sAll = false) {
+	function getArticle($sId, $sTag = "", $sAll = false) {
 		if(!empty($sId))
-			$sWhere = " WHERE `posts`.`id` = ".$this->dbQuote($sId, "integer");
+			$sWhere = " WHERE `news`.`id` = ".$this->dbQuote($sId, "integer");
 		else
-			$sWhere = " WHERE `posts`.`tag` = ".$this->dbQuote($sTag, "text");
+			$sWhere = " WHERE `news`.`tag` = ".$this->dbQuote($sTag, "text");
 
 		if($sAll == false) {
-			$sWhere .= " AND `posts`.`active` = 1";
-			$sWhere .= " AND `posts`.`publish_on` < ".time();
+			$sWhere .= " AND `news`.`active` = 1";
+			$sWhere .= " AND `news`.`publish_on` < ".time();
 		}
 
-		$aPost = $this->dbQuery(
-			"SELECT `posts`.* FROM `{dbPrefix}posts` AS `posts`"
+		$aArticle = $this->dbQuery(
+			"SELECT `news`.* FROM `{dbPrefix}news` AS `news`"
 				.$sWhere
 			,"row"
 		);
 
-		$this->_getPostInfo($aPost);
+		$this->_getArticleInfo($aArticle);
 
-		return $aPost;
+		return $aArticle;
 	}
 
 	/**
 	 * Clean up post info and get any other data to be returned.
 	 * @param  array &$aPost An array of a single post.
 	 */
-	private function _getPostInfo(&$aPost) {
-		if(!empty($aPost)) {
-			$aPost["title"] = htmlspecialchars(stripslashes($aPost["title"]));
-			if(!empty($aPost["excerpt"]))
-				$aPost["excerpt"] = nl2br(htmlspecialchars(stripslashes($aPost["excerpt"])));
+	private function _getArticleInfo(&$aArticle) {
+		if(!empty($aArticle)) {
+			$aArticle["title"] = htmlspecialchars(stripslashes($aArticle["title"]));
+			if(!empty($aArticle["excerpt"]))
+				$aArticle["excerpt"] = nl2br(htmlspecialchars(stripslashes($aArticle["excerpt"])));
 			else
-				$aPost["excerpt"] = (string)substr(nl2br(htmlspecialchars(stripslashes(strip_tags($aPost["content"])))), 0, $this->excerptCharacters);
+				$aArticle["excerpt"] = (string)substr(nl2br(htmlspecialchars(stripslashes(strip_tags($aArticle["content"])))), 0, $this->excerptCharacters);
 
-			$aPost["content"] = stripslashes($aPost["content"]);
-			$aPost["url"] = "/posts/".date("Y", $aPost["created_datetime"])."/".date("m", $aPost["created_datetime"])."/".date("d", $aPost["created_datetime"])."/".$aPost["tag"]."/";
-			$aPost["publish_on"] = strtotime($aPost["publish_on"]);
+			$aArticle["content"] = stripslashes($aArticle["content"]);
+			$aArticle["url"] = "/news/".date("Y", $aArticle["created_datetime"])."/".date("m", $aArticle["created_datetime"])."/".date("d", $aArticle["created_datetime"])."/".$aArticle["tag"]."/";
+			$aArticle["publish_on"] = strtotime($aArticle["publish_on"]);
 
-			$aPost["author"] = $this->dbQuery(
-				"SELECT * FROM `{dbPrefix}troop`"
-					." WHERE `id` = ".$this->dbQuote($aPost["authorid"], "integer")
+			$aArticle["author"] = $this->dbQuery(
+				"SELECT * FROM `{dbPrefix}users`"
+					." WHERE `id` = ".$this->dbQuote($aArticle["authorid"], "integer")
 					." LIMIT 1"
 				,"row"
 			);
 
-			$aPost["categories"] = $this->dbQuery(
-				"SELECT * FROM `{dbPrefix}posts_categories` AS `categories`"
-					." INNER JOIN `{dbPrefix}posts_categories_assign` AS `posts_assign` ON `posts_assign`.`categoryid` = `categories`.`id`"
-					." WHERE `posts_assign`.`postid` = ".$aPost["id"]
+			$aArticle["categories"] = $this->dbQuery(
+				"SELECT * FROM `{dbPrefix}news_categories` AS `categories`"
+					." INNER JOIN `{dbPrefix}news_categories_assign` AS `news_assign` ON `news_assign`.`categoryid` = `categories`.`id`"
+					." WHERE `news_assign`.`articleid` = ".$aArticle["id"]
 				,"all"
 			);
 
-			foreach($aPost["categories"] as &$aCategory) {
+			foreach($aArticle["categories"] as &$aCategory) {
 				$aCategory["name"] = htmlspecialchars(stripslashes($aCategory["name"]));
-			}
-
-			if(!empty($aPost['listing_image'])) {
-				$aPost['listing_image_url'] = $this->imageFolder.$aPost['listing_image'];
-			}
-
-			if(!empty($aPost['featured_image'])) {
-				$aPost['featured_image_url'] = $this->imageFolder.$aPost['featured_image'];
 			}
 		}
 	}
@@ -145,10 +137,10 @@ class posts_model extends appModel {
 	 * @return array|false  Return post URL or false.
 	 */
 	function getURL($sID) {
-		$aPost = $this->getPost($sID);
+		$aArticle = $this->getArticle($sID);
 
-		if(!empty($aPost)) {
-			return $aPost["url"];
+		if(!empty($aArticle)) {
+			return $aArticle["url"];
 		} else {
 			return false;
 		}
@@ -163,9 +155,9 @@ class posts_model extends appModel {
 		$sJoin = "";
 
 		if($sEmpty == false) {
-			$sJoin .= " INNER JOIN `{dbPrefix}posts_categories_assign` AS `assign` ON `categories`.`id` = `assign`.`categoryid`";
+			$sJoin .= " INNER JOIN `{dbPrefix}news_categories_assign` AS `assign` ON `categories`.`id` = `assign`.`categoryid`";
 		} else {
-			$sJoin .= " LEFT JOIN `{dbPrefix}posts_categories_assign` AS `assign` ON `categories`.`id` = `assign`.`categoryid`";
+			$sJoin .= " LEFT JOIN `{dbPrefix}news_categories_assign` AS `assign` ON `categories`.`id` = `assign`.`categoryid`";
 		}
 
 		// Check if sort direction is set, and clean it up for SQL use
@@ -194,7 +186,7 @@ class posts_model extends appModel {
 		}
 
 		$aCategories = $this->dbQuery(
-			"SELECT `categories`.* FROM `{dbPrefix}posts_categories` AS `categories`"
+			"SELECT `categories`.* FROM `{dbPrefix}news_categories` AS `categories`"
 				.$sJoin
 				." GROUP BY `id`"
 				.$sOrderBy
@@ -223,8 +215,8 @@ class posts_model extends appModel {
 			return false;
 
 		$aCategory = $this->dbQuery(
-			"SELECT `categories`.* FROM `{dbPrefix}posts_categories` AS `categories`"
-				." LEFT JOIN `{dbPrefix}posts_categories_assign` AS `assign` ON `categories`.`id` = `assign`.`categoryid`"
+			"SELECT `categories`.* FROM `{dbPrefix}news_categories` AS `categories`"
+				." LEFT JOIN `{dbPrefix}news_categories_assign` AS `assign` ON `categories`.`id` = `assign`.`categoryid`"
 				.$sWhere
 			,"row"
 		);

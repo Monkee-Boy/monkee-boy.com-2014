@@ -1,9 +1,9 @@
-<?php $this->tplDisplay("inc_header.php", ['menu'=>'posts','sPageTitle'=>"Posts &raquo; Create Post"]); ?>
+<?php $this->tplDisplay("inc_header.php", ['menu'=>'news','sPageTitle'=>"News &raquo; Create Article"]); ?>
 
-	<h1>Posts &raquo; Create Post</h1>
+	<h1>News &raquo; Create Article</h1>
 	<?php $this->tplDisplay('inc_alerts.php'); ?>
 
-	<form id="add-form" method="post" action="/admin/posts/add/s/" enctype="multipart/form-data">
+	<form id="add-form" method="post" action="/admin/news/add/s/" enctype="multipart/form-data">
 		<div class="row-fluid">
 			<div class="span8">
 				<div class="accordion-group">
@@ -85,22 +85,6 @@
 									<input type="submit" name="submit-type" value="Publish" class="btn btn-primary pull-right">
 								</div>
 							</div>
-
-							<div class="control-group">
-								<div class="controls">
-									<label class="checkbox"><input type="checkbox" name="sticky" id="form-sticky" value="1"<?php if($aPost['sticky'] == 1){ echo ' checked="checked"'; } ?>>Stick this post to the front page.</label>
-								</div>
-
-								<?php if($useComments): ?>
-								<div class="controls">
-									<label class="checkbox"><input type="checkbox" name="allow_comments" id="form-comments" value="1"<?php if($aPost['allow_comments'] == 1){ echo ' checked="checked"'; } ?>>Allow comments.</label>
-								</div>
-								<?php endif; ?>
-
-								<div class="controls">
-									<label class="checkbox"><input type="checkbox" name="allow_sharing" id="form-sharing" value="1"<?php if($aPost['allow_sharing'] == 1){ echo ' checked="checked"'; } ?>>Show social sharing buttons on this post.</label>
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -123,54 +107,6 @@
 					</div>
 				</div>
 
-				<?php if($sUseImage): ?>
-				<div class="accordion-group">
-					<div class="accordion-heading">
-						<span class="accordion-toggle">Listing Image</span>
-					</div>
-					<div id="pageseo" class="accordion-body">
-						<div class="accordion-inner">
-							<?php if(!empty($aPost['listing_image'])): ?>
-								<div class="control-group photo-show">
-									<img src="<?= $aPost['listing_image_url'] ?>" alt="Listing Image" style="max-width: 300px;"><br />
-									<a href="#">Replace Image</a>
-								</div>
-							<?php endif; ?>
-
-							<div class="control-group photo-upload"<?php if(!empty($aPost['listing_image'])){ echo ' style="display: none;"'; } ?>>
-								<label class="control-label" for="form-tag">Upload Photo</label>
-								<div class="controls">
-									<input type="file" name="listing_image">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="accordion-group">
-					<div class="accordion-heading">
-						<span class="accordion-toggle">Featured Image</span>
-					</div>
-					<div id="pageseo" class="accordion-body">
-						<div class="accordion-inner">
-							<?php if(!empty($aPost['featured_image'])): ?>
-								<div class="control-group photo-show">
-									<img src="<?= $aPost['featured_image_url'] ?>" alt="Featured Image" style="max-width: 300px;"><br />
-									<a href="#">Replace Image</a>
-								</div>
-							<?php endif; ?>
-
-							<div class="control-group photo-upload"<?php if(!empty($aPost['featured_image'])){ echo ' style="display: none;"'; } ?>>
-								<label class="control-label" for="form-tag">Upload Photo</label>
-								<div class="controls">
-									<input type="file" name="featured_image">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<?php endif; ?>
-
 				<!-- <div class="accordion-group">
 					<div class="accordion-heading">
 						<span class="accordion-toggle">Social Sharing</span>
@@ -189,25 +125,6 @@
 						</div>
 					</div>
 				</div> -->
-
-				<div class="accordion-group">
-					<div class="accordion-heading">
-						<span class="accordion-toggle">Author</span>
-					</div>
-					<div class="accordion-body">
-						<div class="accordion-inner">
-							<div class="control-group">
-								<div class="controls">
-									<select name="authorid" id="form-author">
-										<?php foreach($aTroop as $aUser): ?>
-											<option value="<?= $aUser['id'] ?>"<?php if($aUser['id'] == $aPost['authorid']){ echo ' selected="selected"'; } ?>><?= $aUser['name'] ?></option>
-										<?php endforeach; ?>
-									</select>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
 
 				<div class="accordion-group">
 					<div class="accordion-heading">
@@ -230,12 +147,6 @@
 <script>
 $(function(){
 	jQuery('#add-form').validationEngine({ promptPosition: "bottomLeft" });
-
-	$('.photo-show a').on('click', function(e) {
-		e.preventDefault();
-		$(this).hide();
-		$(this).parent().next().show();
-	});
 
 	$('#datepicker').datepicker({
 		dateFormat: 'DD, MM dd, yy',

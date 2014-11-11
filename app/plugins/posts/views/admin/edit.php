@@ -135,43 +135,52 @@
 				<?php if($sUseImage): ?>
 				<div class="accordion-group">
 					<div class="accordion-heading">
-						<span class="accordion-toggle">Image</span>
+						<span class="accordion-toggle">Listing Image</span>
 					</div>
-					<div class="accordion-body">
+					<div id="pageseo" class="accordion-body">
 						<div class="accordion-inner">
-							<div class="control-group">
-								<div class="controls cf">
-									<?php if($aPost['photo_x2'] > 0): ?>
-										<img src="/image/posts/<?= $aPost['id'] ?>/?width=165&amp;rand=<?= $randnum ?>" alt="<?= $aPost['title'] ?> Image" class="span12" style="margin: 0; float: none;">
+							<?php if(!empty($aPost['listing_image'])): ?>
+								<div class="control-group photo-show">
+									<img src="<?= $aPost['listing_image_url'] ?>" alt="Listing Image" style="max-width: 300px;"><br />
+									<a href="#">Replace Image</a>
+								</div>
+							<?php endif; ?>
 
-										<span class="pull-right">
-											<button name="image-action" value="edit" class="btn btn-mini btn-info">Edit</button>
-											<button name="image-action" value="delete" class="btn btn-mini btn-danger">Remove</button>
-										</span>
-									<?php else: ?>
-										<input type="file" name="image">
+							<div class="control-group photo-upload"<?php if(!empty($aPost['listing_image'])){ echo ' style="display: none;"'; } ?>>
+								<label class="control-label" for="form-tag">Upload Photo</label>
+								<div class="controls">
+									<input type="file" name="listing_image">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-										<ul>
-											<li>File must be a .jpg</li>
-											<li>Minimum width is <?= $minWidth ?>px</li>
-											<li>Minimum height is <?= $minHeight ?>px</li>
-										</ul>
-									<?php endif; ?>
+				<div class="accordion-group">
+					<div class="accordion-heading">
+						<span class="accordion-toggle">Featured Image</span>
+					</div>
+					<div id="pageseo" class="accordion-body">
+						<div class="accordion-inner">
+							<?php if(!empty($aPost['featured_image'])): ?>
+								<div class="control-group photo-show">
+									<img src="<?= $aPost['featured_image_url'] ?>" alt="Featured Image" style="max-width: 300px;"><br />
+									<a href="#">Replace Image</a>
+								</div>
+							<?php endif; ?>
+
+							<div class="control-group photo-upload"<?php if(!empty($aPost['featured_image'])){ echo ' style="display: none;"'; } ?>>
+								<label class="control-label" for="form-tag">Upload Photo</label>
+								<div class="controls">
+									<input type="file" name="featured_image">
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 				<?php endif; ?>
-				<?php if($aPost['photo_x2'] > 0): ?>
-				<figure class="itemImage hide">
-					<img src="/image/posts/<?= $aPost['id'] ?>/?width=165&amp;rand=<?= $randnum ?>" alt="<?= $aPost['title'] ?> Image"><br />
-					<input name="submit" type="image" src="/images/icons/pencil.png" value="edit">
-					<input name="submit" type="image" src="/images/icons/bin_closed.png" value="delete">
-				</figure>
-				<?php endif; ?>
 
-				<div class="accordion-group">
+				<!-- <div class="accordion-group">
 					<div class="accordion-heading">
 						<span class="accordion-toggle">Social Sharing</span>
 					</div>
@@ -188,7 +197,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 
 				<div class="accordion-group">
 					<div class="accordion-heading">
@@ -199,8 +208,8 @@
 							<div class="control-group">
 								<div class="controls">
 									<select name="authorid" id="form-author">
-										<?php foreach($aUsers as $aUser): ?>
-											<option value="<?= $aUser['id'] ?>"<?php if($aUser['id'] == $aPost['authorid']) { echo ' selected="selected"'; } ?>><?= $aUser['fname'].' '.$aUser['lname'].' ('.$aUser['username'].')' ?></option>
+										<?php foreach($aTroop as $aUser): ?>
+											<option value="<?= $aUser['id'] ?>"<?php if($aUser['id'] == $aPost['authorid']) { echo ' selected="selected"'; } ?>><?= $aUser['name'] ?></option>
 										<?php endforeach; ?>
 									</select>
 								</div>
@@ -230,6 +239,12 @@
 <script>
 $(function(){
 	jQuery('#edit-form').validationEngine({ promptPosition: "bottomLeft" });
+
+	$('.photo-show a').on('click', function(e) {
+		e.preventDefault();
+		$(this).hide();
+		$(this).parent().next().show();
+	});
 
 	$('#datepicker').datepicker({
 		dateFormat: 'DD, MM dd, yy',
