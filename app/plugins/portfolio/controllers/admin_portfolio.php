@@ -230,7 +230,7 @@ class admin_portfolio extends adminController {
     );
 
     if(!empty($_POST['services'])) {
-      $this->dbDelete('portfolio_services_assign', $_POST['id'], 'portfolioid');
+      $this->dbDelete('portfolio_services_assign', $_POST['id'], 'clientid');
 
       foreach($_POST['services'] as $service) {
         $this->dbInsert(
@@ -325,7 +325,7 @@ class admin_portfolio extends adminController {
     $aClient = $this->model->getClient($this->urlVars->dynamic["id"], true);
 
     $this->dbDelete("portfolio", $this->urlVars->dynamic["id"]);
-    $this->dbDelete('portfolio_services_assign', $this->urlVars->dynamic["id"], 'portfolioid');
+    $this->dbDelete('portfolio_services_assign', $this->urlVars->dynamic["id"], 'clientid');
 
     @unlink($this->settings->rootPublic.substr($this->model->imageFolder, 1).$aClient["logo"]);
 

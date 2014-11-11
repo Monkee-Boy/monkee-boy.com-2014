@@ -13,7 +13,7 @@ class portfolio extends appController {
   }
 
   function single() {
-    $aClient = $this->model->getClient(null, $this->urlVars->dynamic['tag']);
+    $aClient = $this->model->getClient(null, false, true, $this->urlVars->dynamic['tag']);
 
     if(empty($aClient))
       $this->error('404');

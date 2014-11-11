@@ -26,7 +26,7 @@
                   "title" => "Tablet Image",
                   "max-width" => 100
                 ),
-                "mobile_image" => array(
+                "phone_image" => array(
                   "title" => "Mobile Image",
                   "max-width" => 100
                 ),
