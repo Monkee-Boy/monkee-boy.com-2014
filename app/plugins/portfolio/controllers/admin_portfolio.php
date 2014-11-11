@@ -20,9 +20,9 @@ class admin_portfolio extends adminController {
       ,"one"
     );
 
-    $sSort = explode("-", $this->model->sort);
+    $sSort = explode("-", $this->model->sortPortfolio);
 
-    $this->tplAssign("aClients", $this->model->getClients(false, true));
+    $this->tplAssign("aClients", $this->model->getClients(false, true, true));
     $this->tplAssign("minSort", $sMinSort);
     $this->tplAssign("maxSort", $sMaxSort);
     $this->tplAssign("sSort", array_shift($sSort));

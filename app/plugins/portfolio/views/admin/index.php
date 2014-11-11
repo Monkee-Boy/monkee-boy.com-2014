@@ -16,6 +16,8 @@
         <?php if($sSort == "manual"): ?>
           <th>Order</th>
         <?php endif; ?>
+        <th>Slides</th>
+        <th></th>
         <th></th>
       </tr>
     </thead>
@@ -48,17 +50,21 @@
             <td class="small center">
               <span class="hidden"><?= $aClient['sort_order'] ?></span>
               <?php if($aClient['sort_order'] != $minSort): ?>
-                <a href="/admin/portfolio/sort/<?= $aClient['id'] ?>/up/" title="Move Up One"><img src="/images/admin/icons/bullet_arrow_up.png" style="width:16px;height:16px;"></a>
+                <a href="/admin/portfolio/sort/<?= $aClient['id'] ?>/up/" title="Move Up One"><img src="/images/icons/bullet_arrow_up.png" style="width:16px;height:16px;"></a>
               <?php else: ?>
-                <img src="/images/blank.gif" style="width:16px;height:16px;">
+                <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" style="width:16px;height:16px;">
               <?php endif; ?>
-              <?php if($aClient['sort_order'] != $maxSort && count($aClient) > 1): ?>
-                <a href="/admin/portfolio/sort/<?= $aClient['id'] ?>/down/" title="Move Down One"><img src="/images/admin/icons/bullet_arrow_down.png" style="width:16px;height:16px;"></a>
+              <?php if($aClient['sort_order'] != $maxSort && count($aClients) > 1): ?>
+                <a href="/admin/portfolio/sort/<?= $aClient['id'] ?>/down/" title="Move Down One"><img src="/images/icons/bullet_arrow_down.png" style="width:16px;height:16px;"></a>
               <?php else: ?>
-                <img src="/images/blank.gif" style="width:16px;height:16px;">
+                <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" style="width:16px;height:16px;">
               <?php endif; ?>
             </td>
           <?php endif; ?>
+          <td class="center"><?= count($aClient['slides']) ?></td>
+          <td class="center">
+            <a href="/admin/portfolio/<?= $aClient['id'] ?>/slides/" title="Manage Slides" rel="tooltip">Manage Slides</a>
+          </td>
           <td class="center">
             <a href="/admin/portfolio/edit/<?= $aClient['id'] ?>/" title="Edit Client" rel="tooltip"><i class="icon-pencil"></i></a>
             <a href="/admin/portfolio/delete/<?= $aClient['id'] ?>/" title="Delete Client" rel="tooltip" onclick="return confirm('Are you sure you would like to delete: <?= $aClient['name'] ?>?');"><i class="icon-trash"></i></a>

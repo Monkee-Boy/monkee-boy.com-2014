@@ -1,16 +1,14 @@
-<?php $this->tplDisplay("inc_header.php", ['menu'=>'portfolio','sPageTitle'=>"Services"]); ?>
+<?php $this->tplDisplay("inc_header.php", ['menu'=>'portfolio','sPageTitle'=>"Portfolio Slides"]); ?>
 
   <h2>
-    Manage Service Categories
+    Manage Portfolio Slides
     <a href="/admin/portfolio/" title="Manage Portfolio" class="btn btn-primary pull-right" rel="tooltip" data-placement="bottom">Manage Portfolio</a>
-    <!-- <a href="/admin/portfolio/services/add/" title="Add Service" class="btn btn-primary pull-right" rel="tooltip" data-placement="bottom"><i class="icon-plus icon-white"></i> Add Service</a> -->
+    <a href="/admin/portfolio/<?= $aClient['id'] ?>/slides/add/" title="Add Slide" class="btn btn-primary pull-right" rel="tooltip" data-placement="bottom"><i class="icon-plus icon-white"></i> Add Slide</a>
   </h2>
 
   <table  class="data-table table table-striped">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Subtitle</th>
         <th></th>
         <?php if($sSort == "manual"): ?>
           <th>Order</th>
@@ -19,34 +17,36 @@
       </tr>
     </thead>
     <tbody>
-      <?php foreach($aServices as $aService): ?>
+      <?php foreach($aSlides as $aSlide): ?>
         <tr>
-          <td><?= $aService['name'] ?></td>
-          <td><?= $aService['subtitle'] ?></td>
-          <td><a href="/admin/portfolio/services/<?php echo $aService['id']; ?>/sub/">Manage Services</a></td>
+          <td><img src="<?php echo $aSlide['listing_image_url']; ?>" alt="Listing Image" style="max-width: 60px;"></td>
           <?php if($sSort == "manual"): ?>
             <td class="small center">
-              <span class="hidden"><?= $aService['sort_order'] ?></span>
-              <?php if($aService['sort_order'] != $minSort): ?>
-                <a href="/admin/portfolio/services/sort/<?= $aService['id'] ?>/up/" title="Move Up One"><img src="/images/icons/bullet_arrow_up.png" style="width:16px;height:16px;"></a>
+              <span class="hidden"><?= $aSlide['sort_order'] ?></span>
+              <?php if($aSlide['sort_order'] != $minSort): ?>
+                <a href="/admin/portfolio/sort/<?= $aSlide['id'] ?>/up/" title="Move Up One"><img src="/images/icons/bullet_arrow_up.png" style="width:16px;height:16px;"></a>
               <?php else: ?>
                 <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" style="width:16px;height:16px;">
               <?php endif; ?>
-              <?php if($aService['sort_order'] != $maxSort && count($aServices) > 1): ?>
-                <a href="/admin/portfolio/services/sort/<?= $aService['id'] ?>/down/" title="Move Down One"><img src="/images/icons/bullet_arrow_down.png" style="width:16px;height:16px;"></a>
+              <?php if($aSlide['sort_order'] != $maxSort && count($aSlides) > 1): ?>
+                <a href="/admin/portfolio/sort/<?= $aSlide['id'] ?>/down/" title="Move Down One"><img src="/images/icons/bullet_arrow_down.png" style="width:16px;height:16px;"></a>
               <?php else: ?>
                 <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" style="width:16px;height:16px;">
               <?php endif; ?>
             </td>
           <?php endif; ?>
           <td class="center">
-            <a href="/admin/portfolio/services/edit/<?= $aService['id'] ?>/" title="Edit Service" rel="tooltip"><i class="icon-pencil"></i></a>
-            <!-- <a href="/admin/portfolio/services/delete/<?= $aService['id'] ?>/" title="Delete Service" rel="tooltip" onclick="return confirm('Are you sure you would like to delete: <?= $aService['name'] ?>?');"><i class="icon-trash"></i></a> -->
+            <a href="/admin/portfolio/<?= $aClient['id'] ?>/slides/edit/<?= $aSlide['id'] ?>/" title="Edit Slide" rel="tooltip"><i class="icon-pencil"></i></a>
+            <a href="/admin/portfolio/<?= $aClient['id'] ?>/slides/delete/<?= $aSlide['id'] ?>/" title="Delete Slide" rel="tooltip" onclick="return confirm('Are you sure you would like to delete this slide?');"><i class="icon-trash"></i></a>
           </td>
         </tr>
       <?php endforeach; ?>
     </tbody>
   </table>
+  <ul class="data-table-legend">
+    <li class="bullet-green">Active</li>
+    <li class="bullet-red">Inactive</li>
+  </ul>
 
 {footer}
 <script>
@@ -56,8 +56,8 @@ $('.data-table').dataTable({
   "sPaginationType": "full_numbers",
   "bLengthChange": false,
   /* CAN CHANGE */
-  "bStateSave": false,
-  "aaSorting": false, //which column to sort by (0-X)
+  "bStateSave": true,
+  "aaSorting": [[ 0, "asc" ]], //which column to sort by (0-X)
   "iDisplayLength": 10 //how many items to display per page
 });
 $('.dataTable-header').prepend('<?php

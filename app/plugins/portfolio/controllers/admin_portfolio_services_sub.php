@@ -27,7 +27,7 @@ class admin_portfolio_services_sub extends adminController {
       ,"one"
     );
 
-    $sSort = explode("-", $this->model->sort);
+    $sSort = explode("-", $this->model->sortServiceSubs);
 
     $this->tplAssign("aServicesSubs", $this->model->getServicesSubs($this->service['id']));
     $this->tplAssign("minSort", $sMinSort);

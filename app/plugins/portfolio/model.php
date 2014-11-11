@@ -1,7 +1,11 @@
 <?php
 class portfolio_model extends appModel {
   public $imageFolder;
-  public $sort;
+  public $sortPortfolio;
+  public $sortPortfolioSlides;
+  public $sortServices;
+  public $sortServiceSubs;
+  public $sortServiceSubItems;
 
   function __construct() {
     parent::__construct();
@@ -28,7 +32,7 @@ class portfolio_model extends appModel {
     }
 
     // Check if sort direction is set, and clean it up for SQL use
-    $sSort = explode("-", $this->sort);
+    $sSort = explode("-", $this->sortPortfolio);
     $sSortDirection = array_pop($sSort);
     if(empty($sSortDirection) || !in_array(strtolower($sSortDirection), array("asc", "desc"))) {
       $sSortDirection = "ASC";
@@ -119,6 +123,8 @@ class portfolio_model extends appModel {
         foreach($aClientServices as $aService) {
           $aClient["services"][] = $this->getServicesSub($aService['serviceid'], false);
         }
+
+        $aClient["slides"] = $this->getClientSlides($aClient['id']);
       }
     }
 
@@ -126,12 +132,126 @@ class portfolio_model extends appModel {
   }
 
   /* ########################
+      Portfolio Slides
+     ######################## */
+  public function getClientSlides($sPortfolio = null) {
+    $aWhere = array();
+
+    if(!empty($sPortfolio)) {
+      $aWhere[] = "`portfolioid` = ".$sPortfolio;
+    }
+
+    // Combine filters if atleast one was added
+    if(!empty($aWhere)) {
+      $sWhere = " WHERE ".implode(" AND ", $aWhere);
+    }
+
+    // Check if sort direction is set, and clean it up for SQL use
+    $sSort = explode("-", $this->sortPortfolioSlides);
+    $sSortDirection = array_pop($sSort);
+    if(empty($sSortDirection) || !in_array(strtolower($sSortDirection), array("asc", "desc"))) {
+      $sSortDirection = "ASC";
+    } else {
+      $sSortDirection = strtoupper($sSortDirection);
+    }
+
+    // Choose sort method based on model setting
+    switch(array_shift($sSort)) {
+      case "manual":
+        $sOrderBy = " ORDER BY `sort_order` ".$sSortDirection;
+        break;
+      case "created":
+        $sOrderBy = " ORDER BY `created_datetime` ".$sSortDirection;
+        break;
+      case "updated":
+        $sOrderBy = " ORDER BY `updated_datetime` ".$sSortDirection;
+        break;
+      case "random":
+        $sOrderBy = " ORDER BY RAND()";
+        break;
+      case "subname":
+        $sOrderBy = " ORDER BY `sub_name` ".$sSortDirection;
+        break;
+      // Default to sort by name
+      default:
+        $sOrderBy = " ORDER BY `name` ".$sSortDirection;
+    }
+
+    $aSlides = $this->dbQuery(
+      "SELECT * FROM `{dbPrefix}portfolio_views`"
+        .$sWhere
+        .$sOrderBy
+      ,"all"
+    );
+
+    foreach($aSlides as &$aSlide) {
+      $aSlide = $this->_getClientSlideInfo($aSlide);
+    }
+
+    return $aSlides;
+  }
+  public function getClientSlide($sId) {
+    $aSlide = $this->dbQuery(
+      "SELECT * FROM `{dbPrefix}portfolio_views`"
+        ." WHERE `id` = ".$sId
+      ,"row"
+    );
+
+    $aSlide = $this->_getClientSlideInfo($aSlide);
+
+    return $aSlide;
+  }
+  private function _getClientSlideInfo($aSlide) {
+    if(!empty($aSlide)) {
+      $images = array("listing_image", "desktop_image", "tablet_image", "mobile_image");
+      foreach($images as $image) {
+        if($aSlide[$image]) {
+          $aSlide[$image."_url"] = $this->imageFolder.$aSlide[$image];
+        }
+      }
+    }
+
+    return $aSlide;
+  }
+
+  /* ########################
       Services
      ######################## */
   public function getServices($sRecursive = false) {
+    // Check if sort direction is set, and clean it up for SQL use
+    $sSort = explode("-", $this->sortServices);
+    $sSortDirection = array_pop($sSort);
+    if(empty($sSortDirection) || !in_array(strtolower($sSortDirection), array("asc", "desc"))) {
+      $sSortDirection = "ASC";
+    } else {
+      $sSortDirection = strtoupper($sSortDirection);
+    }
+
+    // Choose sort method based on model setting
+    switch(array_shift($sSort)) {
+      case "manual":
+        $sOrderBy = " ORDER BY `sort_order` ".$sSortDirection;
+        break;
+      case "created":
+        $sOrderBy = " ORDER BY `created_datetime` ".$sSortDirection;
+        break;
+      case "updated":
+        $sOrderBy = " ORDER BY `updated_datetime` ".$sSortDirection;
+        break;
+      case "random":
+        $sOrderBy = " ORDER BY RAND()";
+        break;
+      case "subname":
+        $sOrderBy = " ORDER BY `sub_name` ".$sSortDirection;
+        break;
+      // Default to sort by name
+      default:
+        $sOrderBy = " ORDER BY `name` ".$sSortDirection;
+    }
+
     $aServices = $this->dbQuery(
       "SELECT * FROM `{dbPrefix}services`"
-        ." ORDER BY `sort_order` ASC"
+        .$sOrderBy
       ,"all"
     );
 
@@ -188,10 +308,41 @@ class portfolio_model extends appModel {
       $sWhere = ' WHERE `serviceid` = '.$sService;
     }
 
+    // Check if sort direction is set, and clean it up for SQL use
+    $sSort = explode("-", $this->sortServiceSubs);
+    $sSortDirection = array_pop($sSort);
+    if(empty($sSortDirection) || !in_array(strtolower($sSortDirection), array("asc", "desc"))) {
+      $sSortDirection = "ASC";
+    } else {
+      $sSortDirection = strtoupper($sSortDirection);
+    }
+
+    // Choose sort method based on model setting
+    switch(array_shift($sSort)) {
+      case "manual":
+        $sOrderBy = " ORDER BY `sort_order` ".$sSortDirection;
+        break;
+      case "created":
+        $sOrderBy = " ORDER BY `created_datetime` ".$sSortDirection;
+        break;
+      case "updated":
+        $sOrderBy = " ORDER BY `updated_datetime` ".$sSortDirection;
+        break;
+      case "random":
+        $sOrderBy = " ORDER BY RAND()";
+        break;
+      case "subname":
+        $sOrderBy = " ORDER BY `sub_name` ".$sSortDirection;
+        break;
+      // Default to sort by name
+      default:
+        $sOrderBy = " ORDER BY `name` ".$sSortDirection;
+    }
+
     $aServicesSubs = $this->dbQuery(
       "SELECT * FROM `{dbPrefix}services_sub`"
         .$sWhere
-        ." ORDER BY `sort_order` ASC"
+        .$sOrderBy
       ,"all"
     );
 
@@ -242,10 +393,41 @@ class portfolio_model extends appModel {
       $sWhere = ' WHERE `servicesubid` = '.$sServiceSub;
     }
 
+    // Check if sort direction is set, and clean it up for SQL use
+    $sSort = explode("-", $this->sortServiceSubItems);
+    $sSortDirection = array_pop($sSort);
+    if(empty($sSortDirection) || !in_array(strtolower($sSortDirection), array("asc", "desc"))) {
+      $sSortDirection = "ASC";
+    } else {
+      $sSortDirection = strtoupper($sSortDirection);
+    }
+
+    // Choose sort method based on model setting
+    switch(array_shift($sSort)) {
+      case "manual":
+        $sOrderBy = " ORDER BY `sort_order` ".$sSortDirection;
+        break;
+      case "created":
+        $sOrderBy = " ORDER BY `created_datetime` ".$sSortDirection;
+        break;
+      case "updated":
+        $sOrderBy = " ORDER BY `updated_datetime` ".$sSortDirection;
+        break;
+      case "random":
+        $sOrderBy = " ORDER BY RAND()";
+        break;
+      case "subname":
+        $sOrderBy = " ORDER BY `sub_name` ".$sSortDirection;
+        break;
+      // Default to sort by name
+      default:
+        $sOrderBy = " ORDER BY `name` ".$sSortDirection;
+    }
+
     $aServicesSubItems = $this->dbQuery(
       "SELECT * FROM `{dbPrefix}services_sub_items`"
         .$sWhere
-        ." ORDER BY `sort_order` ASC"
+        .$sOrderBy
       ,"all"
     );
 

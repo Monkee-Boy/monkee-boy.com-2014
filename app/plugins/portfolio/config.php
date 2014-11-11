@@ -11,6 +11,10 @@ $aPluginInfo = array(
   /* Plugin Configuration */
   "config" => array(
     "imageFolder" => "/uploads/portfolio/",
-    "sort" => "name-asc" // manual, name, subname, created, updated, random - asc, desc
+    "sortPortfolio" => "manual-asc", // manual, name, subname, created, updated, random - asc, desc
+    "sortPortfolioSlides" => "manual-asc",
+    "sortServices" => "manual-asc",
+    "sortServiceSubs" => "manual-asc",
+    "sortServiceSubItems" => "manual-asc"
   )
 );

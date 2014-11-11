@@ -20,7 +20,7 @@ class admin_portfolio_services extends adminController {
       ,"one"
     );
 
-    $sSort = explode("-", $this->model->sort);
+    $sSort = explode("-", $this->model->sortServices);
 
     $this->tplAssign("aServices", $this->model->getServices(false, true));
     $this->tplAssign("minSort", $sMinSort);
@@ -33,7 +33,7 @@ class admin_portfolio_services extends adminController {
       $this->tplAssign("aService", $_SESSION["admin"]["admin_services"]);
     else {
       $aService = array(
-        
+
       );
 
       $this->tplAssign("aService", $aService);

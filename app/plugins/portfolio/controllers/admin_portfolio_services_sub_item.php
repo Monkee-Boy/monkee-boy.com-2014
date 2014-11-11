@@ -31,7 +31,7 @@ class admin_portfolio_services_sub_item extends adminController {
       ,"one"
     );
 
-    $sSort = explode("-", $this->model->sort);
+    $sSort = explode("-", $this->model->sortServiceSubItems);
 
     $this->tplAssign("aServicesSubItems", $this->model->getServicesSubsItems($this->servicesub['id']));
     $this->tplAssign("minSort", $sMinSort);
@@ -140,7 +140,7 @@ class admin_portfolio_services_sub_item extends adminController {
     $this->forward("/admin/portfolio/services/".$this->service['id']."/sub/".$this->servicesub['id']."/item/?info=".urlencode("Client removed successfully!"));
   }
   function sort() {
-    $aService = $this->model->getServicesSubItem($this->urlVars->dynamic["id"]);
+    $aService = $this->model->getServicesSubsItem($this->urlVars->dynamic["id"]);
 
     if($this->urlVars->dynamic["sort"] == "up") {
       $aOld = $this->dbQuery(
