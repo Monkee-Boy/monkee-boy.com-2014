@@ -122,7 +122,7 @@ class admin_portfolio_views extends adminController {
         } else {
           $upload_dir = $this->settings->rootPublic.substr($this->model->imageFolder, 1);
           $file_ext = pathinfo($_FILES[$image]["name"], PATHINFO_EXTENSION);
-          $upload_file = $image."_".$sID.".".strtolower($file_ext);
+          $upload_file = $image."_".$_POST['id'].".".strtolower($file_ext);
 
           $aSlide = $this->dbQuery(
             "SELECT `".$image."` FROM `{dbPrefix}portfolio_views`"
@@ -137,7 +137,7 @@ class admin_portfolio_views extends adminController {
               array(
                 $image => $upload_file
               ),
-              $sID
+              $_POST['id']
             );
           } else {
             $this->forward("/admin/portfolio/".$this->client['id']."/slides/?info=".urlencode("Failed to upload ".$image."!"));
