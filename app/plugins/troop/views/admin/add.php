@@ -101,6 +101,21 @@
       </div>
 
       <div class="span4 aside">
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <span class="accordion-toggle">Options</span>
+          </div>
+          <div class="accordion-body">
+            <div class="accordion-inner">
+              <div class="control-group">
+                <label class="control-label" for="form-logo">Active</label>
+                <div class="controls">
+                  <input type="checkbox" name="active" value="1"<?php echo (($aEmployee['active'] == 1)?' checked="checked"':''); ?>>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div class="accordion-group">
           <div class="accordion-heading">
