@@ -206,6 +206,10 @@ class admin_portfolio extends adminController {
         ,"col"
       );
 
+      if(empty($aClient["categories"])) {
+        $aClient["categories"] = array();
+      }
+
       $aClient["updated_by"] = $this->dbQuery(
         "SELECT * FROM `{dbPrefix}users`"
           ." WHERE `id` = ".$aClient["updated_by"]
