@@ -134,6 +134,29 @@
           </div> <!-- /.accordion-body -->
         </div> <!-- /.accordion-group -->
 
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <span class="accordion-toggle">Categories</span>
+          </div>
+          <div class="accordion-body">
+            <div class="accordion-inner">
+              <div class="controls">
+                <?php if(!empty($aCategories)): ?>
+                  <select name="categories[]" data-placeholder="Select Categories" class="chzn-select span12" multiple="">
+                    <?php foreach($aCategories as $aCategory): ?>
+                      <option value="<?= $aCategory['id'] ?>"<?php if(in_array($aCategory['id'], $aClient['categories'])){ echo ' selected="selected"'; } ?>><?= $aCategory['name'] ?></option>
+                    <?php endforeach; ?>
+                   </select>
+
+                  <p class="help-block">Hold down ctrl (or cmd) to select multiple categories at once.</p>
+                <?php else: ?>
+                  <p>There are currently no categories.</p>
+                <?php endif; ?>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <input type="submit" value="Create Client" class="btn btn-primary">
         <a href="/admin/portfolio/" title="Cancel" class="btn">Cancel</a>
       </div>

@@ -127,6 +127,17 @@ class portfolio_model extends appModel {
 
         $aClient["slides"] = $this->getClientSlides($aClient['id']);
       }
+
+      $aClient["categories"] = $this->dbQuery(
+        "SELECT * FROM `{dbPrefix}portfolio_categories` AS `categories`"
+          ." INNER JOIN `{dbPrefix}portfolio_categories_assign` AS `assign` ON `assign`.`categoryid` = `categories`.`id`"
+          ." WHERE `assign`.`portfolioid` = ".$aClient["id"]
+        ,"all"
+      );
+
+      foreach($aClient["categories"] as &$aCategory) {
+        $aCategory["name"] = htmlspecialchars(stripslashes($aCategory["name"]));
+      }
     }
 
     return $aClient;
@@ -213,6 +224,99 @@ class portfolio_model extends appModel {
     }
 
     return $aSlide;
+  }
+
+  /**
+   * Get categories from database
+   * @param  boolean $sEmpty When false only returns categories with assigned posts.
+   * @return array           Return array of categories.
+   */
+  function getCategories($sEmpty = true) {
+    $sJoin = "";
+
+    if($sEmpty == false) {
+      $sJoin .= " INNER JOIN `{dbPrefix}portfolio_categories_assign` AS `assign` ON `categories`.`id` = `assign`.`categoryid`";
+    } else {
+      $sJoin .= " LEFT JOIN `{dbPrefix}portfolio_categories_assign` AS `assign` ON `categories`.`id` = `assign`.`categoryid`";
+    }
+
+    // Check if sort direction is set, and clean it up for SQL use
+    $category = explode("-", $this->sortCategory);
+    $sSortDirection = array_pop($category);
+    if(empty($sSortDirection) || !in_array(strtolower($sSortDirection), array("asc", "desc"))) {
+      $sSortDirection = "ASC";
+    } else {
+      $sSortDirection = strtoupper($sSortDirection);
+    }
+
+    // Choose sort method based on model setting
+    switch(array_shift($category)) {
+      case "manual":
+        $sOrderBy = " ORDER BY `sort_order` ".$sSortDirection;
+        break;
+      case "items":
+        $sOrderBy = " ORDER BY `items` ".$sSortDirection;
+        break;
+      case "random":
+        $sOrderBy = " ORDER BY RAND()";
+        break;
+      // Default to sort by name
+      default:
+        $sOrderBy = " ORDER BY `name` ".$sSortDirection;
+    }
+
+    $aCategories = $this->dbQuery(
+      "SELECT `categories`.* FROM `{dbPrefix}portfolio_categories` AS `categories`"
+        .$sJoin
+        ." GROUP BY `id`"
+        .$sOrderBy
+      ,"all"
+    );
+
+    foreach($aCategories as &$aCategory) {
+      $this->_getCategoryInfo($aCategory);
+    }
+
+    return $aCategories;
+  }
+
+  /**
+   * Get a single category from the database.
+   * @param  integer $sId   Unique ID for the category or null.
+   * @param  string  $sName Unique name for the category or null.
+   * @return array          Return the category.
+   */
+  function getCategory($sId = null, $sName = null) {
+    if(!empty($sId))
+      $sWhere = " WHERE `id` = ".$this->dbQuote($sId, "integer");
+    elseif(!empty($sName))
+      $sWhere = " WHERE `name` LIKE ".$this->dbQuote($sName, "text");
+    else
+      return false;
+
+    $aCategory = $this->dbQuery(
+      "SELECT `categories`.* FROM `{dbPrefix}portfolio_categories` AS `categories`"
+        ." LEFT JOIN `{dbPrefix}portfolio_categories_assign` AS `assign` ON `categories`.`id` = `assign`.`categoryid`"
+        .$sWhere
+      ,"row"
+    );
+
+    $this->_getCategoryInfo($aCategory);
+
+    return $aCategory;
+  }
+
+  /**
+   * Clean up category info and get any other data to be returned.
+   * @param  array &$aPost An array of a single category.
+   */
+  private function _getCategoryInfo(&$aCategory) {
+    if(!empty($aCategory)) {
+      $aCategory["name"] = htmlspecialchars(stripslashes($aCategory["name"]));
+
+      if(!empty($aCategory["parentid"]))
+        $aCategory["parent"] = $this->getCategory($aCategory["parentid"]);
+    }
   }
 
   /* ########################

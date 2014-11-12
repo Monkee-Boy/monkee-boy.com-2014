@@ -52,20 +52,19 @@ $aTables = array(
     UNIQUE (`sort_order`)
   ) Engine=MyISAM;',
 
-  "portfolio_quotes" => 'CREATE TABLE `{dbPrefix}portfolio_quotes` (
+  "portfolio_categories" => 'CREATE TABLE `{dbPrefix}portfolio_categories` (
     `id` int(11) unsigned NOT NULL auto_increment,
-    `portfolioid` int(11) unsigned,
-    `quote` longtext,
     `name` varchar(255),
-    `subname` varchar(255),
+    `parentid` int(11) unsigned,
     `sort_order` int(11) unsigned,
-    `created_datetime` datetime NOT NULL,
-    `created_by` int(11) unsigned NOT NULL,
-    `updated_datetime` datetime NOT NULL,
-    `updated_by` int(11) unsigned NOT NULL,
     PRIMARY KEY (`id`),
-    INDEX `index` (`portfolioid`),
     UNIQUE (`sort_order`)
+  ) Engine=MyISAM;',
+
+  "portfolio_categories_assign" => 'CREATE TABLE `{dbPrefix}portfolio_categories_assign` (
+    `portfolioid` int(11) unsigned,
+    `categoryid` int(11) unsigned,
+    INDEX `index` (`portfolioid`, `categoryid`)
   ) Engine=MyISAM;',
 
   "services" => 'CREATE TABLE `{dbPrefix}services` (
@@ -125,6 +124,7 @@ $aTables = array(
     `id` int(11) unsigned NOT NULL auto_increment,
     `clientid` int(11) unsigned,
     `serviceid` int(11) unsigned,
+    PRIMARY KEY (`id`),
     INDEX `index` (`clientid`, `serviceid`)
   ) Engine=MyISAM;'
 );

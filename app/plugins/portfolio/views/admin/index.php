@@ -3,6 +3,7 @@
   <h2>
     Manage Portfolio
     <a href="/admin/portfolio/services/" title="Manage Services" class="btn btn-primary pull-right" rel="tooltip" data-placement="bottom">Manage Services</a>
+    <a href="/admin/portfolio/categories/" title="Manage Categories" class="btn btn-primary pull-right" rel="tooltip" data-placement="bottom">Manage Categories</a>
     <a href="/admin/portfolio/add/" title="Add Client" class="btn btn-primary pull-right" rel="tooltip" data-placement="bottom"><i class="icon-plus icon-white"></i> Add Client</a>
   </h2>
 

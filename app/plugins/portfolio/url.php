@@ -57,6 +57,27 @@ $aPluginUrlPatterns = array(
     "action" => "sort"
   ),
 
+  "/admin/portfolio/categories/" => array(
+    "cmd" => "admin_portfolio",
+    "action" => "categories_index"
+  ),
+  "/admin/portfolio/categories/add/s/" => array(
+    "cmd" => "admin_portfolio",
+    "action" => "categories_add_s"
+  ),
+  "/admin/portfolio/categories/edit/s/" => array(
+    "cmd" => "admin_portfolio",
+    "action" => "categories_edit_s"
+  ),
+  "/admin/portfolio/categories/delete/<id:[0-9]+>/" => array(
+    "cmd" => "admin_portfolio",
+    "action" => "categories_delete"
+  ),
+  "/admin/portfolio/categories/sort/<id:[0-9]+>/<sort:[a-z]+>/" => array(
+    "cmd" => "admin_portfolio",
+    "action" => "categories_sort"
+  ),
+
   "/admin/portfolio/<client:[0-9]+>/slides/" => array(
     "cmd" => "admin_portfolio_views",
     "action" => "index"

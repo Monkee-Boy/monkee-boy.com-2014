@@ -26,6 +26,8 @@ class admin_portfolio extends adminController {
     $this->tplAssign("minSort", $sMinSort);
     $this->tplAssign("maxSort", $sMaxSort);
     $this->tplAssign("sSort", array_shift($sSort));
+    $this->tplAssign("aCategories", $this->model->getCategories());
+    $this->tplAssign("sCategory", $_GET["category"]);
     $this->tplDisplay("admin/index.php");
   }
   function add() {
@@ -37,6 +39,7 @@ class admin_portfolio extends adminController {
         ,"active" => 1
         ,'services' => array()
         ,'quotes' => array()
+        ,"categories" => array()
       );
 
       $this->tplAssign("aClient", $aClient);
@@ -44,6 +47,8 @@ class admin_portfolio extends adminController {
 
     $aServices = $this->model->getServices(true);
     $this->tplAssign('aServices', $aServices);
+
+    $this->tplAssign("aCategories", $this->model->getCategories());
 
     $this->tplDisplay("admin/add.php");
   }
@@ -92,6 +97,18 @@ class admin_portfolio extends adminController {
           array(
             "clientid" => $sID,
             "serviceid" => $service
+          )
+        );
+      }
+    }
+
+    if(!empty($_POST["categories"])) {
+      foreach($_POST["categories"] as $sCategory) {
+        $this->dbInsert(
+          "portfolio_categories_assign",
+          array(
+            "portfolioid" => $sID
+            ,"categoryid" => $sCategory
           )
         );
       }
@@ -180,6 +197,15 @@ class admin_portfolio extends adminController {
     } else {
       $aClient = $this->model->getClient($this->urlVars->dynamic["id"], true, true);
 
+      $aClient["categories"] = $this->dbQuery(
+        "SELECT `categories`.`id` FROM `{dbPrefix}portfolio_categories` AS `categories`"
+          ." INNER JOIN `{dbPrefix}portfolio_categories_assign` AS `assign` ON `categories`.`id` = `assign`.`categoryid`"
+          ." WHERE `assign`.`portfolioid` = ".$aClient["id"]
+          ." GROUP BY `categories`.`id`"
+          ." ORDER BY `categories`.`name`"
+        ,"col"
+      );
+
       $aClient["updated_by"] = $this->dbQuery(
         "SELECT * FROM `{dbPrefix}users`"
           ." WHERE `id` = ".$aClient["updated_by"]
@@ -196,6 +222,7 @@ class admin_portfolio extends adminController {
     $aServices = $this->model->getServices(true);
     $this->tplAssign('aServices', $aServices);
 
+    $this->tplAssign("aCategories", $this->model->getCategories());
     $this->tplAssign("aClient", $aClient);
 
     $this->tplDisplay("admin/edit.php");
@@ -229,15 +256,27 @@ class admin_portfolio extends adminController {
       $_POST["id"]
     );
 
+    $this->dbDelete('portfolio_services_assign', $_POST['id'], 'clientid');
     if(!empty($_POST['services'])) {
-      $this->dbDelete('portfolio_services_assign', $_POST['id'], 'clientid');
-
       foreach($_POST['services'] as $service) {
         $this->dbInsert(
           "portfolio_services_assign",
           array(
             "clientid" => $_POST["id"],
             "serviceid" => $service
+          )
+        );
+      }
+    }
+
+    $this->dbDelete("portfolio_categories_assign", $_POST["id"], "portfolioid");
+    if(!empty($_POST["categories"])) {
+      foreach($_POST["categories"] as $sCategory) {
+        $this->dbInsert(
+          "portfolio_categories_assign",
+          array(
+            "portfolioid" => $_POST["id"]
+            ,"categoryid" => $sCategory
           )
         );
       }
@@ -325,10 +364,11 @@ class admin_portfolio extends adminController {
     $aClient = $this->model->getClient($this->urlVars->dynamic["id"], true);
 
     $this->dbDelete("portfolio", $this->urlVars->dynamic["id"]);
+    $this->dbDelete("portfolio_views", $this->urlVars->dynamic["id"], "portfolioid");
     $this->dbDelete('portfolio_services_assign', $this->urlVars->dynamic["id"], 'clientid');
+    $this->dbDelete("portfolio_categories_assign", $this->urlVars->dynamic["id"], "portfolioid");
 
     @unlink($this->settings->rootPublic.substr($this->model->imageFolder, 1).$aClient["logo"]);
-
     @unlink($this->settings->rootPublic.substr($this->model->imageFolder, 1).$aClient["listing_image"]);
 
     $this->forward("/admin/portfolio/?info=".urlencode("Client removed successfully!"));
@@ -377,6 +417,111 @@ class admin_portfolio extends adminController {
     );
 
     $this->forward("/admin/portfolio/?info=".urlencode("Sort order saved successfully!"));
+  }
+
+  function categories_index() {
+    $_SESSION["admin"]["admin_portfolio_categories"] = null;
+
+    $sMinSort = $this->dbQuery(
+      "SELECT MIN(`sort_order`) FROM `{dbPrefix}portfolio_categories`"
+      ,"one"
+    );
+    $sMaxSort = $this->dbQuery(
+      "SELECT MAX(`sort_order`) FROM `{dbPrefix}portfolio_categories`"
+      ,"one"
+    );
+
+    $this->tplAssign("aCategories", $this->model->getCategories());
+    $this->tplAssign("aCategoryEdit", $this->model->getCategory($_GET["category"]));
+    $this->tplAssign("minSort", $sMinSort);
+    $this->tplAssign("maxSort", $sMaxSort);
+    $category = explode("-", $this->model->sortCategory);
+    $this->tplAssign("sSort", array_shift($category));
+
+    $this->tplDisplay("admin/categories.php");
+  }
+  function categories_add_s() {
+    $sOrder = $this->dbQuery(
+      "SELECT MAX(`sort_order`) + 1 FROM `{dbPrefix}portfolio_categories`"
+      ,"one"
+    );
+
+    if(empty($sOrder))
+      $sOrder = 1;
+
+    $this->dbInsert(
+      "portfolio_categories",
+      array(
+        "name" => $_POST["name"]
+        ,"parentid" => $_POST["parent"]
+        ,"sort_order" => $sOrder
+      )
+    );
+
+    $this->forward("/admin/portfolio/categories/?success=".urlencode("Category created successfully!"));
+  }
+  function categories_edit_s() {
+    $this->dbUpdate(
+      "portfolio_categories",
+      array(
+        "name" => $_POST["name"]
+        ,"parentid" => $_POST["parent"]
+      ),
+      $_POST["id"]
+    );
+
+    $this->forward("/admin/portfolio/categories/?success=".urlencode("Changes saved successfully!"));
+  }
+  function categories_delete() {
+    $this->dbDelete("portfolio_categories", $this->urlVars->dynamic["id"]);
+    $this->dbDelete("portfolio_categories_assign", $this->urlVars->dynamic["id"], "categoryid");
+
+    $this->forward("/admin/portfolio/categories/?success=".urlencode("Category removed successfully!"));
+  }
+  function categories_sort() {
+    $aCategory = $this->model->getCategory($this->urlVars->dynamic["id"], "integer");
+
+    if($this->urlVars->dynamic["sort"] == "up") {
+      $aOld = $this->dbQuery(
+        "SELECT * FROM `{dbPrefix}portfolio_categories`"
+          ." WHERE `sort_order` < ".$aCategory["sort_order"]
+          ." ORDER BY `sort_order` DESC"
+        ,"row"
+      );
+    } elseif($this->urlVars->dynamic["sort"] == "down") {
+      $aOld = $this->dbQuery(
+        "SELECT * FROM `{dbPrefix}portfolio_categories`"
+          ." WHERE `sort_order` > ".$aCategory["sort_order"]
+          ." ORDER BY `sort_order` ASC"
+        ,"row"
+      );
+    }
+
+    $this->dbUpdate(
+      "portfolio_categories",
+      array(
+        "sort_order" => 0
+      ),
+      $aCategory["id"]
+    );
+
+    $this->dbUpdate(
+      "portfolio_categories",
+      array(
+        "sort_order" => $aCategory["sort_order"]
+      ),
+      $aOld["id"]
+    );
+
+    $this->dbUpdate(
+      "portfolio_categories",
+      array(
+        "sort_order" => $aOld["sort_order"]
+      ),
+      $aCategory["id"]
+    );
+
+    $this->forward("/admin/portfolio/categories/?success=".urlencode("Sort order saved successfully!"));
   }
   ##################################
 }
