@@ -1,6 +1,6 @@
-<?php $this->tplDisplay("inc_header.php", ['menu'=>'troop','sPageTitle'=>"Troop &raquo; Edit Employee"]); ?>
+<?php $this->tplDisplay("inc_header.php", ['menu'=>'clients','sPageTitle'=>"Clients &raquo; Edit Client"]); ?>
 
-  <h1>Troop &raquo; Edit Employee</h1>
+  <h1>Clients &raquo; Edit Client</h1>
   <?php $this->tplDisplay('inc_alerts.php'); ?>
 
   <form id="add-form" method="post" action="/admin/clients/edit/s/" enctype="multipart/form-data">
@@ -48,7 +48,7 @@
             <div class="accordion-inner">
               <?php if(!empty($aClient['logo'])): ?>
                 <div class="control-group photo-show">
-                  <img src="<?= $imageFolder.$aClient['logo_url'] ?>" alt="Employee Image" style="max-width: 300px;"><br />
+                  <img src="<?= $imageFolder.$aClient['logo_url'] ?>" alt="Client Image" style="max-width: 300px;"><br />
                   <a href="#">Replace Logo</a>
                 </div>
               <?php endif; ?>

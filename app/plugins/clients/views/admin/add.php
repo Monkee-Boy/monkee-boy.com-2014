@@ -47,12 +47,12 @@
             <div class="accordion-inner">
               <?php if(!empty($aClient['logo'])): ?>
                 <div class="control-group photo-show">
-                  <img src="<?= $imageFolder.$aClient['logo'] ?>" alt="Employee Image" style="max-width: 300px;"><br />
+                  <img src="<?= $imageFolder.$aClient['logo'] ?>" alt="Client Image" style="max-width: 300px;"><br />
                   <a href="#">Replace Logo</a>
                 </div>
               <?php endif; ?>
 
-              <div class="control-group photo-upload"<?php if(!empty($aTroop['logo'])){ echo ' style="display: none;"'; } ?>>
+              <div class="control-group photo-upload"<?php if(!empty($aClient['logo'])){ echo ' style="display: none;"'; } ?>>
                 <label class="control-label" for="form-tag">Upload Logo</label>
                 <div class="controls">
                   <input type="file" name="logo">
