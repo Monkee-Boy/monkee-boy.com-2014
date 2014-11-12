@@ -1,4 +1,3 @@
-<?php //echo '<pre>'; print_r($aClient); ?>
 <?php $this->tplDisplay("inc_header.php", ['menu'=>'portfolio']); ?>
 
   <div class="row">
@@ -47,6 +46,21 @@
       </div> <!-- /.thumbs -->
     </div><!-- /.port-slider -->
   </div> <!-- /.row -->
+
+  <div class="panel">
+    <aside class="text-center">
+      <img src="/uploads/portfolio/<?php echo $aClient['logo']; ?>" alt="<?php echo $aClient['name']; ?> Logo">
+    </aside>
+
+    <div class="panel-content">
+      <h4><?php echo $aClient['name']; ?></h4>
+
+      <?php echo $aClient['synopsis']; ?>
+
+      <?php if(!empty($aClient['website'])) { ?><a href="<?php echo $aClient['website']; ?>" title="View Site" class="button">View The Site!</a><?php } ?>
+      <?php if(!empty($aClient['case_study'])) { ?><a href="<?php echo $aClient['case_study']; ?>" title="Read the case study." class="button button-alt">Read The Case Study!</a><?php } ?>
+    </div>
+  </div>
 
   <div class="row">
     <div class="full">
