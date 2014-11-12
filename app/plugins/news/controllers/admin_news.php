@@ -97,7 +97,7 @@ class admin_news extends adminController {
 
 		if(!empty($_POST["categories"])) {
 			foreach($_POST["categories"] as $sCategory) {
-				$sID = $this->dbInsert(
+				$this->dbInsert(
 					"news_categories_assign",
 					array(
 						"articleid" => $sID

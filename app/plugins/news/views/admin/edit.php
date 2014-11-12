@@ -58,7 +58,7 @@
 								<?php if(!empty($aCategories)): ?>
 									<select name="categories[]" data-placeholder="Select Categories" class="chzn-select span12" multiple="">
 										<?php foreach($aCategories as $aCategory): ?>
-											<option value="{$aCategory.id}"<?php if(in_array($aCategory['id'], $aPost['categories'])){ echo ' selected="selected"'; } ?>><?php $aCategory['name'] ?></option>
+											<option value="<?= $aCategory['id'] ?>"<?php if(in_array($aCategory['id'], $aPost['categories'])){ echo ' selected="selected"'; } ?>><?= $aCategory['name'] ?></option>
 										<?php endforeach; ?>
 				          </select>
 
