@@ -124,7 +124,7 @@ class Stratum {
 
 		// Extract the column values
 		for($i=0; $i < count($this->lastResult); $i++) {
-			$new_array[$i] = $this->getOne(null,$x,$i);
+			$new_array[$i] = $this->getOne(null,$i,$x);
 		}
 
 		return $new_array;
