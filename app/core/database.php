@@ -57,7 +57,7 @@ class Stratum {
 			return $rows;
 		} else {
 			// If there is an error then take note of it..
-			$this->_throwError(null, debug_backtrace());
+			$this->_throwError($sth->errorInfo()[2], debug_backtrace());
 		}
 	}
 
