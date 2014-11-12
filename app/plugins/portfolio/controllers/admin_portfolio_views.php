@@ -26,7 +26,7 @@ class admin_portfolio_views extends adminController {
 
     $sSort = explode("-", $this->model->sortPortfolioSlides);
 
-    $this->tplAssign("aSlides", $this->model->getClientSlides(false, true));
+    $this->tplAssign("aSlides", $this->model->getClientSlides($this->client['id']));
     $this->tplAssign("minSort", $sMinSort);
     $this->tplAssign("maxSort", $sMaxSort);
     $this->tplAssign("sSort", array_shift($sSort));
@@ -64,7 +64,7 @@ class admin_portfolio_views extends adminController {
       )
     );
 
-    $images = array("listing_image", "desktop_image", "tablet_image", "mobile_image");
+    $images = array("listing_image", "desktop_image", "tablet_image", "phone_image");
     foreach($images as $image) {
       if($_FILES[$image]["error"] != 4) {
         if($_FILES[$image]["error"] == 1 || $_FILES[$image]["error"] == 2) {
@@ -114,7 +114,7 @@ class admin_portfolio_views extends adminController {
       $_POST["id"]
     );
 
-    $images = array("listing_image", "desktop_image", "tablet_image", "mobile_image");
+    $images = array("listing_image", "desktop_image", "tablet_image", "phone_image");
     foreach($images as $image) {
       if($_FILES[$image]["error"] != 4) {
         if($_FILES[$image]["error"] == 1 || $_FILES[$image]["error"] == 2) {
@@ -153,7 +153,7 @@ class admin_portfolio_views extends adminController {
 
     $this->dbDelete("portfolio_views", $this->urlVars->dynamic["id"]);
 
-    $images = array("listing_image", "desktop_image", "tablet_image", "mobile_image");
+    $images = array("listing_image", "desktop_image", "tablet_image", "phone_image");
     foreach($images as $image) {
       @unlink($this->settings->rootPublic.substr($this->model->imageFolder, 1).$aSlide[$image]);
     }

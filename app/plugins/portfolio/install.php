@@ -41,7 +41,7 @@ $aTables = array(
     `listing_image` varchar(255),
     `desktop_image` varchar(255),
     `tablet_image` varchar(255),
-    `mobile_image` varchar(255),
+    `phone_image` varchar(255),
     `sort_order` int(11) unsigned,
     `created_datetime` datetime NOT NULL,
     `created_by` int(11) unsigned NOT NULL,
@@ -122,6 +122,7 @@ $aTables = array(
   ) Engine=MyISAM;',
 
   "portfolio_services_sub_assign" => 'CREATE TABLE `{dbPrefix}portfolio_services_assign` (
+    `id` int(11) unsigned NOT NULL auto_increment,
     `clientid` int(11) unsigned,
     `serviceid` int(11) unsigned,
     INDEX `index` (`clientid`, `serviceid`)

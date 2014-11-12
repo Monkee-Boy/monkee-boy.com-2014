@@ -319,7 +319,8 @@
   PortfolioSlider.prototype.updateScreen = function(screenName) {
     for (var key in this.$screens) {
       var el = this.$screens[key].children('.screen-inner'),
-          fileName = '/assets/port-' + this.siteName + '-' + key + '-' + screenName + '.png',
+          fileName = '/uploads/portfolio/'+key+'_image_'+screenName+'.png',
+          // fileName = '/assets/port-' + this.siteName + '-' + key + '-' + screenName + '.png',
           image = document.createElement('img');
 
       image.src = fileName;

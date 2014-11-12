@@ -80,11 +80,12 @@ class portfolio_model extends appModel {
 
     return $aClients;
   }
-  function getClient($sId, $sAll = false, $sRecursive = false) {
-    if(!empty($sId))
+  function getClient($sId, $sAll = false, $sRecursive = false, $sTag = null) {
+    if(!empty($sTag)) {
+      $sWhere = " WHERE `tag` = ".$this->dbQuote($sTag, "text");
+    } else {
       $sWhere = " WHERE `id` = ".$this->dbQuote($sId, "integer");
-    else
-      return false;
+    }
 
     if($sAll == false)
       $sWhere .= " AND `active` = 1";
@@ -112,7 +113,7 @@ class portfolio_model extends appModel {
         $aClient["quotes"] = array();
       }
 
-      if($sRecursive == true) {
+      if($sRecursive === true) {
         $aClient["services"] = array();
         $aClientServices = $this->dbQuery(
           "SELECT * FROM `{dbPrefix}portfolio_services_assign`"
@@ -203,7 +204,7 @@ class portfolio_model extends appModel {
   }
   private function _getClientSlideInfo($aSlide) {
     if(!empty($aSlide)) {
-      $images = array("listing_image", "desktop_image", "tablet_image", "mobile_image");
+      $images = array("listing_image", "desktop_image", "tablet_image", "phone_image");
       foreach($images as $image) {
         if($aSlide[$image]) {
           $aSlide[$image."_url"] = $this->imageFolder.$aSlide[$image];

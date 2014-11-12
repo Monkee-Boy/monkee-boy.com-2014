@@ -395,17 +395,6 @@ th {
 }
 
 /* Snippets */
-/*
-  # USAGE #
-  $large: "(min-width: 1024px)";
-
-  header {
-    @include breakpoint($large){
-      width: 100%;
-      margin: 5em 0;
-    }
-  }
-*/
 /* Functions */
 .row {
   margin-bottom: 1.94444em;
