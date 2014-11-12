@@ -5,7 +5,6 @@
   <table  class="data-table table table-striped">
     <thead>
       <tr>
-        <th class="empty itemStatus">&nbsp;</th>
         <th>Name</th>
         <?php if($sSort == "manual"): ?>
           <th>Order</th>
@@ -16,13 +15,6 @@
     <tbody>
       <?php foreach($aClients as $aClient): ?>
         <tr>
-          <td>
-            <?php if($aClient['active'] == 1): ?>
-              <img src="/images/admin/icons/bullet_green.png" alt="active">
-            <?php else: ?>
-              <img src="/images/admin/icons/bullet_red.png" alt="inactive">
-            <?php endif; ?>
-          </td>
           <td><?= $aClient['name'] ?></td>
           <?php if($sSort == "manual"): ?>
             <td class="small center">
