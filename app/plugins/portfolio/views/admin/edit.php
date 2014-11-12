@@ -106,11 +106,13 @@
             <div class="accordion-inner">
               <?php
               if(!empty($aClient['quotes'])) {
+                $i = 0;
                 foreach($aClient["quotes"] as $aQuote) {
-                  quote_block($aQuote);
+                  quote_block($aQuote, $i);
+                  $i++;
                 }
-                quote_block();
               }
+              quote_block();
               ?>
               <a href="#" title="Add Quote" id="quote_more" class="btn btn-primary" rel="tooltip" data-placement="bottom">
                 <i class="icon-plus icon-white"></i> Add Quote
@@ -236,7 +238,6 @@ $(function(){
     e.preventDefault();
 
     blocks = $('.quote_block:not(#quote_block)').length;
-    console.log(blocks);
 
     var block = $('#quote_block').clone();
     block.attr('id', '');
@@ -269,7 +270,7 @@ $(function(){
 {/footer}
 <?php $this->tplDisplay("inc_footer.php"); ?>
 <?php
-function quote_block($aQuote = null) {
+function quote_block($aQuote = null, $key = null) {
   if(!empty($aQuote)) {
     $hide = false;
   } else {
@@ -285,13 +286,13 @@ function quote_block($aQuote = null) {
     $html .= '<div class="control-group">';
       $html .= '<label class="control-label" for="form-quote">Quote</label>';
       $html .= '<div class="controls">';
-        $html .= '<textarea name="" id="form-quote" class="span12" style="height:95px;">'.$aQuote['quote'].'</textarea>';
+        $html .= '<textarea name="'.(($hide==false)?'quotes['.$key.'][quote]':'').'" id="form-quote" class="span12" style="height:95px;">'.$aQuote['quote'].'</textarea>';
       $html .= '</div>';
     $html .= '</div>';
     $html .= '<div class="control-group">';
       $html .= '<label class="control-label" for="form-quote-attribution">Quote Attribution</label>';
       $html .= '<div class="controls">';
-        $html .= '<input name="" id="form-quote-attribution" class="span12" value="'.$aQuote['attribution'].'">';
+        $html .= '<input name="'.(($hide==false)?'quotes['.$key.'][attribution]':'').'" id="form-quote-attribution" class="span12" value="'.$aQuote['attribution'].'">';
       $html .= '</div>';
     $html .= '</div>';
   $html .= '</div>';

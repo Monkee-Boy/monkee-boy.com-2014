@@ -94,6 +94,7 @@ $aTables = array(
     `tag` varchar(255),
     `subtitle` longtext,
     `description` longtext,
+    `intro` varchar(255),
     `quote` longtext,
     `quote_attribution` varchar(255),
     `services_byline` varchar(255),
@@ -121,9 +122,9 @@ $aTables = array(
   ) Engine=MyISAM;',
 
   "portfolio_services_sub_assign" => 'CREATE TABLE `{dbPrefix}portfolio_services_assign` (
-    `portfolioid` int(11) unsigned,
-    `servicesubid` int(11) unsigned,
-    INDEX `index` (`portfolio`, `servicesubid`)
+    `clientid` int(11) unsigned,
+    `serviceid` int(11) unsigned,
+    INDEX `index` (`clientid`, `serviceid`)
   ) Engine=MyISAM;'
 );
 
