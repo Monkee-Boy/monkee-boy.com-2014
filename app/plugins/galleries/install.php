@@ -9,84 +9,47 @@ if($sPluginStatus == 1) {
 }
 
 $aTables = array(
-	"galleries" => array(
-		"fields" => array(
-			"id" => array(
-				"type" => "integer",
-				"unsigned" => 1,
-				"notnull" => 1,
-				"default" => 0,
-				"autoincrement" => 1
-			),
-			"name" => array("type" => "text","length" => 254),
-			"tag" => array("type" => "text","length" => 100),
-			"description" => array("type" => "clob"),
-			"sort_order" => array("type" => "integer","unsigned" => 1,"notnull" => 1,"default" => 0),
-			"active" => array("type" => "boolean"),
-			"created_datetime" => array("type" => "integer","unsigned" => 1,"notnull" => 1,"default" => 0),
-			"created_by" => array("type" => "integer","unsigned" => 1,"notnull" => 1,"default" => 0),
-			"updated_datetime" => array("type" => "integer","unsigned" => 1,"notnull" => 1,"default" => 0),
-			"updated_by" => array("type" => "integer","unsigned" => 1,"notnull" => 1,"default" => 0)
-		),
-		"index" => array("sort_order"),
-		"unique" => array("tag"),
-		"fulltext" => array("name", "description"),
-		"search" => array(
-			"title" => "name",
-			"content" => "description",
-			"rows" => array("name", "description"),
-			"filter" => "`active` = 1"
-		)
-	),
-	"galleries_categories" => array(
-		"fields" => array(
-			"id" => array(
-				"type" => "integer",
-				"unsigned" => 1,
-				"notnull" => 1,
-				"default" => 0,
-				"autoincrement" => 1
-			),
-			"name" => array("type" => "text","length" => 100),
-			"sort_order" => array("type" => "integer","unsigned" => 1,"notnull" => 1,"default" => 0)
-		),
-		"unique" => array("sort_order")
-	),
-	"galleries_categories_assign" => array(
-		"fields" => array(
-			"galleryid" => array(
-				"type" => "integer",
-				"unsigned" => 1,
-				"notnull" => 1,
-				"default" => 0
-			),
-			"categoryid" => array(
-				"type" => "integer",
-				"unsigned" => 1,
-				"notnull" => 1,
-				"default" => 0
-			)
-		),
-		"index" => array("galleryid", "categoryid")
-	),
-	"galleries_photos" => array(
-		"fields" => array(
-			"id" => array(
-				"type" => "integer",
-				"unsigned" => 1,
-				"notnull" => 1,
-				"default" => 0,
-				"autoincrement" => 1
-			),
-			"galleryid" => array("type" => "integer","unsigned" => 1,"notnull" => 1,"default" => 0),
-			"photo" => array("type" => "text","length" => 100),
-			"title" => array("type" => "text","length" => 254),
-			"description" => array("type" => "clob"),
-			"gallery_default" => array("type" => "boolean"),
-			"sort_order" => array("type" => "integer","unsigned" => 1,"notnull" => 1,"default" => 0)
-		),
-		"index" => array("galleryid","gallery_default","sort_order")
-	)
+	"galleries" => 'CREATE TABLE `{dbPrefix}galleries` (
+		`id` int(11) unsigned NOT NULL auto_increment,
+		`name` varchar(255),
+		`tag` varchar(100),
+		`description` longtext,
+		`sort_order` int(11),
+		`active` tinyint(1),
+		`created_datetime` datetime NOT NULL,
+		`created_by` int(11) unsigned NOT NULL,
+		`updated_datetime` datetime NOT NULL,
+		`updated_by` int(11) unsigned NOT NULL,
+		PRIMARY KEY (`id`),
+		INDEX `index` (`sort_order`,`active`),
+		UNIQUE (`tag`)
+	) Engine=MyISAM;',
+
+	"galleries_categories" => 'CREATE TABLE `{dbPrefix}galleries_categories` (
+		`id` int(11) unsigned NOT NULL auto_increment,
+		`name` varchar(255),
+		`sort_order` int(11) unsigned,
+		PRIMARY KEY (`id`),
+		UNIQUE (`sort_order`)
+	) Engine=MyISAM;',
+
+	"galleries_categories_assign" => 'CREATE TABLE `{dbPrefix}galleries_categories_assign` (
+		`galleryid` int(11) unsigned,
+		`categoryid` int(11) unsigned,
+		INDEX `index` (`galleryid`, `categoryid`)
+	) Engine=MyISAM;',
+
+	"galleries_photos" => 'CREATE TABLE `{dbPrefix}galleries_photos` (
+		`id` int(11) unsigned NOT NULL auto_increment,
+		`galleryid` int(11),
+		`photo` varchar(100),
+		`title` varchar(255),
+		`description` longtext,
+		`gallery_default` tinyint(1),
+		`sort_order` int(11),
+		PRIMARY KEY (`id`),
+		INDEX `index` (`galleryid`, `gallery_default`, `sort_order`)
+	) Engine=MyISAM;'
 );
 
 $aSettings = array();
