@@ -57,7 +57,7 @@ class Stratum {
 			return $rows;
 		} else {
 			// If there is an error then take note of it..
-			$this->_throwError($sth->errorInfo()[2], debug_backtrace());
+			$this->_throwError($sth->errorInfo()[2].' ('.$query.') ', debug_backtrace());
 		}
 	}
 
@@ -123,6 +123,7 @@ class Stratum {
 		}
 
 		// Extract the column values
+		$new_array = array();
 		for($i=0; $i < count($this->lastResult); $i++) {
 			$new_array[$i] = $this->getOne(null,$i,$x);
 		}
