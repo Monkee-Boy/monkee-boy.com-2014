@@ -29,7 +29,7 @@
 						<?php endif; ?>
 					</td>
 					<td><?= $aGallery['name'] ?></td>
-					<td class="center"><?= (!empty($aGallery['photos']))?$aGallery['photos']:'No Photos' ?></td>
+					<td class="center"><?= (!empty($aGallery['photos']))?count($aGallery['photos']):'No Photos' ?></td>
 					<td class="center">
 						<a href="/admin/galleries/<?= $aGallery['id'] ?>/photos/" title="Manage Gallery">
 							<img src="/images/icons/pictures.png" alt="manage gallery">

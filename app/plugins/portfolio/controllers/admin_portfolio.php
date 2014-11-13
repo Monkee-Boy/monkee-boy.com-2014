@@ -31,6 +31,8 @@ class admin_portfolio extends adminController {
     $this->tplDisplay("admin/index.php");
   }
   function add() {
+    $oGallery = $this->loadModel('galleries');
+
     if(!empty($_SESSION["admin"]["admin_portfolio"]))
       $this->tplAssign("aClient", $_SESSION["admin"]["admin_portfolio"]);
     else {
@@ -48,6 +50,7 @@ class admin_portfolio extends adminController {
     $aServices = $this->model->getServices(true);
     $this->tplAssign('aServices', $aServices);
 
+    $this->tplAssign("aGalleries", $oGallery->getGalleries());
     $this->tplAssign("aCategories", $this->model->getCategories());
 
     $this->tplDisplay("admin/add.php");
@@ -79,6 +82,7 @@ class admin_portfolio extends adminController {
         "other_services_1" => $_POST["other_services_1"],
         "other_services_2" => $_POST["other_services_2"],
         "quotes" => json_encode($_POST["quotes"]),
+        "galleryid" => $_POST["gallery"],
         "active" => $this->boolCheck($_POST["active"]),
         "featured" => $this->boolCheck($_POST["featured"]),
         "app" => $this->boolCheck($_POST["app"]),
@@ -179,6 +183,8 @@ class admin_portfolio extends adminController {
     $this->forward("/admin/portfolio/?info=".urlencode("Client created successfully!"));
   }
   function edit() {
+    $oGallery = $this->loadModel('galleries');
+
     if(!empty($_SESSION["admin"]["admin_portfolio"])) {
       $aClientRow = $this->dbQuery(
         "SELECT * FROM `{dbPrefix}portfolio`"
@@ -226,6 +232,7 @@ class admin_portfolio extends adminController {
     $aServices = $this->model->getServices(true);
     $this->tplAssign('aServices', $aServices);
 
+    $this->tplAssign("aGalleries", $oGallery->getGalleries());
     $this->tplAssign("aCategories", $this->model->getCategories());
     $this->tplAssign("aClient", $aClient);
 
@@ -250,6 +257,7 @@ class admin_portfolio extends adminController {
         "other_services_1" => $_POST["other_services_1"],
         "other_services_2" => $_POST["other_services_2"],
         "quotes" => json_encode($_POST["quotes"]),
+        "galleryid" => $_POST["gallery"],
         "active" => $this->boolCheck($_POST["active"]),
         "featured" => $this->boolCheck($_POST["featured"]),
         "app" => $this->boolCheck($_POST["app"]),

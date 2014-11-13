@@ -23,6 +23,7 @@ $aTables = array(
     `other_services_1` longtext,
     `other_services_2` longtext,
     `quotes` longtext,
+    `galleryid` int(11),
     `sort_order` int,
     `active` tinyint(1),
     `featured` tinyint(1),
@@ -32,7 +33,7 @@ $aTables = array(
     `updated_datetime` datetime NOT NULL,
     `updated_by` int(11) unsigned NOT NULL,
     PRIMARY KEY (`id`),
-    INDEX `index` (`sort_order`, `active`)
+    INDEX `index` (`galleryid`, `sort_order`, `active`)
   ) Engine=MyISAM;',
 
   "portfolio_views" => 'CREATE TABLE `{dbPrefix}portfolio_views` (
@@ -48,8 +49,7 @@ $aTables = array(
     `updated_datetime` datetime NOT NULL,
     `updated_by` int(11) unsigned NOT NULL,
     PRIMARY KEY (`id`),
-    INDEX `index` (`portfolioid`),
-    UNIQUE (`sort_order`)
+    INDEX `index` (`portfolioid`)
   ) Engine=MyISAM;',
 
   "portfolio_categories" => 'CREATE TABLE `{dbPrefix}portfolio_categories` (

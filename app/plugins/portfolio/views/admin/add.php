@@ -228,6 +228,26 @@
             </div>
           </div>
         </div>
+
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <span class="accordion-toggle">Gallery</span>
+          </div>
+          <div class="accordion-body">
+            <div class="accordion-inner">
+              <div class="control-group">
+                <div class="controls">
+                  <select name="gallery">
+                    <option value="">- Select Gallery -</option>
+                    <?php foreach($aGalleries as $aGallery): ?>
+                      <option value="<?= $aGallery['id'] ?>"<?php if($aGallery['id'] == $aClient['galleryid']){ echo ' selected="selected"'; } ?>><?= $aGallery['name'] ?></option>
+                    <?php endforeach; ?>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </form>
