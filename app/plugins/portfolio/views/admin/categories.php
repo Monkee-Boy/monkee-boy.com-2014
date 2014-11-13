@@ -1,6 +1,6 @@
 <?php $this->tplDisplay("inc_header.php", ['menu'=>'portfolio','sPageTitle'=>"Portfolio &raquo; Categories"]); ?>
 
-  <h2>Categories</h2>
+  <h1>Categories <a class="btn btn-primary pull-right" href="/admin/portfolio/" title="Manage Portfolio" rel="tooltip" data-placement="bottom">Manage Portfolio</a></h1>
   <?php $this->tplDisplay('inc_alerts.php'); ?>
 
     <div class="row-fluid">
