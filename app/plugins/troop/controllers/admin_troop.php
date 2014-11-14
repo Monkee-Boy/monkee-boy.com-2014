@@ -35,10 +35,13 @@ class admin_troop extends adminController {
       $aTroop = array(
         "menu" => array()
         ,"active" => 1
+        ,"social_accounts" => array()
       );
 
       $this->tplAssign("aTroop", $aTroop);
     }
+
+    $this->tplAssign("aAccounts", $this->model->accounts);
 
     $this->tplDisplay("admin/add.php");
   }
@@ -66,10 +69,7 @@ class admin_troop extends adminController {
         "quirck" => $_POST["quirck"],
         "quote" => $_POST["quote"],
         "title" => $_POST["title"],
-        "social_twitter" => $_POST["social_twitter"],
-        "social_github" => $_POST["social_github"],
-        "social_dribble" => $_POST["social_dribble"],
-        "social_codepen" => $_POST["social_codepen"],
+        "social_accounts" => json_encode($_POST["social_accounts"]),
         "sort_order" => $sOrder,
         "active" => $this->boolCheck($_POST["active"]),
         "created_datetime" => date('Y-m-d H:i:s'),
@@ -170,6 +170,7 @@ class admin_troop extends adminController {
     }
 
     $this->tplAssign("aEmployee", $aEmployee);
+    $this->tplAssign("aAccounts", $this->model->accounts);
 
     $this->tplDisplay("admin/edit.php");
   }
@@ -189,11 +190,7 @@ class admin_troop extends adminController {
         "quirck" => $_POST["quirck"],
         "quote" => $_POST["quote"],
         "title" => $_POST["title"],
-        "social_twitter" => $_POST["social_twitter"],
-        "social_github" => $_POST["social_github"],
-        "social_dribble" => $_POST["social_dribble"],
-        "social_codepen" => $_POST["social_codepen"],
-        "sort_order" => $sOrder,
+        "social_accounts" => json_encode($_POST["social_accounts"]),
         "active" => $this->boolCheck($_POST["active"]),
         "updated_datetime" => date('Y-m-d H:i:s'),
         "updated_by" => $_SESSION["admin"]["userid"]

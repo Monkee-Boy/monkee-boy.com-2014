@@ -169,33 +169,15 @@
           </div>
           <div id="pageseo" class="accordion-body">
             <div class="accordion-inner">
+              <?php
+              foreach($aAccounts as $k=>$account): ?>
               <div class="control-group">
-                <label class="control-label" for="form-tag">Twitter</label>
+                <label class="control-label" for="form-tag"><?= $account ?></label>
                 <div class="controls">
-                  <input type="text" name="social_twitter" id="form-twitter" value="<?= $aEmployee['social_twitter'] ?>" class="span12">
+                  <input type="text" name="social_accounts[<?= $k ?>]" id="form-<?= $k ?>" value="<?= $aEmployee['social_accounts'][$k] ?>" class="span12">
                 </div>
               </div>
-
-              <div class="control-group">
-                <label class="control-label" for="form-tag">Github</label>
-                <div class="controls">
-                  <input type="text" name="social_github" id="form-github" value="<?= $aEmployee['social_github'] ?>" class="span12">
-                </div>
-              </div>
-
-              <div class="control-group">
-                <label class="control-label" for="form-tag">Dribble</label>
-                <div class="controls">
-                  <input type="text" name="social_dribble" id="form-dribble" value="<?= $aEmployee['social_dribble'] ?>" class="span12">
-                </div>
-              </div>
-
-              <div class="control-group">
-                <label class="control-label" for="form-tag">Codepen</label>
-                <div class="controls">
-                  <input type="text" name="social_codepen" id="form-codepen" value="<?= $aEmployee['social_codepen'] ?>" class="span12">
-                </div>
-              </div>
+              <?php endforeach; ?>
             </div>
           </div>
         </div>

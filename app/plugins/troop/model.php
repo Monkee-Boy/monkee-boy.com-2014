@@ -1,6 +1,7 @@
 <?php
 class troop_model extends appModel {
   public $imageFolder;
+  public $accounts;
 
   function __construct() {
     parent::__construct();
@@ -100,6 +101,10 @@ class troop_model extends appModel {
       $aEmployee["name"] = htmlspecialchars(stripslashes($aEmployee["name"]));
       $aEmployee["photo_url"] = $this->imageFolder.$aEmployee["photo"];
       $aEmployee["photo_over_url"] = $this->imageFolder.$aEmployee["photo_over"];
+
+      if(!empty($aEmployee['social_accounts'])) {
+        $aEmployee['social_accounts'] = json_decode($aEmployee['social_accounts'], true);
+      }
     }
 
     return $aEmployee;

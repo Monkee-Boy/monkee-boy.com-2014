@@ -60,8 +60,8 @@ $('.data-table').dataTable({
   "sPaginationType": "full_numbers",
   "bLengthChange": false,
   /* CAN CHANGE */
-  "bStateSave": true,
-  "aaSorting": [[ 0, "asc" ]], //which column to sort by (0-X)
+  "bStateSave": false,
+  "aaSorting": [[ 2, "asc" ]], //which column to sort by (0-X)
   "iDisplayLength": 10 //how many items to display per page
 });
 $('.dataTable-header').prepend('<?php
