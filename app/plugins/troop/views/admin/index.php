@@ -62,6 +62,12 @@ $('.data-table').dataTable({
   /* CAN CHANGE */
   "bStateSave": false,
   "aaSorting": [[ 2, "asc" ]], //which column to sort by (0-X)
+  "aoColumns": [
+    null,
+    null,
+    { "sType": "num-html" },
+    null
+  ],
   "iDisplayLength": 10 //how many items to display per page
 });
 $('.dataTable-header').prepend('<?php
