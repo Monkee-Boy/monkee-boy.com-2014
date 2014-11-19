@@ -23,7 +23,7 @@
               <div class="control-group">
                 <label class="control-label" for="form-subtitle">Subtitle</label>
                 <div class="controls">
-                  <input type="text" name="subtitle" id="form-subtitle" value="<?php echo $aServiceSub['subtitle']; ?>" class="span12 validate[required]">
+                  <input type="text" name="subtitle" id="form-subtitle" value="<?php echo $aServiceSub['subtitle']; ?>" class="span12">
                 </div> <!-- /.controls -->
               </div> <!-- /.control-group -->
             </div>

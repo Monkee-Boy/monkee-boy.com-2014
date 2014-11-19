@@ -23,7 +23,7 @@
               <div class="control-group">
                 <label class="control-label" for="form-subtitle">Subtitle</label>
                 <div class="controls">
-                  <input type="text" name="subtitle" id="form-subtitle" value="<?php echo $aServiceSub['subtitle']; ?>" class="span12 validate[required]">
+                  <input type="text" name="subtitle" id="form-subtitle" value="<?php echo $aServiceSub['subtitle']; ?>" class="span12">
                 </div> <!-- /.controls -->
               </div> <!-- /.control-group -->
             </div>
@@ -42,7 +42,7 @@
                   <textarea name="description" id="form-shortdescription" class="span12" style="height:95px;"><?php echo $aServiceSub['description']; ?></textarea>
                 </div> <!-- /.controls -->
               </div> <!-- /.control-group -->
-              
+
               <div class="control-group">
                 <label class="control-label" for="form-intro">Intro</label>
                 <div class="controls">

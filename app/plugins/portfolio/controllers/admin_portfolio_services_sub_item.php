@@ -104,7 +104,7 @@ class admin_portfolio_services_sub_item extends adminController {
 
       $aServiceSubItem["updated_by"] = $this->dbQuery(
         "SELECT * FROM `{dbPrefix}users`"
-          ." WHERE `id` = ".$aServiceSub["updated_by"]
+          ." WHERE `id` = ".$aServiceSubItem["updated_by"]
         ,"row"
       );
     }
