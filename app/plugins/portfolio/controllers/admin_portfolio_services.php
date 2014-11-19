@@ -60,6 +60,7 @@ class admin_portfolio_services extends adminController {
       array(
         "name" => $_POST["name"],
         "subtitle" => $_POST["subtitle"],
+        "subtitle2" => $_POST["subtitle2"],
         "description" => $_POST["description"],
         "sort_order" => $sOrder,
         "created_datetime" => date('Y-m-d H:i:s'),
@@ -114,6 +115,7 @@ class admin_portfolio_services extends adminController {
       array(
         "name" => $_POST["name"],
         "subtitle" => $_POST["subtitle"],
+        "subtitle2" => $_POST["subtitle2"],
         "description" => $_POST["description"],
         "updated_datetime" => date('Y-m-d H:i:s'),
         "updated_by" => $_SESSION["admin"]["userid"]

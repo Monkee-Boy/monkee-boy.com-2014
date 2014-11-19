@@ -72,6 +72,7 @@ $aTables = array(
     `name` varchar(255),
     `tag` varchar(255),
     `subtitle` varchar(255),
+    `subtitle2` varchar(255),
     `description` longtext,
     `sort_order` int(11) unsigned,
     `created_datetime` datetime NOT NULL,

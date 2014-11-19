@@ -26,6 +26,13 @@
                   <input type="text" name="subtitle" id="form-subtitle" value="<?php echo $aService['subtitle']; ?>" class="span12 validate[required]">
                 </div> <!-- /.controls -->
               </div> <!-- /.control-group -->
+
+              <div class="control-group">
+                <label class="control-label" for="form-subtitle">Subtitle 2</label>
+                <div class="controls">
+                  <input type="text" name="subtitle2" id="form-subtitle2" value="<?php echo $aService['subtitle2']; ?>" class="span12 validate[required]">
+                </div> <!-- /.controls -->
+              </div> <!-- /.control-group -->
             </div>
           </div>
         </div>
@@ -52,7 +59,7 @@
       </div>
 
       <div class="span4 aside">
-        
+
       </div>
     </div>
   </form>
