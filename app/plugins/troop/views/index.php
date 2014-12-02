@@ -46,12 +46,13 @@
         <div class="profile-footer">
           <p class="latest-update"></p>
           <ul class="social-links" role="menu">
-            <li><a href="#" class="twitter">Twitter</a></li>
-            <li><a href="#" class="facebook">Facebook</a></li>
-            <li><a href="#" class="linkedin">LinkedIn</a></li>
-            <li><a href="#" class="gplus">Google Plus</a></li>
-            <li><a href="#" class="instagram">Instagram</a></li>
-            <li><a href="#" class="pinterest">Pinterest</a></li>
+            <?php if(!empty($aEmployee['social_accounts'])): ?>
+              <?php foreach($aEmployee['social_accounts'] as $site=>$account): ?>
+                <?php if(!empty($account)): ?>
+                <li><a href="<?= $account ?>" class="<?= $site ?>"><?= ucwords($site) ?></a></li>
+                <?php endif; ?>
+              <?php endforeach; ?>
+            <?php endif; ?>
           </ul>
         </div>
       </div><!-- /.profile -->
