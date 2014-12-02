@@ -11,7 +11,7 @@
   <div class="row">
     <div class="panel">
       <aside class="text-center">
-        <img src="/uploads/portfolio/<?php echo $aClient['logo']; ?>" alt="<?php echo $aClient['name']; ?> Logo">
+        <img src="<?php echo (!empty($aClient['listing_image']))?$aClient['listing_image_url']:$aClient['logo_url']; ?>" alt="<?php echo $aClient['name']; ?> Logo">
       </aside>
 
       <div class="panel-content">
