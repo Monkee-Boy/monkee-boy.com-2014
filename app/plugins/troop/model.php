@@ -102,6 +102,11 @@ class troop_model extends appModel {
       $aEmployee["photo_url"] = $this->imageFolder.$aEmployee["photo"];
       $aEmployee["photo_over_url"] = $this->imageFolder.$aEmployee["photo_over"];
 
+      $aEmployee["what"] = htmlspecialchars(stripslashes($aEmployee["what"]));
+      $aEmployee["who"] = htmlspecialchars(stripslashes($aEmployee["who"]));
+      $aEmployee["where"] = htmlspecialchars(stripslashes($aEmployee["where"]));
+      $aEmployee["quirck"] = htmlspecialchars(stripslashes($aEmployee["quirck"]));
+
       if(!empty($aEmployee['social_accounts'])) {
         $aEmployee['social_accounts'] = json_decode($aEmployee['social_accounts'], true);
       }

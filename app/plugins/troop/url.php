@@ -12,6 +12,10 @@
  #   /<tag:[a-z]+>/
 */
 $aPluginUrlPatterns = array(
+  "/the-troop/" => array(
+    "cmd" => "troop",
+    "action" => "index"
+  ),
   "/admin/troop/" => array(
     "cmd" => "admin_troop",
     "action" => "index"
