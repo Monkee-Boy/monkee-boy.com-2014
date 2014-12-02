@@ -17,16 +17,16 @@
 
         <ul class="main-menu">
           <li class="primary has-dropdown">
-            <a href="#" class="nav-who">Who We Are</a>
+            <a href="/why-monkee-boy/" class="nav-who">Who We Are</a>
             <ul>
-              <li><a href="#">Why Monkee-Boy?</a></li>
-              <li><a href="#">The Troop</a></li>
-              <li><a href="#">Latest News</a></li>
-              <li><a href="#">Join the Troop</a></li>
+              <li><a href="/why-monkee-boy/">Why Monkee-Boy?</a></li>
+              <li><a href="/the-troop/">The Troop</a></li>
+              <li><a href="/latest-news/">Latest News</a></li>
+              <li><a href="/careers/">Join the Troop</a></li>
             </ul>
           </li>
           <li class="primary has-dropdown">
-            <a href="#" title="" class="nav-what">What We Do</a>
+            <a href="/our-process/" title="" class="nav-what">What We Do</a>
             <ul>
               <li><a href="#">Design</a></li>
               <li><a href="#">Development</a></li>
@@ -35,14 +35,14 @@
             </ul>
           </li>
           <li class="primary has-dropdown">
-            <a href="#" title="" class="nav-work">The Work</a>
+            <a href="/the-work/" title="" class="nav-work">The Work</a>
             <ul>
-              <li><a href="#">Featured Clients</a></li>
-              <li><a href="#">Testimonials</a></li>
+              <li><a href="/client-list/">Featured Clients</a></li>
+              <li><a href="/testimonials/">Testimonials</a></li>
             </ul>
           </li>
-          <li class="primary"><a href="#" title="" class="nav-contact">Contact</a></li>
-          <li class="primary"><a href="#" title="" class="nav-blog">The Blog</a></li>
+          <li class="primary"><a href="/contact/" title="" class="nav-contact">Contact</a></li>
+          <li class="primary"><a href="/blog/" title="" class="nav-blog">The Blog</a></li>
         </ul>
       </div>
     </div> <!-- /.row -->
