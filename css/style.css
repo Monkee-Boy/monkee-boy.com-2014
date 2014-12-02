@@ -4822,6 +4822,7 @@ button[type=submit] {
   margin: 0;
   text-align: center;
   z-index: 1;
+  font-size: 24px;
 }
 @media only screen and (max-width: 740px) {
   .stats-list li p {
