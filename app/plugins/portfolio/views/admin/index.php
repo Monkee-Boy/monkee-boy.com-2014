@@ -13,7 +13,7 @@
         <th class="empty itemStatus">&nbsp;</th>
         <th>Name</th>
         <th>Featured</th>
-        <th>App</th>
+        <th>Type</th>
         <?php if($sSort == "manual"): ?>
           <th>Order</th>
         <?php endif; ?>
@@ -41,11 +41,7 @@
             <?php endif; ?>
           </td>
           <td>
-            <?php if($aClient['app'] == 1): ?>
-              Yes
-            <?php else: ?>
-              No
-            <?php endif; ?>
+            <?= $aClient['type_name'] ?>
           </td>
           <?php if($sSort == "manual"): ?>
             <td class="small center">
@@ -62,13 +58,15 @@
               <?php endif; ?>
             </td>
           <?php endif; ?>
-          <td class="center"><?= count($aClient['slides']) ?></td>
+          <td class="center"><?php if($aClient['type'] == 5){ echo "N/A"; }else{ echo count($aClient['slides']); } ?></td>
           <td class="center">
-            <a href="/admin/portfolio/<?= $aClient['id'] ?>/slides/" title="Manage Slides" rel="tooltip">Manage Slides</a>
+            <?php if($aClient['type'] != 5): ?>
+              <a href="/admin/portfolio/<?= $aClient['id'] ?>/slides/" title="Manage Slides" rel="tooltip">Manage Slides</a>
+            <?php endif; ?>
           </td>
           <td class="center">
-            <a href="/admin/portfolio/edit/<?= $aClient['id'] ?>/" title="Edit Client" rel="tooltip"><i class="icon-pencil"></i></a>
-            <a href="/admin/portfolio/delete/<?= $aClient['id'] ?>/" title="Delete Client" rel="tooltip" onclick="return confirm('Are you sure you would like to delete: <?= $aClient['name'] ?>?');"><i class="icon-trash"></i></a>
+            <a href="/admin/portfolio/edit/<?= $aClient['id'] ?>/" title="Edit Client"><i class="icon-pencil"></i></a>
+            <a href="/admin/portfolio/delete/<?= $aClient['id'] ?>/" title="Delete Client" onclick="return confirm('Are you sure you would like to delete: <?= $aClient['name'] ?>?');"><i class="icon-trash"></i></a>
           </td>
         </tr>
       <?php endforeach; ?>

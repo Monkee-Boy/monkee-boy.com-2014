@@ -27,7 +27,7 @@ $aTables = array(
     `sort_order` int,
     `active` tinyint(1),
     `featured` tinyint(1),
-    `app` tinyint(1),
+    `type` tinyint(1),
     `created_datetime` datetime NOT NULL,
     `created_by` int(11) unsigned NOT NULL,
     `updated_datetime` datetime NOT NULL,

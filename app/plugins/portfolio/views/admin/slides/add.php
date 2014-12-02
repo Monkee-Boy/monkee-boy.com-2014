@@ -32,8 +32,21 @@
                 ),
               );
 
-              if($aClient['app'] == 1) {
-                $images = array('listing_image' => $images['listing_image']);
+              if($aClient['type'] == 2) {
+                $images = array(
+                  'listing_image' => $images['listing_image'],
+                  'desktop_image' => $images['desktop_image']
+                );
+              } elseif($aClient['type'] == 3) {
+                $images = array(
+                  'listing_image' => $images['listing_image'],
+                  'tablet_image' => $images['tablet_image']
+                );
+              } elseif($aClient['type'] == 4) {
+                $images = array(
+                  'listing_image' => $images['listing_image'],
+                  'phone_image' => $images['phone_image']
+                );
               }
 
               $i = 1;

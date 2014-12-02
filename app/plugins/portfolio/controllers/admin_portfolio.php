@@ -85,7 +85,7 @@ class admin_portfolio extends adminController {
         "galleryid" => $_POST["gallery"],
         "active" => $this->boolCheck($_POST["active"]),
         "featured" => $this->boolCheck($_POST["featured"]),
-        "app" => $this->boolCheck($_POST["app"]),
+        "type" => $_POST["type"],
         "sort_order" => $sOrder,
         "created_datetime" => date('Y-m-d H:i:s'),
         "created_by" => $_SESSION["admin"]["userid"],
@@ -260,7 +260,7 @@ class admin_portfolio extends adminController {
         "galleryid" => $_POST["gallery"],
         "active" => $this->boolCheck($_POST["active"]),
         "featured" => $this->boolCheck($_POST["featured"]),
-        "app" => $this->boolCheck($_POST["app"]),
+        "type" => $_POST["type"],
         "active" => $this->boolCheck($_POST["active"]),
         "updated_datetime" => date('Y-m-d H:i:s'),
         "updated_by" => $_SESSION["admin"]["userid"]

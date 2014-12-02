@@ -183,9 +183,15 @@
               </div>
 
               <div class="control-group">
-                <label class="control-label" for="form-logo">App</label>
+                <label class="control-label" for="form-logo">Type</label>
                 <div class="controls">
-                  <input type="checkbox" name="app" value="1"<?php echo (($aClient['app'] == 1)?' checked="checked"':''); ?>>
+                  <select name="type">
+                    <option value="1"<?php if($aClient['type'] == 1){ echo ' selected="selected"'; } ?>>Responsive Site (Desktop, Tablet, Phone)</option>
+                    <option value="2"<?php if($aClient['type'] == 2){ echo ' selected="selected"'; } ?>>Non Responsive Site (Desktop)</option>
+                    <option value="3"<?php if($aClient['type'] == 3){ echo ' selected="selected"'; } ?>>Web App (Tablet)</option>
+                    <option value="4"<?php if($aClient['type'] == 4){ echo ' selected="selected"'; } ?>>Mobile App (Phone)</option>
+                    <option value="5"<?php if($aClient['type'] == 5){ echo ' selected="selected"'; } ?>>Marketing</option>
+                  </select>
                 </div>
               </div>
             </div>

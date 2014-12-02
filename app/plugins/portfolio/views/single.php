@@ -7,32 +7,42 @@
     </div>
   </div> <!-- /.row -->
 
+  <?php if(count($aClient['slides']) > 0): ?>
+  <?php $slides = 0; ?>
   <div class="row">
     <div class="port-slider" data-site="site">
       <div class="screens initial">
+        <?php if(!empty($aClient['slides'][0]['desktop_image_url'])): ?>
         <div class="desktop screen active" data-device="desktop">
           <div class="screen-inner">
             <img src="<?php echo $aClient['slides'][0]['desktop_image_url']; ?>">
             <div class="scroll-msg"><span>Want to see it all?</span> Scroll Here</div>
           </div>
         </div> <!-- /.desktop.screen -->
+        <?php $slides++; endif; ?>
 
+        <?php if(!empty($aClient['slides'][0]['tablet_image_url'])): ?>
         <div class="tablet screen right" data-device="tablet">
           <div class="screen-inner">
             <img src="<?php echo $aClient['slides'][0]['tablet_image_url']; ?>">
           </div>
         </div> <!-- /.tablet-screen -->
+        <?php $slides++; endif; ?>
 
+        <?php if(!empty($aClient['slides'][0]['phone_image_url'])): ?>
         <div class="phone screen left" data-device="phone">
           <div class="screen-inner">
             <img src="<?php echo $aClient['slides'][0]['phone_image_url']; ?>">
           </div>
         </div> <!-- /.phone -->
+        <?php $slides++; endif; ?>
 
+        <?php if($slides > 1): ?>
         <div class="slider-nav">
           <a href="#" class="port-left">Rotate Left</a>
           <a href="#" class="port-right">Rotate Right</a>
         </div><!-- /.slider-nav -->
+        <?php endif; ?>
       </div><!-- /.screens -->
 
       <div class="thumbs">
@@ -46,6 +56,7 @@
       </div> <!-- /.thumbs -->
     </div><!-- /.port-slider -->
   </div> <!-- /.row -->
+  <?php endif; ?>
 
   <div class="panel">
     <aside class="text-center">

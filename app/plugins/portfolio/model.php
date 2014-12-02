@@ -107,6 +107,24 @@ class portfolio_model extends appModel {
       $aClient["logo_url"] = $this->imageFolder.$aClient["logo"];
       $aClient["listing_image_url"] = $this->imageFolder.$aClient["listing_image"];
 
+      switch($aClient["type"]) {
+        case 1:
+          $aClient["type_name"] = "Responsive";
+          break;
+        case 2:
+          $aClient["type_name"] = "Non Responsive";
+          break;
+        case 3:
+          $aClient["type_name"] = "Web App";
+          break;
+        case 4:
+          $aClient["type_name"] = "Mobile App";
+          break;
+        case 5:
+          $aClient["type_name"] = "Marketing";
+          break;
+      }
+
       if(!empty($aClient["quotes"])) {
         $aClient["quotes"] = json_decode($aClient["quotes"], true);
       } else {
