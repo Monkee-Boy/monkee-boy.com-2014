@@ -4928,7 +4928,8 @@ button[type=submit] {
 
 .troop-stats-pt2 {
   padding: 20px 0 1px;
-  background-color: #acca32;
+  background: #acca32 url(/images/jungle-overlay.png) no-repeat bottom center;
+  background-size: cover;
 }
 .troop-stats-pt2 li {
   -webkit-box-sizing: border-box;

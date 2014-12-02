@@ -164,11 +164,11 @@
       font-size: 24px;
       color: $teal;
       text-transform: uppercase;
-      @media #{$large-down} { float: none; width: 100%; } 
+      @media #{$large-down} { float: none; width: 100%; }
     }
     p {
       @include span(9 of 12);
-      @media #{$large-down} { width: 100%; } 
+      @media #{$large-down} { width: 100%; }
     }
   }
   .profile-footer {
@@ -321,7 +321,8 @@
 }
 .troop-stats-pt2 {
   padding: 20px 0 1px;
-  background-color: $green;
+  background: $green url(/images/jungle-overlay.png) no-repeat bottom center;
+  background-size: cover;
   li {
     @include span(6 of 12);
     @media #{$small-only} {
