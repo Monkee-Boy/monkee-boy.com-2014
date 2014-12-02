@@ -65,9 +65,16 @@
   .thumbs {
     @include clearfix;
   }
-  .thumbnail, .instructions {
+  .instructions {
     display: block;
     @include span(3 of 12);
+  }
+  .thumbs-slider {
+    padding: 8px 0;
+    @include span(9 of 12);
+    .slick-list {
+      margin-bottom: 20px;
+    }
   }
   @media #{$small-only} {
     .instructions {

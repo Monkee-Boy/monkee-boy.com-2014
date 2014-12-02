@@ -48,13 +48,17 @@
       <div class="thumbs">
         <span class="instructions">please pick a screen to the right to view in the device above</span>
 
-        <?php foreach($aClient['slides'] as $aSlide) { ?>
-        <a href="#" class="thumbnail active" data-screen="<?php echo $aSlide['id']; ?>">
-          <img src="<?php echo $aSlide['listing_image_url']; ?>" alt="">
-        </a>
-        <?php } ?>
+        <div class="thumbs-slider">
+          <?php foreach($aClient['slides'] as $aSlide) { ?>
+            <div>
+              <a href="#" class="thumbnail" data-screen="<?php echo $aSlide['id']; ?>">
+                <img src="<?php echo $aSlide['listing_image_url']; ?>" alt="">
+              </a>
+            </div>
+          <?php } ?>
+        </div> <!-- /.thumbs-slider -->
       </div> <!-- /.thumbs -->
-    </div><!-- /.port-slider -->
+    </div> <!-- /.port-slider -->
   </div> <!-- /.row -->
   <?php endif; ?>
 

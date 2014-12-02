@@ -447,6 +447,8 @@
       this.initMobileSlider();
     }
 
+    this.$thumbs.find('.thumbnail:first').addClass('active');
+
     // add click event to portfolio thumbs
     this.$thumbs.on('click', '.thumbnail', function(e) {
       e.preventDefault();
@@ -482,6 +484,14 @@
     speed: 300,
     slidesToShow: 1,
     slide: 'li'
+  });
+
+  $('.thumbs-slider').slick({
+    dots: true,
+    arrows: false,
+    slidesToShow: 3,
+    infinite: false,
+    swipeToSlide: true
   });
 
   $('.fullwidth-slider ul').slick({

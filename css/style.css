@@ -3088,7 +3088,7 @@ button[type=submit] {
 .port-slider .thumbs:after {
   clear: both;
 }
-.port-slider .thumbnail, .port-slider .instructions {
+.port-slider .instructions {
   display: block;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -3097,6 +3097,19 @@ button[type=submit] {
   float: left;
   padding-left: 15px;
   padding-right: 15px;
+}
+.port-slider .thumbs-slider {
+  padding: 8px 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 75%;
+  float: left;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.port-slider .thumbs-slider .slick-list {
+  margin-bottom: 20px;
 }
 @media only screen and (max-width: 480px) {
   .port-slider .instructions {
