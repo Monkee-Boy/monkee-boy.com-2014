@@ -22,7 +22,7 @@
         <?php $slides++; endif; ?>
 
         <?php if(!empty($aClient['slides'][0]['tablet_image_url'])): ?>
-        <div class="tablet screen right" data-device="tablet">
+        <div class="tablet screen right<?php if($aClient['type'] == 3){ echo ' horizontal'; } ?>" data-device="tablet">
           <div class="screen-inner">
             <img src="<?php echo $aClient['slides'][0]['tablet_image_url']; ?>">
           </div>
