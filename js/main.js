@@ -1001,7 +1001,8 @@
     var map = new google.maps.Map(document.getElementById('contact-map'), {
       zoom: 14,
       center: office_loc,
-      'styles': map_styles
+      'styles': map_styles,
+      scrollwheel: false
     });
 
     var office_marker = new google.maps.Marker({
