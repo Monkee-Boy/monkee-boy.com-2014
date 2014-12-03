@@ -3517,6 +3517,9 @@ button[type=submit] {
   -o-transform: translate(0, 100%);
   transform: translate(0, 100%);
 }
+.hero-circles .circle-expander .title-overlay a {
+  color: #ededed;
+}
 .hero-circles .circle-expander .title-overlay .title {
   display: block;
   font-size: 24px;
@@ -3683,6 +3686,13 @@ button[type=submit] {
     line-height: 80px;
     margin: 0;
   }
+}
+.hero-circles .tagline a {
+  color: #242529;
+  text-decoration: none;
+}
+.hero-circles .tagline a:hover {
+  text-decoration: underline;
 }
 .hero-circles .tagline .subtitle {
   display: none;

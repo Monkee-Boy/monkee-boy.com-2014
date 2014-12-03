@@ -15,8 +15,10 @@
             <div class="bg" style="background-image:url(/images/home-discover.png)" data-bg="/images/home-discover.png"></div>
           </div>
           <p class="tagline first">
-            <span class="title">Discover</span>
-            <span class="subtitle">Strategy <span>+</span> Long Meetings</span>
+            <a href="/our-process/discover/">
+              <span class="title">Discover</span>
+              <span class="subtitle">Strategy <span>+</span> Long Meetings</span>
+            </a>
           </p>
         </li>
         <li>
@@ -25,8 +27,10 @@
             <div class="bg" style="background-image:url(/images/home-create.png)" data-bg="/images/home-create.png"></div>
           </div>
           <p class="tagline second">
-            <span class="title">Create</span>
-            <span class="subtitle">Design <span>+</span> Code</span>
+            <a href="/our-process/create/">
+              <span class="title">Create</span>
+              <span class="subtitle">Design <span>+</span> Code</span>
+            </a>
           </p>
         </li>
         <li>
@@ -35,8 +39,10 @@
             <div class="bg" style="background-image:url(/images/home-evolve.png)" data-bg="/images/home-evolve.png"></div>
           </div>
           <p class="tagline third">
-            <span class="title">Evolve</span>
-            <span class="subtitle">Maintenance <span>+</span> Growth</span>
+            <a href="/our-process/evolve/">
+              <span class="title">Evolve</span>
+              <span class="subtitle">Maintenance <span>+</span> Growth</span>
+            </a>
           </p>
         </li>
       </ul>

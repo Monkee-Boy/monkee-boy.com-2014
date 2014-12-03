@@ -106,6 +106,9 @@
       text-align: center;
       text-transform: uppercase;
       @include translate(0, 100%);
+      a {
+        color: $light-grey;
+      }
       .title {
         display: block;
         font-size: 24px;
@@ -213,6 +216,13 @@
       font-size: 30px;
       line-height: 80px;
       margin: 0;
+    }
+    a {
+      color: $black;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
     }
     .subtitle { display: none; }
     &:before {
