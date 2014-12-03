@@ -2573,14 +2573,20 @@ label {
   opacity: 1;
   filter: alpha(opacity=100);
 }
-.form-monkee .dark-monkee {
+.form-monkee .glasses-monkee, .form-monkee .dark-monkee {
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  background: url(../images/form-monkee-dark.png) no-repeat center center;
   background-size: contain;
+}
+.form-monkee .glasses-monkee {
+  background: url(../images/form-monkee-glasses.png) no-repeat center center;
+  z-index: 1;
+}
+.form-monkee .dark-monkee {
+  background: url(../images/form-monkee-dark.png) no-repeat center center;
   -webkit-transition: opacity 0.3s ease;
   -moz-transition: opacity 0.3s ease;
   -ms-transition: opacity 0.3s ease;

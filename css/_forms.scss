@@ -217,14 +217,20 @@ label {
       @include opacity(1);
     }
   }
-  .dark-monkee {
+  .glasses-monkee, .dark-monkee {
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
-    background: url(../images/form-monkee-dark.png) no-repeat center center;
     background-size: contain;
+  }
+  .glasses-monkee {
+    background: url(../images/form-monkee-glasses.png) no-repeat center center;
+    z-index: 1;
+  }
+  .dark-monkee {
+    background: url(../images/form-monkee-dark.png) no-repeat center center;
     @include transition(opacity 0.3s ease);
   }
 }

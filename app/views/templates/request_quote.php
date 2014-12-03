@@ -31,7 +31,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'home', 'sPageTitle'=>$sTitle]); ?>
 
     <div class="row">
       <div class="form-monkee">
-        <div class="monkee"><div class="dark-monkee"></div></div>
+        <div class="monkee"><div class="glasses-monkee"></div><div class="dark-monkee"></div></div>
       </div><!-- /form-monkee -->
 
       <div class="form-part1">
