@@ -15,9 +15,12 @@ function getContent($id, $tag = null) {
 			,"row"
 		);
 
-	$aContent["title"] = htmlspecialchars(stripslashes($aContent["title"]));
-	$aContent["subtitle"] = htmlspecialchars(stripslashes($aContent["subtitle"]));
-	$aContent["content"] = stripslashes($aContent["content"]);
-
-	return $aContent;
+	if(!empty($aContent)) {
+		$aContent["title"] = htmlspecialchars(stripslashes($aContent["title"]));
+		$aContent["subtitle"] = htmlspecialchars(stripslashes($aContent["subtitle"]));
+		$aContent["content"] = stripslashes($aContent["content"]);
+		return $aContent;
+	} else {
+		return null;
+	}
 }
