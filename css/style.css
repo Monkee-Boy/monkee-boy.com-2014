@@ -4511,15 +4511,22 @@ button[type=submit] {
   visibility: visible;
 }
 .troop-list > li.active .trigger:before {
-  -webkit-transform: rotate(0);
-  -moz-transform: rotate(0);
-  -ms-transform: rotate(0);
-  -o-transform: rotate(0);
-  transform: rotate(0);
-  bottom: -60px;
+  -webkit-transform: rotate(-14deg);
+  -moz-transform: rotate(-14deg);
+  -ms-transform: rotate(-14deg);
+  -o-transform: rotate(-14deg);
+  transform: rotate(-14deg);
+  bottom: -40px;
+  background-color: #23a38f;
 }
 .troop-list > li.active .trigger:after {
-  bottom: -40px;
+  -webkit-transform: rotate(-45deg) scale(1.4);
+  -moz-transform: rotate(-45deg) scale(1.4);
+  -ms-transform: rotate(-45deg) scale(1.4);
+  -o-transform: rotate(-45deg) scale(1.4);
+  transform: rotate(-45deg) scale(1.4);
+  color: #fff;
+  bottom: 10px;
 }
 .troop-list > li.inactive {
   opacity: 0.7;

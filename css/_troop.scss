@@ -39,11 +39,14 @@
       }
       .trigger {
         &:before {
-          @include rotate(0);
-          bottom: -60px;
+          @include rotate(-14deg);
+          bottom: -40px;
+          background-color: $teal;
         }
         &:after {
-          bottom: -40px;
+          @include transform(rotate(-45deg) scale(1.4));
+          color: #fff;
+          bottom: 10px;
         }
       }
     }
