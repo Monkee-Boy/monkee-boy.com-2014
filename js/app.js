@@ -617,13 +617,15 @@ function BlurStack()
       small_break = 480;
 
   // menu
-  $('.main-nav').on('focus, click', '.has-dropdown > a', function(e) {
-    e.preventDefault();
+  if(Modernizr.touch) {
+    $('.main-nav').on('focus, click', '.has-dropdown > a', function(e) {
+      e.preventDefault();
 
-    $(this).parent('li').toggleClass('active');
-  }).on('mouseout', function() {
-    $(this).parent('li').removeClass('active');
-  });
+      $(this).parent('li').toggleClass('active');
+    }).on('mouseout', function() {
+      $(this).parent('li').removeClass('active');
+    });
+  }
 
   $('.mobile-menu').on('click', '.has-dropdown > a', function(e) {
     e.preventDefault();
