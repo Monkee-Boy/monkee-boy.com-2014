@@ -5030,6 +5030,40 @@ button[type=submit] {
   }
 }
 
+.client-list {
+  position: relative;
+  list-style-type: none;
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.client-list > li {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 33.33333%;
+  float: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  -webkit-transition: background 0.3s ease;
+  -moz-transition: background 0.3s ease;
+  -ms-transition: background 0.3s ease;
+  -o-transition: background 0.3s ease;
+  transition: background 0.3s ease;
+}
+@media only screen and (min-width: 481px) and (max-width: 740px) {
+  .client-list > li {
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .client-list > li {
+    width: 100%;
+  }
+}
+
 #contact-map {
   width: 100%;
   border: 12px solid #fff;

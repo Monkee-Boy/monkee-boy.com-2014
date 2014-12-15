@@ -1,0 +1,16 @@
+// client grid
+.client-list {
+  position: relative;
+  list-style-type: none;
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  > li {
+    @include span(4 of 12);
+    padding-top: #{$gutter-width/2}px;
+    padding-bottom: #{$gutter-width/2}px;
+    @include transition(background 0.3s ease);
+    @media #{$medium-only} { width: 50%; }
+    @media #{$small-only} { width: 100%; }
+  }
+}
