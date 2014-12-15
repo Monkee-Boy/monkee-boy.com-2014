@@ -1,12 +1,12 @@
 <footer role="contentinfo">
   <div class="row">
-    <ul class="footer-social">
-      <li><a href="#" title=""><img src="/images/temp-footer-social-icon.png" alt=""></a></li>
-      <li><a href="#" title=""><img src="/images/temp-footer-social-icon.png" alt=""></a></li>
-      <li><a href="#" title=""><img src="/images/temp-footer-social-icon.png" alt=""></a></li>
-      <li><a href="#" title=""><img src="/images/temp-footer-social-icon.png" alt=""></a></li>
-      <li><a href="#" title=""><img src="/images/temp-footer-social-icon.png" alt=""></a></li>
-      <li><a href="#" title=""><img src="/images/temp-footer-social-icon.png" alt=""></a></li>
+    <ul class="footer-social social-links">
+      <li><a href="#" title="Blog" class="blog">Blog</a></li>
+      <li><a href="#" title="Twitter" class="twitter">Twitter</a></li>
+      <li><a href="#" title="Facebook" class="facebook">Facebook</a></li>
+      <li><a href="#" title="Google Plus" class="gplus">Google Plus</a></li>
+      <li><a href="#" title="Instagram" class="instagram">Instagram</a></li>
+      <li><a href="#" title="Pinterest" class="pinterest">Pinterest</a></li>
     </ul>
 
     <div class="bananas">

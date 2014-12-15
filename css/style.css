@@ -1592,6 +1592,9 @@ button.button-full[type=submit] {
   -o-transform: rotate(180deg);
   transform: rotate(180deg);
 }
+.social-links .blog:after {
+  content: "";
+}
 .social-links .twitter:after {
   content: "";
 }

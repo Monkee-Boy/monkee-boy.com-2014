@@ -271,6 +271,7 @@ a {
       }
     }
   }
+  .blog:after { content: $icon-pen; }
   .twitter:after { content: $icon-twitter; }
   .facebook:after { content: $icon-facebook; }
   .linkedin:after { content: $icon-linkedin; }
