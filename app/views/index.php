@@ -171,7 +171,7 @@ ante venenatis.</em></p>
     </div>
   </div>
 
-  <div class="panel-wide home-blog" data-panel-color="light-grey">
+  <!-- <div class="panel-wide home-blog" data-panel-color="light-grey">
     <div class="row section-head" data-text-align="center">
       <span class="section-title dots" data-dots="dual">from the blog</span>
     </div>
@@ -198,6 +198,6 @@ ante venenatis.</em></p>
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
 <?php $this->tplDisplay("inc_footer.php"); ?>
