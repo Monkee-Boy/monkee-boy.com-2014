@@ -3962,19 +3962,23 @@ button[type=submit] {
   left: 0;
   width: 100%;
   height: 200px;
-  background-color: rgba(172, 202, 50, 0);
-  background-image: -moz-linear-gradient(top, #acca32 0%, rgba(172, 202, 50, 0) 100%);
+  background-color: #acca32;
+  background-image: -moz-linear-gradient(top, rgba(172, 202, 50, 0) 0%, #acca32 100%);
   /* FF3.6+ */
-  background-image: -webkit-linear-gradient(top, #acca32 0%, rgba(172, 202, 50, 0) 100%);
+  background-image: -webkit-linear-gradient(top, rgba(172, 202, 50, 0) 0%, #acca32 100%);
   /* Chrome10+,Safari5.1+ */
-  background-image: -o-linear-gradient(top, #acca32 0%, rgba(172, 202, 50, 0) 100%);
+  background-image: -o-linear-gradient(top, rgba(172, 202, 50, 0) 0%, #acca32 100%);
   /* Opera 11.10+ */
-  background-image: -ms-linear-gradient(top, #acca32 0%, rgba(172, 202, 50, 0) 100%);
+  background-image: -ms-linear-gradient(top, rgba(172, 202, 50, 0) 0%, #acca32 100%);
   /* IE10+ */
-  background-image: linear-gradient(to bottom, #acca32 0%, rgba(172, 202, 50, 0) 100%);
+  background-image: linear-gradient(to bottom, rgba(172, 202, 50, 0) 0%, #acca32 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFACCA32', endColorstr='#00ACCA32',GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ACCA32', endColorstr='#FFACCA32',GradientType=0 );
   /* IE6-9 */
+}
+.home-clients > div {
+  position: relative;
+  z-index: 1;
 }
 
 .home-blog .section-title {
