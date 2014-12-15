@@ -122,10 +122,33 @@ ante venenatis.</em></p>
 
     <div class="row-flush">
       <ul class="featured-clients styleless">
-        <li><a href="" title=""><img src="/assets/client-bullock.png" alt=""></a></li>
-        <li><a href="" title=""><img src="/assets/client-austinchamber.png" alt=""></a></li>
-        <li><a href="" title=""><img src="/assets/client-bullock.png" alt=""></a></li>
-        <li><a href="" title=""><img src="/assets/client-austinchamber.png" alt=""></a></li>
+        <?php
+        $aClients = array(
+          array( "name" => "ABC", "logo_svg" => "/images/client-svg/abc.svg" ),
+          array( "name" => "Austin Chamber", "logo_svg" => "/images/client-svg/austin-chamber.svg" ),
+          array( "name" => "Bazaarvoice", "logo_svg" => "/images/client-svg/bazaarvoice.svg" ),
+          array( "name" => "Bullock Museum", "logo_svg" => "/images/client-svg/bullock.svg" ),
+          array( "name" => "CTRMA", "logo_svg" => "/images/client-svg/ctrma.svg" ),
+          array( "name" => "Datical", "logo_svg" => "/images/client-svg/datical.svg" ),
+          array( "name" => "Dell Childrens", "logo_svg" => "/images/client-svg/dellchildrens.svg" ),
+          array( "name" => "Double Dave's", "logo_svg" => "/images/client-svg/doubledaves.svg" ),
+          array( "name" => "ecomass", "logo_svg" => "/images/client-svg/ecomass.svg" ),
+          array( "name" => "Mopac Expressway", "logo_svg" => "/images/client-svg/mopacexpy.svg" ),
+          array( "name" => "OpenSymmetry", "logo_svg" => "/images/client-svg/opensymmetry.svg" ),
+          array( "name" => "Signs-N-Bacon", "logo_svg" => "/images/client-svg/signsnbacon.svg" ),
+          array( "name" => "Spanning", "logo_svg" => "/images/client-svg/spanning.svg" ),
+          array( "name" => "Super Cheap Signs", "logo_svg" => "/images/client-svg/supercheapsigns.svg" ),
+          array( "name" => "Texas Charter Schools", "logo_svg" => "/images/client-svg/texascharterschools.svg" ),
+          array( "name" => "Winmation", "logo_svg" => "/images/client-svg/winmation.svg" )
+        );
+
+        // Shuffle client array and fetch first 4
+        shuffle($aClients);
+        $aClients = array_slice($aClients, 0, 4);
+
+        foreach($aClients as $aClient): ?>
+          <li><a href="/client-list/" title="<?= $aClient['name'] ?>"><img src="<?= $aClient['logo_svg'] ?>" alt="<?= $aClient['name'] ?>"></a></li>
+        <?php endforeach; ?>
       </ul>
     </div>
   </div>
