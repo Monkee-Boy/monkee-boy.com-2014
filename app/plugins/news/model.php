@@ -108,15 +108,8 @@ class news_model extends appModel {
 				$aArticle["excerpt"] = (string)substr(nl2br(htmlspecialchars(stripslashes(strip_tags($aArticle["content"])))), 0, $this->excerptCharacters);
 
 			$aArticle["content"] = stripslashes($aArticle["content"]);
-			$aArticle["url"] = "/news/".date("Y", $aArticle["created_datetime"])."/".date("m", $aArticle["created_datetime"])."/".date("d", $aArticle["created_datetime"])."/".$aArticle["tag"]."/";
+			$aArticle["url"] = "/news/".date("Y", $aArticle["publish_on"])."/".date("m", $aArticle["publish_on"])."/".date("d", $aArticle["publish_on"])."/".$aArticle["tag"]."/";
 			$aArticle["publish_on"] = strtotime($aArticle["publish_on"]);
-
-			$aArticle["author"] = $this->dbQuery(
-				"SELECT * FROM `{dbPrefix}users`"
-					." WHERE `id` = ".$this->dbQuote($aArticle["authorid"], "integer")
-					." LIMIT 1"
-				,"row"
-			);
 
 			$aArticle["categories"] = $this->dbQuery(
 				"SELECT * FROM `{dbPrefix}news_categories` AS `categories`"
