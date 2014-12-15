@@ -451,7 +451,7 @@ body {
   }
   .mobile-home {
     display: none;
-    @media#{$small-only} {
+    @media #{$small-only} {
       display: block;
       border-bottom: #d8ae2a solid 12px;
       background-color: #fcc721;

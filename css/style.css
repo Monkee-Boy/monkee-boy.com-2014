@@ -1531,7 +1531,7 @@ button.button-full[type=submit] {
   display: block;
 }
 
-.icon, .main-nav ul .primary > a:after, .social-links a:before, .social-links a:after, .dots[data-dots='dual']:before, .dots[data-dots='dual']:after, .dots[data-dots='left']:before, .dots[data-dots='right']:after, .service-icon:before, .service-icon:after, .service-icon i:before, .date-input:after, .datepicker thead .prev:after, .datepicker thead .next:after, .port-slider .instructions:before, .share-section a:before, .stats-list li:after, .office-cat p:before {
+.icon, .main-nav ul .primary > a:after, .social-links a:before, .social-links a:after, .dots[data-dots='dual']:before, .dots[data-dots='dual']:after, .dots[data-dots='left']:before, .dots[data-dots='right']:after, .service-icon:before, .service-icon:after, .service-icon i:before, .date-input:after, .datepicker thead .prev:after, .datepicker thead .next:after, .port-slider .thumbs-slider .slick-prev:after, .port-slider .thumbs-slider .slick-next:after, .port-slider .instructions:before, .share-section a:before, .stats-list li:after, .office-cat p:before {
   font-family: "icomoon";
   speak: none;
   font-style: normal;
@@ -2290,6 +2290,9 @@ button.button-full[type=submit] {
   -ms-transform: rotate(0);
   -o-transform: rotate(0);
   transform: rotate(0);
+}
+.accordion.open .content {
+  margin-bottom: 0.75em;
 }
 
 .form-title {
@@ -3105,7 +3108,7 @@ button[type=submit] {
   padding-right: 15px;
 }
 .port-slider .thumbs-slider {
-  padding: 8px 0;
+  position: relative;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -3113,9 +3116,38 @@ button[type=submit] {
   float: left;
   padding-left: 15px;
   padding-right: 15px;
+  padding: 8px 0 8px 15px;
 }
 .port-slider .thumbs-slider .slick-list {
   margin-bottom: 20px;
+}
+.port-slider .thumbs-slider .slick-prev, .port-slider .thumbs-slider .slick-next {
+  position: absolute;
+  top: 38%;
+  text-indent: -9999px;
+  background: #fcc721;
+  border: none;
+  width: 48px;
+  height: 48px;
+}
+.port-slider .thumbs-slider .slick-prev:after, .port-slider .thumbs-slider .slick-next:after {
+  content: "";
+  display: block;
+  position: absolute;
+  text-indent: 0;
+  font-size: 48px;
+  top: 0;
+  left: 0;
+}
+.port-slider .thumbs-slider .slick-prev {
+  left: 15px;
+}
+.port-slider .thumbs-slider .slick-next {
+  right: 25px;
+}
+.port-slider .thumbs-slider .slick-next:after {
+  content: "";
+  right: 0;
 }
 @media only screen and (max-width: 480px) {
   .port-slider .instructions {

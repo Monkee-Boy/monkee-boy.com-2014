@@ -542,5 +542,6 @@
   }
   &.open {
     .trigger:after { @include rotate(0); }
+    .content { margin-bottom: em-calc(18, 24); }
   }
 }

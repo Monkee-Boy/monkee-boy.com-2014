@@ -70,10 +70,40 @@
     @include span(3 of 12);
   }
   .thumbs-slider {
-    padding: 8px 0;
+    position: relative;
     @include span(9 of 12);
+    padding: 8px 0 8px 15px;
     .slick-list {
       margin-bottom: 20px;
+    }
+    .slick-prev, .slick-next {
+      position: absolute;
+      top: 38%;
+      text-indent: -9999px;
+      background: $yellow;
+      border: none;
+      width: 48px;
+      height: 48px;
+      &:after {
+        content: $icon-left;
+        display: block;
+        position: absolute;
+        text-indent: 0;
+        font-size: 48px;
+        top: 0;
+        left: 0;
+        @extend .icon;
+      }
+    }
+    .slick-prev {
+      left: 15px;
+    }
+    .slick-next {
+      right: 25px;
+      &:after {
+        content: $icon-right;
+        right: 0;
+      }
     }
   }
   @media #{$small-only} {

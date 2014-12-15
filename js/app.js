@@ -1100,9 +1100,10 @@ function BlurStack()
   });
 
   $('.thumbs-slider').slick({
-    dots: true,
-    arrows: false,
+    dots: false,
+    arrows: true,
     slidesToShow: 3,
+    slidesToScroll: 3,
     infinite: false,
     swipeToSlide: true
   });
