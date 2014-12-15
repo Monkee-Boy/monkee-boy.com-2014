@@ -72,7 +72,7 @@ class admin_clients extends adminController {
 
     if($_FILES["logo"]["error"] != 4) {
       if($_FILES["logo"]["error"] == 1 || $_FILES["logo"]["error"] == 2) {
-        $this->forward("/admin/clients/?error=".urlencode("Photo file size was too large!"));
+        $this->forward("/admin/clients/?error=".urlencode("Logo file size was too large!"));
       } else {
         $upload_dir = $this->settings->rootPublic.substr($this->model->imageFolder, 1);
         $file_ext = pathinfo($_FILES["logo"]["name"], PATHINFO_EXTENSION);
@@ -95,7 +95,39 @@ class admin_clients extends adminController {
             $sID
           );
 
-          $this->forward("/admin/clients/?info=".urlencode("Failed to upload file!"));
+          $this->forward("/admin/clients/?info=".urlencode("Failed to upload logo!"));
+        }
+      }
+    }
+
+
+
+    if($_FILES["logo_svg"]["error"] != 4) {
+      if($_FILES["logo_svg"]["error"] == 1 || $_FILES["logo_svg"]["error"] == 2) {
+        $this->forward("/admin/clients/?error=".urlencode("SVG logo file size was too large!"));
+      } else {
+        $upload_dir = $this->settings->rootPublic.substr($this->model->imageFolder, 1);
+        $file_ext = pathinfo($_FILES["logo_svg"]["name"], PATHINFO_EXTENSION);
+        $upload_file = 'svg_'.$sID.".".strtolower($file_ext);
+
+        if(move_uploaded_file($_FILES["logo_svg"]["tmp_name"], $upload_dir.$upload_file)) {
+          $this->dbUpdate(
+            "clients",
+            array(
+              "logo_svg" => $upload_file
+            ),
+            $sID
+          );
+        } else {
+          $this->dbUpdate(
+            "clients",
+            array(
+              "active" => 0
+            ),
+            $sID
+          );
+
+          $this->forward("/admin/clients/?info=".urlencode("Failed to upload SVG logo!"));
         }
       }
     }
@@ -155,7 +187,7 @@ class admin_clients extends adminController {
 
     if($_FILES["logo"]["error"] != 4) {
       if($_FILES["logo"]["error"] == 1 || $_FILES["logo"]["error"] == 2) {
-        $this->forward("/admin/clients/?error=".urlencode("Photo file size was too large!"));
+        $this->forward("/admin/clients/?error=".urlencode("Logo file size was too large!"));
       } else {
         $upload_dir = $this->settings->rootPublic.substr($this->model->imageFolder, 1);
         $file_ext = pathinfo($_FILES["logo"]["name"], PATHINFO_EXTENSION);
@@ -185,7 +217,44 @@ class admin_clients extends adminController {
             $_POST["id"]
           );
 
-          $this->forward("/admin/clients/?error=".urlencode("Failed to upload file!"));
+          $this->forward("/admin/clients/?error=".urlencode("Failed to upload logo!"));
+        }
+      }
+    }
+
+    if($_FILES["logo_svg"]["error"] != 4) {
+      if($_FILES["logo_svg"]["error"] == 1 || $_FILES["logo_svg"]["error"] == 2) {
+        $this->forward("/admin/clients/?error=".urlencode("SVG logo file size was too large!"));
+      } else {
+        $upload_dir = $this->settings->rootPublic.substr($this->model->imageFolder, 1);
+        $file_ext = pathinfo($_FILES["logo_svg"]["name"], PATHINFO_EXTENSION);
+        $upload_file = 'svg_'.$_POST["id"].".".strtolower($file_ext);
+
+        $sClient = $this->dbQuery(
+          "SELECT `logo_svg` FROM `{dbPrefix}clients`"
+          ." WHERE `id` = ".$_POST["id"]
+          ,"one"
+        );
+        @unlink($upload_dir.$sClient);
+
+        if(move_uploaded_file($_FILES["logo_svg"]["tmp_name"], $upload_dir.$upload_file)) {
+          $this->dbUpdate(
+            "clients",
+            array(
+              "logo_svg" => $upload_file
+            ),
+            $_POST["id"]
+          );
+        } else {
+          $this->dbUpdate(
+            "clients",
+            array(
+              "active" => 0
+            ),
+            $_POST["id"]
+          );
+
+          $this->forward("/admin/clients/?error=".urlencode("Failed to upload SVG logo!"));
         }
       }
     }

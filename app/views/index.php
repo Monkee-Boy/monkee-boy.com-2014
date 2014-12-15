@@ -122,10 +122,17 @@ ante venenatis.</em></p>
 
     <div class="row-flush">
       <ul class="featured-clients styleless">
-        <li><a href="" title=""><img src="/assets/client-bullock.png" alt=""></a></li>
-        <li><a href="" title=""><img src="/assets/client-austinchamber.png" alt=""></a></li>
-        <li><a href="" title=""><img src="/assets/client-bullock.png" alt=""></a></li>
-        <li><a href="" title=""><img src="/assets/client-austinchamber.png" alt=""></a></li>
+        <?php
+        $oClient = $this->loadModel('clients');
+        $aClients = $oClient->getClients(false, true, true);
+
+        // Shuffle client array and fetch first 4
+        shuffle($aClients);
+        $aClients = array_slice($aClients, 0, 4);
+
+        foreach($aClients as $aClient): ?>
+          <li><a href="/client-list/" title="<?= $aClient['name'] ?>"><img src="<?= $aClient['logo_svg_url'] ?>" alt="<?= $aClient['name'] ?>"></a></li>
+        <?php endforeach; ?>
       </ul>
     </div>
   </div>
