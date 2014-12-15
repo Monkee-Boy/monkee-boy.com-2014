@@ -19,7 +19,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'contact','sPageTitle'=>$sTitle]);
 
 <div class="row">
 	<div class="full" data-text-align="center">
-		<h2>9390 Research Blvd. Suite 425,</h2>
+		<h2>9390 Research Blvd. Bldg II, Suite 425,</h2>
 		<h3>Austin, TX 78759</h3>
 
 		<p><a href="#">Directions</a></p>
