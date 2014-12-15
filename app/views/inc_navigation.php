@@ -40,7 +40,12 @@
               <li><a href="/testimonials/">Testimonials</a></li>
             </ul>
           </li>
-          <li class="primary"><a href="/contact/" title="" class="nav-contact">Contact</a></li>
+          <li class="primary">
+            <a href="/contact/" title="" class="nav-contact">Contact</a>
+            <ul>
+              <li><a href="/work-with-us/" title="Work With Us">Work With Us</a></li>
+            </ul>
+          </li>
           <li class="primary"><a href="/blog/" title="" class="nav-blog">The Blog</a></li>
         </ul>
       </div>
