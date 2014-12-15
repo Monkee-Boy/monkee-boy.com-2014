@@ -405,7 +405,7 @@ class portfolio_model extends appModel {
 
     $aService = $this->_getServiceInfo($aService);
 
-    if($sRecursive == true) {
+    if($sRecursive == true && !empty($aService)) {
       $aService['subs'] = $this->getServicesSubs($aService['id'], true);
     }
 
