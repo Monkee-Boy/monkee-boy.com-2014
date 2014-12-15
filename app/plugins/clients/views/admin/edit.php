@@ -48,7 +48,7 @@
             <div class="accordion-inner">
               <?php if(!empty($aClient['logo'])): ?>
                 <div class="control-group photo-show">
-                  <img src="<?= $imageFolder.$aClient['logo_url'] ?>" alt="Client Image" style="max-width: 300px;"><br />
+                  <img src="<?= $aClient['logo_url'] ?>" alt="Client Image" style="max-width: 300px;"><br />
                   <a href="#">Replace Logo</a>
                 </div>
               <?php endif; ?>
@@ -57,6 +57,29 @@
                 <label class="control-label" for="form-tag">Upload Logo</label>
                 <div class="controls">
                   <input type="file" name="logo">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <span class="accordion-toggle">SVG Logo</span>
+          </div>
+          <div id="pageseo" class="accordion-body">
+            <div class="accordion-inner">
+              <?php if(!empty($aClient['logo_svg'])): ?>
+                <div class="control-group photo-show">
+                  <img src="<?= $aClient['logo_svg_url'] ?>" alt="Client SVG Image" style="max-width: 300px;"><br />
+                  <a href="#">Replace SVG Logo</a>
+                </div>
+              <?php endif; ?>
+
+              <div class="control-group photo-upload"<?php if(!empty($aClient['logo_svg'])){ echo ' style="display: none;"'; } ?>>
+                <label class="control-label" for="form-tag">Upload SVG Logo</label>
+                <div class="controls">
+                  <input type="file" name="logo_svg">
                 </div>
               </div>
             </div>

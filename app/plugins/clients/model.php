@@ -13,13 +13,18 @@ class clients_model extends appModel {
     }
   }
 
-  function getClients($sRandom = false, $sAll = false) {
+  function getClients($sRandom = false, $sAll = false, $sSVG = false) {
     $aWhere = array();
     $sJoin = "";
 
     // Filter those that are only active, unless told otherwise
     if($sAll == false) {
       $aWhere[] = "`active` = 1";
+    }
+
+    // Filter to only those that have SVG logo
+    if($sSVG == true) {
+      $aWhere[] = "`logo_svg` <> ''";
     }
 
     // Combine filters if atleast one was added
@@ -100,6 +105,7 @@ class clients_model extends appModel {
     if(!empty($aClient)) {
       $aClient["name"] = htmlspecialchars(stripslashes($aClient["name"]));
       $aClient["logo_url"] = $this->imageFolder.$aClient["logo"];
+      $aClient["logo_svg_url"] = $this->imageFolder.$aClient["logo_svg"];
     }
 
     return $aClient;

@@ -6,6 +6,7 @@
     <thead>
       <tr>
         <th>Name</th>
+        <th>SVG Logo</th>
         <?php if($sSort == "manual"): ?>
           <th>Order</th>
         <?php endif; ?>
@@ -16,6 +17,7 @@
       <?php foreach($aClients as $aClient): ?>
         <tr>
           <td><?= $aClient['name'] ?></td>
+          <td><?= (!empty($aClient['logo_svg']))?'Yes':'No' ?></td>
           <?php if($sSort == "manual"): ?>
             <td class="small center">
               <span class="hidden"><?= $aClient['sort_order'] ?></span>

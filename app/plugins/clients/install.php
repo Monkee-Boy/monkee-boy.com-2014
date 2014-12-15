@@ -14,6 +14,7 @@ $aTables = array(
     `name` varchar(255),
     `website` varchar(255),
     `logo` varchar(255),
+    `logo_svg` varchar(255),
     `sort_order` int,
     `active` tinyint(1),
     `created_datetime` datetime NOT NULL,
