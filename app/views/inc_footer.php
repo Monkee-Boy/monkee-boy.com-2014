@@ -1,12 +1,12 @@
 <footer role="contentinfo">
   <div class="row">
     <ul class="footer-social social-links">
-      <li><a href="#" title="Twitter" class="twitter">Twitter</a></li>
-      <li><a href="#" title="Facebook" class="facebook">Facebook</a></li>
-      <li><a href="#" title="Google Plus" class="gplus">Google Plus</a></li>
-      <li><a href="#" title="Instagram" class="instagram">Instagram</a></li>
-      <li><a href="#" title="Pinterest" class="pinterest">Pinterest</a></li>
       <li><a href="http://monkee-boy.com/blog/" title="Blog" class="blog">Blog</a></li>
+      <li><a href="https://twitter.com/monkeeboy" title="Twitter" class="twitter">Twitter</a></li>
+      <li><a href="https://www.facebook.com/monkeeboyweb" title="Facebook" class="facebook">Facebook</a></li>
+      <li><a href="https://plus.google.com/102739090440232730366/posts" title="Google Plus" class="gplus">Google Plus</a></li>
+      <li><a href="http://instagram.com/monkeeboyweb" title="Instagram" class="instagram">Instagram</a></li>
+      <li><a href="http://www.pinterest.com/monkeeboy/" title="Pinterest" class="pinterest">Pinterest</a></li>
     </ul>
 
     <div class="bananas">
