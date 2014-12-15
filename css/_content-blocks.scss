@@ -394,19 +394,11 @@
 
   .home-portfolio & {
     display: inline-block;
-    &:before, &:after {
-      content: "";
-      position: absolute;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background-color: $darker-light-grey;
-    }
     &:before { top: 28px; }
     &:after { top: 38px; }
     li {
       position: relative;
-      width: 80px;
+      width: 84px;
       z-index: 1;
     }
     .service-icon { font-size: 70px; }
