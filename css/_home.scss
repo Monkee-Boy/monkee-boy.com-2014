@@ -114,6 +114,7 @@
         font-size: 24px;
         font-weight: bold;
         color: $green;
+        &.closed { display: none; }
       }
       .subtitle {
         font-size: 52px;
@@ -224,6 +225,7 @@
         text-decoration: underline;
       }
     }
+    .open { display: none; }
     .subtitle { display: none; }
     &:before {
       position: absolute;

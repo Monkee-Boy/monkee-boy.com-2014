@@ -16,8 +16,9 @@
           </div>
           <p class="tagline first">
             <a href="/our-process/discover/">
-              <span class="title">Discover</span>
-              <span class="subtitle">Strategy <span>+</span> Long Meetings</span>
+              <span class="title closed"><?= $this->getSetting('homepage-slider-discover-title'); ?></span>
+              <span class="title open"><?= $this->getSetting('homepage-slider-discover-title-open'); ?></span>
+              <span class="subtitle"><?= $this->getSetting('homepage-slider-discover-text'); ?></span>
             </a>
           </p>
         </li>
@@ -28,8 +29,9 @@
           </div>
           <p class="tagline second">
             <a href="/our-process/create/">
-              <span class="title">Create</span>
-              <span class="subtitle">Design <span>+</span> Code</span>
+              <span class="title closed"><?= $this->getSetting('homepage-slider-create-title'); ?></span>
+              <span class="title open"><?= $this->getSetting('homepage-slider-create-title-open'); ?></span>
+              <span class="subtitle"><?= $this->getSetting('homepage-slider-create-text'); ?></span>
             </a>
           </p>
         </li>
@@ -40,8 +42,9 @@
           </div>
           <p class="tagline third">
             <a href="/our-process/evolve/">
-              <span class="title">Evolve</span>
-              <span class="subtitle">Maintenance <span>+</span> Growth</span>
+              <span class="title closed"><?= $this->getSetting('homepage-slider-evolve-title'); ?></span>
+              <span class="title open"><?= $this->getSetting('homepage-slider-evolve-title-open'); ?></span>
+              <span class="subtitle"><?= $this->getSetting('homepage-slider-evolve-text'); ?></span>
             </a>
           </p>
         </li>

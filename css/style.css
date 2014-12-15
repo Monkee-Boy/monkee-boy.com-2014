@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
@@ -735,19 +736,19 @@ body.menu-open .container {
   background: #1c1c1e;
 }
 .main-nav ul .primary > a.nav-who:after {
-  content: "\e60d";
+  content: "";
 }
 .main-nav ul .primary > a.nav-what:after {
-  content: "\e610";
+  content: "";
 }
 .main-nav ul .primary > a.nav-work:after {
-  content: "\e60c";
+  content: "";
 }
 .main-nav ul .primary > a.nav-contact:after {
-  content: "\e60e";
+  content: "";
 }
 .main-nav ul .primary > a.nav-blog:after {
-  content: "\e60f";
+  content: "";
 }
 
 .mobile-menu-container {
@@ -862,7 +863,7 @@ body.menu-open .container {
     border-bottom: 4px solid #000;
   }
   .mobile-header .mobile-menu-trigger:before {
-    content: "\e626";
+    content: "";
     display: block;
     font-size: 48px;
     font-family: "icomoon";
@@ -1078,7 +1079,6 @@ body.menu-open .container {
     -o-transform: rotate(45deg) skewX(5deg) skewY(5deg);
     transform: rotate(45deg) skewX(5deg) skewY(5deg);
   }
-
   50% {
     -webkit-transform: rotate(45deg) skewX(10deg) skewY(10deg);
     -moz-transform: rotate(45deg) skewX(10deg) skewY(10deg);
@@ -1086,7 +1086,6 @@ body.menu-open .container {
     -o-transform: rotate(45deg) skewX(10deg) skewY(10deg);
     transform: rotate(45deg) skewX(10deg) skewY(10deg);
   }
-
   100% {
     -webkit-transform: rotate(45deg) skewX(5deg) skewY(5deg);
     -moz-transform: rotate(45deg) skewX(5deg) skewY(5deg);
@@ -1103,7 +1102,6 @@ body.menu-open .container {
     -o-transform: rotate(45deg) skewX(5deg) skewY(5deg);
     transform: rotate(45deg) skewX(5deg) skewY(5deg);
   }
-
   50% {
     -webkit-transform: rotate(45deg) skewX(10deg) skewY(10deg);
     -moz-transform: rotate(45deg) skewX(10deg) skewY(10deg);
@@ -1111,7 +1109,6 @@ body.menu-open .container {
     -o-transform: rotate(45deg) skewX(10deg) skewY(10deg);
     transform: rotate(45deg) skewX(10deg) skewY(10deg);
   }
-
   100% {
     -webkit-transform: rotate(45deg) skewX(5deg) skewY(5deg);
     -moz-transform: rotate(45deg) skewX(5deg) skewY(5deg);
@@ -1128,7 +1125,6 @@ body.menu-open .container {
     -o-transform: rotate(45deg) skewX(5deg) skewY(5deg);
     transform: rotate(45deg) skewX(5deg) skewY(5deg);
   }
-
   50% {
     -webkit-transform: rotate(45deg) skewX(10deg) skewY(10deg);
     -moz-transform: rotate(45deg) skewX(10deg) skewY(10deg);
@@ -1136,7 +1132,6 @@ body.menu-open .container {
     -o-transform: rotate(45deg) skewX(10deg) skewY(10deg);
     transform: rotate(45deg) skewX(10deg) skewY(10deg);
   }
-
   100% {
     -webkit-transform: rotate(45deg) skewX(5deg) skewY(5deg);
     -moz-transform: rotate(45deg) skewX(5deg) skewY(5deg);
@@ -1153,7 +1148,6 @@ body.menu-open .container {
     -o-transform: rotate(45deg) skewX(5deg) skewY(5deg);
     transform: rotate(45deg) skewX(5deg) skewY(5deg);
   }
-
   50% {
     -webkit-transform: rotate(45deg) skewX(10deg) skewY(10deg);
     -moz-transform: rotate(45deg) skewX(10deg) skewY(10deg);
@@ -1161,7 +1155,6 @@ body.menu-open .container {
     -o-transform: rotate(45deg) skewX(10deg) skewY(10deg);
     transform: rotate(45deg) skewX(10deg) skewY(10deg);
   }
-
   100% {
     -webkit-transform: rotate(45deg) skewX(5deg) skewY(5deg);
     -moz-transform: rotate(45deg) skewX(5deg) skewY(5deg);
@@ -1564,7 +1557,7 @@ button.button-full[type=submit] {
   text-align: center;
 }
 .social-links a:before {
-  content: "\e60b";
+  content: "";
   color: #acca32;
   font-size: 54px;
   line-height: 1;
@@ -1600,25 +1593,25 @@ button.button-full[type=submit] {
   transform: rotate(180deg);
 }
 .social-links .blog:after {
-  content: "\e624";
+  content: "";
 }
 .social-links .twitter:after {
-  content: "\e61b";
+  content: "";
 }
 .social-links .facebook:after {
-  content: "\e61c";
+  content: "";
 }
 .social-links .linkedin:after {
-  content: "\e620";
+  content: "";
 }
 .social-links .gplus:after {
-  content: "\e61d";
+  content: "";
 }
 .social-links .instagram:after {
-  content: "\e621";
+  content: "";
 }
 .social-links .pinterest:after {
-  content: "\e61e";
+  content: "";
 }
 
 .page-title {
@@ -1933,7 +1926,7 @@ button.button-full[type=submit] {
   position: relative;
 }
 .dots[data-dots='dual']:before, .dots[data-dots='dual']:after, .dots[data-dots='left']:before, .dots[data-dots='right']:after {
-  content: "\e623";
+  content: "";
   position: absolute;
   bottom: 0;
   color: #ededed;
@@ -1965,11 +1958,11 @@ button.button-full[type=submit] {
   line-height: 240px;
 }
 .service-icon:before {
-  content: "\e60b";
+  content: "";
   color: #fff;
 }
 .service-icon:after {
-  content: "\e606";
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -1992,37 +1985,37 @@ button.button-full[type=submit] {
   color: #acca32;
 }
 .service-icon.strategy i:before {
-  content: "\e616";
+  content: "";
 }
 .service-icon.design:after {
   color: #23a38f;
 }
 .service-icon.design i:before {
-  content: "\e611";
+  content: "";
 }
 .service-icon.development:after {
   color: #8fa82a;
 }
 .service-icon.development i:before {
-  content: "\e612";
+  content: "";
 }
 .service-icon.marketing:after {
   color: #1a7a6c;
 }
 .service-icon.marketing i:before {
-  content: "\e615";
+  content: "";
 }
 .service-icon.maintenance:after {
   color: #fcc721;
 }
 .service-icon.maintenance i:before {
-  content: "\e614";
+  content: "";
 }
 .service-icon.growth:after {
   color: #b2b2b2;
 }
 .service-icon.growth i:before {
-  content: "\e613";
+  content: "";
 }
 
 .service-icons {
@@ -2474,7 +2467,7 @@ label {
   content: "";
   border-style: solid;
   border-width: 0 120px 6px 0;
-  border-color: transparent white transparent transparent;
+  border-color: transparent #fff transparent transparent;
   position: absolute;
   right: 0.83333em;
   bottom: -6px;
@@ -2736,7 +2729,7 @@ button[type=submit] {
   height: 3.88889em;
 }
 .date-input:after {
-  content: "\e625";
+  content: "";
   position: absolute;
   right: 20px;
   top: 0;
@@ -2920,10 +2913,10 @@ button[type=submit] {
   cursor: pointer;
 }
 .datepicker thead .prev:after {
-  content: "\e627";
+  content: "";
 }
 .datepicker thead .next:after {
-  content: "\e628";
+  content: "";
 }
 .datepicker thead .dow {
   font-weight: normal;
@@ -3133,7 +3126,7 @@ button[type=submit] {
   height: 48px;
 }
 .port-slider .thumbs-slider .slick-prev:after, .port-slider .thumbs-slider .slick-next:after {
-  content: "\e627";
+  content: "";
   display: block;
   position: absolute;
   text-indent: 0;
@@ -3148,7 +3141,7 @@ button[type=submit] {
   right: 25px;
 }
 .port-slider .thumbs-slider .slick-next:after {
-  content: "\e628";
+  content: "";
   right: 0;
 }
 @media only screen and (max-width: 480px) {
@@ -3182,7 +3175,7 @@ button[type=submit] {
   text-align: center;
 }
 .port-slider .instructions:before {
-  content: "\e617";
+  content: "";
   display: block;
   font-size: 70px;
 }
@@ -3288,7 +3281,7 @@ button[type=submit] {
   outline: none;
 }
 .slick-loading .slick-list {
-  background: white slick-image-url("ajax-loader.gif") center center no-repeat;
+  background: #fff slick-image-url("ajax-loader.gif") center center no-repeat;
 }
 .slick-list.dragging {
   cursor: pointer;
@@ -3566,6 +3559,9 @@ button[type=submit] {
   font-weight: bold;
   color: #acca32;
 }
+.hero-circles .circle-expander .title-overlay .title.closed {
+  display: none;
+}
 .hero-circles .circle-expander .title-overlay .subtitle {
   font-size: 52px;
   color: #fff;
@@ -3733,6 +3729,9 @@ button[type=submit] {
 }
 .hero-circles .tagline a:hover {
   text-decoration: underline;
+}
+.hero-circles .tagline .open {
+  display: none;
 }
 .hero-circles .tagline .subtitle {
   display: none;
@@ -4310,13 +4309,13 @@ button[type=submit] {
   vertical-align: middle;
 }
 .share-section a.twitter:before {
-  content: "\e61b";
+  content: "";
 }
 .share-section a.facebook:before {
-  content: "\e61c";
+  content: "";
 }
 .share-section a.pinterest:before {
-  content: "\e61e";
+  content: "";
 }
 .share-section a:after {
   content: "";
@@ -4888,19 +4887,19 @@ button[type=submit] {
   }
 }
 .stats-list li.mobile-os:after {
-  content: "\e604";
+  content: "";
 }
 .stats-list li.bananas:after {
-  content: "\e600";
+  content: "";
 }
 .stats-list li.tacos:after {
-  content: "\e605";
+  content: "";
 }
 .stats-list li.code:after {
-  content: "\e602";
+  content: "";
 }
 .stats-list li.desktop-os:after {
-  content: "\e603";
+  content: "";
 }
 .stats-list li p {
   position: absolute;
@@ -5000,7 +4999,7 @@ button[type=submit] {
   }
 }
 .office-cat p:before {
-  content: "\e601";
+  content: "";
   font-size: 100px;
   color: #1a7a6c;
   padding-right: 30px;
@@ -5112,3 +5111,5 @@ button[type=submit] {
 .phone-directory h4 {
   color: #acca32;
 }
+
+/*# sourceMappingURL=style.css.map */
