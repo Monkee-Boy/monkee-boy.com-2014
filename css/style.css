@@ -4485,7 +4485,7 @@ button[type=submit] {
   list-style-type: none;
   padding: 0;
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 55px;
 }
 .troop-list > li {
   -webkit-box-sizing: border-box;
