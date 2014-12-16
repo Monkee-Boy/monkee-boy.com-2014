@@ -5218,4 +5218,51 @@ button[type=submit] {
   display: block;
 }
 
+.testimonial-item {
+  font-family: "effra", sans-serif;
+}
+.testimonial-item:before, .testimonial-item:after {
+  content: " ";
+  display: table;
+}
+.testimonial-item:after {
+  clear: both;
+}
+.testimonial-item .client {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 25%;
+  float: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: right;
+  font-size: 28px;
+  color: #5e5e5e;
+}
+.testimonial-item .testimonial {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 66.66667%;
+  float: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  float: right;
+  color: #979797;
+}
+.testimonial-item .testimonial .text {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.testimonial-item .testimonial .name {
+  color: #23a38f;
+  text-transform: uppercase;
+  font-size: 22px;
+  font-weight: bold;
+}
+.testimonial-item .testimonial .title {
+  font-size: 16px;
+}
+
 /*# sourceMappingURL=style.css.map */

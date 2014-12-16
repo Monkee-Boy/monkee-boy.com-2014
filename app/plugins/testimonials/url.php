@@ -12,7 +12,7 @@
  #   /<tag:[a-z]+>/
 */
 $aPluginUrlPatterns = array(
-    "/testimonials/" => array(
+  "/testimonials/" => array(
 		"cmd" => "testimonials",
 		"action" => "index"
 	),

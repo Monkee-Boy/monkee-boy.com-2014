@@ -36,7 +36,8 @@ class testimonials_model extends appModel {
 		}
 
 		// Check if sort direction is set, and clean it up for SQL use
-		$sSortDirection = array_pop(explode("-", $this->sort));
+		$aSortDirection = explode("-", $this->sort);
+		$sSortDirection = array_pop($aSortDirection);
 		if(empty($sSortDirection) || !in_array(strtolower($sSortDirection), array("asc", "desc"))) {
 			$sSortDirection = "ASC";
 		} else {
@@ -44,7 +45,7 @@ class testimonials_model extends appModel {
 		}
 
 		// Choose sort method based on model setting
-		switch(array_shift(explode("-", $this->sort))) {
+		switch(array_shift($aSortDirection)) {
 			case "manual":
 				$sOrderBy = " ORDER BY `sort_order` ".$sSortDirection;
 				break;
@@ -105,8 +106,9 @@ class testimonials_model extends appModel {
 	}
 	private function _getTestimonialInfo($aTestimonial) {
 		if(!empty($aTestimonial)) {
+			$aTestimonial["client"] = htmlspecialchars(stripslashes($aTestimonial["client"]));
 			$aTestimonial["name"] = htmlspecialchars(stripslashes($aTestimonial["name"]));
-			$aTestimonial["sub_name"] = htmlspecialchars(stripslashes($aTestimonial["sub_name"]));
+			$aTestimonial["title"] = htmlspecialchars(stripslashes($aTestimonial["title"]));
 			$aTestimonial["text"] = strip_tags(stripslashes($aTestimonial["text"]), "<embed><param><object>");
 			$aTestimonial["url"] = "/testimonials/".$aTestimonial["tag"]."/";
 		}
@@ -128,7 +130,8 @@ class testimonials_model extends appModel {
 		}
 
 		// Check if sort direction is set, and clean it up for SQL use
-		$sSortDirection = array_pop(explode("-", $this->sortCategory));
+		$aSortDirection = explode("-", $this->sortCategory);
+		$sSortDirection = array_pop($aSortDirection);
 		if(empty($sSortDirection) || !in_array(strtolower($sSortDirection), array("asc", "desc"))) {
 			$sSortDirection = "ASC";
 		} else {
@@ -136,7 +139,7 @@ class testimonials_model extends appModel {
 		}
 
 		// Choose sort method based on model setting
-		switch(array_shift(explode("-", $this->sortCategory))) {
+		switch(array_shift($aSortDirection)) {
 			case "manual":
 				$sOrderBy = " ORDER BY `sort_order` ".$sSortDirection;
 				break;
