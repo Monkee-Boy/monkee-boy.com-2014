@@ -1,7 +1,7 @@
 <?php $this->tplDisplay("inc_header.php", ['menu'=>'testimonials','page_title'=>'Testimonials']); ?>
 
 <div class="row">
-	<div class="sub-page-title">
+	<div class="page-title">
 		<h1>Testimonials</h1>
 		<p class="subtitle">we do stuff, in our office &amp; around town</p>
 	</div>
