@@ -25,7 +25,7 @@
 
   <script src="/js/modernizr.js"></script>
 </head>
-<body <?php if(!empty($menu)): ?> class="page-$menu"<?php endif; ?>>
+<body <?php if(!empty($menu)): ?> class="page-<?= $menu ?>"<?php endif; ?>>
   <!--[if lt IE 9]><p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p><![endif]-->
 
 <div class="container" role="document">
