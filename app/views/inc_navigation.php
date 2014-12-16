@@ -17,12 +17,12 @@
 
         <ul class="main-menu">
           <li class="primary has-dropdown">
-            <a href="/why-monkee-boy/" class="nav-who">Who We Are</a>
+            <a href="/join-the-troop/" class="nav-who">Who We Are</a>
             <ul>
               <li><a href="/why-monkee-boy/">Why Monkee-Boy?</a></li>
               <li><a href="/the-troop/">The Troop</a></li>
               <li><a href="/latest-news/">Latest News</a></li>
-              <li><a href="/careers/">Join the Troop</a></li>
+              <li><a href="/join-the-troop/">Join the Troop</a></li>
             </ul>
           </li>
           <li class="primary has-dropdown">
