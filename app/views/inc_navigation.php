@@ -18,27 +18,15 @@
         <ul class="main-menu">
           <li class="primary has-dropdown">
             <a href="/join-the-troop/" class="nav-who">Who We Are</a>
-            <ul>
-              <li><a href="/why-monkee-boy/">Why Monkee-Boy?</a></li>
-              <li><a href="/the-troop/">The Troop</a></li>
-              <li><a href="/latest-news/">Latest News</a></li>
-              <li><a href="/join-the-troop/">Join the Troop</a></li>
-            </ul>
+            <?php $this->tplDisplay('subnav/who.php', array('from'=>'nav')); ?>
           </li>
           <li class="primary has-dropdown">
             <a href="/our-process/" title="" class="nav-what">What We Do</a>
-            <ul>
-              <li><a href="/our-process/discover/">Discover</a></li>
-              <li><a href="/our-process/create/">Create</a></li>
-              <li><a href="/our-process/evolve/">Evolve</a></li>
-            </ul>
+            <?php $this->tplDisplay('subnav/what.php', array('from'=>'nav')); ?>
           </li>
           <li class="primary has-dropdown">
             <a href="/the-work/" title="" class="nav-work">The Work</a>
-            <ul>
-              <li><a href="/client-list/">Featured Clients</a></li>
-              <li><a href="/testimonials/">Testimonials</a></li>
-            </ul>
+            <?php $this->tplDisplay('subnav/work.php', array('from'=>'nav')); ?>
           </li>
           <li class="primary">
             <a href="/contact/" title="" class="nav-contact">Contact</a>
