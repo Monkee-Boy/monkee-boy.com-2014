@@ -6,67 +6,35 @@ if($sPluginStatus == 1) {
 }
 
 $aTables = array(
-	"testimonials" => array(
-		"fields" => array(
-			"id" => array(
-				"type" => "integer",
-				"unsigned" => 1,
-				"notnull" => 1,
-				"default" => 0,
-				"autoincrement" => 1
-			),
-			"name" => array("type" => "text","length" => 100),
-			"sub_name" => array("type" => "text","length" => 100),
-			"text" => array("type" => "clob"),
-			"tag" => array("type" => "text","length" => 100),
-			"sort_order" => array("type" => "integer","unsigned" => 1,"notnull" => 1,"default" => 0),
-			"active" => array("type" => "boolean"),
-			"created_datetime" => array("type" => "integer","unsigned" => 1,"notnull" => 1,"default" => 0),
-			"created_by" => array("type" => "integer","unsigned" => 1,"notnull" => 1,"default" => 0),
-			"updated_datetime" => array("type" => "integer","unsigned" => 1,"notnull" => 1,"default" => 0),
-			"updated_by" => array("type" => "integer","unsigned" => 1,"notnull" => 1,"default" => 0)
-		),
-		"index" => array("active"),
-		"unique" => array("sort_order", "tag"),
-		"fulltext" => array("name", "sub_name", "text"),
-		"search" => array(
-			"title" => "name",
-			"content" => "text",
-			"rows" => array("name", "sub_name", "text"),
-			"filter" => "`active` = 1"
-		)
-	),
-	"testimonials_categories" => array(
-		"fields" => array(
-			"id" => array(
-				"type" => "integer",
-				"unsigned" => 1,
-				"notnull" => 1,
-				"default" => 0,
-				"autoincrement" => 1
-			),
-			"name" => array("type" => "text","length" => 100),
-			"sort_order" => array("type" => "integer","unsigned" => 1,"notnull" => 1,"default" => 0)
-		),
-		"unique" => array("sort_order")
-	),
-	"testimonials_categories_assign" => array(
-		"fields" => array(
-			"testimonialid" => array(
-				"type" => "integer",
-				"unsigned" => 1,
-				"notnull" => 1,
-				"default" => 0
-			),
-			"categoryid" => array(
-				"type" => "integer",
-				"unsigned" => 1,
-				"notnull" => 1,
-				"default" => 0
-			)
-		),
-		"index" => array("testimonialid", "categoryid")
-	)
+	'testimonials' => 'CREATE TABLE `{dbPrefix}testimonials` (
+		`id` int(11) unsigned NOT NULL auto_increment,
+		`client` varchar(100),
+		`name` varchar(100),
+		`title` varchar(100),
+		`text` longtext,
+		`tag` varchar(100),
+		`sort_order` int,
+		`active` tinyint(1),
+		`created_datetime` datetime NOT NULL,
+		`created_by` int(11) unsigned NOT NULL,
+		`updated_datetime` datetime NOT NULL,
+		`updated_by` int(11) unsigned NOT NULL,
+		PRIMARY KEY (`id`),
+		INDEX `index` (`sort_order`, `active`)
+	) Engine=MyISAM;',
+	"testimonials_categories" => 'CREATE TABLE `{dbPrefix}testimonials_categories` (
+		`id` int(11) unsigned NOT NULL auto_increment,
+		`name` varchar(255),
+		`parentid` int(11) unsigned,
+		`sort_order` int(11) unsigned,
+		PRIMARY KEY (`id`),
+		UNIQUE (`sort_order`)
+	) Engine=MyISAM;',
+	"testimonials_categories_assign" => 'CREATE TABLE `{dbPrefix}testimonials_categories_assign` (
+		`testimonialid` int(11) unsigned,
+		`categoryid` int(11) unsigned,
+		INDEX `index` (`testimonialid`, `categoryid`)
+	) Engine=MyISAM;'
 );
 
 $aSettings = array(

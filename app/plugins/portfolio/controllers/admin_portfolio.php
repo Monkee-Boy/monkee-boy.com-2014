@@ -337,7 +337,7 @@ class admin_portfolio extends adminController {
       } else {
         $upload_dir = $this->settings->rootPublic.substr($this->model->imageFolder, 1);
         $file_ext = pathinfo($_FILES["listing_image"]["name"], PATHINFO_EXTENSION);
-        $upload_file = "li_".$sID.".".strtolower($file_ext);
+        $upload_file = "li_".$_POST["id"].".".strtolower($file_ext);
 
         $sClient = $this->dbQuery(
           "SELECT `listing_image` FROM `{dbPrefix}portfolio`"
@@ -352,7 +352,7 @@ class admin_portfolio extends adminController {
             array(
               "listing_image" => $upload_file
             ),
-            $sID
+            $_POST["id"]
           );
         } else {
           $this->dbUpdate(
@@ -360,7 +360,7 @@ class admin_portfolio extends adminController {
             array(
               "active" => 0
             ),
-            $sID
+            $_POST["id"]
           );
 
           $this->forward("/admin/portfolio/?info=".urlencode("Failed to upload listing image!"));

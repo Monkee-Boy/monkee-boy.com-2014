@@ -25,8 +25,23 @@
 
   <script src="/js/modernizr.js"></script>
 </head>
-<body <?php if(!empty($menu)): ?> class="page-$menu"<?php endif; ?>>
+<body <?php if(!empty($menu)): ?> class="page-<?= $menu ?>"<?php endif; ?>>
   <!--[if lt IE 9]><p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p><![endif]-->
 
 <div class="container" role="document">
 	<?php include('inc_navigation.php'); ?>
+  <?php
+  $aSubNav = array(
+    'who' => array('why-monkee-boy','troop','news','join'),
+    'what' => array('services','discover','create','evolve'),
+    'work' => array('portfolio','testimonials','clients')
+  );
+
+  if(in_array($menu, $aSubNav['who'])) {
+    $this->tplDisplay('inc_subnav.php', array('menu' => $menu, 'nav' => 'who'));
+  } elseif(in_array($menu, $aSubNav['what'])) {
+    $this->tplDisplay('inc_subnav.php', array('menu' => $menu, 'nav' => 'what'));
+  } elseif(in_array($menu, $aSubNav['work'])) {
+    $this->tplDisplay('inc_subnav.php', array('menu' => $menu, 'nav' => 'work'));
+  }
+  ?>

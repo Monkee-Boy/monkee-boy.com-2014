@@ -12,18 +12,22 @@
  #   /<tag:[a-z]+>/
 */
 $aPluginUrlPatterns = array(
-  "/news/" => array(
+  "/latest-news/" => array(
 		"cmd" => "news",
 		"action" => "index"
 	),
-	"/news/rss/" => array(
+	"/latest-news/rss/" => array(
 		"cmd" => "news",
 		"action" => "rss"
 	),
-	"/news/<year:[0-9]+>/<month:[0-9]+>/<date:[0-9]+>/<tag:[^/]+>/" => array(
+	"/latest-news/<year:[0-9]+>/<month:[0-9]+>/<date:[0-9]+>/<tag:[^/]+>/" => array(
 		"cmd" => "news",
 		"action" => "article"
 	),
+  "/latest-news-ajax/" => array(
+    "cmd" => "news",
+    "action" => "ajax_load"
+  ),
 
 	"/admin/news/" => array(
     "cmd" => "admin_news",

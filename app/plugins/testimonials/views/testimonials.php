@@ -1,37 +1,28 @@
-<?php $this->tplDisplay("inc_header.php", ['menu'=>'testimonials','sPageTitle'=>"Testimonials"]); ?>
+<?php $this->tplDisplay("inc_header.php", ['menu'=>'testimonials','page_title'=>'Testimonials']); ?>
 
-	{if $aCategories|@count gt 1}
-	<form name="category" method="get" action="/testimonials/" class="sortCat">
-		Category:
-		<select name="category">
-			<option value="">- All Categories -</option>
-			{foreach from=$aCategories item=aCategory}
-				<option value="{$aCategory.id}"{if $aCategory.id == $smarty.get.category} selected="selected"{/if}>{$aCategory.name}</option>
-			{/foreach}
-		</select>
-		{footer}
-		<script type="text/javascript">
-		$(function(){
-			$('select[name=category]').change(function(){
-				$('form[name=category]').submit();
-			});
-		});
-		</script>
-		{/footer}
-	</form>
-	{/if}
+<div class="row">
+	<div class="page-title">
+		<h1>Testimonials</h1>
+		<p class="subtitle">we do stuff, in our office &amp; around town</p>
+	</div>
+</div>
 
-	<h2>Testimonials</h2>
-	<div class="clear">&nbsp;</div>
-
-	{foreach from=$aTestimonials item=aTestimonial}
-		<article>
-			<h3><a href="{$aTestimonial.url}" title="{$aTestimonial.name}">{$aTestimonial.name}</a> - <small>{$aTestimonial.sub_name}</small></h3>
-			<blockquote>
-				{$aTestimonial.text}
-			</blockquote>
-		</article>
-	{/foreach}
-	<div class="clear">&nbsp;</div>
+	<?php if(!empty($aTestimonials)): ?>
+		<?php foreach($aTestimonials as $aTestimonial): ?>
+			<div class="row">
+				<div class="full testimonial-item">
+					<div class="client"><?= $aTestimonial['client'] ?></span></div>
+					<div class="testimonial">
+						<div class="text">
+							"<?= $aTestimonial['text'] ?>"
+						</div>
+						<div class="name"><?= $aTestimonial['name'] ?></div>
+						<div class="title"><?= $aTestimonial['title'] ?></div>
+					</div>
+				</div>
+				<hr>
+			</div>
+		<?php endforeach; ?>
+	<?php endif; ?>
 
 <?php $this->tplDisplay("inc_footer.php"); ?>

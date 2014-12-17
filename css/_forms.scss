@@ -683,3 +683,17 @@ button[type=submit] {
     }
   }
 }
+
+.category-filter {
+  text-align: center;
+  width: 795px;
+  margin: 0 auto;
+  label {
+    float: left;
+    padding: 20px 20px 0 0;
+    color: $grey;
+  }
+  .select-box {
+    float: left;
+  }
+}

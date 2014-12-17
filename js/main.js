@@ -1076,4 +1076,25 @@
     }
   }
 
+  $('.news-load-more').on('click', function(e) {
+    e.preventDefault();
+
+    $.getJSON('/latest-news-ajax/?page='+(news_current_page + 1), function(data) {
+      $.each(data.articles, function(key, article) {
+        block = $('.news-item').last().parent().clone();
+
+        block.find('.date').html( article.publish_on_month+'.'+article.publish_on_day+'<span>'+article.publish_on_year+'</span>' );
+        block.find('a').attr('href', article.url).attr('title', article.titlel).html(article.title);
+
+        $('.news-item').last().parent().after(block);
+      });
+
+      if((news_current_page + 1) === news_total_pages) {
+        $('.news-load-more').hide();
+      } else {
+        news_current_page++;
+      }
+    });
+  });
+
 }(jQuery));

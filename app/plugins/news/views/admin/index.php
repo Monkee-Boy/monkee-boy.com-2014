@@ -27,8 +27,8 @@
 					<td><a href="<?= $aArticle['url'] ?>" title="View <?= $aArticle['title'] ?>" target="_blank"><?= $aArticle['title'] ?></a></td>
 					<td class="center"><?= formatDateTime($aArticle['publish_on']) ?></td>
 					<td class="center">
-						<a href="/admin/news/edit/<?= $aArticle['id'] ?>/" title="Edit Article" rel="tooltip"><i class="icon-pencil"></i></a>
-						<a href="/admin/news/delete/<?= $aArticle['id'] ?>/" title="Delete Article" rel="tooltip" onclick="return confirm('Are you sure you would like to delete: <?= $aArticle['title'] ?>?');"><i class="icon-trash"></i></a>
+						<a href="/admin/news/edit/<?= $aArticle['id'] ?>/" title="Edit Article"><i class="icon-pencil"></i></a>
+						<a href="/admin/news/delete/<?= $aArticle['id'] ?>/" title="Delete Article" onclick="return confirm('Are you sure you would like to delete: <?= $aArticle['title'] ?>?');"><i class="icon-trash"></i></a>
 					</td>
 				</tr>
 			<?php endforeach; ?>

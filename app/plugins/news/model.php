@@ -25,7 +25,7 @@ class news_model extends appModel {
 
 		// Filter only posts that are active unless told otherwise.
 		if($sAll == false) {
-			$aWhere[] = "`news`.`publish_on` < ".time();
+			$aWhere[] = "`news`.`publish_on` < NOW()";
 			$aWhere[] = "`news`.`active` = 1";
 		}
 
@@ -81,7 +81,7 @@ class news_model extends appModel {
 
 		if($sAll == false) {
 			$sWhere .= " AND `news`.`active` = 1";
-			$sWhere .= " AND `news`.`publish_on` < ".time();
+			$sWhere .= " AND `news`.`publish_on` < NOW()";
 		}
 
 		$aArticle = $this->dbQuery(
@@ -101,6 +101,7 @@ class news_model extends appModel {
 	 */
 	private function _getArticleInfo(&$aArticle) {
 		if(!empty($aArticle)) {
+			$aArticle["publish_on"] = strtotime($aArticle["publish_on"]);
 			$aArticle["title"] = htmlspecialchars(stripslashes($aArticle["title"]));
 			if(!empty($aArticle["excerpt"]))
 				$aArticle["excerpt"] = nl2br(htmlspecialchars(stripslashes($aArticle["excerpt"])));
@@ -108,15 +109,7 @@ class news_model extends appModel {
 				$aArticle["excerpt"] = (string)substr(nl2br(htmlspecialchars(stripslashes(strip_tags($aArticle["content"])))), 0, $this->excerptCharacters);
 
 			$aArticle["content"] = stripslashes($aArticle["content"]);
-			$aArticle["url"] = "/news/".date("Y", $aArticle["created_datetime"])."/".date("m", $aArticle["created_datetime"])."/".date("d", $aArticle["created_datetime"])."/".$aArticle["tag"]."/";
-			$aArticle["publish_on"] = strtotime($aArticle["publish_on"]);
-
-			$aArticle["author"] = $this->dbQuery(
-				"SELECT * FROM `{dbPrefix}users`"
-					." WHERE `id` = ".$this->dbQuote($aArticle["authorid"], "integer")
-					." LIMIT 1"
-				,"row"
-			);
+			$aArticle["url"] = "/latest-news/".date("Y", $aArticle["publish_on"])."/".date("m", $aArticle["publish_on"])."/".date("d", $aArticle["publish_on"])."/".$aArticle["tag"]."/";
 
 			$aArticle["categories"] = $this->dbQuery(
 				"SELECT * FROM `{dbPrefix}news_categories` AS `categories`"

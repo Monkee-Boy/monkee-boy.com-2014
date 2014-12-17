@@ -1,72 +1,99 @@
-{include file="inc_header.php" page_title="Testimonials :: Add Testimonial" menu="testimonials" page_style="halfContent"}
-{head}
-<script src="/scripts/jquery-iphone-checkboxes/jquery.iphone-style-checkboxes.js"></script>
-<link rel="stylesheet" href="/scripts/jquery-iphone-checkboxes/style.css" type="text/css">
-{/head}
-{assign var=subMenu value="Testimonials"}
+<?php $this->tplDisplay("inc_header.php", ['menu'=>'testimonials','sPageTitle'=>"Testimonials &raquo; Create Testimonial"]); ?>
 
-<form method="post" action="/admin/testimonials/add/s/" enctype="multipart/form-data">
-	<section id="content" class="content">
-		<header>
-			<h2>Manage Testimonials &raquo; Add Testimonial</h2>
-		</header>
+<h2>Testimonials &raquo; Create Testimonial</h2>
+<?php $this->tplDisplay('inc_alerts.php'); ?>
 
-		<section class="inner-content">
-			<label>*Name:</label><br />
-			<input type="text" name="name" maxlength="100" value="{$aTestimonial.name}"><br />
-			<label>Sub-Name:</label><br />
-			<input type="text" name="sub_name" maxlength="100" value="{$aTestimonial.sub_name}"><br />
-			<label>Text:</label><br />
-			<textarea name="text" style="height:115px;">{$aTestimonial.text}</textarea><br />
-			
-			{if $sUseCategories == true}
-				<fieldset id="fieldset_categories">
-					<legend>Assign testimonial to category:</legend>
-					<ul class="categories">
-						{foreach from=$aCategories item=aCategory}
-							<li>
-								<input id="category_{$aCategory.id}" type="checkbox" name="categories[]" value="{$aCategory.id}"
-									{if in_array($aCategory.id, $aTestimonial.categories)} checked="checked"{/if}>
-								<label style="display: inline;" for="category_{$aCategory.id}">{$aCategory.name}</label>
-							</li>
-						{foreachelse}
-							<li>
-								Currently no categories.
-							</li>
-						{/foreach}
-					</ul>
-				</fieldset><br />
-			{/if}
-			
-			<input type="submit" value="Add Testimonial">
-			<a class="cancel" href="/admin/testimonials/" title="Cancel">Cancel</a>
-		</section>
-	</section> <!-- #content -->
+<form id="add-form" method="post" action="/admin/testimonials/add/s/">
+	<div class="row-fluid">
+		<div class="span8">
+			<div class="accordion-group">
+				<div class="accordion-heading">
+					<span class="accordion-toggle">Client</span>
+				</div>
+				<div id="pagecontent" class="accordion-body">
+					<div class="accordion-inner">
+						<div class="controls">
+							<input type="text" name="client" id="form-client" value="<?= $aTestimonial['client'] ?>" class="span12 validate[required]">
+						</div>
+					</div>
+				</div>
+			</div>
 
-	<section id="sidebar" class="sidebar">
-		<header>
-			<h2>Testimonial Options</h2>
-		</header>
+			<div class="accordion-group">
+				<div class="accordion-heading">
+					<span class="accordion-toggle">Name</span>
+				</div>
+				<div id="pagecontent" class="accordion-body">
+					<div class="accordion-inner">
+						<div class="controls">
+							<input type="text" name="name" id="form-name" value="<?= $aTestimonial['name'] ?>" class="span12 validate[required]">
+						</div>
+					</div>
+				</div>
+			</div>
 
-		<section>
-			<fieldset>
-				<legend>Status</legend>
-				<input type="checkbox" name="active" value="1"{if $aTestimonial.active == 1} checked="checked"{/if}>
-			</fieldset>
-		</section>
-	</section>
+			<div class="accordion-group">
+				<div class="accordion-heading">
+					<span class="accordion-toggle">Title</span>
+				</div>
+				<div id="pagecontent" class="accordion-body">
+					<div class="accordion-inner">
+						<div class="controls">
+							<input type="text" name="title" id="form-title" value="<?= $aTestimonial['title'] ?>" class="span12 validate[required]">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="accordion-group">
+				<div class="accordion-heading">
+					<span class="accordion-toggle">Testimonial</span>
+				</div>
+				<div class="accordion-body">
+					<div class="accordion-inner">
+						<div class="controls">
+							<textarea name="text" class="span12"><?= $aTestimonial['text'] ?></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<input type="submit" value="Create Testimonial" class="btn btn-primary">
+			<a href="/admin/testimonials/" title="Cancel" class="btn">Cancel</a>
+		</div>
+
+		<div class="span4 aside">
+			<div class="accordion-group">
+				<div class="accordion-heading">
+					<span class="accordion-toggle">Options</span>
+				</div>
+				<div class="accordion-body">
+					<div class="accordion-inner">
+						<div class="control-group">
+							<label class="control-label" for="form-logo">Active</label>
+							<div class="controls">
+								<input type="checkbox" name="active" value="1"<?php echo (($aTestimonial['active'] == 1)?' checked="checked"':''); ?>>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
 </form>
-<script type="text/javascript">
-$(function(){
-	$('input[name=active]').iphoneStyle({
-		checkedLabel: 'On',
-		uncheckedLabel: 'Off'
+
+{footer}
+<script>
+	$(function(){
+		jQuery('#add-form').validationEngine({ promptPosition: "bottomLeft" });
+
+		$('.photo-show a').on('click', function(e) {
+			e.preventDefault();
+			$(this).hide();
+			$(this).parent().next().show();
+		});
 	});
-	
-	$("form").validateForm([
-		"required,name,Testimonial name is required",
-		"required,text,Testimonial is required"
-	]);
-});
 </script>
+{/footer}
 <?php $this->tplDisplay("inc_footer.php"); ?>

@@ -91,7 +91,7 @@
 
 				<div class="accordion-group">
 					<div class="accordion-heading">
-						<span class="accordion-toggle">Schedule</span>
+						<span class="accordion-toggle">Publish(ed) On</span>
 					</div>
 					<div class="accordion-body">
 						<div class="accordion-inner">
@@ -100,7 +100,7 @@
 									<input type="input" name="publish_on_date" value="<?= $aPost['publish_on_date'] ?>" id="datepicker" class="span12">
 									@ <?= html_select_time($aPost['publish_on'], "publish_on_", 15, false, false); ?>
 
-									<p class="help-block">The post will be pending until this date and time then it will automatically publish.</p>
+									<p class="help-block">If the date is in the future, it will not show on the site till then.</p>
 								</div>
 							</div>
 						</div>

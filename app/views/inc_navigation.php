@@ -17,28 +17,16 @@
 
         <ul class="main-menu">
           <li class="primary has-dropdown">
-            <a href="/why-monkee-boy/" class="nav-who">Who We Are</a>
-            <ul>
-              <li><a href="/why-monkee-boy/">Why Monkee-Boy?</a></li>
-              <li><a href="/the-troop/">The Troop</a></li>
-              <li><a href="/latest-news/">Latest News</a></li>
-              <li><a href="/careers/">Join the Troop</a></li>
-            </ul>
+            <a href="/join-the-troop/" class="nav-who">Who We Are</a>
+            <?php $this->tplDisplay('subnav/who.php', array('from'=>'nav')); ?>
           </li>
           <li class="primary has-dropdown">
             <a href="/our-process/" title="" class="nav-what">What We Do</a>
-            <ul>
-              <li><a href="/our-process/discover/">Discover</a></li>
-              <li><a href="/our-process/create/">Create</a></li>
-              <li><a href="/our-process/evolve/">Evolve</a></li>
-            </ul>
+            <?php $this->tplDisplay('subnav/what.php', array('from'=>'nav')); ?>
           </li>
           <li class="primary has-dropdown">
             <a href="/the-work/" title="" class="nav-work">The Work</a>
-            <ul>
-              <li><a href="/client-list/">Featured Clients</a></li>
-              <li><a href="/testimonials/">Testimonials</a></li>
-            </ul>
+            <?php $this->tplDisplay('subnav/work.php', array('from'=>'nav')); ?>
           </li>
           <li class="primary">
             <a href="/contact/" title="" class="nav-contact">Contact</a>
@@ -46,7 +34,7 @@
               <li><a href="/work-with-us/" title="Work With Us">Work With Us</a></li>
             </ul>
           </li>
-          <li class="primary"><a href="/blog/" title="" class="nav-blog">The Blog</a></li>
+          <li class="primary"><a href="http://monkee-boy.com/blog/" title="" class="nav-blog">The Blog</a></li>
         </ul>
       </div>
     </div> <!-- /.row -->

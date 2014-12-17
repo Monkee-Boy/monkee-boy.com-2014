@@ -6,13 +6,14 @@ class news extends appController {
 	}
 
 	function index() {
+		// $this->import();
 		## GET CURRENT PAGE NEWS
 		$sCurrentPage = $_GET["page"];
 		if(empty($sCurrentPage))
 			$sCurrentPage = 1;
 
 		$aArticlePages = array_chunk($this->model->getArticles($_GET["category"]), $this->model->perPage);
-		$aPosts = $aArticlePages[$sCurrentPage - 1];
+		$aArticles = $aArticlePages[$sCurrentPage - 1];
 
 		$aPaging = array(
 			"total" => count($aArticlePages),
@@ -37,8 +38,13 @@ class news extends appController {
 		if(!empty($_GET["category"]))
 			$aCategory = $this->model->getCategory($_GET["category"]);
 
-		$this->tplAssign("aCategories", $this->model->getCategories(false));
-		$this->tplAssign("aPosts", $aPosts);
+		if(!empty($aArticles)) {
+			$aTopArticle = array_shift($aArticles);
+		}
+
+		$this->tplAssign("aCategories", $this->model->getCategories(true));
+		$this->tplAssign("aTopArticle", $aTopArticle);
+		$this->tplAssign("aArticles", $aArticles);
 		$this->tplAssign("aPaging", $aPaging);
 		$this->tplAssign("aCategory", $aCategory);
 
@@ -48,6 +54,35 @@ class news extends appController {
 			$this->tplDisplay("category.php");
 		else
 			$this->tplDisplay("index.php");
+	}
+	function ajax_load() {
+		$sCurrentPage = $_GET["page"];
+		if(empty($sCurrentPage))
+			$sCurrentPage = 1;
+
+		$aArticlePages = array_chunk($this->model->getArticles($_GET["category"]), $this->model->perPage);
+
+		if($sCurrentPage > count($aArticlePages)) {
+			$sCurrentPage = count($aArticlePages);
+		}
+
+		$aArticles = $aArticlePages[$sCurrentPage - 1];
+
+		foreach($aArticles as &$aArticle) {
+			$aArticle['publish_on_month'] = date("m", $aArticle['publish_on']);
+			$aArticle['publish_on_day'] = date("d", $aArticle['publish_on']);
+			$aArticle['publish_on_year'] = date("Y", $aArticle['publish_on']);
+
+			// Minimize traffic size. Also content throws UTF8 error when encoding to JSON.
+			unset($aArticle['tag'], $aArticle['excerpt'], $aArticle['content'], $aArticle['tags'], $aArticle['publish_on'], $aArticle['active'], $aArticle['views'], $aArticle['created_datetime'], $aArticle['created_by'], $aArticle['updated_datetime'], $aArticle['updated_by'], $aArticle['categories']);
+		}
+
+		$aData = array(
+			"articles" => $aArticles,
+			"pages" => count($aArticlePages)
+		);
+
+		echo json_encode($aData);
 	}
 	function article() {
 		$aArticle = $this->model->getArticle(null, $this->urlVars->dynamic["tag"]);
@@ -71,5 +106,52 @@ class news extends appController {
 
 		header("Content-Type: application/rss+xml");
 		$this->tplDisplay("rss.php");
+	}
+	function import() {
+		$this->dbQuery("TRUNCATE TABLE `{dbPrefix}news`");
+
+		$aData = $this->dbQuery(
+			"SELECT * FROM `mw_news` ORDER BY `mw_news_date`",
+			"all"
+		);
+
+		foreach($aData as $aRow) {
+			$aArticle = array();
+			$aArticle['title'] = $aRow['mw_news_title'];
+			$aArticle['tag'] = substr(strtolower(str_replace("--","-",preg_replace("/([^a-z0-9_-]+)/i", "", str_replace(" ","-",trim($aRow['mw_news_title']))))),0,100);
+			$aArticle['excerpt'] = $aRow['mw_news_smdesc'];
+			$aArticle['content'] = $aRow['mw_news_body'];
+			$aArticle['tags'] = '';
+			$aArticle['publish_on'] = date('Y-m-d H:i:s', strtotime($aRow['mw_news_date']));
+			$aArticle['active'] = 1;
+			$aArticle['views'] = 0;
+			$aArticle['created_datetime'] = date('Y-m-d H:i:s');
+			$aArticle['created_by'] = 1;
+			$aArticle['updated_datetime'] = date('Y-m-d H:i:s');
+			$aArticle['updated_by'] = 1;
+
+			$aArticles = $this->dbQuery(
+				"SELECT `tag` FROM `{dbPrefix}news`"
+				." ORDER BY `tag`"
+				,"all"
+			);
+
+			if(in_array(array('tag' => $aArticle['tag']), $aArticles)) {
+				$i = 1;
+				do {
+					$sTempTag = substr($aArticle['tag'], 0, 100-(strlen($i)+1)).'-'.$i;
+					$i++;
+					$checkDuplicate = in_array(array('tag' => $sTempTag), $aArticles);
+				} while ($checkDuplicate);
+				$aArticle['tag'] = $sTempTag;
+			}
+
+			$this->dbInsert("news", $aArticle);
+		}
+
+		// echo "<pre>";
+		// print_r($aData);
+		// echo "</pre>";
+		die;
 	}
 }
