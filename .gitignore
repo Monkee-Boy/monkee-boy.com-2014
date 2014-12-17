@@ -6,3 +6,4 @@ uploads
 bower_components/
 node_modules/
 fonts/icomoon/
+*.psd

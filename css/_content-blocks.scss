@@ -396,9 +396,11 @@
     display: inline-block;
     &:before { top: 28px; }
     &:after { top: 38px; }
+    @media #{$large-down} { max-width: 250px; }
+    @media #{$small-only} { max-width: 100%; }
     li {
       position: relative;
-      width: 84px;
+      width: 75px;
       z-index: 1;
     }
     .service-icon { font-size: 70px; }

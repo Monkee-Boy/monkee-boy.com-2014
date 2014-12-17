@@ -85,9 +85,10 @@ $this->tplDisplay("inc_header.php", ['menu'=>'home', 'sPageTitle'=>$sTitle]); ?>
         </div>
         <div id="brief-upload" class="switch-target active">
           <h4>Lovely! Upload it here:</h4>
-          <div class="upload-box">
+          <div class="upload-box initial">
             <div class="uploaded-files"></div>
-            <a href="#" class="add-files">select files</a>
+            <div class="drop-label">Drag &amp; drop files here <span>or</span></div>
+            <a href="#" class="add-files">browse files!</a>
             <a href="#" class="upload">upload files</a>
             <span class="file-size">0 MB of 100 MB</span>
           </div>

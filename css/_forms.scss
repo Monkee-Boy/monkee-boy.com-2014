@@ -227,10 +227,12 @@ label {
   }
   .glasses-monkee {
     background: url(../images/form-monkee-glasses.png) no-repeat center center;
+    background-size: contain;
     z-index: 1;
   }
   .dark-monkee {
     background: url(../images/form-monkee-dark.png) no-repeat center center;
+    background-size: contain;
     @include transition(opacity 0.3s ease);
   }
 }
@@ -257,7 +259,10 @@ label {
     }
     .input-wrapper { margin: 0 -15px; }
   }
-  .submit { width: 100%; }
+  .submit {
+    width: 100%;
+    max-width: 960px;
+  }
 }
 
 .switch-target {
@@ -314,14 +319,47 @@ button[type=submit] {
 // upload styles
 .upload-box {
   border: 4px solid $grey;
+  @include transition(background 0.3s ease, border 0.3s ease);
+  .drop-label { display: none; }
+  &.initial {
+    text-align: center;
+    .upload, .file-size { display: none; }
+    .drop-label {
+      display: block;
+      padding: em-calc(30, 24) em-calc(20, 24) em-calc(10, 24);
+      font-size: 24px;
+      font-family: $heading-font;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: $grey;
+      @include transition(color 0.3s ease);
+      span {
+        display: block;
+        font-weight: normal;
+        margin: em-calc(4, 24) 0 0;
+      }
+    }
+    .add-files {
+      @extend .button;
+      width: 400px;
+      margin-bottom: em-calc(38, 22);
+    }
+  }
+  &.incoming {
+    border-color: $teal;
+    background-color: $teal;
+    .drop-label { color: #fff; }
+  }
 }
 .uploaded-files {
+  overflow: hidden;
   div {
     position: relative;
     padding: em-calc(10, 18) em-calc(16, 18);
     font-size: 18px;
     color: $dark-grey;
     background-color: #fff;
+    text-align: left;
     @include transition(color 0.3s ease);
     &:after {
       content: "";

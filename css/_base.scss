@@ -6,9 +6,10 @@
 }
 
 // Breakpoints
-$small-bound: 480;
-$medium-bound: 740;
+$small-bound: 580;
+$medium-bound: 840;
 $large-bound: 980;
+$xlarge-bound: 1115;
 
 $small-only: "only screen and (max-width: #{$small-bound}px)";
 $medium-only: "only screen and (min-width: #{$small-bound + 1}px) and (max-width: #{$medium-bound}px)";
@@ -17,6 +18,8 @@ $medium-down: "only screen and (max-width: #{$medium-bound}px)";
 $large-only: "only screen and (min-width: #{$medium-bound + 1}px) and (max-width: #{$large-bound}px)";
 $large-up: "only screen and (min-width: #{$medium-bound + 1}px)";
 $large-down: "only screen and (max-width: #{$large-bound}px)";
+$xlarge-only: "only screen and (min-width: #{$large-bound + 1}px) and (max-width: #{$xlarge-bound}px)";
+$xlarge-down: "only screen and (max-width: #{$xlarge-bound}px)";
 
 // Colors
 $green: #acca32;

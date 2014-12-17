@@ -77,6 +77,8 @@ body {
     @include transition(all 0.5s ease);
   }
 
+  img { max-width: 80%; }
+
   .speak {
     position: absolute;
     top: 70px;
@@ -99,6 +101,11 @@ body {
       top: 90px;
     }
   }
+  @media #{$large-only} {
+    width: 180px;
+    .speak { left: -14px; }
+    &:hover .speak { top: 80px; }
+  }
 }
 
 .main-nav {
@@ -117,6 +124,8 @@ body {
       padding: 44px 23px;
       border-left: 1px solid #000;
       @include transition(background 0.3s ease);
+      @media #{$xlarge-only} { padding: 44px 12px; }
+      @media #{$large-only} { padding: 26px 14px 32px; }
       &:first-child {
         border-left: 0;
       }
@@ -151,6 +160,11 @@ body {
         visibility: hidden;
         @include transition(all 0.3s ease);
         z-index: 5;
+        @media #{$xlarge-only} { width: 280px; }
+        @media #{$large-only} {
+          top: 86px;
+          width: 210px;
+        }
       }
       &:last-child ul {
         left: auto;
@@ -164,6 +178,8 @@ body {
         text-align: center;
         text-transform: uppercase;
         margin-bottom: em-calc(20, 24);
+        @media #{$xlarge-only} { font-size: 21px; }
+        @media #{$large-only} { font-size: 18px; }
         a { color: $grey; }
         a:hover {
           color: #fff;
@@ -182,7 +198,6 @@ body {
       border-bottom: 1px solid $grey;
       position: relative;
       padding-bottom: 21px;
-
       &:after {
         content: '\e600';
         position: absolute;
@@ -196,6 +211,15 @@ body {
         font-size: 24px;
         background: $dark-black;
         @extend .icon;
+      }
+      @media #{$xlarge-only} { font-size: 21px; }
+      @media #{$large-only} {
+        font-size: 18px;
+        padding-bottom: 16px;
+        &:after {
+          padding: 5px 9px;
+          width: 42px;
+        }
       }
 
       &.nav-who:after {
@@ -375,9 +399,16 @@ body {
     padding: 0;
     list-style: none;
     @media #{$small-only} { display: none; }
+    @media #{$medium-only} {
+      width: 100%;
+      margin-bottom: 60px;
+      text-align: center;
+    }
     li {
       display: inline-block;
       margin-right: 10px;
+      @media #{$xlarge-down} { margin-right: 4px; }
+      @media #{$large-down} { margin-right: 0; }
     }
   }
 
@@ -445,6 +476,7 @@ body {
     @include span(5 of 12);
     text-align: right;
     @media #{$small-only} { width: 60%; }
+    @media #{$medium-only} { width: 80%; }
   }
   .address {
     @media #{$small-only} { display: none; }

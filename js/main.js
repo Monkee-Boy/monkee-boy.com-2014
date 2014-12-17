@@ -2,8 +2,8 @@
 
   // breakpoint vars
   var large_break = 980,
-      medium_break = 740,
-      small_break = 480;
+      medium_break = 840,
+      small_break = 580;
 
   // menu
   if(Modernizr.touch) {
@@ -155,6 +155,7 @@
 
     browse_button : $('.add-files')[0], // you can pass in id...
     container: $('.uploaded-files')[0], // ... or DOM Element itself
+    drop_element: $('.upload-box')[0],
 
     url : "/examples/upload",
 
@@ -175,18 +176,29 @@
 
     init: {
         PostInit: function() {
-            //document.getElementById('filelist').innerHTML = '';
-            $('.upload').on('click', function() {
-              brief_uploader.start();
-              return false;
+          //document.getElementById('filelist').innerHTML = '';
+          $('.upload').on('click', function() {
+            brief_uploader.start();
+            return false;
+          });
+
+          // drag/drop highlighting
+          if(brief_uploader.runtime === 'html5') {
+            $('.upload-box').on('dragenter', function() {
+                $(this).addClass('incoming');
             });
+
+            $('.upload-box').on('dragleave drop', function() {
+                $(this).removeClass('incoming');
+            });
+          }
         },
 
         FilesAdded: function(up, files) {
-            plupload.each(files, function(file) {
-              $('.uploaded-files').append('<div id="' + file.id + '">' + file.name + ' (' + plupload.formatSize(file.size) + ')</div>');
-                //document.getElementById('filelist').innerHTML += '<div id="' + file.id + '">' + file.name + ' (' + plupload.formatSize(file.size) + ') <b></b></div>';
-            });
+          $('.upload-box').removeClass('initial');
+          plupload.each(files, function(file) {
+            $('.uploaded-files').append('<div id="' + file.id + '">' + file.name + ' (' + plupload.formatSize(file.size) + ')</div>');
+          });
         },
 
         UploadProgress: function(up, file) {
