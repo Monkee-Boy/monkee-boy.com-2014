@@ -62,34 +62,53 @@
     </div>
   </div>
 
+  <?php
+  $oPortfolio = $this->loadModel('portfolio');
+  $aPortfolio = $oPortfolio->getLatest();
+  if(!empty($aPortfolio)):
+  ?>
   <div class="home-portfolio">
     <div class="row-flush">
       <div class="half">
         <div class="section-head" data-text-align="left">
           <span class="section-title dots" data-dots="right"><em>featured from the</em><br>portfolio</span>
-          <h3>Balcones Pain Consultants Redesign</h3>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam et nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+          <h3><?php echo $aPortfolio['name']; ?></h3>
+          <?php echo $aPortfolio['short_description']; ?>
           <ul class="menu-lite">
-            <li><a href="#">View project</a></li>
-            <li><a href="#">View full portfolio</a></li>
+            <li><a href="/the-work/<?php echo $aPortfolio['tag']; ?>/">View project</a></li>
+            <li><a href="/the-work/">View full portfolio</a></li>
           </ul>
           <ul class="service-icons text-hover">
-            <li><span class="strategy service-icon"><i></i></span><span class="hover">Research &amp; Strategy</span></li>
-            <li><span class="design service-icon"><i></i></span><span class="hover">Design</span></li>
-            <li><span class="development service-icon"><i></i></span><span class="hover">Development</span></li>
-            <li><span class="marketing service-icon"><i></i></span><span class="hover">Marketing</span></li>
-            <li><span class="maintenance service-icon"><i></i></span><span class="hover">Maintenance</span></li>
-            <li><span class="growth service-icon"><i></i></span><span class="hover">Growth</span></li>
+            <?php foreach($aPortfolio['services'] as $aService) { ?>
+            <li><span class="<?php echo $aService['tag']; ?> service-icon"><i></i></span><span class="hover"><?php echo $aService['name']; ?></span></li>
+            <?php } ?>
           </ul>
         </div>
       </div><!-- /.half -->
     </div>
-    <div class="desktop screen">
-      <div class="screen-inner">
-        <img src="/assets/port-balcones-desktop-home.png">
-      </div>
-    </div>
+    <?php if(!empty($aPortfolio['slides'])): ?>
+      <?php if(!empty($aPortfolio['slides'][0]['desktop_image_url'])): ?>
+        <div class="desktop screen">
+          <div class="screen-inner">
+            <img src="<?php echo $aPortfolio['slides'][0]['desktop_image_url']; ?>">
+          </div>
+        </div>
+      <?php elseif(!empty($aPortfolio['slides'][0]['tablet_image_url'])): ?>
+        <div class="tablet screen">
+          <div class="screen-inner">
+            <img src="<?php echo $aPortfolio['slides'][0]['tablet_image_url']; ?>">
+          </div>
+        </div>
+      <?php elseif(!empty($aPortfolio['slides'][0]['phone_image_url'])): ?>
+        <div class="phone screen">
+          <div class="screen-inner">
+            <img src="<?php echo $aPortfolio['slides'][0]['phone_image_url']; ?>">
+          </div>
+        </div>
+      <?php endif; ?>
+    <?php endif; ?>
   </div><!-- /.home-portfolio -->
+  <?php endif; ?>
 
   <div class="panel-wide home-marketing" data-panel-style="callout">
     <div class="row-flush">
@@ -147,22 +166,27 @@ ante venenatis.</em></p>
 
     <div class="row-flush">
       <div class="one-third item-panel">
+        <?php
+        $oNews = $this->loadModel('news');
+        $aArticle = $oNews->getLatest();
+        ?>
         <h4>Latest News</h4>
 
         <div class="item-panel-inside" data-text-align="center">
           <figure><img src="/assets/news-icon.png" alt=""></figure>
 
-          <p><a href="#" title="">Former Superhero joins team Monkee-Boy »</a></p>
-          <time>09-03</time>
+          <p><a href="<?= $aArticle['url'] ?>" title="<?= $aArticle['title'] ?>"><?= $aArticle['title'] ?> »</a></p>
+          <time><?= date("m-d", $aArticle['publish_on']) ?></time>
         </div>
       </div>
 
       <div class="one-third item-panel alt">
         <h4>Sign Up For Our Newsletter</h4>
 
-        <div class="item-panel-inside" data-text-align="center">
-          <form class="form-newsletter" action="" method="post">
-            <div class="subscribe-status success"></div>
+        <div class="item-panel-inside form-newsletter" data-text-align="center">
+          <form action="/mailchimp-subscribe/" method="post">
+            <div class="subscribe-status"></div> <!-- success -->
+            <div class="subscribe-error hide">There has been an error subscribing to our newsletter. Please try again later.</div>
 
             <label for="form-email">Enter your email</label>
             <input type="email" name="email" id="form-email">
@@ -175,7 +199,38 @@ ante venenatis.</em></p>
         <h4>On Twitter</h4>
 
         <div class="item-panel-inside">
-          [insert twitter widget]
+          <?php
+          $oTwitter = $this->loadTwitter();
+          if($oTwitter !== false):
+            $aStatuses = $oTwitter->get('statuses/user_timeline', array('count'=>1));
+            $oStatus = array_shift($aStatuses); ?>
+            <img src="<?= str_replace('_normal.png', '_bigger.png', $oStatus->user->profile_image_url) ?>" title="monkeeboy" class="profile_image">
+            <div class="user">
+              <div class="name"><?= $oStatus->user->name ?></div>
+              <a href="<?= $oStatus->user->url ?>" title="@<?= $oStatus->user->screen_name ?>">@<?= $oStatus->user->screen_name ?></a>
+            </div>
+            <div class="text"><?= twitterlink($oStatus->text) ?></div>
+            <div class="bottom">
+              <time><a href="https://twitter.com/<?php echo $oStatus->user->screen_name; ?>/statuses/<?php echo $oStatus->id_str; ?>"><?php echo date("j M", strtotime($oStatus->created_at)); ?></a></time>
+              <script type="text/javascript" async src="//platform.twitter.com/widgets.js"></script>
+              <ul class="actions">
+                <li>
+                  <a href="https://twitter.com/intent/favorite?tweet_id=<?php echo $oStatus->id_str; ?>" class="favorite">Favorite</a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/intent/retweet?tweet_id=<?php echo $oStatus->id_str; ?>" class="retweet">Retweet</a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/intent/tweet?in_reply_to=<?php echo $oStatus->id_str; ?>" class="reply">Reply</a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/intent/follow?screen_name=<?php echo $oStatus->user->screen_name; ?>" class="follow">Follow</a>
+                </li>
+              </ul>
+            </div>
+          <?php else: ?>
+            Failed...
+          <?php endif; ?>
         </div>
       </div>
     </div>

@@ -95,6 +95,21 @@ class news_model extends appModel {
 		return $aArticle;
 	}
 
+	function getLatest() {
+		$aArticle = $this->dbQuery(
+			"SELECT `news`.* FROM `{dbPrefix}news` AS `news`"
+			." WHERE `news`.`active` = 1"
+			." AND `news`.`publish_on` < NOW()"
+			." ORDER BY `news`.`publish_on` DESC"
+			." LIMIT 1"
+			,"row"
+		);
+
+		$this->_getArticleInfo($aArticle);
+
+		return $aArticle;
+	}
+
 	/**
 	 * Clean up post info and get any other data to be returned.
 	 * @param  array &$aPost An array of a single post.
