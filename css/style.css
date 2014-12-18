@@ -810,6 +810,11 @@ body.menu-open .container {
   content: "\e60f";
 }
 
+@media only screen and (max-width: 580px) {
+  .sub-nav {
+    display: none;
+  }
+}
 .sub-nav.row {
   margin-bottom: 0;
 }
@@ -836,6 +841,10 @@ body.menu-open .container {
   padding-left: 15px;
   padding-right: 15px;
 }
+.sub-nav ul li {
+  padding-left: 3px !important;
+  padding-right: 3px !important;
+}
 .sub-nav ul a {
   color: #b2b2b2;
   display: block;
@@ -847,6 +856,18 @@ body.menu-open .container {
 .sub-nav ul a:hover, .sub-nav ul a.current {
   background: #fff;
   color: #23a38f;
+  text-decoration: none;
+}
+@media only screen and (min-width: 841px) and (max-width: 980px) {
+  .sub-nav ul a {
+    font-size: 22px;
+  }
+}
+@media only screen and (min-width: 581px) and (max-width: 840px) {
+  .sub-nav ul a {
+    font-size: 16px;
+    font-weight: bold;
+  }
 }
 
 .mobile-menu-container {
@@ -2373,6 +2394,11 @@ button.button-full[type=submit], .upload-box.initial .button-full.add-files, .bu
   font-size: 76px;
   margin-bottom: 1em;
 }
+@media only screen and (max-width: 580px) {
+  .accordion-section h2 {
+    font-size: 60px;
+  }
+}
 
 .accordion {
   position: relative;
@@ -3372,6 +3398,10 @@ button[type=submit] {
     padding: 0 8px;
   }
 }
+.port-slider .thumbnail {
+  display: block;
+  padding: 0 10px;
+}
 .port-slider .thumbnail img {
   display: block;
 }
@@ -4160,6 +4190,19 @@ button[type=submit] {
 .home-pulse .item-panel-inside {
   min-height: 300px;
 }
+@media only screen and (max-width: 840px) {
+  .home-pulse .twitter {
+    display: none;
+  }
+  .home-pulse .item-panel {
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 580px) {
+  .home-pulse .item-panel {
+    width: 100%;
+  }
+}
 
 .home-clients {
   background: url(/images/jungle-overlay.png) bottom center/cover no-repeat #acca41;
@@ -4877,6 +4920,18 @@ button[type=submit] {
   -ms-transition: opacity 0.2s ease;
   -o-transition: opacity 0.2s ease;
   transition: opacity 0.2s ease;
+}
+@media only screen and (min-width: 841px) and (max-width: 980px) {
+  .troop-list .trigger:after {
+    right: 8px;
+  }
+  .troop-list .trigger:before {
+    -webkit-transform: rotate(-12deg);
+    -moz-transform: rotate(-12deg);
+    -ms-transform: rotate(-12deg);
+    -o-transform: rotate(-12deg);
+    transform: rotate(-12deg);
+  }
 }
 .troop-list .profile {
   position: absolute;

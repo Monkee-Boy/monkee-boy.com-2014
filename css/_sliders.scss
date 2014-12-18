@@ -117,6 +117,8 @@
     }
   }
   .thumbnail {
+    display: block;
+    padding: 0 10px;
     img {
       display: block;
     }

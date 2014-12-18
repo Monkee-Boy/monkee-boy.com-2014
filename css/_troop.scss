@@ -101,6 +101,10 @@
       @include opacity(0);
       @include transition(opacity 0.2s ease);
     }
+    @media #{$large-only} {
+      &:after { right: 8px; }
+      &:before { @include rotate(-12deg); }
+    }
   }
   .profile {
     position: absolute;

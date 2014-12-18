@@ -491,6 +491,7 @@
     text-transform: lowercase;
     font-size: 76px;
     margin-bottom: 1em;
+    @media #{$small-only} { font-size: 60px; }
   }
 }
 .accordion {

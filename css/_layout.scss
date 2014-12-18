@@ -246,6 +246,7 @@ body {
 }
 
 .sub-nav {
+  @media #{$small-only} { display: none; }
   &.row {
     margin-bottom: 0;
   }
@@ -255,6 +256,10 @@ body {
     padding: 0;
     &.columns-3 li { @include span(4 of 12); }
     &.columns-4 li { @include span(3 of 12); }
+    li {
+      padding-left: 3px !important;
+      padding-right: 3px !important;
+    }
     a {
       color: $grey;
       display: block;
@@ -265,6 +270,12 @@ body {
       &:hover, &.current {
         background: #fff;
         color: $teal;
+        text-decoration: none;
+      }
+      @media #{$large-only} { font-size: 22px; }
+      @media #{$medium-only} {
+        font-size: 16px;
+        font-weight: bold;
       }
     }
   }

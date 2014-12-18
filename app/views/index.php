@@ -171,7 +171,7 @@ ante venenatis.</em></p>
         </div>
       </div>
 
-      <div class="one-third item-panel">
+      <div class="one-third item-panel twitter">
         <h4>On Twitter</h4>
 
         <div class="item-panel-inside">

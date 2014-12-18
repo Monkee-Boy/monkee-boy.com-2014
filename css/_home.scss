@@ -387,6 +387,13 @@
   .item-panel-inside {
     min-height: 300px;
   }
+  @media #{$medium-down} {
+    .twitter { display: none; }
+    .item-panel { width: 50%; }
+  }
+  @media #{$small-only} {
+    .item-panel { width: 100%; }
+  }
 }
 
 .home-clients {
