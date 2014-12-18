@@ -1097,4 +1097,18 @@
     });
   });
 
+  $('.form-newsletter form').on('submit', function(e) {
+    e.preventDefault();
+
+    $.getJSON('/mailchimp-subscribe/?email='+encodeURIComponent($('.form-newsletter input[name=email]').val()),function(data){
+      if(data.status === 'passed') {
+        $('.form-newsletter .subscribe-status').addClass('success');
+      } else {
+        $('.form-newsletter .subscribe-error').show();
+      }
+    });
+
+    return false;
+  });
+
 }(jQuery));

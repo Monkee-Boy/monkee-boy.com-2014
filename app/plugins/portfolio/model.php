@@ -101,6 +101,20 @@ class portfolio_model extends appModel {
 
     return $aClient;
   }
+  function getLatest() {
+    $aClient = $this->dbQuery(
+      "SELECT * FROM `{dbPrefix}portfolio`"
+      ." WHERE `active` = 1"
+      ." AND `featured` = 1"
+      ." ORDER BY `created_datetime` DESC"
+      ." LIMIT 1"
+      ,"row"
+    );
+
+    $aClient = $this->_getClientInfo($aClient, true);
+
+    return $aClient;
+  }
   private function _getClientInfo($aClient, $sRecursive = false) {
     if(!empty($aClient)) {
       $aClient["name"] = htmlspecialchars(stripslashes($aClient["name"]));

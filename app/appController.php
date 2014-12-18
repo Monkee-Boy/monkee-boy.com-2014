@@ -223,9 +223,9 @@ class appController {
 		return $aFacebook;
 	}
 	function loadMailChimp() {
-		require_once($this->settings->root."helpers/mailchimp.php");
+		require_once($this->settings->root."helpers/Mailchimp.php");
 
-		$oMailChimp = new MCAPI($this->getSetting("mailchimp-api"));
+		$oMailChimp = new Mailchimp($this->getSetting("mailchimp-api"));
 
 		return $oMailChimp;
 	}

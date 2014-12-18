@@ -387,6 +387,63 @@
   .item-panel-inside {
     min-height: 300px;
   }
+  .twitter {
+    .profile_image {
+      float: left;
+    }
+    .user {
+      float: right;
+      padding-top: 12px;
+      text-align: right;
+      font-size: 18px;
+      .name { color: $dark-teal; }
+    }
+    .text {
+      clear: both;
+      padding: 30px 0;
+      font-size: 20px;
+    }
+    .bottom {
+      @include clearfix;
+      time {
+        float: left;
+        margin-top: 0;
+        font-size: 16px;
+        font-weight: normal;
+        a {
+          color: $dark-teal;
+        }
+      }
+      .actions {
+        float: right;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li {
+          float: right;
+          padding-left: 30px;
+          a {
+            font-size: 0;
+            line-height: 0;
+            color: $dark-teal;
+            &:hover, &:focus {
+              color: $yellow;
+              text-decoration: none;
+            }
+            &:before {
+              @extend .icon;
+              font-size: 20px;
+              line-height: 1;
+            }
+            &.follow:before { content: $icon-twitter; }
+            &.reply:before { content: $icon-twitter; }
+            &.retweet:before { content: $icon-twitter; }
+            &.favorite:before { content: $icon-twitter; }
+          }
+        }
+      }
+    }
+  }
   @media #{$medium-down} {
     .twitter { display: none; }
     .item-panel { width: 50%; }

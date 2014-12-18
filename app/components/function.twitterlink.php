@@ -5,8 +5,12 @@ function twitterlink($string, $format = false) {
 	/* HTTP LINKS */
 
 	/* @ LINKS */
-	$string = preg_replace("/\@([a-z0-9]+)/i", "<a href=\"http://www.twitter.com/$1\" target=\"_blank\">@$1</a>", $string);
+	$string = preg_replace("/\@([a-z0-9]+)/i", "<a href=\"http://twitter.com/$1\" target=\"_blank\">@$1</a>", $string);
 	/* @ LINKS */
+
+	/* # LINKS */
+	$string = preg_replace("/\#([a-z0-9]+)/i", "<a href=\"http://twitter.com/hashtag/$1\" target=\"_blank\">#$1</a>", $string);
+	/* # LINKS */
 
 	return $string;
 }

@@ -208,19 +208,18 @@ class content extends appController
 	function mailChimpSubscribe() {
 		$oMailChimp = $this->loadMailChimp();
 
-		$aMergeVars = array("FNAME" => $_POST["first_name"], "LNAME" => $_POST["last_name"], "GROUPINGS" => array());
-
-		$oMailChimp->listSubscribe($this->decrypt($_POST["list_id"]), $_POST["email"], $aMergeVars);
-
-		if($oMailChimp->errorCode){
-			$this->forward($this->decrypt($_POST["forward"])."?mcError=1");
-			// echo "Unable to load listSubscribe()!\n";
-			// echo "\tCode=".$oMailChimp->errorCode."\n";
-			// echo "\tMsg=".$oMailChimp->errorMessage."\n";
-		} else {
-			$this->forward($this->decrypt($_POST["forward"]));
+		try {
+			$activity = $oMailChimp->call('lists/subscribe', array(
+				'id'=>'6d5315154d',
+				'email'=>array('email'=>urldecode($_GET['email'])),
+				'update_existing'=>true
+			));
+		} catch(Exception $e) {
+			echo json_encode(array('status'=>'failed', 'message'=>$e));
+			die;
 		}
 
+		echo json_encode(array('status'=>'passed'));
 	}
 	##################################
 
