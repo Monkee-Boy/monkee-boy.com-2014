@@ -435,10 +435,10 @@
               font-size: 20px;
               line-height: 1;
             }
-            &.follow:before { content: $icon-twitter; }
-            &.reply:before { content: $icon-twitter; }
-            &.retweet:before { content: $icon-twitter; }
-            &.favorite:before { content: $icon-twitter; }
+            &.follow:before { content: $icon-plus; }
+            &.reply:before { content: $icon-reply; }
+            &.retweet:before { content: $icon-retweet; }
+            &.favorite:before { content: $icon-favorite; }
           }
         }
       }

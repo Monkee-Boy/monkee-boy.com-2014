@@ -4240,16 +4240,16 @@ button[type=submit] {
   line-height: 1;
 }
 .home-pulse .twitter .bottom .actions li a.follow:before {
-  content: "";
+  content: "";
 }
 .home-pulse .twitter .bottom .actions li a.reply:before {
-  content: "";
+  content: "";
 }
 .home-pulse .twitter .bottom .actions li a.retweet:before {
-  content: "";
+  content: "";
 }
 .home-pulse .twitter .bottom .actions li a.favorite:before {
-  content: "";
+  content: "";
 }
 @media only screen and (max-width: 840px) {
   .home-pulse .twitter {
