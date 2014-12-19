@@ -5426,11 +5426,21 @@ button[type=submit] {
   width: 100%;
   border: 12px solid #fff;
 }
+@media only screen and (max-width: 840px) {
+  #contact-map {
+    height: 460px;
+  }
+}
 #contact-map:after {
   content: "";
   display: block;
   width: 100%;
   padding-bottom: 45.8%;
+}
+@media only screen and (max-width: 840px) {
+  #contact-map:after {
+    padding-bottom: 0;
+  }
 }
 #contact-map > div {
   position: absolute;

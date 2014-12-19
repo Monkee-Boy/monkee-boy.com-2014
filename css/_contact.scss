@@ -1,11 +1,13 @@
 #contact-map {
   width: 100%;
   border: 12px solid #fff;
+  @media #{$medium-down} { height: 460px; }
   &:after {
     content: "";
     display: block;
     width: 100%;
     padding-bottom: 45.8%;
+    @media #{$medium-down} { padding-bottom: 0; }
   }
   > div {
     position: absolute;
