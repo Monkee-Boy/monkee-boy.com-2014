@@ -386,6 +386,7 @@
   .section-title {
     margin-bottom: 65px;
     line-height: 0.55;
+    @media #{$medium-down} { line-height: .6; }
   }
 
   .item-panel-inside {
