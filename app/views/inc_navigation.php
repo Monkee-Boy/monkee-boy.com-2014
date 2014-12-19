@@ -41,7 +41,7 @@
   </nav>
 
   <div class="mobile-header">
-    <img src="/images/logo-horizontal.png" alt="Monkee-Boy Web Design" class="mobile-logo">
+    <a href="/" title="Monkee-Boy Web Design"><img src="/images/logo-horizontal.png" alt="Monkee-Boy Web Design" class="mobile-logo"></a>
     <a href="#" class="mobile-menu-trigger">Menu</a>
   </div>
 </header>
