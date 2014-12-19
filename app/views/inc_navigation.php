@@ -28,7 +28,7 @@
             <a href="/the-work/" title="" class="nav-work">The Work</a>
             <?php $this->tplDisplay('subnav/work.php', array('from'=>'nav')); ?>
           </li>
-          <li class="primary">
+          <li class="primary has-dropdown">
             <a href="/contact/" title="" class="nav-contact">Contact</a>
             <ul>
               <li><a href="/work-with-us/" title="Work With Us">Work With Us</a></li>
