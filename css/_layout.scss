@@ -425,7 +425,7 @@ body {
   font-size: 16px;
   background: $black;
   border-bottom: 4px solid #000;
-  margin-top: em-calc(80);
+  margin-top: em-calc(100, 16);
 
   .row { margin-bottom: 0; }
 
@@ -638,4 +638,10 @@ body {
   background:#62aaf2;
   color:#fff;
   text-shadow: none;
+}
+
+// more spacing option
+.vspace-extra {
+  margin-top: $content-block-margin;
+  margin-bottom: $content-block-margin;
 }

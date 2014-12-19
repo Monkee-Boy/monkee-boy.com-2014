@@ -65,7 +65,7 @@
 }
 
 .panel {
-  margin-bottom: em-calc(35px);
+  margin-bottom: $block-margin;
   padding: 35px 0;
   color: $grey;
   background: $black;

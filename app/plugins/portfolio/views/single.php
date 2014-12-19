@@ -77,7 +77,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row vspace-extra">
     <div class="full">
       <h2 data-text-align="center">Services Provided</h2>
       <ul class="service-icons portfolio">
@@ -88,7 +88,7 @@
     </div> <!-- /.full -->
   </div> <!-- /.row -->
 
-  <div class="row">
+  <div class="row vspace-extra">
     <div class="single-column">
       <h3 data-text-align="center">Other key services:</h3>
 

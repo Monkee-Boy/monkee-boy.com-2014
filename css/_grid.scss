@@ -9,7 +9,7 @@ $susy: (
 );
 
 .row {
-  margin-bottom: em-calc(35px);
+  margin-bottom: $block-margin;
   @include container();
 }
 
