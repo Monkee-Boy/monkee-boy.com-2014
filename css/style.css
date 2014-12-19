@@ -2310,6 +2310,7 @@ button.button-full[type=submit], .upload-box.initial .button-full.add-files, .bu
 }
 @media only screen and (max-width: 580px) {
   .service-section .title {
+    text-align: center;
     font-size: 36px;
   }
 }
@@ -2354,6 +2355,16 @@ button.button-full[type=submit], .upload-box.initial .button-full.add-files, .bu
     font-size: 100px;
     line-height: 100px;
     margin-right: 20px;
+  }
+}
+@media only screen and (max-width: 580px) {
+  .service-section .service-icon, .service-section .title {
+    display: block;
+  }
+  .service-section .service-icon {
+    margin: 0 auto;
+    font-size: 200px;
+    line-height: 200px;
   }
 }
 
