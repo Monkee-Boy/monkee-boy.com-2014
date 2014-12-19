@@ -402,7 +402,7 @@
     &:before { top: 28px; }
     &:after { top: 38px; }
     @media #{$large-down} { max-width: 250px; }
-    @media #{$small-only} { max-width: 100%; }
+    @media #{$small-only} { display: none; }
     li {
       position: relative;
       width: 75px;
@@ -436,7 +436,7 @@
     text-transform: uppercase;
     text-align: center;
     @media #{$large-only} { font-size: 36px; }
-    @media #{$small-only} { font-size: 36px; }
+    @media #{$small-only} { text-align: center; font-size: 36px; }
   }
   .service-content {
     @include span(7 of 12);
@@ -457,6 +457,16 @@
       font-size: 100px;
       line-height: 100px;
       margin-right: 20px;
+    }
+  }
+  @media #{$small-only} {
+    .service-icon, .title {
+      display: block;
+    }
+    .service-icon {
+      margin: 0 auto;
+      font-size: 200px;
+      line-height: 200px;
     }
   }
 }

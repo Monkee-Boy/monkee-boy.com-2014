@@ -505,6 +505,7 @@ body.menu-open .container {
 
 .container {
   position: relative;
+  width: 100%;
   overflow: hidden;
   z-index: 1;
   background-color: #ededed;
@@ -1182,6 +1183,11 @@ body.menu-open .container {
   padding-left: 15px;
   padding-right: 15px;
   text-align: right;
+}
+@media only screen and (max-width: 355px) {
+  [role="contentinfo"] .footer-meta {
+    font-size: 14px;
+  }
 }
 @media only screen and (max-width: 580px) {
   [role="contentinfo"] .footer-meta {
@@ -2268,7 +2274,7 @@ button.button-full[type=submit], .upload-box.initial .button-full.add-files, .bu
 }
 @media only screen and (max-width: 580px) {
   .home-portfolio .service-icons {
-    max-width: 100%;
+    display: none;
   }
 }
 .home-portfolio .service-icons li {
@@ -2317,6 +2323,7 @@ button.button-full[type=submit], .upload-box.initial .button-full.add-files, .bu
 }
 @media only screen and (max-width: 580px) {
   .service-section .title {
+    text-align: center;
     font-size: 36px;
   }
 }
@@ -2361,6 +2368,16 @@ button.button-full[type=submit], .upload-box.initial .button-full.add-files, .bu
     font-size: 100px;
     line-height: 100px;
     margin-right: 20px;
+  }
+}
+@media only screen and (max-width: 580px) {
+  .service-section .service-icon, .service-section .title {
+    display: block;
+  }
+  .service-section .service-icon {
+    margin: 0 auto;
+    font-size: 200px;
+    line-height: 200px;
   }
 }
 
@@ -3971,7 +3988,7 @@ button[type=submit] {
 }
 @media only screen and (max-width: 580px) {
   .hero-circles .tagline {
-    font-size: 30px;
+    font-size: 24px;
     line-height: 80px;
     margin: 0;
   }
@@ -4043,6 +4060,9 @@ button[type=submit] {
     color: #acca41;
     font-weight: bold;
   }
+  .hero-circles .mobile-slider .title.closed {
+    display: none;
+  }
   .hero-circles .mobile-slider .subtitle {
     font-size: 24px;
     color: #fff;
@@ -4084,6 +4104,11 @@ button[type=submit] {
 .home-portfolio .section-title:after {
   color: #979797;
   top: 0.75em;
+}
+@media only screen and (max-width: 580px) {
+  .home-portfolio .description {
+    display: none;
+  }
 }
 .home-portfolio .menu-lite {
   color: #23a38f;
@@ -4191,6 +4216,11 @@ button[type=submit] {
 .home-pulse .section-title {
   margin-bottom: 65px;
   line-height: 0.55;
+}
+@media only screen and (max-width: 840px) {
+  .home-pulse .section-title {
+    line-height: .6;
+  }
 }
 .home-pulse .item-panel-inside {
   min-height: 300px;
@@ -5386,6 +5416,7 @@ button[type=submit] {
 }
 .troop-stats-pt2 li:after {
   color: #8fa82a;
+  opacity: 0.6;
 }
 .troop-stats-pt2 li p {
   color: #1a7a6c;
@@ -5437,11 +5468,21 @@ button[type=submit] {
   width: 100%;
   border: 12px solid #fff;
 }
+@media only screen and (max-width: 840px) {
+  #contact-map {
+    height: 460px;
+  }
+}
 #contact-map:after {
   content: "";
   display: block;
   width: 100%;
   padding-bottom: 45.8%;
+}
+@media only screen and (max-width: 840px) {
+  #contact-map:after {
+    padding-bottom: 0;
+  }
 }
 #contact-map > div {
   position: absolute;

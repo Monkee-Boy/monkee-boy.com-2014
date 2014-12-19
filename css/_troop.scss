@@ -337,7 +337,7 @@
       width: 100%;
       margin-bottom: $mobile-paragraph-margin;
     }
-    &:after { color: $dark-green; }
+    &:after { color: $dark-green; opacity: 0.6; }
     p { color: $dark-teal; }
     &.code .number {
       font-size: 120px;

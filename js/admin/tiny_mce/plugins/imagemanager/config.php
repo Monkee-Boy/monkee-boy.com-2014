@@ -33,7 +33,8 @@
 	// General filesystem options
 	$mcImageManagerConfig['filesystem'] = "Moxiecode_LocalFileImpl";
 	$mcImageManagerConfig['filesystem.path'] = ''; // absolute or relative from this script path, optional.
-	$mcImageManagerConfig['filesystem.rootpath'] = dirname(dirname(dirname(dirname(dirname(__FILE__))))).'/uploads/editor/images'; // absolute or relative from this script path, required.
+	$mcImageManagerConfig['filesystem.rootpath'] = dirname(dirname(dirname(dirname(dirname(dirname(__FILE__)))))).'/uploads/editor/images'; // absolute or relative from this script path, required.
+	// echo dirname(dirname(dirname(dirname(dirname(dirname(__FILE__)))))).'/uploads/editor/images';
 	$mcImageManagerConfig['filesystem.datefmt'] = "Y-m-d H:i";
 	$mcImageManagerConfig['filesystem.include_directory_pattern'] = '';
 	$mcImageManagerConfig['filesystem.exclude_directory_pattern'] = '/^mcith$/i';
@@ -65,7 +66,7 @@
 	$mcImageManagerConfig['thumbnail.max_height'] = ""; // px (will not generate thumbnail if larger than this size)
 	$mcImageManagerConfig['thumbnail.scale_mode'] = "percentage"; // percentage,resize
 	$mcImageManagerConfig['thumbnail.folder'] = "mcith"; // required, exclude this folder with file pattern '/^mcith$/i' if you don't want it to show
-	$mcImageManagerConfig['thumbnail.prefix'] = "mcith_"; // 
+	$mcImageManagerConfig['thumbnail.prefix'] = "mcith_"; //
 	$mcImageManagerConfig['thumbnail.delete'] = true; // delete th when original is deleted
 	$mcImageManagerConfig['thumbnail.jpeg_quality'] = 75; // quality of th image, note that this is not checked against when regenerating ths.
 	$mcImageManagerConfig['thumbnail.allow_export'] = "width,height,insert";
