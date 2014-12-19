@@ -5374,6 +5374,7 @@ button[type=submit] {
 }
 .troop-stats-pt2 li:after {
   color: #8fa82a;
+  opacity: 0.6;
 }
 .troop-stats-pt2 li p {
   color: #1a7a6c;
