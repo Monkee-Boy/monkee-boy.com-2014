@@ -2256,7 +2256,7 @@ button.button-full[type=submit], .upload-box.initial .button-full.add-files, .bu
 }
 @media only screen and (max-width: 580px) {
   .home-portfolio .service-icons {
-    max-width: 100%;
+    display: none;
   }
 }
 .home-portfolio .service-icons li {
@@ -3959,7 +3959,7 @@ button[type=submit] {
 }
 @media only screen and (max-width: 580px) {
   .hero-circles .tagline {
-    font-size: 30px;
+    font-size: 24px;
     line-height: 80px;
     margin: 0;
   }
@@ -4031,6 +4031,9 @@ button[type=submit] {
     color: #acca41;
     font-weight: bold;
   }
+  .hero-circles .mobile-slider .title.closed {
+    display: none;
+  }
   .hero-circles .mobile-slider .subtitle {
     font-size: 24px;
     color: #fff;
@@ -4072,6 +4075,11 @@ button[type=submit] {
 .home-portfolio .section-title:after {
   color: #979797;
   top: 0.75em;
+}
+@media only screen and (max-width: 580px) {
+  .home-portfolio .description {
+    display: none;
+  }
 }
 .home-portfolio .menu-lite {
   color: #23a38f;

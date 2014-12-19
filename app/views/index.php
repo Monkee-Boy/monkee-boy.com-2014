@@ -72,8 +72,29 @@
       <div class="half">
         <div class="section-head" data-text-align="left">
           <span class="section-title dots" data-dots="right"><em>featured from the</em><br>portfolio</span>
+          <?php if(!empty($aPortfolio['slides'])): ?>
+            <?php if(!empty($aPortfolio['slides'][0]['desktop_image_url'])): ?>
+              <div class="desktop screen">
+                <div class="screen-inner">
+                  <img src="<?php echo $aPortfolio['slides'][0]['desktop_image_url']; ?>">
+                </div>
+              </div>
+            <?php elseif(!empty($aPortfolio['slides'][0]['tablet_image_url'])): ?>
+              <div class="tablet screen">
+                <div class="screen-inner">
+                  <img src="<?php echo $aPortfolio['slides'][0]['tablet_image_url']; ?>">
+                </div>
+              </div>
+            <?php elseif(!empty($aPortfolio['slides'][0]['phone_image_url'])): ?>
+              <div class="phone screen">
+                <div class="screen-inner">
+                  <img src="<?php echo $aPortfolio['slides'][0]['phone_image_url']; ?>">
+                </div>
+              </div>
+            <?php endif; ?>
+          <?php endif; ?>
           <h3><?php echo $aPortfolio['name']; ?></h3>
-          <?php echo $aPortfolio['short_description']; ?>
+          <div class="description"><?php echo $aPortfolio['short_description']; ?></div>
           <ul class="menu-lite">
             <li><a href="/the-work/<?php echo $aPortfolio['tag']; ?>/">View project</a></li>
             <li><a href="/the-work/">View full portfolio</a></li>
@@ -86,27 +107,6 @@
         </div>
       </div><!-- /.half -->
     </div>
-    <?php if(!empty($aPortfolio['slides'])): ?>
-      <?php if(!empty($aPortfolio['slides'][0]['desktop_image_url'])): ?>
-        <div class="desktop screen">
-          <div class="screen-inner">
-            <img src="<?php echo $aPortfolio['slides'][0]['desktop_image_url']; ?>">
-          </div>
-        </div>
-      <?php elseif(!empty($aPortfolio['slides'][0]['tablet_image_url'])): ?>
-        <div class="tablet screen">
-          <div class="screen-inner">
-            <img src="<?php echo $aPortfolio['slides'][0]['tablet_image_url']; ?>">
-          </div>
-        </div>
-      <?php elseif(!empty($aPortfolio['slides'][0]['phone_image_url'])): ?>
-        <div class="phone screen">
-          <div class="screen-inner">
-            <img src="<?php echo $aPortfolio['slides'][0]['phone_image_url']; ?>">
-          </div>
-        </div>
-      <?php endif; ?>
-    <?php endif; ?>
   </div><!-- /.home-portfolio -->
   <?php endif; ?>
 

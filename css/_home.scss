@@ -214,7 +214,7 @@
       margin: 0;
     }
     @media #{$small-only} {
-      font-size: 30px;
+      font-size: 24px;
       line-height: 80px;
       margin: 0;
     }
@@ -270,6 +270,7 @@
         font-size: 18px;
         color: $green;
         font-weight: bold;
+        &.closed { display: none; }
       }
       .subtitle {
         font-size: 24px;
@@ -305,6 +306,9 @@
       color: $medium-grey;
       top: 0.75em;
     }
+  }
+  .description {
+    @media #{$small-only} { display: none; }
   }
   .menu-lite {
     color: $teal;
