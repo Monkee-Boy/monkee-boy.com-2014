@@ -1184,6 +1184,11 @@ body.menu-open .container {
   padding-right: 15px;
   text-align: right;
 }
+@media only screen and (max-width: 355px) {
+  [role="contentinfo"] .footer-meta {
+    font-size: 14px;
+  }
+}
 @media only screen and (max-width: 580px) {
   [role="contentinfo"] .footer-meta {
     width: 60%;

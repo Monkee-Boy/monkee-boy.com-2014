@@ -6,11 +6,13 @@
 }
 
 // Breakpoints
+$xsmall-bound: 355;
 $small-bound: 580;
 $medium-bound: 840;
 $large-bound: 980;
 $xlarge-bound: 1115;
 
+$x-small-only: "only screen and (max-width: #{$xsmall-bound}px)";
 $small-only: "only screen and (max-width: #{$small-bound}px)";
 $medium-only: "only screen and (min-width: #{$small-bound + 1}px) and (max-width: #{$medium-bound}px)";
 $medium-up: "only screen and (min-width: #{$small-bound + 1}px)";

@@ -511,6 +511,7 @@ body {
   .footer-meta {
     @include span(5 of 12);
     text-align: right;
+    @media #{$x-small-only} { font-size: 14px; }
     @media #{$small-only} { width: 60%; }
     @media #{$medium-only} { width: 80%; }
   }
