@@ -156,7 +156,7 @@ $(function(){
 
 	$('#currentCharacters').html($('textarea[name=excerpt]').val().length);
 	$('textarea[name=excerpt]').keyup(function() {
-		if($(this).val().length > {$sExcerptCharacters})
+		if($(this).val().length > <?php echo $sExcerptCharacters; ?>)
 			$('#currentCharacters').parent().css('color', '#cc0000');
 		else
 			$('#currentCharacters').parent().css('color', 'inherit');

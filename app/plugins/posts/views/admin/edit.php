@@ -58,7 +58,7 @@
 								<?php if(!empty($aCategories)): ?>
 									<select name="categories[]" data-placeholder="Select Categories" class="chzn-select span12" multiple="">
 										<?php foreach($aCategories as $aCategory): ?>
-											<option value="{$aCategory.id}"<?php if(in_array($aCategory['id'], $aPost['categories'])){ echo ' selected="selected"'; } ?>><?php $aCategory['name'] ?></option>
+											<option value="<?php echo $aCategory['id']; ?>"<?php if(in_array($aCategory['id'], $aPost['categories'])){ echo ' selected="selected"'; } ?>><?php echo $aCategory['name'] ?></option>
 										<?php endforeach; ?>
 				          </select>
 
@@ -254,7 +254,7 @@ $(function(){
 
 	$('#currentCharacters').html($('textarea[name=excerpt]').val().length);
 	$('textarea[name=excerpt]').keyup(function() {
-		if($(this).val().length > {$sExcerptCharacters})
+		if($(this).val().length > <?php echo $sExcerptCharacters; ?>)
 			$('#currentCharacters').parent().css('color', '#cc0000');
 		else
 			$('#currentCharacters').parent().css('color', 'inherit');
