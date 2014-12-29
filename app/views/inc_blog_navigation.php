@@ -22,8 +22,8 @@ if($menu === 'blog-post') {
       <img src="/uploads/troop/<?php echo $aPost['author']['photo']; ?>" alt="<?php echo $aPost['author']['name']; ?>" class="author-pic">
       <span class="source">By <?php echo $aPost['author']['name']; ?></span>
       <ul class="menu-lite">
-        <li>Category</li>
-        <li>3 Comments</li>
+        <?php if(!empty($aPost['categories'])) { ?><li><?php echo $aPost['categories'][0]['name']; ?></li><?php } ?>
+        <li>3 Comments</li> <!-- TODO: Add disqus comment code. -->
         <li><?php echo date('F d, Y', $aPost['publish_on']); ?></li>
       </ul>
     </div>
