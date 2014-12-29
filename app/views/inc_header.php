@@ -29,7 +29,7 @@
   <!--[if lt IE 9]><p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p><![endif]-->
 
 <div class="container" role="document">
-	<?php include('inc_navigation.php'); ?>
+	<?php if(!empty($menu) && ($menu === 'blog' || $menu === 'blog-post')) { include('inc_blog_navigation.php'); } else { include('inc_navigation.php'); } ?>
   <?php
   $aSubNav = array(
     'who' => array('why-monkee-boy','troop','news','join'),

@@ -2,7 +2,7 @@
 // need to get header image from CMS
 //$header_img = $is_post? '/assets/blog-post-featured.png': '/assets/blog-landing-featured.jpg';
 ?>
-<header role="banner" class="blog-header blur-image <?php if(!$is_post) echo ' listing-page'; ?>">
+<header role="banner" class="blog-header blur-image<?php if($menu === 'blog-post') { echo ' listing-page'; } ?>">
   <img src="<?php echo $header_img; ?>" alt="" class="image-bg">
   <nav class="blog-nav row" role="navigation">
     <a href="#" class="blog-logo">The Blog</a>
@@ -13,20 +13,20 @@
     </ul>
   </nav>
 
-  <?php //if($is_post): ?>
-  <div class="post-header row">
-    <h1>Once Upon a Time There Was a Website</h1>
-    <img src="/assets/troop-autumn-default.jpg" alt="Autumn Hutchins" class="author-pic">
-    <span class="source">By Autumn Hutchins</span>
-    <ul class="menu-lite">
-      <li>Category</li>
-      <li>3 Comments</li>
-      <li>May 29th 2014</li>
-    </ul>
-  </div>
-  <?php //endif; ?>
-
+  <?php if($menu === 'blog-post' && !empty($aPost)) { ?>
+    <div class="post-header row">
+      <h1><?php echo $aPost['title']; ?></h1>
+      <img src="/uploads/troop/<?php echo $aPost['author']['photo']; ?>" alt="<?php echo $aPost['author']['name']; ?>" class="author-pic">
+      <span class="source">By <?php echo $aPost['author']['name']; ?></span>
+      <ul class="menu-lite">
+        <li>Category</li>
+        <li>3 Comments</li>
+        <li><?php echo date('F d, Y', $aPost['publish_on']); ?></li>
+      </ul>
+    </div>
+  <?php } ?>
 </header>
+
 <div class="mobile-header mobile-blog-header">
   <img src="/images/logo-horizontal.png" alt="Monkee-Boy Web Design" class="mobile-logo">
   <a href="#" class="mobile-menu-trigger">Menu</a>

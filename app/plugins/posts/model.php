@@ -19,13 +19,13 @@ class posts_model extends appModel {
 	 * @param  boolean $sPopular  When true sorts posts by `views` instead of publish date.
 	 * @return array              Return array of posts.
 	 */
-	function getPosts($sCategory = null, $sAll = false, $sPopular = false) {
+	function getPosts($sCategory = null, $sAll = false, $sPopular = false, $sExcludePosts = null, $sAuthorId = null, $sLimit = null) {
 		$aWhere = array();
-		$sJoin = "";
+		$sJoin = '';
 
 		// Filter only posts that are active unless told otherwise.
 		if($sAll == false) {
-			$aWhere[] = "`posts`.`publish_on` < ".time();
+			//$aWhere[] = "`posts`.`publish_on` < ".time(); TODO: FIX THIS!
 			$aWhere[] = "`posts`.`active` = 1";
 		}
 
@@ -34,6 +34,14 @@ class posts_model extends appModel {
 			$aWhere[] = "`categories`.`id` = ".$this->dbQuote($sCategory, "integer");
 			$sJoin .= " LEFT JOIN `{dbPrefix}posts_categories_assign` AS `posts_assign` ON `posts`.`id` = `posts_assign`.`postid`";
 			$sJoin .= " LEFT JOIN `{dbPrefix}posts_categories` AS `categories` ON `posts_assign`.`categoryid` = `categories`.`id`";
+		}
+
+		if(!empty($sExcludePosts)) {
+			$aWhere[] = "`posts`.`id` NOT IN (".$this->dbQuote($sExcludePosts, "text").")";
+		}
+
+		if(!empty($sAuthorId)) {
+			$aWhere[] = "`posts`.`authorid` = ".$this->dbQuote($sAuthorId, "integer");
 		}
 
 		// Combine the above filters for sql.
@@ -48,12 +56,19 @@ class posts_model extends appModel {
 			$sOrderBy = "ORDER BY `posts`.`sticky` DESC, `posts`.`publish_on` DESC";
 		}
 
+		if(!empty($sLimit)) {
+			$sLimit = ' LIMIT '.$this->dbQuote($sLimit, "integer");
+		} else {
+			$sLimit = '';
+		}
+
 		$aPosts = $this->dbQuery(
 			"SELECT `posts`.* FROM `{dbPrefix}posts` AS `posts`"
 				.$sJoin
 				.$sWhere
 				." GROUP BY `posts`.`id`"
 				.$sOrderBy
+				.$sLimit
 			,"all"
 		);
 
@@ -81,7 +96,7 @@ class posts_model extends appModel {
 
 		if($sAll == false) {
 			$sWhere .= " AND `posts`.`active` = 1";
-			$sWhere .= " AND `posts`.`publish_on` < ".time();
+			//$sWhere .= " AND `posts`.`publish_on` < ".time(); /* TODO: Fix this! */
 		}
 
 		$aPost = $this->dbQuery(
@@ -108,8 +123,9 @@ class posts_model extends appModel {
 				$aPost["excerpt"] = (string)substr(nl2br(htmlspecialchars(stripslashes(strip_tags($aPost["content"])))), 0, $this->excerptCharacters);
 
 			$aPost["content"] = stripslashes($aPost["content"]);
-			$aPost["url"] = "/posts/".date("Y", $aPost["created_datetime"])."/".date("m", $aPost["created_datetime"])."/".date("d", $aPost["created_datetime"])."/".$aPost["tag"]."/";
+
 			$aPost["publish_on"] = strtotime($aPost["publish_on"]);
+			$aPost["url"] = "/blog/".date("Y", $aPost["publish_on"])."/".date("m", $aPost["publish_on"])."/".$aPost["tag"]."/";
 
 			$aPost["author"] = $this->dbQuery(
 				"SELECT * FROM `{dbPrefix}troop`"
@@ -117,6 +133,10 @@ class posts_model extends appModel {
 					." LIMIT 1"
 				,"row"
 			);
+
+			if(!empty($aPost['author']['social_accounts'])) {
+				$aPost['author']['social_accounts'] = json_decode($aPost['author']['social_accounts'], true);
+			}
 
 			$aPost["categories"] = $this->dbQuery(
 				"SELECT * FROM `{dbPrefix}posts_categories` AS `categories`"

@@ -1,89 +1,81 @@
-{$menu = "posts"}
-{include file="inc_header.php" page_title="Posts"}
-{head}
-<link rel="alternate" type="application/rss+xml" title="All Posts RSS" href="/posts/rss/">
-{if !empty($smarty.get.category)}<link rel="alternate" type="application/rss+xml" title="Posts in {$aCategory.name} RSS" href="/posts/rss/?category={$smarty.get.category}">{/if}
-<meta property="og:site_name" content="{getSetting tag="site-title"}">
-{/head}
-<div id="fb-root"></div>
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({appId: '127471297263601', status: true, cookie: true,
-             xfbml: true});
-  };
-  (function() {
-    var e = document.createElement('script'); e.async = true;
-    e.src = document.location.protocol +
-      '//connect.facebook.net/en_US/all.js';
-    document.getElementById('fb-root').appendChild(e);
-  }());
-</script>
+<?php $this->tplDisplay("inc_header.php", ['menu'=>'blog']); ?>
 
-	{if $aCategories|@count gt 1}
-	<form name="category" method="get" action="/posts/" class="sortCat">
-		Category:
-		<select name="category">
-			<option value="">- All Categories -</option>
-			{foreach from=$aCategories item=aCategory}
-				<option value="{$aCategory.id}"{if $aCategory.id == $smarty.get.category} selected="selected"{/if}>{$aCategory.name}</option>
-			{/foreach}
-		</select>
-		{footer}
-		<script type="text/javascript">
-		$(function(){
-			$('select[name=category]').change(function(){
-				$('form[name=category]').submit();
-			});
-		});
-		</script>
-		{/footer}
-	</form>
-	{/if}
+  <article class="row featured-post">
+    <div class="header-meta">
+      <span class="bg" style="background-image:url(/assets/blog-post-featured.png)"></span>
+      <div class="title">
+        <h1>Once Upon a Time There Was a Website</h1>
+        <span class="source">By Autumn Hutchins</span>
+      </div>
+    </div>
+    <div class="excerpt">
+      <ul class="menu-lite">
+        <li>Category</li>
+        <li>3 Comments</li>
+        <li>May 29th 2014</li>
+      </ul>
+      <h2>H2 Lorem Ipsum</h2>
+      <p class="intro">Intro paragraph Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat &hellip;</p>
+      <a href="#" class="more-link">Read the full article</a>
+    </div>
+  </article><!-- /.featured-post -->
 
-	<h2>Latest Posts{if !empty($aCategory)} in {$aCategory.name}{/if}</h2>
-	<div class="clear">&nbsp;</div>
+  <div class="row blog-list">
+    <div class="full filter-bar">
+      <label for="category">To filter recent posts please</label>
+      <div class="select-box">
+        <select name="category" id="category">
+          <option value="">Select a Category</option>
+          <option value="Things we Love">Things we Love</option>
+          <option value="User Experience">User Experience</option>
+          <option value="Design">Design</option>
+          <option value="Development">Development</option>
+          <option value="Content Strategy">Content Strategy</option>
+        </select>
+      </div>
+    </div><!-- /.filter-bar -->
+    <div class="one-third post-panel" data-text-align="center">
+      <div class="post-panel-inside">
+        <a href="" title=""><img src="/assets/blog-post.jpg" alt=""></a>
+        <h4><a href="" title="">Freebie Friday: 25 Colorful Polygon Backgrounds</a></h4>
+      </div>
+    </div>
+    <div class="one-third post-panel" data-text-align="center">
+      <div class="post-panel-inside">
+        <a href="" title=""><img src="/assets/blog-post.jpg" alt=""></a>
+        <h4><a href="" title="">Freebie Friday: 25 Colorful Polygon Backgrounds</a></h4>
+      </div>
+    </div>
+    <div class="one-third post-panel" data-text-align="center">
+      <div class="post-panel-inside">
+        <a href="" title=""><img src="/assets/blog-post.jpg" alt=""></a>
+        <h4><a href="" title="">Freebie Friday: 25 Colorful Polygon Backgrounds</a></h4>
+      </div>
+    </div>
+    <div class="one-third post-panel" data-text-align="center">
+      <div class="post-panel-inside">
+        <a href="" title=""><img src="/assets/blog-post.jpg" alt=""></a>
+        <h4><a href="" title="">Freebie Friday: 25 Colorful Polygon Backgrounds</a></h4>
+      </div>
+    </div>
+    <div class="one-third post-panel" data-text-align="center">
+      <div class="post-panel-inside">
+        <a href="" title=""><img src="/assets/blog-post.jpg" alt=""></a>
+        <h4><a href="" title="">Freebie Friday: 25 Colorful Polygon Backgrounds</a></h4>
+      </div>
+    </div>
+    <div class="one-third post-panel" data-text-align="center">
+      <div class="post-panel-inside">
+        <a href="" title=""><img src="/assets/blog-post.jpg" alt=""></a>
+        <h4><a href="" title="">Freebie Friday: 25 Colorful Polygon Backgrounds</a></h4>
+      </div>
+    </div>
+  </div><!-- /.blog-list -->
+  <div class="paging row">
+    <div class="full">
+      <a href="#" class="load-more button">Load More!</a>
+    </div>
+  </div>
 
-	{foreach from=$aPosts item=aPost}
-		<article>
-			{if $aPost.image == 1}
-				<figure>
-					<a href="{$aPost.url}" title="{$aPost.title}"><img src="/image/posts/{$aPost.id}/?width=140" alt="{$aPost.title}"></a>
-				</figure>
-			{/if}
-			<h3><a href="{$aPost.url}" title="{$aPost.title}">{$aPost.title}</a></h3>
-			<small class="timeCat">
-				<time>{$aPost.publish_on|formatDateTime}</time>
-				| Posted by: {$aPost.author.fname} {$aPost.author.lname} 
-				{if !empty($aPost.categories)}
-					| Categories: 
-					{foreach from=$aPost.categories item=aCategory name=category}
-						<a href="/posts/?category={$aCategory.id}" title="Posts in {$aCategory.name}">{$aCategory.name}</a>{if $smarty.foreach.category.last == false},{/if} 
-					{/foreach}
-				{/if}
-			</small>
-			
-			{if $aPost.allow_sharing}<fb:like href="http://{$smarty.server.SERVER_NAME}{$aPost.url}" layout="box_count" show_faces="false" width="50" font=""></fb:like> <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://{$smarty.server.SERVER_NAME}{$aPost.url}" data-text="{$aPost.title}" data-count="vertical" data-via="{getSetting tag="twitter-username"}">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>{/if}
-			
-			<p>{$aPost.excerpt}&hellip; <a href="{$aPost.url}" title="{$aPost.title}">More Info&raquo;</a></p>
-		</article>
-	{foreachelse}
-		<p>There are currently no posts.</p>
-	{/foreach}
-
-
-	{if $aPaging.next.use == true}
-		<p class="right paging"><a href="{preserve_query option='page' value=$aPaging.next.page}">Next &raquo;</a></p>
-	{/if}
-	{if $aPaging.back.use == true}
-		<p class="left paging"><a href="{preserve_query option='page' value=$aPaging.back.page}">&laquo; Back</a></p>
-	{/if}
-	<p style="text-align: center;">Page {$aPaging.current} of {$aPaging.total}</p>
-	<div class="clear">&nbsp;</div>
-
-	<div style="text-align:center;margin-top:10px">
-		<a href="/posts/rss/{if !empty($smarty.get.category)}?category={$smarty.get.category}{/if}">
-			<img src="/images/admin/icons/feed.png"> RSS Feed
-		</a>
-	</div>
-
-<?php $this->tplDisplay("inc_footer.php"); ?>
+  <?php $this->tplDisplay("inc_footer.php"); ?>

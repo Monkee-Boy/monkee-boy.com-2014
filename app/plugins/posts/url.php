@@ -12,15 +12,15 @@
  #   /<tag:[a-z]+>/
 */
 $aPluginUrlPatterns = array(
-  "/posts/" => array(
+  "/blog/" => array(
 		"cmd" => "posts",
 		"action" => "index"
 	),
-	"/posts/rss/" => array(
+	"/blog/rss/" => array(
 		"cmd" => "posts",
 		"action" => "rss"
 	),
-	"/posts/<year:[0-9]+>/<month:[0-9]+>/<date:[0-9]+>/<tag:[^/]+>/" => array(
+	"/blog/<year:[0-9]+>/<month:[0-9]+>/<tag:[^/]+>/" => array(
 		"cmd" => "posts",
 		"action" => "post"
 	),
@@ -49,7 +49,7 @@ $aPluginUrlPatterns = array(
     "cmd" => "admin_posts",
     "action" => "delete"
   ),
-  
+
 	"/admin/posts/categories/" => array(
     "cmd" => "admin_posts",
     "action" => "categories_index"

@@ -1,37 +1,117 @@
-{$menu = "posts"}
-{include file="inc_header.php" page_title=$aPost.title}
-{head}
-<meta property="og:title" content="{$aPost.title}">
-<meta property="og:site_name" content="{getSetting tag="site-title"}">
-{/head}
-<div id="fb-root"></div>
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({appId: '127471297263601', status: true, cookie: true,
-             xfbml: true});
-  };
-  (function() {
-    var e = document.createElement('script'); e.async = true;
-    e.src = document.location.protocol +
-      '//connect.facebook.net/en_US/all.js';
-    document.getElementById('fb-root').appendChild(e);
-  }());
-</script>
+<?php $this->tplDisplay("inc_header.php", ['menu'=>'blog-post']); ?>
 
-	<h2>{$aPost.title}</h2>
-	<small class="timeCat">
-		<time>{$aPost.publish_on|formatDateTime}</time>
-		| Posted by: {$aPost.author.fname} {$aPost.author.lname} 
-		{if !empty($aPost.categories)}
-			| Categories: 
-			{foreach from=$aPost.categories item=aCategory name=category}
-				<a href="/posts/?category={$aCategory.id}" title="Posts in {$aCategory.name}">{$aCategory.name}</a>{if $smarty.foreach.category.last == false},{/if} 
-			{/foreach}
-		{/if}
-	</small>
-	
-	{if $aPost.allow_sharing}<fb:like href="http://{$smarty.server.SERVER_NAME}{$aPost.url}" layout="box_count" show_faces="false" width="50" font=""></fb:like> <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://{$smarty.server.SERVER_NAME}{$aPost.url}" data-text="{$aPost.title}" data-count="vertical" data-via="{getSetting tag="twitter-username"}">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>{/if}
-	
-	{$aPost.content}
+  <div class="row">
+    <div class="single-post single-column">
+      <?php echo $aPost['content']; ?>
+    </div><!-- /.single-post -->
+  </div> <!-- /.row -->
+
+  <figure class="large-photo">
+    <div class="row-flush">
+      <img src="/assets/sample-full-photo.jpg" class="full" alt="post-it notes">
+      <figcaption class="full">Caption lorem dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo.</figcaption>
+    </div>
+  </figure>
+
+  <div class="row">
+    <div class="single-post">
+      <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+
+      <div class="share-section">
+        <h4>Share this article</h4>
+        <ul class="styleless">
+          <li><a href="#" class="twitter"><span>6</span></a></li>
+          <li><a href="#" class="facebook"><span>12</span></a></li>
+          <li><a href="#" class="pinterest"><span>105</span></a></li>
+        </ul>
+      </div>
+    </div><!-- /.single-post -->
+  </div>
+
+  <div class="panel-wide blog-author" data-panel-color="green" data-panel-style="slash">
+    <div class="row-flush">
+      <div class="author-info">
+        <img src="/uploads/troop/<?php echo $aPost['author']['photo']; ?>" alt="">
+        <span class="name"><?php echo $aPost['author']['name']; ?></span>
+
+        <?php if(!empty($aPost['author']['social_accounts'])) { ?>
+        <ul class="social-links" role="menu">
+          <?php foreach($aPost['author']['social_accounts'] as $network => $url) { ?>
+            <?php if(!empty($url)) { ?><li><a href="<?php echo $url; ?>" class="<?php echo $network; ?>"><?php echo $network; ?></a></li><?php } ?>
+          <?php } ?>
+        </ul>
+        <?php } ?>
+      </div> <!-- /.author-info -->
+
+      <?php if(!empty($aPost['author']['more_posts'])) { ?>
+      <div class="author-articles">
+        <h2><span class="subtitle">more from </span>the author</h2>
+        <ul class="list-style-alt">
+          <?php foreach($aPost['author']['more_posts'] as $author_post) { ?>
+            <li><a href="<?php echo $author_post['url']; ?>"><?php echo $author_post['title']; ?></a></li>
+          <?php } ?>
+        </ul>
+      </div> <!-- /.author-articles -->
+      <?php } ?>
+    </div> <!-- /.row-flush -->
+  </div> <!-- /.panel-wide.blog-author -->
+
+  <div class="row post-extras">
+    <div class="single-post">
+      <h3 data-text-align="center">You might also like:</h3>
+      <div class="row-pop">
+        <div class="half post-panel" data-text-align="center">
+          <div class="post-panel-inside">
+            <a href="" title=""><img src="/assets/blog-post.jpg" alt=""></a>
+            <h4><a href="" title="">Freebie Friday: 25 Colorful Polygon Backgrounds</a></h4>
+          </div>
+        </div>
+        <div class="half post-panel" data-text-align="center">
+          <div class="post-panel-inside">
+            <a href="" title=""><img src="/assets/blog-post.jpg" alt=""></a>
+            <h4><a href="" title="">Freebie Friday: 25 Colorful Polygon Backgrounds</a></h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="comment-section">
+        <h3 data-text-align="center">Reader Comments</h3>
+        <ul class="comments">
+          <li>
+            <span class="pic" style="background-image:url(http://cdn.morguefile.com/imageData/public/files/t/typexnick/preview/fldr_2012_03_03/file5751330778129.jpg)"></span>
+            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia a odio con nec elit. Cras mattis consectetur purus sit amet fermentum.</p>
+            <ul class="menu-lite">
+              <li>Longeruser middlename fullname</li>
+              <li>June 20th, 2014</li>
+              <li><a href="#">reply</a></li>
+            </ul>
+
+            <ul class="nested-replies">
+              <li>
+                <span class="pic" style="background-image:url(http://cdn.morguefile.com/imageData/public/files/e/ecerroni/preview/fldr_2008_11_13/file0002019118431.jpg)"></span>
+                <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia a odio con nec elit. Cras mattis consectetur purus sit amet fermentum.</p>
+                <ul class="menu-lite">
+                  <li>User Fullname</li>
+                  <li>June 27th, 2014</li>
+                  <li><a href="#">reply</a></li>
+                </ul>
+              </li>
+            </ul><!-- /.nested-replies -->
+
+          </li>
+          <li>
+            <span class="pic" style="background-image:url(http://cdn.morguefile.com/imageData/public/files/r/ronnieb/preview/fldr_2005_11_02/file000410741279.jpg)"></span>
+            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia a odio con nec elit. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. </p>
+            <ul class="menu-lite">
+              <li>User Fullname</li>
+              <li>July 1st, 2014</li>
+              <li><a href="#">reply</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.comment-section -->
+
+    </div><!-- /.single-post -->
+  </div>
 
 <?php $this->tplDisplay("inc_footer.php"); ?>

@@ -1,8 +1,8 @@
 $(document).ready(function() {
 	/* Init Bootstrap Plugins */
 	$('.alert').alert();
-	$('a[rel=popover]').popover();
-	$('[rel=tooltip]').tooltip();
+	/* $('a[rel=popover]').popover();
+	$('[rel=tooltip]').tooltip(); */
 
 	/* Init jQueryUI Modules */
 	$('.sortable').sortable();
