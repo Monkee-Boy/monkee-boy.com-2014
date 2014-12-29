@@ -6,23 +6,36 @@
     </div><!-- /.single-post -->
   </div> <!-- /.row -->
 
-  <figure class="large-photo">
+  <?php if(!empty($aPost['gallery']) && !empty($aPost['gallery']['photos'])) { ?>
+  <!-- <figure class="large-photo">
     <div class="row-flush">
       <img src="/assets/sample-full-photo.jpg" class="full" alt="post-it notes">
       <figcaption class="full">Caption lorem dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo.</figcaption>
     </div>
-  </figure>
+  </figure> -->
+
+  <div class="fullwidth-slider">
+    <ul class="unstyled">
+      <?php foreach($aPost['gallery']['photos'] as $gallery_photo) { ?>
+      <li>
+        <figure>
+          <img src="/assets/waithappy-sample1.jpg" alt="">
+          <figcaption>Caption lorem dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo.</figcaption>
+        </figure>
+      </li>
+      <?php } ?>
+    </ul>
+  </div>
+  <?php } ?>
 
   <div class="row">
     <div class="single-post">
-      <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-
       <div class="share-section">
         <h4>Share this article</h4>
         <ul class="styleless">
-          <li><a href="#" class="twitter"><span>6</span></a></li>
-          <li><a href="#" class="facebook"><span>12</span></a></li>
-          <li><a href="#" class="pinterest"><span>105</span></a></li>
+          <li><a href="https://twitter.com/share?url=http://monkee-boy.com<?php echo $aPost['url']; ?>&text=<?php echo urlencode($aPost['title']); ?>&via=monkeeboy" class="twitter"><span>6</span></a></li>
+          <li><a href="http://www.facebook.com/sharer.php?u=http://monkee-boy.com<?php echo $aPost['url']; ?>" class="facebook"><span>12</span></a></li>
+          <li><a href="https://pinterest.com/pin/create/bookmarklet/?media=http://monkee-boy.com/uploads/posts/<?php echo $aPost['featured_image']; ?>&url=http://monkee-boy.com<?php echo $aPost['url']; ?>&description=<?php echo urlencode($aPost['title']); ?>" class="pinterest"><span>105</span></a></li>
         </ul>
       </div>
     </div><!-- /.single-post -->

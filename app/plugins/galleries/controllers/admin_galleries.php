@@ -475,7 +475,7 @@ class admin_galleries extends adminController {
 				@unlink($upload_dir.$aPhoto['photo']);
 
 				$file_ext = pathinfo($_FILES["photo"]["name"], PATHINFO_EXTENSION);
-				$upload_file = $sID.".".strtolower($file_ext);
+				$upload_file = $_POST['id'].".".strtolower($file_ext);
 
 				if(move_uploaded_file($_FILES["photo"]["tmp_name"], $upload_dir.$upload_file))
 					$this->dbUpdate(

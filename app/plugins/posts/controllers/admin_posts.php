@@ -40,6 +40,9 @@ class admin_posts extends adminController {
 				)
 			);
 
+		$oGalleries = $this->loadModel('galleries');
+		$this->tplAssign("aGalleries", $oGalleries->getGalleries());
+
 		$this->tplAssign("aTroop", $oTroop->getTroop());
 		$this->tplAssign("aCategories", $this->model->getCategories());
 		$this->tplAssign("sUseCategories", $this->model->useCategories);
@@ -100,6 +103,7 @@ class admin_posts extends adminController {
 				,"sticky" => $this->boolCheck($_POST["sticky"])
 				,"active" => $this->boolCheck($sActive)
 				,"authorid" => $_POST["authorid"]
+				,"galleryid" => $_POST["galleryid"]
 				,"created_datetime" => date('Y-m-d H:i:s')
 				,"created_by" => $_SESSION["admin"]["userid"]
 				,"updated_datetime" => date('Y-m-d H:i:s')
@@ -198,6 +202,9 @@ class admin_posts extends adminController {
 			$this->tplAssign("aPost", $aPost);
 		}
 
+		$oGalleries = $this->loadModel('galleries');
+		$this->tplAssign("aGalleries", $oGalleries->getGalleries());
+
 		$this->tplAssign("aTroop", $oTroop->getTroop());
 		$this->tplAssign("aCategories", $this->model->getCategories());
 		$this->tplAssign("sUseCategories", $this->model->useCategories);
@@ -264,6 +271,7 @@ class admin_posts extends adminController {
 				,"sticky" => $this->boolCheck($_POST["sticky"])
 				,"active" => $this->boolCheck($sActive)
 				,"authorid" => $_POST["authorid"]
+				,"galleryid" => $_POST["galleryid"]
 				,"updated_datetime" => date('Y-m-d H:i:s')
 				,"updated_by" => $_SESSION["admin"]["userid"]
 			),

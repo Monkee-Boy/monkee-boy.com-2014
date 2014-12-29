@@ -149,6 +149,12 @@ class posts_model extends appModel {
 				$aCategory["name"] = htmlspecialchars(stripslashes($aCategory["name"]));
 			}
 
+			if(!empty($aPost['galleryid'])) {
+				$oGalleries = $this->loadModel('galleries');
+
+				$aPost['gallery'] = $oGalleries->getGallery($aPost['galleryid']);
+			}
+
 			if(!empty($aPost['listing_image'])) {
 				$aPost['listing_image_url'] = $this->imageFolder.$aPost['listing_image'];
 			}

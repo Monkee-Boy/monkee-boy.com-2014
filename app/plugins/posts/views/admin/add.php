@@ -70,6 +70,25 @@
 					</div>
 				</div>
 				<?php endif; ?>
+
+				<?php if(!empty($aGalleries)) { ?>
+				<div class="accordion-group">
+					<div class="accordion-heading">
+						<span class="accordion-toggle">Attach Gallery</span>
+					</div>
+					<div class="accordion-body">
+						<div class="accordion-inner">
+							<div class="controls">
+								<select name="galleryid" class="span12">
+									<?php foreach($aGalleries as $aGallery) { ?>
+										<option value="<?php echo $aGallery['id']; ?>"<?php if($aGallery['id'] == $aPost['galleryid']) { echo ' selected="selected"'; } ?>><?php echo $aGallery['name'] ?></option>
+										<?php } ?>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+					<?php } ?>
 			</div>
 
 			<div class="span4 aside">
@@ -89,16 +108,6 @@
 							<div class="control-group">
 								<div class="controls">
 									<label class="checkbox"><input type="checkbox" name="sticky" id="form-sticky" value="1"<?php if($aPost['sticky'] == 1){ echo ' checked="checked"'; } ?>>Stick this post to the front page.</label>
-								</div>
-
-								<?php if($useComments): ?>
-								<div class="controls">
-									<label class="checkbox"><input type="checkbox" name="allow_comments" id="form-comments" value="1"<?php if($aPost['allow_comments'] == 1){ echo ' checked="checked"'; } ?>>Allow comments.</label>
-								</div>
-								<?php endif; ?>
-
-								<div class="controls">
-									<label class="checkbox"><input type="checkbox" name="allow_sharing" id="form-sharing" value="1"<?php if($aPost['allow_sharing'] == 1){ echo ' checked="checked"'; } ?>>Show social sharing buttons on this post.</label>
 								</div>
 							</div>
 						</div>
