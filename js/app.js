@@ -1722,4 +1722,22 @@ function BlurStack()
     return false;
   });
 
+  var lastScrollTop   = 0,
+      banner          = $('[role="banner"]'),
+      mainNav         = banner.find('.main-nav');
+
+  $(window).scroll(function(event){
+    var st = $(this).scrollTop();
+    if (st > lastScrollTop){
+      mainNav.removeClass('sticky');
+    } else {
+      if(st > (banner.offset().top + banner.outerHeight())) {
+        mainNav.addClass('sticky');
+      } else {
+        mainNav.removeClass('sticky');
+      }
+    }
+    lastScrollTop = st;
+  });
+
 }(jQuery));

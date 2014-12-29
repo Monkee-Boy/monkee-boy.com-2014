@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
@@ -558,11 +559,11 @@ body.menu-open .container {
   width: 256px;
   text-align: center;
   background: rgba(255, 255, 255, 0.96);
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  -webkit-transition: padding 0.5s ease;
+  -moz-transition: padding 0.5s ease;
+  -ms-transition: padding 0.5s ease;
+  -o-transition: padding 0.5s ease;
+  transition: padding 0.5s ease;
 }
 .logo:after {
   content: '';
@@ -627,14 +628,18 @@ body.menu-open .container {
   }
 }
 
+.sticky-nav-wrapper {
+  height: 7.7em;
+}
+@media only screen and (max-width: 840px) {
+  .sticky-nav-wrapper {
+    display: none;
+  }
+}
+
 .main-nav {
   background: #1c1c1e;
   border-bottom: 4px solid #b2b2b2;
-}
-@media only screen and (max-width: 840px) {
-  .main-nav {
-    display: none;
-  }
 }
 .main-nav ul {
   margin: 0;
@@ -796,19 +801,90 @@ body.menu-open .container {
   }
 }
 .main-nav ul .primary > a.nav-who:after {
-  content: "\e60d";
+  content: "";
 }
 .main-nav ul .primary > a.nav-what:after {
-  content: "\e610";
+  content: "";
 }
 .main-nav ul .primary > a.nav-work:after {
-  content: "\e60c";
+  content: "";
 }
 .main-nav ul .primary > a.nav-contact:after {
-  content: "\e60e";
+  content: "";
 }
 .main-nav ul .primary > a.nav-blog:after {
-  content: "\e60f";
+  content: "";
+}
+.main-nav .request-quote {
+  display: none;
+}
+.main-nav.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  border-bottom-color: #acca41;
+}
+.main-nav.sticky .logo {
+  background: none;
+  position: static;
+  transition: none;
+  float: left;
+  width: 140px;
+  padding: 10px 0;
+}
+.main-nav.sticky .logo .speak {
+  visibility: hidden;
+}
+.main-nav.sticky .logo a {
+  display: block;
+  height: 95px;
+  width: 90px;
+  background: url("../images/logo-white.png") no-repeat top left;
+}
+.main-nav.sticky .logo a img {
+  display: none;
+}
+.main-nav.sticky .logo:hover {
+  padding-top: 10px;
+}
+.main-nav.sticky .logo:after {
+  display: none;
+}
+.main-nav.sticky .main-menu {
+  float: left;
+}
+.main-nav.sticky .primary > a {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.main-nav.sticky .primary > a:after {
+  display: none;
+}
+.main-nav.sticky .primary ul {
+  top: 112px;
+}
+.main-nav.sticky .request-quote {
+  display: block;
+  float: right;
+  background: #242529;
+  border-bottom: 2px solid #000;
+  margin-top: 20px;
+  padding: 15px 20px;
+  color: #23a38f;
+  text-align: center;
+  font-family: "effra", sans-serif;
+  font-weight: 700;
+  font-size: 0.8em;
+}
+.main-nav.sticky .request-quote span {
+  display: block;
+  font-size: 1.5em;
+}
+.main-nav.sticky .request-quote:hover {
+  color: #acca41;
+  text-decoration: none;
 }
 
 @media only screen and (max-width: 580px) {
@@ -983,7 +1059,7 @@ body.menu-open .container {
     border-bottom: 4px solid #000;
   }
   .mobile-header .mobile-menu-trigger:before {
-    content: "\e626";
+    content: "";
     display: block;
     font-size: 48px;
     font-family: "icomoon";
@@ -1226,7 +1302,6 @@ body.menu-open .container {
     -o-transform: rotate(45deg) skewX(5deg) skewY(5deg);
     transform: rotate(45deg) skewX(5deg) skewY(5deg);
   }
-
   50% {
     -webkit-transform: rotate(45deg) skewX(10deg) skewY(10deg);
     -moz-transform: rotate(45deg) skewX(10deg) skewY(10deg);
@@ -1234,7 +1309,6 @@ body.menu-open .container {
     -o-transform: rotate(45deg) skewX(10deg) skewY(10deg);
     transform: rotate(45deg) skewX(10deg) skewY(10deg);
   }
-
   100% {
     -webkit-transform: rotate(45deg) skewX(5deg) skewY(5deg);
     -moz-transform: rotate(45deg) skewX(5deg) skewY(5deg);
@@ -1251,7 +1325,6 @@ body.menu-open .container {
     -o-transform: rotate(45deg) skewX(5deg) skewY(5deg);
     transform: rotate(45deg) skewX(5deg) skewY(5deg);
   }
-
   50% {
     -webkit-transform: rotate(45deg) skewX(10deg) skewY(10deg);
     -moz-transform: rotate(45deg) skewX(10deg) skewY(10deg);
@@ -1259,7 +1332,6 @@ body.menu-open .container {
     -o-transform: rotate(45deg) skewX(10deg) skewY(10deg);
     transform: rotate(45deg) skewX(10deg) skewY(10deg);
   }
-
   100% {
     -webkit-transform: rotate(45deg) skewX(5deg) skewY(5deg);
     -moz-transform: rotate(45deg) skewX(5deg) skewY(5deg);
@@ -1276,7 +1348,6 @@ body.menu-open .container {
     -o-transform: rotate(45deg) skewX(5deg) skewY(5deg);
     transform: rotate(45deg) skewX(5deg) skewY(5deg);
   }
-
   50% {
     -webkit-transform: rotate(45deg) skewX(10deg) skewY(10deg);
     -moz-transform: rotate(45deg) skewX(10deg) skewY(10deg);
@@ -1284,7 +1355,6 @@ body.menu-open .container {
     -o-transform: rotate(45deg) skewX(10deg) skewY(10deg);
     transform: rotate(45deg) skewX(10deg) skewY(10deg);
   }
-
   100% {
     -webkit-transform: rotate(45deg) skewX(5deg) skewY(5deg);
     -moz-transform: rotate(45deg) skewX(5deg) skewY(5deg);
@@ -1301,7 +1371,6 @@ body.menu-open .container {
     -o-transform: rotate(45deg) skewX(5deg) skewY(5deg);
     transform: rotate(45deg) skewX(5deg) skewY(5deg);
   }
-
   50% {
     -webkit-transform: rotate(45deg) skewX(10deg) skewY(10deg);
     -moz-transform: rotate(45deg) skewX(10deg) skewY(10deg);
@@ -1309,7 +1378,6 @@ body.menu-open .container {
     -o-transform: rotate(45deg) skewX(10deg) skewY(10deg);
     transform: rotate(45deg) skewX(10deg) skewY(10deg);
   }
-
   100% {
     -webkit-transform: rotate(45deg) skewX(5deg) skewY(5deg);
     -moz-transform: rotate(45deg) skewX(5deg) skewY(5deg);
@@ -1717,7 +1785,7 @@ button.button-full[type=submit], .upload-box.initial .button-full.add-files, .bu
   text-align: center;
 }
 .social-links a:before {
-  content: "\e60b";
+  content: "";
   color: #acca41;
   font-size: 54px;
   line-height: 1;
@@ -1763,25 +1831,25 @@ button.button-full[type=submit], .upload-box.initial .button-full.add-files, .bu
   }
 }
 .social-links .blog:after {
-  content: "\e624";
+  content: "";
 }
 .social-links .twitter:after {
-  content: "\e61b";
+  content: "";
 }
 .social-links .facebook:after {
-  content: "\e61c";
+  content: "";
 }
 .social-links .linkedin:after {
-  content: "\e620";
+  content: "";
 }
 .social-links .gplus:after {
-  content: "\e61d";
+  content: "";
 }
 .social-links .instagram:after {
-  content: "\e621";
+  content: "";
 }
 .social-links .pinterest:after {
-  content: "\e61e";
+  content: "";
 }
 
 .page-title {
@@ -2101,7 +2169,7 @@ button.button-full[type=submit], .upload-box.initial .button-full.add-files, .bu
   position: relative;
 }
 .dots[data-dots='dual']:before, .dots[data-dots='dual']:after, .dots[data-dots='left']:before, .dots[data-dots='right']:after {
-  content: "\e623";
+  content: "";
   position: absolute;
   bottom: 0;
   color: #ededed;
@@ -2133,11 +2201,11 @@ button.button-full[type=submit], .upload-box.initial .button-full.add-files, .bu
   line-height: 240px;
 }
 .service-icon:before {
-  content: "\e60b";
+  content: "";
   color: #fff;
 }
 .service-icon:after {
-  content: "\e606";
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -2160,37 +2228,37 @@ button.button-full[type=submit], .upload-box.initial .button-full.add-files, .bu
   color: #acca41;
 }
 .service-icon.strategy i:before {
-  content: "\e616";
+  content: "";
 }
 .service-icon.design:after {
   color: #23a38f;
 }
 .service-icon.design i:before {
-  content: "\e611";
+  content: "";
 }
 .service-icon.development:after {
   color: #8fa82a;
 }
 .service-icon.development i:before {
-  content: "\e612";
+  content: "";
 }
 .service-icon.marketing:after {
   color: #1a7a6c;
 }
 .service-icon.marketing i:before {
-  content: "\e615";
+  content: "";
 }
 .service-icon.maintenance:after {
   color: #fcc721;
 }
 .service-icon.maintenance i:before {
-  content: "\e614";
+  content: "";
 }
 .service-icon.growth:after {
   color: #b2b2b2;
 }
 .service-icon.growth i:before {
-  content: "\e613";
+  content: "";
 }
 
 .service-icons {
@@ -2668,7 +2736,7 @@ label {
   content: "";
   border-style: solid;
   border-width: 0 120px 6px 0;
-  border-color: transparent white transparent transparent;
+  border-color: transparent #fff transparent transparent;
   position: absolute;
   right: 0.83333em;
   bottom: -6px;
@@ -2981,7 +3049,7 @@ button[type=submit] {
   height: 3.88889em;
 }
 .date-input:after {
-  content: "\e625";
+  content: "";
   position: absolute;
   right: 20px;
   top: 0;
@@ -3165,10 +3233,10 @@ button[type=submit] {
   cursor: pointer;
 }
 .datepicker thead .prev:after {
-  content: "\e627";
+  content: "";
 }
 .datepicker thead .next:after {
-  content: "\e628";
+  content: "";
 }
 .datepicker thead .dow {
   font-weight: normal;
@@ -3392,7 +3460,7 @@ button[type=submit] {
   height: 48px;
 }
 .port-slider .thumbs-slider .slick-prev:after, .port-slider .thumbs-slider .slick-next:after {
-  content: "\e627";
+  content: "";
   display: block;
   position: absolute;
   text-indent: 0;
@@ -3407,7 +3475,7 @@ button[type=submit] {
   right: 25px;
 }
 .port-slider .thumbs-slider .slick-next:after {
-  content: "\e628";
+  content: "";
   right: 0;
 }
 @media only screen and (max-width: 580px) {
@@ -3445,7 +3513,7 @@ button[type=submit] {
   text-align: center;
 }
 .port-slider .instructions:before {
-  content: "\e617";
+  content: "";
   display: block;
   font-size: 70px;
 }
@@ -3551,7 +3619,7 @@ button[type=submit] {
   outline: none;
 }
 .slick-loading .slick-list {
-  background: white slick-image-url("ajax-loader.gif") center center no-repeat;
+  background: #fff slick-image-url("ajax-loader.gif") center center no-repeat;
 }
 .slick-list.dragging {
   cursor: pointer;
@@ -4282,16 +4350,16 @@ button[type=submit] {
   line-height: 1;
 }
 .home-pulse .twitter .bottom .actions li a.follow:before {
-  content: "\e62f";
+  content: "";
 }
 .home-pulse .twitter .bottom .actions li a.reply:before {
-  content: "\e630";
+  content: "";
 }
 .home-pulse .twitter .bottom .actions li a.retweet:before {
-  content: "\e62e";
+  content: "";
 }
 .home-pulse .twitter .bottom .actions li a.favorite:before {
-  content: "\e9d9";
+  content: "";
 }
 @media only screen and (max-width: 840px) {
   .home-pulse .twitter {
@@ -4673,13 +4741,13 @@ button[type=submit] {
   vertical-align: middle;
 }
 .share-section a.twitter:before {
-  content: "\e61b";
+  content: "";
 }
 .share-section a.facebook:before {
-  content: "\e61c";
+  content: "";
 }
 .share-section a.pinterest:before {
-  content: "\e61e";
+  content: "";
 }
 .share-section a:after {
   content: "";
@@ -5263,19 +5331,19 @@ button[type=submit] {
   }
 }
 .stats-list li.mobile-os:after {
-  content: "\e604";
+  content: "";
 }
 .stats-list li.bananas:after {
-  content: "\e600";
+  content: "";
 }
 .stats-list li.tacos:after {
-  content: "\e605";
+  content: "";
 }
 .stats-list li.code:after {
-  content: "\e602";
+  content: "";
 }
 .stats-list li.desktop-os:after {
-  content: "\e603";
+  content: "";
 }
 .stats-list li p {
   position: absolute;
@@ -5375,7 +5443,7 @@ button[type=submit] {
   }
 }
 .office-cat p:before {
-  content: "\e601";
+  content: "";
   font-size: 100px;
   color: #1a7a6c;
   padding-right: 30px;
@@ -5632,3 +5700,5 @@ button[type=submit] {
 .testimonial-item .testimonial .title {
   font-size: 16px;
 }
+
+/*# sourceMappingURL=style.css.map */
