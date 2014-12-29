@@ -61,6 +61,8 @@ class posts extends appController {
 		$this->dbUpdate("posts", array("views" => ($aPost["views"] + 1)), $aPost["id"]);
 		$this->tplAssign("aPost", $aPost);
 
+		//echo '<pre>'; print_r($aPost); die();
+
 		if($this->tplExists("post-".$aPost["id"].".php"))
 			$this->tplDisplay("post-".$aPost["id"].".php");
 		else

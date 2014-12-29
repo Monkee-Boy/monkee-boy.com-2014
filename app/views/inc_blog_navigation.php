@@ -1,13 +1,16 @@
 <?php
-// need to get header image from CMS
-//$header_img = $is_post? '/assets/blog-post-featured.png': '/assets/blog-landing-featured.jpg';
+if($menu === 'blog-post') {
+  $header_image = '/uploads/posts/'.$aPost['featured_image'];
+} else {
+  $header_image = '/images/blog-landing-featured.jpg';
+}
 ?>
-<header role="banner" class="blog-header blur-image<?php if($menu === 'blog-post') { echo ' listing-page'; } ?>">
-  <img src="<?php echo $header_img; ?>" alt="" class="image-bg">
+<header role="banner" class="blog-header blur-image<?php if($menu === 'blog') { echo ' listing-page'; } ?>">
+  <img src="<?php echo $header_image; ?>" alt="" class="image-bg">
   <nav class="blog-nav row" role="navigation">
-    <a href="#" class="blog-logo">The Blog</a>
+    <a href="/blog/" class="blog-logo">The Blog</a>
     <ul class="menu-lite main-menu">
-      <li class="primary"><a href="#">Home</a></li>
+      <li class="primary"><a href="/">Home</a></li>
       <li class="primary"><a href="#">Portfolio</a></li>
       <li class="primary"><a href="#">Request a quote</a></li>
     </ul>

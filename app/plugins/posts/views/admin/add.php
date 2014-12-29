@@ -149,7 +149,7 @@
 
 				<div class="accordion-group">
 					<div class="accordion-heading">
-						<span class="accordion-toggle">Featured Image</span>
+						<span class="accordion-toggle">Header Image</span>
 					</div>
 					<div id="pageseo" class="accordion-body">
 						<div class="accordion-inner">

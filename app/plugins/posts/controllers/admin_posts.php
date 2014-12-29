@@ -309,11 +309,10 @@ class admin_posts extends adminController {
 							$_POST['id']
 						);
 					} else {
-
-											echo $upload_dir.$upload_file.'<br>';
-											echo $_FILES[$image]["tmp_name"];
-											echo "<pre>";print_r($_FILES);echo "</pre>";
-											die;
+						echo $upload_dir.$upload_file.'<br>';
+						echo $_FILES[$image]["tmp_name"];
+						echo "<pre>";print_r($_FILES);echo "</pre>";
+						die;
 
 						$this->forward("/admin/posts/?info=".urlencode("Failed to upload ".$image."!"));
 					}
@@ -323,13 +322,6 @@ class admin_posts extends adminController {
 
 		$_SESSION["admin"]["admin_posts"] = null;
 		$aPost = $this->model->getPost($_POST["id"]);
-
-		// if($_POST["post_twitter"] == 1 && $_POST["active"] == 1) {
-		// 	$this->postTwitter($_POST["id"]);
-		// }
-
-		// if($_POST["post_facebook"] == 1 && $_POST["active"] == 1)
-		// 	$this->postFacebook($_POST["id"]);
 
 		$this->forward("/admin/posts/?success=".urlencode("Changes saved successfully!")."&".implode("&", $this->errors));
 	}

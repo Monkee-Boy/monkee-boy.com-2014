@@ -25,7 +25,7 @@ class posts_model extends appModel {
 
 		// Filter only posts that are active unless told otherwise.
 		if($sAll == false) {
-			//$aWhere[] = "`posts`.`publish_on` < ".time(); TODO: FIX THIS!
+			$aWhere[] = "`posts`.`publish_on` < NOW()";
 			$aWhere[] = "`posts`.`active` = 1";
 		}
 
@@ -96,7 +96,7 @@ class posts_model extends appModel {
 
 		if($sAll == false) {
 			$sWhere .= " AND `posts`.`active` = 1";
-			//$sWhere .= " AND `posts`.`publish_on` < ".time(); /* TODO: Fix this! */
+			$sWhere .= " AND `posts`.`publish_on` < NOW()";
 		}
 
 		$aPost = $this->dbQuery(
