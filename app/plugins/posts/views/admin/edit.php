@@ -81,6 +81,7 @@
 							<div class="accordion-inner">
 								<div class="controls">
 										<select name="galleryid" class="span12">
+											<option value="">Select Gallery</option>
 											<?php foreach($aGalleries as $aGallery) { ?>
 												<option value="<?php echo $aGallery['id']; ?>"<?php if($aGallery['id'] == $aPost['galleryid']) { echo ' selected="selected"'; } ?>><?php echo $aGallery['name'] ?></option>
 											<?php } ?>
