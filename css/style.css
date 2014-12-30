@@ -824,14 +824,15 @@ body.menu-open .container {
   left: 0;
   width: 100%;
   z-index: 10;
-  border-bottom-color: #acca41;
+  border-bottom-color: #fff;
+  border-bottom-width: 1px;
 }
 .main-nav.sticky .logo {
   background: none;
   position: static;
   transition: none;
   float: left;
-  width: 140px;
+  width: 130px;
   padding: 10px 0;
 }
 .main-nav.sticky .logo .speak {
@@ -868,22 +869,23 @@ body.menu-open .container {
 .main-nav.sticky .request-quote {
   display: block;
   float: right;
-  background: #242529;
+  background: #acca41;
   border-bottom: 2px solid #000;
-  margin-top: 20px;
-  padding: 15px 20px;
-  color: #23a38f;
+  margin-top: 28px;
+  padding: 10px 30px;
+  color: #5d7118;
   text-align: center;
+  text-transform: uppercase;
   font-family: "effra", sans-serif;
   font-weight: 700;
   font-size: 0.8em;
 }
 .main-nav.sticky .request-quote span {
   display: block;
-  font-size: 1.5em;
+  font-size: 1.35em;
 }
 .main-nav.sticky .request-quote:hover {
-  color: #acca41;
+  color: #fff;
   text-decoration: none;
 }
 
