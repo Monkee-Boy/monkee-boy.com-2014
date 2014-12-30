@@ -561,4 +561,17 @@
   ul {
     @extend .list-style-alt;
   }
+  ol {
+    @extend .list-style-alt;
+    counter-reset: item;
+
+    li {
+      counter-increment: item;
+      &:before {
+        content: counter(item) ".";
+        color: inherit;
+        font-weight: bold;
+      }
+    }
+  }
 }

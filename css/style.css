@@ -1931,16 +1931,16 @@ button.button-full[type=submit], .upload-box.initial .button-full.add-files, .bu
   background: #d8ae2a;
 }
 
-.list-style-alt, .content-block ul {
+.list-style-alt, .content-block ul, .content-block ol {
   list-style: none;
 }
-.list-style-alt li, .content-block ul li {
+.list-style-alt li, .content-block ul li, .content-block ol li {
   margin-top: 15px;
 }
-.list-style-alt li:first-child, .content-block ul li:first-child {
+.list-style-alt li:first-child, .content-block ul li:first-child, .content-block ol li:first-child {
   margin-top: 0;
 }
-.list-style-alt li:before, .content-block ul li:before {
+.list-style-alt li:before, .content-block ul li:before, .content-block ol li:before {
   content: '+';
   color: #acca32;
   margin-left: -25px;
@@ -2563,6 +2563,18 @@ button.button-full[type=submit], .upload-box.initial .button-full.add-files, .bu
 }
 .accordion.open .content {
   margin-bottom: 0.75em;
+}
+
+.content-block ol {
+  counter-reset: item;
+}
+.content-block ol li {
+  counter-increment: item;
+}
+.content-block ol li:before {
+  content: counter(item) ".";
+  color: inherit;
+  font-weight: bold;
 }
 
 .form-title {
@@ -4907,19 +4919,19 @@ button[type=submit] {
     display: block;
   }
 }
-.author-articles .list-style-alt li:before, .author-articles .content-block ul li:before, .content-block .author-articles ul li:before {
+.author-articles .list-style-alt li:before, .author-articles .content-block ul li:before, .content-block .author-articles ul li:before, .author-articles .content-block ol li:before, .content-block .author-articles ol li:before {
   color: #fcc721;
 }
-.author-articles .list-style-alt a, .author-articles .content-block ul a, .content-block .author-articles ul a, .author-articles .list-style-alt a:after, .author-articles .content-block ul a:after, .content-block .author-articles ul a:after {
+.author-articles .list-style-alt a, .author-articles .content-block ul a, .content-block .author-articles ul a, .author-articles .content-block ol a, .content-block .author-articles ol a, .author-articles .list-style-alt a:after, .author-articles .content-block ul a:after, .content-block .author-articles ul a:after, .author-articles .content-block ol a:after, .content-block .author-articles ol a:after {
   color: #fff;
 }
-.author-articles .list-style-alt a:after, .author-articles .content-block ul a:after, .content-block .author-articles ul a:after {
+.author-articles .list-style-alt a:after, .author-articles .content-block ul a:after, .content-block .author-articles ul a:after, .author-articles .content-block ol a:after, .content-block .author-articles ol a:after {
   content: " \00bb";
 }
-.author-articles .list-style-alt a:hover, .author-articles .content-block ul a:hover, .content-block .author-articles ul a:hover {
+.author-articles .list-style-alt a:hover, .author-articles .content-block ul a:hover, .content-block .author-articles ul a:hover, .author-articles .content-block ol a:hover, .content-block .author-articles ol a:hover {
   text-decoration: none;
 }
-.author-articles .list-style-alt a:hover, .author-articles .content-block ul a:hover, .content-block .author-articles ul a:hover, .author-articles .list-style-alt a:hover:after, .author-articles .content-block ul a:hover:after, .content-block .author-articles ul a:hover:after {
+.author-articles .list-style-alt a:hover, .author-articles .content-block ul a:hover, .content-block .author-articles ul a:hover, .author-articles .content-block ol a:hover, .content-block .author-articles ol a:hover, .author-articles .list-style-alt a:hover:after, .author-articles .content-block ul a:hover:after, .content-block .author-articles ul a:hover:after, .author-articles .content-block ol a:hover:after, .content-block .author-articles ol a:hover:after {
   color: #ff6c5c;
 }
 
