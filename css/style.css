@@ -1931,16 +1931,16 @@ button.button-full[type=submit], .upload-box.initial .button-full.add-files, .bu
   background: #d8ae2a;
 }
 
-.list-style-alt {
+.list-style-alt, .content-block ul {
   list-style: none;
 }
-.list-style-alt li {
+.list-style-alt li, .content-block ul li {
   margin-top: 15px;
 }
-.list-style-alt li:first-child {
+.list-style-alt li:first-child, .content-block ul li:first-child {
   margin-top: 0;
 }
-.list-style-alt li:before {
+.list-style-alt li:before, .content-block ul li:before {
   content: '+';
   color: #acca32;
   margin-left: -25px;
@@ -4907,19 +4907,19 @@ button[type=submit] {
     display: block;
   }
 }
-.author-articles .list-style-alt li:before {
+.author-articles .list-style-alt li:before, .author-articles .content-block ul li:before, .content-block .author-articles ul li:before {
   color: #fcc721;
 }
-.author-articles .list-style-alt a, .author-articles .list-style-alt a:after {
+.author-articles .list-style-alt a, .author-articles .content-block ul a, .content-block .author-articles ul a, .author-articles .list-style-alt a:after, .author-articles .content-block ul a:after, .content-block .author-articles ul a:after {
   color: #fff;
 }
-.author-articles .list-style-alt a:after {
+.author-articles .list-style-alt a:after, .author-articles .content-block ul a:after, .content-block .author-articles ul a:after {
   content: " \00bb";
 }
-.author-articles .list-style-alt a:hover {
+.author-articles .list-style-alt a:hover, .author-articles .content-block ul a:hover, .content-block .author-articles ul a:hover {
   text-decoration: none;
 }
-.author-articles .list-style-alt a:hover, .author-articles .list-style-alt a:hover:after {
+.author-articles .list-style-alt a:hover, .author-articles .content-block ul a:hover, .content-block .author-articles ul a:hover, .author-articles .list-style-alt a:hover:after, .author-articles .content-block ul a:hover:after, .content-block .author-articles ul a:hover:after {
   color: #ff6c5c;
 }
 

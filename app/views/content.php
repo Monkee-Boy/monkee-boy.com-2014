@@ -7,7 +7,7 @@
 	</div>
 
 	<div class="row">
-		<div class="single-column">
+		<div class="single-column content-block">
 			<?php echo $aContent['content'] ?>
 		</div>
 	</div>
