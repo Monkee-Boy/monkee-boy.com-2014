@@ -124,7 +124,7 @@
 
   {footer}
   <script>var shareUrl = '<?php echo $aPost['url']; ?>';
-  $.getJSON('http://share-count.appspot.com/?url=' + encodeURIComponent(shareUrl) + "&callback=?", function (data) {
+  $.getJSON('http://count.donreach.com/?url=' + encodeURIComponent(shareUrl) + "&callback=?", function (data) {
    shares = data.shares;
 
    $('.social-twitter-count').html(shares.twitter);
