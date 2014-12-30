@@ -1740,7 +1740,9 @@ function BlurStack()
       mainNav.removeClass('sticky');
     } else {
       if(st > (banner.offset().top + banner.outerHeight())) {
-        mainNav.addClass('sticky');
+        if(!mainNav.hasClass('sticky')) {
+          mainNav.hide().addClass('sticky').slideDown();
+        }
       } else {
         mainNav.removeClass('sticky');
       }
