@@ -170,6 +170,12 @@ class portfolio_model extends appModel {
       foreach($aClient["categories"] as &$aCategory) {
         $aCategory["name"] = htmlspecialchars(stripslashes($aCategory["name"]));
       }
+
+      if(!empty($aClient["galleryid"])) {
+        $oGallery = $this->loadModel("galleries");
+
+        $aClient['gallery'] = $oGallery->getGallery($aClient['galleryid']);
+      }
     }
 
     return $aClient;

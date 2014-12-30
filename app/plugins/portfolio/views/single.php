@@ -114,58 +114,23 @@
     </div><!-- /.single-column -->
   </div>
 
-  <!-- TODO: Add this to the CMS. -->
-  <div class="fullwidth-slider">
-    <ul class="unstyled">
-      <li>
-        <figure>
-          <div class="slick-photo-wrapper">
-            <img src="/assets/waithappy-sample1.jpg" alt="">
-          </div>
-          <figcaption>Caption lorem dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo.</figcaption>
-        </figure>
-      </li>
-      <li>
-        <figure>
-          <div class="slick-photo-wrapper">
-            <img src="/assets/waithappy-sample1.jpg" alt="">
-          </div>
-          <figcaption>Caption lorem dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo.</figcaption>
-        </figure>
-      </li>
-      <li>
-        <figure>
-          <div class="slick-photo-wrapper">
-            <img src="/assets/waithappy-sample1.jpg" alt="">
-          </div>
-          <figcaption>Caption lorem dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo.</figcaption>
-        </figure>
-      </li>
-      <li>
-        <figure>
-          <div class="slick-photo-wrapper">
-            <img src="/assets/waithappy-sample1.jpg" alt="">
-          </div>
-          <figcaption>Caption lorem dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo.</figcaption>
-        </figure>
-      </li>
-      <li>
-        <figure>
-          <div class="slick-photo-wrapper">
-            <img src="/assets/waithappy-sample1.jpg" alt="">
-          </div>
-          <figcaption>Caption lorem dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo.</figcaption>
-        </figure>
-      </li>
-      <li>
-        <figure>
-          <div class="slick-photo-wrapper">
-            <img src="/assets/waithappy-sample1.jpg" alt="">
-          </div>
-          <figcaption>Caption lorem dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo.</figcaption>
-        </figure>
-      </li>
-    </ul>
-  </div>
+  <?php if(!empty($aClient['gallery'])): ?>
+    <?php if(!empty($aClient['gallery']['photos'])): ?>
+    <div class="fullwidth-slider">
+      <ul class="unstyled">
+        <?php foreach($aClient['gallery']['photos'] as $aPhoto): ?>
+        <li>
+          <figure>
+            <div class="slick-photo-wrapper">
+              <img src="/uploads/galleries/<?= $aClient['gallery']['id'] ?>/<?= $aPhoto['photo'] ?>" alt="<?= $aClient['gallery']['title'] ?>">
+            </div>
+            <figcaption><?= $aPhoto['description'] ?></figcaption>
+          </figure>
+        </li>
+        <?php endforeach; ?>
+      </ul>
+    </div>
+    <?php endif; ?>
+  <?php endif; ?>
 
 <?php $this->tplDisplay("inc_footer.php"); ?>
