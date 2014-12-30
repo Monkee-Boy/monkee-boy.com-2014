@@ -13,9 +13,9 @@ $aPluginInfo = array(
 		"useImage" => true,
 		"imageFolder" => "/uploads/posts/",
 		"useCategories" => true,
-		"perPage" => 10,
+		"perPage" => 7,
 		"useComments" => true,
-		"excerptCharacters" => 250, // character limit for excerpt
+		"excerptCharacters" => 500, // character limit for excerpt
 		"sortCategory" => "manual-asc" // manual, name, items, random - asc, desc
 	)
 );

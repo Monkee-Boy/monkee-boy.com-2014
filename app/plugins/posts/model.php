@@ -118,9 +118,9 @@ class posts_model extends appModel {
 		if(!empty($aPost)) {
 			$aPost["title"] = htmlspecialchars(stripslashes($aPost["title"]));
 			if(!empty($aPost["excerpt"]))
-				$aPost["excerpt"] = nl2br(htmlspecialchars(stripslashes($aPost["excerpt"])));
+				$aPost["excerpt"] = stripslashes($aPost["excerpt"]);
 			else
-				$aPost["excerpt"] = (string)substr(nl2br(htmlspecialchars(stripslashes(strip_tags($aPost["content"])))), 0, $this->excerptCharacters);
+				$aPost["excerpt"] = (string)substr(stripslashes($aPost["content"]), 0, $this->excerptCharacters);
 
 			$aPost["content"] = stripslashes($aPost["content"]);
 
