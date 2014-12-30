@@ -7,20 +7,13 @@
   </div> <!-- /.row -->
 
   <?php if(!empty($aPost['gallery']) && !empty($aPost['gallery']['photos'])) { ?>
-  <!-- <figure class="large-photo">
-    <div class="row-flush">
-      <img src="/assets/sample-full-photo.jpg" class="full" alt="post-it notes">
-      <figcaption class="full">Caption lorem dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo.</figcaption>
-    </div>
-  </figure> -->
-
   <div class="fullwidth-slider">
     <ul class="unstyled">
       <?php foreach($aPost['gallery']['photos'] as $key=>$gallery_photo) { ?>
       <li>
         <figure>
           <div class="slick-photo-wrapper">
-            <img src="/assets/waithappy-sample1.jpg" alt="<?php echo $gallery_photo['title']; ?>" id="post-photo-<?php echo $key; ?>">
+            <img src="/uploads/galleries/<?php echo $aPost['gallery']['id']; ?>/<?php echo $gallery_photo['photo']; ?>" alt="<?php echo $gallery_photo['title']; ?>" id="post-photo-<?php echo $key; ?>">
           </div>
           <figcaption><?php echo $gallery_photo['description']; ?></figcaption>
         </figure>
