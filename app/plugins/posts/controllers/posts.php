@@ -6,48 +6,28 @@ class posts extends appController {
 	}
 
 	function index() {
-		## GET CURRENT PAGE NEWS
-		$sCurrentPage = $_GET["page"];
-		if(empty($sCurrentPage))
-			$sCurrentPage = 1;
-
-		$aPostPages = array_chunk($this->model->getPosts($_GET["category"]), $this->model->perPage);
-		$aPosts = $aPostPages[$sCurrentPage - 1];
-
-		$aPaging = array(
-			"total" => count($aPostPages),
-			"current" => $sCurrentPage,
-			"back" => array(
-				"page" => $sCurrentPage - 1,
-				"use" => true
-			),
-			"next" => array(
-				"page" => $sCurrentPage + 1,
-				"use" => true
-			)
-		);
-
-		if(($sCurrentPage - 1) < 1 || $sCurrentPage == 1)
-			$aPaging["back"]["use"] = false;
-
-		if($sCurrentPage == count($aPostPages) || count($aPostPages) == 0)
-			$aPaging["next"]["use"] = false;
-		#########################
-
-		if(!empty($_GET["category"]))
+		if(!empty($_GET["category"])) {
 			$aCategory = $this->model->getCategory($_GET["category"]);
+		}
+
+		$aLatestPost = $this->model->getPosts(null, false, false, null, null, 1);
+
+		if(!empty($aCategory)) {
+			$sExcludePosts = null;
+		} else {
+			$sExcludePosts = $aLatestPost[0]['id'];
+		}
+
+		$aPostPages = array_chunk($this->model->getPosts($_GET["category"], false, false, $sExcludePosts), $this->model->perPage);
+		$aPosts = $aPostPages[0];
 
 		$this->tplAssign("aCategories", $this->model->getCategories(false));
+		$this->tplAssign('aLatestPost', $aLatestPost[0]);
 		$this->tplAssign("aPosts", $aPosts);
 		$this->tplAssign("aPaging", $aPaging);
 		$this->tplAssign("aCategory", $aCategory);
 
-		if(!empty($_GET["category"]) && $this->tplExists("category-".$_GET["category"].".php"))
-			$this->tplDisplay("category-".$_GET["category"].".php");
-		elseif(!empty($_GET["category"]) && $this->tplExists("category.php"))
-			$this->tplDisplay("category.php");
-		else
-			$this->tplDisplay("index.php");
+		$this->tplDisplay("index.php");
 	}
 	function post() {
 		$aPost = $this->model->getPost(null, $this->urlVars->dynamic["tag"]);
@@ -63,8 +43,6 @@ class posts extends appController {
 
 		$aRelatedPosts = $this->model->getPosts($aPost['categories'][0]['id'], false, false, $aPost['id'], null, 2);
 		$this->tplAssign('aRelatedPosts', $aRelatedPosts);
-
-		//echo '<pre>'; print_r($aRelatedPosts); die();
 
 		if($this->tplExists("post-".$aPost["id"].".php"))
 			$this->tplDisplay("post-".$aPost["id"].".php");
