@@ -548,11 +548,11 @@ body.menu-open .container {
   font-size: 18px;
   font-weight: bold;
   font-style: italic;
-  color: #5d7118;
+  color: #5f730d;
   text-transform: uppercase;
 }
 .super-nav a:hover {
-  color: #5d7118;
+  color: #5f730d;
 }
 
 .logo {
@@ -876,7 +876,7 @@ body.menu-open .container {
   border-bottom: 2px solid #000;
   margin-top: 28px;
   padding: 10px 30px;
-  color: #5d7118;
+  color: #5f730d;
   text-align: center;
   text-transform: uppercase;
   font-family: "effra", sans-serif;
