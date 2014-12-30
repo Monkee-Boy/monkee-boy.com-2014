@@ -548,8 +548,11 @@ body.menu-open .container {
   font-size: 18px;
   font-weight: bold;
   font-style: italic;
-  color: #5f730d;
+  color: #5d7118;
   text-transform: uppercase;
+}
+.super-nav a:hover {
+  color: #5d7118;
 }
 
 .logo {

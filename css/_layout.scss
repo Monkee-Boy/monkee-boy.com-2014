@@ -50,8 +50,11 @@ body {
     font-size: 18px;
     font-weight: bold;
     font-style: italic;
-    color: #5f730d;
+    color: $darker-green;
     text-transform: uppercase;
+    &:hover {
+      color: $darker-green;
+    }
   }
 }
 
