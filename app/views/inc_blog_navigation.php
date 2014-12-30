@@ -23,7 +23,7 @@ if($menu === 'blog-post') {
       <span class="source">By <?php echo $aPost['author']['name']; ?></span>
       <ul class="menu-lite">
         <?php if(!empty($aPost['categories'])) { ?><li><?php echo $aPost['categories'][0]['name']; ?></li><?php } ?>
-        <li>3 Comments</li> <!-- TODO: Add disqus comment code. -->
+        <li><a href="<?php echo $aPost['url']; ?>#disqus_thread"></a></li>
         <li><?php echo date('F d, Y', $aPost['publish_on']); ?></li>
       </ul>
     </div>

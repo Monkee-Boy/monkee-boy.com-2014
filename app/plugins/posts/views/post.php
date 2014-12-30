@@ -84,39 +84,20 @@
       <!-- Add Disqus Comments -->
       <div class="comment-section">
         <h3 data-text-align="center">Reader Comments</h3>
-        <ul class="comments">
-          <li>
-            <span class="pic" style="background-image:url(http://cdn.morguefile.com/imageData/public/files/t/typexnick/preview/fldr_2012_03_03/file5751330778129.jpg)"></span>
-            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia a odio con nec elit. Cras mattis consectetur purus sit amet fermentum.</p>
-            <ul class="menu-lite">
-              <li>Longeruser middlename fullname</li>
-              <li>June 20th, 2014</li>
-              <li><a href="#">reply</a></li>
-            </ul>
 
-            <ul class="nested-replies">
-              <li>
-                <span class="pic" style="background-image:url(http://cdn.morguefile.com/imageData/public/files/e/ecerroni/preview/fldr_2008_11_13/file0002019118431.jpg)"></span>
-                <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia a odio con nec elit. Cras mattis consectetur purus sit amet fermentum.</p>
-                <ul class="menu-lite">
-                  <li>User Fullname</li>
-                  <li>June 27th, 2014</li>
-                  <li><a href="#">reply</a></li>
-                </ul>
-              </li>
-            </ul><!-- /.nested-replies -->
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'monkeeboyblog'; // required: replace example with your forum shortname
 
-          </li>
-          <li>
-            <span class="pic" style="background-image:url(http://cdn.morguefile.com/imageData/public/files/r/ronnieb/preview/fldr_2005_11_02/file000410741279.jpg)"></span>
-            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia a odio con nec elit. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. </p>
-            <ul class="menu-lite">
-              <li>User Fullname</li>
-              <li>July 1st, 2014</li>
-              <li><a href="#">reply</a></li>
-            </ul>
-          </li>
-        </ul>
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
       </div><!-- /.comment-section -->
 
     </div><!-- /.single-post -->
@@ -131,6 +112,19 @@
    $('.social-facebook-count').html(shares.facebook);
    $('.social-pinterest-count').html(shares.pinterest);
   });
+  </script>
+
+  <script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'monkeeboyblog'; // required: replace example with your forum shortname
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  }());
   </script>
   {/footer}
 
