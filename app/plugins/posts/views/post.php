@@ -29,9 +29,9 @@
       <div class="share-section">
         <h4>Share this article</h4> <!-- TODO: Add social share counts. -->
         <ul class="styleless">
-          <li><a href="https://twitter.com/share?url=http://monkee-boy.com<?php echo $aPost['url']; ?>&text=<?php echo urlencode($aPost['title']); ?>&via=monkeeboy" class="twitter"><span>6</span></a></li>
-          <li><a href="http://www.facebook.com/sharer.php?u=http://monkee-boy.com<?php echo $aPost['url']; ?>" class="facebook"><span>12</span></a></li>
-          <li><a href="https://pinterest.com/pin/create/bookmarklet/?media=http://monkee-boy.com/uploads/posts/<?php echo $aPost['featured_image']; ?>&url=http://monkee-boy.com<?php echo $aPost['url']; ?>&description=<?php echo urlencode($aPost['title']); ?>" class="pinterest"><span>105</span></a></li>
+          <li><a href="https://twitter.com/share?url=http://monkee-boy.com<?php echo $aPost['url']; ?>&text=<?php echo urlencode($aPost['title']); ?>&via=monkeeboy" class="twitter"><span class="social-twitter-count"></span></a></li>
+          <li><a href="http://www.facebook.com/sharer.php?u=http://monkee-boy.com<?php echo $aPost['url']; ?>" class="facebook"><span class="social-facebook-count"></span></a></li>
+          <li><a href="https://pinterest.com/pin/create/bookmarklet/?media=http://monkee-boy.com/uploads/posts/<?php echo $aPost['featured_image']; ?>&url=http://monkee-boy.com<?php echo $aPost['url']; ?>&description=<?php echo urlencode($aPost['title']); ?>" class="pinterest"><span class="social-pinterest-count"></span></a></li>
         </ul>
       </div>
     </div><!-- /.single-post -->
@@ -121,5 +121,17 @@
 
     </div><!-- /.single-post -->
   </div>
+
+  {footer}
+  <script>var shareUrl = '<?php echo $aPost['url']; ?>';
+  $.getJSON('http://share-count.appspot.com/?url=' + encodeURIComponent(shareUrl) + "&callback=?", function (data) {
+   shares = data.shares;
+
+   $('.social-twitter-count').html(shares.twitter);
+   $('.social-facebook-count').html(shares.facebook);
+   $('.social-pinterest-count').html(shares.pinterest);
+  });
+  </script>
+  {/footer}
 
 <?php $this->tplDisplay("inc_footer.php"); ?>
