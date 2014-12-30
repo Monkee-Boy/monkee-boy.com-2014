@@ -511,11 +511,19 @@
 
   $('.fullwidth-slider ul').slick({
     dots: false,
-    arrows: false,
+    arrows: true,
     slidesToShow: 1,
     slide: 'li',
     centerMode: true,
     centerPadding: '140px',
+    onInit: function() {
+      $('.slick-prev').detach().appendTo('.slick-active .slick-photo-wrapper');
+      $('.slick-next').detach().appendTo('.slick-active .slick-photo-wrapper');
+    },
+    onAfterChange: function() {
+      $('.slick-prev').detach().appendTo('.slick-active .slick-photo-wrapper');
+      $('.slick-next').detach().appendTo('.slick-active .slick-photo-wrapper');
+    },
     responsive: [{
       breakpoint: small_break,
       settings: {

@@ -16,11 +16,13 @@
 
   <div class="fullwidth-slider">
     <ul class="unstyled">
-      <?php foreach($aPost['gallery']['photos'] as $gallery_photo) { ?>
+      <?php foreach($aPost['gallery']['photos'] as $key=>$gallery_photo) { ?>
       <li>
         <figure>
-          <img src="/assets/waithappy-sample1.jpg" alt="">
-          <figcaption>Caption lorem dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo.</figcaption>
+          <div class="slick-photo-wrapper">
+            <img src="/assets/waithappy-sample1.jpg" alt="<?php echo $gallery_photo['title']; ?>" id="post-photo-<?php echo $key; ?>">
+          </div>
+          <figcaption><?php echo $gallery_photo['description']; ?></figcaption>
         </figure>
       </li>
       <?php } ?>

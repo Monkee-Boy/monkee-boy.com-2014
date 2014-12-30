@@ -350,15 +350,68 @@
 .fullwidth-slider {
   background-color: #fff;
   padding: em-calc(40) 0;
+
   figure {
     padding: 0 em-calc(20);
     margin: 0;
-    img { width: 100%; }
+
+    img {
+      width: 100%;
+    }
   }
+
+  .slick-photo-wrapper {
+    position: relative;
+  }
+
   figcaption {
     display: block;
     padding: em-calc(40) em-calc(20) 0;
     text-align: center;
     color: $grey;
+  }
+
+  .slick-prev, .slick-next {
+    visibility: hidden;
+    width: 60px;
+    padding: 0;
+    background-color: $yellow;
+    color: #000;
+    border: none;
+    font-size: 0;
+    line-height: 0;
+    position: absolute;
+    top: 0;
+    height: 100%;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 13px;
+      margin-top: -40px;
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid transparent;
+    }
+  }
+
+  .slick-prev {
+    left: 0;
+
+    &:after {
+      border-right: 35px solid #242529;
+    }
+  }
+
+  .slick-next {
+    right: 0;
+
+    &:after {
+      border-left: 35px solid #242529;
+    }
+  }
+
+  .slick-active:hover .slick-prev, .slick-active:hover .slick-next {
+    visibility: visible;
   }
 }

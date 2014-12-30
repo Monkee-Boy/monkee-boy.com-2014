@@ -119,37 +119,49 @@
     <ul class="unstyled">
       <li>
         <figure>
-          <img src="/assets/waithappy-sample1.jpg" alt="">
+          <div class="slick-photo-wrapper">
+            <img src="/assets/waithappy-sample1.jpg" alt="">
+          </div>
           <figcaption>Caption lorem dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo.</figcaption>
         </figure>
       </li>
       <li>
         <figure>
-          <img src="/assets/waithappy-sample2.jpg" alt="">
+          <div class="slick-photo-wrapper">
+            <img src="/assets/waithappy-sample1.jpg" alt="">
+          </div>
           <figcaption>Caption lorem dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo.</figcaption>
         </figure>
       </li>
       <li>
         <figure>
-          <img src="/assets/waithappy-sample3.jpg" alt="">
+          <div class="slick-photo-wrapper">
+            <img src="/assets/waithappy-sample1.jpg" alt="">
+          </div>
           <figcaption>Caption lorem dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo.</figcaption>
         </figure>
       </li>
       <li>
         <figure>
-          <img src="/assets/waithappy-sample1.jpg" alt="">
+          <div class="slick-photo-wrapper">
+            <img src="/assets/waithappy-sample1.jpg" alt="">
+          </div>
           <figcaption>Caption lorem dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo.</figcaption>
         </figure>
       </li>
       <li>
         <figure>
-          <img src="/assets/waithappy-sample2.jpg" alt="">
+          <div class="slick-photo-wrapper">
+            <img src="/assets/waithappy-sample1.jpg" alt="">
+          </div>
           <figcaption>Caption lorem dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo.</figcaption>
         </figure>
       </li>
       <li>
         <figure>
-          <img src="/assets/waithappy-sample3.jpg" alt="">
+          <div class="slick-photo-wrapper">
+            <img src="/assets/waithappy-sample1.jpg" alt="">
+          </div>
           <figcaption>Caption lorem dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo.</figcaption>
         </figure>
       </li>
