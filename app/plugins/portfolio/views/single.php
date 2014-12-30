@@ -122,7 +122,7 @@
         <li>
           <figure>
             <div class="slick-photo-wrapper">
-              <img src="/uploads/galleries/<?= $aClient['gallery']['id'] ?>/<?= $aPhoto['photo'] ?>" alt="<?= $aClient['gallery']['title'] ?>">
+              <img src="/uploads/galleries/<?= $aClient['gallery']['id'] ?>/<?= $aPhoto['photo'] ?>" alt="<?= $aPhoto['title'] ?>">
             </div>
             <figcaption><?= $aPhoto['description'] ?></figcaption>
           </figure>

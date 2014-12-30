@@ -2125,6 +2125,7 @@ button.button-full[type=submit], .upload-box.initial .button-full.add-files, .bu
   color: #ededed;
   font-size: 22px;
   background: #242529;
+  padding: 0 30px;
 }
 @media only screen and (max-width: 840px) {
   .panel-wide[data-panel-style='callout'] .item-callout {

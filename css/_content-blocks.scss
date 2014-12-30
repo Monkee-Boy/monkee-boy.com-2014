@@ -218,6 +218,7 @@
     color: $light-grey;
     font-size: 22px;
     background: $black;
+    padding: 0 30px;
     @media #{$medium-down} {
       width: 100%;
       padding-top: em-calc(40);
