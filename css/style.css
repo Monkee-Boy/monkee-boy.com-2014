@@ -559,11 +559,11 @@ body.menu-open .container {
   width: 256px;
   text-align: center;
   background: rgba(255, 255, 255, 0.96);
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  -webkit-transition: padding 0.5s ease;
+  -moz-transition: padding 0.5s ease;
+  -ms-transition: padding 0.5s ease;
+  -o-transition: padding 0.5s ease;
+  transition: padding 0.5s ease;
 }
 .logo:after {
   content: '';
@@ -628,14 +628,18 @@ body.menu-open .container {
   }
 }
 
+.sticky-nav-wrapper {
+  height: 7.7em;
+}
+@media only screen and (max-width: 840px) {
+  .sticky-nav-wrapper {
+    display: none;
+  }
+}
+
 .main-nav {
   background: #1c1c1e;
   border-bottom: 4px solid #b2b2b2;
-}
-@media only screen and (max-width: 840px) {
-  .main-nav {
-    display: none;
-  }
 }
 .main-nav ul {
   margin: 0;
@@ -810,6 +814,77 @@ body.menu-open .container {
 }
 .main-nav ul .primary > a.nav-blog:after {
   content: "";
+}
+.main-nav .request-quote {
+  display: none;
+}
+.main-nav.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  border-bottom-color: #acca41;
+}
+.main-nav.sticky .logo {
+  background: none;
+  position: static;
+  transition: none;
+  float: left;
+  width: 140px;
+  padding: 10px 0;
+}
+.main-nav.sticky .logo .speak {
+  visibility: hidden;
+}
+.main-nav.sticky .logo a {
+  display: block;
+  height: 95px;
+  width: 90px;
+  background: url("../images/logo-white.png") no-repeat top left;
+}
+.main-nav.sticky .logo a img {
+  display: none;
+}
+.main-nav.sticky .logo:hover {
+  padding-top: 10px;
+}
+.main-nav.sticky .logo:after {
+  display: none;
+}
+.main-nav.sticky .main-menu {
+  float: left;
+}
+.main-nav.sticky .primary > a {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.main-nav.sticky .primary > a:after {
+  display: none;
+}
+.main-nav.sticky .primary ul {
+  top: 112px;
+}
+.main-nav.sticky .request-quote {
+  display: block;
+  float: right;
+  background: #242529;
+  border-bottom: 2px solid #000;
+  margin-top: 20px;
+  padding: 15px 20px;
+  color: #23a38f;
+  text-align: center;
+  font-family: "effra", sans-serif;
+  font-weight: 700;
+  font-size: 0.8em;
+}
+.main-nav.sticky .request-quote span {
+  display: block;
+  font-size: 1.5em;
+}
+.main-nav.sticky .request-quote:hover {
+  color: #acca41;
+  text-decoration: none;
 }
 
 @media only screen and (max-width: 580px) {

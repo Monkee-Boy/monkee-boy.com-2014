@@ -62,7 +62,7 @@ body {
   width: 256px;
   text-align: center;
   background: rgba(255, 255, 255, 0.96);
-  @include transition(all 0.5s ease);
+  @include transition(padding 0.5s ease);
 
   &:after {
     content: '';
@@ -109,10 +109,14 @@ body {
   }
 }
 
+.sticky-nav-wrapper {
+  height: 7.7em;
+  @media #{$medium-down} { display: none; }
+}
+
 .main-nav {
   background: $dark-black;
   border-bottom: 4px solid $grey;
-  @media #{$medium-down} { display: none; }
   ul {
     margin: 0;
     padding: 0;
@@ -241,6 +245,76 @@ body {
 
       &.nav-blog:after {
         content: $icon-blog;
+      }
+    }
+  }
+
+  .request-quote { display: none; }
+
+  &.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    border-bottom-color: $green;
+    .logo {
+      background: none;
+      position: static;
+      transition: none;
+      float: left;
+      width: 140px;
+      padding: 10px 0;
+      .speak {
+        visibility: hidden;
+      }
+      a {
+        display: block;
+        height: 95px;
+        width: 90px;
+        background: url('../images/logo-white.png') no-repeat top left;
+        img { display: none; }
+      }
+      &:hover {
+        padding-top: 10px;
+      }
+      &:after {
+        display: none;
+      }
+    }
+    .main-menu { float: left; }
+    .primary {
+      &> a {
+        border-bottom: 0;
+        padding-bottom: 0;
+        &:after {
+          display: none;
+        }
+      }
+      ul {
+        top: 112px;
+      }
+    }
+
+    .request-quote {
+      display: block;
+      float: right;
+      background: $black;
+      border-bottom: 2px solid #000;
+      margin-top: 20px;
+      padding: 15px 20px;
+      color: $teal;
+      text-align: center;
+      font-family: $heading-font;
+      font-weight: 700;
+      font-size: 0.8em;
+      span {
+        display: block;
+        font-size: 1.5em;
+      }
+      &:hover {
+        color: $green;
+        text-decoration: none;
       }
     }
   }
