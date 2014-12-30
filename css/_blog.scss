@@ -194,6 +194,10 @@
     font-size: 18px;
     font-weight: normal;
   }
+
+  &:nth-child(4n) {
+    clear: left;
+  }
 }
 
 .blog-list {
