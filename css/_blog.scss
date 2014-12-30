@@ -195,7 +195,7 @@
     font-weight: normal;
   }
 
-  &:nth-child(4n) {
+  &:nth-child(4n+4) {
     clear: left;
   }
 }
