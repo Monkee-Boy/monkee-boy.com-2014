@@ -25,8 +25,9 @@
 
   <div class="row">
     <div class="single-post">
+      <p>&nbsp;</p>
       <div class="share-section">
-        <h4>Share this article</h4>
+        <h4>Share this article</h4> <!-- TODO: Add social share counts. -->
         <ul class="styleless">
           <li><a href="https://twitter.com/share?url=http://monkee-boy.com<?php echo $aPost['url']; ?>&text=<?php echo urlencode($aPost['title']); ?>&via=monkeeboy" class="twitter"><span>6</span></a></li>
           <li><a href="http://www.facebook.com/sharer.php?u=http://monkee-boy.com<?php echo $aPost['url']; ?>" class="facebook"><span>12</span></a></li>
@@ -66,7 +67,7 @@
 
   <div class="row post-extras">
     <div class="single-post">
-      <h3 data-text-align="center">You might also like:</h3>
+      <h3 data-text-align="center">You might also like:</h3> <!-- TODO: Add related posts. -->
       <div class="row-pop">
         <div class="half post-panel" data-text-align="center">
           <div class="post-panel-inside">
@@ -82,6 +83,7 @@
         </div>
       </div>
 
+      <!-- Add Disqus Comments -->
       <div class="comment-section">
         <h3 data-text-align="center">Reader Comments</h3>
         <ul class="comments">
