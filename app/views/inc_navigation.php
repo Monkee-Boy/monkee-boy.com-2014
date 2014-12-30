@@ -38,7 +38,7 @@
             <li class="primary"><a href="http://monkee-boy.com/blog/" title="" class="nav-blog">The Blog</a></li>
           </ul>
 
-          <a href="/work-with-us/" title="Request A Quote" class="request-quote">Request A<span>Quote!</span></a>
+          <a href="/work-with-us/" title="Request A Quote" class="request-quote">Request A<span>Quote &raquo;</span></a>
         </div>
       </div> <!-- /.row -->
     </nav>

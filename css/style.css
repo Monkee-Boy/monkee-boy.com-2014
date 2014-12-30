@@ -551,6 +551,9 @@ body.menu-open .container {
   color: #5f730d;
   text-transform: uppercase;
 }
+.super-nav a:hover {
+  color: #5f730d;
+}
 
 .logo {
   position: absolute;
@@ -824,14 +827,15 @@ body.menu-open .container {
   left: 0;
   width: 100%;
   z-index: 10;
-  border-bottom-color: #acca41;
+  border-bottom-color: #fff;
+  border-bottom-width: 1px;
 }
 .main-nav.sticky .logo {
   background: none;
   position: static;
   transition: none;
   float: left;
-  width: 140px;
+  width: 130px;
   padding: 10px 0;
 }
 .main-nav.sticky .logo .speak {
@@ -868,22 +872,23 @@ body.menu-open .container {
 .main-nav.sticky .request-quote {
   display: block;
   float: right;
-  background: #242529;
+  background: #acca41;
   border-bottom: 2px solid #000;
-  margin-top: 20px;
-  padding: 15px 20px;
-  color: #23a38f;
+  margin-top: 28px;
+  padding: 10px 30px;
+  color: #5f730d;
   text-align: center;
+  text-transform: uppercase;
   font-family: "effra", sans-serif;
   font-weight: 700;
   font-size: 0.8em;
 }
 .main-nav.sticky .request-quote span {
   display: block;
-  font-size: 1.5em;
+  font-size: 1.35em;
 }
 .main-nav.sticky .request-quote:hover {
-  color: #acca41;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -1926,16 +1931,16 @@ button.button-full[type=submit], .upload-box.initial .button-full.add-files, .bu
   background: #d8ae2a;
 }
 
-.list-style-alt {
+.list-style-alt, .content-block ul, .content-block ol {
   list-style: none;
 }
-.list-style-alt li {
+.list-style-alt li, .content-block ul li, .content-block ol li {
   margin-top: 15px;
 }
-.list-style-alt li:first-child {
+.list-style-alt li:first-child, .content-block ul li:first-child, .content-block ol li:first-child {
   margin-top: 0;
 }
-.list-style-alt li:before {
+.list-style-alt li:before, .content-block ul li:before, .content-block ol li:before {
   content: '+';
   color: #acca32;
   margin-left: -25px;
@@ -2558,6 +2563,18 @@ button.button-full[type=submit], .upload-box.initial .button-full.add-files, .bu
 }
 .accordion.open .content {
   margin-bottom: 0.75em;
+}
+
+.content-block ol {
+  counter-reset: item;
+}
+.content-block ol li {
+  counter-increment: item;
+}
+.content-block ol li:before {
+  content: counter(item) ".";
+  color: inherit;
+  font-weight: bold;
 }
 
 .form-title {
@@ -4902,19 +4919,19 @@ button[type=submit] {
     display: block;
   }
 }
-.author-articles .list-style-alt li:before {
+.author-articles .list-style-alt li:before, .author-articles .content-block ul li:before, .content-block .author-articles ul li:before, .author-articles .content-block ol li:before, .content-block .author-articles ol li:before {
   color: #fcc721;
 }
-.author-articles .list-style-alt a, .author-articles .list-style-alt a:after {
+.author-articles .list-style-alt a, .author-articles .content-block ul a, .content-block .author-articles ul a, .author-articles .content-block ol a, .content-block .author-articles ol a, .author-articles .list-style-alt a:after, .author-articles .content-block ul a:after, .content-block .author-articles ul a:after, .author-articles .content-block ol a:after, .content-block .author-articles ol a:after {
   color: #fff;
 }
-.author-articles .list-style-alt a:after {
+.author-articles .list-style-alt a:after, .author-articles .content-block ul a:after, .content-block .author-articles ul a:after, .author-articles .content-block ol a:after, .content-block .author-articles ol a:after {
   content: " \00bb";
 }
-.author-articles .list-style-alt a:hover {
+.author-articles .list-style-alt a:hover, .author-articles .content-block ul a:hover, .content-block .author-articles ul a:hover, .author-articles .content-block ol a:hover, .content-block .author-articles ol a:hover {
   text-decoration: none;
 }
-.author-articles .list-style-alt a:hover, .author-articles .list-style-alt a:hover:after {
+.author-articles .list-style-alt a:hover, .author-articles .content-block ul a:hover, .content-block .author-articles ul a:hover, .author-articles .content-block ol a:hover, .content-block .author-articles ol a:hover, .author-articles .list-style-alt a:hover:after, .author-articles .content-block ul a:hover:after, .content-block .author-articles ul a:hover:after, .author-articles .content-block ol a:hover:after, .content-block .author-articles ol a:hover:after {
   color: #ff6c5c;
 }
 

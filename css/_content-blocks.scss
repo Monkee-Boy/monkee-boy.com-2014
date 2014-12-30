@@ -556,3 +556,22 @@
     .content { margin-bottom: em-calc(18, 24); }
   }
 }
+
+.content-block {
+  ul {
+    @extend .list-style-alt;
+  }
+  ol {
+    @extend .list-style-alt;
+    counter-reset: item;
+
+    li {
+      counter-increment: item;
+      &:before {
+        content: counter(item) ".";
+        color: inherit;
+        font-weight: bold;
+      }
+    }
+  }
+}

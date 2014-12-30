@@ -1,7 +1,7 @@
 <?php $this->tplDisplay("inc_header.php", ['menu'=>'blog-post']); ?>
 
   <div class="row">
-    <div class="single-post single-column">
+    <div class="single-post single-column content-block">
       <?php echo $aPost['content']; ?>
     </div><!-- /.single-post -->
   </div> <!-- /.row -->
