@@ -24,7 +24,7 @@
   <?php } ?>
 
   <div class="row">
-    <div class="single-post">
+    <div class="single-post single-column">
       <p>&nbsp;</p>
       <div class="share-section">
         <h4>Share this article</h4> <!-- TODO: Add social share counts. -->
@@ -66,22 +66,20 @@
   </div> <!-- /.panel-wide.blog-author -->
 
   <div class="row post-extras">
-    <div class="single-post">
-      <h3 data-text-align="center">You might also like:</h3> <!-- TODO: Add related posts. -->
+    <div class="single-post single-column">
+      <?php if(!empty($aRelatedPosts)) { ?>
+      <h3 data-text-align="center">You might also like:</h3>
       <div class="row-pop">
+        <?php foreach($aRelatedPosts as $aRelatedPost) { ?>
         <div class="half post-panel" data-text-align="center">
           <div class="post-panel-inside">
-            <a href="" title=""><img src="/assets/blog-post.jpg" alt=""></a>
-            <h4><a href="" title="">Freebie Friday: 25 Colorful Polygon Backgrounds</a></h4>
-          </div>
-        </div>
-        <div class="half post-panel" data-text-align="center">
-          <div class="post-panel-inside">
-            <a href="" title=""><img src="/assets/blog-post.jpg" alt=""></a>
-            <h4><a href="" title="">Freebie Friday: 25 Colorful Polygon Backgrounds</a></h4>
-          </div>
-        </div>
-      </div>
+            <a href="<?php echo $aRelatedPost['url']; ?>" title="Permalink for <?php echo $aRelatedPost['title']; ?>"><img src="/uploads/posts/<?php echo $aPost['listing_image']; ?>" alt="<?php echo $aRelatedPost['title']; ?>"></a>
+            <h4><a href="<?php echo $aRelatedPost['url']; ?>" title="Permalink for <?php echo $aRelatedPost['title']; ?>"><?php echo $aRelatedPost['title']; ?></a></h4>
+          </div> <!-- /.post-panel-inside -->
+        </div> <!-- /.half.post-panel -->
+        <?php } ?>
+      </div> <!-- /.row-pop -->
+      <?php } ?>
 
       <!-- Add Disqus Comments -->
       <div class="comment-section">
