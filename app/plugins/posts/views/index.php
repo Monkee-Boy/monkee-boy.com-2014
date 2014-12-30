@@ -39,24 +39,54 @@
     </div><!-- /.filter-bar -->
     <?php } ?>
 
-    <?php if(!empty($aPosts)) { foreach($aPosts as $k=>$aPost) { ?>
-    <div class="one-third post-panel" data-text-align="center">
-      <div class="post-panel-inside">
-        <a href="<?php echo $aPost['url']; ?>" title="Permalink for <?php echo $aPost['title']; ?>"><img src="/uploads/posts/<?php echo $aPost['listing_image']; ?>" alt="<?php echo $aPost['title']; ?>"></a>
-        <h4><a href="<?php echo $aPost['url']; ?>" title="Permalink for <?php echo $aPost['title']; ?>"><?php echo $aPost['title']; ?></a></h4>
-      </div> <!-- /.post-panel-inside -->
-    </div> <!-- /.one-third.post-panel -->
-    <?php } } ?>
+    <?php if(!empty($aPosts)) { ?>
+      <div class="js-postList">
+      <?php foreach($aPosts as $k=>$aPost) { ?>
+        <div class="one-third post-panel" data-text-align="center">
+          <div class="post-panel-inside">
+            <a href="<?php echo $aPost['url']; ?>" title="Permalink for <?php echo $aPost['title']; ?>"><img src="/uploads/posts/<?php echo $aPost['listing_image']; ?>" alt="<?php echo $aPost['title']; ?>"></a>
+            <h4><a href="<?php echo $aPost['url']; ?>" title="Permalink for <?php echo $aPost['title']; ?>"><?php echo $aPost['title']; ?></a></h4>
+          </div> <!-- /.post-panel-inside -->
+        </div> <!-- /.one-third.post-panel -->
+      <?php } ?>
+      </div>
+    <?php } ?>
   </div><!-- /.blog-list -->
 
-  <div class="paging row">
+  <?php if($load_more) { ?>
+  <div class="paging row js-loadMore">
     <div class="full">
-      <a href="#" class="load-more button">Load More!</a>
+      <a href="/ajax/blog/load_more/?category=<?php echo $_GET['category']; ?>&exclude=<?php echo $aLatestPost['id']; ?>&page=1" class="load-more button">Load More!</a>
     </div> <!-- /.full -->
   </div> <!-- /.paging.row -->
+  <?php } ?>
 
   {footer}
   <script>
+  $('.load-more').on('click', function() {
+    var button = $(this);
+
+    $.getJSON(button.attr('href'), function(data) {
+      console.log(data);
+      var posts = '';
+      $.each(data.posts, function(key, post) {
+        posts += '<div class="one-third post-panel" data-text-align="center">';
+        posts += '<div class="post-panel-inside">';
+        posts += '<a href="'+post.url+'" title="Permalink for '+post.title+'"><img src="/uploads/posts/'+post.listing_image+'" alt="'+post.title+'"></a>';
+        posts += '<h4><a href="'+post.url+'" title="Permalink for '+post.title+'">'+post.title+'</a></h4>';
+        posts += '</div> <!-- /.post-panel-inside --> </div> <!-- /.one-third.post-panel -->';
+      });
+
+      if(!data.load_more) {
+        $('.js-loadMore').hide();
+      }
+      $('.js-postList').append(posts);
+      button.attr('href', '/ajax/blog/load_more/?category=<?php echo $_GET['category']; ?>&exclude=<?php echo $aLatestPost['id']; ?>&page='+data.next_page);
+    });
+
+    return false;
+  });
+
   <?php if(!empty($aCategory)) { ?>
   $('html, body').animate({
     scrollTop: ($('.blog-list').offset().top)

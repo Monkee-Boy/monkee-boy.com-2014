@@ -24,6 +24,10 @@ $aPluginUrlPatterns = array(
 		"cmd" => "posts",
 		"action" => "post"
 	),
+  "/ajax/blog/load_more/" => array(
+    "cmd" => "posts",
+    "action" => "load_more"
+  ),
 
 	"/admin/posts/" => array(
     "cmd" => "admin_posts",

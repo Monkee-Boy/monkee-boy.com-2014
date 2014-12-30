@@ -27,7 +27,7 @@
     <div class="single-post single-column">
       <p>&nbsp;</p>
       <div class="share-section">
-        <h4>Share this article</h4> <!-- TODO: Add social share counts. -->
+        <h4>Share this article</h4>
         <ul class="styleless">
           <li><a href="https://twitter.com/share?url=http://monkee-boy.com<?php echo $aPost['url']; ?>&text=<?php echo urlencode($aPost['title']); ?>&via=monkeeboy" class="twitter"><span class="social-twitter-count"></span></a></li>
           <li><a href="http://www.facebook.com/sharer.php?u=http://monkee-boy.com<?php echo $aPost['url']; ?>" class="facebook"><span class="social-facebook-count"></span></a></li>
