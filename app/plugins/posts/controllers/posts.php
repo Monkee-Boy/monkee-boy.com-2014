@@ -12,14 +12,12 @@ class posts extends appController {
 
 		$aLatestPost = $this->model->getPosts(null, false, false, null, null, 1);
 
-		if(!empty($aCategory)) {
-			$sExcludePosts = null;
-		} else {
-			$sExcludePosts = $aLatestPost[0]['id'];
-		}
-
-		$aPostPages = array_chunk($this->model->getPosts($_GET["category"], false, false, $sExcludePosts), $this->model->perPage);
+		$aPostPages = array_chunk($this->model->getPosts($_GET["category"], false, false, $aLatestPost[0]['id']), $this->model->perPage);
 		$aPosts = $aPostPages[0];
+
+		if(!empty($aPostPages[1])) {
+			$this->tplAssign('load_more', true);
+		}
 
 		$this->tplAssign("aCategories", $this->model->getCategories(false));
 		$this->tplAssign('aLatestPost', $aLatestPost[0]);
@@ -29,6 +27,7 @@ class posts extends appController {
 
 		$this->tplDisplay("index.php");
 	}
+
 	function post() {
 		$aPost = $this->model->getPost(null, $this->urlVars->dynamic["tag"]);
 
@@ -49,6 +48,21 @@ class posts extends appController {
 		else
 			$this->tplDisplay("post.php");
 	}
+
+	function load_more() {
+		$aPostPages = array_chunk($this->model->getPosts($_GET["category"], false, false, $_GET['exclude']), $this->model->perPage);
+		$aPosts = $aPostPages[$_GET['page']];
+
+		$return = array();
+		$return['posts'] = $aPosts;
+		$return['next_page'] = $_GET['page']+1;
+		if(!empty($aPostPages[$return['next_page']])) {
+			$return['load_more'] = true;
+		}
+
+		echo json_encode($return);
+	}
+
 	function rss() {
 		$aPosts = array_slice($this->model->getPosts($_GET["category"]), 0, 15);
 

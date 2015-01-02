@@ -4710,6 +4710,9 @@ button[type=submit] {
   font-size: 18px;
   font-weight: normal;
 }
+.post-panel:nth-child(3n+1) {
+  clear: left;
+}
 
 .blog-list .filter-bar {
   text-align: center;
