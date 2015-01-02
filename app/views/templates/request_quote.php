@@ -54,7 +54,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'home', 'sPageTitle'=>$sTitle]); ?>
         </div>
         <label for="url">Website URL</label>
         <div class="form-step">
-          <span class="input-wrapper"><input type="text" class="url validate[custom[url]]" id="url"></span>
+          <span class="input-wrapper"><input type="text" class="url validate[custom[url]]" value="http://" id="url"></span>
         </div>
       </div><!-- /.form-part1 -->
     </div>
