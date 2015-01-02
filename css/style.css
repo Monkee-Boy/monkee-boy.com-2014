@@ -4698,17 +4698,46 @@ button[type=submit] {
     width: 50%;
   }
 }
-.post-panel .post-panel-inside {
-  background: #fefefe;
+.post-panel:hover h4 {
+  color: #fefefe;
+  background: #1a7a6c;
+  -webkit-transform: translateY(-26px);
+  -moz-transform: translateY(-26px);
+  -ms-transform: translateY(-26px);
+  -o-transform: translateY(-26px);
+  transform: translateY(-26px);
+}
+.post-panel:hover h4 span {
+  display: block;
 }
 .post-panel h4 {
+  background: #fefefe;
   margin: 0;
   padding: 25px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -webkit-transform: translateY(-4px);
+  -moz-transform: translateY(-4px);
+  -ms-transform: translateY(-4px);
+  -o-transform: translateY(-4px);
+  transform: translateY(-4px);
+}
+.post-panel h4 span {
+  display: none;
+  margin-top: 10px;
+  font-size: 0.5em;
+  text-transform: lowercase;
 }
 .post-panel a {
   color: #1a7a6c;
   font-size: 18px;
   font-weight: normal;
+}
+.post-panel a:hover {
+  text-decoration: none;
 }
 .post-panel:nth-child(3n+1) {
   clear: left;

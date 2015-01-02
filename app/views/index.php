@@ -236,33 +236,26 @@ ante venenatis.</em></p>
     </div>
   </div>
 
-  <!-- <div class="panel-wide home-blog" data-panel-color="light-grey">
+  <?php $oBlog = $this->loadModel('posts'); ?>
+  <div class="panel-wide home-blog" data-panel-color="light-grey">
     <div class="row section-head" data-text-align="center">
       <span class="section-title dots" data-dots="dual">from the blog</span>
     </div>
 
     <div class="row-flush">
+      <?php
+      $aPosts = $oBlog->getPosts();
+      foreach($aPosts as $aPost): ?>
       <div class="one-third post-panel" data-text-align="center">
         <div class="post-panel-inside">
-          <a href="" title=""><img src="/assets/blog-post.jpg" alt=""></a>
-          <h4><a href="" title="">Freebie Friday: 25 Colorful Polygon Backgrounds</a></h4>
+          <a href="<?= $aPost['url'] ?>" title="<?= $aPost['title'] ?>">
+            <img src="<?= $aPost['listing_image_url'] ?>" alt="<?= $aPost['title'] ?>">
+            <h4><?= $aPost['title'] ?><span>Read now &raquo;</span></h4>
+          </a>
         </div>
       </div>
-
-      <div class="one-third post-panel" data-text-align="center">
-        <div class="post-panel-inside">
-          <a href="" title=""><img src="/assets/blog-post.jpg" alt=""></a>
-          <h4><a href="" title="">Freebie Friday: 25 Colorful Polygon Backgrounds</a></h4>
-        </div>
-      </div>
-
-      <div class="one-third post-panel" data-text-align="center">
-        <div class="post-panel-inside">
-          <a href="" title=""><img src="/assets/blog-post.jpg" alt=""></a>
-          <h4><a href="" title="">Freebie Friday: 25 Colorful Polygon Backgrounds</a></h4>
-        </div>
-      </div>
+      <?php endforeach; ?>
     </div>
-  </div> -->
+  </div>
 
 <?php $this->tplDisplay("inc_footer.php"); ?>

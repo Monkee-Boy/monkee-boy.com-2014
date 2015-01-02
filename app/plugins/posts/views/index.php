@@ -46,8 +46,10 @@
       <?php foreach($aPosts as $k=>$aPost) { ?>
         <div class="one-third post-panel" data-text-align="center">
           <div class="post-panel-inside">
-            <a href="<?php echo $aPost['url']; ?>" title="Permalink for <?php echo $aPost['title']; ?>"><img src="/uploads/posts/<?php echo $aPost['listing_image']; ?>" alt="<?php echo $aPost['title']; ?>"></a>
-            <h4><a href="<?php echo $aPost['url']; ?>" title="Permalink for <?php echo $aPost['title']; ?>"><?php echo $aPost['title']; ?></a></h4>
+            <a href="<?php echo $aPost['url']; ?>" title="Permalink for <?php echo $aPost['title']; ?>">
+              <img src="/uploads/posts/<?php echo $aPost['listing_image']; ?>" alt="<?php echo $aPost['title']; ?>">
+              <h4><?php echo $aPost['title']; ?><span>Read now &raquo;</span></h4>
+            </a>
           </div> <!-- /.post-panel-inside -->
         </div> <!-- /.one-third.post-panel -->
       <?php } ?>

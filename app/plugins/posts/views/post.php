@@ -73,8 +73,10 @@
         <?php foreach($aRelatedPosts as $aRelatedPost) { ?>
         <div class="half post-panel" data-text-align="center">
           <div class="post-panel-inside">
-            <a href="<?php echo $aRelatedPost['url']; ?>" title="Permalink for <?php echo $aRelatedPost['title']; ?>"><img src="/uploads/posts/<?php echo $aPost['listing_image']; ?>" alt="<?php echo $aRelatedPost['title']; ?>"></a>
-            <h4><a href="<?php echo $aRelatedPost['url']; ?>" title="Permalink for <?php echo $aRelatedPost['title']; ?>"><?php echo $aRelatedPost['title']; ?></a></h4>
+            <a href="<?php echo $aRelatedPost['url']; ?>" title="Permalink for <?php echo $aRelatedPost['title']; ?>">
+              <img src="/uploads/posts/<?php echo $aPost['listing_image']; ?>" alt="<?php echo $aRelatedPost['title']; ?>">
+              <h4><?php echo $aRelatedPost['title']; ?><span>Read now &raquo;</span></h4>
+            </a>
           </div> <!-- /.post-panel-inside -->
         </div> <!-- /.half.post-panel -->
         <?php } ?>
