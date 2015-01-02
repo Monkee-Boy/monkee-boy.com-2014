@@ -18,20 +18,21 @@
 
           <ul class="main-menu">
             <li class="primary has-dropdown">
-              <a href="/join-the-troop/" class="nav-who">Who We Are</a>
-              <?php $this->tplDisplay('subnav/who.php', array('from'=>'nav')); ?>
+              <a href="/why-monkee-boy/" class="nav-who">Who We Are</a>
+              <?php $this->tplDisplay('subnav/who.php', array('menu'=>$menu,'from'=>'nav')); ?>
             </li>
             <li class="primary has-dropdown">
               <a href="/our-process/" title="" class="nav-what">What We Do</a>
-              <?php $this->tplDisplay('subnav/what.php', array('from'=>'nav')); ?>
+              <?php $this->tplDisplay('subnav/what.php', array('menu'=>$menu,'from'=>'nav')); ?>
             </li>
             <li class="primary has-dropdown">
               <a href="/the-work/" title="" class="nav-work">The Work</a>
-              <?php $this->tplDisplay('subnav/work.php', array('from'=>'nav')); ?>
+              <?php $this->tplDisplay('subnav/work.php', array('menu'=>$menu,'from'=>'nav')); ?>
             </li>
             <li class="primary has-dropdown">
               <a href="/contact/" title="" class="nav-contact">Contact</a>
               <ul>
+                <li><a href="/contact/" title="" class="nav-contact">Contact Us</a></li>
                 <li><a href="/work-with-us/" title="Work With Us">Work With Us</a></li>
               </ul>
             </li>
