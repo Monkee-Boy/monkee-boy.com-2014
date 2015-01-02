@@ -35,7 +35,7 @@
                 <li><a href="/work-with-us/" title="Work With Us">Work With Us</a></li>
               </ul>
             </li>
-            <li class="primary"><a href="http://monkee-boy.com/blog/" title="" class="nav-blog">The Blog</a></li>
+            <li class="primary"><a href="/blog/" title="" class="nav-blog">The Blog</a></li>
           </ul>
 
           <a href="/work-with-us/" title="Request A Quote" class="request-quote">Request A<span>Quote &raquo;</span></a>

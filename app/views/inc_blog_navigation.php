@@ -11,8 +11,8 @@ if($menu === 'blog-post') {
     <a href="/blog/" class="blog-logo">The Blog</a>
     <ul class="menu-lite main-menu">
       <li class="primary"><a href="/">Home</a></li>
-      <li class="primary"><a href="#">Portfolio</a></li>
-      <li class="primary"><a href="#">Request a quote</a></li>
+      <li class="primary"><a href="/the-work/">Portfolio</a></li>
+      <li class="primary"><a href="/work-with-us/">Request a quote</a></li>
     </ul>
   </nav>
 

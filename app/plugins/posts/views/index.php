@@ -3,11 +3,13 @@
   <?php if(!empty($aLatestPost)) { ?>
   <article class="row featured-post">
     <div class="header-meta">
-      <span class="bg" style="background-image:url(/uploads/posts/<?php echo $aLatestPost['featured_image']; ?>)"></span>
-      <div class="title">
-        <h1><?php echo $aLatestPost['title']; ?></h1>
-        <span class="source">By <?php echo $aLatestPost['author']['name']; ?></span>
-      </div>
+      <a href="<?php echo $aLatestPost['url'] ?>" alt="<?php echo $aLatestPost['title']; ?>">
+        <span class="bg" style="background-image:url(/uploads/posts/<?php echo $aLatestPost['featured_image']; ?>)"></span>
+        <div class="title">
+          <h1><?php echo $aLatestPost['title']; ?></h1>
+          <span class="source">By <?php echo $aLatestPost['author']['name']; ?></span>
+        </div>
+      </a>
     </div>
     <div class="excerpt">
       <ul class="menu-lite">
@@ -30,8 +32,8 @@
         <form name="category" method="get" action="/blog/">
           <select name="category" id="category">
             <option value="">Select a Category</option>
-            <?php foreach($aCategories as $aCategory) { ?>
-              <option value="<?php echo $aCategory['id']; ?>"<?php if($aCategory['id'] == $_GET['category']) { ?> selected="selected"<?php } ?>><?php echo $aCategory['name']; ?></option>
+            <?php foreach($aCategories as $aCurCategory) { ?>
+              <option value="<?php echo $aCurCategory['id']; ?>"<?php if($aCurCategory['id'] == $_GET['category']) { ?> selected="selected"<?php } ?>><?php echo $aCurCategory['name']; ?></option>
             <?php } ?>
           </select>
         <form>

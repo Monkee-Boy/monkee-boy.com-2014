@@ -1,7 +1,7 @@
 <footer role="contentinfo">
   <div class="row">
     <ul class="footer-social social-links">
-      <li><a href="http://monkee-boy.com/blog/" title="Blog" class="blog">Blog</a></li>
+      <li><a href="/blog/" title="Blog" class="blog">Blog</a></li>
       <li><a href="https://twitter.com/monkeeboy" title="Twitter" class="twitter">Twitter</a></li>
       <li><a href="https://www.facebook.com/monkeeboyweb" title="Facebook" class="facebook">Facebook</a></li>
       <li><a href="https://plus.google.com/102739090440232730366/posts" title="Google Plus" class="gplus">Google Plus</a></li>
