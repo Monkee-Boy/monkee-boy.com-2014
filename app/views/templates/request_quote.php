@@ -129,7 +129,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'home', 'sPageTitle'=>$sTitle]); ?>
       </div>
       <div class="right">
         <div class="select-box">
-          <select name="budget" id="budget">
+          <select name="budget" id="budget" class="validate[required]">
             <option value="">Select a Budget</option>
             <option value="$18,000-$30,000">$18,000-$30,000</option>
             <option value="$31,000-$45,000">$31,000-$45,000</option>
