@@ -22,7 +22,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'contact','sPageTitle'=>$sTitle]);
 		<h2>9390 Research Blvd. Bldg II, Suite 425,</h2>
 		<h3>Austin, TX 78759</h3>
 
-		<p><a href="#">Directions</a></p>
+		<p><a href="https://maps.google.com?daddr=9390+Research+Blvd.+Bldg+II,+Suite 425,+Austin,+TX+78759" target="_blank">Get Directions to Monkee-Boy World Headquarters</a></p>
 
 		<div id="contact-map"></div>
 

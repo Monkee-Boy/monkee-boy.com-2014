@@ -1,7 +1,7 @@
 <?php $this->tplDisplay("inc_header.php", ['menu'=>'home']); ?>
 
   <div class="row">
-    <p class="subtitle hero-subtitle" data-text-align="center">We're a web design &amp; marketing agency that loves process.</p>
+    <p class="subtitle hero-subtitle" data-text-align="center">Monkee-Boy is Full Service Web Design &amp; Digital Marketing Agency</p>
   </div>
 
   <div class="hero-circles">

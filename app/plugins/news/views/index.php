@@ -26,7 +26,7 @@
 </script>
 
   <div class="row">
-    <div class="sub-page-title">
+    <div class="page-title">
       <h1>Latest News</h1>
       <p class="subtitle">we do stuff, in our office &amp; around town</p>
     </div>

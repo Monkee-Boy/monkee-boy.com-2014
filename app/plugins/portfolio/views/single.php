@@ -72,7 +72,7 @@
 
       <?php echo $aClient['synopsis']; ?>
 
-      <?php if(!empty($aClient['website'])) { ?><a href="<?php echo $aClient['website']; ?>" title="View Site" class="button">View The Site!</a><?php } ?>
+      <?php if(!empty($aClient['website'])) { ?><a href="<?php echo $aClient['website']; ?>" title="View Site" class="button" target="_blank">View The Site!</a><?php } ?>
       <?php if(!empty($aClient['case_study'])) { ?><a href="<?php echo $aClient['case_study']; ?>" title="Read the case study." class="button button-alt">Read The Case Study!</a><?php } ?>
     </div>
   </div>

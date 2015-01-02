@@ -131,11 +131,10 @@ $this->tplDisplay("inc_header.php", ['menu'=>'home', 'sPageTitle'=>$sTitle]); ?>
         <div class="select-box">
           <select name="budget" id="budget">
             <option value="">Select a Budget</option>
-            <option value="1000-5000">1,000 - 5,000</option>
-            <option value="5000-10000">5,000 - 10,000</option>
-            <option value="10000-20000">10,000 - 20,000</option>
-            <option value="20000-50000">20,000 - 50,000</option>
-            <option value="50000+">50,000 +</option>
+            <option value="$18,000-$30,000">$18,000-$30,000</option>
+            <option value="$31,000-$45,000">$31,000-$45,000</option>
+            <option value="$46,000-$60,000">$46,000-$60,000</option>
+            <option value="$61,000+">$61,000+</option>
           </select>
         </div>
       </div>

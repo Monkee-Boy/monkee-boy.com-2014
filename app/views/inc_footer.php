@@ -13,7 +13,7 @@
       <a href="#"></a>
     </div>
 
-    <p class="footer-meta"><strong>&copy; <?php echo date("Y"); ?> Monkee-Boy Web Design, Inc.</strong> // <a href="#" title="Privacy">Privacy</a><br>
+    <p class="footer-meta"><strong>&copy; <?php echo date("Y"); ?> Monkee-Boy Web Design, Inc.</strong> // <a href="/work-with-us/" title="Request A Quote">Work with us!</a><br>
       <span class="address">9390 Research Blvd. Suite 425 Austin, TX  78759 // 512-335-2221</span></p>
   </div>
   <a href="#" class="mobile-home button">Back to Home</a>
