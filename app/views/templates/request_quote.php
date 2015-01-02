@@ -46,7 +46,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'home', 'sPageTitle'=>$sTitle]); ?>
         </div>
         <label for="phone">Phone*</label>
         <div class="form-step monkee-step">
-          <span class="input-wrapper phone"><input type="tel" class="validate[required,custom[phone]]" id="phone"></span>
+          <span class="input-wrapper phone"><input type="tel" class="validate[required,custom[phone],minSize[7],maxSize[14]]" id="phone"></span>
         </div>
         <label for="org">Organization</label>
         <div class="form-step">
@@ -54,7 +54,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'home', 'sPageTitle'=>$sTitle]); ?>
         </div>
         <label for="url">Website URL</label>
         <div class="form-step">
-          <span class="input-wrapper"><input type="text" class="url validate[custom[url]]" id="url"></span>
+          <span class="input-wrapper"><input type="text" class="url validate[custom[url]]" value="http://" id="url"></span>
         </div>
       </div><!-- /.form-part1 -->
     </div>
@@ -129,7 +129,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'home', 'sPageTitle'=>$sTitle]); ?>
       </div>
       <div class="right">
         <div class="select-box">
-          <select name="budget" id="budget">
+          <select name="budget" id="budget" class="validate[required]">
             <option value="">Select a Budget</option>
             <option value="$18,000-$30,000">$18,000-$30,000</option>
             <option value="$31,000-$45,000">$31,000-$45,000</option>
