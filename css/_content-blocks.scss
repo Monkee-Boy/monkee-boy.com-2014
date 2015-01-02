@@ -284,8 +284,9 @@
   display: block;
   position: relative;
   text-align: center;
-  font-size: 50px;
+  font-size: 80px;
   line-height: 1em;
+  @media #{$medium-down} { font-size: 50px; }
 
   .portfolio & {
     font-size: 100px;
