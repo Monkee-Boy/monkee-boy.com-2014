@@ -10,7 +10,7 @@ $aPluginInfo = array(
 
 	/* Plugin Configuration */
 	"config" => array(
-		"useCategories" => false,
+		"useCategories" => true,
 		"perPage" => 10,
 		"excerptCharacters" => 250, // character limit for excerpt
 		"sortCategory" => "manual-asc" // manual, name, items, random - asc, desc

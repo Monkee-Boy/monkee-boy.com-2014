@@ -15,7 +15,7 @@
   <link rel="author" href="/humans.txt">
   <link rel="dns-prefetch" href="//ajax.googleapis.com">
   <link rel="sitemap" href="/sitemap.xml" type="application/xml" title="Sitemap">
-  
+
   <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
   <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
@@ -48,7 +48,7 @@
 	<?php if(!empty($menu) && ($menu === 'blog' || $menu === 'blog-post')) { include('inc_blog_navigation.php'); } else { include('inc_navigation.php'); } ?>
   <?php
   $aSubNav = array(
-    'who' => array('why-monkee-boy','troop','news','join'),
+    'who' => array('why-monkee-boy','troop','news','join-the-troop'),
     'what' => array('services','discover','create','evolve'),
     'work' => array('portfolio','testimonials','clients')
   );
