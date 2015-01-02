@@ -46,7 +46,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'home', 'sPageTitle'=>$sTitle]); ?>
         </div>
         <label for="phone">Phone*</label>
         <div class="form-step monkee-step">
-          <span class="input-wrapper phone"><input type="tel" class="validate[required,custom[phone]]" id="phone"></span>
+          <span class="input-wrapper phone"><input type="tel" class="validate[required,custom[phone],minSize[7],maxSize[14]]" id="phone"></span>
         </div>
         <label for="org">Organization</label>
         <div class="form-step">
