@@ -113,17 +113,15 @@
   <div class="panel-wide home-marketing" data-panel-style="callout">
     <div class="row-flush">
       <div class="item-callout">
-        <h3 data-text-align="center">monkee-boy<br />marketing section</h3>
+        <h3 data-text-align="center">16 Years of Growing with the Web</h3>
 
-        <p><em>Nullam quis risus eget urna mollis ornare vel eu leo.  Duis mollis, est non commodo luctus, nisi nec elit.
-ante venenatis.</em></p>
+        <p><em>You don't need us to tell you that the web is always changing. What you do need is an experienced team you can trust that keeps up with that change and gets results by:</em></p>
 
         <ul class="list-style-alt">
-          <li><a href="" title="">Lorem ipsum dolor sit amet &raquo;</a></li>
-          <li><a href="" title="">Consectetuer adipiscing elit &raquo;</a></li>
-          <li><a href="" title="">Sed diam nonummy nibh euismod &raquo;</a></li>
-          <li><a href="" title="">Duis mollis, est non commodo &raquo;</a></li>
-          <li><a href="" title="">Sed posuere  lobortis. &raquo;</a></li>
+          <li><a href="#" title="">Elevating identity with stunning creative assets &raquo;</a></li>
+          <li><a href="#" title="">Increasing website traffic and brand awareness &raquo;</a></li>
+          <li><a href="#" title="">Converting website visitors into loyal customers &raquo;</a></li>
+          <li><a href="#" title="">Establishing leadership with valuable content &raquo;</a></li>
         </ul>
       </div>
 
@@ -139,7 +137,7 @@ ante venenatis.</em></p>
 
   <div class="panel-wide home-clients" data-panel-color="green" data-panel-style="slash">
     <div class="row section-head" data-text-align="right">
-      <span class="section-title full dots" data-dots="left"><em>a few of our</em> lovely clients</span>
+      <span class="section-title full dots" data-dots="left"><em>a few of our</em> successful clients</span>
     </div>
 
     <div class="row-flush">
@@ -161,7 +159,7 @@ ante venenatis.</em></p>
 
   <div class="panel-wide home-pulse" data-panel-color="teal">
     <div class="row section-head" data-text-align="left">
-      <span class="section-title full dots" data-dots="right"><em>the</em><br />pulse</span>
+      <span class="section-title full dots" data-dots="right"><em>the</em><br />jungle beat</span>
     </div>
 
     <div class="row-flush">
@@ -239,7 +237,7 @@ ante venenatis.</em></p>
   <?php $oBlog = $this->loadModel('posts'); ?>
   <div class="panel-wide home-blog" data-panel-color="light-grey">
     <div class="row section-head" data-text-align="center">
-      <span class="section-title dots" data-dots="dual">from the blog</span>
+      <span class="section-title dots" data-dots="dual">the latest from the blog</span>
     </div>
 
     <div class="row-flush">

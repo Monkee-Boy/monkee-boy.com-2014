@@ -2,8 +2,8 @@
 
 <div class="row">
 	<div class="page-title">
-		<h1>Testimonials</h1>
-		<p class="subtitle">we do stuff, in our office &amp; around town</p>
+		<h1>Our Clients Love Us</h1>
+		<p class="subtitle">Here's What They Have to Say about Monkee-Boy</p>
 	</div>
 </div>
 
