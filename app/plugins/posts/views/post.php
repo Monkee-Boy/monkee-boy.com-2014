@@ -1,4 +1,17 @@
-<?php $this->tplDisplay("inc_header.php", ['menu'=>'blog-post', 'page_title'=>$aPost['title'], 'seo_title'=>$aPost['seo_title'], 'seo_description'=>$aPost['seo_description'], 'seo_keywords'=>$aPost['seo_keywords'], 'og_image'=>'/uploads/posts/'.$aPost['featured_image'], 'og_type'=>'article']); ?>
+<?php
+$this->tplDisplay("inc_header.php", [
+  'menu'=>'blog-post',
+  'page_title'=>$aPost['title'],
+  'seo_title'=>$aPost['seo_title'],
+  'seo_description'=>$aPost['seo_description'],
+  'seo_keywords'=>$aPost['seo_keywords'],
+
+  'og_updated_time'=>date('Y-m-d\TH:i:sP', strtotime($aPost['updated_datetime'])),
+  'og_image'=>'/uploads/posts/'.$aPost['featured_image'],
+  'og_type'=>'article',
+  'og_article_published'=>date('Y-m-d\TH:i:sP', strtotime($aPost['created_datetime'])),
+  'og_article_modified'=>date('Y-m-d\TH:i:sP', strtotime($aPost['updated_datetime']))
+]); ?>
 
   <div class="row">
     <div class="single-post single-column content-block">
