@@ -6,7 +6,8 @@
 @Author: Monkee-Boy
 -->
 
-<?php $aContent = getContent(null, "work-with-us");
+<?php
+$aContent = getContent(null, "work-with-us");
 if(!empty($aContent)) {
   $sTitle = $aContent['title'];
   $sSubtitle = $aContent['subtitle'];
@@ -15,7 +16,7 @@ if(!empty($aContent)) {
   $sSubtitle = "Let's start a dialogue. Just fill out the form below.";
 }
 
-$this->tplDisplay("inc_header.php", ['menu'=>'home', 'sPageTitle'=>$sTitle]); ?>
+$this->tplDisplay("inc_header.php", ['menu'=>'work-with-us', 'sPageTitle'=>$sTitle]); ?>
 
   <div class="row full">
     <div class="page-title">
