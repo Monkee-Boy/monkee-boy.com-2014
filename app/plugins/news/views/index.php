@@ -1,7 +1,4 @@
-<?php
-$aContent = getContent(null, 'latest-news');
-$this->tplDisplay("inc_header.php", ['menu'=>'news','page_title'=>$aContent['title'], 'seo_title'=>$aContent['seo_title'], 'seo_description'=>$aContent['seo_description'], 'seo_keywords'=>$aContent['seo_keywords']]);
-?>
+<?php $this->tplDisplay("inc_header.php", ['menu'=>'news','page_title'=>$aContent['title'], 'seo_title'=>$aContent['seo_title'], 'seo_description'=>$aContent['seo_description'], 'seo_keywords'=>$aContent['seo_keywords']]); ?>
 
 {head}
 <link rel="alternate" type="application/rss+xml" title="All Articles RSS" href="/news/rss/">

@@ -3,6 +3,8 @@ class troop extends appController {
   function __construct() {
     // Load model when creating appController
     parent::__construct("troop");
+
+    $this->tplAssign('aContent', $this->model->content);
   }
 
   function index() {

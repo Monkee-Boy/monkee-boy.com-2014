@@ -3,6 +3,8 @@ class posts extends appController {
 	function __construct() {
 		// Load model when creating appController
 		parent::__construct("posts");
+
+		$this->tplAssign('aContent', $this->model->content);
 	}
 
 	function index() {

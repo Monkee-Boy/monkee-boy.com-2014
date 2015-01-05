@@ -2,6 +2,7 @@
 class clients_model extends appModel {
   public $imageFolder;
   public $sort;
+  public $content;
 
   function __construct() {
     parent::__construct();
@@ -11,6 +12,8 @@ class clients_model extends appModel {
     foreach($aPluginInfo["config"] as $sKey => $sValue) {
       $this->$sKey = $sValue;
     }
+
+    $this->content = getContent(null, 'client-list');
   }
 
   function getClients($sRandom = false, $sAll = false, $sSVG = false) {

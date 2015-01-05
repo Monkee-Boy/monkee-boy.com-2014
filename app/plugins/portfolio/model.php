@@ -6,6 +6,7 @@ class portfolio_model extends appModel {
   public $sortServices;
   public $sortServiceSubs;
   public $sortServiceSubItems;
+  public $content;
 
   function __construct() {
     parent::__construct();
@@ -15,6 +16,8 @@ class portfolio_model extends appModel {
     foreach($aPluginInfo["config"] as $sKey => $sValue) {
       $this->$sKey = $sValue;
     }
+
+    $this->content = getContent(null, 'the-work');
   }
 
   function getClients($sRandom = false, $sAll = false, $sRecursive = false) {
