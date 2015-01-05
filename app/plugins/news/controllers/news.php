@@ -4,7 +4,7 @@ class news extends appController {
 		// Load model when creating appController
 		parent::__construct("news");
 
-		$ths->tplAssign('aContent', $this->model->content);
+		$this->tplAssign('aContent', $this->model->content);
 	}
 
 	function index() {
