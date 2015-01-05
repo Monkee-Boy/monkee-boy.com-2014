@@ -242,7 +242,7 @@
 
     <div class="row-flush">
       <?php
-      $aPosts = $oBlog->getPosts();
+      $aPosts = $oBlog->getPosts(null, false, false, null, null, 3);
       foreach($aPosts as $aPost): ?>
       <div class="one-third post-panel" data-text-align="center">
         <div class="post-panel-inside">
