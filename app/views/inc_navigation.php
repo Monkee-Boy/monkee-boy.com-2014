@@ -18,7 +18,7 @@
 
           <ul class="main-menu">
             <li class="primary has-dropdown">
-              <a href="/why-monkee-boy/" class="nav-who<?php if($current==='who'): ?> current<?php endif; ?>">Who We Are</a>
+              <a href="/who/why-monkee-boy/" class="nav-who<?php if($current==='who'): ?> current<?php endif; ?>">Who We Are</a>
               <?php $this->tplDisplay('subnav/who.php', array('menu'=>$menu,'from'=>'nav')); ?>
             </li>
             <li class="primary has-dropdown">
@@ -33,13 +33,13 @@
               <a href="/contact/" title="" class="nav-contact<?php if($current==='contact'): ?> current<?php endif; ?>">Contact</a>
               <ul>
                 <li><a href="/contact/" title="" class="nav-contact">Contact Us</a></li>
-                <li><a href="/work-with-us/" title="Work With Us">Work With Us</a></li>
+                <li><a href="/contact/work-with-us/" title="Work With Us">Work With Us</a></li>
               </ul>
             </li>
             <li class="primary"><a href="/blog/" title="" class="nav-blog">The Blog</a></li>
           </ul>
 
-          <a href="/work-with-us/" title="Request A Quote" class="request-quote">Request A<span>Quote &raquo;</span></a>
+          <a href="/contact/work-with-us/" title="Request A Quote" class="request-quote">Request A<span>Quote &raquo;</span></a>
         </div>
       </div> <!-- /.row -->
     </nav>
