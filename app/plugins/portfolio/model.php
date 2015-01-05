@@ -113,6 +113,8 @@ class portfolio_model extends appModel {
 
     $aClient = $this->_getClientInfo($aClient, true);
 
+    usort($aClient['services'], function($a, $b) { return $a['order'] - $b['order']; });
+
     return $aClient;
   }
   private function _getClientInfo($aClient, $sRecursive = false) {
