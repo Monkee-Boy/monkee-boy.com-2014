@@ -16,6 +16,10 @@ $aPluginUrlPatterns = array(
     "cmd" => "troop",
     "action" => "index"
   ),
+  "/<parent:[a-z0-9_-/]+>/the-troop/" => array(
+    "cmd" => "troop",
+    "action" => "index"
+  ),
   "/admin/troop/" => array(
     "cmd" => "admin_troop",
     "action" => "index"

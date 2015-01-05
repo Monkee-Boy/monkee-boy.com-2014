@@ -13,14 +13,26 @@
 */
 $aPluginUrlPatterns = array(
   "/blog/" => array(
+    "cmd" => "posts",
+    "action" => "index"
+  ),
+  "/<parent:[a-z0-9_-/]+>/blog/" => array(
 		"cmd" => "posts",
 		"action" => "index"
 	),
-	"/blog/rss/" => array(
+  "/blog/rss/" => array(
+    "cmd" => "posts",
+    "action" => "rss"
+  ),
+	"/<parent:[a-z0-9_-/]+>/blog/rss/" => array(
 		"cmd" => "posts",
 		"action" => "rss"
 	),
-	"/blog/<year:[0-9]+>/<month:[0-9]+>/<tag:[^/]+>/" => array(
+  "/blog/<year:[0-9]+>/<month:[0-9]+>/<tag:[^/]+>/" => array(
+    "cmd" => "posts",
+    "action" => "post"
+  ),
+	"/<parent:[a-z0-9_-/]+>/blog/<year:[0-9]+>/<month:[0-9]+>/<tag:[^/]+>/" => array(
 		"cmd" => "posts",
 		"action" => "post"
 	),
