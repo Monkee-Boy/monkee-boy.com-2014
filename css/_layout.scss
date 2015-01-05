@@ -206,6 +206,11 @@ body {
       border-bottom: 1px solid $grey;
       position: relative;
       padding-bottom: 21px;
+      &.current {
+        color: $green;
+        border-bottom-color: $green;
+        &:after { color: $green; }
+      }
       &:after {
         content: '\e600';
         position: absolute;
@@ -395,6 +400,9 @@ body {
       font-weight: bold;
       text-transform: uppercase;
       color: $grey;
+      &:focus {
+        text-decoration: none;
+      }
     }
     .has-dropdown {
       @include transition(background 0.3s ease);

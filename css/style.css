@@ -774,6 +774,13 @@ body.menu-open .container {
   position: relative;
   padding-bottom: 21px;
 }
+.main-nav ul .primary > a.current {
+  color: #acca41;
+  border-bottom-color: #acca41;
+}
+.main-nav ul .primary > a.current:after {
+  color: #acca41;
+}
 .main-nav ul .primary > a:after {
   content: '\e600';
   position: absolute;
@@ -992,6 +999,9 @@ body.menu-open .container {
     font-weight: bold;
     text-transform: uppercase;
     color: #b2b2b2;
+  }
+  .mobile-menu-container .primary > a:focus {
+    text-decoration: none;
   }
   .mobile-menu-container .has-dropdown {
     -webkit-transition: background 0.3s ease;

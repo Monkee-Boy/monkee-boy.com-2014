@@ -18,19 +18,19 @@
 
           <ul class="main-menu">
             <li class="primary has-dropdown">
-              <a href="/why-monkee-boy/" class="nav-who">Who We Are</a>
+              <a href="/why-monkee-boy/" class="nav-who<?php if($current==='who'): ?> current<?php endif; ?>">Who We Are</a>
               <?php $this->tplDisplay('subnav/who.php', array('menu'=>$menu,'from'=>'nav')); ?>
             </li>
             <li class="primary has-dropdown">
-              <a href="/our-process/" title="" class="nav-what">What We Do</a>
+              <a href="/our-process/" title="" class="nav-what<?php if($current==='what'): ?> current<?php endif; ?>">What We Do</a>
               <?php $this->tplDisplay('subnav/what.php', array('menu'=>$menu,'from'=>'nav')); ?>
             </li>
             <li class="primary has-dropdown">
-              <a href="/the-work/" title="" class="nav-work">The Work</a>
+              <a href="/the-work/" title="" class="nav-work<?php if($current==='work'): ?> current<?php endif; ?>">The Work</a>
               <?php $this->tplDisplay('subnav/work.php', array('menu'=>$menu,'from'=>'nav')); ?>
             </li>
             <li class="primary has-dropdown">
-              <a href="/contact/" title="" class="nav-contact">Contact</a>
+              <a href="/contact/" title="" class="nav-contact<?php if($current==='contact'): ?> current<?php endif; ?>">Contact</a>
               <ul>
                 <li><a href="/contact/" title="" class="nav-contact">Contact Us</a></li>
                 <li><a href="/work-with-us/" title="Work With Us">Work With Us</a></li>

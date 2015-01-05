@@ -45,19 +45,30 @@
   <!--[if lt IE 9]><p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p><![endif]-->
 
 <div class="container" role="document">
-	<?php if(!empty($menu) && ($menu === 'blog' || $menu === 'blog-post')) { include('inc_blog_navigation.php'); } else { include('inc_navigation.php'); } ?>
-  <?php
-  $aSubNav = array(
-    'who' => array('why-monkee-boy','troop','news','join-the-troop'),
-    'what' => array('services','discover','create','evolve'),
-    'work' => array('portfolio','testimonials','clients')
-  );
+	<?php
+  if(!empty($menu) && ($menu === 'blog' || $menu === 'blog-post')) {
+    include('inc_blog_navigation.php');
+  } else {
+    $aSubNav = array(
+      'who' => array('why-monkee-boy','troop','news','join-the-troop'),
+      'what' => array('services','discover','create','evolve'),
+      'work' => array('portfolio','testimonials','clients'),
+      'contact' => array('contact','work-with-us')
+    );
 
-  if(in_array($menu, $aSubNav['who'])) {
-    $this->tplDisplay('inc_subnav.php', array('menu' => $menu, 'nav' => 'who'));
-  } elseif(in_array($menu, $aSubNav['what'])) {
-    $this->tplDisplay('inc_subnav.php', array('menu' => $menu, 'nav' => 'what'));
-  } elseif(in_array($menu, $aSubNav['work'])) {
-    $this->tplDisplay('inc_subnav.php', array('menu' => $menu, 'nav' => 'work'));
+    if(in_array($menu, $aSubNav['who'])) {
+      $this->tplDisplay('inc_navigation.php', array('current' => 'who'));
+      $this->tplDisplay('inc_subnav.php', array('menu' => $menu, 'nav' => 'who'));
+    } elseif(in_array($menu, $aSubNav['what'])) {
+      $this->tplDisplay('inc_navigation.php', array('current' => 'what'));
+      $this->tplDisplay('inc_subnav.php', array('menu' => $menu, 'nav' => 'what'));
+    } elseif(in_array($menu, $aSubNav['work'])) {
+      $this->tplDisplay('inc_navigation.php', array('current' => 'work'));
+      $this->tplDisplay('inc_subnav.php', array('menu' => $menu, 'nav' => 'work'));
+    } elseif(in_array($menu, $aSubNav['contact'])) {
+      $this->tplDisplay('inc_navigation.php', array('current' => 'contact'));
+    } else {
+      $this->tplDisplay('inc_navigation.php');
+    }
   }
   ?>
