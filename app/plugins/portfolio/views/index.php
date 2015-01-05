@@ -3,7 +3,7 @@
   <div class="row">
     <div class="page-title">
       <h1>Featured Clients</h1>
-      <p class="subtitle">take a look at what we do &amp; for whom</p>
+      <p class="subtitle">The Work We Love to Do</p>
     </div>
   </div>
 
