@@ -8,6 +8,10 @@ class portfolio extends appController {
   function index() {
     $aPortfolio = $this->model->getClients(false, false, true);
 
+    foreach($aPortfolio as &$aItem) {
+      usort($aItem['services'], function($a, $b) { return $a['order'] - $b['order']; });
+    }
+
     $this->tplAssign('aPortfolio', $aPortfolio);
     $this->tplDisplay('index.php');
   }
