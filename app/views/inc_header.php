@@ -17,7 +17,7 @@
   <?php endif; ?>
 
   <!-- Open Graph -->
-  <meta property="og:title" content="<?php if(!empty($seo_title)){ echo strip_tags($seo_title); } else { echo strip_tags($this->getSetting("site-title")); } ?>">
+  <meta property="og:title" content="<?php if(!empty($seo_title)){ echo strip_tags($seo_title); } elseif(!empty($page_title)) { echo strip_tags($page_title); } else { echo strip_tags($this->getSetting("site-title")); } ?>">
   <meta property="og:description" content="<?php if(!empty($seo_description)){ echo strip_tags($seo_description); } else { echo strip_tags($this->getSetting("site-description")); } ?>">
   <meta property="og:image" content="http://<?php echo $_SERVER['SERVER_NAME']; if(!empty($og_image)){ echo $og_image; } else { echo '/images/logo.png'; } ?>">
 
