@@ -23,8 +23,8 @@
   <meta property="og:type" content="<?php if(!empty($og_type)){ echo $og_type; } else { echo 'website'; } ?>">
   <?php if(!empty($og_updated_time)): ?><meta property="og:updated_time" content="<?= $og_updated_time ?>"><?php endif; ?>
   <?php if($og_type === 'article'): ?>
-    <?php if(!empty($og_article_published)): ?><meta property="og:article:published" content="<?= $og_article_published ?>"><?php endif; ?>
-    <?php if(!empty($og_article_modified)): ?><meta property="og:article:modified" content="<?= $og_article_modified ?>"><?php endif; ?>
+    <?php if(!empty($og_article_published)): ?><meta property="og:article:published_time" content="<?= $og_article_published ?>"><?php endif; ?>
+    <?php if(!empty($og_article_modified)): ?><meta property="og:article:modified_time" content="<?= $og_article_modified ?>"><?php endif; ?>
   <?php endif; ?>
   <meta property="og:site_name" content="Monkee-Boy.com">
 
