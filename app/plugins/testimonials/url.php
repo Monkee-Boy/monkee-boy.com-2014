@@ -16,7 +16,7 @@ $aPluginUrlPatterns = array(
     "cmd" => "testimonials",
     "action" => "index"
   ),
-  "/<parent:[a-z0-9_-/]+>/testimonials/" => array(
+  "/<parent:[a-z0-9_\-/]+>/testimonials/" => array(
 		"cmd" => "testimonials",
 		"action" => "index"
 	),
@@ -24,7 +24,7 @@ $aPluginUrlPatterns = array(
     "cmd" => "testimonials",
     "action" => "testimonial"
   ),
-	"/<parent:[a-z0-9_-/]+>/testimonials/<tag:[^/]+>/" => array(
+	"/<parent:[a-z0-9_\-/]+>/testimonials/<tag:[^/]+>/" => array(
 		"cmd" => "testimonials",
 		"action" => "testimonial"
 	),
@@ -32,7 +32,7 @@ $aPluginUrlPatterns = array(
     "cmd" => "testimonials",
     "action" => "index"
   ),
-	"/<parent:[a-z0-9_-/]+>/testimonials/<id:[0-9]+>/" => array(
+	"/<parent:[a-z0-9_\-/]+>/testimonials/<id:[0-9]+>/" => array(
 		"cmd" => "testimonials",
 		"action" => "index"
 	),

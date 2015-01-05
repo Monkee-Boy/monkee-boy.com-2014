@@ -16,7 +16,7 @@ $aPluginUrlPatterns = array(
     "cmd" => "portfolio",
     "action" => "index"
   ),
-  "/<parent:[a-z0-9_-/]+>/the-work/" => array(
+  "/<parent:[a-z0-9_\-/]+>/the-work/" => array(
     "cmd" => "portfolio",
     "action" => "index"
   ),
@@ -24,7 +24,7 @@ $aPluginUrlPatterns = array(
     "cmd" => "portfolio",
     "action" => "single"
   ),
-  "/<parent:[a-z0-9_-/]+>/the-work/<tag:[^/]+>/" => array(
+  "/<parent:[a-z0-9_\-/]+>/the-work/<tag:[^/]+>/" => array(
     "cmd" => "portfolio",
     "action" => "single"
   ),
@@ -32,7 +32,7 @@ $aPluginUrlPatterns = array(
     "cmd" => "portfolio",
     "action" => "services_index"
   ),
-  "/<parent:[a-z0-9_-/]+>/our-process/" => array(
+  "/<parent:[a-z0-9_\-/]+>/our-process/" => array(
     "cmd" => "portfolio",
     "action" => "services_index"
   ),
@@ -40,7 +40,7 @@ $aPluginUrlPatterns = array(
     "cmd" => "portfolio",
     "action" => "services_single"
   ),
-  "/<parent:[a-z0-9_-/]+>/our-process/<tag:[^/]+>/" => array(
+  "/<parent:[a-z0-9_\-/]+>/our-process/<tag:[^/]+>/" => array(
     "cmd" => "portfolio",
     "action" => "services_single"
   ),

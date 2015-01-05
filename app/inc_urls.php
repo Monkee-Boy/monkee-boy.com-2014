@@ -264,7 +264,7 @@ $oPlugins->close();
 unset($oPlugins);
 
 $aUrlPattersAfter = array(
-	"/<parent:[a-z0-9_-/]+>/<page:[a-z0-9_-]+>/" => array(
+	"/<parent:[a-z0-9_\-/]+>/<page:[a-z0-9_-]+>/" => array(
 		"cmd" => "content",
 		"action" => "view"
 	),
