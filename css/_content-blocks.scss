@@ -205,6 +205,7 @@
       content: '';
       z-index: 1;
       top: -50px;
+      left: 0;
       bottom: -90px;
       background: $black;
       @media #{$medium-down} { display: none; }

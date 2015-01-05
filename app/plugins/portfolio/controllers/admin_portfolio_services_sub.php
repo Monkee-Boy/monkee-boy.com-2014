@@ -72,6 +72,7 @@ class admin_portfolio_services_sub extends adminController {
         "quote" => $_POST["quote"],
         "quote_attribution" => $_POST["quote_attribution"],
         "sort_order" => $sOrder,
+        "order" => $_POST['order'],
         "created_datetime" => date('Y-m-d H:i:s'),
         "created_by" => $_SESSION["admin"]["userid"],
         "updated_datetime" => date('Y-m-d H:i:s'),
@@ -128,6 +129,7 @@ class admin_portfolio_services_sub extends adminController {
         "intro" => $_POST["intro"],
         "quote" => $_POST["quote"],
         "quote_attribution" => $_POST["quote_attribution"],
+        "order" => $_POST['order'],
         "updated_datetime" => date('Y-m-d H:i:s'),
         "updated_by" => $_SESSION["admin"]["userid"]
       ),

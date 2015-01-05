@@ -26,6 +26,13 @@
                   <input type="text" name="subtitle" id="form-subtitle" value="<?php echo $aServiceSub['subtitle']; ?>" class="span12">
                 </div> <!-- /.controls -->
               </div> <!-- /.control-group -->
+
+              <div class="control-group">
+                <label class="control-label" for="form-order">Order</label>
+                <div class="controls">
+                  <input type="text" name="order" id="form-order" value="<?php echo $aServiceSub['order']; ?>" class="span1">
+                </div> <!-- /.controls -->
+              </div> <!-- /.control-group -->
             </div>
           </div>
         </div>
