@@ -258,12 +258,12 @@ class adminController extends appController {
 		);
 
 		$aData = array();
-		$template_dir = $this->settings->root."views/templates/";
+		$template_dir = $this->settings->root."plugins/content/views/templates/";
 		$template_files = scandir($template_dir);
 		foreach($template_files as $file) {
 			if ($file === "." or $file === "..") continue;
 
-			$fp = fopen($this->settings->root."views/templates/".$file, "r");
+			$fp = fopen($this->settings->root."plugins/content/views/templates/".$file, "r");
 			$file_data = fread($fp, 8192);
 			fclose($fp);
 

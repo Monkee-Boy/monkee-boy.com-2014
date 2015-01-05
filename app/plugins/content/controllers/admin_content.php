@@ -2,7 +2,7 @@
 class admin_content extends adminController
 {
 	function __construct() {
-		parent::__construct('');
+		parent::__construct('content');
 
 		$this->menuPermission("content");
 	}
@@ -14,7 +14,7 @@ class admin_content extends adminController
 
 		$this->tplAssign('aPages', $this->getPages(true));
 		$this->tplAssign("domain", $_SERVER["SERVER_NAME"]);
-		$this->tplDisplay("content/index.php");
+		$this->tplDisplay("admin/index.php");
 	}
 	function add() {
 		if(!empty($_SESSION["admin"]["admin_content"])) {
@@ -29,7 +29,7 @@ class admin_content extends adminController
 
 		$this->tplAssign('aPages', $this->getPages(true));
 		$this->tplAssign("aTemplates", $this->get_templates(($this->superAdmin ? true : false)));
-		$this->tplDisplay("content/add.php");
+		$this->tplDisplay("admin/add.php");
 	}
 	function add_s() {
 		if(empty($_POST["title"])) {
@@ -127,7 +127,7 @@ class admin_content extends adminController
 
 		$this->tplAssign('aPages', $this->getPages(true));
 		$this->tplAssign("aTemplates", $this->get_templates(($this->superAdmin ? true : false)));
-		$this->tplDisplay("content/edit.php");
+		$this->tplDisplay("admin/edit.php");
 	}
 	function edit_s() {
 		if(empty($_POST["title"])) {
@@ -230,11 +230,11 @@ class admin_content extends adminController
 		}
 
 		$this->tplAssign("aPages", $aPages);
-		$this->tplDisplay("content/excerpts/index.php");
+		$this->tplDisplay("admin/excerpts/index.php");
 	}
 	function excerpts_add() {
 		$this->tplAssign("aPage", $_SESSION["admin"]["admin_content_excerpts"]);
-		$this->tplDisplay("content/excerpts/add.php");
+		$this->tplDisplay("admin/excerpts/add.php");
 	}
 	function excerpts_add_s() {
 		if(empty($_POST["title"])) {
@@ -298,7 +298,7 @@ class admin_content extends adminController
 			$this->tplAssign("aPage", $aPage);
 		}
 
-		$this->tplDisplay("content/excerpts/edit.php");
+		$this->tplDisplay("admin/excerpts/edit.php");
 	}
 	function excerpts_edit_s() {
 		if(empty($_POST["title"])) {
@@ -342,7 +342,7 @@ class admin_content extends adminController
 	### Functions ####################
 	function getTemplates() {
 		$aTemplates = array();
-		$aFiles = scandir($this->settings->root."views/content/");
+		$aFiles = scandir($this->settings->root."plugins/content/views/templates/");
 		foreach($aFiles as $sFile) {
 			if($sFile != "." && $sFile != "..")
 				$aTemplates[] = $sFile;
