@@ -73,6 +73,9 @@ class admin_content extends adminController
 				,"tags" => $_POST["tags"]
 				,"template" => $_POST["template"]
 				,"parentid" => $_POST['parentid']
+				,"seo_title" => $_POST["seo_title"]
+				,"seo_description" => $_POST["seo_description"]
+				,"seo_keywords" => $_POST["seo_keywords"]
 				,"active" => $sActive
 				,"created_datetime" => time()
 				,"created_by" => $_SESSION["admin"]["userid"]
@@ -158,6 +161,9 @@ class admin_content extends adminController
 				,"tags" => $_POST["tags"]
 				,"template" => $_POST["template"]
 				,"parentid" => $_POST['parentid']
+				,"seo_title" => $_POST["seo_title"]
+				,"seo_description" => $_POST["seo_description"]
+				,"seo_keywords" => $_POST["seo_keywords"]
 				,"active" => $sActive
 				,"updated_datetime" =>time()
 				,"updated_by" => $_SESSION["admin"]["userid"]

@@ -16,7 +16,7 @@ if(!empty($aContent)) {
   $sSubtitle = "";
 }
 
-$this->tplDisplay("inc_header.php", ['menu'=>'join-the-troop', 'sPageTitle'=>$sTitle]); ?>
+$this->tplDisplay("inc_header.php", ['menu'=>'join-the-troop', 'sPageTitle'=>$sTitle, 'seo_title'=>$aContent['seo_title'], 'seo_description'=>$aContent['seo_description'], 'seo_keywords'=>$aContent['seo_keywords']]); ?>
 
   <div class="row page-title">
       <h1><?php echo $sTitle; ?></h1>
@@ -27,14 +27,6 @@ $this->tplDisplay("inc_header.php", ['menu'=>'join-the-troop', 'sPageTitle'=>$sT
   <div class="row">
     <div class="single-column content-block">
       <?php echo $aContent['content'] ?>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="single-column content-block">
-      <h2>Current Openings</h2>
-      <p>Hmmm. It doesn't look like we currently have any open positions. But that doesn't mean we don't like you! Be the first to know when we're hiring by following us on Twitter or Facebook.</p>
-      <p>Monkee-Boy is an Equal Opportunity/Affirmative Action Employer. We welcome and encourage diversity in our workplace – even Aggies are welcome!</p>
     </div>
   </div>
 

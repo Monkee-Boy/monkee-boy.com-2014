@@ -102,6 +102,9 @@ class admin_posts extends adminController {
 				,"allow_sharing" => $this->boolCheck($_POST["allow_sharing"])
 				,"sticky" => $this->boolCheck($_POST["sticky"])
 				,"active" => $this->boolCheck($sActive)
+				,"seo_title" => $_POST["seo_title"]
+				,"seo_description" => $_POST["seo_description"]
+				,"seo_keywords" => $_POST["seo_keywords"]
 				,"authorid" => $_POST["authorid"]
 				,"galleryid" => $_POST["galleryid"]
 				,"created_datetime" => date('Y-m-d H:i:s')
@@ -270,6 +273,9 @@ class admin_posts extends adminController {
 				,"allow_sharing" => $this->boolCheck($_POST["allow_sharing"])
 				,"sticky" => $this->boolCheck($_POST["sticky"])
 				,"active" => $this->boolCheck($sActive)
+				,"seo_title" => $_POST["seo_title"]
+				,"seo_description" => $_POST["seo_description"]
+				,"seo_keywords" => $_POST["seo_keywords"]
 				,"authorid" => $_POST["authorid"]
 				,"galleryid" => $_POST["galleryid"]
 				,"updated_datetime" => date('Y-m-d H:i:s')

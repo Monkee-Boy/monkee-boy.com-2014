@@ -1,4 +1,16 @@
-<?php $this->tplDisplay("inc_header.php", ['menu'=>'news','page_title'=>$aArticle['title']]); ?>
+<?php
+$this->tplDisplay("inc_header.php", [
+  'menu'=>'news',
+  'page_title'=>$aArticle['title'],
+  'seo_title'=>$aArticle['seo_title'],
+  'seo_description'=>$aArticle['seo_description'],
+  'seo_keywords'=>$aArticle['seo_keywords'],
+
+  'og_updated_time'=>date('Y-m-d\TH:i:sP', strtotime($aArticle['updated_datetime'])),
+  'og_type'=>'article',
+  'og_article_published'=>date('Y-m-d\TH:i:sP', strtotime($aArticle['created_datetime'])),
+  'og_article_modified'=>date('Y-m-d\TH:i:sP', strtotime($aArticle['updated_datetime']))
+]); ?>
 
 {head}
 <meta property="og:title" content="<?= $aArticle['title'] ?>">

@@ -5,12 +5,32 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="<?php echo $this->getSetting("site-description"); ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <?php if(!empty($seo_description)): ?>
+  <meta name="description" content="<?= $seo_description ?>">
+  <?php else: ?>
+  <meta name="description" content="<?php echo strip_tags($this->getSetting("site-description")); ?>">
+  <?php endif; ?>
+  <?php if(!empty($seo_description)): ?>
+  <meta name="keywords" content="<?= $seo_keywords ?>">
+  <?php endif; ?>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="<?php if(!empty($seo_title)){ echo strip_tags($seo_title); } elseif(!empty($page_title)) { echo strip_tags($page_title); } else { echo strip_tags($this->getSetting("site-title")); } ?>">
+  <meta property="og:description" content="<?php if(!empty($seo_description)){ echo strip_tags($seo_description); } else { echo strip_tags($this->getSetting("site-description")); } ?>">
+  <meta property="og:image" content="http://<?php echo $_SERVER['SERVER_NAME']; if(!empty($og_image)){ echo $og_image; } else { echo '/images/logo.png'; } ?>">
+  <?php if(!empty($og_updated_time)): ?><meta property="og:updated_time" content="<?= $og_updated_time ?>"><?php endif; ?>
+  <meta property="og:type" content="<?php if(!empty($og_type)){ echo $og_type; } else { echo 'website'; } ?>">
+  <?php if($og_type === 'article'): ?>
+    <?php if(!empty($og_article_published)): ?><meta property="article:published_time" content="<?= $og_article_published ?>"><?php endif; ?>
+    <?php if(!empty($og_article_modified)): ?><meta property="article:modified_time" content="<?= $og_article_modified ?>"><?php endif; ?>
+  <?php endif; ?>
+  <meta property="og:site_name" content="Monkee-Boy.com">
 
 	<!-- May the source be with you! -->
 
-  <title><?php if(!empty($page_title)){ echo $page_title.' | '; } echo $this->getSetting("site-title"); ?></title>
+  <title><?php if(!empty($seo_title)){ echo $seo_title; }else{ if(!empty($page_title)){ echo $page_title.' | '; } echo $this->getSetting("site-title"); } ?></title>
 
   <link rel="author" href="/humans.txt">
   <link rel="dns-prefetch" href="//ajax.googleapis.com">

@@ -1,9 +1,11 @@
-<?php $this->tplDisplay("inc_header.php", ['menu'=>'testimonials','page_title'=>'Testimonials']); ?>
+<?php
+$aContent = getContent(null, 'testimonials');
+$this->tplDisplay("inc_header.php", ['menu'=>'testimonials', 'page_title'=>$aContent['title'], 'seo_title'=>$aContent['seo_title'], 'seo_description'=>$aContent['seo_description'], 'seo_keywords'=>$aContent['seo_keywords']]); ?>
 
 <div class="row">
 	<div class="page-title">
-		<h1>Our Clients Love Us</h1>
-		<p class="subtitle">Here's What They Have to Say about Monkee-Boy</p>
+		<h1><?= $aContent['title']; ?></h1>
+		<p class="subtitle"><?= $aContent['subtitle']; ?></p>
 	</div>
 </div>
 

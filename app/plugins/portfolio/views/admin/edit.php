@@ -260,6 +260,36 @@
             </div>
           </div>
         </div>
+
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <span class="accordion-toggle">SEO</span>
+          </div>
+          <div id="pageseo" class="accordion-body">
+            <div class="accordion-inner">
+              <div class="control-group">
+                <label class="control-label" for="form-tag">Title</label>
+                <div class="controls">
+                  <input type="text" name="seo_title" id="form-tags" value="<?= $aClient['seo_title'] ?>" class="span12">
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label" for="form-tag">Description</label>
+                <div class="controls">
+                  <textarea name="seo_description" id="form-tags" style="height:95px;" class="span12"><?= $aClient['seo_description'] ?></textarea>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label" for="form-tag">Keywords</label>
+                <div class="controls">
+                  <textarea name="seo_keywords" id="form-tags" style="height:95px;" class="span12"><?= $aClient['seo_keywords'] ?></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </form>
