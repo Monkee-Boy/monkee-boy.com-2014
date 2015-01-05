@@ -22,6 +22,8 @@ class portfolio extends appController {
     if(empty($aClient))
       $this->error('404');
 
+    usort($aClient['services'], function($a, $b) { return $a['order'] - $b['order']; });
+
     $this->tplAssign('aClient', $aClient);
     $this->tplDisplay('single.php');
   }

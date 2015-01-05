@@ -2119,6 +2119,7 @@ button.button-full[type=submit], .upload-box.initial .button-full.add-files, .bu
   content: '';
   z-index: 1;
   top: -50px;
+  left: 0;
   bottom: -90px;
   background: #242529;
 }
