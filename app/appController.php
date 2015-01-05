@@ -379,7 +379,15 @@ class appController {
 		}
 	}
 	public function tplExists($sTemplate) {
-		return is_file($this->root.'app/views/'.$sTemplate);
+		if(!empty($this->_plugin) && is_file(APP."plugins/".$this->_plugin."/views/".$sTemplate)) {
+			$sDirectory = APP."plugins/".$this->_plugin."/views/".$sTemplate;
+		} elseif(is_file($this->settings->tplDir.$sTemplate)) {
+			$sDirectory = $this->settings->tplDir.$sTemplate;
+		} else {
+			$sDirectory = false;
+		}
+
+		return is_file($sDirectory);
 	}
 	###################################
 
