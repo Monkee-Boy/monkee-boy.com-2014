@@ -1,4 +1,6 @@
-<?php $this->tplDisplay("inc_header.php", ['menu'=>'portfolio']); ?>
+<?php
+$this->tplDisplay("inc_header.php", ['menu'=>'portfolio', 'page_title'=>$aClient['name'], 'seo_title'=>$aClient['seo_title'], 'seo_description'=>$aClient['seo_description'], 'seo_keywords'=>$aClient['seo_keywords'], 'og_image'=>((!empty($aClient['listing_image']))?$aClient['listing_image_url']:$aClient['logo_url'])]);
+?>
 
   <div class="row">
     <div class="page-title">

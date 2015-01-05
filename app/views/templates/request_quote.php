@@ -16,7 +16,7 @@ if(!empty($aContent)) {
   $sSubtitle = "Let's start a dialogue. Just fill out the form below.";
 }
 
-$this->tplDisplay("inc_header.php", ['menu'=>'work-with-us', 'sPageTitle'=>$sTitle]); ?>
+$this->tplDisplay("inc_header.php", ['menu'=>'work-with-us', 'sPageTitle'=>$sTitle, 'seo_title'=>$aContent['seo_title'], 'seo_description'=>$aContent['seo_description'], 'seo_keywords'=>$aContent['seo_keywords']]); ?>
 
   <div class="row full">
     <div class="page-title">

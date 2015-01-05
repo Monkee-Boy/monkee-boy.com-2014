@@ -88,6 +88,9 @@ class admin_news extends adminController {
 				,"tags" => $_POST["tags"]
 				,"publish_on" => $publish_on
 				,"active" => $this->boolCheck($sActive)
+				,"seo_title" => $_POST["seo_title"]
+				,"seo_description" => $_POST["seo_description"]
+				,"seo_keywords" => $_POST["seo_keywords"]
 				,"created_datetime" => date('Y-m-d H:i:s')
 				,"created_by" => $_SESSION["admin"]["userid"]
 				,"updated_datetime" => date('Y-m-d H:i:s')
@@ -218,6 +221,9 @@ class admin_news extends adminController {
 				,"tags" => $_POST["tags"]
 				,"publish_on" => $publish_on
 				,"active" => $this->boolCheck($sActive)
+				,"seo_title" => $_POST["seo_title"]
+				,"seo_description" => $_POST["seo_description"]
+				,"seo_keywords" => $_POST["seo_keywords"]
 				,"updated_datetime" => date('Y-m-d H:i:s')
 				,"updated_by" => $_SESSION["admin"]["userid"]
 			),

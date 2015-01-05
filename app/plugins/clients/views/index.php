@@ -1,9 +1,11 @@
-<?php $this->tplDisplay("inc_header.php", ['menu'=>'clients']); ?>
+<?php
+$aContent = getContent(null, 'client-list');
+$this->tplDisplay("inc_header.php", ['menu'=>'clients', 'page_title'=>$aContent['title'], 'seo_title'=>$aContent['seo_title'], 'seo_description'=>$aContent['seo_description'], 'seo_keywords'=>$aContent['seo_keywords']]); ?>
 
 <!-- Page title block, FPO. Change when actual styles are made -->
 <div class="row page-title">
-  <h1>Featured Clients</h1>
-  <!-- <span class="subtitle">we are the monkees...</span> -->
+  <h1><?= $aContent['title'] ?></h1>
+  <span class="subtitle"><?= $aContent['subtitle'] ?></span>
 </div>
 
 <ul class="row client-list">

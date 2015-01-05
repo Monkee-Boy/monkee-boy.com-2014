@@ -1,5 +1,4 @@
-<?php //echo '<pre>'; print_r($aService); ?>
-<?php $this->tplDisplay("inc_header.php", ['menu'=>$aService['tag']]); ?>
+<?php $this->tplDisplay("inc_header.php", ['menu'=>$aService['tag'], 'page_title'=>$aService['name'], 'seo_title'=>$aService['seo_title'], 'seo_description'=>$aService['seo_description'], 'seo_keywords'=>$aService['seo_keywords']]); ?>
 
   <div class="row">
     <div class="page-title">
