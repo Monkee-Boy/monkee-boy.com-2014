@@ -91,7 +91,19 @@
 										<?php endforeach; ?>
 									</select>
 								</div>
-							</div>
+							</div> <!-- /.control-group -->
+
+							<div class="control-group">
+								<label class="control-label" for="form-parent">Parent</label>
+								<div class="controls">
+									<select name="parentid" id="form-parent">
+										<option value="">No Parent</option>
+										<?php foreach($aPages as $aParentPage): ?>
+											<option value="<?= $aParentPage['id'] ?>"<?php if($aPage['parentid'] == $aParentPage['id']){ echo ' selected="selected"'; } ?>><?= $aParentPage['title']; ?></option>
+										<?php endforeach; ?>
+									</select>
+								</div>
+							</div> <!-- /.control-group -->
 						</div>
 					</div>
 				</div>

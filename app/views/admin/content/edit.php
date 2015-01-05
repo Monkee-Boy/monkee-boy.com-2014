@@ -14,7 +14,7 @@
 						<div class="accordion-inner">
 							<div class="controls">
 								<input type="text" name="title" id="form-title" value="<?= $aPage['title'] ?>" class="span12 validate[required]">
-								<p class="help-block permalink"><strong>Permalink</strong>: http://<?= $_SERVER['SERVER_NAME'] ?>/<span><?= $aPage['tag'] ?></span>/</p>
+								<p class="help-block permalink"><strong>Permalink</strong>: http://<?= $_SERVER['SERVER_NAME'] ?><span><?= $aPage['url'] ?></span>/</p>
 
 								<hr>
 
@@ -88,6 +88,18 @@
 									</select>
 								</div>
 							</div>
+
+							<div class="control-group">
+								<label class="control-label" for="form-parent">Parent</label>
+								<div class="controls">
+									<select name="parentid" id="form-parent">
+										<option value="">No Parent</option>
+										<?php foreach($aPages as $aParentPage): ?>
+											<option value="<?= $aParentPage['id'] ?>"<?php if($aPage['parentid'] == $aParentPage['id']){ echo ' selected="selected"'; } ?>><?= $aParentPage['title']; ?></option>
+										<?php endforeach; ?>
+									</select>
+								</div>
+							</div> <!-- /.control-group -->
 						</div>
 					</div>
 				</div>

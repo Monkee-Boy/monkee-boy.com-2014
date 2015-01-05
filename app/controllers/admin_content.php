@@ -2,7 +2,7 @@
 class admin_content extends adminController
 {
 	function __construct() {
-		parent::__construct();
+		parent::__construct('');
 
 		$this->menuPermission("content");
 	}
@@ -12,20 +12,7 @@ class admin_content extends adminController
 		// Clear saved form info
 		$_SESSION["admin"]["admin_content"] = null;
 
-		$aPages = $this->dbQuery(
-			"SELECT * FROM `{dbPrefix}content`"
-				." ORDER BY `title`"
-			,"all"
-		);
-
-		foreach($aPages as &$aPage) {
-			$aPage["title"] = htmlspecialchars(stripslashes($aPage["title"]));
-			$aPage["content"] = stripslashes($aPage["content"]);
-			$aPage["subtitle"] = stripslashes($aPage["subtitle"]);
-			$aPage["tags"] = htmlspecialchars(stripslashes($aPage["tags"]));
-		}
-
-		$this->tplAssign("aPages", $aPages);
+		$this->tplAssign('aPages', $this->getPages(true));
 		$this->tplAssign("domain", $_SERVER["SERVER_NAME"]);
 		$this->tplDisplay("content/index.php");
 	}
@@ -40,6 +27,7 @@ class admin_content extends adminController
 			);
 		}
 
+		$this->tplAssign('aPages', $this->getPages(true));
 		$this->tplAssign("aTemplates", $this->get_templates(($this->superAdmin ? true : false)));
 		$this->tplDisplay("content/add.php");
 	}
@@ -84,6 +72,7 @@ class admin_content extends adminController
 				,"content" => $_POST["content"]
 				,"tags" => $_POST["tags"]
 				,"template" => $_POST["template"]
+				,"parentid" => $_POST['parentid']
 				,"active" => $sActive
 				,"created_datetime" => time()
 				,"created_by" => $_SESSION["admin"]["userid"]
@@ -109,11 +98,7 @@ class admin_content extends adminController
 	}
 	function edit() {
 		if(!empty($_SESSION["admin"]["admin_content"])) {
-			$aPage = $this->dbQuery(
-				"SELECT * FROM `{dbPrefix}content`"
-					." WHERE `id` = ".$this->dbQuote($this->urlVars->dynamic["id"], "integer")
-				,"row"
-			);
+			$aPage = $this->getPage($this->urlVars->dynamic["id"]);
 
 			$aPage = $_SESSION["admin"]["admin_content"];
 
@@ -126,16 +111,7 @@ class admin_content extends adminController
 
 			$this->tplAssign("aPage", $aPage);
 		} else {
-			$aPage = $this->dbQuery(
-				"SELECT * FROM `{dbPrefix}content`"
-					." WHERE `id` = ".$this->dbQuote($this->urlVars->dynamic["id"], "integer")
-				,"row"
-			);
-
-			$aPage["title"] = htmlspecialchars(stripslashes($aPage["title"]));
-			$aPage["subtitle"] = htmlspecialchars(stripslashes($aPage["subtitle"]));
-			$aPage["content"] = stripslashes($aPage["content"]);
-			$aPage["tags"] = htmlspecialchars(stripslashes($aPage["tags"]));
+			$aPage = $this->getPage($this->urlVars->dynamic["id"]);
 
 			$aPage["updated_by"] = $this->dbQuery(
 				"SELECT * FROM `{dbPrefix}users`"
@@ -146,6 +122,7 @@ class admin_content extends adminController
 			$this->tplAssign("aPage", $aPage);
 		}
 
+		$this->tplAssign('aPages', $this->getPages(true));
 		$this->tplAssign("aTemplates", $this->get_templates(($this->superAdmin ? true : false)));
 		$this->tplDisplay("content/edit.php");
 	}
@@ -180,6 +157,7 @@ class admin_content extends adminController
 				,"content" => $_POST["content"]
 				,"tags" => $_POST["tags"]
 				,"template" => $_POST["template"]
+				,"parentid" => $_POST['parentid']
 				,"active" => $sActive
 				,"updated_datetime" =>time()
 				,"updated_by" => $_SESSION["admin"]["userid"]
@@ -365,6 +343,97 @@ class admin_content extends adminController
 		}
 
 		return $aTemplates;
+	}
+	/**
+	* Get pages from the database.
+	* @param  boolean $sAll      When true returns all posts no matter conditions.
+	* @return array              Return array of posts.
+	*/
+	function getPages($sAll = false) {
+		$aWhere = array();
+		$sJoin = '';
+
+		// Filter only posts that are active unless told otherwise.
+		if($sAll == false) {
+			$aWhere[] = "`active` = 1";
+		}
+
+		// Combine the above filters for sql.
+		if(!empty($aWhere)) {
+			$sWhere = " WHERE ".implode(" AND ", $aWhere);
+		}
+
+		$aPages = $this->dbQuery(
+			"SELECT * FROM `{dbPrefix}content`"
+			.$sJoin
+			.$sWhere
+			." GROUP BY `id`"
+			." ORDER BY `title` ASC"
+			, "all"
+		);
+
+		// Clean up each page information and get additional info if needed.
+		foreach($aPages as &$aPage) {
+			$this->_getPageInfo($aPage);
+		}
+
+		return $aPages;
+	}
+
+	function getPage($sId) {
+		$aPage = $this->dbQuery(
+			"SELECT * FROM `{dbPrefix}content`"
+			." WHERE `id` = ".$this->dbQuote($sId, "integer")
+			,"row"
+		);
+
+		$this->_getPageInfo($aPage);
+
+		return $aPage;
+	}
+
+	function getPageTag($sId) {
+		$sTag = $this->dbQuery(
+			"SELECT `tag` FROM `{dbPrefix}content`"
+			." WHERE `id` = ".$this->dbQuote($sId, "integer")
+			,"row"
+		);
+
+		return $sTag;
+	}
+
+	/**
+	* Clean up page info and get any other data to be returned.
+	* @param  array &$aPage An array of a single page.
+	*/
+	private function _getPageInfo(&$aPage) {
+		if(!empty($aPage)) {
+			$aPage["title"] = htmlspecialchars(stripslashes($aPage["title"]));
+			$aPage["content"] = stripslashes($aPage["content"]);
+			$aPage["subtitle"] = stripslashes($aPage["subtitle"]);
+			$aPage["tags"] = htmlspecialchars(stripslashes($aPage["tags"]));
+
+			$aPage['url'] = $this->_buildUrl($aPage['tag'], $aPage['parentid']);
+		}
+	}
+
+	private function _buildUrl($sTag, $sParentId = null, $sUrl = null) {
+		if(!empty($sParentId)) {
+			$aParentPage = $this->dbQuery(
+				"SELECT `tag`, `parentid` FROM `{dbPrefix}content`"
+				." WHERE `id` = ".$this->dbQuote($sParentId, "integer")
+				,"row"
+			);
+
+			$sUrl = '/'.$sTag.$sUrl;
+
+			return $this->_buildUrl($aParentPage['tag'], $aParentPage['parentid'], $sUrl);
+		}
+		else {
+			$sUrl = '/'.$sTag.$sUrl;
+
+			return $sUrl;
+		}
 	}
 	##################################
 }
