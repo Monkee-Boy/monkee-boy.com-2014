@@ -1,4 +1,4 @@
-<?php $this->tplDisplay("inc_header.php", ['menu'=>'blog-post', 'page_title'=>$aPost['title'], 'seo_title'=>$aPost['seo_title'], 'seo_description'=>$aPost['seo_description'], 'seo_keywords'=>$aPost['seo_keywords'], 'og_image'=>'/uploads/posts/'.$aPost['featured_image']]); ?>
+<?php $this->tplDisplay("inc_header.php", ['menu'=>'blog-post', 'page_title'=>$aPost['title'], 'seo_title'=>$aPost['seo_title'], 'seo_description'=>$aPost['seo_description'], 'seo_keywords'=>$aPost['seo_keywords'], 'og_image'=>'/uploads/posts/'.$aPost['featured_image'], 'og_type'=>'article']); ?>
 
   <div class="row">
     <div class="single-post single-column content-block">

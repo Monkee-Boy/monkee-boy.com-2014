@@ -1,4 +1,4 @@
-<?php $this->tplDisplay("inc_header.php", ['menu'=>'news','page_title'=>$aArticle['title']]); ?>
+<?php $this->tplDisplay("inc_header.php", ['menu'=>'news','page_title'=>$aArticle['title'], 'seo_title'=>$aArticle['seo_title'], 'seo_description'=>$aArticle['seo_description'], 'seo_keywords'=>$aArticle['seo_keywords'], 'og_type'=>'article']); ?>
 
 {head}
 <meta property="og:title" content="<?= $aArticle['title'] ?>">
