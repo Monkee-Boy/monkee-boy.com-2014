@@ -16,7 +16,7 @@ $aPluginUrlPatterns = array(
     "cmd" => "news",
     "action" => "index"
   ),
-  "/<parent:[a-z0-9_-/]+>/latest-news/" => array(
+  "/<parent:[a-z0-9_\-/]+>/latest-news/" => array(
 		"cmd" => "news",
 		"action" => "index"
 	),
@@ -24,7 +24,7 @@ $aPluginUrlPatterns = array(
     "cmd" => "news",
     "action" => "rss"
   ),
-	"/<parent:[a-z0-9_-/]+>/latest-news/rss/" => array(
+	"/<parent:[a-z0-9_\-/]+>/latest-news/rss/" => array(
 		"cmd" => "news",
 		"action" => "rss"
 	),
@@ -32,7 +32,7 @@ $aPluginUrlPatterns = array(
     "cmd" => "news",
     "action" => "article"
   ),
-	"/<parent:[a-z0-9_-/]+>/latest-news/<year:[0-9]+>/<month:[0-9]+>/<date:[0-9]+>/<tag:[^/]+>/" => array(
+	"/<parent:[a-z0-9_\-/]+>/latest-news/<year:[0-9]+>/<month:[0-9]+>/<date:[0-9]+>/<tag:[^/]+>/" => array(
 		"cmd" => "news",
 		"action" => "article"
 	),
@@ -40,7 +40,7 @@ $aPluginUrlPatterns = array(
     "cmd" => "news",
     "action" => "ajax_load"
   ),
-  "/<parent:[a-z0-9_-/]+>/latest-news-ajax/" => array(
+  "/<parent:[a-z0-9_\-/]+>/latest-news-ajax/" => array(
     "cmd" => "news",
     "action" => "ajax_load"
   ),

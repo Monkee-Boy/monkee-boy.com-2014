@@ -16,7 +16,7 @@ $aPluginUrlPatterns = array(
     "cmd" => "clients",
     "action" => "index"
   ),
-  "/<parent:[a-z0-9_-/]+>/client-list/" => array(
+  "/<parent:[a-z0-9_\-/]+>/client-list/" => array(
     "cmd" => "clients",
     "action" => "index"
   ),
