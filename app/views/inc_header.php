@@ -19,7 +19,7 @@
   <!-- Open Graph -->
   <meta property="og:title" content="<?php if(!empty($seo_title)){ echo strip_tags($seo_title); } elseif(!empty($page_title)) { echo strip_tags($page_title); } else { echo strip_tags($this->getSetting("site-title")); } ?>">
   <meta property="og:description" content="<?php if(!empty($seo_description)){ echo strip_tags($seo_description); } else { echo strip_tags($this->getSetting("site-description")); } ?>">
-  <meta property="og:image" content="http://<?php echo $_SERVER['SERVER_NAME']; if(!empty($og_image)){ echo $og_image; } else { echo '/images/logo.png'; } ?>">
+  <meta property="og:image" content="http://<?php echo $_SERVER['SERVER_NAME']; if(!empty($og_image)){ echo $og_image; } else { echo '/images/mboy-opengraph.png'; } ?>">
   <?php if(!empty($og_updated_time)): ?><meta property="og:updated_time" content="<?= $og_updated_time ?>"><?php endif; ?>
   <meta property="og:type" content="<?php if(!empty($og_type)){ echo $og_type; } else { echo 'website'; } ?>">
   <?php if($og_type === 'article'): ?>
