@@ -1,6 +1,7 @@
 <?php
 class news_model extends appModel {
 	public $useImage, $imageMinWidth, $imageMinHeight, $imageFolder, $useCategories, $perPage, $useComments, $excerptCharacters, $sortCategory;
+	public $content;
 
 	function __construct() {
 		parent::__construct();
@@ -10,6 +11,8 @@ class news_model extends appModel {
 		foreach($aPluginInfo["config"] as $sKey => $sValue) {
 			$this->$sKey = $sValue;
 		}
+
+		$this->content = getContent(null, 'latest-news');
 	}
 
 	/**

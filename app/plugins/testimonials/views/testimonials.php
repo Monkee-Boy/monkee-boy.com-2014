@@ -1,5 +1,4 @@
 <?php
-$aContent = getContent(null, 'testimonials');
 $this->tplDisplay("inc_header.php", ['menu'=>'testimonials', 'page_title'=>$aContent['title'], 'seo_title'=>$aContent['seo_title'], 'seo_description'=>$aContent['seo_description'], 'seo_keywords'=>$aContent['seo_keywords']]); ?>
 
 <div class="row">

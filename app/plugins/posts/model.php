@@ -1,6 +1,7 @@
 <?php
 class posts_model extends appModel {
 	public $useImage, $imageFolder, $useCategories, $perPage, $useComments, $excerptCharacters, $sortCategory;
+	public $content;
 
 	function __construct() {
 		parent::__construct();
@@ -10,6 +11,8 @@ class posts_model extends appModel {
 		foreach($aPluginInfo["config"] as $sKey => $sValue) {
 			$this->$sKey = $sValue;
 		}
+
+		$this->content = getContent(null, 'blog');
 	}
 
 	/**

@@ -2,6 +2,7 @@
 class troop_model extends appModel {
   public $imageFolder;
   public $accounts;
+  public $content;
 
   function __construct() {
     parent::__construct();
@@ -11,6 +12,8 @@ class troop_model extends appModel {
     foreach($aPluginInfo["config"] as $sKey => $sValue) {
       $this->$sKey = $sValue;
     }
+
+    $this->content = getContent(null, "the-troop");
   }
 
   function getTroop($sRandom = false, $sAll = false) {

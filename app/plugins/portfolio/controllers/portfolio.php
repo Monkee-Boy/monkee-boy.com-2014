@@ -3,6 +3,8 @@ class portfolio extends appController {
   function __construct() {
     // Load model when creating appController
     parent::__construct("portfolio");
+
+    $this->tplAssign('aContent', $this->model->content);
   }
 
   function index() {

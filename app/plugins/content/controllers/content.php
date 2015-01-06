@@ -1,6 +1,11 @@
 <?php
 class content extends appController
 {
+	function __construct() {
+		// Load model when creating appController
+		parent::__construct("content");
+	}
+
 	### DISPLAY ######################
 	function index() {
 		$this->tplDisplay("index.php");

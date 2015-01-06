@@ -1,6 +1,4 @@
-<?php
-$aContent = getContent(null, 'client-list');
-$this->tplDisplay("inc_header.php", ['menu'=>'clients', 'page_title'=>$aContent['title'], 'seo_title'=>$aContent['seo_title'], 'seo_description'=>$aContent['seo_description'], 'seo_keywords'=>$aContent['seo_keywords']]); ?>
+<?php $this->tplDisplay("inc_header.php", ['menu'=>'clients', 'page_title'=>$aContent['title'], 'seo_title'=>$aContent['seo_title'], 'seo_description'=>$aContent['seo_description'], 'seo_keywords'=>$aContent['seo_keywords']]); ?>
 
 <!-- Page title block, FPO. Change when actual styles are made -->
 <div class="row page-title">
@@ -11,9 +9,9 @@ $this->tplDisplay("inc_header.php", ['menu'=>'clients', 'page_title'=>$aContent[
 <ul class="row client-list">
   <?php foreach($aClients as $aClient): ?>
     <li>
-      <a href="#" class="trigger">
+      <?php if(!empty($aClient['website'])): ?><a href="<?= $aClient['website'] ?>" class="trigger"><?php endif; ?>
         <img src="<?= $aClient['logo_url'] ?>" alt="<?= $aClient['name'] ?>" class="default-image">
-      </a>
+      <?php if(!empty($aClient['website'])): ?></a><?php endif; ?>
     </li>
   <?php endforeach; ?>
 </ul>

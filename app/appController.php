@@ -328,6 +328,19 @@ class appController {
 				include(APP.'components/'.$entry);
 			}
 		}
+		$plugins = dir(APP.'plugins/');
+		while(false !== ($plugin = $plugins->read())) {
+			if(!empty($plugin) && !in_array($plugin, ['.','..'])) {
+				if(file_exists(APP.'plugins/'.$plugin.'/components/')) {
+					$components = dir(APP.'plugins/'.$plugin.'/components/');
+					while(false !== ($entry = $components->read())) {
+						if(!empty($entry) && !in_array($entry, ['.','..'])) {
+							include(APP.'plugins/'.$plugin.'/components/'.$entry);
+						}
+					}
+				}
+			}
+		}
 	}
 	public function tplAssign($variable, $value) {
 		$this->assign[$variable] = $value;
@@ -366,7 +379,15 @@ class appController {
 		}
 	}
 	public function tplExists($sTemplate) {
-		return is_file($this->root.'app/views/'.$sTemplate);
+		if(!empty($this->_plugin) && is_file(APP."plugins/".$this->_plugin."/views/".$sTemplate)) {
+			$sDirectory = APP."plugins/".$this->_plugin."/views/".$sTemplate;
+		} elseif(is_file($this->settings->tplDir.$sTemplate)) {
+			$sDirectory = $this->settings->tplDir.$sTemplate;
+		} else {
+			$sDirectory = false;
+		}
+
+		return is_file($sDirectory);
 	}
 	###################################
 

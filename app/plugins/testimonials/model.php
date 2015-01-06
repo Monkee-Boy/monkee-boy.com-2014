@@ -3,6 +3,7 @@ class testimonials_model extends appModel {
 	public $useCategories;
 	public $sort;
 	public $sortCategory;
+	public $content;
 
 	function __construct() {
 		parent::__construct();
@@ -12,6 +13,8 @@ class testimonials_model extends appModel {
 		foreach($aPluginInfo["config"] as $sKey => $sValue) {
 			$this->$sKey = $sValue;
 		}
+
+		$this->content = getContent(null, 'testimonials');
 	}
 
 	function getTestimonials($sCategory = null, $sRandom = false, $sAll = false) {
