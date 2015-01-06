@@ -90,8 +90,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'work-with-us', 'sPageTitle'=>$sTit
             <div class="uploaded-files"></div>
             <div class="drop-label">Drag &amp; drop files here <span>or</span></div>
             <a href="#" class="add-files">browse files!</a>
-            <a href="#" class="upload">upload files</a>
-            <span class="file-size">0 MB of 100 MB</span>
+            <span class="file-size">0 MB of 50 MB</span>
           </div>
         </div>
       </div>

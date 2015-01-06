@@ -321,6 +321,20 @@ button[type=submit] {
   border: 4px solid $grey;
   @include transition(background 0.3s ease, border 0.3s ease);
   .drop-label { display: none; }
+  .add-files {
+    display: inline-block;
+    color: $teal;
+    padding: em-calc(10) em-calc(16);
+    &:hover { text-decoration: underline; }
+  }
+  .file-size {
+    float: right;
+    padding: em-calc(10, 20) em-calc(16, 20);
+    font-size: 20px;
+    font-family: $heading-font;
+    font-weight: bold;
+    color: $grey;
+  }
   &.initial {
     text-align: center;
     .upload, .file-size { display: none; }
@@ -342,7 +356,8 @@ button[type=submit] {
     .add-files {
       @extend .button;
       width: 400px;
-      margin-bottom: em-calc(38, 22);
+      max-width: 90%;
+      margin: 0 auto em-calc(38, 22);
     }
   }
   &.incoming {
@@ -361,7 +376,11 @@ button[type=submit] {
     background-color: #fff;
     text-align: left;
     @include transition(color 0.3s ease);
-    &:after {
+    .name {
+      position: relative;
+      z-index: 1;
+    }
+    .bg {
       content: "";
       display: block;
       position: absolute;
@@ -370,7 +389,7 @@ button[type=submit] {
       bottom: 0;
       width: 0;
       background-color: $green;
-      @include transition(background 0.3s ease);
+      @include transition(width 0.3s ease);
     }
   }
 }

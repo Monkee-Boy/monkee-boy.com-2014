@@ -764,8 +764,8 @@ function BlurStack()
   var brief_uploader = new plupload.Uploader({
     runtimes : 'html5,flash,silverlight,html4',
 
-    browse_button : $('.add-files')[0], // you can pass in id...
-    container: $('.uploaded-files')[0], // ... or DOM Element itself
+    browse_button : $('.add-files')[0],
+    container: $('.uploaded-files')[0],
     drop_element: $('.upload-box')[0],
 
     url : "/examples/upload",
@@ -788,28 +788,28 @@ function BlurStack()
     init: {
         PostInit: function() {
           //document.getElementById('filelist').innerHTML = '';
-          $('.upload').on('click', function() {
-            brief_uploader.start();
-            return false;
-          });
 
           // drag/drop highlighting
           if(brief_uploader.runtime === 'html5') {
-            $('.upload-box').on('dragenter', function() {
-                $(this).addClass('incoming');
+            $('.upload-box, .upload-box div').on('dragenter', function() {
+                $('.upload-box').addClass('incoming');
             });
 
-            $('.upload-box').on('dragleave drop', function() {
-                $(this).removeClass('incoming');
+            $('.upload-box, .upload-box div').on('dragleave drop', function() {
+                $('.upload-box').removeClass('incoming');
             });
           }
         },
 
         FilesAdded: function(up, files) {
-          $('.upload-box').removeClass('initial');
+          if ($('.upload-box').hasClass('initial')) {
+            $('.upload-box').removeClass('initial');
+            $('.add-files').html('select more files');
+          }
           plupload.each(files, function(file) {
-            $('.uploaded-files').append('<div id="' + file.id + '">' + file.name + ' (' + plupload.formatSize(file.size) + ')</div>');
+            $('.uploaded-files').append('<div id="' + file.id + '"><span class="name">' + file.name + ' (' + plupload.formatSize(file.size) + ')</span><span class="bg"></span></div>');
           });
+          brief_uploader.start();
         },
 
         UploadProgress: function(up, file) {
