@@ -19,6 +19,7 @@ class portfolio_model extends appModel {
     }
 
     $this->content = getContent(null, 'the-work');
+    $this->service_content = getContent(null, 'our-process');
   }
 
   function getClients($sRandom = false, $sAll = false, $sRecursive = false) {
@@ -124,7 +125,7 @@ class portfolio_model extends appModel {
   private function _getClientInfo($aClient, $sRecursive = false) {
     if(!empty($aClient)) {
       $aClient["name"] = htmlspecialchars(stripslashes($aClient["name"]));
-      $aClient["url"] = $this->content->url.$aClient["tag"]."/";
+      $aClient["url"] = $this->content['url'].$aClient["tag"]."/";
       $aClient["logo_url"] = $this->imageFolder.$aClient["logo"];
       $aClient["listing_image_url"] = $this->imageFolder.$aClient["listing_image"];
 
@@ -441,7 +442,7 @@ class portfolio_model extends appModel {
   private function _getServiceInfo($aService) {
     if(!empty($aService)) {
       $aService["name"] = htmlspecialchars(stripslashes($aService["name"]));
-      $aService["url"] = $this->service_content->url.$aService['tag']."/";
+      $aService["url"] = $this->service_content['url'].$aService['tag']."/";
       $aService["subtitle"] = htmlspecialchars(stripslashes($aService["subtitle"]));
       $aService["description"] = stripslashes($aService["description"]);
     }
