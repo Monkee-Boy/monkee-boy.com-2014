@@ -274,6 +274,7 @@ body {
       float: left;
       width: 130px;
       padding: 10px 0;
+      @media #{$xlarge-down} { width: 100px; }
       .speak {
         visibility: hidden;
       }
@@ -293,11 +294,19 @@ body {
     }
     .main-menu { float: left; }
     .primary {
-      &> a {
+      padding: 44px 20px;
+      @media #{$xlarge-only} { padding: 44px 14px; }
+      @media #{$large-only} { padding: 44px 10px; }
+      & > a {
         border-bottom: 0;
         padding-bottom: 0;
         &:after {
           display: none;
+        }
+        @media #{$xlarge-only} { font-size: 20px; }
+        @media #{$large-only} {
+          font-size: 16px;
+          line-height: 24px;
         }
       }
       ul {
