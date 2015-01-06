@@ -588,8 +588,18 @@ body.menu-open .container {
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
-.logo img {
+.logo a {
+  display: block;
+  width: 180px;
+  height: 163px;
+  margin: 0 auto;
   max-width: 80%;
+  background: url(../images/logo.svg) no-repeat center center;
+  background-size: 100% auto;
+  font-size: 0;
+}
+.no-svg .logo a {
+  background: url(../images/logo.png) no-repeat center center;
 }
 .logo .speak {
   position: absolute;
@@ -856,10 +866,10 @@ body.menu-open .container {
   display: block;
   height: 95px;
   width: 90px;
-  background: url("../images/logo-white.png") no-repeat top left;
+  background: url("../images/logo-white.svg") no-repeat center center;
 }
-.main-nav.sticky .logo a img {
-  display: none;
+.no-svg .main-nav.sticky .logo a {
+  background: url("../images/logo-white.png") no-repeat center center;
 }
 .main-nav.sticky .logo:hover {
   padding-top: 10px;
@@ -1086,8 +1096,17 @@ body.menu-open .container {
     clear: both;
   }
   .mobile-header .mobile-logo {
+    display: block;
     float: left;
+    width: 209px;
+    height: 56px;
     margin: 6px 0;
+    font-size: 0;
+    background: url(../images/logo-horizontal.svg) no-repeat center center;
+    background-size: 100% auto;
+  }
+  .no-svg .mobile-header .mobile-logo {
+    background: url(../images/logo-horizontal.png) no-repeat center center;
   }
   .mobile-header .mobile-menu-trigger {
     display: block;
@@ -3574,8 +3593,10 @@ button[type=submit] {
     width: 100%;
     margin-bottom: 1.33333em;
   }
+  .port-slider .thumbs-slider {
+    width: 100%;
+  }
   .port-slider .thumbnail {
-    width: 33.3333%;
     padding: 0 8px;
   }
 }
@@ -4423,6 +4444,17 @@ button[type=submit] {
 }
 .home-pulse .item-panel-inside {
   min-height: 300px;
+}
+.home-pulse .home-news-icon {
+  display: block;
+  width: 55px;
+  height: 57px;
+  margin: 0 auto;
+  background: url(../images/news-icon.svg) no-repeat center center;
+  background-size: 100% auto;
+}
+.no-svg .home-pulse .home-news-icon {
+  background: url(../images/news-icon.png) no-repeat center center;
 }
 .home-pulse .twitter .profile_image {
   float: left;
