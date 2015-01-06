@@ -43,7 +43,11 @@
       var st = $(this).scrollTop();
       if ( st > lastScrollTop ) {
         // if scrolling down, no sticky
-        mainNav.removeClass('sticky');
+        if (mainNav.hasClass('sticky')) {
+          mainNav.slideUp(150, function() {
+            mainNav.removeClass('sticky').show();
+          });
+        }
       } else {
         if ( st > (banner.offset().top + banner.outerHeight()) ) {
           // if it doesn't already have the sticky class, and it's moved enough down
