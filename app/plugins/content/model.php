@@ -12,49 +12,49 @@ class content_model extends appModel {
 
   /**
   * Get pages from the database.
-  * @param  integer $sCategory Filter only posts assigned to this category.
   * @param  boolean $sAll      When true returns all posts no matter conditions.
-  * @param  boolean $sPopular  When true sorts posts by `views` instead of publish date.
   * @return array              Return array of posts.
   */
-  function getPages() {
+  function getPages($sAll = false) {
     $aWhere = array();
-    $sJoin = "";
+    $sJoin = '';
 
-    $sOrderBy = " ORDER BY `content`.`publish_on` DESC";
+    // Filter only posts that are active unless told otherwise.
+    if($sAll == false) {
+      $aWhere[] = "`active` = 1";
+    }
 
-    $aArticles = $this->dbQuery(
-    "SELECT `content`.* FROM `{dbPrefix}content` AS `content`"
-    .$sJoin
-    .$sWhere
-    .$sOrderBy
-    ,"all"
+    // Combine the above filters for sql.
+    if(!empty($aWhere)) {
+      $sWhere = " WHERE ".implode(" AND ", $aWhere);
+    }
+
+    $aPages = $this->dbQuery(
+      "SELECT * FROM `{dbPrefix}content`"
+      .$sJoin
+      .$sWhere
+      ." GROUP BY `id`"
+      ." ORDER BY `title` ASC"
+      , "all"
     );
 
-    // Clean up each post information and get additional info if needed.
+    // Clean up each page information and get additional info if needed.
     foreach($aPages as &$aPage) {
       $this->_getPageInfo($aPage);
     }
 
-    // Posts are ready for use.
     return $aPages;
   }
 
-  /**
-  * Get a single post from the database.
-  * @param  integer $sId  Unique ID for the post or null.
-  * @param  string  $sTag Unique tag for the post or null.
-  * @param  boolean $sAll When true returns result no matter conditions.
-  * @return array         Return the post.
-  */
-  function getArticle($sId, $sTag = "") {
-    if(!empty($sId))
-    $sWhere = " WHERE `content`.`id` = ".$this->dbQuote($sId, "integer");
-    else
-    $sWhere = " WHERE `content`.`tag` = ".$this->dbQuote($sTag, "text");
+  function getPage($sId, $sTag = null) {
+    if(!empty($sTag)) {
+      $sWhere = " WHERE `tag` = ".$this->dbQuote($sTag, "text");
+    } else {
+      $sWhere = " WHERE `id` = ".$this->dbQuote($sId, "integer");
+    }
 
     $aPage = $this->dbQuery(
-      "SELECT `content`.* FROM `{dbPrefix}content` AS `content`"
+      "SELECT * FROM `{dbPrefix}content`"
       .$sWhere
       ,"row"
     );
@@ -64,30 +64,86 @@ class content_model extends appModel {
     return $aPage;
   }
 
+  function getPageTag($sId) {
+    $sTag = $this->dbQuery(
+      "SELECT `tag` FROM `{dbPrefix}content`"
+      ." WHERE `id` = ".$this->dbQuote($sId, "integer")
+      ,"row"
+    );
+
+    return $sTag;
+  }
+
   /**
-  * Clean up post info and get any other data to be returned.
-  * @param  array &$aPost An array of a single post.
+  * Clean up page info and get any other data to be returned.
+  * @param  array &$aPage An array of a single page.
   */
   private function _getPageInfo(&$aPage) {
     if(!empty($aPage)) {
       $aPage["title"] = htmlspecialchars(stripslashes($aPage["title"]));
-      $aPage["content"] = stripslashes($aArticle["content"]);
-      $aPage["url"] = "";
+      $aPage["content"] = stripslashes($aPage["content"]);
+      $aPage["subtitle"] = stripslashes($aPage["subtitle"]);
+      $aPage["tags"] = htmlspecialchars(stripslashes($aPage["tags"]));
+
+      $aPage['url'] = $this->_buildUrl($aPage['tag'], $aPage['parentid']);
     }
   }
 
-  /**
-  * Get a posts URL
-  * @param  integer $sID A posts unique ID.
-  * @return array|false  Return post URL or false.
-  */
-  function getURL($sID) {
-    $aArticle = $this->getArticle($sID);
+  private function _buildUrl($sTag, $sParentId = null, $sUrl = null) {
+    if(!empty($sParentId)) {
+      $aParentPage = $this->dbQuery(
+        "SELECT `tag`, `parentid` FROM `{dbPrefix}content`"
+        ." WHERE `id` = ".$this->dbQuote($sParentId, "integer")
+        ,"row"
+      );
 
-    if(!empty($aArticle)) {
-      return $aArticle["url"];
-    } else {
-      return false;
+      $sUrl = '/'.$sTag.$sUrl;
+
+      return $this->_buildUrl($aParentPage['tag'], $aParentPage['parentid'], $sUrl);
     }
+    else {
+      $sUrl = '/'.$sTag.$sUrl.'/';
+
+      return $sUrl;
+    }
+  }
+
+  public function getTemplates() {
+    $all_headers = array(
+      "Name" =>  "Name",
+      "Description" => "Description",
+      "Version" => "Version",
+      "Restricted" => "Restricted",
+      "Author" => "Author"
+    );
+
+    $aData = array();
+    $template_dir = $this->settings->root."plugins/content/views/templates/";
+    $template_files = scandir($template_dir);
+    foreach($template_files as $file) {
+      if ($file === "." or $file === "..") continue;
+
+      $fp = fopen($this->settings->root."plugins/content/views/templates/".$file, "r");
+      $file_data = fread($fp, 8192);
+      fclose($fp);
+
+      foreach($all_headers as $field => $regex) {
+        preg_match("/^[ \t\/*#@]*".preg_quote($regex, "/").":(.*)$/mi", $file_data, ${$field});
+
+        if(!empty(${$field}))
+        ${$field} = trim(preg_replace("/\s*(?:\*\/|\?>).*/", '', ${$field}[1]));
+        else
+        ${$field} = '';
+      }
+
+      $aTemplateInfo = compact(array_keys($all_headers));
+      $aTemplateInfo["file"] = $file;
+
+      if($aTemplateInfo["Restricted"] === "false" || $sRestricted) {
+        $aData[] = $aTemplateInfo;
+      }
+    }
+
+    return $aData;
   }
 }
