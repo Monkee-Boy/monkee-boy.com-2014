@@ -9,9 +9,9 @@
 <ul class="row client-list">
   <?php foreach($aClients as $aClient): ?>
     <li>
-      <a href="#" class="trigger">
+      <?php if(!empty($aClient['website'])): ?><a href="<?= $aClient['website'] ?>" class="trigger"><?php endif; ?>
         <img src="<?= $aClient['logo_url'] ?>" alt="<?= $aClient['name'] ?>" class="default-image">
-      </a>
+      <?php if(!empty($aClient['website'])): ?></a><?php endif; ?>
     </li>
   <?php endforeach; ?>
 </ul>
