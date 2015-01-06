@@ -10,7 +10,7 @@
     </ul>
 
     <div class="bananas">
-      <a href="#"></a>
+      <a href="#" class="back-to-top"></a>
     </div>
 
     <p class="footer-meta"><strong>&copy; <?php echo date("Y"); ?> Monkee-Boy Web Design, Inc.</strong> // <a href="/contact/work-with-us/" title="Request A Quote">Work with us!</a><br>

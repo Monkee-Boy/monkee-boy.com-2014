@@ -1715,7 +1715,13 @@ function BlurStack()
     }
   }
 
-  $('.bananas').on('mouseenter', shoot_bananas);
+  if (!Modernizr.touch) {
+    $('.bananas').on('mouseenter', shoot_bananas);
+  }
+  $('.back-to-top').on('click', function(e) {
+    e.preventDefault();
+    window.scrollTo(0,0);
+  });
 
   function update_banana_pos(banana, p0, vx, vy, a) {
     // we're under the assumption that 1 time unit has passed each iteration

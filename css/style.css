@@ -3837,6 +3837,10 @@ button[type=submit] {
   background-color: #fff;
   padding: 2.22222em 0;
 }
+.fullwidth-slider .slick-list {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 .fullwidth-slider figure {
   padding: 0 1.11111em;
   margin: 0;
