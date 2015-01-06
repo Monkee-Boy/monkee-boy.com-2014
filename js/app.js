@@ -616,8 +616,27 @@ function BlurStack()
       medium_break = 840,
       small_break = 580;
 
+  // debounce fn from david walsh
+  // http://davidwalsh.name/javascript-debounce-function
+  function debounce(func, wait, immediate) {
+  	var timeout;
+  	return function() {
+  		var context = this, args = arguments;
+  		var later = function() {
+  			timeout = null;
+  			if (!immediate) func.apply(context, args);
+  		};
+  		var callNow = immediate && !timeout;
+  		clearTimeout(timeout);
+  		timeout = setTimeout(later, wait);
+  		if (callNow) func.apply(context, args);
+  	};
+  }
+
+
   // menu
   if(Modernizr.touch) {
+    // dropdowns open on tap
     $('.main-nav').on('focus, click', '.has-dropdown > a', function(e) {
       e.preventDefault();
 
@@ -625,6 +644,31 @@ function BlurStack()
     }).on('mouseout', function() {
       $(this).parent('li').removeClass('active');
     });
+  } else {
+    // sticky menu
+    var lastScrollTop   = 0,
+        banner          = $('[role="banner"]'),
+        mainNav         = banner.find('.main-nav');
+
+    var updateSticky = debounce(function() {
+      var st = $(this).scrollTop();
+      if ( st > lastScrollTop ) {
+        // if scrolling down, no sticky
+        mainNav.removeClass('sticky');
+      } else {
+        if ( st > (banner.offset().top + banner.outerHeight()) ) {
+          // if it doesn't already have the sticky class, and it's moved enough down
+          if ( !mainNav.hasClass('sticky') && lastScrollTop - st > 10 ) {
+            mainNav.hide().addClass('sticky').slideDown();
+          }
+        } else {
+          // remove sticky class if back at the top of the page
+          mainNav.removeClass('sticky');
+        }
+      }
+      lastScrollTop = st;
+    }, 10);
+    window.addEventListener('scroll', updateSticky);
   }
 
   $('.mobile-menu').on('click', '.has-dropdown > a', function(e) {
@@ -1728,26 +1772,6 @@ function BlurStack()
     });
 
     return false;
-  });
-
-  var lastScrollTop   = 0,
-      banner          = $('[role="banner"]'),
-      mainNav         = banner.find('.main-nav');
-
-  $(window).scroll(function(event){
-    var st = $(this).scrollTop();
-    if (st > lastScrollTop){
-      mainNav.removeClass('sticky');
-    } else {
-      if(st > (banner.offset().top + banner.outerHeight())) {
-        if(!mainNav.hasClass('sticky')) {
-          mainNav.hide().addClass('sticky').slideDown();
-        }
-      } else {
-        mainNav.removeClass('sticky');
-      }
-    }
-    lastScrollTop = st;
   });
 
 }(jQuery));
