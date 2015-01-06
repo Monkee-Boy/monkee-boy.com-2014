@@ -7,6 +7,7 @@ class portfolio_model extends appModel {
   public $sortServiceSubs;
   public $sortServiceSubItems;
   public $content;
+  public $service_content;
 
   function __construct() {
     parent::__construct();
@@ -123,6 +124,7 @@ class portfolio_model extends appModel {
   private function _getClientInfo($aClient, $sRecursive = false) {
     if(!empty($aClient)) {
       $aClient["name"] = htmlspecialchars(stripslashes($aClient["name"]));
+      $aClient["url"] = $this->content->url.$aClient["tag"]."/";
       $aClient["logo_url"] = $this->imageFolder.$aClient["logo"];
       $aClient["listing_image_url"] = $this->imageFolder.$aClient["listing_image"];
 
@@ -439,6 +441,7 @@ class portfolio_model extends appModel {
   private function _getServiceInfo($aService) {
     if(!empty($aService)) {
       $aService["name"] = htmlspecialchars(stripslashes($aService["name"]));
+      $aService["url"] = $this->service_content->url.$aService['tag']."/";
       $aService["subtitle"] = htmlspecialchars(stripslashes($aService["subtitle"]));
       $aService["description"] = stripslashes($aService["description"]);
     }

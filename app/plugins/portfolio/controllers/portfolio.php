@@ -5,6 +5,7 @@ class portfolio extends appController {
     parent::__construct("portfolio");
 
     $this->tplAssign('aContent', $this->model->content);
+    $this->tplAssign('aServiceContent', $this->model->service_content);
   }
 
   function index() {
