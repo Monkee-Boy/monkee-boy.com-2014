@@ -20,6 +20,14 @@ $aPluginUrlPatterns = array(
     "cmd" => "portfolio",
     "action" => "index"
   ),
+  "/the-work/client-list/" => array(
+    "cmd" => "clients",
+    "action" => "index"
+  ),
+  "/the-work/testimonials/" => array(
+    "cmd" => "testimonials",
+    "action" => "index"
+  ),
   "/the-work/<tag:[^/]+>/" => array(
     "cmd" => "portfolio",
     "action" => "single"
