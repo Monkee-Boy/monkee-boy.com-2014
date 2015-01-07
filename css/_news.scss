@@ -40,6 +40,10 @@
     }
     h3 {
       font-size: 40px;
+      @media #{$small-only} {
+        font-size: 30px;
+        width: 60%;
+      }
     }
     a {
       color: $light-grey;

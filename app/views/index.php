@@ -248,7 +248,7 @@
         <div class="post-panel-inside">
           <a href="<?= $aPost['url'] ?>" title="<?= $aPost['title'] ?>">
             <img src="<?= $aPost['listing_image_url'] ?>" alt="<?= $aPost['title'] ?>">
-            <h4><?= $aPost['title'] ?><span>Read now &raquo;</span></h4>
+            <div class="post-title"><h5><?= $aPost['title'] ?></h5><span>Read now &raquo;</span></div>
           </a>
         </div>
       </div>

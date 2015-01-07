@@ -705,14 +705,17 @@ button[type=submit] {
 
 .category-filter {
   text-align: center;
-  width: 795px;
   margin: 0 auto;
+  form {
+    @include clearfix;
+    display: inline-block;
+  }
   label {
-    float: left;
     padding: 20px 20px 0 0;
     color: $grey;
   }
-  .select-box {
-    float: left;
+  .select-box, label {
+    display: inline-block;
+    vertical-align: middle;
   }
 }

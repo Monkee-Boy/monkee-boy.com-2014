@@ -182,29 +182,50 @@
   @media #{$medium-only} { width: 50%; }
 
   &:hover {
-    h4 {
-      color: #fefefe;
+    .post-title {
       background: $dark-teal;
-      @include transform(translateY(-26px));
-      span { display: block; }
+      @include translate(0, 0);
+    }
+    h5 {
+      color: #fefefe;
     }
   }
 
-  h4 {
-    background: #fefefe;
-    margin: 0;
+  .post-title {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
     padding: 25px;
+    background: #fff;
+    min-height: 140px;
     @include transition(all 0.5s ease);
-    @include transform(translateY(-4px));
+    @include translate(0, 40px);
     span {
-      display: none;
-      margin-top: 10px;
-      font-size: 0.5em;
+      display: block;
+      margin-top: 20px;
+      font-size: 16px;
+      color: #fff;
+      font-weight: bold;
+      font-style: italic;
       text-transform: lowercase;
     }
   }
 
+  h5 {
+    display: block;
+    font-size: 18px;
+    font-weight: normal;
+    color: $teal;
+    margin: 0;
+    padding: 0;
+  }
+
   a {
+    display: block;
+    position: relative;
+    padding-bottom: 96px;
+    overflow: hidden;
     color: $dark-teal;
     font-size: 18px;
     font-weight: normal;
@@ -212,6 +233,8 @@
       text-decoration: none;
     }
   }
+
+  img { display: block; }
 
   &:nth-child(3n+1) {
     clear: left;
