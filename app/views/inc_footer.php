@@ -1,3 +1,11 @@
+<?php
+if(isset($aContent)) {
+  if(!empty($aContent['cta_line1']) && !empty($aContent['cta_line2']) && !empty($aContent['cta_button'])) {
+    $this->tplDisplay("inc_cta.php", array("line1"=>$aContent['cta_line1'], "line2"=>$aContent['cta_line2'], "button"=>$aContent['cta_button']));
+  }
+}
+?>
+
 <footer role="contentinfo">
   <div class="row">
     <ul class="footer-social social-links">

@@ -141,6 +141,36 @@
 
 				<div class="accordion-group">
 					<div class="accordion-heading">
+						<span class="accordion-toggle">CTA</span>
+					</div>
+					<div id="pageseo" class="accordion-body">
+						<div class="accordion-inner">
+							<div class="control-group">
+								<label class="control-label" for="form-tag">Line 1</label>
+								<div class="controls">
+									<input type="text" name="cta_line1" id="form-tags" value="<?= $aPage['cta_line1'] ?>" class="span12">
+								</div>
+							</div>
+
+							<div class="control-group">
+								<label class="control-label" for="form-tag">Line 2</label>
+								<div class="controls">
+									<input type="text" name="cta_line2" id="form-tags" value="<?= $aPage['cta_line2'] ?>" class="span12">
+								</div>
+							</div>
+
+							<div class="control-group">
+								<label class="control-label" for="form-tag">Button</label>
+								<div class="controls">
+									<input type="text" name="cta_button" id="form-tags" value="<?= $aPage['cta_button'] ?>" class="span12">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="accordion-group">
+					<div class="accordion-heading">
 						<span class="accordion-toggle">Tags</span>
 					</div>
 					<div id="pagetags" class="accordion-body in collapse">

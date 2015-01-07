@@ -76,6 +76,9 @@ class admin_content extends adminController
 				,"seo_title" => $_POST["seo_title"]
 				,"seo_description" => $_POST["seo_description"]
 				,"seo_keywords" => $_POST["seo_keywords"]
+				,"cta_line1" => $_POST["cta_line1"]
+				,"cta_line2" => $_POST["cta_line2"]
+				,"cta_button" => $_POST["cta_button"]
 				,"active" => $sActive
 				,"created_datetime" => time()
 				,"created_by" => $_SESSION["admin"]["userid"]
@@ -164,6 +167,9 @@ class admin_content extends adminController
 				,"seo_title" => $_POST["seo_title"]
 				,"seo_description" => $_POST["seo_description"]
 				,"seo_keywords" => $_POST["seo_keywords"]
+				,"cta_line1" => $_POST["cta_line1"]
+				,"cta_line2" => $_POST["cta_line2"]
+				,"cta_button" => $_POST["cta_button"]
 				,"active" => $sActive
 				,"updated_datetime" =>time()
 				,"updated_by" => $_SESSION["admin"]["userid"]
