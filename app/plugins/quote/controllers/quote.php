@@ -25,25 +25,32 @@ class quote extends appController {
   function submit_form() {
     $aErrors = array();
 
-    if(empty(trim($_POST['firstname']))) {
+    $first_name = trim($_POST['firstname']);
+    if(empty($first_name)) {
       $aErrors[] = "Missing first name.";
     }
-    if(empty(trim($_POST['lastname']))) {
+
+    $last_name = trim($_POST['lastname']);
+    if(empty($last_name)) {
       $aErrors[] = "Missing last name.";
     }
-    if(empty(trim($_POST['email']))) {
+
+    $email = trim($_POST['email']);
+    if(empty($email)) {
       $aErrors[] = "Missing email address.";
-    } elseif(!filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL)) {
+    } elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
       $aErrors[] = "Email address is not valid.";
     }
-    if(empty(trim($_POST['phone']))) {
+
+    $phone = trim($_POST['phone']);
+    if(empty($phone)) {
       $aErrors[] = "Missing phone number.";
     }
 
     if(!empty($aErrors)) {
       $_SESSION["quote_form"] = $_POST;
       $this->forward($this->model->content['url']);
-      end;
+      die;
     }
 
     $attachments = array();
@@ -56,10 +63,10 @@ class quote extends appController {
     $this->dbInsert(
       "work_with_us",
       array(
-        "first_name" => $_POST['firstname']
-        ,"last_name" => $_POST['lastname']
-        ,"email" => $_POST['email']
-        ,"phone" => $_POST['phone']
+        "first_name" => $first_name
+        ,"last_name" => $last_name
+        ,"email" => $email
+        ,"phone" => $phone
         ,"organization" => $_POST['org']
         ,"website" => $_POST['website']
         ,"brief" => $_POST['project-desc']
