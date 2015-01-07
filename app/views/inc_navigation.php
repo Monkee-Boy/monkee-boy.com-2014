@@ -2,7 +2,7 @@
   <div class="top-bar">
     <div class="row-flush">
       <ul class="super-nav full">
-        <li><a href="/work-with-us/" title="Request A Quote">Request A Quote &raquo;</a></li>
+        <li><a href="/contact/work-with-us/" title="Request A Quote">Request A Quote &raquo;</a></li>
       </ul>
     </div> <!-- /.row -->
   </div> <!-- /.top-bar -->
