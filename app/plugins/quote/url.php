@@ -28,6 +28,10 @@ $aPluginUrlPatterns = array(
     "cmd" => "quote",
     "action" => "submit_form"
   ),
+  "/work-with-us/upload/" => array(
+    "cmd" => "quote",
+    "action" => "upload"
+  ),
   "/work-with-us/thank-you/" => array(
     "cmd" => "quote",
     "action" => "submit_form"

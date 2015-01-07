@@ -812,13 +812,14 @@ function BlurStack()
     container: $('.uploaded-files')[0],
     drop_element: $('.upload-box')[0],
 
-    url : "/examples/upload",
+    url : "/work-with-us/upload/",
 
     filters : {
-        max_file_size : '50mb',
+        max_file_size : '20mb',
         mime_types: [
-            {title : "Image files", extensions : "jpg,gif,png"},
-            {title : "Zip files", extensions : "zip"}
+          {title : "Image files", extensions : "jpg,gif,png"},
+          {title : "Zip files", extensions : "zip"},
+          {title : "Doc files", extensions : "pdf,doc,docx"}
         ]
     },
 
@@ -851,9 +852,17 @@ function BlurStack()
             $('.add-files').html('select more files');
           }
           plupload.each(files, function(file) {
-            $('.uploaded-files').append('<div id="' + file.id + '"><span class="name">' + file.name + ' (' + plupload.formatSize(file.size) + ')</span><span class="bg"></span></div>');
+            $('.uploaded-files').append('<div id="' + file.id + '"><span class="name">' + file.name + ' (' + plupload.formatSize(file.size) + ')</span><span class="bg"></span><input type="hidden" name="attachments_realname[]" value=""><input type="hidden" name="attachments_name[]" value="' + file.name + '"></div>');
           });
           brief_uploader.start();
+        },
+
+        FileUploaded: function(up, file, request) {
+          // Get request JSON
+          var response = $.parseJSON(request.response);
+
+          // Update hidden input with new filename
+          $('#'+file.id).find('input:first').val(response.result.server_filename);
         },
 
         UploadProgress: function(up, file) {

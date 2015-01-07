@@ -22,7 +22,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'work-with-us', 'sPageTitle'=>$sTit
     <p class="subtitle"><?php echo $sSubtitle; ?></p>
   </div>
 
-  <form action="<?php echo $aContent['url'].'submit-form/' ?>" method="post" name="request-quote" class="request-quote-form">
+  <form action="<?php echo $aContent['url'].'submit-form/' ?>" method="post" name="request-quote" class="request-quote-form" enctype="multipart/form-data">
     <div class="row full">
       <h2 class="form-title">Please tell us a lil&rsquo; about yourself</h2>
     </div>
@@ -66,28 +66,28 @@ $this->tplDisplay("inc_header.php", ['menu'=>'work-with-us', 'sPageTitle'=>$sTit
         <h4>Have a project brief?</h4>
         <label class="radio" for="brief1">
           Not yet but I can tell you about it.
-          <input type="radio" id="brief1" name="brief" class="input-switch" data-switchto="no-brief">
+          <input type="radio" id="brief1" name="brief" value="1" class="input-switch" data-switchto="no-brief"<?php if($form_data['brief'] === '1'){ echo ' checked'; } ?>>
           <span class="control-indicator"></span>
         </label>
         <label class="radio" for="brief2">
           Yes I sure do!
-          <input type="radio" id="brief2" name="brief" class="input-switch" data-switchto="brief-upload" checked>
+          <input type="radio" id="brief2" name="brief" value="0" class="input-switch" data-switchto="brief-upload"<?php if(empty($form_data['brief'])){ echo ' checked'; } ?>>
           <span class="control-indicator"></span>
         </label>
       </div>
       <div class="right">
-        <div id="no-brief" class="switch-target">
+        <div id="no-brief" class="switch-target<?php if($form_data['brief'] === '1'){ echo ' active'; } ?>">
           <label for="project-desc">No brief, no problem</label>
           <p>Please tell us about your project. What are your current challenges? What are you looking to accomplish?</p>
-          <div class="input-wrapper"><textarea cols="10" rows="4" id="project-desc" name="project-desc"></textarea></div>
+          <div class="input-wrapper"><textarea cols="10" rows="4" id="project-desc" name="project-desc"><?= $form_data['project-desc'] ?></textarea></div>
         </div>
-        <div id="brief-upload" class="switch-target active">
+        <div id="brief-upload" class="switch-target<?php if($form_data['brief'] !== '1'){ echo ' active'; } ?>">
           <h4>Lovely! Upload it here:</h4>
           <div class="upload-box initial">
             <div class="uploaded-files"></div>
             <div class="drop-label">Drag &amp; drop files here <span>or</span></div>
             <a href="#" class="add-files">browse files!</a>
-            <span class="file-size">0 MB of 50 MB</span>
+            <span class="file-size"><span>0</span> MB of 50 MB</span>
           </div>
         </div>
       </div>
@@ -125,7 +125,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'work-with-us', 'sPageTitle'=>$sTit
         <p>Please select the budget range you are most comfortable with.</p>
       </div>
       <div class="right">
-        <div class="select-box">
+        <div class="select-box<?php if(!empty($form_data['budget'])){ echo " selected"; } ?>">
           <select name="budget" id="budget" class="validate[required]">
             <option value="">Select a Budget</option>
             <?php

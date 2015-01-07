@@ -10,6 +10,7 @@ $aPluginInfo = array(
 
   /* Plugin Configuration */
   "config" => array(
-    "sort" => "manual-asc", // manual, name, subname, created, updated, random - asc, desc
+    "uploadFolder" => "/uploads/troop/",
+    // "sort" => "manual-asc", // manual, name, subname, created, updated, random - asc, desc
   )
 );
