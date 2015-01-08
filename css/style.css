@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
@@ -589,8 +588,18 @@ body.menu-open .container {
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
-.logo img {
+.logo a {
+  display: block;
+  width: 180px;
+  height: 163px;
+  margin: 0 auto;
   max-width: 80%;
+  background: url(../images/logo.svg) no-repeat center center;
+  background-size: 100% auto;
+  font-size: 0;
+}
+.no-svg .logo a {
+  background: url(../images/logo.png) no-repeat center center;
 }
 .logo .speak {
   position: absolute;
@@ -811,19 +820,19 @@ body.menu-open .container {
   }
 }
 .main-nav ul .primary > a.nav-who:after {
-  content: "";
+  content: "\e60d";
 }
 .main-nav ul .primary > a.nav-what:after {
-  content: "";
+  content: "\e610";
 }
 .main-nav ul .primary > a.nav-work:after {
-  content: "";
+  content: "\e60c";
 }
 .main-nav ul .primary > a.nav-contact:after {
-  content: "";
+  content: "\e60e";
 }
 .main-nav ul .primary > a.nav-blog:after {
-  content: "";
+  content: "\e60f";
 }
 .main-nav .request-quote {
   display: none;
@@ -845,6 +854,11 @@ body.menu-open .container {
   width: 130px;
   padding: 10px 0;
 }
+@media only screen and (max-width: 1115px) {
+  .main-nav.sticky .logo {
+    width: 100px;
+  }
+}
 .main-nav.sticky .logo .speak {
   visibility: hidden;
 }
@@ -852,10 +866,10 @@ body.menu-open .container {
   display: block;
   height: 95px;
   width: 90px;
-  background: url("../images/logo-white.png") no-repeat top left;
+  background: url("../images/logo-white.svg") no-repeat center center;
 }
-.main-nav.sticky .logo a img {
-  display: none;
+.no-svg .main-nav.sticky .logo a {
+  background: url("../images/logo-white.png") no-repeat center center;
 }
 .main-nav.sticky .logo:hover {
   padding-top: 10px;
@@ -866,12 +880,36 @@ body.menu-open .container {
 .main-nav.sticky .main-menu {
   float: left;
 }
+.main-nav.sticky .primary {
+  padding: 44px 20px;
+}
+@media only screen and (min-width: 981px) and (max-width: 1115px) {
+  .main-nav.sticky .primary {
+    padding: 44px 14px;
+  }
+}
+@media only screen and (min-width: 841px) and (max-width: 980px) {
+  .main-nav.sticky .primary {
+    padding: 44px 10px;
+  }
+}
 .main-nav.sticky .primary > a {
   border-bottom: 0;
   padding-bottom: 0;
 }
 .main-nav.sticky .primary > a:after {
   display: none;
+}
+@media only screen and (min-width: 981px) and (max-width: 1115px) {
+  .main-nav.sticky .primary > a {
+    font-size: 20px;
+  }
+}
+@media only screen and (min-width: 841px) and (max-width: 980px) {
+  .main-nav.sticky .primary > a {
+    font-size: 16px;
+    line-height: 24px;
+  }
 }
 .main-nav.sticky .primary ul {
   top: 112px;
@@ -1067,8 +1105,17 @@ body.menu-open .container {
     clear: both;
   }
   .mobile-header .mobile-logo {
+    display: block;
     float: left;
+    width: 209px;
+    height: 56px;
     margin: 6px 0;
+    font-size: 0;
+    background: url(../images/logo-horizontal.svg) no-repeat center center;
+    background-size: 100% auto;
+  }
+  .no-svg .mobile-header .mobile-logo {
+    background: url(../images/logo-horizontal.png) no-repeat center center;
   }
   .mobile-header .mobile-menu-trigger {
     display: block;
@@ -1083,7 +1130,7 @@ body.menu-open .container {
     border-bottom: 4px solid #000;
   }
   .mobile-header .mobile-menu-trigger:before {
-    content: "";
+    content: "\e626";
     display: block;
     font-size: 48px;
     font-family: "icomoon";
@@ -1326,6 +1373,7 @@ body.menu-open .container {
     -o-transform: rotate(45deg) skewX(5deg) skewY(5deg);
     transform: rotate(45deg) skewX(5deg) skewY(5deg);
   }
+
   50% {
     -webkit-transform: rotate(45deg) skewX(10deg) skewY(10deg);
     -moz-transform: rotate(45deg) skewX(10deg) skewY(10deg);
@@ -1333,6 +1381,7 @@ body.menu-open .container {
     -o-transform: rotate(45deg) skewX(10deg) skewY(10deg);
     transform: rotate(45deg) skewX(10deg) skewY(10deg);
   }
+
   100% {
     -webkit-transform: rotate(45deg) skewX(5deg) skewY(5deg);
     -moz-transform: rotate(45deg) skewX(5deg) skewY(5deg);
@@ -1349,6 +1398,7 @@ body.menu-open .container {
     -o-transform: rotate(45deg) skewX(5deg) skewY(5deg);
     transform: rotate(45deg) skewX(5deg) skewY(5deg);
   }
+
   50% {
     -webkit-transform: rotate(45deg) skewX(10deg) skewY(10deg);
     -moz-transform: rotate(45deg) skewX(10deg) skewY(10deg);
@@ -1356,6 +1406,7 @@ body.menu-open .container {
     -o-transform: rotate(45deg) skewX(10deg) skewY(10deg);
     transform: rotate(45deg) skewX(10deg) skewY(10deg);
   }
+
   100% {
     -webkit-transform: rotate(45deg) skewX(5deg) skewY(5deg);
     -moz-transform: rotate(45deg) skewX(5deg) skewY(5deg);
@@ -1372,6 +1423,7 @@ body.menu-open .container {
     -o-transform: rotate(45deg) skewX(5deg) skewY(5deg);
     transform: rotate(45deg) skewX(5deg) skewY(5deg);
   }
+
   50% {
     -webkit-transform: rotate(45deg) skewX(10deg) skewY(10deg);
     -moz-transform: rotate(45deg) skewX(10deg) skewY(10deg);
@@ -1379,6 +1431,7 @@ body.menu-open .container {
     -o-transform: rotate(45deg) skewX(10deg) skewY(10deg);
     transform: rotate(45deg) skewX(10deg) skewY(10deg);
   }
+
   100% {
     -webkit-transform: rotate(45deg) skewX(5deg) skewY(5deg);
     -moz-transform: rotate(45deg) skewX(5deg) skewY(5deg);
@@ -1395,6 +1448,7 @@ body.menu-open .container {
     -o-transform: rotate(45deg) skewX(5deg) skewY(5deg);
     transform: rotate(45deg) skewX(5deg) skewY(5deg);
   }
+
   50% {
     -webkit-transform: rotate(45deg) skewX(10deg) skewY(10deg);
     -moz-transform: rotate(45deg) skewX(10deg) skewY(10deg);
@@ -1402,6 +1456,7 @@ body.menu-open .container {
     -o-transform: rotate(45deg) skewX(10deg) skewY(10deg);
     transform: rotate(45deg) skewX(10deg) skewY(10deg);
   }
+
   100% {
     -webkit-transform: rotate(45deg) skewX(5deg) skewY(5deg);
     -moz-transform: rotate(45deg) skewX(5deg) skewY(5deg);
@@ -1809,7 +1864,7 @@ button.button-full[type=submit], .upload-box.initial .button-full.add-files, .bu
   text-align: center;
 }
 .social-links a:before {
-  content: "";
+  content: "\e60b";
   color: #acca41;
   font-size: 54px;
   line-height: 1;
@@ -1855,25 +1910,25 @@ button.button-full[type=submit], .upload-box.initial .button-full.add-files, .bu
   }
 }
 .social-links .blog:after {
-  content: "";
+  content: "\e624";
 }
 .social-links .twitter:after {
-  content: "";
+  content: "\e61b";
 }
 .social-links .facebook:after {
-  content: "";
+  content: "\e61c";
 }
 .social-links .linkedin:after {
-  content: "";
+  content: "\e620";
 }
 .social-links .gplus:after {
-  content: "";
+  content: "\e61d";
 }
 .social-links .instagram:after {
-  content: "";
+  content: "\e621";
 }
 .social-links .pinterest:after {
-  content: "";
+  content: "\e61e";
 }
 
 .page-title {
@@ -2195,7 +2250,7 @@ button.button-full[type=submit], .upload-box.initial .button-full.add-files, .bu
   position: relative;
 }
 .dots[data-dots='dual']:before, .dots[data-dots='dual']:after, .dots[data-dots='left']:before, .dots[data-dots='right']:after {
-  content: "";
+  content: "\e623";
   position: absolute;
   bottom: 0;
   color: #ededed;
@@ -2232,11 +2287,11 @@ button.button-full[type=submit], .upload-box.initial .button-full.add-files, .bu
   line-height: 240px;
 }
 .service-icon:before {
-  content: "";
+  content: "\e60b";
   color: #fff;
 }
 .service-icon:after {
-  content: "";
+  content: "\e606";
   position: absolute;
   top: 0;
   left: 0;
@@ -2259,37 +2314,37 @@ button.button-full[type=submit], .upload-box.initial .button-full.add-files, .bu
   color: #acca41;
 }
 .service-icon.strategy i:before {
-  content: "";
+  content: "\e616";
 }
 .service-icon.design:after {
   color: #23a38f;
 }
 .service-icon.design i:before {
-  content: "";
+  content: "\e611";
 }
 .service-icon.development:after {
   color: #8fa82a;
 }
 .service-icon.development i:before {
-  content: "";
+  content: "\e612";
 }
 .service-icon.marketing:after {
   color: #1a7a6c;
 }
 .service-icon.marketing i:before {
-  content: "";
+  content: "\e615";
 }
 .service-icon.maintenance:after {
   color: #fcc721;
 }
 .service-icon.maintenance i:before {
-  content: "";
+  content: "\e614";
 }
 .service-icon.growth:after {
   color: #b2b2b2;
 }
 .service-icon.growth i:before {
-  content: "";
+  content: "\e613";
 }
 
 .service-icons {
@@ -2694,6 +2749,23 @@ label {
   width: 20.55556em;
   max-width: 100%;
   height: 3.88889em;
+  background-color: #ededed;
+}
+.select-box:before {
+  content: "";
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  bottom: 3px;
+  width: 50px;
+  background-color: #ededed;
+  z-index: 1;
+  pointer-events: none;
+  -webkit-transition: background 0.3s ease;
+  -moz-transition: background 0.3s ease;
+  -ms-transition: background 0.3s ease;
+  -o-transition: background 0.3s ease;
+  transition: background 0.3s ease;
 }
 .select-box:after {
   content: "";
@@ -2712,6 +2784,7 @@ label {
   -ms-transition: border 0.3s ease;
   -o-transition: border 0.3s ease;
   transition: border 0.3s ease;
+  z-index: 2;
 }
 .select-box select {
   display: block;
@@ -2744,6 +2817,9 @@ label {
 }
 .select-box select:focus {
   border-color: #23a38f;
+}
+.select-box.selected:before {
+  background-color: #23a38f;
 }
 .select-box.selected:after {
   border-top-color: #fff;
@@ -2779,7 +2855,7 @@ label {
   content: "";
   border-style: solid;
   border-width: 0 120px 6px 0;
-  border-color: transparent #fff transparent transparent;
+  border-color: transparent white transparent transparent;
   position: absolute;
   right: 0.83333em;
   bottom: -6px;
@@ -3113,7 +3189,7 @@ button[type=submit] {
   height: 3.88889em;
 }
 .date-input:after {
-  content: "";
+  content: "\e625";
   position: absolute;
   right: 20px;
   top: 0;
@@ -3297,10 +3373,10 @@ button[type=submit] {
   cursor: pointer;
 }
 .datepicker thead .prev:after {
-  content: "";
+  content: "\e627";
 }
 .datepicker thead .next:after {
-  content: "";
+  content: "\e628";
 }
 .datepicker thead .dow {
   font-weight: normal;
@@ -3524,7 +3600,7 @@ button[type=submit] {
   height: 48px;
 }
 .port-slider .thumbs-slider .slick-prev:after, .port-slider .thumbs-slider .slick-next:after {
-  content: "";
+  content: "\e627";
   display: block;
   position: absolute;
   text-indent: 0;
@@ -3539,7 +3615,7 @@ button[type=submit] {
   right: 25px;
 }
 .port-slider .thumbs-slider .slick-next:after {
-  content: "";
+  content: "\e628";
   right: 0;
 }
 @media only screen and (max-width: 580px) {
@@ -3547,8 +3623,10 @@ button[type=submit] {
     width: 100%;
     margin-bottom: 1.33333em;
   }
+  .port-slider .thumbs-slider {
+    width: 100%;
+  }
   .port-slider .thumbnail {
-    width: 33.3333%;
     padding: 0 8px;
   }
 }
@@ -3577,7 +3655,7 @@ button[type=submit] {
   text-align: center;
 }
 .port-slider .instructions:before {
-  content: "";
+  content: "\e617";
   display: block;
   font-size: 70px;
 }
@@ -3683,7 +3761,7 @@ button[type=submit] {
   outline: none;
 }
 .slick-loading .slick-list {
-  background: #fff slick-image-url("ajax-loader.gif") center center no-repeat;
+  background: white slick-image-url("ajax-loader.gif") center center no-repeat;
 }
 .slick-list.dragging {
   cursor: pointer;
@@ -3788,6 +3866,10 @@ button[type=submit] {
 .fullwidth-slider {
   background-color: #fff;
   padding: 2.22222em 0;
+}
+.fullwidth-slider .slick-list {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 .fullwidth-slider figure {
   padding: 0 1.11111em;
@@ -4397,6 +4479,17 @@ button[type=submit] {
 .home-pulse .item-panel-inside {
   min-height: 300px;
 }
+.home-pulse .home-news-icon {
+  display: block;
+  width: 55px;
+  height: 57px;
+  margin: 0 auto;
+  background: url(../images/news-icon.svg) no-repeat center center;
+  background-size: 100% auto;
+}
+.no-svg .home-pulse .home-news-icon {
+  background: url(../images/news-icon.png) no-repeat center center;
+}
 .home-pulse .twitter .profile_image {
   float: left;
 }
@@ -4454,16 +4547,16 @@ button[type=submit] {
   line-height: 1;
 }
 .home-pulse .twitter .bottom .actions li a.follow:before {
-  content: "";
+  content: "\e62f";
 }
 .home-pulse .twitter .bottom .actions li a.reply:before {
-  content: "";
+  content: "\e630";
 }
 .home-pulse .twitter .bottom .actions li a.retweet:before {
-  content: "";
+  content: "\e62e";
 }
 .home-pulse .twitter .bottom .actions li a.favorite:before {
-  content: "";
+  content: "\e9d9";
 }
 @media only screen and (max-width: 840px) {
   .home-pulse .twitter {
@@ -4877,13 +4970,13 @@ button[type=submit] {
   vertical-align: middle;
 }
 .share-section a.twitter:before {
-  content: "";
+  content: "\e61b";
 }
 .share-section a.facebook:before {
-  content: "";
+  content: "\e61c";
 }
 .share-section a.pinterest:before {
-  content: "";
+  content: "\e61e";
 }
 .share-section a:after {
   content: "";
@@ -5467,19 +5560,19 @@ button[type=submit] {
   }
 }
 .stats-list li.mobile-os:after {
-  content: "";
+  content: "\e604";
 }
 .stats-list li.bananas:after {
-  content: "";
+  content: "\e600";
 }
 .stats-list li.tacos:after {
-  content: "";
+  content: "\e605";
 }
 .stats-list li.code:after {
-  content: "";
+  content: "\e602";
 }
 .stats-list li.desktop-os:after {
-  content: "";
+  content: "\e603";
 }
 .stats-list li p {
   position: absolute;
@@ -5579,7 +5672,7 @@ button[type=submit] {
   }
 }
 .office-cat p:before {
-  content: "";
+  content: "\e601";
   font-size: 100px;
   color: #1a7a6c;
   padding-right: 30px;
@@ -5836,5 +5929,3 @@ button[type=submit] {
 .testimonial-item .testimonial .title {
   font-size: 16px;
 }
-
-/*# sourceMappingURL=style.css.map */

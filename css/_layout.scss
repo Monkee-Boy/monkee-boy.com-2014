@@ -81,7 +81,17 @@ body {
     @include transition(all 0.5s ease);
   }
 
-  img { max-width: 80%; }
+  a {
+    display: block;
+    width: 180px;
+    height: 163px;
+    margin: 0 auto;
+    max-width: 80%;
+    background: url(../images/logo.svg) no-repeat center center;
+    background-size: 100% auto;
+    font-size: 0;
+    .no-svg & { background: url(../images/logo.png) no-repeat center center; }
+  }
 
   .speak {
     position: absolute;
@@ -274,6 +284,7 @@ body {
       float: left;
       width: 130px;
       padding: 10px 0;
+      @media #{$xlarge-down} { width: 100px; }
       .speak {
         visibility: hidden;
       }
@@ -281,8 +292,8 @@ body {
         display: block;
         height: 95px;
         width: 90px;
-        background: url('../images/logo-white.png') no-repeat top left;
-        img { display: none; }
+        background: url('../images/logo-white.svg') no-repeat center center;
+        .no-svg & { background: url('../images/logo-white.png') no-repeat center center; }
       }
       &:hover {
         padding-top: 10px;
@@ -293,11 +304,19 @@ body {
     }
     .main-menu { float: left; }
     .primary {
-      &> a {
+      padding: 44px 20px;
+      @media #{$xlarge-only} { padding: 44px 14px; }
+      @media #{$large-only} { padding: 44px 10px; }
+      & > a {
         border-bottom: 0;
         padding-bottom: 0;
         &:after {
           display: none;
+        }
+        @media #{$xlarge-only} { font-size: 20px; }
+        @media #{$large-only} {
+          font-size: 16px;
+          line-height: 24px;
         }
       }
       ul {
@@ -447,8 +466,15 @@ body {
     @include box-shadow(0 2px 0 0 rgba(#000, 0.25));
     @include clearfix;
     .mobile-logo {
+      display: block;
       float: left;
+      width: 209px;
+      height: 56px;
       margin: 6px 0;
+      font-size: 0;
+      background: url(../images/logo-horizontal.svg) no-repeat center center;
+      background-size: 100% auto;
+      .no-svg & { background: url(../images/logo-horizontal.png) no-repeat center center; }
     }
     .mobile-menu-trigger {
       display: block;

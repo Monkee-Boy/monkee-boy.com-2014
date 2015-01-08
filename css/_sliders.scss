@@ -111,8 +111,8 @@
       width: 100%;
       margin-bottom: $mobile-paragraph-margin;
     }
+    .thumbs-slider { width: 100%; }
     .thumbnail {
-      width: 33.3333%;
       padding: 0 8px;
     }
   }
@@ -350,6 +350,11 @@
 .fullwidth-slider {
   background-color: #fff;
   padding: em-calc(40) 0;
+
+  .slick-list {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 
   figure {
     padding: 0 em-calc(20);

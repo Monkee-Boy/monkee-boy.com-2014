@@ -392,6 +392,15 @@
   .item-panel-inside {
     min-height: 300px;
   }
+  .home-news-icon {
+    display: block;
+    width: 55px;
+    height: 57px;
+    margin: 0 auto;
+    background: url(../images/news-icon.svg) no-repeat center center;
+    background-size: 100% auto;
+    .no-svg & { background: url(../images/news-icon.png) no-repeat center center; }
+  }
   .twitter {
     .profile_image {
       float: left;

@@ -31,7 +31,7 @@ if($menu === 'blog-post') {
 </header>
 
 <div class="mobile-header mobile-blog-header">
-  <img src="/images/logo-horizontal.png" alt="Monkee-Boy Web Design" class="mobile-logo">
+  <span class="mobile-logo">Monkee-Boy Web Design</span>
   <a href="#" class="mobile-menu-trigger">Menu</a>
   <div class="blog-banner">The Blog</div>
 </div>

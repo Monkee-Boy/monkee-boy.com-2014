@@ -171,7 +171,7 @@
         <h4>Latest News</h4>
 
         <div class="item-panel-inside" data-text-align="center">
-          <figure><img src="/assets/news-icon.png" alt=""></figure>
+          <figure><span class="home-news-icon"></span></figure>
 
           <p><a href="<?= $aArticle['url'] ?>" title="<?= $aArticle['title'] ?>"><?= $aArticle['title'] ?> »</a></p>
           <time><?= date("m-d", $aArticle['publish_on']) ?></time>
