@@ -3174,11 +3174,43 @@ button[type=submit] {
   bottom: 0;
   width: 0;
   background-color: #acca41;
-  -webkit-transition: width 0.3s ease;
-  -moz-transition: width 0.3s ease;
-  -ms-transition: width 0.3s ease;
-  -o-transition: width 0.3s ease;
-  transition: width 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.uploaded-files div .remove-upload {
+  position: relative;
+  float: right;
+  font-weight: bold;
+  color: #5e5e5e;
+  text-decoration: underline;
+}
+.uploaded-files div .remove-upload:hover {
+  text-decoration: none;
+}
+.uploaded-files div.complete {
+  color: #acca41;
+  font-weight: bold;
+}
+.uploaded-files div.complete .remove-upload {
+  font-size: 0;
+  text-decoration: none;
+}
+.uploaded-files div.complete .remove-upload:before {
+  content: "X";
+  color: #acca41;
+  font-size: 18px;
+}
+.uploaded-files div.complete .remove-upload:hover:before {
+  color: #ff6c5c;
+}
+.uploaded-files div.complete .bg {
+  background-color: #ededed;
+}
+.uploaded-files div.complete:hover .bg {
+  background-color: #fff;
 }
 
 .date-input {

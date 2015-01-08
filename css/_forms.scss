@@ -404,7 +404,31 @@ button[type=submit] {
       bottom: 0;
       width: 0;
       background-color: $green;
-      @include transition(width 0.3s ease);
+      @include transition(all 0.3s ease);
+    }
+    .remove-upload {
+      position: relative;
+      float: right;
+      font-weight: bold;
+      color: $dark-grey;
+      text-decoration: underline;
+      &:hover { text-decoration: none; }
+    }
+    &.complete {
+      color: $green;
+      font-weight: bold;
+      .remove-upload {
+        font-size: 0;
+        text-decoration: none;
+        &:before {
+          content: "X";
+          color: $green;
+          font-size: 18px;
+        }
+        &:hover:before { color: $red; }
+      }
+      .bg { background-color: $light-grey; }
+      &:hover .bg { background-color: #fff; }
     }
   }
 }
