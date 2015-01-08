@@ -40,19 +40,19 @@ $aPluginUrlPatterns = array(
     "cmd" => "quote",
     "action" => "thank_you"
   ),
-  "/admin/work-with-us/" => array(
+  "/admin/quote/" => array(
     "cmd" => "admin_quote",
     "action" => "index"
   ),
-  "/admin/work-with-us/edit/<id:[0-9]+>/" => array(
+  "/admin/quote/view/<id:[0-9]+>/" => array(
     "cmd" => "admin_quote",
-    "action" => "edit"
+    "action" => "view"
   ),
-  "/admin/work-with-us/edit/s/" => array(
+  "/admin/quote/edit/s/" => array(
     "cmd" => "admin_quote",
     "action" => "edit_s"
   ),
-  "/admin/work-with-us/delete/<id:[0-9]+>/" => array(
+  "/admin/quote/delete/<id:[0-9]+>/" => array(
     "cmd" => "admin_quote",
     "action" => "delete"
   )

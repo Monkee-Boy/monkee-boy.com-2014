@@ -60,7 +60,7 @@ class quote extends appController {
       }
     }
 
-    $this->dbInsert(
+    $sID = $this->dbInsert(
       "work_with_us",
       array(
         "first_name" => $first_name
@@ -71,7 +71,7 @@ class quote extends appController {
         ,"website" => $_POST['website']
         ,"brief" => $_POST['project-desc']
         ,"attachments" => json_encode($attachments)
-        ,"deadline" => date('Y-m-d', strtotime($_POST['deadline_date']))
+        ,"deadline" => ($_POST['deadline'] === '1')?date('Y-m-d', strtotime($_POST['deadline_date'])):null
         ,"budget" => $_POST['budget']
         ,"status" => 1
         ,"ip" => $_SERVER['REMOTE_ADDR']
