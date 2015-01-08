@@ -13,7 +13,7 @@
         <div class="full">
           <div class="logo">
             <img src="/images/monkee-speak.png" alt="I'll Take You Home" class="speak">
-            <a href="/" title="Monkee-Boy Web Design"><img src="/images/logo.png" alt="Monkee-Boy"></a>
+            <a href="/">Monkee-Boy Web Design</a>
           </div>
 
           <ul class="main-menu">
@@ -43,7 +43,7 @@
   </div>
 
   <div class="mobile-header">
-    <a href="/" title="Monkee-Boy Web Design"><img src="/images/logo-horizontal.png" alt="Monkee-Boy Web Design" class="mobile-logo"></a>
+    <a href="/" title="Monkee-Boy Web Design" class="mobile-logo">Monkee-Boy Web Design</a>
     <a href="#" class="mobile-menu-trigger">Menu</a>
   </div>
 </header>
