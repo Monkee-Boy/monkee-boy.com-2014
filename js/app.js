@@ -13374,7 +13374,6 @@ function BlurStack()
         max_file_size : '20mb',
         mime_types: [
           {title : "Image files", extensions : "jpg,gif,png"},
-          {title : "Zip files", extensions : "zip"},
           {title : "Doc files", extensions : "pdf,doc,docx"}
         ]
     },
@@ -13403,14 +13402,20 @@ function BlurStack()
         },
 
         FilesAdded: function(up, files) {
+          var $size_indicator = $('.upload-box').find('.file-size span'),
+              cur_size = parseFloat($size_indicator.html());
+
           if ($('.upload-box').hasClass('initial')) {
             $('.upload-box').removeClass('initial');
             $('.add-files').html('select more files');
           }
           plupload.each(files, function(file) {
-            $('.uploaded-files').append('<div id="' + file.id + '"><span class="name">' + file.name + ' (' + plupload.formatSize(file.size) + ')</span><span class="bg"></span><input type="hidden" name="attachments_realname[]" value=""><input type="hidden" name="attachments_name[]" value="' + file.name + '"></div>');
+            $('.uploaded-files').append('<div id="' + file.id + '"><span class="name">' + file.name + '</span><span class="bg"></span><a href="#" class="remove-upload">cancel</a><input type="hidden" name="attachments_realname[]" value=""><input type="hidden" name="attachments_name[]" value="' + file.name + '"></div>');
+            cur_size += (file.size/1000000);
           });
+
           brief_uploader.start();
+          $size_indicator.html(cur_size.toFixed(2));
         },
 
         FileUploaded: function(up, file, request) {
@@ -13422,7 +13427,10 @@ function BlurStack()
         },
 
         UploadProgress: function(up, file) {
-          console.log("percent complete:", file.percent);
+          $('#' + file.id).children('.bg').css('width', file.percent + '%');
+          if (file.percent > 99) {
+            $('#' + file.id).addClass('complete');
+          }
         },
 
         Error: function(up, err) {
