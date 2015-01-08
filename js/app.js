@@ -13371,9 +13371,10 @@ function BlurStack()
     url : "/request-a-quote/upload/",
 
     filters : {
-        max_file_size : '20mb',
+        max_file_size : '100mb',
         mime_types: [
           {title : "Image files", extensions : "jpg,gif,png"},
+          { title: "Zip files", extensions:  "zip" },
           {title : "Doc files", extensions : "pdf,doc,docx"}
         ]
     },
@@ -13399,6 +13400,27 @@ function BlurStack()
                 $('.upload-box').removeClass('incoming');
             });
           }
+
+          // remove files logic
+          $('.uploaded-files').on('click', '.remove-upload', function(e) {
+            e.preventDefault();
+
+            var $file_el = $(this).parent(),
+                file_id = $file_el.attr('id'),
+                file = brief_uploader.getFile(file_id),
+                file_status = file.status;
+
+            if (brief_uploader.state == plupload.STARTED && file_status == plupload.UPLOADING) {
+              console.log("canceling upload");
+              brief_uploader.stop();
+              brief_uploader.removeFile(file);
+              brief_uploader.start();
+            } else {
+              console.log("removing file");
+            }
+
+            $file_el.remove();
+          });
         },
 
         FilesAdded: function(up, files) {
@@ -13409,7 +13431,7 @@ function BlurStack()
             $('.upload-box').removeClass('initial');
             $('.add-files').html('select more files');
           }
-          plupload.each(files, function(file) {
+          plupload.each(files, function(file, i) {
             $('.uploaded-files').append('<div id="' + file.id + '"><span class="name">' + file.name + '</span><span class="bg"></span><a href="#" class="remove-upload">cancel</a><input type="hidden" name="attachments_realname[]" value=""><input type="hidden" name="attachments_name[]" value="' + file.name + '"></div>');
             cur_size += (file.size/1000000);
           });
