@@ -19,9 +19,8 @@ if(!empty($aContent)) {
 $this->tplDisplay("inc_header.php", ['menu'=>'join-the-troop', 'sPageTitle'=>$sTitle, 'seo_title'=>$aContent['seo_title'], 'seo_description'=>$aContent['seo_description'], 'seo_keywords'=>$aContent['seo_keywords']]); ?>
 
   <div class="row page-title">
-      <h1><?php echo $sTitle; ?></h1>
-      <p class="subtitle"><?php echo $sSubtitle; ?></p>
-    </div>
+    <h1><?php echo $sTitle; ?></h1>
+    <p class="subtitle"><?php echo $sSubtitle; ?></p>
   </div>
 
   <div class="row">
