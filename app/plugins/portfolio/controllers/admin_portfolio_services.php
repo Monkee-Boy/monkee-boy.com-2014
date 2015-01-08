@@ -129,6 +129,35 @@ class admin_portfolio_services extends adminController {
       $_POST["id"]
     );
 
+    if($_FILES["image"]["error"] != 4) {
+      if($_FILES["image"]["error"] == 1 || $_FILES["image"]["error"] == 2) {
+        $this->forward("/admin/portfolio/services/?error=".urlencode("Image file size was too large!"));
+      } else {
+        $upload_dir = $this->settings->rootPublic.substr($this->model->imageFolder, 1);
+        $file_ext = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
+        $upload_file = "service_".$_POST["id"].".".strtolower($file_ext);
+
+        $sService = $this->dbQuery(
+          "SELECT `image` FROM `{dbPrefix}services`"
+          ." WHERE `id` = ".$_POST["id"]
+          ,"one"
+        );
+        @unlink($upload_dir.$sService);
+
+        if(move_uploaded_file($_FILES["image"]["tmp_name"], $upload_dir.$upload_file)) {
+          $this->dbUpdate(
+            "services",
+            array(
+              "image" => $upload_file
+            ),
+            $_POST["id"]
+          );
+        } else {
+          $this->forward("/admin/portfolio/services/?error=".urlencode("Failed to upload image!"));
+        }
+      }
+    }
+
     $_SESSION["admin"]["admin_services"] = null;
 
     $this->forward("/admin/portfolio/services/?info=".urlencode("Changes saved successfully!"));

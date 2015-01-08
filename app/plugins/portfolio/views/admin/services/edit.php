@@ -59,6 +59,28 @@
       </div>
 
       <div class="span4 aside">
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <span class="accordion-toggle">Image</span>
+          </div>
+          <div class="accordion-body">
+            <div class="accordion-inner">
+              <?php if(!empty($aService['image'])): ?>
+                <div class="control-group photo-show">
+                  <img src="<?php echo $aService['image_url']; ?>" alt="Service Image" style="max-width: 300px;"><br />
+                  <a href="#">Replace Image</a>
+                </div>
+              <?php endif; ?>
+
+              <div class="control-group photo-upload"<?php if(!empty($aService['image'])){ echo ' style="display: none;"'; } ?>>
+                <label class="control-label" for="form-logo">Upload Image</label>
+                <div class="controls">
+                  <input type="file" name="image" id="form-logo">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div class="accordion-group">
           <div class="accordion-heading">

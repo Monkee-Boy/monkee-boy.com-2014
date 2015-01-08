@@ -445,6 +445,7 @@ class portfolio_model extends appModel {
       $aService["url"] = $this->service_content['url'].$aService['tag']."/";
       $aService["subtitle"] = htmlspecialchars(stripslashes($aService["subtitle"]));
       $aService["description"] = stripslashes($aService["description"]);
+      $aService["image_url"] = $this->imageFolder.$aService["image"];
     }
 
     return $aService;
