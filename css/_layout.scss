@@ -358,6 +358,7 @@ body {
     list-style: none;
     margin: 0;
     padding: 0;
+    &.columns-2 li { @include span(6 of 12); }
     &.columns-3 li { @include span(4 of 12); }
     &.columns-4 li { @include span(3 of 12); }
     li {

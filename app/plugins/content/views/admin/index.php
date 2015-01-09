@@ -15,7 +15,7 @@
 			<?php foreach($aPages as $aPage): ?>
 				<tr>
 					<td><?= $aPage['title'] ?></td>
-					<td><a href="http://<?= $domain ?><?= $aPage['url'] ?>/" target="new">http://<?= $domain ?><?= $aPage['url'] ?>/</a></td>
+					<td><a href="http://<?= $domain ?><?= $aPage['url'] ?>" target="new">http://<?= $domain ?><?= $aPage['url'] ?></a></td>
 					<td>
 						<a href="/admin/content/edit/<?= $aPage['id'] ?>/" title="Edit Page" rel="tooltip"><i class="icon-pencil"></i></a>
 						<?php if($aPage['permanent'] != 1 || $sSuperAdmin): ?>

@@ -87,6 +87,7 @@
       $this->tplDisplay('inc_subnav.php', array('menu' => $menu, 'nav' => 'work'));
     } elseif(in_array($menu, $aSubNav['contact'])) {
       $this->tplDisplay('inc_navigation.php', array('current' => 'contact'));
+      $this->tplDisplay('inc_subnav.php', array('menu' => $menu, 'nav' => 'contact'));
     } else {
       $this->tplDisplay('inc_navigation.php');
     }

@@ -124,18 +124,7 @@ class content extends appController
 			$this->error("404");
 
 		if(preg_match("/[a-z0-9_-]+/i", $sPage) > 0) {
-			$aContent = $this->dbQuery(
-				"SELECT * FROM `{dbPrefix}content`"
-					." WHERE `tag` = ".$this->dbQuote($sPage, "text")
-					." LIMIT 1"
-				,"row"
-			);
-
-			if(!empty($aContent)) {
-				$aContent["title"] = htmlspecialchars(stripslashes($aContent["title"]));
-				$aContent["content"] = stripslashes($aContent["content"]);
-			}
-
+			$aContent = $this->model->getPage(null, $sPage);
 			$this->tplAssign("aContent", $aContent);
 
 			if($this->tplExists("templates/".$sPage.".php"))

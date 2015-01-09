@@ -77,7 +77,7 @@
         posts += '<div class="one-third post-panel" data-text-align="center">';
         posts += '<div class="post-panel-inside">';
         posts += '<a href="'+post.url+'" title="Permalink for '+post.title+'"><img src="/uploads/posts/'+post.listing_image+'" alt="'+post.title+'"></a>';
-        posts += '<h4><a href="'+post.url+'" title="Permalink for '+post.title+'">'+post.title+'</a></h4>';
+        posts += '<h5><a href="'+post.url+'" title="Permalink for '+post.title+'">'+post.title+'</a></h5>';
         posts += '</div> <!-- /.post-panel-inside --> </div> <!-- /.one-third.post-panel -->';
       });
 
