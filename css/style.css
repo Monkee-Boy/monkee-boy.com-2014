@@ -3474,16 +3474,25 @@ button[type=submit] {
 
 .category-filter {
   text-align: center;
-  width: 795px;
   margin: 0 auto;
 }
+.category-filter form {
+  display: inline-block;
+}
+.category-filter form:before, .category-filter form:after {
+  content: " ";
+  display: table;
+}
+.category-filter form:after {
+  clear: both;
+}
 .category-filter label {
-  float: left;
   padding: 20px 20px 0 0;
   color: #b2b2b2;
 }
-.category-filter .select-box {
-  float: left;
+.category-filter .select-box, .category-filter label {
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .port-slider .screens {
@@ -4832,46 +4841,67 @@ button[type=submit] {
     width: 50%;
   }
 }
-.post-panel:hover h4 {
-  color: #fefefe;
+.post-panel:hover .post-title {
   background: #1a7a6c;
-  -webkit-transform: translateY(-26px);
-  -moz-transform: translateY(-26px);
-  -ms-transform: translateY(-26px);
-  -o-transform: translateY(-26px);
-  transform: translateY(-26px);
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
 }
-.post-panel:hover h4 span {
-  display: block;
+.post-panel:hover h5 {
+  color: #fefefe;
 }
-.post-panel h4 {
-  background: #fefefe;
-  margin: 0;
+.post-panel .post-title {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
   padding: 25px;
+  background: #fff;
+  min-height: 140px;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
-  -webkit-transform: translateY(-4px);
-  -moz-transform: translateY(-4px);
-  -ms-transform: translateY(-4px);
-  -o-transform: translateY(-4px);
-  transform: translateY(-4px);
+  -webkit-transform: translate(0, 40px);
+  -moz-transform: translate(0, 40px);
+  -ms-transform: translate(0, 40px);
+  -o-transform: translate(0, 40px);
+  transform: translate(0, 40px);
 }
-.post-panel h4 span {
-  display: none;
-  margin-top: 10px;
-  font-size: 0.5em;
+.post-panel .post-title span {
+  display: block;
+  margin-top: 20px;
+  font-size: 16px;
+  color: #fff;
+  font-weight: bold;
+  font-style: italic;
   text-transform: lowercase;
 }
+.post-panel h5 {
+  display: block;
+  font-size: 18px;
+  font-weight: normal;
+  color: #23a38f;
+  margin: 0;
+  padding: 0;
+}
 .post-panel a {
+  display: block;
+  position: relative;
+  padding-bottom: 96px;
+  overflow: hidden;
   color: #1a7a6c;
   font-size: 18px;
   font-weight: normal;
 }
 .post-panel a:hover {
   text-decoration: none;
+}
+.post-panel img {
+  display: block;
 }
 .post-panel:nth-child(3n+1) {
   clear: left;
@@ -5850,12 +5880,23 @@ button[type=submit] {
   font-size: 70px;
   line-height: 0.9em;
 }
+@media only screen and (max-width: 580px) {
+  .news-item.top-article .date {
+    font-size: 50px;
+  }
+}
 .news-item.top-article .date span {
   line-height: 0.7em;
   color: #ededed;
 }
 .news-item.top-article h3 {
   font-size: 40px;
+}
+@media only screen and (max-width: 580px) {
+  .news-item.top-article h3 {
+    font-size: 30px;
+    width: 60%;
+  }
 }
 .news-item.top-article a {
   color: #ededed;
