@@ -1793,4 +1793,15 @@ function BlurStack()
     return false;
   });
 
+  // erg. Crazy 404 page.
+  if ($('#flowchart404').length > 0 && !Modernizr.touch && Modernizr.mq('only screen and (min-width:' + medium_break + 'px)')) {
+    var flowchart = new Image(),
+        container = document.getElementById('flowchart404');
+    flowchart.onload = function() {
+      container.appendChild(flowchart);
+      container.className = 'loaded';
+    }
+    flowchart.src = '/images/flowchart404.png';
+  }
+
 }(jQuery));

@@ -214,6 +214,14 @@ a {
     }
   }
 
+  &.button-alt2 {
+    border-bottom-color: $dark-yellow;
+    background-color: $yellow;
+    &:before {
+      background: $dark-yellow;
+    }
+  }
+
   &.button-full {
     display: block;
   }

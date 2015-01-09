@@ -81,7 +81,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'portfolio', 'page_title'=>$aClient
 
   <div class="row vspace-extra">
     <div class="full">
-      <h2 data-text-align="center">Services Provided</h2>
+      <h2 data-text-align="center">Services</h2>
       <ul class="service-icons portfolio">
         <?php foreach($aClient['services'] as $aService) { ?>
         <li><span class="<?php echo $aService['tag']; ?> service-icon"><i></i></span><?php echo $aService['name']; ?></li>
@@ -92,7 +92,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'portfolio', 'page_title'=>$aClient
 
   <div class="row vspace-extra">
     <div class="single-column">
-      <h3 data-text-align="center">Other key services:</h3>
+      <h3 data-text-align="center">Features</h3>
 
       <div class="row-pop">
         <div class="half">

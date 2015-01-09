@@ -1833,6 +1833,15 @@ button.button-alt[type=submit], .upload-box.initial .button-alt.add-files, .butt
 button.button-alt[type=submit]:before, .upload-box.initial .button-alt.add-files:before, .button-alt.news-load-more:before {
   background: #1a7a6c;
 }
+.button.button-alt2, input.button-alt2[type=submit],
+button.button-alt2[type=submit], .upload-box.initial .button-alt2.add-files, .button-alt2.news-load-more {
+  border-bottom-color: #d8ae2a;
+  background-color: #fcc721;
+}
+.button.button-alt2:before, input.button-alt2[type=submit]:before,
+button.button-alt2[type=submit]:before, .upload-box.initial .button-alt2.add-files:before, .button-alt2.news-load-more:before {
+  background: #d8ae2a;
+}
 .button.button-full, input.button-full[type=submit],
 button.button-full[type=submit], .upload-box.initial .button-full.add-files, .button-full.news-load-more {
   display: block;
@@ -5969,4 +5978,78 @@ button[type=submit] {
 }
 .testimonial-item .testimonial .title {
   font-size: 16px;
+}
+
+.column-404 {
+  width: 800px;
+}
+
+#flowchart404 {
+  display: none;
+}
+
+#flowchart404.loaded {
+  position: relative;
+  display: block;
+  margin-top: 4.44444em;
+}
+#flowchart404.loaded .button, #flowchart404.loaded input[type=submit],
+#flowchart404.loaded button[type=submit], #flowchart404.loaded .upload-box.initial .add-files, .upload-box.initial #flowchart404.loaded .add-files, #flowchart404.loaded .news-load-more {
+  position: absolute;
+}
+#flowchart404.loaded .col1 {
+  left: 0px;
+  width: 230px;
+}
+#flowchart404.loaded .col3 {
+  left: 345px;
+  width: 230px;
+}
+#flowchart404.loaded .col4 {
+  left: 573px;
+  width: 200px;
+}
+#flowchart404.loaded .get-started {
+  left: 150px;
+  top: 825px;
+  width: 200px;
+}
+#flowchart404.loaded .blog {
+  top: 1165px;
+}
+#flowchart404.loaded .puppy {
+  top: 2116px;
+}
+#flowchart404.loaded .process, #flowchart404.loaded .work {
+  top: 1600px;
+  width: 220px;
+}
+#flowchart404.loaded .process {
+  left: 155px;
+}
+#flowchart404.loaded .work {
+  left: 400px;
+}
+#flowchart404.loaded .cats {
+  left: 285px;
+  top: 1830px;
+  width: 200px;
+}
+#flowchart404.loaded .images {
+  top: 820px;
+}
+#flowchart404.loaded .info {
+  top: 980px;
+}
+#flowchart404.loaded .hiphop {
+  top: 2116px;
+}
+#flowchart404.loaded .pop {
+  top: 2275px;
+}
+#flowchart404.loaded .rock {
+  top: 2430px;
+}
+#flowchart404.loaded .puppies {
+  top: 2590px;
 }
