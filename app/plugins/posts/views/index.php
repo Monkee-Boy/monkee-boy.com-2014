@@ -48,7 +48,7 @@
           <div class="post-panel-inside">
             <a href="<?php echo $aPost['url']; ?>" title="Permalink for <?php echo $aPost['title']; ?>">
               <img src="/uploads/posts/<?php echo $aPost['listing_image']; ?>" alt="<?php echo $aPost['title']; ?>">
-              <h4><?php echo $aPost['title']; ?><span>Read now &raquo;</span></h4>
+              <div class="post-title"><h5><?= $aPost['title'] ?></h5><span>Read now &raquo;</span></div>
             </a>
           </div> <!-- /.post-panel-inside -->
         </div> <!-- /.one-third.post-panel -->
@@ -76,8 +76,8 @@
       $.each(data.posts, function(key, post) {
         posts += '<div class="one-third post-panel" data-text-align="center">';
         posts += '<div class="post-panel-inside">';
-        posts += '<a href="'+post.url+'" title="Permalink for '+post.title+'"><img src="/uploads/posts/'+post.listing_image+'" alt="'+post.title+'"></a>';
-        posts += '<h5><a href="'+post.url+'" title="Permalink for '+post.title+'">'+post.title+'</a></h5>';
+        posts += '<a href="'+post.url+'" title="Permalink for '+post.title+'"><img src="/uploads/posts/'+post.listing_image+'" alt="'+post.title+'">';
+        posts += '<div class="post-title"><h5>'+post.title+'</h5><span>Read now &raquo;</span></div></a>'
         posts += '</div> <!-- /.post-panel-inside --> </div> <!-- /.one-third.post-panel -->';
       });
 
