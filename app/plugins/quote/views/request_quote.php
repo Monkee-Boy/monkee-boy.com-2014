@@ -92,6 +92,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'work-with-us', 'sPageTitle'=>$sTit
         </div>
       </div>
     </div>
+    <hr>
     <div class="row">
       <div class="left">
         <h4>Have a project deadline?</h4>
@@ -118,6 +119,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'work-with-us', 'sPageTitle'=>$sTit
         </div>
       </div>
     </div>
+    <hr>
     <div class="row">
       <div class="left">
         <label for="budget">Have a project budget?*</label>
