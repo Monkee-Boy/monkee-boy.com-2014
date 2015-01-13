@@ -20,7 +20,7 @@ class quote extends appController {
     $this->tplDisplay("request_quote.php");
   }
   function thank_you() {
-    $this->tplAssign('aTYContent', $this->model->ty_content);
+    $this->tplAssign('aContent', $this->model->ty_content);
     $this->tplDisplay("thank_you.php");
   }
   function submit_form() {
