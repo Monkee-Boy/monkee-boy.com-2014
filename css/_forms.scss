@@ -17,6 +17,11 @@ label {
   text-transform: uppercase;
   color: $teal;
   margin-bottom: 8px;
+  &.quiet {
+    font-size: 18px;
+    font-weight: 400;
+    color: #979797;
+  }
 }
 
 // radio btn label
