@@ -1,6 +1,7 @@
 #contact-map {
   width: 100%;
   border: 12px solid #fff;
+  margin-bottom: em-calc(46);
   @media #{$medium-down} { height: 460px; }
   &:after {
     content: "";

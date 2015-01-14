@@ -709,7 +709,7 @@ body.menu-open .container {
   position: absolute;
   left: 0;
   top: 120px;
-  width: 330px;
+  width: 250px;
   padding: 1.33333em 0.55556em 0;
   background-color: #222224;
   background-color: rgba(34, 34, 36, 0.97);
@@ -784,11 +784,11 @@ body.menu-open .container {
   padding-bottom: 21px;
 }
 .main-nav ul .primary > a.current {
-  color: #acca41;
-  border-bottom-color: #acca41;
+  color: #fff;
+  border-bottom-color: #fff;
 }
 .main-nav ul .primary > a.current:after {
-  color: #acca41;
+  color: #fff;
 }
 .main-nav ul .primary > a:after {
   content: '\e600';
@@ -826,7 +826,7 @@ body.menu-open .container {
   content: "\e610";
 }
 .main-nav ul .primary > a.nav-work:after {
-  content: "\e60c";
+  content: "\e613";
 }
 .main-nav ul .primary > a.nav-contact:after {
   content: "\e60e";
@@ -1873,7 +1873,7 @@ button.button-full[type=submit], .upload-box.initial .button-full.add-files, .bu
   text-align: center;
 }
 .social-links a:before {
-  content: "\e60b";
+  content: "\e619";
   color: #acca41;
   font-size: 54px;
   line-height: 1;
@@ -1922,22 +1922,52 @@ button.button-full[type=submit], .upload-box.initial .button-full.add-files, .bu
   content: "\e624";
 }
 .social-links .twitter:after {
-  content: "\e61b";
+  content: "\e618";
 }
 .social-links .facebook:after {
-  content: "\e61c";
+  content: "\e603";
 }
 .social-links .linkedin:after {
-  content: "\e620";
+  content: "\e612";
 }
 .social-links .gplus:after {
-  content: "\e61d";
+  content: "\e606";
 }
 .social-links .instagram:after {
-  content: "\e621";
+  content: "\e604";
 }
 .social-links .pinterest:after {
-  content: "\e61e";
+  content: "\e605";
+}
+.social-links .dribble:after {
+  content: "\e602";
+}
+.social-links .behance:after {
+  content: "\e60a";
+}
+.social-links .github:after {
+  content: "\e60c";
+}
+.social-links .codepen:after {
+  content: "\e611";
+}
+.social-links .flickr:after {
+  content: "\e62e";
+}
+.social-links .youtube:after {
+  content: "\f167";
+}
+.social-links .vimeo:after {
+  content: "\e623";
+}
+.social-links .tumblr:after {
+  content: "\e62f";
+}
+.social-links .vsco_cam:after {
+  content: "\e601";
+}
+.social-links .pinboard:after {
+  content: "\e600";
 }
 
 .page-title {
@@ -2259,7 +2289,7 @@ button.button-full[type=submit], .upload-box.initial .button-full.add-files, .bu
   position: relative;
 }
 .dots[data-dots='dual']:before, .dots[data-dots='dual']:after, .dots[data-dots='left']:before, .dots[data-dots='right']:after {
-  content: "\e623";
+  content: "\e631";
   position: absolute;
   bottom: 0;
   color: #ededed;
@@ -2296,11 +2326,11 @@ button.button-full[type=submit], .upload-box.initial .button-full.add-files, .bu
   line-height: 240px;
 }
 .service-icon:before {
-  content: "\e60b";
+  content: "\e619";
   color: #fff;
 }
 .service-icon:after {
-  content: "\e606";
+  content: "\e61b";
   position: absolute;
   top: 0;
   left: 0;
@@ -2323,37 +2353,37 @@ button.button-full[type=submit], .upload-box.initial .button-full.add-files, .bu
   color: #acca41;
 }
 .service-icon.strategy i:before {
-  content: "\e616";
+  content: "\e617";
 }
 .service-icon.design:after {
   color: #23a38f;
 }
 .service-icon.design i:before {
-  content: "\e611";
+  content: "\e614";
 }
 .service-icon.development:after {
   color: #8fa82a;
 }
 .service-icon.development i:before {
-  content: "\e612";
+  content: "\e61c";
 }
 .service-icon.marketing:after {
   color: #1a7a6c;
 }
 .service-icon.marketing i:before {
-  content: "\e615";
+  content: "\e61a";
 }
 .service-icon.maintenance:after {
   color: #fcc721;
 }
 .service-icon.maintenance i:before {
-  content: "\e614";
+  content: "\e616";
 }
 .service-icon.growth:after {
   color: #b2b2b2;
 }
 .service-icon.growth i:before {
-  content: "\e613";
+  content: "\e615";
 }
 
 .service-icons {
@@ -3678,7 +3708,7 @@ button[type=submit] {
   text-align: center;
 }
 .port-slider .instructions:before {
-  content: "\e617";
+  content: "\e630";
   display: block;
   font-size: 70px;
 }
@@ -4570,13 +4600,13 @@ button[type=submit] {
   line-height: 1;
 }
 .home-pulse .twitter .bottom .actions li a.follow:before {
-  content: "\e62f";
+  content: "\e633";
 }
 .home-pulse .twitter .bottom .actions li a.reply:before {
-  content: "\e630";
+  content: "\e632";
 }
 .home-pulse .twitter .bottom .actions li a.retweet:before {
-  content: "\e62e";
+  content: "\e634";
 }
 .home-pulse .twitter .bottom .actions li a.favorite:before {
   content: "\e9d9";
@@ -5014,13 +5044,13 @@ button[type=submit] {
   vertical-align: middle;
 }
 .share-section a.twitter:before {
-  content: "\e61b";
+  content: "\e618";
 }
 .share-section a.facebook:before {
-  content: "\e61c";
+  content: "\e603";
 }
 .share-section a.pinterest:before {
-  content: "\e61e";
+  content: "\e605";
 }
 .share-section a:after {
   content: "";
@@ -5604,19 +5634,19 @@ button[type=submit] {
   }
 }
 .stats-list li.mobile-os:after {
-  content: "\e604";
+  content: "\e621";
 }
 .stats-list li.bananas:after {
-  content: "\e600";
+  content: "\e61d";
 }
 .stats-list li.tacos:after {
-  content: "\e605";
+  content: "\e622";
 }
 .stats-list li.code:after {
-  content: "\e602";
+  content: "\e61f";
 }
 .stats-list li.desktop-os:after {
-  content: "\e603";
+  content: "\e620";
 }
 .stats-list li p {
   position: absolute;
@@ -5716,7 +5746,7 @@ button[type=submit] {
   }
 }
 .office-cat p:before {
-  content: "\e601";
+  content: "\e61e";
   font-size: 100px;
   color: #1a7a6c;
   padding-right: 30px;
@@ -5808,6 +5838,7 @@ button[type=submit] {
 #contact-map {
   width: 100%;
   border: 12px solid #fff;
+  margin-bottom: 2.55556em;
 }
 @media only screen and (max-width: 840px) {
   #contact-map {

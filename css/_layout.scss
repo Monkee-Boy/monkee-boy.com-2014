@@ -168,7 +168,7 @@ body {
         position: absolute;
         left: 0;
         top: 120px;
-        width: 330px;
+        width: 250px;
         padding: em-calc(24) em-calc(10) 0;
         background-color: #222224;
         background-color: rgba(#222224, 0.97);
@@ -219,9 +219,9 @@ body {
       position: relative;
       padding-bottom: 21px;
       &.current {
-        color: $green;
-        border-bottom-color: $green;
-        &:after { color: $green; }
+        color: #fff;
+        border-bottom-color: #fff;
+        &:after { color: #fff; }
       }
       &:after {
         content: '\e600';
