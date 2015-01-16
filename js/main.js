@@ -1075,7 +1075,7 @@
       }
     ];
     var office_loc = new google.maps.LatLng(30.383294, -97.743659),
-        marker_image = '/images/map-marker.png';
+        marker_image = new google.maps.MarkerImage('/images/map-marker.png', null, null, null, new google.maps.Size(100,130));
     var map = new google.maps.Map(document.getElementById('contact-map'), {
       zoom: 14,
       center: office_loc,
