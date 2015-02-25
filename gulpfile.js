@@ -53,7 +53,7 @@ gulp.task('lint', function () {
 
 // Rerun the task when a file changes
 gulp.task('watch', function() {
-  gulp.watch('./js/*.js', ['scripts']);
+  gulp.watch('./js/main.js', ['scripts']);
   gulp.watch('./css/*.scss', ['styles']);
   gulp.watch(['*.html'], ['html']);
 });

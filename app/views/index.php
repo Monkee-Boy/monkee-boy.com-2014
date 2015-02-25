@@ -1,65 +1,51 @@
 <?php $this->tplDisplay("inc_header.php", ['menu'=>'home']); ?>
 
-  <div class="row">
-    <p class="subtitle hero-subtitle" data-text-align="center">Monkee-Boy is Full Service Web Design &amp; Digital Marketing Agency</p>
-  </div>
-
-  <div class="hero-circles">
-    <div class="row">
-      <h1>Let's build something <i>amazing</i> together.</h1>
-      <div class="mobile-slider"></div>
-      <ul>
-        <li>
-          <span class="border"></span>
-          <div class="discover circle" data-name="discover">
-            <div class="bg" style="background-image:url(/images/home-discover.png)" data-bg="/images/home-discover.png"></div>
-          </div>
-          <p class="tagline first">
-            <a href="/our-process/discover/">
-              <span class="title closed"><?= $this->getSetting('homepage-slider-discover-title'); ?></span>
-              <span class="title open"><?= $this->getSetting('homepage-slider-discover-title-open'); ?></span>
-              <span class="subtitle"><?= $this->getSetting('homepage-slider-discover-text'); ?></span>
-            </a>
-          </p>
-        </li>
-        <li>
-          <span class="border"></span>
-          <div class="create circle" data-name="create">
-            <div class="bg" style="background-image:url(/images/home-create.png)" data-bg="/images/home-create.png"></div>
-          </div>
-          <p class="tagline second">
-            <a href="/our-process/create/">
-              <span class="title closed"><?= $this->getSetting('homepage-slider-create-title'); ?></span>
-              <span class="title open"><?= $this->getSetting('homepage-slider-create-title-open'); ?></span>
-              <span class="subtitle"><?= $this->getSetting('homepage-slider-create-text'); ?></span>
-            </a>
-          </p>
-        </li>
-        <li>
-          <span class="border"></span>
-          <div class="evolve circle" data-name="evolve">
-            <div class="bg" style="background-image:url(/images/home-evolve.png)" data-bg="/images/home-evolve.png"></div>
-          </div>
-          <p class="tagline third">
-            <a href="/our-process/evolve/">
-              <span class="title closed"><?= $this->getSetting('homepage-slider-evolve-title'); ?></span>
-              <span class="title open"><?= $this->getSetting('homepage-slider-evolve-title-open'); ?></span>
-              <span class="subtitle"><?= $this->getSetting('homepage-slider-evolve-text'); ?></span>
-            </a>
-          </p>
-        </li>
-      </ul>
+  <div class="hero-slideshow">
+    <div class="current">
+      <img src="/images/home-discover.png">
     </div>
-    <div class="circle-expander">
-      <span class="bg"></span>
-      <div class="title-overlay"></div>
-      <a href="#" class="close-btn">Close</a>
-      <div class="expander-nav">
-        <a href="#" class="discover">Discover</a>
-        <a href="#" class="create">Create</a>
-        <a href="#" class="evolve">Evolve</a>
+    <div class="next">
+      <img src="/images/home-create.png">
+    </div>
+    <div class="caption">
+      <span class="caption-title">Discover</span>
+      <div class="caption-content">
+        <?= " "; // $this->getSetting('homepage-slider-discover-text'); ?>
+        <p>Now that we've met, it's time to get to know each other.  We like breakfast tacos, puppies, and learning all about you, our next favorite client.</p>
+        <p>We’ve got a knack for asking great questions.</p>
       </div>
+      <a href="#" class="slide-trigger">Next Slide</a>
     </div>
+    <ul class="slider-nav">
+      <li class="home" data-id="1" data-image="/images/home-discover.png">
+        <span class="title">Monkee-Boy</span>
+        <div class="slide-caption">
+          <p>We're not oracles, but we do know why you're here. You want things. A more impressive website. A digital marketing campaign that customers love. Lots of hi-fives. Nice to meet you!</p>
+          <p>We're Monkee-Boy. And we can show you how to make it in the Jungle.</p>
+        </div>
+      </li>
+      <li data-id="2" data-image="/images/home-discover.png">
+        <span class="title">Discover</span>
+        <div class="slide-caption">
+          <p>Now that we've met, it's time to get to know each other.  We like breakfast tacos, puppies, and learning all about you, our next favorite client.</p>
+          <p>We’ve got a knack for asking great questions.</p>
+        </div>
+      </li>
+      <li data-id="3" data-image="/images/home-create.png">
+        <span class="title">Create</span>
+        <div class="slide-caption">
+          <p>One part smart, user-centric design. A heaping cup of clean, efficient code. Served with an extra-large side of results-driven digital marketing.</p>
+          <p>Let's cook up something amazing together.</p>
+        </div>
+      </li>
+      <li data-id="4" data-image="/images/home-evolve.png">
+        <span class="title">Evolve</span>
+        <div class="slide-caption">
+          <p>Monkee-Boy stays by your side. Because a web presence that sits and gathers dust is a web presence that gets old fast.</p>
+          <p>Let's never let that happen again.</p>
+        </div>
+      </li>
+    </ul>
   </div>
 
   <?php
