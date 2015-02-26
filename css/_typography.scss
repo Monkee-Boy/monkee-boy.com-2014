@@ -97,6 +97,26 @@ p.intro {
   font-weight: bold;
 }
 
+// useful align classes
+.alignleft {
+  float: left;
+  margin: 0 20px 20px 0;
+  @media #{$x-small-only} {
+    float: none;
+    display: block;
+    margin: 0 auto;
+  }
+}
+.alignright {
+  float: right;
+  margin: 0 0 20px 20px;
+  @media #{$x-small-only} {
+    float: none;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
 blockquote {
   padding-left: em-calc(17px);
   color: $black;
