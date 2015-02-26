@@ -55,7 +55,7 @@
     bottom: 0;
     z-index: 5;
     width: 95%;
-    padding: em-calc(20) em-calc(120) em-calc(20) em-calc(20);
+    padding: em-calc(20) em-calc(120) em-calc(24) em-calc(20);
     background-color: rgba($black, 0.9);
     color: #fff;
   }
@@ -76,6 +76,17 @@
     font-size: 22px;
     p { margin-bottom: 12px; }
     *:last-child { margin-bottom: 0; }
+  }
+  .landing-caption {
+    bottom: 24px;
+    max-width: 920px;
+    padding-left: em-calc(50);
+    .caption-title { display: none; }
+    .caption-content { width: 100%; }
+    h1 {
+      font-weight: bold;
+      color: #fff;
+    }
   }
   .slide-trigger {
     position: absolute;

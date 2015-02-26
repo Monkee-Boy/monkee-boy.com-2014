@@ -4033,7 +4033,7 @@ button[type=submit] {
   bottom: 0;
   z-index: 5;
   width: 95%;
-  padding: 1.11111em 6.66667em 1.11111em 1.11111em;
+  padding: 1.11111em 6.66667em 1.33333em 1.11111em;
   background-color: rgba(36, 37, 41, 0.9);
   color: #fff;
 }
@@ -4058,6 +4058,21 @@ button[type=submit] {
 }
 .hero-slideshow .caption-content *:last-child {
   margin-bottom: 0;
+}
+.hero-slideshow .landing-caption {
+  bottom: 24px;
+  max-width: 920px;
+  padding-left: 2.77778em;
+}
+.hero-slideshow .landing-caption .caption-title {
+  display: none;
+}
+.hero-slideshow .landing-caption .caption-content {
+  width: 100%;
+}
+.hero-slideshow .landing-caption h1 {
+  font-weight: bold;
+  color: #fff;
 }
 .hero-slideshow .slide-trigger {
   position: absolute;

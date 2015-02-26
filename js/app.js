@@ -1212,40 +1212,60 @@ function BlurStack()
     this.$current = this.$el.find('.current');
     this.$next = this.$el.find('.next');
     this.$nav = this.$el.find('.slider-nav');
+    this.$caption = this.$el.find('.caption');
     this.maxBlur = 120;
     this.steps = 3;
+    this.curSlide = 1;
   };
 
-  HomeSlideshow.prototype.addBlurCanvas = function(el) {
-    console.log("adding blur canvas");
-    var $img = el.children('img'),
-        width = $img.width(),
-        height = $img.height(),
+  HomeSlideshow.prototype.addBlurCanvas = function(el, source) {
+    var self = this,
+        $img = $('<img width="' + this.width + '" height="' + this.height + '">'),
         increment = this.maxBlur/this.steps;
 
-    // skip first increment for smoother blur
-    for (var i = 1; i < this.steps; i++) {
-      console.log("adding new canvas");
-      var canvas = document.createElement('canvas');
+    $img.load(function() {
+      console.log("image loads");
+      el.append($img);
 
-      canvas.width = $img.width();
-      canvas.height = $img.height();
-      canvas.className = 'canvas' + i;
-      el.append(canvas);
+      // skip first increment for smoother blur
+      for (var i = 1; i < self.steps; i++) {
+        var canvas = document.createElement('canvas');
 
-      stackBlurImage( $img[0], canvas, (increment * i + increment), false );
-    }
+        canvas.width = self.width;
+        canvas.height = self.height;
+        canvas.className = 'canvas' + i;
+        el.append(canvas);
+
+        stackBlurImage( $img[0], canvas, (increment * i + increment), false );
+      }
+    });
+    $img.attr('src', source);
   };
 
   HomeSlideshow.prototype.animate = function(callback, params) {
     var anim = new TimelineLite(),
-        params = params ? params : [],
-        self = this;
+        self = this,
+        nextSlide = this.curSlide > 3 ? 1 : this.curSlide + 1;
 
-    // animate current slide to blur and fade
+    this.curSlide = nextSlide;
+
+    if (!params) params = [];
+
+    // animate current slide to blur
     for (var i = 1; i < this.steps; i++) {
       anim.to(this.$current.children('.canvas' + i), 0.4, { opacity: 1 }, '-=0.2');
     }
+
+    // animate caption out
+    anim.to(this.$caption, 0.5, {
+      x: -this.width,
+      ease: Power2.easeIn,
+      onComplete: function() {
+        self.updateCaption(nextSlide);
+      }
+    }, '-=0.8');
+
+    // fade out current slide
     anim.to(this.$current, 0.8, { opacity: 0 }, '-=0.5');
 
     // animate next slide to un-blur
@@ -1253,36 +1273,57 @@ function BlurStack()
       anim.to(this.$next.children('.canvas' + n), 0.4, { opacity: 0 }, '-=0.2');
     }
 
+    // animate caption back in
+    anim.to(this.$caption, 0.4, {
+      x: 0,
+      ease: Power2.easeOut
+    }, '-=0.5');
+
     anim.eventCallback('onComplete', callback, params, self);
 
     anim.play();
   };
 
   HomeSlideshow.prototype.updateSlides = function() {
-    var self = this,
-        next_slide = this.$nav.children('[data-id=4]'),
+    var nextID = this.curSlide > 3 ? 1 : this.curSlide + 1,
+        next_slide = this.$nav.children('[data-id=' + nextID + ']'),
         slide_html = '<div class="next" />',
-        slide_img = $('<img>');
+        slide_img = $('<img width="' + this.width + '" height="' + this.height + '">');
 
     this.$current.remove();
     this.$next.removeClass('next').addClass('current');
     this.$current = this.$next;
 
-    slide_img.load(function() {
-      self.$next = $(slide_html);
-      self.$next.append(slide_img);
-      self.$el.append(self.$next);
+    this.$next = $(slide_html);
+    this.$el.append(this.$next);
+    this.addBlurCanvas(this.$next, next_slide.data('image'));
+  };
 
-      self.addBlurCanvas(self.$next);
-    });
-    slide_img.attr('src', next_slide.data('image'));
-  }
+  HomeSlideshow.prototype.updateCaption = function(i) {
+    var slide = this.$nav.children('[data-id=' + i + ']');
+
+    if (i == 1) {
+      this.$caption.addClass('landing-caption');
+      this.$caption.children('.caption-title').html('');
+    } else {
+      this.$caption.removeClass('landing-caption');
+      this.$caption.children('.caption-title').html( slide.children('.title').text() );
+    }
+    this.$caption.children('.caption-content').html( slide.children('.slide-caption').html() );
+  };
 
   HomeSlideshow.prototype.init = function(el) {
-    var self = this;
+    var self = this,
+        image1 = this.$nav.children('[data-id=1]').data('image'),
+        image2 = this.$nav.children('[data-id=2]').data('image');
 
-    this.addBlurCanvas(this.$current);
-    this.addBlurCanvas(this.$next);
+    this.width = this.$el.width();
+    this.height = this.$el.height();
+
+    console.log("width is", this.width, "height is", this.height);
+
+    this.addBlurCanvas(this.$current, image1);
+    this.addBlurCanvas(this.$next, image2);
 
     this.$el.find('.slide-trigger').on('click', function(e) {
       e.preventDefault();

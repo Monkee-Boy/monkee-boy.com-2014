@@ -1,49 +1,37 @@
 <?php $this->tplDisplay("inc_header.php", ['menu'=>'home']); ?>
 
-  <div class="hero-slideshow">
-    <div class="current">
-      <img src="/images/home-discover.png">
-    </div>
-    <div class="next">
-      <img src="/images/home-create.png">
-    </div>
-    <div class="caption">
-      <span class="caption-title">Discover</span>
+  <div class="hero-slideshow loading">
+    <div class="current"></div>
+    <div class="next"></div>
+    <div class="caption landing-caption">
+      <span class="caption-title"></span>
       <div class="caption-content">
-        <?= " "; // $this->getSetting('homepage-slider-discover-text'); ?>
-        <p>Now that we've met, it's time to get to know each other.  We like breakfast tacos, puppies, and learning all about you, our next favorite client.</p>
-        <p>We’ve got a knack for asking great questions.</p>
+        <h1>Solve the Web</h1>
+        <p>We're not oracles, but we do know why you're here. You want things. A more impressive website. A digital marketing campaign that customers love. Lots of hi-fives. Nice to meet you!</p>
+        <p>We're Monkee-Boy. And we can show you how to make it in the Jungle.</p>
       </div>
       <a href="#" class="slide-trigger">Next Slide</a>
     </div>
     <ul class="slider-nav">
-      <li class="home" data-id="1" data-image="/images/home-discover.png">
+      <li class="home" data-id="1" data-image="/images/home-monkee.png">
         <span class="title">Monkee-Boy</span>
         <div class="slide-caption">
+          <h1>Solve the Web</h1>
           <p>We're not oracles, but we do know why you're here. You want things. A more impressive website. A digital marketing campaign that customers love. Lots of hi-fives. Nice to meet you!</p>
           <p>We're Monkee-Boy. And we can show you how to make it in the Jungle.</p>
         </div>
       </li>
       <li data-id="2" data-image="/images/home-discover.png">
         <span class="title">Discover</span>
-        <div class="slide-caption">
-          <p>Now that we've met, it's time to get to know each other.  We like breakfast tacos, puppies, and learning all about you, our next favorite client.</p>
-          <p>We’ve got a knack for asking great questions.</p>
-        </div>
+        <div class="slide-caption"><?= $this->getSetting('homepage-slider-discover-text'); ?></div>
       </li>
       <li data-id="3" data-image="/images/home-create.png">
         <span class="title">Create</span>
-        <div class="slide-caption">
-          <p>One part smart, user-centric design. A heaping cup of clean, efficient code. Served with an extra-large side of results-driven digital marketing.</p>
-          <p>Let's cook up something amazing together.</p>
-        </div>
+        <div class="slide-caption"><?= $this->getSetting('homepage-slider-create-text'); ?></div>
       </li>
       <li data-id="4" data-image="/images/home-evolve.png">
         <span class="title">Evolve</span>
-        <div class="slide-caption">
-          <p>Monkee-Boy stays by your side. Because a web presence that sits and gathers dust is a web presence that gets old fast.</p>
-          <p>Let's never let that happen again.</p>
-        </div>
+        <div class="slide-caption"><?= $this->getSetting('homepage-slider-evolve-text'); ?></div>
       </li>
     </ul>
   </div>
