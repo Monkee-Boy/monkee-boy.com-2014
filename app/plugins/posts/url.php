@@ -16,6 +16,14 @@ $aPluginUrlPatterns = array(
     "cmd" => "posts",
     "action" => "index"
   ),
+  "/blog/latest-post/" => array(
+    "cmd" => "posts",
+    "action" => "latest_post"
+  ),
+  "/blog/freebie-friday/" => array(
+    "cmd" => "posts",
+    "action" => "freebie_friday"
+  ),
   "/<parent:[a-z0-9_\-/]+>/blog/" => array(
 		"cmd" => "posts",
 		"action" => "index"

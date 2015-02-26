@@ -65,6 +65,18 @@ class posts extends appController {
 		echo json_encode($return);
 	}
 
+	function latest_post() {
+		$aPost = $this->model->getPosts(null, false, false, null, null, 1);
+
+		$this->forward($aPost[0]['url']);
+	}
+
+	function freebie_friday() {
+		$aPost = $this->model->getPosts(8, false, false, null, null, 1);
+
+		$this->forward($aPost[0]['url']);
+	}
+
 	function rss() {
 		$aPosts = array_slice($this->model->getPosts($_GET["category"]), 0, 15);
 
