@@ -17,8 +17,7 @@
         <span class="title">Monkee-Boy</span>
         <div class="slide-caption">
           <h1>Solve the Web</h1>
-          <p>We're not oracles, but we do know why you're here. You want things. A more impressive website. A digital marketing campaign that customers love. Lots of hi-fives. Nice to meet you!</p>
-          <p>We're Monkee-Boy. And we can show you how to make it in the Jungle.</p>
+          <?= $this->getSetting('homepage-slider-monkeeboy-text'); ?>
         </div>
       </li>
       <li data-id="2" data-image="/images/home-discover.png">
