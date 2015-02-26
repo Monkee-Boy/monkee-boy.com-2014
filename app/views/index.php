@@ -13,7 +13,7 @@
       <a href="#" class="slide-trigger">Next Slide</a>
     </div>
     <ul class="slider-nav menu-lite">
-      <li class="home" data-id="1" data-image="/images/home-monkee.png">
+      <li class="home active" data-id="1" data-image="/images/home-monkee.png">
         <span class="title">Monkee-Boy</span>
         <div class="slide-caption">
           <h1>Solve the Web</h1>

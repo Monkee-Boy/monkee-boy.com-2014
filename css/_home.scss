@@ -33,21 +33,18 @@
     }
   }
   .slider-nav {
-    list-style-type: none;
     position: absolute;
     top: 20px;
     right: 60px;
     z-index: 5;
-    padding: 10px;
+    padding: em-calc(10) em-calc(16);
     margin: 0;
     background-color: rgba($black, 0.9);
     .slide-caption { display: none; }
-    li {
-      display: inline-block;
-    }
     .title {
       color: #fff;
     }
+    .active .title { color: $green; }
   }
   .caption {
     position: absolute;

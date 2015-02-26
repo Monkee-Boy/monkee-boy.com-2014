@@ -679,10 +679,16 @@
         slide_html = '<div class="next" />',
         slide_img = $('<img width="' + this.width + '" height="' + this.height + '">');
 
+    // update slide menu
+    this.$nav.children('li').removeClass('active');
+    this.$nav.children('[data-id=' + this.curSlide + ']').addClass('active');
+
+    // remove previous slide and update current slide
     this.$current.remove();
     this.$next.removeClass('next').addClass('current');
     this.$current = this.$next;
 
+    // create new "next slide"
     this.$next = $(slide_html);
     this.$el.append(this.$next);
     this.addBlurCanvas(this.$next, next_slide.data('image'));

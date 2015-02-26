@@ -731,7 +731,7 @@ body.menu-open .container {
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  z-index: 5;
+  z-index: 10;
 }
 @media only screen and (min-width: 981px) and (max-width: 1115px) {
   .main-nav ul li.primary ul {
@@ -4009,23 +4009,22 @@ button[type=submit] {
   filter: alpha(opacity=0);
 }
 .hero-slideshow .slider-nav {
-  list-style-type: none;
   position: absolute;
   top: 20px;
   right: 60px;
   z-index: 5;
-  padding: 10px;
+  padding: 0.55556em 0.88889em;
   margin: 0;
   background-color: rgba(36, 37, 41, 0.9);
 }
 .hero-slideshow .slider-nav .slide-caption {
   display: none;
 }
-.hero-slideshow .slider-nav li {
-  display: inline-block;
-}
 .hero-slideshow .slider-nav .title {
   color: #fff;
+}
+.hero-slideshow .slider-nav .active .title {
+  color: #acca41;
 }
 .hero-slideshow .caption {
   position: absolute;
