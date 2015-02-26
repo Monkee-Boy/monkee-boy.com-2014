@@ -1115,7 +1115,7 @@
     flowchart.onload = function() {
       container.appendChild(flowchart);
       container.className = 'loaded';
-    }
+    };
     flowchart.src = '/images/flowchart404.png';
   }
 
