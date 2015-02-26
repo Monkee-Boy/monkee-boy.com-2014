@@ -25,7 +25,7 @@
 							<span class="hidden">not published</span><img src="/images/icons/bullet_yellow.png" alt="not published">
 						<?php endif; ?>
 					</td>
-					<td><a href="<?= $aPost['url'] ?>" title="View <?= $aPost['title'] ?>" target="_blank"><?= $aPost['title'] ?></a></td>
+					<td><a href="<?php if($aPost['active'] == 1) { echo $aPost['url']; } else { ?>/blog/preview/<?= $aPost['id']; ?><?php } ?>" title="View <?= $aPost['title'] ?>" target="_blank"><?= $aPost['title'] ?></a></td>
 					<td class="center"><?= formatDateTime($aPost['publish_on']) ?></td>
 					<td><?= $aPost['author']['fname'].' '.$aPost['author']['lname'] ?></td>
 					<td class="center">
