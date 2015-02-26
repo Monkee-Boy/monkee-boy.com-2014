@@ -2057,7 +2057,7 @@ button.button-full[type=submit], .upload-box.initial .button-full.add-files, .bu
 .list-style-alt li:before, .content-block ul li:before, .content-block ol li:before {
   content: '+';
   color: #acca32;
-  margin-left: -25px;
+  margin-left: -19px;
   margin-right: 10px;
 }
 
