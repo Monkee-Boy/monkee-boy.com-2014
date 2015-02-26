@@ -73,6 +73,7 @@
   aside {
     @include span(5 of 12);
     @include pad(em-calc(35px));
+
     @media #{$small-only} {
       width: 100%;
       margin-bottom: em-calc(20, 18);
@@ -82,7 +83,14 @@
   .panel-content {
     @include span(7 of 12);
     @include pad(em-calc(35px));
-    @media #{$small-only} { width: 100%; }
+
+    @media #{$small-only} {
+      width: 100%;
+    }
+
+    .page-services & h4 a {
+      color: $teal;
+    }
   }
 }
 
