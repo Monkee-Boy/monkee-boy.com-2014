@@ -1,4 +1,4 @@
-<?php $this->tplDisplay("inc_header.php", ['menu'=>'portfolio','sPageTitle'=>$aService['name']." &raquo; Manage Service"]); ?>
+<?php $this->tplDisplay("inc_header.php", ['menu'=>'services','sPageTitle'=>$aService['name']." &raquo; Manage Service"]); ?>
 
   <h2><a href="/admin/portfolio/services/"><?php echo $aService['name']; ?></a> &raquo; Manage Service</h2>
   <?php $this->tplDisplay('inc_alerts.php'); ?>

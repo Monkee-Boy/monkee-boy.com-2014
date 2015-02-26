@@ -1,7 +1,7 @@
-<?php $this->tplDisplay("inc_header.php", ['menu'=>'portfolio','sPageTitle'=>$aService['name']." &raquo; Services"]); ?>
+<?php $this->tplDisplay("inc_header.php", ['menu'=>'services','sPageTitle'=>$aService['name']." &raquo; Services"]); ?>
 
   <h2>
-    <a href="/admin/portfolio/services/"><?php echo $aService['name']; ?></a> &raquo; Manage Services
+    <a href="/admin/portfolio/services/">Services</a> &raquo; <?php echo $aService['name']; ?>
     <a href="/admin/portfolio/" title="Manage Portfolio" class="btn btn-primary pull-right" rel="tooltip" data-placement="bottom">Manage Portfolio</a>
     <a href="/admin/portfolio/services/<?php echo $aService['id']; ?>/sub/add/" title="Add Service" class="btn btn-primary pull-right" rel="tooltip" data-placement="bottom"><i class="icon-plus icon-white"></i> Add Service</a>
   </h2>

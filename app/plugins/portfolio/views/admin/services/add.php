@@ -1,6 +1,6 @@
-<?php $this->tplDisplay("inc_header.php", ['menu'=>'clients','sPageTitle'=>"Portfolio &raquo; Create Client"]); ?>
+<?php $this->tplDisplay("inc_header.php", ['menu'=>'services','sPageTitle'=>"Portfolio &raquo; Create Service"]); ?>
 
-  <h2>Portfolio &raquo; Create Client</h2>
+  <h2>Portfolio &raquo; Create Service</h2>
   <?php $this->tplDisplay('inc_alerts.php'); ?>
 
   <form id="add-form" method="post" action="/admin/portfolio/add/s/" enctype="multipart/form-data">

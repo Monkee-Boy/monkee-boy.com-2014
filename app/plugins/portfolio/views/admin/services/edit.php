@@ -1,4 +1,4 @@
-<?php $this->tplDisplay("inc_header.php", ['menu'=>'portfolio','sPageTitle'=>"Services &raquo; Manage Service"]); ?>
+<?php $this->tplDisplay("inc_header.php", ['menu'=>'services','sPageTitle'=>"Services &raquo; Manage Service"]); ?>
 
   <h2>Services &raquo; Manage Service</h2>
   <?php $this->tplDisplay('inc_alerts.php'); ?>

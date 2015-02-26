@@ -51,10 +51,11 @@
 			<div class="span3">
 				<div class="well sidebar-nav">
 					<ul class="nav nav-list">
-						<li class="nav-<?= $x ?><?php if($menu === "dashboard"){ echo 'active'; }?>"><a href="/admin/" title="Dashboard" rel="tooltip" data-placement="right"><i class="icon-dashboard"></i> Dashboard</a></li>
+						<li class="nav-<?= $x ?><?php if($menu === "dashboard"){ echo ' active'; }?>"><a href="/admin/" title="Dashboard" rel="tooltip" data-placement="right"><i class="icon-dashboard"></i> Dashboard</a></li>
 						<?php foreach($aAdminFullMenu as $x=>$aMenu): ?>
-							<li class="nav-<?= $x ?><?php if($menu == $x){ echo 'active'; }?>"><a href="<?= $aMenu['menu'][0]['link'] ?>" title="<?= $aMenu['title'] ?>" rel="tooltip" data-placement="right"><i class="<?= $aMenu['icon'] ?>"></i> <?= $aMenu['title'] ?></a></li>
+							<li class="nav-<?= $x ?><?php if($menu == $x){ echo ' active'; }?>"><a href="<?= $aMenu['menu'][0]['link'] ?>" title="<?= $aMenu['title'] ?>" rel="tooltip" data-placement="right"><i class="<?= $aMenu['icon'] ?>"></i> <?= $aMenu['title'] ?></a></li>
 						<?php endforeach; ?>
+						<li class="nav-<?= $x ?><?php if($menu === "services"){ echo ' active'; }?>"><a href="/admin/portfolio/services/" title="Services" rel="tooltip" data-placement="right"><i class="icon-dashboard"></i> Services</a></li>
 					</ul>
 				</div><!--/.well -->
 

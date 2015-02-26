@@ -1,4 +1,4 @@
-<?php $this->tplDisplay("inc_header.php", ['menu'=>'portfolio','sPageTitle'=>"Services"]); ?>
+<?php $this->tplDisplay("inc_header.php", ['menu'=>'services','sPageTitle'=>"Services"]); ?>
 
   <h2>
     Manage Service Categories
