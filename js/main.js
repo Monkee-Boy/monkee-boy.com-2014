@@ -596,213 +596,139 @@
   });
 
   // home page hero circles
-  var HeroCircles = function(el) {
+  var HomeSlideshow = function(el) {
     this.$el = $(el);
-    this.$circles = this.$el.find('.circle');
-    this.$expander = this.$el.find('.circle-expander');
-    this.$cur_circle = null;
+    this.$current = this.$el.find('.current');
+    this.$next = this.$el.find('.next');
+    this.$nav = this.$el.find('.slider-nav');
+    this.$caption = this.$el.find('.caption');
+    this.maxBlur = 120;
+    this.steps = 3;
+    this.curSlide = 1;
   };
 
-  HeroCircles.prototype._placeBG = function() {
-
-    // get parent position and dimensions
+  HomeSlideshow.prototype.addBlurCanvas = function(el, source) {
     var self = this,
-        parent_pos = this.$el.offset(),
-        parent_width = this.$el.width(),
-        parent_height = this.$el.height();
+        $img = $('<img width="' + this.width + '" height="' + this.height + '">'),
+        increment = this.maxBlur/this.steps;
 
-    this.$circles.each(function() {
-      var $circle = $(this),
-          offset = $circle.offset(),
-          $bg = $circle.children('.bg');
+    $img.load(function() {
+      console.log("image loads");
+      el.append($img);
 
-      // set position
-      $bg.css({
-        'top': parent_pos.top - offset.top + 'px',
-        'left': parent_pos.left - offset.left + 'px',
-        'width': parent_width + 'px',
-        'height': parent_height + 'px'
-      });
-    });
+      // skip first increment for smoother blur
+      for (var i = 1; i < self.steps; i++) {
+        var canvas = document.createElement('canvas');
 
-  };
+        canvas.width = self.width;
+        canvas.height = self.height;
+        canvas.className = 'canvas' + i;
+        el.append(canvas);
 
-  HeroCircles.prototype._animateInTitle = function(delay) {
-    var self = this,
-        $title = this.$expander.children('.title-overlay'),
-        cur_class = this.$cur_circle.data('name'),
-        $expander_nav = this.$expander.children('.expander-nav').children('a').not('.' + cur_class);
-
-    TweenLite.set($expander_nav.last(), { x: 160, right: 4,  left: 'auto', delay: delay });
-    TweenLite.set($expander_nav.first(), {
-      x: -160,
-      left: 4,
-      right: 'auto',
-      delay: delay,
-      onComplete: function() {
-        // add content to title overlay after delay
-        $title.html(self.$cur_circle.siblings('.tagline').html());
+        stackBlurImage( $img[0], canvas, (increment * i + increment), false );
       }
     });
+    $img.attr('src', source);
+  };
 
-    // animate in title overlay
-    TweenLite.to($title, 0.5, {
-      y: 40,
-      delay: delay,
-      ease: Back.easeOut
-    });
+  HomeSlideshow.prototype.animate = function(callback, params) {
+    var anim = new TimelineLite(),
+        self = this,
+        nextSlide = this.curSlide > 3 ? 1 : this.curSlide + 1;
 
-    TweenLite.to($expander_nav, 0.15, {
+    this.curSlide = nextSlide;
+
+    if (!params) params = [];
+
+    // animate current slide to blur
+    for (var i = 1; i < this.steps; i++) {
+      anim.to(this.$current.children('.canvas' + i), 0.4, { opacity: 1 }, '-=0.2');
+    }
+
+    // animate caption out
+    anim.to(this.$caption, 0.5, {
+      x: -this.width,
+      ease: Power2.easeIn,
+      onComplete: function() {
+        self.updateCaption(nextSlide);
+      }
+    }, '-=0.8');
+
+    // fade out current slide
+    anim.to(this.$current, 0.8, { opacity: 0 }, '-=0.5');
+
+    // animate next slide to un-blur
+    for (var n = this.steps-1; n > 0; n--) {
+      anim.to(this.$next.children('.canvas' + n), 0.4, { opacity: 0 }, '-=0.2');
+    }
+
+    // animate caption back in
+    anim.to(this.$caption, 0.4, {
       x: 0,
-      delay: delay + 0.5
-    });
+      ease: Power2.easeOut
+    }, '-=0.5');
+
+    anim.eventCallback('onComplete', callback, params, self);
+
+    anim.play();
   };
 
-  HeroCircles.prototype._animateOutTitle = function() {
-    var $title = this.$expander.children('.title-overlay'),
-        cur_class = this.$cur_circle.data('name'),
-        $expander_nav = this.$expander.children('.expander-nav').children('a').not('.' + cur_class);
+  HomeSlideshow.prototype.updateSlides = function() {
+    var nextID = this.curSlide > 3 ? 1 : this.curSlide + 1,
+        next_slide = this.$nav.children('[data-id=' + nextID + ']'),
+        slide_html = '<div class="next" />',
+        slide_img = $('<img width="' + this.width + '" height="' + this.height + '">');
 
-    // animate out title overlay
-    TweenLite.to($title, 0.5, {
-      y: $title.outerHeight()
-    });
+    // update slide menu
+    this.$nav.children('li').removeClass('active');
+    this.$nav.children('[data-id=' + this.curSlide + ']').addClass('active');
 
-    // animate out circles
-    TweenLite.to($expander_nav.first(), 0.15, {
-      x: -160
-    });
-    TweenLite.to($expander_nav.last(), 0.15, {
-      x: 160
-    });
+    // remove previous slide and update current slide
+    this.$current.remove();
+    this.$next.removeClass('next').addClass('current');
+    this.$current = this.$next;
+
+    // create new "next slide"
+    this.$next = $(slide_html);
+    this.$el.append(this.$next);
+    this.addBlurCanvas(this.$next, next_slide.data('image'));
   };
 
-  HeroCircles.prototype._animateIn = function(circle) {
-    var $circle = $(circle),
-        $border = $circle.siblings('.border'),
-        img = $circle.children('.bg').data('bg');
+  HomeSlideshow.prototype.updateCaption = function(i) {
+    var slide = this.$nav.children('[data-id=' + i + ']');
 
-    // set current circle
-    this.$cur_circle = $circle;
-
-    // set bg image for expander div
-    this.$expander.css('z-index', 4);
-    this.$expander.children('.bg').css('background-image', 'url(' + img + ')');
-
-    // add active class to li
-    $circle.parent('li').addClass('active');
-
-    // expand circle
-    TweenLite.to($border, 0.3, {
-      scale: 7
-    });
-
-    // fade in expander
-    TweenLite.to(this.$expander, 0.5, {
-      opacity: 1,
-      delay: 0.5,
-      onComplete: function() {
-        TweenLite.set($border, { scale: 1 });
-      }
-    });
-
-    // animate in title overlay
-    this._animateInTitle(1);
+    if (i == 1) {
+      this.$caption.addClass('landing-caption');
+      this.$caption.children('.caption-title').html('');
+    } else {
+      this.$caption.removeClass('landing-caption');
+      this.$caption.children('.caption-title').html( slide.children('.title').text() );
+    }
+    this.$caption.children('.caption-content').html( slide.children('.slide-caption').html() );
   };
 
-  HeroCircles.prototype._animateOut = function() {
-    var self = this;
-
-    // remove active class and scale down border
-    this.$el.find('li').removeClass('active');
-
-    // animate out title
-    this._animateOutTitle();
-
-    // fade out expander
-    TweenLite.to(this.$expander, 0.5, {
-      opacity: 0,
-      delay: 0.5,
-      onComplete: function() {
-        self.$expander.css({
-          'z-index': -1
-        });
-      }
-    });
-
-  };
-
-  HeroCircles.prototype._animateSwitch = function(circle) {
-    this._animateOutTitle();
-
-    this.$cur_circle = $(circle);
-
-    var img = this.$cur_circle.children('.bg').data('bg'),
-        $bg = this.$expander.children('.bg');
-
-    // switch active class
-    this.$el.find('li').removeClass('active');
-    this.$cur_circle.parent('li').addClass('active');
-
-    TweenLite.to($bg, 0.3, {
-      opacity: 0,
-      delay: 0.5,
-      onComplete: function() {
-        $bg.css('background-image', 'url(' + img + ')');
-        TweenLite.to($bg, 0.3, { opacity: 1 });
-      }
-    });
-
-    this._animateInTitle(1);
-  };
-
-  HeroCircles.prototype.init = function() {
-    var self = this;
-
-    this._placeBG();
-
-    // add click events
-    this.$el.on('click', '.circle', function() {
-      self._animateIn(this);
-    });
-    this.$el.find('.close-btn').on('click', function(e) {
-      e.preventDefault();
-      self._animateOut();
-    });
-    this.$expander.children('.expander-nav').on('click', 'a', function(e) {
-      e.preventDefault();
-      var new_class = $(this).attr('class'),
-          $circle = self.$el.find('ul .' + new_class);
-
-      console.log("new class is", new_class, "new circle is", $circle[0]);
-      self._animateSwitch($circle);
-    });
-  };
-
-  HeroCircles.prototype.initMobile = function() {
+  HomeSlideshow.prototype.init = function(el) {
     var self = this,
-        $mobile_slider = this.$el.find('.mobile-slider');
+        image1 = this.$nav.children('[data-id=1]').data('image'),
+        image2 = this.$nav.children('[data-id=2]').data('image');
 
-    this.$el.on('click', '.circle', function() {
-      var $this = $(this),
-          bg = $this.children('.bg').data('bg');
+    this.width = this.$el.width();
+    this.height = this.$el.height();
 
-      self.$circles.removeClass('active');
-      $this.addClass('active');
+    console.log("width is", this.width, "height is", this.height);
 
-      $mobile_slider.html('<div>' + $this.siblings('.tagline').html() + '</div>');
-      $mobile_slider.css('background-image', 'url(' + bg + ')');
+    this.addBlurCanvas(this.$current, image1);
+    this.addBlurCanvas(this.$next, image2);
+
+    this.$el.find('.slide-trigger').on('click', function(e) {
+      e.preventDefault();
+
+      self.animate(self.updateSlides);
     });
-
-    this.$circles.first().trigger('click');
   };
 
-  var hero_circles = new HeroCircles('.hero-circles');
-  if ( Modernizr.mq('only screen and (min-width: ' + small_break + 'px)') ) {
-    hero_circles.init();
-  } else {
-    hero_circles.initMobile();
-  }
+  var homeSlideshow = new HomeSlideshow($('.hero-slideshow'));
+  homeSlideshow.init();
 
   // troop dropdowns
   $('.troop-list').on('click', '.trigger', function(e) {
