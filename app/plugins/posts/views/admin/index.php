@@ -51,9 +51,9 @@ $('.data-table').dataTable({
 	"sPaginationType": "full_numbers",
 	"bLengthChange": false,
 	/* CAN CHANGE */
-	"bStateSave": true,
-	"aaSorting": [[1, "asc"]], //which column to sort by (0-X)
-	"iDisplayLength": 10 //how many items to display per page
+	"bStateSave": false,
+	// "aaSorting": [[1, "asc"]], //which column to sort by (0-X)
+	"iDisplayLength": 20 //how many items to display per page
 });
 $('.dataTable-header').prepend('<?php
 foreach($aAdminFullMenu as $k=>$aMenu) {

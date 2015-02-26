@@ -1001,7 +1001,7 @@ body.menu-open .container {
     width: 250px;
     padding: 0.44444em 0;
     z-index: 0;
-    background: #1c1c1e url(../images/noise-pattern.png);
+    background: #1c1c1e;
     border-left: 4px solid #000;
     border-right: 4px solid #000;
   }
@@ -1986,7 +1986,7 @@ button.button-full[type=submit], .upload-box.initial .button-full.add-files, .bu
   margin: 0 0 1.66667em;
   padding: 3.33333em 0;
   font-family: "effra", sans-serif;
-  background: #23a38f url(/images/noise-pattern.png) repeat 0 0;
+  background: #23a38f;
 }
 .main-cta .cta-inner {
   color: #fff;
@@ -5275,7 +5275,7 @@ button[type=submit] {
 }
 .troop-list .profile-footer {
   padding: 1.33333em 0.83333em;
-  background: #242529 url(/images/noise-pattern.png);
+  background: #242529;
   text-transform: uppercase;
 }
 .troop-list .profile-footer:before, .troop-list .profile-footer:after {

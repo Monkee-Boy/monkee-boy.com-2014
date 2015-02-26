@@ -7,8 +7,7 @@
       <span class="caption-title"></span>
       <div class="caption-content">
         <h1>Solve the Web</h1>
-        <p>We're not oracles, but we do know why you're here. You want things. A more impressive website. A digital marketing campaign that customers love. Lots of hi-fives. Nice to meet you!</p>
-        <p>We're Monkee-Boy. And we can show you how to make it in the Jungle.</p>
+        <?= $this->getSetting('homepage-slider-monkeeboy-text'); ?>
       </div>
       <a href="#" class="slide-trigger">Next Slide</a>
     </div>

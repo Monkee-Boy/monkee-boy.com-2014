@@ -181,7 +181,7 @@
   .profile-footer {
     @include clearfix;
     padding: em-calc(24) em-calc(15);
-    background: $black url(/images/noise-pattern.png);
+    background: $black;
     text-transform: uppercase;
     .latest-update, .social-links {
       @include span(6 of 12);

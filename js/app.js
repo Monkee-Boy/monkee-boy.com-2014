@@ -1206,7 +1206,7 @@ function BlurStack()
     }]
   });
 
-  // home page hero circles
+  // home page hero slideshow
   var HomeSlideshow = function(el) {
     this.$el = $(el);
     this.$current = this.$el.find('.current');
