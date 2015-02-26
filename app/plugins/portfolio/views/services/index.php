@@ -12,6 +12,8 @@
     <div class="panel">
       <aside class="text-center">
         <a href="<?php echo $aService['url']; ?>" title="<?php echo $aService['title']; ?>"><img src="<?php echo (!empty($aService['image']))?$aService['image_url']:"http://www.fillmurray.com/g/436/328"; ?>"></a>
+
+        <h2><?php echo $aService['name']; ?></h2>
       </aside>
 
       <div class="panel-content">
