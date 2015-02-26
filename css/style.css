@@ -1688,10 +1688,24 @@ p.intro {
   float: left;
   margin: 0 20px 20px 0;
 }
+@media only screen and (max-width: 355px) {
+  .alignleft {
+    float: none;
+    display: block;
+    margin: 0 auto;
+  }
+}
 
 .alignright {
   float: right;
   margin: 0 0 20px 20px;
+}
+@media only screen and (max-width: 355px) {
+  .alignright {
+    float: none;
+    display: block;
+    margin: 0 auto;
+  }
 }
 
 blockquote {
