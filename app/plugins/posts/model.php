@@ -56,7 +56,7 @@ class posts_model extends appModel {
 		if($sPopular) {
 			$sOrderBy = " ORDER BY `posts`.`views` DESC";
 		} else {
-			$sOrderBy = "ORDER BY `posts`.`sticky` DESC, `posts`.`publish_on` DESC";
+			$sOrderBy = "ORDER BY `posts`.`active` = 0, `posts`.`sticky` DESC, `posts`.`publish_on` DESC";
 		}
 
 		if(!empty($sLimit)) {
