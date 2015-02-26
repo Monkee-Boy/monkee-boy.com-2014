@@ -923,7 +923,7 @@ body.menu-open .container {
   border-bottom: 2px solid #000;
   margin-top: 28px;
   padding: 10px 30px;
-  color: #5f730d;
+  color: #fff;
   text-align: center;
   text-transform: uppercase;
   font-family: "effra", sans-serif;
@@ -936,6 +936,7 @@ body.menu-open .container {
 }
 .main-nav.sticky .request-quote:hover {
   color: #fff;
+  background: #5f730d;
   text-decoration: none;
 }
 
@@ -5628,6 +5629,7 @@ button[type=submit] {
   padding-left: 15px;
   padding-right: 15px;
   float: right;
+  text-transform: none;
 }
 .news-item a {
   color: #5e5e5e;
@@ -5657,6 +5659,7 @@ button[type=submit] {
 }
 .news-item.top-article h3 {
   font-size: 40px;
+  text-transform: uppercase;
 }
 @media only screen and (max-width: 580px) {
   .news-item.top-article h3 {

@@ -16,6 +16,7 @@
   h3 {
     @include span(8 of 12);
     float: right;
+    text-transform: none;
   }
   a {
     color: $dark-grey;
@@ -41,6 +42,7 @@
     }
     h3 {
       font-size: 40px;
+      text-transform: uppercase;
       @media #{$small-only} {
         font-size: 30px;
         width: 60%;

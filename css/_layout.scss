@@ -334,7 +334,7 @@ body {
       border-bottom: 2px solid #000;
       margin-top: 28px;
       padding: 10px 30px;
-      color: $darker-green;
+      color: #fff;
       text-align: center;
       text-transform: uppercase;
       font-family: $heading-font;
@@ -346,6 +346,7 @@ body {
       }
       &:hover {
         color: #fff;
+        background: $darker-green;
         text-decoration: none;
       }
     }
@@ -404,7 +405,7 @@ body {
 
 .mobile-menu-container {
   display: none;
-  
+
   @media #{$medium-down} {
     display: block;
     position: absolute;
