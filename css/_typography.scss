@@ -133,6 +133,10 @@ blockquote {
     font-style: normal;
   }
 
+  footer {
+    text-align: right;
+  }
+
   @each $service in $services {
     $i: index($services, $service);
     .#{$service} & {
