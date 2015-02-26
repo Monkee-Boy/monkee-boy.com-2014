@@ -21,7 +21,7 @@
 
         <ul class="service-icons">
           <?php foreach($aClient['services'] as $aService) { ?>
-          <li><span class="<?php echo $aService['tag']; ?> service-icon"><i></i></span></li>
+            <li><span class="<?php echo $aService['tag']; ?> service-icon"><i></i></span></li>
           <?php } ?>
         </ul>
 
