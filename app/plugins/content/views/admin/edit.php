@@ -14,7 +14,7 @@
 						<div class="accordion-inner">
 							<div class="controls">
 								<input type="text" name="title" id="form-title" value="<?= $aPage['title'] ?>" class="span12 validate[required]">
-								<p class="help-block permalink"><strong>Permalink</strong>: http://<?= $_SERVER['SERVER_NAME'] ?><span><?= $aPage['url'] ?></span>/</p>
+								<p class="help-block permalink"><strong>Permalink</strong>: http://<?= $_SERVER['SERVER_NAME'] ?><span><?= $aPage['url'] ?></span></p>
 
 								<hr>
 
