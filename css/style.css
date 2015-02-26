@@ -4699,6 +4699,11 @@ button[type=submit] {
   max-width: 1080px;
 }
 
+.single-post p.intro {
+  font-size: 1.22222em;
+  font-weight: 500;
+  line-height: 1.4;
+}
 .single-post blockquote {
   float: left;
   width: 62.5%;

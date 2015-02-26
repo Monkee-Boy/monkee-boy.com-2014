@@ -268,17 +268,27 @@
 
 // single post content
 .single-post {
+  p.intro {
+    font-size: em-calc(22px);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
   blockquote {
     float: left;
     width: 62.5%;
     margin-left: -12.5%;
     margin-right: #{$gutter-width/2}px;
     padding-right: #{$gutter-width/2}px;
+
     @media #{$medium-down}  {
       margin-left: 0;
       width: 50%;
     }
-    @media #{$small-only} { width: 100%; }
+
+    @media #{$small-only} {
+      width: 100%;
+    }
   }
 }
 
