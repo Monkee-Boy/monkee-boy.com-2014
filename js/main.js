@@ -574,12 +574,12 @@
     centerMode: true,
     centerPadding: '140px',
     onInit: function() {
-      $('.slick-prev').detach().appendTo('.slick-active .slick-photo-wrapper');
-      $('.slick-next').detach().appendTo('.slick-active .slick-photo-wrapper');
+      $('.fullwidth-slider .slick-prev').detach().appendTo('.slick-active .slick-photo-wrapper');
+      $('.fullwidth-slider .slick-next').detach().appendTo('.slick-active .slick-photo-wrapper');
     },
     onAfterChange: function() {
-      $('.slick-prev').detach().appendTo('.slick-active .slick-photo-wrapper');
-      $('.slick-next').detach().appendTo('.slick-active .slick-photo-wrapper');
+      $('.fullwidth-slider .slick-prev').detach().appendTo('.slick-active .slick-photo-wrapper');
+      $('.fullwidth-slider .slick-next').detach().appendTo('.slick-active .slick-photo-wrapper');
     },
     responsive: [{
       breakpoint: small_break,
