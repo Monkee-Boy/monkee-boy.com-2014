@@ -6,21 +6,27 @@ var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     rename = require('gulp-rename'),
     size = require('gulp-size'),
+    stripDebug = require('gulp-strip-debug'),
+    sourcemaps = require('gulp-sourcemaps'),
     pkg = require('./package.json');
 
 var paths = {
   styles: './css/style.scss',
-  scripts: ['./js/StackBlur.js', './js/main.js']
+  scripts: ['./bower_components/gsap/src/uncompressed/TweenMax.js', './bower_components/validationEngine/js/languages/jquery.validationEngine-en.js', './bower_components/validationEngine/js/jquery.validationEngine.js', './bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js', './bower_components/plupload/js/plupload.full.min.js', './bower_components/slick-carousel/slick/slick.js', './js/StackBlur.js', './js/main.js']
 };
 
-gulp.task('styles', ['components'], function () {
-  gulp.src(paths.styles)
-    .pipe(sass({ style: 'expanded' })) // Add source maps after figuring out minify issue
-    .pipe(gulp.dest('./css/'))
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(minifyCSS())
-    .pipe(size())
-    .pipe(gulp.dest('./css/'));
+gulp.task('styles', ['components'], function() {
+  return sass(paths.styles, { sourcemap: false })
+  .on('error', function (err) {
+    console.error('Error', err.message);
+  })
+  .pipe(rename('app.css'))
+  .pipe(gulp.dest('./css/'))
+  .pipe(rename('app.min.css'))
+  .pipe(minifyCSS())
+  .pipe(sourcemaps.write())
+  .pipe(size())
+  .pipe(gulp.dest('./css/'));
 });
 
 gulp.task('components', function() {
@@ -33,6 +39,7 @@ gulp.task('scripts', ['lint', 'plugins'], function() {
   gulp.src(paths.scripts)
     .pipe(concat('app.js'))
     .pipe(gulp.dest('./js/'))
+    .pipe(stripDebug())
     .pipe(rename('app.min.js'))
     .pipe(uglify({ preserveComments: 'some' }))
     .pipe(size())
