@@ -53,7 +53,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'portfolio', 'page_title'=>$aClient
         <div class="thumbs-slider">
           <?php foreach($aClient['slides'] as $aSlide) { ?>
             <div>
-              <a href="#" class="thumbnail" data-screen="<?php echo $aSlide['id']; ?>">
+              <a href="#" class="thumbnail" data-screen-desktop="<?php echo $aSlide['desktop_image_url']; ?>" data-screen-tablet="<?php echo $aSlide['tablet_image_url']; ?>" data-screen-phone="<?php echo $aSlide['phone_image_url']; ?>">
                 <img src="<?php echo $aSlide['listing_image_url']; ?>" alt="">
               </a>
             </div>

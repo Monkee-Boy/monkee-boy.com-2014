@@ -13540,11 +13540,10 @@ function BlurStack()
     }
   };
 
-  PortfolioSlider.prototype.updateScreen = function(screenName) {
+  PortfolioSlider.prototype.updateScreen = function(screens) {
     for (var key in this.$screens) {
       var el = this.$screens[key].children('.screen-inner'),
-          fileName = '/uploads/portfolio/'+key+'_image_'+screenName+'.png',
-          // fileName = '/assets/port-' + this.siteName + '-' + key + '-' + screenName + '.png',
+          fileName = screens[key],
           image = document.createElement('img');
 
       image.src = fileName;
@@ -13680,8 +13679,11 @@ function BlurStack()
       self.$thumbs.find('.thumbnail').removeClass('active');
       $(this).addClass('active');
 
-      var screenName = $(this).data('screen');
-      self.updateScreen(screenName);
+      var screens = [];
+      screens.desktop = $(this).data('screen-desktop');
+      screens.tablet = $(this).data('screen-tablet');
+      screens.phone = $(this).data('screen-phone');
+      self.updateScreen(screens);
     });
 
     // remove scroll callout on scroll if there is a scroll callout

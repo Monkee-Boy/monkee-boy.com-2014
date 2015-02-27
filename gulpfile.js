@@ -39,8 +39,8 @@ gulp.task('scripts', ['lint', 'plugins'], function() {
   gulp.src(paths.scripts)
     .pipe(concat('app.js'))
     .pipe(gulp.dest('./js/'))
-    .pipe(stripDebug())
     .pipe(rename('app.min.js'))
+    .pipe(stripDebug())
     .pipe(uglify({ preserveComments: 'some' }))
     .pipe(size())
     .pipe(gulp.dest('./js/'));
