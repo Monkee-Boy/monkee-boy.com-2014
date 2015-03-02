@@ -607,6 +607,7 @@
     this.maxBlur = 120;
     this.steps = 3;
     this.curSlide = 1;
+    this.isMobile = Modernizr.mq('only screen and (max-width:' + medium_break + 'px)');
   };
 
   HomeSlideshow.prototype.addBlurCanvas = function(el, source, animate) {
@@ -618,16 +619,19 @@
       console.log("image loads");
       el.append($img);
 
-      // skip first increment for smoother blur
-      for (var i = 1; i < self.steps; i++) {
-        var canvas = document.createElement('canvas');
+      // no canvas for mobile
+      if (!self.isMobile) {
+        // skip first increment for smoother blur
+        for (var i = 1; i < self.steps; i++) {
+          var canvas = document.createElement('canvas');
 
-        canvas.width = self.width;
-        canvas.height = self.height;
-        canvas.className = 'canvas' + i;
-        el.append(canvas);
+          canvas.width = self.width;
+          canvas.height = self.height;
+          canvas.className = 'canvas' + i;
+          el.append(canvas);
 
-        stackBlurImage( $img[0], canvas, (increment * i + increment), false );
+          stackBlurImage( $img[0], canvas, (increment * i + increment), false );
+        }
       }
 
       // if animate is true, immediately animate slide transition
@@ -648,33 +652,62 @@
     this.$nav.children('li').removeClass('active');
     this.$nav.children('[data-id=' + this.curSlide + ']').addClass('active');
 
-    // animate current slide to blur
-    for (var i = 1; i < this.steps; i++) {
-      anim.to(this.$current.children('.canvas' + i), 0.4, { opacity: 1 }, '-=0.2');
-    }
+    if (this.isMobile) {
+      // mobile animation
+      console.log("doing mobile animation");
 
-    // animate caption out
-    anim.to(this.$caption, 0.5, {
-      x: -this.width,
-      ease: Power2.easeIn,
-      onComplete: function() {
-        self.updateCaption(self.curSlide);
+      anim.to(this.$current, 0.3, { opacity: 0 });
+      anim.to(this.$caption, 0.3, {
+        opacity: 0,
+        onComplete: function() {
+          var curHeight = self.$caption.outerHeight(),
+              innerHeight = self.$caption.height();
+
+          self.$caption.height(innerHeight + 'px');
+          self.updateCaption(self.curSlide);
+
+          // get new height
+          var newHeight = self.$caption.children('.caption-title').height() + self.$caption.children('.caption-content').height() + (curHeight - innerHeight);
+
+          anim.to(self.$caption, 0.3, {
+            opacity: 1,
+            height: newHeight
+          });
+        }
+      }, '-=0.3');
+      anim.to(this.$next, 0.3, { opacity: 1 });
+    } else {
+      // desktop animation with blur
+      console.log("doing desktop animation");
+
+      // animate current slide to blur
+      for (var i = 1; i < this.steps; i++) {
+        anim.to(this.$current.children('.canvas' + i), 0.4, { opacity: 1 }, '-=0.2');
       }
-    }, '-=0.8');
 
-    // fade out current slide
-    anim.to(this.$current, 0.8, { opacity: 0 }, '-=0.5');
+      // animate caption out
+      anim.to(this.$caption, 0.5, {
+        x: -this.width,
+        ease: Power2.easeIn,
+        onComplete: function() {
+          self.updateCaption(self.curSlide);
+        }
+      }, '-=0.8');
 
-    // animate next slide to un-blur
-    for (var n = this.steps-1; n > 0; n--) {
-      anim.to(this.$next.children('.canvas' + n), 0.4, { opacity: 0 }, '-=0.2');
+      // fade out current slide
+      anim.to(this.$current, 0.8, { opacity: 0 }, '-=0.5');
+
+      // animate next slide to un-blur
+      for (var n = this.steps-1; n > 0; n--) {
+        anim.to(this.$next.children('.canvas' + n), 0.4, { opacity: 0 }, '-=0.2');
+      }
+
+      // animate caption back in
+      anim.to(this.$caption, 0.4, {
+        x: 0,
+        ease: Power2.easeOut
+      }, '-=0.5');
     }
-
-    // animate caption back in
-    anim.to(this.$caption, 0.4, {
-      x: 0,
-      ease: Power2.easeOut
-    }, '-=0.5');
 
     anim.eventCallback('onComplete', callback, params, self);
 
@@ -716,7 +749,7 @@
         image2 = this.$nav.children('[data-id=2]').data('image');
 
     this.width = this.$el.width();
-    this.height = this.$el.height();
+    this.height = this.isMobile ? 'auto' : this.$el.height();
 
     this.addBlurCanvas(this.$current, image1);
     this.addBlurCanvas(this.$next, image2);

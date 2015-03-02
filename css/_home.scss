@@ -1,13 +1,17 @@
 .hero-slideshow {
   position: relative;
   max-width: 1300px;
-  margin: -45px auto 0;
-  &:after {
+  margin: -45px auto 45px;
+  &:before {
     content: "";
     display: block;
     width: 100%;
     padding-bottom: 56.28%;
   }
+  @media #{$medium-down} {
+    background-color: $black;
+  }
+
   canvas {
     position: absolute;
     top: 0;
@@ -24,6 +28,10 @@
     img {
       display: block;
       width: 100%;
+    }
+    @media #{$medium-down} {
+      bottom: auto;
+      height: auto;
     }
   }
   .current {
@@ -49,6 +57,11 @@
       }
     }
     .active .title { color: $green; }
+    @media #{$medium-down} {
+      position: static;
+      text-align: center;
+      background-color: $black;
+    }
   }
   .caption {
     position: absolute;
@@ -59,6 +72,12 @@
     padding: em-calc(20) em-calc(120) em-calc(24) em-calc(20);
     background-color: rgba($black, 0.9);
     color: #fff;
+    @media #{$medium-down} {
+      position: static;
+      width: 100%;
+      padding: em-calc(10) em-calc(15) em-calc(30);
+      background-color: $black;
+    }
   }
   .caption-title {
     float: left;
@@ -70,6 +89,14 @@
     text-transform: uppercase;
     text-align: center;
     color: $green;
+    @media #{$medium-down} {
+      float: none;
+      display: block;
+      width: 100%;
+      padding: 0;
+      font-size: 42px;
+      text-align: left;
+    }
   }
   .caption-content {
     float: right;
@@ -77,6 +104,11 @@
     font-size: 22px;
     p { margin-bottom: 12px; }
     *:last-child { margin-bottom: 0; }
+    @media #{$medium-down} {
+      float: none;
+      width: 100%;
+      font-size: 18px;
+    }
   }
   .landing-caption {
     bottom: 24px;
@@ -114,6 +146,7 @@
     &:hover, &:focus {
       &:before { color: $green; }
     }
+    @media #{$medium-down} { display: none; }
   }
 }
 

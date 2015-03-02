@@ -3,14 +3,6 @@
   <div class="hero-slideshow loading">
     <div class="current"></div>
     <div class="next"></div>
-    <div class="caption landing-caption">
-      <span class="caption-title"></span>
-      <div class="caption-content">
-        <h1>Solve the Web</h1>
-        <?= $this->getSetting('homepage-slider-monkeeboy-text'); ?>
-      </div>
-      <a href="#" class="slide-trigger">Next Slide</a>
-    </div>
     <ul class="slider-nav menu-lite">
       <li class="home active" data-id="1" data-image="/images/home-monkee.png">
         <a href="#" class="title">Monkee-Boy</a>
@@ -32,6 +24,14 @@
         <div class="slide-caption"><?= $this->getSetting('homepage-slider-evolve-text'); ?></div>
       </li>
     </ul>
+    <div class="caption landing-caption">
+      <span class="caption-title"></span>
+      <div class="caption-content">
+        <h1>Solve the Web</h1>
+        <?= $this->getSetting('homepage-slider-monkeeboy-text'); ?>
+      </div>
+      <a href="#" class="slide-trigger">Next Slide</a>
+    </div>
   </div>
 
   <?php
