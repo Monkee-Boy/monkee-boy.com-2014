@@ -13762,7 +13762,7 @@ function BlurStack()
     this.curSlide = 1;
   };
 
-  HomeSlideshow.prototype.addBlurCanvas = function(el, source) {
+  HomeSlideshow.prototype.addBlurCanvas = function(el, source, animate) {
     var self = this,
         $img = $('<img width="' + this.width + '" height="' + this.height + '">'),
         increment = this.maxBlur/this.steps;
@@ -13782,18 +13782,24 @@ function BlurStack()
 
         stackBlurImage( $img[0], canvas, (increment * i + increment), false );
       }
+
+      // if animate is true, immediately animate slide transition
+      if (animate) {
+        self.animate(self.updateSlides);
+      }
     });
     $img.attr('src', source);
   };
 
   HomeSlideshow.prototype.animate = function(callback, params) {
     var anim = new TimelineLite(),
-        self = this,
-        nextSlide = this.curSlide > 3 ? 1 : this.curSlide + 1;
-
-    this.curSlide = nextSlide;
+        self = this;
 
     if (!params) params = [];
+
+    // update slide menu
+    this.$nav.children('li').removeClass('active');
+    this.$nav.children('[data-id=' + this.curSlide + ']').addClass('active');
 
     // animate current slide to blur
     for (var i = 1; i < this.steps; i++) {
@@ -13805,7 +13811,7 @@ function BlurStack()
       x: -this.width,
       ease: Power2.easeIn,
       onComplete: function() {
-        self.updateCaption(nextSlide);
+        self.updateCaption(self.curSlide);
       }
     }, '-=0.8');
 
@@ -13831,12 +13837,7 @@ function BlurStack()
   HomeSlideshow.prototype.updateSlides = function() {
     var nextID = this.curSlide > 3 ? 1 : this.curSlide + 1,
         next_slide = this.$nav.children('[data-id=' + nextID + ']'),
-        slide_html = '<div class="next" />',
-        slide_img = $('<img width="' + this.width + '" height="' + this.height + '">');
-
-    // update slide menu
-    this.$nav.children('li').removeClass('active');
-    this.$nav.children('[data-id=' + this.curSlide + ']').addClass('active');
+        slide_html = '<div class="next" />';
 
     // remove previous slide and update current slide
     this.$current.remove();
@@ -13870,15 +13871,36 @@ function BlurStack()
     this.width = this.$el.width();
     this.height = this.$el.height();
 
-    console.log("width is", this.width, "height is", this.height);
-
     this.addBlurCanvas(this.$current, image1);
     this.addBlurCanvas(this.$next, image2);
 
+    // add slide change to arrow
     this.$el.find('.slide-trigger').on('click', function(e) {
       e.preventDefault();
 
+      // update current slide id
+      self.curSlide = self.curSlide > 3 ? 1 : self.curSlide + 1;
+
       self.animate(self.updateSlides);
+    });
+
+    // add slide change to menu links
+    this.$nav.find('a').on('click', function(e) {
+      e.preventDefault();
+
+      var li = $(this).parent(),
+          nextSlide = li.data('id');
+
+      if (nextSlide == self.curSlide) return;
+      if (nextSlide == self.curSlide + 1 || (self.curSlide == 4 && nextSlide == 1)) {
+        self.curSlide = self.curSlide > 3 ? 1 : self.curSlide + 1;
+        self.animate(self.updateSlides);
+      } else {
+        self.curSlide = nextSlide;
+
+        self.$next.html('');
+        self.addBlurCanvas(self.$next, li.data('image'), true);
+      }
     });
   };
 

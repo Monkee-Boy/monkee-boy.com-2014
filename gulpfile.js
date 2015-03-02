@@ -40,7 +40,7 @@ gulp.task('scripts', ['lint', 'plugins'], function() {
     .pipe(concat('app.js'))
     .pipe(gulp.dest('./js/'))
     .pipe(rename('app.min.js'))
-    .pipe(stripDebug())
+    //.pipe(stripDebug())
     .pipe(uglify({ preserveComments: 'some' }))
     .pipe(size())
     .pipe(gulp.dest('./js/'));

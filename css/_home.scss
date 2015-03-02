@@ -43,6 +43,10 @@
     .slide-caption { display: none; }
     .title {
       color: #fff;
+      &:hover, &:focus {
+        text-decoration: none;
+        color: $green;
+      }
     }
     .active .title { color: $green; }
   }
@@ -103,7 +107,7 @@
       width: 100%;
       @include translate(0, -50%);
       color: #fff;
-      font-size: 100px;
+      font-size: 80px;
       text-align: center;
       text-indent: 0;
     }

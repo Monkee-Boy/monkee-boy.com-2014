@@ -2986,9 +2986,12 @@ button[type=submit] {
   float: left;
   padding-left: 15px;
   padding-right: 15px;
-  padding: 8px 0 8px 15px; }
+  padding-left: 15px;
+  padding-right: 0; }
   .port-slider .thumbs-slider .slick-list {
-    margin-bottom: 20px; }
+    padding: 8px 0;
+    margin-bottom: 20px;
+    overflow: hidden; }
   .port-slider .thumbs-slider .slick-prev, .port-slider .thumbs-slider .slick-next {
     position: absolute;
     top: 38%;
@@ -3001,14 +3004,17 @@ button[type=submit] {
       content: "";
       display: block;
       position: absolute;
-      text-indent: 0;
-      font-size: 48px;
       top: 0;
-      left: 0; }
+      left: 0;
+      width: 48px;
+      font-size: 32px;
+      line-height: 48px;
+      text-indent: 0;
+      text-align: center; }
   .port-slider .thumbs-slider .slick-prev {
     left: 15px; }
   .port-slider .thumbs-slider .slick-next {
-    right: 25px; }
+    right: 0; }
     .port-slider .thumbs-slider .slick-next:after {
       content: "";
       right: 0; }
@@ -3024,7 +3030,8 @@ button[type=submit] {
   display: block;
   padding: 0 10px; }
   .port-slider .thumbnail img {
-    display: block; }
+    display: block;
+    width: 100%; }
   .port-slider .thumbnail.active img {
     -webkit-box-shadow: 0 0 0 8px #acca41;
     -moz-box-shadow: 0 0 0 8px #acca41;
@@ -3300,6 +3307,9 @@ button[type=submit] {
       display: none; }
     .hero-slideshow .slider-nav .title {
       color: #fff; }
+      .hero-slideshow .slider-nav .title:hover, .hero-slideshow .slider-nav .title:focus {
+        text-decoration: none;
+        color: #acca41; }
     .hero-slideshow .slider-nav .active .title {
       color: #acca41; }
   .hero-slideshow .caption {
@@ -3361,7 +3371,7 @@ button[type=submit] {
       -o-transform: translate(0, -50%);
       transform: translate(0, -50%);
       color: #fff;
-      font-size: 100px;
+      font-size: 80px;
       text-align: center;
       text-indent: 0; }
     .hero-slideshow .slide-trigger:hover:before, .hero-slideshow .slide-trigger:focus:before {

@@ -13,22 +13,22 @@
     </div>
     <ul class="slider-nav menu-lite">
       <li class="home active" data-id="1" data-image="/images/home-monkee.png">
-        <span class="title">Monkee-Boy</span>
+        <a href="#" class="title">Monkee-Boy</a>
         <div class="slide-caption">
           <h1>Solve the Web</h1>
           <?= $this->getSetting('homepage-slider-monkeeboy-text'); ?>
         </div>
       </li>
       <li data-id="2" data-image="/images/home-discover.png">
-        <span class="title">Discover</span>
+        <a href="#" class="title">Discover</a>
         <div class="slide-caption"><?= $this->getSetting('homepage-slider-discover-text'); ?></div>
       </li>
       <li data-id="3" data-image="/images/home-create.png">
-        <span class="title">Create</span>
+        <a href="#" class="title">Create</a>
         <div class="slide-caption"><?= $this->getSetting('homepage-slider-create-text'); ?></div>
       </li>
       <li data-id="4" data-image="/images/home-evolve.png">
-        <span class="title">Evolve</span>
+        <a href="#" class="title">Evolve</a>
         <div class="slide-caption"><?= $this->getSetting('homepage-slider-evolve-text'); ?></div>
       </li>
     </ul>
