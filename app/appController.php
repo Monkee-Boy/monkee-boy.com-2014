@@ -35,6 +35,8 @@ class appController {
 		$this->cmsVersion = "1.0";
 		$this->tplAssign("cmsVersion", $this->cmsVersion);
 
+		$this->tplAssign("debug", $aConfig["options"]["debug"]);
+
 		if(!empty($sModel)) {
 			$this->_plugin = $sModel;
 			$this->model = $this->loadModel($sModel);

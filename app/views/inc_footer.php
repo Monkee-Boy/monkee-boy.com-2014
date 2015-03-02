@@ -38,7 +38,7 @@ if(isset($aContent)) {
 
   <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
   <script>window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')</script>
-  <script src="/js/app.min.js?v=2"></script>
+  <script src="/js/app<?php if(!$debug) { ?>.min<?php } ?>.js?v=2"></script>
 
   <script>
   (function(m,o,n,k,e,y){m.GoogleAnalyticsObject=k;m[k]||(m[k]=
