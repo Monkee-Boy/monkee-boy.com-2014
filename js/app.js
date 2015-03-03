@@ -13188,33 +13188,33 @@ function BlurStack()
     });
   } else {
     // sticky menu
-    var lastScrollTop   = 0,
-        banner          = $('[role="banner"]'),
-        mainNav         = banner.find('.main-nav');
-
-    var updateSticky = debounce(function() {
-      var st = $(this).scrollTop();
-      if ( st > lastScrollTop ) {
-        // if scrolling down, no sticky
-        if (mainNav.hasClass('sticky')) {
-          mainNav.slideUp(150, function() {
-            mainNav.removeClass('sticky').show();
-          });
-        }
-      } else {
-        if ( st > (banner.offset().top + banner.outerHeight()) ) {
-          // if it doesn't already have the sticky class, and it's moved enough down
-          if ( !mainNav.hasClass('sticky') && lastScrollTop - st > 10 ) {
-            mainNav.hide().addClass('sticky').slideDown();
-          }
-        } else {
-          // remove sticky class if back at the top of the page
-          mainNav.removeClass('sticky');
-        }
-      }
-      lastScrollTop = st;
-    }, 10);
-    window.addEventListener('scroll', updateSticky);
+    // var lastScrollTop   = 0,
+    //     banner          = $('[role="banner"]'),
+    //     mainNav         = banner.find('.main-nav');
+    //
+    // var updateSticky = debounce(function() {
+    //   var st = $(this).scrollTop();
+    //   if ( st > lastScrollTop ) {
+    //     // if scrolling down, no sticky
+    //     if (mainNav.hasClass('sticky')) {
+    //       mainNav.slideUp(150, function() {
+    //         mainNav.removeClass('sticky').show();
+    //       });
+    //     }
+    //   } else {
+    //     if ( st > (banner.offset().top + banner.outerHeight()) ) {
+    //       // if it doesn't already have the sticky class, and it's moved enough down
+    //       if ( !mainNav.hasClass('sticky') && lastScrollTop - st > 10 ) {
+    //         mainNav.hide().addClass('sticky').slideDown();
+    //       }
+    //     } else {
+    //       // remove sticky class if back at the top of the page
+    //       mainNav.removeClass('sticky');
+    //     }
+    //   }
+    //   lastScrollTop = st;
+    // }, 10);
+    // window.addEventListener('scroll', updateSticky);
   }
 
   $('.mobile-menu').on('click', '.has-dropdown > a', function(e) {
