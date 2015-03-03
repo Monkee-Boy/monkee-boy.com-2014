@@ -1759,7 +1759,8 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
     bottom: -40px;
     border-style: solid;
     border-width: 0 1200px 40px 0;
-    border-color: transparent #1c1c1e transparent transparent; }
+    border-color: transparent #1c1c1e transparent transparent;
+    -moz-transform: scale(0.9999); }
   .panel-wide[data-panel-color='teal'] {
     background-color: #23a38f; }
     .panel-wide[data-panel-color='teal'][data-panel-style='slash']:after {

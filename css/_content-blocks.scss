@@ -122,6 +122,7 @@
     right: 0;
     bottom: -40px;
     @include triangle($dark-black, 1200px, 40px);
+    -moz-transform: scale(.9999);
   }
 
   &[data-panel-color='teal'] {
