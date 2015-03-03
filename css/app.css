@@ -1368,6 +1368,8 @@ h5 {
     .section-head .section-title {
       font-size: 52px; } }
   .section-head .section-title em {
+    display: inline-block;
+    margin-bottom: 20px;
     font-size: 32px;
     font-weight: normal; }
 

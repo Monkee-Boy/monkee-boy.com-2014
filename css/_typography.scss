@@ -81,6 +81,8 @@ h5 {
     @media #{$medium-down} { font-size: 52px; }
 
     em {
+      display: inline-block;
+      margin-bottom: 20px;
       font-size: 32px;
       font-weight: normal;
     }
