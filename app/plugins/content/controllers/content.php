@@ -204,7 +204,7 @@ class content extends appController
 
 		try {
 			$activity = $oMailChimp->call('lists/subscribe', array(
-				'id'=>'6d5315154d',
+				'id'=>'d897a5cc04',
 				'email'=>array('email'=>urldecode($_GET['email'])),
 				'update_existing'=>true
 			));
