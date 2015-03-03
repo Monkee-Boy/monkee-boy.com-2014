@@ -367,7 +367,26 @@
 }
 
 // author section
-.blog-author { margin-bottom: em-calc(60); }
+.blog-author {
+  margin-bottom: em-calc(60);
+  background: url(/images/jungle-overlay.png) bottom center/cover no-repeat $green;
+
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background-image: -moz-linear-gradient(top,rgba($green,0) 0, $green 100%);
+    background-image: -webkit-linear-gradient(top,rgba($green,0) 0, $green 100%);
+    background-image: -o-linear-gradient(top,rgba($green,0) 0, $green 100%);
+    background-image: -ms-linear-gradient(top,rgba($green,0) 0, $green 100%);
+    background-image: linear-gradient(to bottom,rgba($green,0) 0, $green 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ACCA32', endColorstr='#FFACCA32', GradientType=0);
+  }
+}
+
 .author-info {
   @include span(5 of 12);
   text-align: center;
