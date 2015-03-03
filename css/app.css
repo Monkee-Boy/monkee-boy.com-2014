@@ -2525,10 +2525,7 @@ label {
   padding-right: 15px; }
   @media only screen and (max-width: 840px) {
     .request-quote-form .right {
-      width: 100%;
-      padding-bottom: 2.22222em;
-      border-bottom: 1px solid #b2b2b2;
-      margin-bottom: 2.22222em; } }
+      width: 100%; } }
   .request-quote-form .right .input-wrapper {
     margin: 0 -15px; }
 .request-quote-form .submit {

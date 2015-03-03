@@ -273,9 +273,9 @@ label {
     @include span(8 of 12);
     @media #{$medium-down} {
       width: 100%;
-      padding-bottom: em-calc(40);
-      border-bottom: 1px solid $grey;
-      margin-bottom: em-calc(40);
+      // padding-bottom: em-calc(40);
+      // border-bottom: 1px solid $grey;
+      // margin-bottom: em-calc(40);
     }
     .input-wrapper { margin: 0 -15px; }
   }
