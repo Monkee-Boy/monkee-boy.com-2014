@@ -13236,13 +13236,17 @@ function BlurStack()
   // move menu to mobile menu for tablet & down
   if ( Modernizr.mq('only screen and (max-width:' + medium_break + 'px)') ) {
     console.log("medium screen or down");
+
+    var $main_menu = $('.main-menu');
+
+    if ($main_menu.hasClass('blog-main-menu')) {
+      $main_menu.find('li:first-child').hide();
+      $main_menu.prepend('<li class="primary"><a href="/blog">The Blog</a></li>');
+    }
+
     // add main nav to mobile menu
     var $mobile_menu = $('.mobile-menu'),
-        $main_nav = $('.main-menu').children('li');
-
-    if ($('.main-menu').hasClass('blog-main-menu')) {
-      $main_nav.first().hide();
-    }
+        $main_nav = $main_menu.children('li');
 
     $mobile_menu.append($main_nav);
 
