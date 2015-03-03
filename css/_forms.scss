@@ -164,6 +164,7 @@ label {
     right: em-calc($gutter-width/2);
     bottom: -6px;
     @include transition(border 0.3s ease);
+    -moz-transform: scale(.9999);
   }
   &.focused {
     &:before {

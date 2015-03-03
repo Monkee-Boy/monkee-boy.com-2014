@@ -130,6 +130,7 @@
       width: 0;
       height: 0;
       @include triangle($teal, 600px, 22px);
+      -moz-transform: scale(.9999);
     }
     .name {
       @include span(5 of 12);
@@ -297,6 +298,7 @@
     right: 0;
     bottom: -40px;
     @include triangle($teal, 1200px, 40px);
+    -moz-transform: scale(.9999);
   }
 }
 .office-cat {

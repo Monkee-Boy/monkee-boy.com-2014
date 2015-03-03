@@ -2392,7 +2392,8 @@ label {
     -moz-transition: border 0.3s ease;
     -ms-transition: border 0.3s ease;
     -o-transition: border 0.3s ease;
-    transition: border 0.3s ease; }
+    transition: border 0.3s ease;
+    -moz-transform: scale(0.9999); }
   .input-wrapper.focused:before {
     border: 8px solid #acca41; }
   .input-wrapper.focused:after {
@@ -4284,7 +4285,8 @@ button[type=submit] {
       height: 0;
       border-style: solid;
       border-width: 0 600px 22px 0;
-      border-color: transparent #23a38f transparent transparent; }
+      border-color: transparent #23a38f transparent transparent;
+      -moz-transform: scale(0.9999); }
     .troop-list .profile-header .name {
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
@@ -4505,7 +4507,8 @@ button[type=submit] {
     bottom: -40px;
     border-style: solid;
     border-width: 0 1200px 40px 0;
-    border-color: transparent #23a38f transparent transparent; }
+    border-color: transparent #23a38f transparent transparent;
+    -moz-transform: scale(0.9999); }
 
 .office-cat {
   text-align: center;
@@ -4687,7 +4690,8 @@ button[type=submit] {
         height: 0;
         border-style: solid;
         border-width: 0 600px 22px 0;
-        border-color: transparent #23a38f transparent transparent; }
+        border-color: transparent #23a38f transparent transparent;
+        -moz-transform: scale(0.9999); }
 
 .news-article .date {
   font-family: "effra", sans-serif;
