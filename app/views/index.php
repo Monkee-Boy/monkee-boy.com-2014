@@ -158,9 +158,11 @@
             <div class="subscribe-status"></div> <!-- success -->
             <div class="subscribe-error hide">There has been an error subscribing to our newsletter. Please try again later.</div>
 
-            <label for="form-email">Enter your email</label>
-            <input type="email" name="email" id="form-email">
-            <input type="submit" value="Subscribe!">
+            <div class="form-fields">
+              <label for="form-email">Enter your email</label>
+              <input type="email" name="email" id="form-email">
+              <input type="submit" value="Subscribe!">
+            </div>
           </form>
         </div>
       </div>

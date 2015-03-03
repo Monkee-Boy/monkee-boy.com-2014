@@ -14311,6 +14311,7 @@ function BlurStack()
     $.getJSON('/mailchimp-subscribe/?email='+encodeURIComponent($('.form-newsletter input[name=email]').val()),function(data){
       if(data.status === 'passed') {
         $('.form-newsletter .subscribe-status').addClass('success');
+        $('.form-newsletter .form-fields').hide();
       } else {
         $('.form-newsletter .subscribe-error').show();
       }
