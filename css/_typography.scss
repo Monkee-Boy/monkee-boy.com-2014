@@ -20,7 +20,7 @@ h1 {
   font-weight: 500;
   color: $dark-green;
   margin: 0 0 em-calc(10, 76);
-  @media #{$medium-down} { font-size: 46px; }
+  @media #{$medium-down} { font-size: 42px; }
 }
 
 h2 {
