@@ -13240,6 +13240,10 @@ function BlurStack()
     var $mobile_menu = $('.mobile-menu'),
         $main_nav = $('.main-menu').children('li');
 
+    if ($('.main-menu').hasClass('blog-main-menu')) {
+      $main_nav.first().hide();
+    }
+
     $mobile_menu.append($main_nav);
 
     $('.mobile-menu-trigger').on('click', function(e) {

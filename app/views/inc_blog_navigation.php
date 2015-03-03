@@ -9,7 +9,7 @@ if($menu === 'blog-post') {
   <img src="<?php echo $header_image; ?>" alt="" class="image-bg">
   <nav class="blog-nav row" role="navigation">
     <a href="/blog/" class="blog-logo">The Blog</a>
-    <ul class="menu-lite main-menu">
+    <ul class="menu-lite main-menu blog-main-menu">
       <li class="primary"><a href="/">Home</a></li>
       <li class="primary"><a href="/the-work/">Portfolio</a></li>
       <li class="primary"><a href="/contact/work-with-us/">Request a quote</a></li>
