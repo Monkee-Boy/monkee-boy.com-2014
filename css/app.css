@@ -563,7 +563,7 @@ body.menu-open .container {
         top: 80px; } }
 
 .sticky-nav-wrapper {
-  height: 7.7em; }
+  height: 7.8em; }
   @media only screen and (max-width: 840px) {
     .sticky-nav-wrapper {
       display: none; } }
