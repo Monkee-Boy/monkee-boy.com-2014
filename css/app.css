@@ -377,6 +377,7 @@ th {
     clear: both; }
 
 .row-pop {
+  margin-bottom: 2.55556em;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
