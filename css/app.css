@@ -1414,7 +1414,11 @@ blockquote {
     font-weight: bolder;
     font-style: normal; }
   blockquote footer {
-    text-align: right; }
+    display: block;
+    margin-top: 15px;
+    text-align: right;
+    font-weight: bolder;
+    font-style: normal; }
   .strategy blockquote {
     border-left-color: #acca41; }
   .design blockquote {

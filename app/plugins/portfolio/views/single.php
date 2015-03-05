@@ -111,7 +111,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'portfolio', 'page_title'=>$aClient
               <li>
                 <blockquote>
                   <?= $aQuote['quote']; ?>
-                  <cite><?= $aQuote['attribution']; ?>
+                  <footer><?= $aQuote['attribution']; ?></footer>
                 </blockquote>
               </li>
           <?php }
