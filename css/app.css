@@ -4658,6 +4658,16 @@ button[type=submit] {
       display: block;
       font-size: 18px;
       line-height: 0.3em; }
+    @media only screen and (max-width: 840px) {
+      .news-item .date {
+        width: 100%;
+        text-align: left; }
+        .news-item .date span {
+          display: inline;
+          font-size: inherit;
+          line-height: inherit; }
+          .news-item .date span:before {
+            content: "."; } }
   .news-item h3 {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -4668,6 +4678,10 @@ button[type=submit] {
     padding-right: 15px;
     float: right;
     text-transform: none; }
+    @media only screen and (max-width: 840px) {
+      .news-item h3 {
+        float: none;
+        width: 100%; } }
   .news-item a {
     color: #5e5e5e; }
     .news-item a:hover {
@@ -4693,7 +4707,7 @@ button[type=submit] {
       @media only screen and (max-width: 580px) {
         .news-item.top-article h3 {
           font-size: 30px;
-          width: 60%; } }
+          width: 100%; } }
     .news-item.top-article a {
       color: #ededed; }
       .news-item.top-article a:after {

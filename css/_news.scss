@@ -6,24 +6,49 @@
     @include span(3 of 12);
     text-align: right;
     font-size: 42px;
+
     span {
       display: block;
       font-size: 18px;
       // margin-left: 60px;
       line-height: 0.3em;
     }
+
+    @media #{$medium-down} {
+      width: 100%;
+      text-align: left;
+
+      span {
+        display: inline;
+        font-size: inherit;
+        line-height: inherit;
+
+        &:before {
+          content: ".";
+        }
+      }
+    }
   }
+
   h3 {
     @include span(8 of 12);
     float: right;
     text-transform: none;
+
+    @media #{$medium-down} {
+      float: none;
+      width: 100%;
+    }
   }
+
   a {
     color: $dark-grey;
+
     &:hover {
       color: $red;
     }
   }
+
   &.top-article {
     position: relative;
     background: $teal;
@@ -45,7 +70,7 @@
       text-transform: uppercase;
       @media #{$small-only} {
         font-size: 30px;
-        width: 60%;
+        width: 100%;
       }
     }
     a {
