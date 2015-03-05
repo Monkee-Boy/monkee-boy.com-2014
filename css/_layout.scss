@@ -354,7 +354,6 @@ body {
 }
 
 .sub-nav {
-  @media #{$small-only} { display: none; }
   &.row {
     margin-bottom: 0;
   }

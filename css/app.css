@@ -793,9 +793,6 @@ body.menu-open .container {
         background: #5f730d;
         text-decoration: none; }
 
-@media only screen and (max-width: 580px) {
-  .sub-nav {
-    display: none; } }
 .sub-nav.row {
   margin-bottom: 0; }
 .sub-nav ul {
