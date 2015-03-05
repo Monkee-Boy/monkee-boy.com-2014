@@ -25,17 +25,4 @@
   </div> <!-- /.row -->
   <?php } ?>
 
-  <div class="main-cta">
-    <div class="row">
-      <div class="cta-inner">
-        <p>does this sound like</p>
-        <p class="text-right"><strong>what you need?</strong></p>
-      </div>
-
-      <div class="cta-button">
-        <a href="/contact/work-with-us/" title="CTA Button" class="button">Let's Get In Touch!</a>
-      </div>
-    </div>
-  </div>
-
 <?php $this->tplDisplay("inc_footer.php"); ?>
