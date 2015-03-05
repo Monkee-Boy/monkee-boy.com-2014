@@ -98,11 +98,14 @@
       </div>
 
       <div class="item-panel">
-        <h3>lorem ipsum Ut enim ad minim veniam</h3>
+        <span class="number">99%</span>
 
-        <p>Quis nostrud exercitation ullamco laboris nisi ut con aliquip ex ea commodo consequat.</p>
+        <h3>Increase in mobile visits year over year</h3>
+        <p>The Bob Bullock Museum's new website attracted almost double the amount of mobile visitors in Q4 after their new site launched. </p>
 
-          <a href="" title="">Link to take it there</a>
+        <p class="dots" data-dots="dual"><a href="/the-work/bullock-texas-state-history-museum/" title="View Monkee-Boy's work for The Bullock Texas State History Museum.">View the Project</a></p>
+
+
       </div>
     </div>
   </div>

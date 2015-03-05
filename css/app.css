@@ -3630,6 +3630,17 @@ button[type=submit] {
     .home-blog .section-title {
       font-size: 2.55556em; } }
 
+.home-marketing .item-panel {
+  color: #ededed; }
+  .home-marketing .item-panel .dots {
+    text-align: center; }
+  .home-marketing .item-panel .dots:before, .home-marketing .item-panel .dots:after {
+    bottom: 11px; }
+  .home-marketing .item-panel a {
+    color: #23a38f; }
+    .home-marketing .item-panel a:hover, .home-marketing .item-panel a:focus {
+      color: #1a7a6c; }
+
 .blog-header {
   position: relative;
   padding-top: 2em;

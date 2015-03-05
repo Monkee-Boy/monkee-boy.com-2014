@@ -371,3 +371,25 @@
     @media #{$medium-down} { font-size: em-calc(46); }
   }
 }
+
+.home-marketing {
+  .item-panel {
+    color: $light-grey;
+
+    .dots {
+      text-align: center;
+    }
+
+    .dots:before, .dots:after {
+      bottom: 11px;
+    }
+
+    a {
+      color: $teal;
+
+      &:hover, &:focus {
+        color: $dark-teal;
+      }
+    }
+  }
+}
