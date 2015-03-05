@@ -4021,7 +4021,8 @@ button[type=submit] {
   float: left;
   padding-left: 15px;
   padding-right: 15px;
-  text-align: center; }
+  text-align: center;
+  position: relative; }
   @media only screen and (max-width: 580px) {
     .author-info {
       width: 100%; } }
@@ -4057,7 +4058,8 @@ button[type=submit] {
   padding-left: 15px;
   padding-right: 15px;
   max-width: 680px;
-  float: right; }
+  float: right;
+  position: relative; }
   @media only screen and (max-width: 580px) {
     .author-articles {
       width: 100%; } }

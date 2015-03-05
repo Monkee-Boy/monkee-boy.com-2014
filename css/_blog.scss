@@ -390,7 +390,10 @@
 .author-info {
   @include span(5 of 12);
   text-align: center;
+  position: relative;
+
   @media #{$small-only} { width: 100%; }
+  
   img {
     width: 250px;
     margin-top: -15%;
@@ -417,7 +420,10 @@
   @include span(7 of 12);
   max-width: 680px;
   float: right;
+  position: relative;
+
   @media #{$small-only} { width: 100%; }
+
   h2 {
     color: #fff;
     font-size: 76px;
