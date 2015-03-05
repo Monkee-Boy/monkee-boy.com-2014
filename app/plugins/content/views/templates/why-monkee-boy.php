@@ -6,26 +6,16 @@
 @Author: Monkee-Boy
 -->
 
-<?php
-$aContent = getContent(null, "why-monkee-boy");
-if(!empty($aContent)) {
-  $sTitle = $aContent['title'];
-  $sSubtitle = $aContent['subtitle'];
-} else {
-  $sTitle = "";
-  $sSubtitle = "";
-}
-
-$this->tplDisplay("inc_header.php", ['menu'=>'why-monkee-boy', 'sPageTitle'=>$sTitle, 'seo_title'=>$aContent['seo_title'], 'seo_description'=>$aContent['seo_description'], 'seo_keywords'=>$aContent['seo_keywords']]); ?>
+<?php $this->tplDisplay("inc_header.php", ['menu'=>'why-monkee-boy', 'sPageTitle'=>$sTitle, 'seo_title'=>$aContent['seo_title'], 'seo_description'=>$aContent['seo_description'], 'seo_keywords'=>$aContent['seo_keywords']]); ?>
 
   <div class="row page-title">
-    <h1><?php echo $sTitle; ?></h1>
-    <p class="subtitle"><?php echo $sSubtitle; ?></p>
+    <h1><?= $aContent['title']; ?></h1>
+    <p class="subtitle"><?= $aContent['subtitle']; ?></p>
   </div>
 
   <div class="row">
     <div class="single-column content-block">
-      <?php echo $aContent['content'] ?>
+      <?= $aContent['content']; ?>
     </div>
   </div>
   <div class="row">
