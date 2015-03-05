@@ -3,12 +3,12 @@
   <h2>Troop &raquo; Edit Employee</h2>
   <?php $this->tplDisplay('inc_alerts.php'); ?>
 
-  <form id="add-form" method="post" action="/admin/troop/edit/s/" enctype="multipart/form-data">
+  <form id="edit-form" method="post" action="/admin/troop/edit/s/" enctype="multipart/form-data">
     <div class="row-fluid">
       <div class="span8">
         <div class="accordion-group">
           <div class="accordion-heading">
-            <span class="accordion-toggle">Name</span>
+            <span class="accordion-toggle">* Name</span>
           </div>
           <div id="pagecontent" class="accordion-body">
             <div class="accordion-inner">
@@ -20,7 +20,7 @@
         </div>
           <div class="accordion-group">
             <div class="accordion-heading">
-              <span class="accordion-toggle">Title</span>
+              <span class="accordion-toggle">* Title</span>
             </div>
             <div id="pagecontent" class="accordion-body">
               <div class="accordion-inner">
@@ -59,12 +59,12 @@
 
         <div class="accordion-group">
           <div class="accordion-heading">
-            <span class="accordion-toggle">Where?</span>
+            <span class="accordion-toggle">History</span>
           </div>
           <div class="accordion-body">
             <div class="accordion-inner">
               <div class="controls">
-                <textarea name="where" class="span12"><?= $aEmployee['where'] ?></textarea>
+                <textarea name="history" class="span12"><?= $aEmployee['history'] ?></textarea>
               </div>
             </div>
           </div>
@@ -72,12 +72,12 @@
 
         <div class="accordion-group">
           <div class="accordion-heading">
-            <span class="accordion-toggle">Quirck</span>
+            <span class="accordion-toggle">Quirk</span>
           </div>
           <div class="accordion-body">
             <div class="accordion-inner">
               <div class="controls">
-                <textarea name="quirck" class="span12"><?= $aEmployee['quirck'] ?></textarea>
+                <textarea name="quirk" class="span12"><?= $aEmployee['quirk'] ?></textarea>
               </div>
             </div>
           </div>
@@ -189,7 +189,7 @@
 {footer}
 <script>
 $(function(){
-  jQuery('#add-form').validationEngine({ promptPosition: "bottomLeft" });
+  jQuery('#edit-form').validationEngine({ promptPosition: "bottomLeft" });
 
   $('.photo-show a').on('click', function(e) {
     e.preventDefault();
