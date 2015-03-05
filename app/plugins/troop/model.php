@@ -16,13 +16,17 @@ class troop_model extends appModel {
     $this->content = getContent(null, "the-troop");
   }
 
-  function getTroop($sRandom = false, $sAll = false) {
+  function getTroop($sRandom = false, $sAll = false, $sExcludeFormer = false) {
     $aWhere = array();
     $sJoin = "";
 
     // Filter those that are only active, unless told otherwise
     if($sAll == false) {
       $aWhere[] = "`active` = 1";
+    }
+
+    if($sExcludeFormer) {
+      $aWhere[] = "`former_monkee` = 0";
     }
 
     // Combine filters if atleast one was added

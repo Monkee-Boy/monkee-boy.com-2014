@@ -109,9 +109,16 @@
           <div class="accordion-body">
             <div class="accordion-inner">
               <div class="control-group">
-                <label class="control-label" for="form-logo">Active</label>
+                <label class="control-label" for="form-active">Active</label>
                 <div class="controls">
                   <input type="checkbox" name="active" value="1"<?php echo (($aEmployee['active'] == 1)?' checked="checked"':''); ?>>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label" for="form-formermonkee">Former Monkee</label>
+                <div class="controls">
+                  <input type="checkbox" name="former_monkee" value="1"<?php echo (($aEmployee['former_monkee'] == 1)?' checked="checked"':''); ?>>
                 </div>
               </div>
             </div>

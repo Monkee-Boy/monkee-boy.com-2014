@@ -72,6 +72,7 @@ class admin_troop extends adminController {
         "social_accounts" => json_encode($_POST["social_accounts"]),
         "sort_order" => $sOrder,
         "active" => $this->boolCheck($_POST["active"]),
+        "former_monkee" => $this->boolCheck($_POST["former_monkee"]),
         "created_datetime" => date('Y-m-d H:i:s'),
         "created_by" => $_SESSION["admin"]["userid"],
         "updated_datetime" => date('Y-m-d H:i:s'),
@@ -192,6 +193,7 @@ class admin_troop extends adminController {
         "title" => $_POST["title"],
         "social_accounts" => json_encode($_POST["social_accounts"]),
         "active" => $this->boolCheck($_POST["active"]),
+        "former_monkee" => $this->boolCheck($_POST["former_monkee"]),
         "updated_datetime" => date('Y-m-d H:i:s'),
         "updated_by" => $_SESSION["admin"]["userid"]
       ),

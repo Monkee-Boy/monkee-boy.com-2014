@@ -8,7 +8,7 @@ class troop extends appController {
   }
 
   function index() {
-    $aTroop = $this->model->getTroop(false, false);
+    $aTroop = $this->model->getTroop(false, false, true);
 
     $this->tplAssign('aTroop', $aTroop);
     $this->tplDisplay('index.php');
