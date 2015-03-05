@@ -4747,6 +4747,9 @@ button[type=submit] {
 
 .column-404 {
   width: 800px; }
+  @media only screen and (max-width: 840px) {
+    .column-404 {
+      width: 100%; } }
 
 #flowchart404 {
   display: none; }

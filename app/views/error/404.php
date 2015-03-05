@@ -9,7 +9,8 @@
 
   <div class="row">
     <div class="single-column column-404">
-      <p><strong>Error 404</strong>: The page you're looking for has been moved or no longer exists. You can start back at our <a href="/" title="Home Page">home page</a> or <a href="/search/" title="Search Site">search</a> for the page your looking for.</p>
+      <p><strong>Error 404</strong>: The page you're looking for has been moved or no longer exists. You can start back at our <a href="/" title="Home Page">home page</a>.</p>
+
       <div id="flowchart404">
         <a href="/contact/work-with-us" class="button get-started">Let's get started!</a>
         <a href="/blog" class="button button-alt col1 blog">Check out our blog!</a>
