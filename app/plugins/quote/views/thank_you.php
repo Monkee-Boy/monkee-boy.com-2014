@@ -6,12 +6,12 @@
 @Author: Monkee-Boy
 -->
 
-<?php $this->tplDisplay("inc_header.php", ['menu'=>'work-with-us', 'sPageTitle'=>$sTitle, 'seo_title'=>$aContent['seo_title'], 'seo_description'=>$aContent['seo_description'], 'seo_keywords'=>$aContent['seo_keywords']]); ?>
+<?php $this->tplDisplay("inc_header.php", ['menu'=>'work-with-us', 'sPageTitle'=>$aContent['title'];, 'seo_title'=>$aContent['seo_title'], 'seo_description'=>$aContent['seo_description'], 'seo_keywords'=>$aContent['seo_keywords']]); ?>
 
   <div class="row full">
     <div class="page-title">
-      <h1><?= $sTitle; ?></h1>
-      <p class="subtitle"><?= $sSubtitle; ?></p>
+      <h1><?= $aContent['title']; ?></h1>
+      <p class="subtitle"><?= $aContent['subtitle']; ?></p>
     </div>
   </div>
 
