@@ -54,6 +54,8 @@
     background: $teal;
     padding-top: 30px;
     margin-bottom: 60px;
+    min-height: 150px;
+
     .date {
       color: $yellow;
       font-size: 70px;
@@ -65,6 +67,7 @@
         color: $light-grey;
       }
     }
+
     h3 {
       font-size: 40px;
       text-transform: uppercase;

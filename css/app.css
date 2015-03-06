@@ -4687,7 +4687,8 @@ button[type=submit] {
     position: relative;
     background: #23a38f;
     padding-top: 30px;
-    margin-bottom: 60px; }
+    margin-bottom: 60px;
+    min-height: 150px; }
     .news-item.top-article .date {
       color: #fcc721;
       font-size: 70px;
