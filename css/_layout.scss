@@ -559,7 +559,13 @@ body {
   border-bottom: 4px solid #000;
   margin-top: em-calc(100, 16);
 
-  .row { margin-bottom: 0; }
+  @media #{$medium-down} {
+    margin-top: em-calc(50, 16);
+  }
+
+  .row {
+    margin-bottom: 0;
+  }
 
   .footer-social {
     @include span(5 of 12);

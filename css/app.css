@@ -994,6 +994,9 @@ body.menu-open .container {
   background: #242529;
   border-bottom: 4px solid #000;
   margin-top: 6.25em; }
+  @media only screen and (max-width: 840px) {
+    [role="contentinfo"] {
+      margin-top: 3.125em; } }
   [role="contentinfo"] .row {
     margin-bottom: 0; }
   [role="contentinfo"] .footer-social {
