@@ -1325,6 +1325,7 @@ h2 {
   margin: 0; }
   @media only screen and (max-width: 840px) {
     .subtitle {
+      padding: 0 0.83333em;
       font-size: 20px; } }
 
 h3 {

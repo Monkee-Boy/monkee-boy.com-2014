@@ -39,7 +39,10 @@ h2 {
   font-size: 26px;
   color: $teal;
   margin: 0;
-  @media #{$medium-down} { font-size: 20px; }
+  @media #{$medium-down} {
+    padding: 0 em-calc(15);
+    font-size: 20px;
+  }
 }
 
 h3 {
