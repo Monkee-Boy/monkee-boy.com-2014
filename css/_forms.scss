@@ -77,6 +77,11 @@ label {
   max-width: 100%;
   height: em-calc(70);
   background-color: $light-grey;
+
+  @media #{$small-only} {
+    width: 100%;
+  }
+
   &:before {
     content: "";
     position: absolute;
@@ -89,6 +94,7 @@ label {
     pointer-events: none;
     @include transition(background 0.3s ease);
   }
+
   &:after {
     content: "";
     position: absolute;
@@ -104,6 +110,7 @@ label {
     @include transition(border 0.3s ease);
     z-index: 2;
   }
+
   select {
     display: block;
     position: absolute;
@@ -126,13 +133,21 @@ label {
     color: $grey;
     cursor: pointer;
     @include transition(all 0.3s ease);
+
     &:focus {
       border-color: $teal;
     }
   }
+
   &.selected {
-    &:before { background-color: $teal; }
-    &:after { border-top-color: #fff; }
+    &:before {
+      background-color: $teal;
+    }
+
+    &:after {
+      border-top-color: #fff;
+    }
+
     select {
       border-color: $teal;
       background: $teal;
