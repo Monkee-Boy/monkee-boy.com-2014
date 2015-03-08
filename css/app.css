@@ -4469,7 +4469,7 @@ button[type=submit] {
       width: 100%;
       text-align: center;
       font-size: 360px; }
-      @media only screen and (min-width: 841px) and (max-width: 980px) {
+      @media only screen and (min-width: 981px) and (max-width: 1115px) {
         .stats-list li:after {
           font-size: 260px;
           line-height: 360px; } }
