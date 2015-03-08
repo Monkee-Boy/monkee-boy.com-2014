@@ -156,6 +156,8 @@
       text-indent: 0;
     }
     &:hover, &:focus {
+      text-decoration: none;
+      
       &:before { color: $green; }
     }
     @media #{$medium-down} { display: none; }

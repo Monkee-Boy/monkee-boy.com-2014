@@ -3434,8 +3434,10 @@ button[type=submit] {
       font-size: 80px;
       text-align: center;
       text-indent: 0; }
-    .hero-slideshow .slide-trigger:hover:before, .hero-slideshow .slide-trigger:focus:before {
-      color: #acca41; }
+    .hero-slideshow .slide-trigger:hover, .hero-slideshow .slide-trigger:focus {
+      text-decoration: none; }
+      .hero-slideshow .slide-trigger:hover:before, .hero-slideshow .slide-trigger:focus:before {
+        color: #acca41; }
     @media only screen and (max-width: 840px) {
       .hero-slideshow .slide-trigger {
         display: none; } }
