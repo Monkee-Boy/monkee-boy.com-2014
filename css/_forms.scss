@@ -203,19 +203,24 @@ label {
 // work with us page layout
 .form-monkee {
   @include span(5 of 12);
-  @media #{$small-only} { display: none; }
+  @media #{$small-only} {
+    display: none;
+  }
+
   .monkee {
     display: block;
     position: relative;
     margin: 0 15%;
     background: url(../images/form-monkee.png) no-repeat center center;
     background-size: contain;
+
     // sizing
     &:after {
       content: "";
       display: block;
       padding-bottom: 208.2%; // image height/width ratio
     }
+
     // speech bubble
     &:before {
       content: "";
@@ -231,12 +236,18 @@ label {
       @include transform(scale(0));
       @include opacity(0);
       @include transition(all 0.3s ease);
+
+      @media #{$medium-only} {
+        display: none;
+      }
     }
+
     &.speak:before {
       left: 43%;
       @include transform(scale(1));
       @include opacity(1);
     }
+
   }
   .glasses-monkee, .dark-monkee {
     position: absolute;
