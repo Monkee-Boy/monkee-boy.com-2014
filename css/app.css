@@ -4185,22 +4185,24 @@ button[type=submit] {
     .troop-list > li:hover .trigger .hover-image, .troop-list > li.active .trigger .hover-image {
       opacity: 1;
       filter: alpha(opacity=100); }
-    .troop-list > li:hover .trigger:before {
-      -webkit-transform: rotate(-14deg);
-      -moz-transform: rotate(-14deg);
-      -ms-transform: rotate(-14deg);
-      -o-transform: rotate(-14deg);
-      transform: rotate(-14deg);
-      bottom: -40px;
-      background-color: #23a38f; }
-    .troop-list > li:hover .trigger:after {
-      color: #fff;
-      -webkit-transform: scale(1.4);
-      -moz-transform: scale(1.4);
-      -ms-transform: scale(1.4);
-      -o-transform: scale(1.4);
-      transform: scale(1.4);
-      bottom: 10px; }
+    .troop-list > li:hover .trigger {
+      text-decoration: none; }
+      .troop-list > li:hover .trigger:before {
+        -webkit-transform: rotate(-14deg);
+        -moz-transform: rotate(-14deg);
+        -ms-transform: rotate(-14deg);
+        -o-transform: rotate(-14deg);
+        transform: rotate(-14deg);
+        bottom: -40px;
+        background-color: #23a38f; }
+      .troop-list > li:hover .trigger:after {
+        color: #fff;
+        -webkit-transform: scale(1.4);
+        -moz-transform: scale(1.4);
+        -ms-transform: scale(1.4);
+        -o-transform: scale(1.4);
+        transform: scale(1.4);
+        bottom: 10px; }
     .troop-list > li.active {
       background-color: #23a38f; }
       .troop-list > li.active .profile {
