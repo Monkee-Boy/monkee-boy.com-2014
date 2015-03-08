@@ -32,6 +32,7 @@
       color: $yellow;
       font-size: 70px;
       line-height: 0.9em;
+      @media #{$small-only} { font-size: 50px; }
       span {
         // margin-left: 98px;
         line-height: 0.7em;
@@ -40,6 +41,10 @@
     }
     h3 {
       font-size: 40px;
+      @media #{$small-only} {
+        font-size: 30px;
+        width: 60%;
+      }
     }
     a {
       color: $light-grey;

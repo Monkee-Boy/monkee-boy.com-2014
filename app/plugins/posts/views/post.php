@@ -88,7 +88,7 @@ $this->tplDisplay("inc_header.php", [
           <div class="post-panel-inside">
             <a href="<?php echo $aRelatedPost['url']; ?>" title="Permalink for <?php echo $aRelatedPost['title']; ?>">
               <img src="/uploads/posts/<?php echo $aPost['listing_image']; ?>" alt="<?php echo $aRelatedPost['title']; ?>">
-              <h4><?php echo $aRelatedPost['title']; ?><span>Read now &raquo;</span></h4>
+              <div class="post-title"><h5><?php echo $aRelatedPost['title']; ?></h5><span>Read now &raquo;</span></div>
             </a>
           </div> <!-- /.post-panel-inside -->
         </div> <!-- /.half.post-panel -->

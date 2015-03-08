@@ -24,7 +24,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'work-with-us', 'sPageTitle'=>$sTit
 
   <form action="<?php echo $aContent['url'].'submit-form/' ?>" method="post" name="request-quote" class="request-quote-form" enctype="multipart/form-data">
     <div class="row full">
-      <h2 class="form-title">Please tell us a lil&rsquo; about yourself</h2>
+      <h2 class="form-title">Tell Us a Little About Yourself</h2>
     </div>
 
     <div class="row">
@@ -63,26 +63,26 @@ $this->tplDisplay("inc_header.php", ['menu'=>'work-with-us', 'sPageTitle'=>$sTit
 
     <div class="row">
       <div class="left">
-        <h4>Have a project brief?</h4>
+        <h4>Do you have a Request for Proposal (RFP)?</h4>
         <label class="radio" for="brief1">
-          Not yet but I can tell you about it.
+          Not yet, but I can tell you about my project.
           <input type="radio" id="brief1" name="brief" value="1" class="input-switch" data-switchto="no-brief"<?php if($form_data['brief'] === '1'){ echo ' checked'; } ?>>
           <span class="control-indicator"></span>
         </label>
         <label class="radio" for="brief2">
-          Yes I sure do!
+          Yes, I do.
           <input type="radio" id="brief2" name="brief" value="0" class="input-switch" data-switchto="brief-upload"<?php if(empty($form_data['brief'])){ echo ' checked'; } ?>>
           <span class="control-indicator"></span>
         </label>
       </div>
       <div class="right">
         <div id="no-brief" class="switch-target<?php if($form_data['brief'] === '1'){ echo ' active'; } ?>">
-          <label for="project-desc">No brief, no problem</label>
-          <p>Please tell us about your project. What are your current challenges? What are you looking to accomplish?</p>
+          <label for="project-desc" class="quiet">No RFP? No problem!</label>
+          <p>What kind of project do you have and what are your goals?</p>
           <div class="input-wrapper"><textarea cols="10" rows="4" id="project-desc" name="project-desc"><?= $form_data['project-desc'] ?></textarea></div>
         </div>
         <div id="brief-upload" class="switch-target<?php if($form_data['brief'] !== '1'){ echo ' active'; } ?>">
-          <h4>Lovely! Upload it here:</h4>
+          <h5>Great! Upload it here:</h5>
           <div class="upload-box initial">
             <div class="uploaded-files"></div>
             <div class="drop-label">Drag &amp; drop files here <span>or</span></div>
@@ -92,11 +92,12 @@ $this->tplDisplay("inc_header.php", ['menu'=>'work-with-us', 'sPageTitle'=>$sTit
         </div>
       </div>
     </div>
+    <hr>
     <div class="row">
       <div class="left">
         <h4>Have a project deadline?</h4>
         <label class="radio" for="date1">
-          No specific date in mind.
+          Nope. I'm flexible.
           <input type="radio" id="date1" name="deadline" value="0" class="input-switch" data-switchto="no-date"<?php if(empty($form_data['deadline'])){ echo ' checked'; } ?>>
           <span class="control-indicator"></span>
         </label>
@@ -108,8 +109,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'work-with-us', 'sPageTitle'=>$sTit
       </div>
       <div class="right">
         <div id="no-date" class="switch-target<?php if($form_data['deadline'] !== '1'){ echo ' active'; } ?>">
-          <h4>Cool We’ll work with you to Plan a Launch date</h4>
-          <p>Every project is different. We’ll work with you to plan consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+          <h5>Cool, we can work with you to plan the project schedule.</h5>
         </div>
         <div id="datepicker" class="switch-target<?php if($form_data['deadline'] === '1'){ echo ' active'; } ?>">
           <a href="#" class="datepicker">Pick a Date</a>
@@ -119,10 +119,11 @@ $this->tplDisplay("inc_header.php", ['menu'=>'work-with-us', 'sPageTitle'=>$sTit
         </div>
       </div>
     </div>
+    <hr>
     <div class="row">
       <div class="left">
         <label for="budget">Have a project budget?*</label>
-        <p>Please select the budget range you are most comfortable with.</p>
+        <p>Please select your desired project budget and we'll craft a solution just for you.</p>
       </div>
       <div class="right">
         <div class="select-box<?php if(!empty($form_data['budget'])){ echo " selected"; } ?>">
@@ -144,7 +145,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'work-with-us', 'sPageTitle'=>$sTit
     </div>
     <div class="row">
       <div class="full" data-text-align="center">
-        <button type="submit" class="submit">Submit your request !</button>
+        <button type="submit" class="submit">Submit your request!</button>
       </div>
     </div>
   </form>

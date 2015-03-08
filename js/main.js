@@ -1105,7 +1105,7 @@
       }
     ];
     var office_loc = new google.maps.LatLng(30.383294, -97.743659),
-        marker_image = '/images/map-marker.png';
+        marker_image = new google.maps.MarkerImage('/images/map-marker.png', null, null, null, new google.maps.Size(100,130));
     var map = new google.maps.Map(document.getElementById('contact-map'), {
       zoom: 14,
       center: office_loc,
@@ -1211,5 +1211,16 @@
 
     return false;
   });
+
+  // erg. Crazy 404 page.
+  if ($('#flowchart404').length > 0 && !Modernizr.touch && Modernizr.mq('only screen and (min-width:' + medium_break + 'px)')) {
+    var flowchart = new Image(),
+        container = document.getElementById('flowchart404');
+    flowchart.onload = function() {
+      container.appendChild(flowchart);
+      container.className = 'loaded';
+    }
+    flowchart.src = '/images/flowchart404.png';
+  }
 
 }(jQuery));

@@ -118,10 +118,10 @@
         <p><em>You don't need us to tell you that the web is always changing. What you do need is an experienced team you can trust that keeps up with that change and gets results by:</em></p>
 
         <ul class="list-style-alt">
-          <li><a href="#" title="">Elevating identity with stunning creative assets &raquo;</a></li>
-          <li><a href="#" title="">Increasing website traffic and brand awareness &raquo;</a></li>
-          <li><a href="#" title="">Converting website visitors into loyal customers &raquo;</a></li>
-          <li><a href="#" title="">Establishing leadership with valuable content &raquo;</a></li>
+          <li>Elevating identity with stunning creative assets.</li>
+          <li>Increasing website traffic and brand awareness.</li>
+          <li>Converting website visitors into loyal customers.</li>
+          <li>Establishing leadership with valuable content.</li>
         </ul>
       </div>
 
@@ -248,7 +248,7 @@
         <div class="post-panel-inside">
           <a href="<?= $aPost['url'] ?>" title="<?= $aPost['title'] ?>">
             <img src="<?= $aPost['listing_image_url'] ?>" alt="<?= $aPost['title'] ?>">
-            <h4><?= $aPost['title'] ?><span>Read now &raquo;</span></h4>
+            <div class="post-title"><h5><?= $aPost['title'] ?></h5><span>Read now &raquo;</span></div>
           </a>
         </div>
       </div>

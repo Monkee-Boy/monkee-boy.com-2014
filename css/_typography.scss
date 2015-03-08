@@ -100,9 +100,9 @@ p.intro {
 blockquote {
   padding-left: em-calc(17px);
   color: $black;
-  text-transform: uppercase;
   font-family: 'effra', sans-serif;
   font-weight: bold;
+  font-style: italic;
   font-size: em-calc(24px);
   border-left: 17px solid $yellow;
 
@@ -214,6 +214,14 @@ a {
     }
   }
 
+  &.button-alt2 {
+    border-bottom-color: $dark-yellow;
+    background-color: $yellow;
+    &:before {
+      background: $dark-yellow;
+    }
+  }
+
   &.button-full {
     display: block;
   }
@@ -286,4 +294,14 @@ a {
   .gplus:after { content: $icon-gplus; }
   .instagram:after { content: $icon-instagram; }
   .pinterest:after { content: $icon-pinterest; }
+  .dribble:after { content: $icon-dribble; }
+  .behance:after { content: $icon-behance; }
+  .github:after { content: $icon-github; }
+  .codepen:after { content: $icon-codepen; }
+  .flickr:after { content: $icon-flickr; }
+  .youtube:after { content: $icon-youtube; }
+  .vimeo:after { content: $icon-vimeo; }
+  .tumblr:after { content: $icon-tumblr; }
+  .vsco_cam:after { content: $icon-vsco; }
+  .pinboard:after { content: $icon-pinboard; }
 }

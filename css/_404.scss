@@ -1,0 +1,51 @@
+.column-404 { width: 800px; }
+
+#flowchart404 {
+  display: none;
+}
+
+#flowchart404.loaded {
+  position: relative;
+  display: block;
+  margin-top: em-calc(80);
+  .button {
+    position: absolute;
+  }
+  .col1 {
+    left: 0px;
+    width: 230px;
+  }
+  .col3 {
+    left: 345px;
+    width: 230px;
+  }
+  .col4 {
+    left: 573px;
+    width: 200px;
+  }
+
+  .get-started {
+    left: 150px;
+    top: 825px;
+    width: 200px;
+  }
+  .blog { top: 1165px; }
+  .puppy { top: 2116px; }
+  .process, .work {
+    top: 1600px;
+    width: 220px;
+  }
+  .process { left: 155px; }
+  .work { left: 400px; }
+  .cats {
+    left: 285px;
+    top: 1830px;
+    width: 200px;
+  }
+  .images { top: 820px; }
+  .info { top: 980px; }
+  .hiphop { top: 2116px; }
+  .pop { top: 2275px; }
+  .rock { top: 2430px; }
+  .puppies { top: 2590px; }
+}

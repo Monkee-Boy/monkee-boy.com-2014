@@ -38,7 +38,7 @@ $aMenuAdmin = array(
   "menu" => array(
     array(
       "text" => "Work With Us",
-      "link" => "/admin/work-with-us/"
+      "link" => "/admin/quote/"
     )
   )
 );

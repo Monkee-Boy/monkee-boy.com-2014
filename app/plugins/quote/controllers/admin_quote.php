@@ -32,12 +32,20 @@ class admin_quote extends adminController {
       $_POST["id"]
     );
 
-    $this->forward("/admin/work_with_us/?info=".urlencode("Status updated successfully!"));
+    $this->forward("/admin/quote/?info=".urlencode("Status updated successfully!"));
   }
   function delete() {
+    $aQuote = $this->model->getQuote($this->urlVars->dynamic["id"]);
+    
     $this->dbDelete("work_with_us", $this->urlVars->dynamic["id"]);
 
-    $this->forward("/admin/work_with_us/?info=".urlencode("Quote removed successfully!"));
+    if(!empty($aQuote['attachments'])) {
+      foreach($aQuote['attachments'] as $file) {
+        @unlink($this->settings->rootPublic.'uploads/quote/'.$file);
+      }
+    }
+
+    $this->forward("/admin/quote/?info=".urlencode("Submission removed successfully!"));
   }
   ##################################
 }

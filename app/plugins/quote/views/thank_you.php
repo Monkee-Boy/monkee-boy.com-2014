@@ -26,7 +26,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'work-with-us', 'sPageTitle'=>$sTit
 
   <div class="row">
     <div class="single-column content-block">
-      <?php echo $aTYContent['content'] ?>
+      <?= $aContent['content']; ?>
     </div>
   </div>
 

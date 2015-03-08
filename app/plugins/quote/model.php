@@ -18,4 +18,52 @@ class quote_model extends appModel {
     $this->content = getContent(null, 'work-with-us');
     $this->ty_content = getContent(null, 'thank-you');
   }
+
+  function getQuotes() {
+    $aQuotes = $this->dbQuery(
+      "SELECT `work_with_us`.* FROM `{dbPrefix}work_with_us` as `work_with_us`"
+      ." GROUP BY `work_with_us`.`id`"
+      ." ORDER BY `created_datetime` DESC"
+      ,"all"
+    );
+
+    foreach($aQuotes as &$aQuote) {
+      $this->_getQuoteInfo($aQuote);
+    }
+
+    return $aQuotes;
+  }
+  function getQuote($sId) {
+    $aQuote = $this->dbQuery(
+      "SELECT * FROM `{dbPrefix}work_with_us`"
+      ." WHERE `id` = ".$this->dbQuote($sId, "integer")
+      ." LIMIT 1"
+      ,"row"
+    );
+
+    $this->_getQuoteInfo($aQuote);
+
+    return $aQuote;
+  }
+  private function _getQuoteInfo(&$aQuote) {
+    if(!empty($aQuote)) {
+      $aQuote['first_name'] = htmlspecialchars(stripslashes($aQuote['first_name']));
+      $aQuote['last_name'] = htmlspecialchars(stripslashes($aQuote['last_name']));
+      $aQuote['email'] = htmlspecialchars(stripslashes($aQuote['email']));
+      $aQuote['phone'] = htmlspecialchars(stripslashes($aQuote['phone']));
+      $aQuote['organization'] = htmlspecialchars(stripslashes($aQuote['organization']));
+      $aQuote['website'] = htmlspecialchars(stripslashes($aQuote['website']));
+      $aQuote['breif'] = nl2br(htmlspecialchars(stripslashes($aQuote['breif'])));
+      $aQuote['attachments'] = json_decode($aQuote['attachments'], false);
+
+      if(!empty($aQuote['deadline'])) {
+        $aQuote['deadline'] = date('m/d/Y', strtotime($aQuote['deadline']));
+      }
+
+      $aQuote['created_datetime'] = strtotime($aQuote['created_datetime']);
+      $aQuote['updated_datetime'] = strtotime($aQuote['updated_datetime']);
+
+      $aQuote['name'] = $aQuote['first_name'].' '.$aQuote['last_name'];
+    }
+  }
 }
