@@ -7,12 +7,11 @@ if(!empty($aContent)) {
 	$sSubtitle = "Beware of nerf wars";
 }
 
-$this->tplDisplay("inc_header.php", ['menu'=>'contact','sPageTitle'=>$sTitle, 'seo_title'=>$aContent['seo_title'], 'seo_description'=>$aContent['seo_description'], 'seo_keywords'=>$aContent['seo_keywords']]);
-?>
+$this->tplDisplay("inc_header.php", ['menu'=>'contact', 'sPageTitle'=>$sTitle, 'seo_title'=>$aContent['seo_title'], 'seo_description'=>$aContent['seo_description'], 'seo_keywords'=>$aContent['seo_keywords']]); ?>
 
 <div class="row">
 	<div class="page-title">
-		<h1><?= $sTitle ?></h1>
+		<h1><?= $sTitle ?></h1> <?php echo $menu; ?>
 		<p class="subtitle"><?= $sSubtitle ?></p>
 	</div>
 </div>
@@ -20,7 +19,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'contact','sPageTitle'=>$sTitle, 's
 <div class="row">
 	<div class="full" data-text-align="center">
 		<div id="contact-map"></div>
-	
+
 		<h2>9390 Research Blvd. Bldg II, Suite 425, Austin, TX 78759</h2>
 
 		<p><a href="https://maps.google.com?daddr=9390+Research+Blvd.+Bldg+II,+Suite 425,+Austin,+TX+78759" target="_blank">Get Directions to Monkee-Boy World Headquarters</a></p>
@@ -37,21 +36,29 @@ $this->tplDisplay("inc_header.php", ['menu'=>'contact','sPageTitle'=>$sTitle, 's
 		<div class="half">
 			<div class="accordion">
 				<a href="#" class="trigger">Sales Team</a>
-				<div class="content">512-335-2221 &bull; ext. 100</div>
+				<div class="content">
+					<p>512-335-2221 &bull; ext. 100</p>
+				</div>
 			</div><!-- /.accordion -->
 			<div class="accordion">
 				<a href="#" class="trigger">Maintenance + Support Team</a>
-				<div class="content">512-335-2221 &bull; ext. 110</div>
+				<div class="content">
+					<p>512-335-2221 &bull; ext. 110</p>
+				</div>
 			</div><!-- /.accordion -->
 		</div>
 		<div class="half">
 			<div class="accordion">
 				<a href="#" class="trigger">Marketing Team</a>
-				<div class="content">512-335-2221 &bull; ext. 101</div>
+				<div class="content">
+					<p>512-335-2221 &bull; ext. 101</p>
+				</div>
 			</div><!-- /.accordion -->
 			<div class="accordion">
 				<a href="#" class="trigger">Management Team</a>
-				<div class="content">512-335-2221 &bull; ext. 100</div>
+				<div class="content">
+					<p>512-335-2221 &bull; ext. 100</p>
+				</div>
 			</div><!-- /.accordion -->
 		</div>
 	</div>

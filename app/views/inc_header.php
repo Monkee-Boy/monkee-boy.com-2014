@@ -53,7 +53,7 @@
   <meta name="msapplication-TileColor" content="#acca41">
   <meta name="msapplication-TileImage" content="/mstile-144x144.png">
 
-  <link rel="stylesheet" href="/css/style.min.css?v=2">
+  <link rel="stylesheet" href="/css/app.min.css?v=2">
 
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
   <script src="//use.typekit.net/shc0zig.js"></script>

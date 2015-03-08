@@ -3,36 +3,39 @@
   <div class="row">
     <div class="page-title">
       <h1><?php echo $aService['name']; ?></h1>
-      <p class="subtitle"><?php echo $aService['subtitle']; ?></p>
+      <p class="subtitle"><?= $aService['subtitle']; ?></p>
     </div>
   </div> <!-- /.row -->
 
   <?php foreach($aService['subs'] as $ServiceSub) { ?>
-  <div class="row service-section <?php echo $ServiceSub['tag']; ?>">
+  <div class="row service-section <?= $ServiceSub['tag']; ?>">
     <div class="service-title">
-      <div class="<?php echo $ServiceSub['tag']; ?> service-icon"><i></i></div>
-      <span class="title"><?php echo $ServiceSub['name']; ?></span>
+      <div class="<?= $ServiceSub['tag']; ?> service-icon"><i></i></div>
+      <span class="title"><?= $ServiceSub['name']; ?></span>
     </div> <!-- /.service-title -->
     <div class="service-content">
-      <?php echo $ServiceSub['description']; ?>
+      <?= $ServiceSub['description']; ?>
 
-      <blockquote><?php echo $ServiceSub['quote']; ?></blockquote>
+      <blockquote>
+        <?= $ServiceSub['quote']; ?>
+        <?php if(!empty($ServiceSub['quote_attribution'])) { ?><footer>- <?= $ServiceSub['quote_attribution']; ?></footer><?php } ?>
+      </blockquote>
     </div> <!-- /.service-content -->
   </div>
 
   <div class="accordion-section">
     <div class="row">
       <div class="full" data-text-align="center">
-        <span class="subtitle"><?php echo $ServiceSub['intro']; ?></span>
-        <h2><?php echo $ServiceSub['name']; ?> services</h2>
+        <span class="subtitle"><?= $ServiceSub['intro']; ?></span>
+        <h2><?= $ServiceSub['name']; ?> services</h2>
       </div>
 
       <div class="half">
         <?php foreach($ServiceSub['first_half_items'] as $FirstHalfItem) { ?>
           <div class="accordion">
-            <a href="#" class="trigger"><?php echo $FirstHalfItem['name']; ?></a>
+            <a href="#" class="trigger"><?= $FirstHalfItem['name']; ?></a>
             <div class="content">
-              <?php echo $FirstHalfItem['description']; ?>
+              <?= $FirstHalfItem['description']; ?>
               </div>
           </div><!-- /.accordion -->
         <?php } ?>
@@ -41,9 +44,9 @@
       <div class="half">
         <?php foreach($ServiceSub['second_half_items'] as $SecondHalfItem) { ?>
           <div class="accordion">
-            <a href="#" class="trigger"><?php echo $SecondHalfItem['name']; ?></a>
+            <a href="#" class="trigger"><?= $SecondHalfItem['name']; ?></a>
             <div class="content">
-              <?php echo $SecondHalfItem['description']; ?>
+              <?= $SecondHalfItem['description']; ?>
               </div>
           </div><!-- /.accordion -->
         <?php } ?>

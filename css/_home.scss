@@ -1,288 +1,153 @@
-.hero-circles {
+.hero-slideshow {
   position: relative;
-  max-width: 1400px;
-  margin: 0 auto em-calc(35);
-  overflow: hidden;
-  .row { margin-bottom: 0; }
-  h1 {
-    color: $black;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 0.6em;
-    font-size: 80px;
-    font-weight: 400;
-    @media #{$medium-down} {
-      font-size: 30px;
-      margin-bottom: 1em;
-    }
-  }
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  li {
-    position: relative;
-    @include span(4 of 12);
-    @media #{$small-only} {
-      padding: 0 5px;
-      margin: 0 auto $mobile-paragraph-margin;
-    }
-    &.active, &:hover {
-      .border {
-        background-color: $dark-black;
-        z-index: 2;
-      }
-      .circle { z-index: 3; }
-    }
-  }
-  .border {
-    // grey border
-    position: absolute;
+  max-width: 1300px;
+  margin: -45px auto 45px;
+  &:before {
+    content: "";
     display: block;
-    top: -4px;
-    right: #{$gutter-width/2 - 4}px;
-    left: #{$gutter-width/2 - 4}px;
-    background-color: $grey;
-    @include border-radius(50%);
-    @include transition(transform 0.3s ease);
-    &:after {
-      content: "";
+    width: 100%;
+    padding-bottom: 56.28%;
+  }
+  @media #{$medium-down} {
+    background-color: $black;
+  }
+
+  canvas {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  .current, .next {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    img {
       display: block;
       width: 100%;
-      padding-bottom: 100%;
     }
-    @media #{$small-only} { display: none; }
-  }
-  .circle {
-    position: relative;
-    width: 100%;
-    padding-bottom: 100%;
-    cursor: pointer;
-    @include border-radius(50%);
-    overflow: hidden;
-    @include translate(0, 0); // prevent square corners when page elements transform
-    @media #{$small-only} {
-      border: 4px solid $grey;
-      &.active { border-color: $green; }
+    @media #{$medium-down} {
+      bottom: auto;
+      height: auto;
     }
   }
-  .bg {
+  .current {
+    z-index: 2;
+    canvas {
+      @include opacity(0);
+    }
+  }
+  .slider-nav {
     position: absolute;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    @media #{$small-only} {
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+    top: 20px;
+    right: 60px;
+    z-index: 5;
+    padding: em-calc(10) em-calc(16);
+    margin: 0;
+    background-color: rgba($black, 0.9);
+    .slide-caption { display: none; }
+    .title {
+      color: #fff;
+      &:hover, &:focus {
+        text-decoration: none;
+        color: $green;
+      }
+    }
+    .active .title { color: $green; }
+    @media #{$medium-down} {
+      position: static;
+      text-align: center;
+      background-color: $black;
     }
   }
-  .circle-expander {
+  .caption {
     position: absolute;
     left: 0;
+    bottom: 0;
+    z-index: 5;
+    width: 95%;
+    padding: em-calc(20) em-calc(120) em-calc(24) em-calc(20);
+    background-color: rgba($black, 0.9);
+    color: #fff;
+    @media #{$medium-down} {
+      position: static;
+      width: 100%;
+      padding: em-calc(10) em-calc(15) em-calc(30);
+      background-color: $black;
+    }
+  }
+  .caption-title {
+    float: left;
+    width: 36%;
+    padding: em-calc(10, 70);
+    font-size: 70px;
+    font-face: $heading-font;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    color: $green;
+    @media #{$medium-down} {
+      float: none;
+      display: block;
+      width: 100%;
+      padding: 0;
+      font-size: 42px;
+      text-align: left;
+    }
+  }
+  .caption-content {
+    float: right;
+    width: 64%;
+    font-size: 22px;
+    p { margin-bottom: 12px; }
+    *:last-child { margin-bottom: 0; }
+    @media #{$medium-down} {
+      float: none;
+      width: 100%;
+      font-size: 18px;
+    }
+  }
+  .landing-caption {
+    bottom: 24px;
+    max-width: 920px;
+    padding-left: em-calc(50);
+    .caption-title { display: none; }
+    .caption-content { width: 100%; }
+    h1 {
+      font-weight: bold;
+      color: #fff;
+    }
+  }
+  .slide-trigger {
+    position: absolute;
     right: 0;
     top: 0;
     bottom: 0;
-    @include opacity(0);
-    background-color: $light-grey;
-    z-index: -1;
+    width: 100px;
     overflow: hidden;
-    .bg {
-      left: 0;
-      top: 0;
-      bottom: 0;
-      right: 0;
-    }
-    .title-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding-top: em-calc(20);
-      padding-bottom: em-calc(60); // extra padding for the easing
-      background: rgba($black, 0.92) url(../images/noise-pattern.png);
-      text-align: center;
-      text-transform: uppercase;
-      @include translate(0, 100%);
-      a {
-        color: $light-grey;
-      }
-      .title {
-        display: block;
-        font-size: 24px;
-        font-weight: bold;
-        color: $green;
-        &.closed { display: none; }
-      }
-      .subtitle {
-        font-size: 52px;
-        color: #fff;
-        @media #{$medium-only} { font-size: 30px; }
-        span { color: $dark-grey; }
-      }
-    }
-    .close-btn {
-      position: absolute;
-      top: 20px;
-      right: 60px;
-      width: 64px;
-      height: 64px;
-      text-indent: -999px;
-      overflow: hidden;
-      background-color: rgba($black, 0.92);
-      @include border-radius(50%);
-      &:before, &:after {
-        content: "";
-        width: 60%;
-        height: 8px;
-        position: absolute;
-        top: 50%;
-        margin-top: -4px;
-        left: 20%;
-        background-color: #fff;
-        @include transition(all 0.3s ease);
-      }
-      &:before { @include rotate(45deg); }
-      &:after { @include rotate(-45deg); }
-      &:hover, &:focus {
-        &:before, &:after { background-color: $red; }
-        &:before { @include rotate(135deg); }
-        &:after { @include rotate(45deg); }
-      }
-    }
-  }
-  .expander-nav {
-    a {
-      position: absolute;
-      bottom: 4px;
-      display: block;
-      width: 160px;
-      height: 160px;
-      padding-top: em-calc(100, 26);
-      @include border-radius(50%);
-      font-size: 26px;
-      font-family: $heading-font;
-      font-weight: bold;
-      font-style: italic;
-      text-align: center;
-      text-transform: uppercase;
-      color: #fff;
-      background-size: cover;
-      @include translate(-160px, 0);
-      overflow: hidden;
-      &:hover {
-        text-decoration: none;
-        &:after { @include opacity(0.3); }
-      }
-      &:after {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 100%;
-        background-color: $dark-teal;
-        @include opacity(0.6);
-        z-index: -1;
-        @include transition(opacity 0.3s ease);
-      }
-      @media #{$medium-only}  {
-        width: 100px;
-        height: 100px;
-        padding-top: em-calc(42, 16);
-        font-size: 16px;
-      }
-    }
-    .create { background-image: url(../images/home-create-thumb.png); }
-    .evolve { background-image: url(../images/home-evolve-thumb.png); }
-    .discover { background-image: url(../images/home-discover-thumb.png); }
-  }
-  .tagline {
-    position: relative;
-    text-align: center;
-    font-family: $heading-font;
-    font-size: 50px;
-    font-weight: bold;
-    font-style: italic;
-    line-height: 140px;
-    color: $black;
-    margin: em-calc(30, 50) 0 0;
-    @media #{$medium-down} {
-      font-size: 36px;
-      margin: 0;
-    }
-    @media #{$small-only} {
-      font-size: 24px;
-      line-height: 80px;
-      margin: 0;
-    }
-    a {
-      color: $black;
-      text-decoration: none;
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-    .open { display: none; }
-    .subtitle { display: none; }
+    background-color: $black;
+    text-indent: -999px;
     &:before {
+      @extend .icon;
+      content: $icon-right;
       position: absolute;
+      top: 50%;
       left: 0;
-      top: 0;
       width: 100%;
-      font-size: #{(200/50)}em;
-      font-weight: normal;
-      font-style: normal;
-      color: $darker-light-grey;
-      @media #{$small-only} { font-size: 2.5em; }
+      @include translate(0, -50%);
+      color: #fff;
+      font-size: 80px;
+      text-align: center;
+      text-indent: 0;
     }
-    &.first:before { content: "1"; }
-    &.second:before { content: "2"; }
-    &.third:before { content: "3"; }
-    .title {
-      position: relative;
-      z-index: 1;
+    &:hover, &:focus {
+      &:before { color: $green; }
     }
+    @media #{$medium-down} { display: none; }
   }
-  @media #{$small-only} {
-    .mobile-slider {
-      display: block;
-      position: relative;
-      padding-bottom: 70%;
-      margin-bottom: em-calc(12);
-      background-size: cover;
-      background-position: center center;
-      div {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        padding: em-calc(12);
-        background: rgba($black, 0.92) url(../images/noise-pattern.png);
-        text-align: center;
-        text-transform: uppercase;
-        font-family: $heading-font;
-      }
-      .title {
-        display: block;
-        font-size: 18px;
-        color: $green;
-        font-weight: bold;
-        &.closed { display: none; }
-      }
-      .subtitle {
-        font-size: 24px;
-        color: #fff;
-      }
-    }
-  }
-
-}
-.hero-subtitle {
-  font-size: 34px;
-  @media #{$medium-down} { font-size: 18px; }
 }
 
 .home-portfolio {
@@ -458,17 +323,27 @@
       }
     }
   }
+
   @media #{$medium-down} {
-    .twitter { display: none; }
-    .item-panel { width: 50%; }
+    .twitter {
+      // display: none;
+    }
+
+    .item-panel {
+      width: 50%;
+    }
   }
+
   @media #{$small-only} {
-    .item-panel { width: 100%; }
+    .item-panel {
+      width: 100%;
+    }
   }
 }
 
 .home-clients {
   background: url(/images/jungle-overlay.png) bottom center/cover no-repeat $green;
+
   &:before {
     content: "";
     position: absolute;
@@ -483,6 +358,7 @@
     background-image: linear-gradient(to bottom,rgba($green,0) 0, $green 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ACCA32', endColorstr='#FFACCA32', GradientType=0);
   }
+
   > div {
     position: relative;
     z-index: 1;
@@ -493,5 +369,27 @@
   .section-title {
     font-size: em-calc(76);
     @media #{$medium-down} { font-size: em-calc(46); }
+  }
+}
+
+.home-marketing {
+  .item-panel {
+    color: $light-grey;
+
+    .dots {
+      text-align: center;
+    }
+
+    .dots:before, .dots:after {
+      bottom: 11px;
+    }
+
+    a {
+      color: $teal;
+
+      &:hover, &:focus {
+        color: $dark-teal;
+      }
+    }
   }
 }

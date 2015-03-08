@@ -25,7 +25,7 @@
 							<span class="hidden">not published</span><img src="/images/icons/bullet_yellow.png" alt="not published">
 						<?php endif; ?>
 					</td>
-					<td><a href="<?= $aPost['url'] ?>" title="View <?= $aPost['title'] ?>" target="_blank"><?= $aPost['title'] ?></a></td>
+					<td><a href="<?php if($aPost['active'] == 1) { echo $aPost['url']; } else { ?>/blog/preview/<?= $aPost['id']; ?><?php } ?>" title="View <?= $aPost['title'] ?>" target="_blank"><?= $aPost['title'] ?></a></td>
 					<td class="center"><?= formatDateTime($aPost['publish_on']) ?></td>
 					<td><?= $aPost['author']['fname'].' '.$aPost['author']['lname'] ?></td>
 					<td class="center">
@@ -51,9 +51,9 @@ $('.data-table').dataTable({
 	"sPaginationType": "full_numbers",
 	"bLengthChange": false,
 	/* CAN CHANGE */
-	"bStateSave": true,
-	"aaSorting": [[1, "asc"]], //which column to sort by (0-X)
-	"iDisplayLength": 10 //how many items to display per page
+	"bStateSave": false,
+	// "aaSorting": [[1, "asc"]], //which column to sort by (0-X)
+	"iDisplayLength": 20 //how many items to display per page
 });
 $('.dataTable-header').prepend('<?php
 foreach($aAdminFullMenu as $k=>$aMenu) {

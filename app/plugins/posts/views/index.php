@@ -12,10 +12,10 @@
       </a>
     </div>
     <div class="excerpt">
+      <?php if(!empty($aLatestPost['categories'])) { ?><h4><?php echo $aLatestPost['categories'][0]['name']; ?></h4><?php } ?>
       <ul class="menu-lite">
-        <?php if(!empty($aLatestPost['categories'])) { ?><li><?php echo $aLatestPost['categories'][0]['name']; ?></li><?php } ?>
-        <li><a href="<?php echo $aLatestPost['url']; ?>#disqus_thread"></a></li>
         <li><?php echo date('F d, Y', $aLatestPost['publish_on']); ?></li>
+        <li><a href="<?php echo $aLatestPost['url']; ?>#disqus_thread"></a></li>
       </ul>
 
       <?php echo $aLatestPost['excerpt']; ?>

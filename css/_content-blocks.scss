@@ -1,7 +1,6 @@
 .page-title {
-  padding: em-calc(54px) 0;
+  padding: em-calc(54px) 0 0;
   text-align: center;
-  background: #e5e5e5;
 }
 
 .sub-page-title {
@@ -13,7 +12,11 @@
   margin: 0 0 $paragraph-margin;
   padding: em-calc(60px) 0;
   font-family: $heading-font;
-  background: $teal url(/images/noise-pattern.png) repeat 0 0;
+  background: $teal;
+
+  .row {
+    margin-bottom: 0;
+  }
 
   .cta-inner {
     color: #fff;
@@ -59,7 +62,7 @@
   li:before {
     content: '+';
     color: #acca32;
-    margin-left: -25px;
+    margin-left: -19px;
     margin-right: 10px;
   }
 }
@@ -74,6 +77,7 @@
   aside {
     @include span(5 of 12);
     @include pad(em-calc(35px));
+
     @media #{$small-only} {
       width: 100%;
       margin-bottom: em-calc(20, 18);
@@ -83,7 +87,14 @@
   .panel-content {
     @include span(7 of 12);
     @include pad(em-calc(35px));
-    @media #{$small-only} { width: 100%; }
+
+    @media #{$small-only} {
+      width: 100%;
+    }
+
+    .page-services & h4 a {
+      color: $teal;
+    }
   }
 }
 
@@ -111,6 +122,7 @@
     right: 0;
     bottom: -40px;
     @include triangle($dark-black, 1200px, 40px);
+    -moz-transform: scale(.9999);
   }
 
   &[data-panel-color='teal'] {

@@ -72,9 +72,12 @@
   .thumbs-slider {
     position: relative;
     @include span(9 of 12);
-    padding: 8px 0 8px 15px;
+    padding-left: 15px;
+    padding-right: 0;
     .slick-list {
+      padding: 8px 0;
       margin-bottom: 20px;
+      overflow: hidden;
     }
     .slick-prev, .slick-next {
       position: absolute;
@@ -88,10 +91,13 @@
         content: $icon-left;
         display: block;
         position: absolute;
-        text-indent: 0;
-        font-size: 48px;
         top: 0;
         left: 0;
+        width: 48px;
+        font-size: 32px;
+        line-height: 48px;
+        text-indent: 0;
+        text-align: center;
         @extend .icon;
       }
     }
@@ -99,7 +105,7 @@
       left: 15px;
     }
     .slick-next {
-      right: 25px;
+      right: 0;
       &:after {
         content: $icon-right;
         right: 0;
@@ -121,6 +127,7 @@
     padding: 0 10px;
     img {
       display: block;
+      width: 100%;
     }
     &.active img {
       @include box-shadow(0 0 0 8px $green);

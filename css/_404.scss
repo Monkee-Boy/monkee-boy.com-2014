@@ -1,4 +1,10 @@
-.column-404 { width: 800px; }
+.column-404 {
+  width: 800px;
+
+  @media #{$medium-down} {
+    width: 100%;
+  }
+}
 
 #flowchart404 {
   display: none;

@@ -82,7 +82,7 @@ class content_model extends appModel {
     if(!empty($aPage)) {
       $aPage["title"] = htmlspecialchars(stripslashes($aPage["title"]));
       $aPage["content"] = stripslashes($aPage["content"]);
-      $aPage["subtitle"] = stripslashes($aPage["subtitle"]);
+      $aPage["subtitle"] = htmlentities(stripslashes($aPage["subtitle"]));
       $aPage["tags"] = htmlspecialchars(stripslashes($aPage["tags"]));
 
       $aPage['url'] = $this->_buildUrl($aPage['tag'], $aPage['parentid']);

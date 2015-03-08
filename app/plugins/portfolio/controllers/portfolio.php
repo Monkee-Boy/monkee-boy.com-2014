@@ -40,6 +40,13 @@ class portfolio extends appController {
 
   function services_single() {
     $aService = $this->model->getService(null, $this->urlVars->dynamic["tag"], true);
+    $aContent = getContent(null, $this->urlVars->dynamic["tag"]);
+
+    if(!empty($aContent)) {
+      $aService['seo_title'] = $aContent['seo_title'];
+      $aService['seo_description'] = $aContent['seo_title'];
+      $aService['seo_keywords'] = $aContent['seo_title'];
+    }
 
     if(empty($aService))
       $this->error('404');

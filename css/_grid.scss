@@ -18,6 +18,7 @@ $susy: (
 }
 
 .row-pop {
+  margin-bottom: $block-margin;
   @include container();
   margin-left: -#{$gutter-width/2}px;
   margin-right: -#{$gutter-width/2}px;

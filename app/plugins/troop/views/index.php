@@ -1,6 +1,5 @@
 <?php $this->tplDisplay("inc_header.php", ['menu'=>'troop', 'page_title'=>$aContent['title'], 'seo_title'=>$aContent['seo_title'], 'seo_description'=>$aContent['seo_description'], 'seo_keywords'=>$aContent['seo_keywords']]); ?>
 
-  <!-- Page title block, FPO. Change when actual styles are made -->
   <div class="row page-title">
     <h1><?= $aContent['title'] ?></h1>
     <span class="subtitle"><?= $aContent['subtitle'] ?></span>
@@ -35,11 +34,11 @@
           <div class="half">
             <div class="profile-block">
               <span class="title">History</span>
-              <p><?= $aEmployee['where'] ?></p>
+              <p><?= $aEmployee['history'] ?></p>
             </div><!-- /.profile-block -->
             <div class="profile-block">
               <span class="title">Style</span>
-              <p><?= $aEmployee['quirck'] ?></p>
+              <p><?= $aEmployee['quirk'] ?></p>
             </div><!-- /.profile-block -->
           </div>
         </div><!-- /.profile-content -->

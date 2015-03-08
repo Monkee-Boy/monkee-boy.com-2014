@@ -51,6 +51,28 @@ class posts extends appController {
 			$this->tplDisplay("post.php");
 	}
 
+	function preview() {
+		if(empty($_SESSION["admin"]["userid"])) {
+			$this->error('404');
+		}
+
+		$aPost = $this->model->getPost($this->urlVars->dynamic["id"], null, true);
+
+		if(empty($aPost)) {
+			$this->error('404');
+		}
+
+		$aPost['author']['more_posts'] = $this->model->getPosts(null, false, false, $aPost['id'], $aPost['author']['id'], 5);
+
+		$this->dbUpdate("posts", array("views" => ($aPost["views"] + 1)), $aPost["id"]);
+		$this->tplAssign("aPost", $aPost);
+
+		$aRelatedPosts = $this->model->getPosts($aPost['categories'][0]['id'], false, false, $aPost['id'], null, 2);
+		$this->tplAssign('aRelatedPosts', $aRelatedPosts);
+
+		$this->tplDisplay("post.php");
+	}
+
 	function load_more() {
 		$aPostPages = array_chunk($this->model->getPosts($_GET["category"], false, false, $_GET['exclude']), $this->model->perPage);
 		$aPosts = $aPostPages[$_GET['page']];
@@ -63,6 +85,18 @@ class posts extends appController {
 		}
 
 		echo json_encode($return);
+	}
+
+	function latest_post() {
+		$aPost = $this->model->getPosts(null, false, false, null, null, 1);
+
+		$this->forward($aPost[0]['url']);
+	}
+
+	function freebie_friday() {
+		$aPost = $this->model->getPosts(8, false, false, null, null, 1);
+
+		$this->forward($aPost[0]['url']);
 	}
 
 	function rss() {

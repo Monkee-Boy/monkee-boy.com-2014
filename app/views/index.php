@@ -1,64 +1,36 @@
 <?php $this->tplDisplay("inc_header.php", ['menu'=>'home']); ?>
 
-  <div class="row">
-    <p class="subtitle hero-subtitle" data-text-align="center">Monkee-Boy is Full Service Web Design &amp; Digital Marketing Agency</p>
-  </div>
-
-  <div class="hero-circles">
-    <div class="row">
-      <h1>Let's build something <i>amazing</i> together.</h1>
-      <div class="mobile-slider"></div>
-      <ul>
-        <li>
-          <span class="border"></span>
-          <div class="discover circle" data-name="discover">
-            <div class="bg" style="background-image:url(/images/home-discover.png)" data-bg="/images/home-discover.png"></div>
-          </div>
-          <p class="tagline first">
-            <a href="/our-process/discover/">
-              <span class="title closed"><?= $this->getSetting('homepage-slider-discover-title'); ?></span>
-              <span class="title open"><?= $this->getSetting('homepage-slider-discover-title-open'); ?></span>
-              <span class="subtitle"><?= $this->getSetting('homepage-slider-discover-text'); ?></span>
-            </a>
-          </p>
-        </li>
-        <li>
-          <span class="border"></span>
-          <div class="create circle" data-name="create">
-            <div class="bg" style="background-image:url(/images/home-create.png)" data-bg="/images/home-create.png"></div>
-          </div>
-          <p class="tagline second">
-            <a href="/our-process/create/">
-              <span class="title closed"><?= $this->getSetting('homepage-slider-create-title'); ?></span>
-              <span class="title open"><?= $this->getSetting('homepage-slider-create-title-open'); ?></span>
-              <span class="subtitle"><?= $this->getSetting('homepage-slider-create-text'); ?></span>
-            </a>
-          </p>
-        </li>
-        <li>
-          <span class="border"></span>
-          <div class="evolve circle" data-name="evolve">
-            <div class="bg" style="background-image:url(/images/home-evolve.png)" data-bg="/images/home-evolve.png"></div>
-          </div>
-          <p class="tagline third">
-            <a href="/our-process/evolve/">
-              <span class="title closed"><?= $this->getSetting('homepage-slider-evolve-title'); ?></span>
-              <span class="title open"><?= $this->getSetting('homepage-slider-evolve-title-open'); ?></span>
-              <span class="subtitle"><?= $this->getSetting('homepage-slider-evolve-text'); ?></span>
-            </a>
-          </p>
-        </li>
-      </ul>
-    </div>
-    <div class="circle-expander">
-      <span class="bg"></span>
-      <div class="title-overlay"></div>
-      <a href="#" class="close-btn">Close</a>
-      <div class="expander-nav">
-        <a href="#" class="discover">Discover</a>
-        <a href="#" class="create">Create</a>
-        <a href="#" class="evolve">Evolve</a>
+  <div class="hero-slideshow loading">
+    <div class="current"></div>
+    <div class="next"></div>
+    <ul class="slider-nav menu-lite">
+      <li class="home active" data-id="1" data-image="/images/home-monkee.png">
+        <a href="#" class="title">Monkee-Boy</a>
+        <div class="slide-caption">
+          <h1>Solve the Web</h1>
+          <?= $this->getSetting('homepage-slider-monkeeboy-text'); ?>
+        </div>
+      </li>
+      <li data-id="2" data-image="/images/home-discover.png">
+        <a href="#" class="title">Discover</a>
+        <div class="slide-caption"><?= $this->getSetting('homepage-slider-discover-text'); ?></div>
+      </li>
+      <li data-id="3" data-image="/images/home-create.png">
+        <a href="#" class="title">Create</a>
+        <div class="slide-caption"><?= $this->getSetting('homepage-slider-create-text'); ?></div>
+      </li>
+      <li data-id="4" data-image="/images/home-evolve.png">
+        <a href="#" class="title">Evolve</a>
+        <div class="slide-caption"><?= $this->getSetting('homepage-slider-evolve-text'); ?></div>
+      </li>
+    </ul>
+    <div class="caption landing-caption">
+      <span class="caption-title"></span>
+      <div class="caption-content">
+        <h1>Solve the Web</h1>
+        <?= $this->getSetting('homepage-slider-monkeeboy-text'); ?>
       </div>
+      <a href="#" class="slide-trigger">Next Slide</a>
     </div>
   </div>
 
@@ -126,11 +98,14 @@
       </div>
 
       <div class="item-panel">
-        <h3>lorem ipsum Ut enim ad minim veniam</h3>
+        <span class="number">99%</span>
 
-        <p>Quis nostrud exercitation ullamco laboris nisi ut con aliquip ex ea commodo consequat.</p>
+        <h3>Increase in mobile visits year over year</h3>
+        <p>The Bob Bullock Museum's new website attracted almost double the amount of mobile visitors in Q4 after their new site launched. </p>
 
-          <a href="" title="">Link to take it there</a>
+        <p class="dots" data-dots="dual"><a href="/the-work/bullock-texas-state-history-museum/" title="View Monkee-Boy's work for The Bullock Texas State History Museum.">View the Project</a></p>
+
+
       </div>
     </div>
   </div>
@@ -186,9 +161,11 @@
             <div class="subscribe-status"></div> <!-- success -->
             <div class="subscribe-error hide">There has been an error subscribing to our newsletter. Please try again later.</div>
 
-            <label for="form-email">Enter your email</label>
-            <input type="email" name="email" id="form-email">
-            <input type="submit" value="Subscribe!">
+            <div class="form-fields">
+              <label for="form-email">Enter your email</label>
+              <input type="email" name="email" id="form-email">
+              <input type="submit" value="Subscribe!">
+            </div>
           </form>
         </div>
       </div>

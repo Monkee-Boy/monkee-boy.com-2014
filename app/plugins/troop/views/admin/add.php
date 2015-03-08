@@ -8,7 +8,7 @@
       <div class="span8">
         <div class="accordion-group">
           <div class="accordion-heading">
-            <span class="accordion-toggle">Name</span>
+            <span class="accordion-toggle">* Name</span>
           </div>
           <div id="pagecontent" class="accordion-body">
             <div class="accordion-inner">
@@ -20,7 +20,7 @@
         </div>
           <div class="accordion-group">
             <div class="accordion-heading">
-              <span class="accordion-toggle">Title</span>
+              <span class="accordion-toggle">* Title</span>
             </div>
             <div id="pagecontent" class="accordion-body">
               <div class="accordion-inner">
@@ -59,12 +59,12 @@
 
         <div class="accordion-group">
           <div class="accordion-heading">
-            <span class="accordion-toggle">Where?</span>
+            <span class="accordion-toggle">History</span>
           </div>
           <div class="accordion-body">
             <div class="accordion-inner">
               <div class="controls">
-                <textarea name="where" class="span12"><?= $aEmployee['where'] ?></textarea>
+                <textarea name="history" class="span12"><?= $aEmployee['history'] ?></textarea>
               </div>
             </div>
           </div>
@@ -72,12 +72,12 @@
 
         <div class="accordion-group">
           <div class="accordion-heading">
-            <span class="accordion-toggle">Quirck</span>
+            <span class="accordion-toggle">Quirk</span>
           </div>
           <div class="accordion-body">
             <div class="accordion-inner">
               <div class="controls">
-                <textarea name="quirck" class="span12"><?= $aEmployee['quirck'] ?></textarea>
+                <textarea name="quirk" class="span12"><?= $aEmployee['quirk'] ?></textarea>
               </div>
             </div>
           </div>
@@ -108,9 +108,16 @@
           <div class="accordion-body">
             <div class="accordion-inner">
               <div class="control-group">
-                <label class="control-label" for="form-logo">Active</label>
+                <label class="control-label" for="form-active">Active</label>
                 <div class="controls">
                   <input type="checkbox" name="active" value="1"<?php echo (($aEmployee['active'] == 1)?' checked="checked"':''); ?>>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label" for="form-formermonkee">Former Monkee</label>
+                <div class="controls">
+                  <input type="checkbox" name="former_monkee" value="1"<?php echo (($aEmployee['former_monkee'] == 1)?' checked="checked"':''); ?>>
                 </div>
               </div>
             </div>

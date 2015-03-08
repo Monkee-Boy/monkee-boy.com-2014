@@ -63,6 +63,7 @@ body {
   top: 0;
   padding: 15px 0 25px;
   width: 256px;
+  z-index: 10;
   text-align: center;
   background: rgba(255, 255, 255, 0.96);
   @include transition(padding 0.5s ease);
@@ -123,7 +124,7 @@ body {
 }
 
 .sticky-nav-wrapper {
-  height: 7.7em;
+  height: 7.8em;
   @media #{$medium-down} { display: none; }
 }
 
@@ -177,7 +178,7 @@ body {
         @include translate(0, 20px);
         visibility: hidden;
         @include transition(all 0.3s ease);
-        z-index: 5;
+        z-index: 10;
         @media #{$xlarge-only} { width: 280px; }
         @media #{$large-only} {
           top: 86px;
@@ -333,7 +334,7 @@ body {
       border-bottom: 2px solid #000;
       margin-top: 28px;
       padding: 10px 30px;
-      color: $darker-green;
+      color: #fff;
       text-align: center;
       text-transform: uppercase;
       font-family: $heading-font;
@@ -345,6 +346,7 @@ body {
       }
       &:hover {
         color: #fff;
+        background: $darker-green;
         text-decoration: none;
       }
     }
@@ -352,7 +354,6 @@ body {
 }
 
 .sub-nav {
-  @media #{$small-only} { display: none; }
   &.row {
     margin-bottom: 0;
   }
@@ -360,26 +361,39 @@ body {
     list-style: none;
     margin: 0;
     padding: 0;
-    &.columns-2 li { @include span(6 of 12); }
-    &.columns-3 li { @include span(4 of 12); }
-    &.columns-4 li { @include span(3 of 12); }
+    float: right;
+
     li {
-      padding-left: 3px !important;
-      padding-right: 3px !important;
+      float: left;
+      margin-left: 12px;
+
+      &:first-child a:before {
+        display: none;
+      }
     }
+
     a {
       color: $grey;
-      display: block;
-      border: 4px solid #fff;
-      text-align: center;
-      font-size: 26px;
-      padding: 30px 0;
+      display: inline-block;
+
       &:hover, &.current {
-        background: #fff;
         color: $teal;
         text-decoration: none;
       }
-      @media #{$large-only} { font-size: 22px; }
+
+      &:before {
+        position: relative;
+        left: -7px;
+        display: block;
+        float: left;
+        content: "//";
+        color: $grey;
+      }
+
+      @media #{$large-only} {
+        font-size: 22px;
+      }
+
       @media #{$medium-only} {
         font-size: 16px;
         font-weight: bold;
@@ -390,6 +404,7 @@ body {
 
 .mobile-menu-container {
   display: none;
+
   @media #{$medium-down} {
     display: block;
     position: absolute;
@@ -398,7 +413,7 @@ body {
     width: 250px;
     padding: em-calc(8) 0;
     z-index: 0;
-    background: $dark-black url(../images/noise-pattern.png);
+    background: $dark-black;
     border-left: 4px solid #000;
     border-right: 4px solid #000;
     ul {
@@ -597,7 +612,7 @@ body {
           bottom: -40px;
           top: -60px;
           right: -20px;
-          background: url(../images/explosion.gif) no-repeat center center;
+          // background: url(../images/explosion.gif) no-repeat center center;
         }
       }
     }

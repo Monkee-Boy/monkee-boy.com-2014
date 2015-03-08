@@ -1,9 +1,9 @@
-<?php $this->tplDisplay("inc_header.php", ['menu'=>'services', 'page_title'=>$aContent['title'], 'seo_title'=>$aContent['seo_title'], 'seo_description'=>$aContent['seo_description'], 'seo_keywords'=>$aContent['seo_keywords']]); ?>
+<?php $this->tplDisplay("inc_header.php", ['menu'=>'services', 'page_title'=>$aServiceContent['title'], 'seo_title'=>$aServiceContent['seo_title'], 'seo_description'=>$aServiceContent['seo_description'], 'seo_keywords'=>$aServiceContent['seo_keywords']]); ?>
 
   <div class="row">
     <div class="page-title">
-      <h1><?= $aContent['title'] ?></h1>
-      <p class="subtitle"><?= $aContent['subtitle'] ?></p>
+      <h1><?= $aServiceContent['title'] ?></h1>
+      <p class="subtitle"><?= $aServiceContent['subtitle'] ?></p>
     </div> <!-- /.page-title -->
   </div> <!-- /.row -->
 
@@ -12,6 +12,8 @@
     <div class="panel">
       <aside class="text-center">
         <a href="<?php echo $aService['url']; ?>" title="<?php echo $aService['title']; ?>"><img src="<?php echo (!empty($aService['image']))?$aService['image_url']:"http://www.fillmurray.com/g/436/328"; ?>"></a>
+
+        <h2><?php echo $aService['name']; ?></h2>
       </aside>
 
       <div class="panel-content">

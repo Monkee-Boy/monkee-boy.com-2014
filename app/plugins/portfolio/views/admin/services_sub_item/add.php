@@ -1,4 +1,4 @@
-<?php $this->tplDisplay("inc_header.php", ['menu'=>'portfolio','sPageTitle'=>$aService['name']." &raquo; ".$aServiceSub['name']." &raquo; Create Item"]); ?>
+<?php $this->tplDisplay("inc_header.php", ['menu'=>'services','sPageTitle'=>$aService['name']." &raquo; ".$aServiceSub['name']." &raquo; Create Item"]); ?>
 
   <h2><a href="/admin/portfolio/services/"><?php echo $aService['name']; ?></a> &raquo; <a href="/admin/portfolio/services/<?php echo $aService['id']; ?>/sub/"><?php echo $aServiceSub['name']; ?></a> &raquo; Create Item</h2>
   <?php $this->tplDisplay('inc_alerts.php'); ?>

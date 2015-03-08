@@ -4,8 +4,8 @@ $this->tplDisplay("inc_header.php", ['menu'=>'portfolio', 'page_title'=>$aClient
 
   <div class="row">
     <div class="page-title">
-      <h1><?php echo $aClient['name']; ?></h1>
-      <p class="subtitle"><?php echo $aClient['subtitle']; ?></p>
+      <h1><?= $aClient['name']; ?></h1>
+      <p class="subtitle"><?= $aClient['subtitle']; ?></p>
     </div>
   </div> <!-- /.row -->
 
@@ -17,7 +17,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'portfolio', 'page_title'=>$aClient
         <?php if(!empty($aClient['slides'][0]['desktop_image_url'])): ?>
         <div class="desktop screen active" data-device="desktop">
           <div class="screen-inner">
-            <img src="<?php echo $aClient['slides'][0]['desktop_image_url']; ?>">
+            <img src="<?= $aClient['slides'][0]['desktop_image_url']; ?>">
             <div class="scroll-msg"><span>Want to see it all?</span> Scroll Here</div>
           </div>
         </div> <!-- /.desktop.screen -->
@@ -26,7 +26,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'portfolio', 'page_title'=>$aClient
         <?php if(!empty($aClient['slides'][0]['tablet_image_url'])): ?>
         <div class="tablet screen right<?php if($aClient['type'] == 3){ echo ' horizontal'; } ?>" data-device="tablet">
           <div class="screen-inner">
-            <img src="<?php echo $aClient['slides'][0]['tablet_image_url']; ?>">
+            <img src="<?= $aClient['slides'][0]['tablet_image_url']; ?>">
           </div>
         </div> <!-- /.tablet-screen -->
         <?php $slides++; endif; ?>
@@ -34,7 +34,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'portfolio', 'page_title'=>$aClient
         <?php if(!empty($aClient['slides'][0]['phone_image_url'])): ?>
         <div class="phone screen left" data-device="phone">
           <div class="screen-inner">
-            <img src="<?php echo $aClient['slides'][0]['phone_image_url']; ?>">
+            <img src="<?= $aClient['slides'][0]['phone_image_url']; ?>">
           </div>
         </div> <!-- /.phone -->
         <?php $slides++; endif; ?>
@@ -53,8 +53,8 @@ $this->tplDisplay("inc_header.php", ['menu'=>'portfolio', 'page_title'=>$aClient
         <div class="thumbs-slider">
           <?php foreach($aClient['slides'] as $aSlide) { ?>
             <div>
-              <a href="#" class="thumbnail" data-screen="<?php echo $aSlide['id']; ?>">
-                <img src="<?php echo $aSlide['listing_image_url']; ?>" alt="">
+              <a href="#" class="thumbnail" data-screen-desktop="<?= $aSlide['desktop_image_url']; ?>" data-screen-tablet="<?= $aSlide['tablet_image_url']; ?>" data-screen-phone="<?= $aSlide['phone_image_url']; ?>">
+                <img src="<?= $aSlide['listing_image_url']; ?>" alt="">
               </a>
             </div>
           <?php } ?>
@@ -66,16 +66,16 @@ $this->tplDisplay("inc_header.php", ['menu'=>'portfolio', 'page_title'=>$aClient
 
   <div class="panel">
     <aside class="text-center">
-      <img src="/uploads/portfolio/<?php echo $aClient['logo']; ?>" alt="<?php echo $aClient['name']; ?> Logo">
+      <img src="/uploads/portfolio/<?= $aClient['logo']; ?>" alt="<?= $aClient['name']; ?> Logo">
     </aside>
 
     <div class="panel-content">
-      <h4><?php echo $aClient['name']; ?></h4>
+      <h4><?= $aClient['name']; ?></h4>
 
-      <?php echo $aClient['synopsis']; ?>
+      <?= $aClient['synopsis']; ?>
 
-      <?php if(!empty($aClient['website'])) { ?><a href="<?php echo $aClient['website']; ?>" title="View Site" class="button" target="_blank">View The Site!</a><?php } ?>
-      <?php if(!empty($aClient['case_study'])) { ?><a href="<?php echo $aClient['case_study']; ?>" title="Read the case study." class="button button-alt">Read The Case Study!</a><?php } ?>
+      <?php if(!empty($aClient['website'])) { ?><a href="<?= $aClient['website']; ?>" title="View Site" class="button" target="_blank">View The Site!</a><?php } ?>
+      <?php if(!empty($aClient['case_study'])) { ?><a href="<?= $aClient['case_study']; ?>" title="Read the case study." class="button button-alt">Read The Case Study!</a><?php } ?>
     </div>
   </div>
 
@@ -84,7 +84,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'portfolio', 'page_title'=>$aClient
       <h2 data-text-align="center">Services</h2>
       <ul class="service-icons portfolio">
         <?php foreach($aClient['services'] as $aService) { ?>
-        <li><span class="<?php echo $aService['tag']; ?> service-icon"><i></i></span><?php echo $aService['name']; ?></li>
+        <li><span class="<?= $aService['tag']; ?> service-icon"><i></i></span><?= $aService['name']; ?></li>
         <?php } ?>
       </ul>
     </div> <!-- /.full -->
@@ -96,11 +96,11 @@ $this->tplDisplay("inc_header.php", ['menu'=>'portfolio', 'page_title'=>$aClient
 
       <div class="row-pop">
         <div class="half">
-          <?php echo $aClient['other_services_1']; ?>
+          <?= $aClient['other_services_1']; ?>
         </div>
 
         <div class="half">
-          <?php echo $aClient['other_services_2']; ?>
+          <?= $aClient['other_services_2']; ?>
         </div>
       </div>
 
@@ -108,7 +108,12 @@ $this->tplDisplay("inc_header.php", ['menu'=>'portfolio', 'page_title'=>$aClient
         <ul class="unstyled quote-slider">
           <?php if(!empty($aClient['quotes'])) {
             foreach($aClient['quotes'] as $aQuote) { ?>
-              <li><blockquote><?php echo $aQuote['quote']; ?></blockquote></li>
+              <li>
+                <blockquote>
+                  <?= $aQuote['quote']; ?>
+                  <footer><?= $aQuote['attribution']; ?></footer>
+                </blockquote>
+              </li>
           <?php }
           } ?>
         </ul>
@@ -134,5 +139,18 @@ $this->tplDisplay("inc_header.php", ['menu'=>'portfolio', 'page_title'=>$aClient
     </div>
     <?php endif; ?>
   <?php endif; ?>
+
+  <div class="main-cta">
+    <div class="row">
+      <div class="cta-inner">
+        <p>does this sound like</p>
+        <p class="text-right"><strong>what you need?</strong></p>
+      </div>
+
+      <div class="cta-button">
+        <a href="/contact/work-with-us/" title="CTA Button" class="button">Let's Get In Touch!</a>
+      </div>
+    </div>		
+  </div>
 
 <?php $this->tplDisplay("inc_footer.php"); ?>
