@@ -52,6 +52,7 @@ class portfolio extends appController {
       $this->error('404');
 
     $this->tplAssign("aService", $aService);
+    $this->tplAssign("aContent", $aContent);
     $this->tplDisplay("services/single.php");
   }
 }
