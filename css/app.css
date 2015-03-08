@@ -3379,6 +3379,9 @@ button[type=submit] {
     bottom: 24px;
     max-width: 920px;
     padding-left: 2.77778em; }
+    @media only screen and (max-width: 840px) {
+      .hero-slideshow .landing-caption {
+        padding-left: 0.83333em; } }
     .hero-slideshow .landing-caption .caption-title {
       display: none; }
     .hero-slideshow .landing-caption .caption-content {

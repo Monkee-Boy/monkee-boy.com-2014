@@ -114,6 +114,9 @@
     bottom: 24px;
     max-width: 920px;
     padding-left: em-calc(50);
+    @media #{$medium-down} {
+      padding-left: em-calc(15);
+    }
     .caption-title { display: none; }
     .caption-content { width: 100%; }
     h1 {
