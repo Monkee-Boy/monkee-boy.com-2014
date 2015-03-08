@@ -1902,6 +1902,9 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
     filter: alpha(opacity=16);
     font-size: 100px;
     line-height: 0; }
+    @media only screen and (max-width: 840px) {
+      .dots[data-dots='dual']:before, .dots[data-dots='dual']:after, .dots[data-dots='left']:before, .dots[data-dots='right']:after {
+        content: ""; } }
   .dots[data-dots='dual']:before, .dots[data-dots='left']:before {
     left: 15px; }
   .dots[data-dots='dual']:after, .dots[data-dots='right']:after {

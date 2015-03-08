@@ -287,6 +287,10 @@
     @extend .icon;
     font-size: 100px;
     line-height: 0;
+
+    @media #{$medium-down} {
+      content: $icon-twodots;
+    }
   }
 
   &[data-dots='dual']:before, &[data-dots='left']:before {
