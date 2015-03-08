@@ -78,7 +78,9 @@
       padding: em-calc(10) em-calc(15) em-calc(30);
       background-color: $black;
     }
+
   }
+
   .caption-title {
     float: left;
     width: 36%;
@@ -89,6 +91,11 @@
     text-transform: uppercase;
     text-align: center;
     color: $green;
+
+    @media #{$xlarge-down} {
+      font-size: 55px;
+    }
+
     @media #{$medium-down} {
       float: none;
       display: block;
@@ -97,7 +104,9 @@
       font-size: 42px;
       text-align: left;
     }
+
   }
+
   .caption-content {
     float: right;
     width: 64%;

@@ -2473,6 +2473,9 @@ label {
       -ms-transition: all 0.3s ease;
       -o-transition: all 0.3s ease;
       transition: all 0.3s ease; }
+      @media only screen and (min-width: 581px) and (max-width: 840px) {
+        .form-monkee .monkee:before {
+          display: none; } }
     .form-monkee .monkee.speak:before {
       left: 43%;
       -webkit-transform: scale(1);
@@ -3361,6 +3364,9 @@ button[type=submit] {
     text-transform: uppercase;
     text-align: center;
     color: #acca41; }
+    @media only screen and (max-width: 1115px) {
+      .hero-slideshow .caption-title {
+        font-size: 55px; } }
     @media only screen and (max-width: 840px) {
       .hero-slideshow .caption-title {
         float: none;
