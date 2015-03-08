@@ -195,6 +195,7 @@
       @media #{$small-only} {
         width: 100%;
         margin-bottom: $mobile-paragraph-margin;
+        padding: 0;
       }
     }
     .latest-update {
