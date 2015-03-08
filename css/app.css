@@ -1107,6 +1107,9 @@ body.menu-open .container {
     @media only screen and (min-width: 581px) and (max-width: 840px) {
       [role="contentinfo"] .footer-meta {
         width: 80%; } }
+    @media only screen and (max-width: 1115px) {
+      [role="contentinfo"] .footer-meta {
+        font-size: 14px; } }
   @media only screen and (max-width: 580px) {
     [role="contentinfo"] .address {
       display: none; } }

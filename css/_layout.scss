@@ -643,20 +643,39 @@ body {
   .footer-meta {
     @include span(5 of 12);
     text-align: right;
-    @media #{$x-small-only} { font-size: 14px; }
-    @media #{$small-only} { width: 60%; }
-    @media #{$medium-only} { width: 80%; }
+
+    @media #{$x-small-only} {
+      font-size: 14px;
+    }
+
+    @media #{$small-only} {
+      width: 60%;
+    }
+
+    @media #{$medium-only} {
+      width: 80%;
+    }
+
+    @media #{$xlarge-down} {
+      font-size: 14px;
+    }
   }
   .address {
-    @media #{$small-only} { display: none; }
+    @media #{$small-only} {
+      display: none;
+    }
   }
   .mobile-home {
     display: none;
+
     @media #{$small-only} {
       display: block;
       border-bottom: #d8ae2a solid 12px;
       background-color: #fcc721;
-      &:before { background: #d8ae2a; }
+
+      &:before {
+        background: #d8ae2a;
+      }
     }
   }
 }
