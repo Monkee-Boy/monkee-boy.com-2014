@@ -17,18 +17,18 @@
         @include opacity(1);
       }
     }
-    &:hover {
-      .trigger {
-        &:before {
-          @include rotate(-14deg);
-          bottom: -40px;
-          background-color: $teal;
-        }
-        &:after {
-          color: #fff;
-          @include scale(1.4);
-          bottom: 10px;
-        }
+    &:hover .trigger {
+      text-decoration: none;
+
+      &:before {
+        @include rotate(-14deg);
+        bottom: -40px;
+        background-color: $teal;
+      }
+      &:after {
+        color: #fff;
+        @include scale(1.4);
+        bottom: 10px;
       }
     }
     &.active {
