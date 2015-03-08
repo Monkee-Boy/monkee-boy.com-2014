@@ -2141,7 +2141,7 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
     margin-bottom: 1em; }
     @media only screen and (max-width: 580px) {
       .accordion-section h2 {
-        font-size: 60px; } }
+        font-size: 50px; } }
 
 .accordion {
   position: relative;
