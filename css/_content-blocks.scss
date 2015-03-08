@@ -26,7 +26,14 @@
     p {
       margin: 0;
       font-size: em-calc(76px);
-      @media #{$large-down} { font-size: 40px; }
+
+      @media #{$small-only} {
+        font-size: 28px;
+      }
+
+      @media #{$large-down} {
+        font-size: 40px;
+      }
     }
   }
 

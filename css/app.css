@@ -1665,6 +1665,9 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
     .main-cta .cta-inner p {
       margin: 0;
       font-size: 4.22222em; }
+      @media only screen and (max-width: 580px) {
+        .main-cta .cta-inner p {
+          font-size: 28px; } }
       @media only screen and (max-width: 980px) {
         .main-cta .cta-inner p {
           font-size: 40px; } }
