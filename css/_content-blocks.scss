@@ -92,6 +92,12 @@
       width: 100%;
     }
 
+    p, ul, ol, blockquote {
+      color: #fff;
+      font-size: 22px;
+      line-height: 30px;
+    }
+
     .page-services & h4 a {
       color: $teal;
     }

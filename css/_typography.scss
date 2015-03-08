@@ -78,7 +78,14 @@ h5 {
     font-size: 110px;
     font-weight: bold;
     line-height: 1;
-    @media #{$medium-down} { font-size: 52px; }
+
+    @media #{$medium-only} {
+      font-size: 80px;
+    }
+
+    @media #{$small-only} {
+      font-size: 52px;
+    }
 
     em {
       display: inline-block;
