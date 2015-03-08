@@ -1362,7 +1362,10 @@ h5 {
   font-size: 110px;
   font-weight: bold;
   line-height: 1; }
-  @media only screen and (max-width: 840px) {
+  @media only screen and (min-width: 581px) and (max-width: 840px) {
+    .section-head .section-title {
+      font-size: 80px; } }
+  @media only screen and (max-width: 580px) {
     .section-head .section-title {
       font-size: 52px; } }
   .section-head .section-title em {
@@ -1737,6 +1740,10 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
     @media only screen and (max-width: 580px) {
       .panel .panel-content {
         width: 100%; } }
+    .panel .panel-content p, .panel .panel-content ul, .panel .panel-content ol, .panel .panel-content blockquote {
+      color: #fff;
+      font-size: 22px;
+      line-height: 30px; }
     .page-services .panel .panel-content h4 a {
       color: #23a38f; }
 
