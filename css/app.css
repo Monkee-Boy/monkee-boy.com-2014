@@ -4365,6 +4365,9 @@ button[type=submit] {
       display: table; }
     .troop-list .profile-content:after {
       clear: both; }
+    @media only screen and (max-width: 580px) {
+      .troop-list .profile-content .half {
+        margin-bottom: 0; } }
   .troop-list .profile-block:before, .troop-list .profile-block:after {
     content: " ";
     display: table; }
@@ -4420,7 +4423,8 @@ button[type=submit] {
       @media only screen and (max-width: 580px) {
         .troop-list .profile-footer .latest-update, .troop-list .profile-footer .social-links {
           width: 100%;
-          margin-bottom: 1.33333em; } }
+          margin-bottom: 1.33333em;
+          padding: 0; } }
     .troop-list .profile-footer .latest-update {
       padding-top: 0.88889em;
       padding-bottom: 0.88889em; }
