@@ -1087,7 +1087,7 @@
   function shoot_bananas() {
     console.log("shooting bananas");
     var a = 0.8, // vertical accelleration
-        num_bananas = Math.ceil(Math.random() * 25),
+        num_bananas = Math.ceil(Math.random() * 5),
         pos = [0, -20],
         $banana_triangle = $('.bananas');
 
