@@ -4365,6 +4365,9 @@ button[type=submit] {
       display: table; }
     .troop-list .profile-content:after {
       clear: both; }
+    @media only screen and (max-width: 580px) {
+      .troop-list .profile-content .half {
+        margin-bottom: 0; } }
   .troop-list .profile-block:before, .troop-list .profile-block:after {
     content: " ";
     display: table; }
