@@ -1306,7 +1306,8 @@ h1 {
   margin: 0 0 0.13158em; }
   @media only screen and (max-width: 840px) {
     h1 {
-      font-size: 42px; } }
+      font-size: 38px;
+      line-height: 1.1em; } }
 
 h2 {
   font-size: 50px;
@@ -3392,6 +3393,9 @@ button[type=submit] {
     bottom: 24px;
     max-width: 920px;
     padding-left: 2.77778em; }
+    @media only screen and (max-width: 840px) {
+      .hero-slideshow .landing-caption {
+        padding-left: 0.83333em; } }
     .hero-slideshow .landing-caption .caption-title {
       display: none; }
     .hero-slideshow .landing-caption .caption-content {
