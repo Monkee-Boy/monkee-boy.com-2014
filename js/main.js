@@ -111,10 +111,10 @@
 
   // mobile menu fn's
   function open_mobile_menu() {
-    $('body').addClass('menu-open');
-
     var $container = $('.container'),
         $menu_items = $('.mobile-menu').children('li');
+
+    $('body').addClass('menu-open');
 
     // set up li's to be off screen
     TweenLite.set($menu_items, {
@@ -139,10 +139,12 @@
   }
 
   function close_mobile_menu() {
-    $('body').removeClass('menu-open');
     TweenLite.to($('.container'), 0.3, {
       x: 0,
-      ease: Power3.easeOut
+      ease: Power3.easeOut,
+      onComplete: function() {
+        $('body').removeClass('menu-open');
+      }
     });
   }
 

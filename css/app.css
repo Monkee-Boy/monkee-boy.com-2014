@@ -444,7 +444,7 @@ th {
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
-body.menu-open .container {
+body.menu-open {
   position: fixed; }
 
 .container {
@@ -831,10 +831,12 @@ body.menu-open .container {
   @media only screen and (max-width: 840px) {
     .mobile-menu-container {
       display: block;
-      position: absolute;
+      position: fixed;
       right: 0;
       top: 0;
       width: 250px;
+      height: 100%;
+      overflow-y: scroll;
       padding: 0.44444em 0;
       z-index: 0;
       background: #1c1c1e;
@@ -942,10 +944,10 @@ body.menu-open .container {
           line-height: 0.8;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale; }
-        .mobile-header .mobile-menu-trigger:hover, .mobile-header .mobile-menu-trigger.active {
+        .mobile-header .mobile-menu-trigger:hover, .mobile-header .mobile-menu-trigger.focus {
           text-decoration: none;
           color: #fcc721; }
-          .mobile-header .mobile-menu-trigger:hover:before, .mobile-header .mobile-menu-trigger.active:before {
+          .mobile-header .mobile-menu-trigger:hover:before, .mobile-header .mobile-menu-trigger.focus:before {
             color: #fcc721; } }
 
 /* Main */
