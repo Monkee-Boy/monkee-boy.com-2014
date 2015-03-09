@@ -157,7 +157,7 @@
     }
     &:hover, &:focus {
       text-decoration: none;
-      
+
       &:before { color: $green; }
     }
     @media #{$medium-down} { display: none; }
@@ -380,9 +380,16 @@
 }
 
 .home-blog {
+  @media #{$medium-down} {
+    padding-bottom: 0;
+  }
+
   .section-title {
     font-size: em-calc(76);
-    @media #{$medium-down} { font-size: em-calc(46); }
+
+    @media #{$medium-down} {
+      font-size: em-calc(46);
+    }
   }
 }
 
