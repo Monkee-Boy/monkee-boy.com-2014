@@ -33,7 +33,7 @@ class portfolio extends appController {
 
   function services_index() {
     $aServices = $this->model->getServices();
-    $aContent = getContent(null, $this->urlVars->dynamic["tag"]);
+    $aContent = $this->model->service_content;
 
     $this->tplAssign("aServices", $aServices);
     $this->tplAssign("aContent", $aContent);
