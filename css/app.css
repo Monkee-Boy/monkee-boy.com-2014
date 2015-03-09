@@ -3656,6 +3656,9 @@ button[type=submit] {
     position: relative;
     z-index: 1; }
 
+@media only screen and (max-width: 840px) {
+  .home-blog {
+    padding-bottom: 0; } }
 .home-blog .section-title {
   font-size: 4.22222em; }
   @media only screen and (max-width: 840px) {
