@@ -98,7 +98,9 @@
       </div>
 
       <div class="item-panel">
-        <span class="number">99%</span>
+        <div class="number">
+          <span class="arrow"></span><span class="value">99<span class="metric">%</span></span>
+        </div>
 
         <h3>Increase in mobile visits year over year</h3>
         <p>The Bob Bullock Museum's new website attracted almost double the amount of mobile visitors in Q4 after their new site launched. </p>

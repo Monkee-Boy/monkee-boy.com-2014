@@ -3672,6 +3672,51 @@ button[type=submit] {
     color: #23a38f; }
     .home-marketing .item-panel a:hover, .home-marketing .item-panel a:focus {
       color: #1a7a6c; }
+.home-marketing .number {
+  position: relative;
+  font-size: 12.22222em;
+  text-align: right;
+  padding-bottom: 50%; }
+  @media only screen and (max-width: 980px) {
+    .home-marketing .number {
+      font-size: 10em; } }
+  @media only screen and (max-width: 840px) {
+    .home-marketing .number {
+      width: 450px;
+      height: 220px;
+      margin: 0 auto;
+      padding-bottom: 0; } }
+  @media only screen and (max-width: 580px) {
+    .home-marketing .number {
+      width: 100%;
+      height: 240px; } }
+  .home-marketing .number .arrow {
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: block;
+    width: 42%;
+    padding-bottom: 42%;
+    background: url(/images/arrow.png) no-repeat center top;
+    background-size: contain; }
+    .home-marketing .number .arrow.down {
+      -webkit-transform: rotate(180deg);
+      -moz-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      -o-transform: rotate(180deg);
+      transform: rotate(180deg); }
+  .home-marketing .number .value {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    display: block; }
+  .home-marketing .number .metric {
+    font-size: 0.66667em; }
 
 .blog-header {
   position: relative;

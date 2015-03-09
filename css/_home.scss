@@ -157,7 +157,7 @@
     }
     &:hover, &:focus {
       text-decoration: none;
-      
+
       &:before { color: $green; }
     }
     @media #{$medium-down} { display: none; }
@@ -404,6 +404,54 @@
       &:hover, &:focus {
         color: $dark-teal;
       }
+    }
+  }
+  .number {
+    position: relative;
+    font-size: em-calc(220);
+    text-align: right;
+    padding-bottom: 50%;
+    @media #{$large-down} {
+      font-size: em-calc(180);
+    }
+    @media #{$medium-down} {
+      width: 450px;
+      height: 220px;
+      margin: 0 auto;
+      padding-bottom: 0;
+    }
+    @media #{$small-only} {
+      width: 100%;
+      height: 240px;
+    }
+
+    .arrow {
+      @include border-radius(50%);
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      display: block;
+      width: 42%;
+      padding-bottom: 42%;
+      background: url(/images/arrow.png) no-repeat center top;
+      background-size: contain;
+
+      &.down {
+        @include transform(rotate(180deg));
+      }
+    }
+
+    .value {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      z-index: 2;
+      display: block;
+    }
+
+    .metric {
+      font-size: em-calc(12);
     }
   }
 }
