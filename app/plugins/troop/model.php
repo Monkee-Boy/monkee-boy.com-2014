@@ -111,7 +111,7 @@ class troop_model extends appModel {
 
       $aEmployee["what"] = htmlspecialchars(stripslashes($aEmployee["what"]));
       $aEmployee["who"] = htmlspecialchars(stripslashes($aEmployee["who"]));
-      $aEmployee["history"] = htmlspecialchars(stripslashes($aEmployee["history"]));
+      $aEmployee["where"] = htmlspecialchars(stripslashes($aEmployee["where"]));
       $aEmployee["quirk"] = htmlspecialchars(stripslashes($aEmployee["quirk"]));
 
       if(!empty($aEmployee['social_accounts'])) {
