@@ -85,7 +85,7 @@
   <div class="panel-wide home-marketing" data-panel-style="callout">
     <div class="row-flush">
       <div class="item-callout">
-        <h3 data-text-align="center">16 Years of Growing with the Web</h3>
+        <h3 data-text-align="center">Almost 20 Years of Growing with the Web</h3>
 
         <p><em>You don't need us to tell you that the web is always changing. What you do need is an experienced team you can trust that keeps up with that change and gets results by:</em></p>
 
@@ -103,7 +103,7 @@
         </div>
 
         <h3>Increase in mobile visits year over year</h3>
-        <p>The Bob Bullock Museum's new website attracted almost double the amount of mobile visitors in Q4 after their new site launched. </p>
+        <p>The Bullock Texas State History Museum's new website attracted almost double the amount of mobile visitors in Q4 after their new site launched.</p>
 
         <p class="dots" data-dots="dual"><a href="/the-work/bullock-texas-state-history-museum/" title="View Monkee-Boy's work for The Bullock Texas State History Museum.">View the Project</a></p>
 
