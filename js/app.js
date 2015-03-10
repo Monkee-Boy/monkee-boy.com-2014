@@ -13373,8 +13373,6 @@ function BlurStack()
     filters : {
         max_file_size : '100mb',
         mime_types: [
-          {title : "Image files", extensions : "jpg,gif,png"},
-          { title: "Zip files", extensions:  "zip" },
           {title : "Doc files", extensions : "pdf,doc,docx"}
         ]
     },
@@ -13472,10 +13470,7 @@ function BlurStack()
       binded: false,
       promptPosition: "bottomLeft",
       'custom_error_messages' : {
-        'required': { 'message': 'Oops, looks like you forgot to add this field' },
-        '#url' : {
-          'custom[url]': { 'message': 'That doesn\'t look like the URLs we\'re used to.' }
-        }
+        'required': { 'message': 'Oops, looks like you forgot to add this field' }
       }
     });
 
