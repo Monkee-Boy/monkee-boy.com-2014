@@ -83,7 +83,7 @@ class quote extends appController {
       )
     );
 
-    $sTo = "john@monkee-boy.com"; // quotes@monkee-boy.com
+    $sTo = "quotes@monkee-boy.com"; // 
     $sFrom = "noreply@monkee-boy.com";
     $sSubject = "Request a Quote";
 
