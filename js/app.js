@@ -13600,7 +13600,6 @@ function BlurStack()
     this.$screens = screens;
 
     // do slider stuff if there are at least three screens
-    console.log("there are this many screens:", numScreens);
     if ( numScreens > 2 ) {
       // set phone and tablet to be right and left
       self._moveSlide(this.$screens.phone, 'left', 0.6);
@@ -13626,7 +13625,8 @@ function BlurStack()
 
   PortfolioSlider.prototype.initMobileSlider = function() {
     var containerWidth = this.width,
-        self = this;
+        self = this,
+        numScreens = this.$screens.length;
 
     // we'll want to save screens by device type
     var screens = {};
@@ -13644,10 +13644,14 @@ function BlurStack()
       if ( type == 'tablet' ) return true;
 
       // set mobile and desktop sizes
-      if ( type == 'desktop' ) {
+      if ( type == 'desktop' && numScreens > 1 ) {
         width = containerWidth * 1.2;
         height = width * self.ratios[type];
         left = containerWidth * 0.2;
+      } else if ( type == 'desktop' && numScreens == 1 ) {
+        width = containerWidth * 0.79;
+        height = width * self.ratios[type];
+        left = containerWidth * 0.105;
       } else if ( type == 'phone' ) {
         width = containerWidth * 0.4;
         height = width * self.ratios[type];
@@ -13668,6 +13672,12 @@ function BlurStack()
 
     // save new screens object so we can access by device type
     this.$screens = screens;
+
+    // add class for single screen
+    if (numScreens == 1) {
+      console.log("only one screen");
+      this.$el.addClass('single-screen');
+    }
   };
 
   PortfolioSlider.prototype.init = function() {
