@@ -19,7 +19,7 @@ class quote extends appController {
     $this->tplAssign('aContent', $this->model->content);
     $this->tplDisplay("request_quote.php");
   }
-  
+
   function thank_you() {
     $this->tplAssign('aContent', $this->model->ty_content);
     $this->tplDisplay("thank_you.php");
@@ -82,6 +82,33 @@ class quote extends appController {
         ,"updated_datetime" => date('Y-m-d H:i:s')
       )
     );
+
+    $sTo = "john@monkee-boy.com"; // quotes@monkee-boy.com
+    $sFrom = "noreply@monkee-boy.com";
+    $sSubject = "Request a Quote";
+
+    $sBody = "Name: ".htmlentities($first_name." ".$last_name)."\n";
+    $sBody .= "Email: ".htmlentities($email)."\n";
+    $sBody .= "Phone: ".htmlentities($phone)."\n";
+    $sBody .= "Organization: ".htmlentities($_POST['org'])."\n";
+    $sBody .= "Website: ".htmlentities($_POST['website'])."\n";
+    $sBody .= ($_POST['deadline'] === '1')?"Deadline: ".htmlentities($email)."\n":"";
+    $sBody .= "Budget: ".htmlentities($_POST['budget'])."\n";
+    if(!empty($_POST['project-desc'])) {
+      $sBody .= "\nBrief: \n";
+      $sBody .= htmlentities($_POST['project-desc']);
+    }
+    if(!empty($attachments)) {
+      $sBody .= "Attachments: \n";
+      foreach($attachments as $attachment) {
+        $sBody .= "- ".$attachment;
+      }
+    }
+
+    $sHeaders = "From: ".$sFrom."\r\n"
+      ."Reply-To: ".$email;
+
+    mail($sTo, $sSubject, $sBody, $sHeaders);
 
     $_SESSION["quote_form"] = null;
     $this->forward($this->model->ty_content['url']);
