@@ -33,11 +33,11 @@
           </div>
           <div class="half">
             <div class="profile-block">
-              <span class="title">History</span>
-              <p><?= $aEmployee['history'] ?></p>
+              <span class="title">Where</span>
+              <p><?= $aEmployee['where'] ?></p>
             </div><!-- /.profile-block -->
             <div class="profile-block">
-              <span class="title">Style</span>
+              <span class="title">Quirk</span>
               <p><?= $aEmployee['quirk'] ?></p>
             </div><!-- /.profile-block -->
           </div>
