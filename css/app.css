@@ -445,7 +445,8 @@ th {
   box-sizing: border-box; }
 
 body.menu-open {
-  position: fixed; }
+  position: fixed;
+  width: 100%; }
 
 .container {
   position: relative;
@@ -927,6 +928,7 @@ body.menu-open {
         color: #fff;
         font-family: "effra", sans-serif;
         text-transform: uppercase;
+        text-decoration: none;
         font-size: 12px;
         background-color: #2c2d32;
         border-bottom: 4px solid #000; }
@@ -2968,6 +2970,9 @@ button[type=submit] {
   .port-slider .screens.initial .screen {
     opacity: 1;
     filter: alpha(opacity=100); }
+@media only screen and (max-width: 580px) {
+  .port-slider.single-screen .screens:after {
+    padding-bottom: 58.5%; } }
 @media only screen and (max-width: 580px) {
   .port-slider .slider-nav {
     display: none; } }
