@@ -22,7 +22,7 @@ if(isset($aContent)) {
       </div>
 
       <p class="footer-meta"><strong>&copy; <?php echo date("Y"); ?> Monkee-Boy Web Design, Inc.</strong> // <a href="/contact/request-a-quote/" title="Request a Quote">Request a Quote!</a><br>
-        <span class="address">9390 Research Blvd. Suite 425 Austin, TX  78759 // 512-335-2221</span></p>
+        <span class="address">9390 Research Blvd. Kaleido II Suite 425 Austin, TX  78759 // 512-335-2221</span></p>
     </div>
     <a href="#" class="mobile-home button">Back to Home</a>
   </footer>
