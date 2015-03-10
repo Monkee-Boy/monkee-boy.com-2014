@@ -21,7 +21,7 @@ if(isset($aContent)) {
         <a href="#" class="back-to-top"></a>
       </div>
 
-      <p class="footer-meta"><strong>&copy; <?php echo date("Y"); ?> Monkee-Boy Web Design, Inc.</strong> // <a href="/contact/work-with-us/" title="Request A Quote">Work with us!</a><br>
+      <p class="footer-meta"><strong>&copy; <?php echo date("Y"); ?> Monkee-Boy Web Design, Inc.</strong> // <a href="/contact/request-a-quote/" title="Request a Quote">Request a Quote!</a><br>
         <span class="address">9390 Research Blvd. Suite 425 Austin, TX  78759 // 512-335-2221</span></p>
     </div>
     <a href="#" class="mobile-home button">Back to Home</a>
@@ -30,7 +30,7 @@ if(isset($aContent)) {
 
   <div class="mobile-menu-container">
     <ul class="mobile-menu">
-      <li><a href="/contact/work-with-us/" class="button">Request a Quote</a></li>
+      <li><a href="/contact/request-a-quote/" class="button">Request a Quote</a></li>
       <li><a href="tel:5123352221" class="button button-alt">Call Us</a></li>
       <li class="primary"><a href="/">Home</a></li>
     </ul>

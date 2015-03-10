@@ -12,7 +12,7 @@
       <p><strong>Error 404</strong>: The page you're looking for has been moved or no longer exists. You can start back at our <a href="/" title="Home Page">home page</a>.</p>
 
       <div id="flowchart404">
-        <a href="/contact/work-with-us" class="button get-started">Let's get started!</a>
+        <a href="/contact/request-a-quote" class="button get-started">Let's get started!</a>
         <a href="/blog" class="button button-alt col1 blog">Check out our blog!</a>
         <a href="http://www.austinpetsalive.org/adopt/dogs/" class="button col1 puppy">Yes Please!</a>
         <a href="/our-process" class="button button-alt2 process">Check out our process!</a>

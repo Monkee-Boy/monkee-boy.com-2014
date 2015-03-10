@@ -148,7 +148,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'portfolio', 'page_title'=>$aClient
       </div>
 
       <div class="cta-button">
-        <a href="/contact/work-with-us/" title="CTA Button" class="button">Let's Get In Touch!</a>
+        <a href="/contact/request-a-quote/" title="CTA Button" class="button">Let's Get In Touch!</a>
       </div>
     </div>
   </div>

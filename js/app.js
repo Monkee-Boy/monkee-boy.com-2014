@@ -13368,7 +13368,7 @@ function BlurStack()
     container: $('.uploaded-files')[0],
     drop_element: $('.upload-box')[0],
 
-    url : "/work-with-us/upload/",
+    url : "/request-a-quote/upload/",
 
     filters : {
         max_file_size : '20mb',

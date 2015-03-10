@@ -73,7 +73,7 @@
       'who' => array('why-monkee-boy','troop','news','join-the-troop'),
       'what' => array('services','discover','create','evolve'),
       'work' => array('portfolio','testimonials','clients'),
-      'contact' => array('contact','work-with-us')
+      'contact' => array('contact','request-a-quote')
     );
 
     if(in_array($menu, $aSubNav['who'])) {
