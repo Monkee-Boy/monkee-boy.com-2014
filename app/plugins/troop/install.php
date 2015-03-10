@@ -14,7 +14,7 @@ $aTables = array(
     `name` varchar(255),
     `who` longtext,
     `what` longtext,
-    `history` longtext,
+    `where` longtext,
     `quirk` longtext,
     `quote` longtext,
     `title` varchar(255),

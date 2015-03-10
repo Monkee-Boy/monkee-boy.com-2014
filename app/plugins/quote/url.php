@@ -12,31 +12,31 @@
 #   /<tag:[a-z]+>/
 */
 $aPluginUrlPatterns = array(
-  "/work-with-us/" => array(
+  "/request-a-quote/" => array(
     "cmd" => "quote",
     "action" => "index"
   ),
-  "/<parent:[a-z0-9_\-/]+>/work-with-us/" => array(
+  "/<parent:[a-z0-9_\-/]+>/request-a-quote/" => array(
     "cmd" => "quote",
     "action" => "index"
   ),
-  "/work-with-us/submit-form/" => array(
+  "/request-a-quote/submit-form/" => array(
     "cmd" => "quote",
     "action" => "submit_form"
   ),
-  "/<parent:[a-z0-9_\-/]+>/work-with-us/submit-form/" => array(
+  "/<parent:[a-z0-9_\-/]+>/request-a-quote/submit-form/" => array(
     "cmd" => "quote",
     "action" => "submit_form"
   ),
-  "/work-with-us/upload/" => array(
+  "/request-a-quote/upload/" => array(
     "cmd" => "quote",
     "action" => "upload"
   ),
-  "/work-with-us/thank-you/" => array(
+  "/request-a-quote/thank-you/" => array(
     "cmd" => "quote",
     "action" => "submit_form"
   ),
-  "/<parent:[a-z0-9_\-/]+>/work-with-us/thank-you/" => array(
+  "/<parent:[a-z0-9_\-/]+>/request-a-quote/thank-you/" => array(
     "cmd" => "quote",
     "action" => "thank_you"
   ),

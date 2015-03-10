@@ -12,7 +12,7 @@ if($menu === 'blog-post') {
     <ul class="menu-lite main-menu blog-main-menu">
       <li class="primary"><a href="/">Home</a></li>
       <li class="primary"><a href="/the-work/">Portfolio</a></li>
-      <li class="primary"><a href="/contact/work-with-us/">Request a quote</a></li>
+      <li class="primary"><a href="/contact/request-a-quote/">Request a quote</a></li>
     </ul>
   </nav>
 

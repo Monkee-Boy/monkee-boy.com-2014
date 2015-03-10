@@ -6,7 +6,7 @@
     </div>
 
     <div class="cta-button">
-      <a href="/contact/work-with-us/" title="CTA Button" class="button"><?= $button ?></a>
+      <a href="/contact/request-a-quote/" title="CTA Button" class="button"><?= $button ?></a>
     </div>
   </div>
 </div>

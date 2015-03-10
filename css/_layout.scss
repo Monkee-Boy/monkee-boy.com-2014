@@ -7,7 +7,8 @@
 
 body {
   &.menu-open {
-    .container { position: fixed; }
+    position: fixed;
+    width: 100%;
   }
 }
 
@@ -407,10 +408,12 @@ body {
 
   @media #{$medium-down} {
     display: block;
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 0;
     width: 250px;
+    height: 100%;
+    overflow-y: scroll;
     padding: em-calc(8) 0;
     z-index: 0;
     background: $dark-black;
@@ -501,6 +504,7 @@ body {
       color: #fff;
       font-family: $heading-font;
       text-transform: uppercase;
+      text-decoration: none;
       font-size: 12px;
       background-color: #2c2d32;
       border-bottom: 4px solid #000;
@@ -519,7 +523,7 @@ body {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }
-      &:hover, &.active {
+      &:hover, &.focus {
         text-decoration: none;
         color: $yellow;
         &:before { color: $yellow; }
@@ -649,10 +653,7 @@ body {
   .footer-meta {
     @include span(5 of 12);
     text-align: right;
-
-    @media #{$x-small-only} {
-      font-size: 14px;
-    }
+    font-size: 14px;
 
     @media #{$small-only} {
       width: 60%;
@@ -660,10 +661,6 @@ body {
 
     @media #{$medium-only} {
       width: 80%;
-    }
-
-    @media #{$xlarge-down} {
-      font-size: 14px;
     }
   }
   .address {

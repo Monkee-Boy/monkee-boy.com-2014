@@ -444,8 +444,9 @@ th {
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
-body.menu-open .container {
-  position: fixed; }
+body.menu-open {
+  position: fixed;
+  width: 100%; }
 
 .container {
   position: relative;
@@ -831,10 +832,12 @@ body.menu-open .container {
   @media only screen and (max-width: 840px) {
     .mobile-menu-container {
       display: block;
-      position: absolute;
+      position: fixed;
       right: 0;
       top: 0;
       width: 250px;
+      height: 100%;
+      overflow-y: scroll;
       padding: 0.44444em 0;
       z-index: 0;
       background: #1c1c1e;
@@ -925,6 +928,7 @@ body.menu-open .container {
         color: #fff;
         font-family: "effra", sans-serif;
         text-transform: uppercase;
+        text-decoration: none;
         font-size: 12px;
         background-color: #2c2d32;
         border-bottom: 4px solid #000; }
@@ -942,10 +946,10 @@ body.menu-open .container {
           line-height: 0.8;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale; }
-        .mobile-header .mobile-menu-trigger:hover, .mobile-header .mobile-menu-trigger.active {
+        .mobile-header .mobile-menu-trigger:hover, .mobile-header .mobile-menu-trigger.focus {
           text-decoration: none;
           color: #fcc721; }
-          .mobile-header .mobile-menu-trigger:hover:before, .mobile-header .mobile-menu-trigger.active:before {
+          .mobile-header .mobile-menu-trigger:hover:before, .mobile-header .mobile-menu-trigger.focus:before {
             color: #fcc721; } }
 
 /* Main */
@@ -1100,19 +1104,14 @@ body.menu-open .container {
     float: left;
     padding-left: 15px;
     padding-right: 15px;
-    text-align: right; }
-    @media only screen and (max-width: 355px) {
-      [role="contentinfo"] .footer-meta {
-        font-size: 14px; } }
+    text-align: right;
+    font-size: 14px; }
     @media only screen and (max-width: 580px) {
       [role="contentinfo"] .footer-meta {
         width: 60%; } }
     @media only screen and (min-width: 581px) and (max-width: 840px) {
       [role="contentinfo"] .footer-meta {
         width: 80%; } }
-    @media only screen and (max-width: 1115px) {
-      [role="contentinfo"] .footer-meta {
-        font-size: 14px; } }
   @media only screen and (max-width: 580px) {
     [role="contentinfo"] .address {
       display: none; } }
@@ -2966,6 +2965,9 @@ button[type=submit] {
   .port-slider .screens.initial .screen {
     opacity: 1;
     filter: alpha(opacity=100); }
+@media only screen and (max-width: 580px) {
+  .port-slider.single-screen .screens:after {
+    padding-bottom: 58.5%; } }
 @media only screen and (max-width: 580px) {
   .port-slider .slider-nav {
     display: none; } }
