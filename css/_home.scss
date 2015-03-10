@@ -78,7 +78,9 @@
       padding: em-calc(10) em-calc(15) em-calc(30);
       background-color: $black;
     }
+
   }
+
   .caption-title {
     float: left;
     width: 36%;
@@ -89,6 +91,11 @@
     text-transform: uppercase;
     text-align: center;
     color: $green;
+
+    @media #{$xlarge-down} {
+      font-size: 55px;
+    }
+
     @media #{$medium-down} {
       float: none;
       display: block;
@@ -97,7 +104,9 @@
       font-size: 42px;
       text-align: left;
     }
+
   }
+
   .caption-content {
     float: right;
     width: 64%;
@@ -114,6 +123,9 @@
     bottom: 24px;
     max-width: 920px;
     padding-left: em-calc(50);
+    @media #{$medium-down} {
+      padding-left: em-calc(15);
+    }
     .caption-title { display: none; }
     .caption-content { width: 100%; }
     h1 {
@@ -144,6 +156,8 @@
       text-indent: 0;
     }
     &:hover, &:focus {
+      text-decoration: none;
+
       &:before { color: $green; }
     }
     @media #{$medium-down} { display: none; }
@@ -366,9 +380,16 @@
 }
 
 .home-blog {
+  @media #{$medium-down} {
+    padding-bottom: 0;
+  }
+
   .section-title {
     font-size: em-calc(76);
-    @media #{$medium-down} { font-size: em-calc(46); }
+
+    @media #{$medium-down} {
+      font-size: em-calc(46);
+    }
   }
 }
 
@@ -390,6 +411,54 @@
       &:hover, &:focus {
         color: $dark-teal;
       }
+    }
+  }
+  .number {
+    position: relative;
+    font-size: em-calc(220);
+    text-align: right;
+    padding-bottom: 50%;
+    @media #{$large-down} {
+      font-size: em-calc(180);
+    }
+    @media #{$medium-down} {
+      width: 450px;
+      height: 220px;
+      margin: 0 auto;
+      padding-bottom: 0;
+    }
+    @media #{$small-only} {
+      width: 100%;
+      height: 240px;
+    }
+
+    .arrow {
+      @include border-radius(50%);
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      display: block;
+      width: 42%;
+      padding-bottom: 42%;
+      background: url(/images/arrow.png) no-repeat center top;
+      background-size: contain;
+
+      &.down {
+        @include transform(rotate(180deg));
+      }
+    }
+
+    .value {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      z-index: 2;
+      display: block;
+    }
+
+    .metric {
+      font-size: em-calc(12);
     }
   }
 }

@@ -26,7 +26,14 @@
     p {
       margin: 0;
       font-size: em-calc(76px);
-      @media #{$large-down} { font-size: 40px; }
+
+      @media #{$large-down} {
+        font-size: 40px;
+      }
+
+      @media #{$small-only} {
+        font-size: 28px;
+      }
     }
   }
 
@@ -90,6 +97,12 @@
 
     @media #{$small-only} {
       width: 100%;
+    }
+
+    p, ul, ol, blockquote {
+      color: #fff;
+      font-size: 22px;
+      line-height: 30px;
     }
 
     .page-services & h4 a {
@@ -281,6 +294,10 @@
     @extend .icon;
     font-size: 100px;
     line-height: 0;
+
+    @media #{$medium-down} {
+      content: $icon-twodots;
+    }
   }
 
   &[data-dots='dual']:before, &[data-dots='left']:before {
@@ -516,7 +533,7 @@
     text-transform: lowercase;
     font-size: 76px;
     margin-bottom: 1em;
-    @media #{$small-only} { font-size: 60px; }
+    @media #{$small-only} { font-size: 50px; }
   }
 }
 .accordion {

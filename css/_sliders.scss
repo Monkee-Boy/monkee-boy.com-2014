@@ -27,6 +27,11 @@
       .screen { @include opacity(1); }
     }
   }
+  &.single-screen {
+    @media #{$small-only} {
+      .screens:after { padding-bottom: 58.5%; }
+    }
+  }
   .slider-nav {
     @media #{$small-only} { display: none; }
     a {

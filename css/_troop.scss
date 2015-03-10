@@ -17,18 +17,18 @@
         @include opacity(1);
       }
     }
-    &:hover {
-      .trigger {
-        &:before {
-          @include rotate(-14deg);
-          bottom: -40px;
-          background-color: $teal;
-        }
-        &:after {
-          color: #fff;
-          @include scale(1.4);
-          bottom: 10px;
-        }
+    &:hover .trigger {
+      text-decoration: none;
+
+      &:before {
+        @include rotate(-14deg);
+        bottom: -40px;
+        background-color: $teal;
+      }
+      &:after {
+        color: #fff;
+        @include scale(1.4);
+        bottom: 10px;
       }
     }
     &.active {
@@ -161,6 +161,11 @@
   .profile-content {
     @include clearfix;
     padding: em-calc(42) em-calc(15) em-calc(24);
+    @media #{$small-only} {
+      .half {
+        margin-bottom: 0;
+      }
+    }
   }
   .profile-block {
     @include clearfix;
@@ -190,6 +195,7 @@
       @media #{$small-only} {
         width: 100%;
         margin-bottom: $mobile-paragraph-margin;
+        padding: 0;
       }
     }
     .latest-update {
@@ -217,7 +223,11 @@
   li {
     position: relative;
     min-height: 310px;
-    @media #{$medium-down} { min-height: 210px; }
+
+    @media #{$medium-down} {
+      min-height: 210px;
+    }
+
     &:before {
       content: "";
       position: absolute;
@@ -226,8 +236,12 @@
       top: 0;
       height: 310px;
       background-color: rgba($light-grey, 0.11);
-      @media #{$medium-down} { height: 210px; }
+
+      @media #{$medium-down} {
+        height: 210px;
+      }
     }
+
     &:after {
       position: absolute;
       left: 0;
@@ -236,20 +250,24 @@
       text-align: center;
       font-size: 360px;
       @extend .icon;
-      @media #{$large-only} {
+
+      @media #{$xlarge-only} {
         font-size: 260px;
         line-height: 360px;
       }
+
       @media #{$medium-down} {
         font-size: 150px;
         line-height: 250px;
       }
     }
+
     &.mobile-os:after { content: $icon-phone; }
     &.bananas:after { content: $icon-banana; }
     &.tacos:after { content: $icon-tacos; }
     &.code:after { content: $icon-keyboard; }
     &.desktop-os:after { content: $icon-computer; }
+
     p {
       position: absolute;
       width: 100%;

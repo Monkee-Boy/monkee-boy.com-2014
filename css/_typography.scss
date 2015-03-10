@@ -20,7 +20,10 @@ h1 {
   font-weight: 500;
   color: $dark-green;
   margin: 0 0 em-calc(10, 76);
-  @media #{$medium-down} { font-size: 42px; }
+  @media #{$medium-down} {
+    font-size: 38px;
+    line-height: 1.1em;
+  }
 }
 
 h2 {
@@ -36,7 +39,10 @@ h2 {
   font-size: 26px;
   color: $teal;
   margin: 0;
-  @media #{$medium-down} { font-size: 20px; }
+  @media #{$medium-down} {
+    padding: 0 em-calc(15);
+    font-size: 20px;
+  }
 }
 
 h3 {
@@ -78,7 +84,14 @@ h5 {
     font-size: 110px;
     font-weight: bold;
     line-height: 1;
-    @media #{$medium-down} { font-size: 52px; }
+
+    @media #{$medium-only} {
+      font-size: 80px;
+    }
+
+    @media #{$small-only} {
+      font-size: 52px;
+    }
 
     em {
       display: inline-block;

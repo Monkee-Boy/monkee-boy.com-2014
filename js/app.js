@@ -13264,10 +13264,10 @@ function BlurStack()
 
   // mobile menu fn's
   function open_mobile_menu() {
-    $('body').addClass('menu-open');
-
     var $container = $('.container'),
         $menu_items = $('.mobile-menu').children('li');
+
+    $('body').addClass('menu-open');
 
     // set up li's to be off screen
     TweenLite.set($menu_items, {
@@ -13292,10 +13292,12 @@ function BlurStack()
   }
 
   function close_mobile_menu() {
-    $('body').removeClass('menu-open');
     TweenLite.to($('.container'), 0.3, {
       x: 0,
-      ease: Power3.easeOut
+      ease: Power3.easeOut,
+      onComplete: function() {
+        $('body').removeClass('menu-open');
+      }
     });
   }
 
@@ -13366,7 +13368,7 @@ function BlurStack()
     container: $('.uploaded-files')[0],
     drop_element: $('.upload-box')[0],
 
-    url : "/work-with-us/upload/",
+    url : "/request-a-quote/upload/",
 
     filters : {
         max_file_size : '100mb',
@@ -13628,7 +13630,6 @@ function BlurStack()
     this.$screens = screens;
 
     // do slider stuff if there are at least three screens
-    console.log("there are this many screens:", numScreens);
     if ( numScreens > 2 ) {
       // set phone and tablet to be right and left
       self._moveSlide(this.$screens.phone, 'left', 0.6);
@@ -13654,7 +13655,8 @@ function BlurStack()
 
   PortfolioSlider.prototype.initMobileSlider = function() {
     var containerWidth = this.width,
-        self = this;
+        self = this,
+        numScreens = this.$screens.length;
 
     // we'll want to save screens by device type
     var screens = {};
@@ -13672,10 +13674,14 @@ function BlurStack()
       if ( type == 'tablet' ) return true;
 
       // set mobile and desktop sizes
-      if ( type == 'desktop' ) {
+      if ( type == 'desktop' && numScreens > 1 ) {
         width = containerWidth * 1.2;
         height = width * self.ratios[type];
         left = containerWidth * 0.2;
+      } else if ( type == 'desktop' && numScreens == 1 ) {
+        width = containerWidth * 0.79;
+        height = width * self.ratios[type];
+        left = containerWidth * 0.105;
       } else if ( type == 'phone' ) {
         width = containerWidth * 0.4;
         height = width * self.ratios[type];
@@ -13696,6 +13702,12 @@ function BlurStack()
 
     // save new screens object so we can access by device type
     this.$screens = screens;
+
+    // add class for single screen
+    if (numScreens == 1) {
+      console.log("only one screen");
+      this.$el.addClass('single-screen');
+    }
   };
 
   PortfolioSlider.prototype.init = function() {
@@ -13759,34 +13771,36 @@ function BlurStack()
     swipeToSlide: true
   });
 
-  $('.fullwidth-slider ul').slick({
-    dots: false,
-    arrows: true,
-    slidesToShow: 1,
-    slide: 'li',
-    centerMode: true,
-    centerPadding: '140px',
-    onInit: function() {
-      $('.fullwidth-slider .slick-prev').detach().appendTo('.slick-active .slick-photo-wrapper');
-      $('.fullwidth-slider .slick-next').detach().appendTo('.slick-active .slick-photo-wrapper');
-    },
-    onAfterChange: function() {
-      $('.fullwidth-slider .slick-prev').detach().appendTo('.slick-active .slick-photo-wrapper');
-      $('.fullwidth-slider .slick-next').detach().appendTo('.slick-active .slick-photo-wrapper');
-    },
-    responsive: [{
-      breakpoint: small_break,
-      settings: {
-        dots: false,
-        arrows: false,
-        infinite: true,
-        slidesToShow: 1,
-        slide: 'li',
-        centerMode: true,
-        centerPadding: '80px'
-      }
-    }]
-  });
+  if($('.fullwidth-slider ul li').length > 1) {
+    $('.fullwidth-slider ul').slick({
+      dots: false,
+      arrows: true,
+      slidesToShow: 1,
+      slide: 'li',
+      centerMode: true,
+      centerPadding: '140px',
+      onInit: function() {
+        $('.fullwidth-slider .slick-prev').detach().appendTo('.slick-active .slick-photo-wrapper');
+        $('.fullwidth-slider .slick-next').detach().appendTo('.slick-active .slick-photo-wrapper');
+      },
+      onAfterChange: function() {
+        $('.fullwidth-slider .slick-prev').detach().appendTo('.slick-active .slick-photo-wrapper');
+        $('.fullwidth-slider .slick-next').detach().appendTo('.slick-active .slick-photo-wrapper');
+      },
+      responsive: [{
+        breakpoint: small_break,
+        settings: {
+          dots: false,
+          arrows: false,
+          infinite: true,
+          slidesToShow: 1,
+          slide: 'li',
+          centerMode: true,
+          centerPadding: '80px'
+        }
+      }]
+    });
+  }
 
   // home page hero slideshow
   var HomeSlideshow = function(el) {
@@ -14270,7 +14284,7 @@ function BlurStack()
   function shoot_bananas() {
     console.log("shooting bananas");
     var a = 0.8, // vertical accelleration
-        num_bananas = Math.ceil(Math.random() * 25),
+        num_bananas = Math.ceil(Math.random() * 5),
         pos = [0, -20],
         $banana_triangle = $('.bananas');
 

@@ -15,7 +15,7 @@ class quote_model extends appModel {
       $this->$sKey = $sValue;
     }
 
-    $this->content = getContent(null, 'work-with-us');
+    $this->content = getContent(null, 'request-a-quote');
     $this->ty_content = getContent(null, 'thank-you');
   }
 

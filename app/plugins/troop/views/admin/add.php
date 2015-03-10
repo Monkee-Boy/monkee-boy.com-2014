@@ -59,12 +59,12 @@
 
         <div class="accordion-group">
           <div class="accordion-heading">
-            <span class="accordion-toggle">History</span>
+            <span class="accordion-toggle">Where</span>
           </div>
           <div class="accordion-body">
             <div class="accordion-inner">
               <div class="controls">
-                <textarea name="history" class="span12"><?= $aEmployee['history'] ?></textarea>
+                <textarea name="where" class="span12"><?= $aEmployee['where'] ?></textarea>
               </div>
             </div>
           </div>

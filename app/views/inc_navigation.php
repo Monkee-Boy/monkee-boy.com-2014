@@ -2,7 +2,7 @@
   <div class="top-bar">
     <div class="row-flush">
       <ul class="super-nav full">
-        <li><a href="/contact/work-with-us/" title="Request A Quote">Request A Quote &raquo;</a></li>
+        <li><a href="/contact/request-a-quote/" title="Request A Quote">Request A Quote &raquo;</a></li>
       </ul>
     </div> <!-- /.row -->
   </div> <!-- /.top-bar -->
@@ -36,7 +36,7 @@
             <li class="primary"><a href="/blog/" title="" class="nav-blog">The Blog</a></li>
           </ul>
 
-          <a href="/contact/work-with-us/" title="Request A Quote" class="request-quote">Request A<span>Quote &raquo;</span></a>
+          <a href="/contact/request-a-quote/" title="Request A Quote" class="request-quote">Request A<span>Quote &raquo;</span></a>
         </div>
       </div> <!-- /.row -->
     </nav>

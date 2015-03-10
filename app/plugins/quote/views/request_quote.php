@@ -15,7 +15,7 @@ if(!empty($aContent)) {
   // $sSubtitle = "Let's start a dialogue. Just fill out the form below.";
 }
 
-$this->tplDisplay("inc_header.php", ['menu'=>'work-with-us', 'sPageTitle'=>$sTitle, 'seo_title'=>$aContent['seo_title'], 'seo_description'=>$aContent['seo_description'], 'seo_keywords'=>$aContent['seo_keywords']]); ?>
+$this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$sTitle, 'seo_title'=>$aContent['seo_title'], 'seo_description'=>$aContent['seo_description'], 'seo_keywords'=>$aContent['seo_keywords']]); ?>
 
   <div class="row page-title">
     <h1><?php echo $sTitle; ?></h1>
@@ -71,7 +71,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'work-with-us', 'sPageTitle'=>$sTit
         </label>
         <label class="radio" for="brief2">
           Yes, I do.
-          <input type="radio" id="brief2" name="brief" value="0" class="input-switch" data-switchto="brief-upload"<?php if(empty($form_data['brief'])){ echo ' checked'; } ?>>
+          <input type="radio" id="brief2" name="brief" value="0" class="input-switch" data-switchto="brief-upload"<?php if($form_data['brief'] === '0'){ echo ' checked'; } ?>>
           <span class="control-indicator"></span>
         </label>
       </div>
@@ -81,7 +81,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'work-with-us', 'sPageTitle'=>$sTit
           <p>What kind of project do you have and what are your goals?</p>
           <div class="input-wrapper"><textarea cols="10" rows="4" id="project-desc" name="project-desc"><?= $form_data['project-desc'] ?></textarea></div>
         </div>
-        <div id="brief-upload" class="switch-target<?php if($form_data['brief'] !== '1'){ echo ' active'; } ?>">
+        <div id="brief-upload" class="switch-target<?php if($form_data['brief'] === '0'){ echo ' active'; } ?>">
           <h5>Great! Upload it here:</h5>
           <div class="upload-box initial">
             <div class="uploaded-files"></div>
@@ -98,7 +98,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'work-with-us', 'sPageTitle'=>$sTit
         <h4>Have a project deadline?</h4>
         <label class="radio" for="date1">
           Nope. I'm flexible.
-          <input type="radio" id="date1" name="deadline" value="0" class="input-switch" data-switchto="no-date"<?php if(empty($form_data['deadline'])){ echo ' checked'; } ?>>
+          <input type="radio" id="date1" name="deadline" value="0" class="input-switch" data-switchto="no-date"<?php if($form_data['deadline'] === '1'){ echo ' checked'; } ?>>
           <span class="control-indicator"></span>
         </label>
         <label class="radio" for="date2">
@@ -108,7 +108,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'work-with-us', 'sPageTitle'=>$sTit
         </label>
       </div>
       <div class="right">
-        <div id="no-date" class="switch-target<?php if($form_data['deadline'] !== '1'){ echo ' active'; } ?>">
+        <div id="no-date" class="switch-target<?php if($form_data['deadline'] === '0'){ echo ' active'; } ?>">
           <h5>Cool, we can work with you to plan the project schedule.</h5>
         </div>
         <div id="datepicker" class="switch-target<?php if($form_data['deadline'] === '1'){ echo ' active'; } ?>">

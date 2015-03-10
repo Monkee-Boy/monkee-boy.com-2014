@@ -19,7 +19,8 @@
       </ul>
 
       <?php echo $aLatestPost['excerpt']; ?>
-      <a href="<?php echo $aLatestPost['url']; ?>" class="more-link">Read the full article</a>
+
+      <p><a href="<?php echo $aLatestPost['url']; ?>" class="more-link">Read the full article</a></p>
     </div>
   </article><!-- /.featured-post -->
   <?php } ?>

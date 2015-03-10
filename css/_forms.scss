@@ -77,6 +77,11 @@ label {
   max-width: 100%;
   height: em-calc(70);
   background-color: $light-grey;
+
+  @media #{$small-only} {
+    width: 100%;
+  }
+
   &:before {
     content: "";
     position: absolute;
@@ -89,6 +94,7 @@ label {
     pointer-events: none;
     @include transition(background 0.3s ease);
   }
+
   &:after {
     content: "";
     position: absolute;
@@ -104,6 +110,7 @@ label {
     @include transition(border 0.3s ease);
     z-index: 2;
   }
+
   select {
     display: block;
     position: absolute;
@@ -111,7 +118,7 @@ label {
     top: 0;
     width: 100%;
     height: 100%;
-    padding: 0 em-calc(50, 24) 0 em-calc(16, 24);
+    padding: 0 em-calc(25, 24) 0 em-calc(16, 24);
     background: transparent;
     outline: 0;
     -webkit-appearance: none;
@@ -126,13 +133,21 @@ label {
     color: $grey;
     cursor: pointer;
     @include transition(all 0.3s ease);
+
     &:focus {
       border-color: $teal;
     }
   }
+
   &.selected {
-    &:before { background-color: $teal; }
-    &:after { border-top-color: #fff; }
+    &:before {
+      background-color: $teal;
+    }
+
+    &:after {
+      border-top-color: #fff;
+    }
+
     select {
       border-color: $teal;
       background: $teal;
@@ -203,19 +218,24 @@ label {
 // work with us page layout
 .form-monkee {
   @include span(5 of 12);
-  @media #{$small-only} { display: none; }
+  @media #{$small-only} {
+    display: none;
+  }
+
   .monkee {
     display: block;
     position: relative;
     margin: 0 15%;
     background: url(../images/form-monkee.png) no-repeat center center;
     background-size: contain;
+
     // sizing
     &:after {
       content: "";
       display: block;
       padding-bottom: 208.2%; // image height/width ratio
     }
+
     // speech bubble
     &:before {
       content: "";
@@ -231,12 +251,18 @@ label {
       @include transform(scale(0));
       @include opacity(0);
       @include transition(all 0.3s ease);
+
+      @media #{$medium-only} {
+        display: none;
+      }
     }
+
     &.speak:before {
       left: 43%;
       @include transform(scale(1));
       @include opacity(1);
     }
+
   }
   .glasses-monkee, .dark-monkee {
     position: absolute;
