@@ -52,7 +52,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
         </div>
         <label for="url">Website URL</label>
         <div class="form-step">
-          <span class="input-wrapper"><input type="text" name="website" id="url" class="url validate[custom[url]]" value="<?= (!empty($form_data['website']))?strip_tags($form_data['website']):'http://' ?>"></span>
+          <span class="input-wrapper"><input type="text" name="website" id="url" class="url" value="<?= (!empty($form_data['website']))?strip_tags($form_data['website']):'http://' ?>"></span>
         </div>
       </div><!-- /.form-part1 -->
     </div>
