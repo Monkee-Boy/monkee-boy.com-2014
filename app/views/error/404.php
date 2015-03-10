@@ -3,7 +3,7 @@
   <div class="row">
     <div class="page-title">
       <h1>You Done 404'd</h1>
-      <p class="subtitle">What the fuck did you even do???</p>
+      <p class="subtitle">What did you even do???</p>
     </div>
   </div>
 
