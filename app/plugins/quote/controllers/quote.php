@@ -83,7 +83,7 @@ class quote extends appController {
       )
     );
 
-    $sTo = "john@monkee-boy.com"; // quotes@monkee-boy.com
+    $sTo = "quotes@monkee-boy.com"; // 
     $sFrom = "noreply@monkee-boy.com";
     $sSubject = "Request a Quote";
 
@@ -96,12 +96,12 @@ class quote extends appController {
     $sBody .= "Budget: ".htmlentities($_POST['budget'])."\n";
     if(!empty($_POST['project-desc'])) {
       $sBody .= "\nBrief: \n";
-      $sBody .= htmlentities($_POST['project-desc']);
+      $sBody .= htmlentities($_POST['project-desc'])."\n\n";
     }
     if(!empty($attachments)) {
       $sBody .= "Attachments: \n";
-      foreach($attachments as $attachment) {
-        $sBody .= "- ".$attachment;
+      foreach($attachments as $name=>$attachment) {
+        $sBody .= "- http://monkee-boy.com/uploads/quote/".$attachment." (".$name.")\n";
       }
     }
 
