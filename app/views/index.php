@@ -85,9 +85,9 @@
   <div class="panel-wide home-marketing" data-panel-style="callout">
     <div class="row-flush">
       <div class="item-callout">
-        <h3 data-text-align="center">Almost 20 Years of Growing with the Web</h3>
+        <h3 data-text-align="center">Almost 20 years of getting results</h3>
 
-        <p><em>You don't need us to tell you that the web is always changing. What you do need is an experienced team you can trust that keeps up with that change and gets results by:</em></p>
+        <p><em>You don't need us to tell you that the web changes constantly. What you need is an experienced team to keep up with that change and get results by:</em></p>
 
         <ul class="list-style-alt">
           <li>Elevating identity with stunning creative assets.</li>
