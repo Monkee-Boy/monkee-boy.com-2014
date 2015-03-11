@@ -39,14 +39,5 @@ if(isset($aContent)) {
   <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
   <script>window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')</script>
   <script src="/js/app<?php if(!$debug) { ?>.min<?php } ?>.js?v=2"></script>
-
-  <script>
-  (function(m,o,n,k,e,y){m.GoogleAnalyticsObject=k;m[k]||(m[k]=
-  function(){(m[k].q=m[k].q||[]).push(arguments)});m[k].k=+new Date;
-  e=o.createElement(n);y=o.getElementsByTagName(n)[0];
-  e.src='//www.google-analytics.com/analytics.js';
-  y.parentNode.insertBefore(e,y)}(window,document,'script','ga'));
-  ga('create','UA-XXXXX-X');ga('send','pageview');
-  </script>
 </body>
 </html>
