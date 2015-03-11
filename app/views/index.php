@@ -103,7 +103,7 @@
         </div>
 
         <h3>Increase in mobile visits year over year</h3>
-        <p>The Bullock Texas State History Museum's new website attracted almost double the amount of mobile visitors in Q4 after their new site launched.</p>
+        <p>The Bullock Texas State History Museum's new website attracted almost double the amount of mobile visitors in Q4 after launch.</p>
 
         <p class="dots" data-dots="dual"><a href="/the-work/bullock-texas-state-history-museum/" title="View Monkee-Boy's work for The Bullock Texas State History Museum.">View the Project</a></p>
 
