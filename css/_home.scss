@@ -166,6 +166,7 @@
 
 .home-portfolio {
   position: relative;
+
   &:after {
     content: "";
     position: absolute;
@@ -177,18 +178,22 @@
     @include rotate(-5deg);
     z-index: -1;
   }
+
   .section-title {
     color: $teal;
     line-height: 0.85;
     margin-bottom: em-calc(40, 110);
+
     &:after {
       color: $medium-grey;
       top: 0.75em;
     }
   }
+
   .description {
     @media #{$small-only} { display: none; }
   }
+
   .menu-lite {
     color: $teal;
     a {
@@ -197,6 +202,7 @@
       &:hover { color: $teal; }
     }
   }
+
   .desktop {
     position: absolute;
     bottom: 20px;
@@ -204,6 +210,7 @@
     width: 700px;
     height: 509px;
     background-size: 100% 100%;
+
     @media #{$small-only} {
       position: relative;
       bottom: 0;
@@ -213,10 +220,15 @@
       margin: 0 auto $mobile-paragraph-margin;
     }
   }
+
   .screen-inner {
     position: absolute;
-    overflow-y: scroll;
-    img { width: 100%; height: auto; }
+    overflow: none;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
 }
 
