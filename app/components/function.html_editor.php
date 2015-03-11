@@ -9,56 +9,35 @@ function html_editor($content = '', $name = '', $label = '', $class = '', $theme
 	$content = stripslashes($content);
 
 	$return = "{footer}\n";
-	$return .= "<script>if(typeof(tinymce) === 'undefined') { document.write('<script src=\"/js/admin/tiny_mce/jquery.tinymce.js\"><\/script><script src=\"/js/admin/tiny_mce/tiny_mce.js\"><\/script>'); }</script>\n";
-	$return .= "<script type='text/javascript' src='/js/admin/tiny_mce/plugins/tinybrowser/tb_tinymce.js.php'></script>\n";
-	$return .= "<script type='text/javascript'>\n";
+	$return .= "<script>if(typeof(tinymce) === 'undefined') { document.write('<script src=\"/js/admin/tiny_mce/jquery.tinymce.min.js\"><\/script><script src=\"/js/admin/tiny_mce/tinymce.min.js\"><\/script>'); }</script>\n";
+	$return .= "<script>\n";
 	$return .= "tinyMCE.init({\n";
 
 	if($_COOKIE[$name."_editor"] == "html")
 		$return .= "\tmode : 'none',\n";
 	else
 		$return .= "\tmode : 'textareas',\n";
-	$return .= "\ttheme : 'advanced',\n";
-	$return .= "\tskin : 'default',\n";
-	$return .= "\tplugins : 'safari,contextmenu,advlist,embed,imagemanager,filemanager,advimage,advlink,paste,table,preview,fullscreen,searchreplace,spellchecker,autolink,tabfocus,inlinepopups',\n";
+
+	$return .= "\ttheme : 'modern',\n";
+	$return .= "\tplugins: ['advlist autolink autosave link image lists charmap print preview hr anchor pagebreak spellchecker', 'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking', 'table contextmenu directionality emoticons template textcolor paste fullpage textcolor colorpicker textpattern'],\n";
+	$return .= "\tmenubar: false,\n";
+  $return .= "\ttoolbar_items_size: 'small',\n";
 	$return .= "\teditor_selector : '".$name."_editor',\n";
-	$return .= "\textended_valid_elements : 'object[width|height|classid|codebase]"
-		.",param[name|value],embed[src|type|width|height|flashvars|wmode]"
-		.",iframe[align<bottom?left?middle?right?top|class|frameborder|height|id|longdesc|marginheight|marginwidth|name|scrolling<auto?no?yes|src|style|title|width]"
-		."',\n";
-	$return .= "\trelative_urls: false,\n";
 	$return .= "\twidth: '".$width."',\n";
 	$return .= "\theight: '".$height."',\n";
-	$return .= "\tcontent_css: '/css/admin/editor.css',\n";
 
 	if($theme == "simple") {
-		$return .= "\ttheme_advanced_buttons1 : 'pastetext,pasteword,|,bold,italic,underline,strikethrough,|,numlist,bullist,|,link,unlink,|,undo,redo',\n";
-		$return .= "\ttheme_advanced_buttons2 : '',\n";
-		$return .= "\ttheme_advanced_buttons3 : '',\n";
+		// $return .= "\ttheme_advanced_buttons1 : 'pastetext,pasteword,|,bold,italic,underline,strikethrough,|,numlist,bullist,|,link,unlink,|,undo,redo',\n";
+		// $return .= "\ttheme_advanced_buttons2 : '',\n";
+		// $return .= "\ttheme_advanced_buttons3 : '',\n";
 	} else {
-		$return .= "\ttheme_advanced_buttons1 : 'pastetext,pasteword,|,formatselect,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,numlist,bullist',\n";
-		$return .= "\ttheme_advanced_buttons2 : 'embed,image,|,link,unlink,|,outdent,indent,blockquote,sub,sup,|,search,replace,|,undo,redo,charmap,code,fullscreen',\n";
-		$return .= "\ttheme_advanced_buttons3 : 'tablecontrols',\n";
+		$return .= "\ttoolbar1: 'newdocument fullpage | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | styleselect formatselect fontselect fontsizeselect',
+        toolbar2: 'cut copy paste | searchreplace | bullist numlist | outdent indent blockquote | undo redo | link unlink anchor image media code | insertdatetime preview | forecolor backcolor',
+        toolbar3: 'table | hr removeformat | subscript superscript | charmap emoticons | print fullscreen | ltr rtl | spellchecker | visualchars visualblocks nonbreaking template pagebreak restoredraft',
+\n";
 	}
-	$return .= "\ttheme_advanced_toolbar_location : 'top',\n";
-	$return .= "\ttheme_advanced_toolbar_align : 'left',\n";
-	$return .= "\ttheme_advanced_statusbar_location : 'bottom',\n";
-	$return .= "\ttheme_advanced_path : false,\n";
-	$return .= "\ttheme_advanced_resizing : true,\n";
-	$return .= "\ttheme_advanced_blockformats : 'p,h3,h4,h5,h6',\n";
-	$return .= "\tinvalid_elements : 'script',\n";
-	$return .= "\ttab_focus : ':prev,:next'\n";
+	$return .= "\tvalid_elements : '*[*]',\n";
 	$return .= "});\n";
-	$return .= "function toggleEditorVisual(id) {\n";
-	$return .= "\t\ttinyMCE.execCommand('mceAddControl', false, id);\n";
-	$return .= "\t\t$('.tinymce-toggle .html_tab').removeClass('active');\n";
-	$return .= "\t\t$('.tinymce-toggle .visual_tab').addClass('active');\n";
-	$return .= "}\n";
-	$return .= "function toggleEditorHTML(id) {\n";
-	$return .= "\t\ttinyMCE.execCommand('mceRemoveControl', false, id);\n";
-	$return .= "\t\t$('.tinymce-toggle .visual_tab').removeClass('active');\n";
-	$return .= "\t\t$('.tinymce-toggle .html_tab').addClass('active');\n";
-	$return .= "}\n";
 	$return .= "</script>\n";
 	$return .= "{/footer}\n";
 	$return .= "\t<label class=\"control-label pull-left\" for=\"".$name."_editor\">".$label."</label>\n";
