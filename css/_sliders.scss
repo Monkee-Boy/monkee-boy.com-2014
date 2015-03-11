@@ -183,6 +183,11 @@
       font-size: 26px;
       font-weight: bold;
       text-transform: uppercase;
+
+      @media #{$small-only} {
+        display: none;
+      }
+
       span {
         display: block;
         text-transform: none;

@@ -3137,6 +3137,9 @@ button[type=submit] {
     font-size: 26px;
     font-weight: bold;
     text-transform: uppercase; }
+    @media only screen and (max-width: 580px) {
+      .screen.desktop .scroll-msg {
+        display: none; } }
     .screen.desktop .scroll-msg span {
       display: block;
       text-transform: none;
