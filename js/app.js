@@ -13406,7 +13406,9 @@ function BlurStack()
             var $file_el = $(this).parent(),
                 file_id = $file_el.attr('id'),
                 file = brief_uploader.getFile(file_id),
-                file_status = file.status;
+                file_status = file.status,
+                $size_indicator = $('.upload-box').find('.file-size span'),
+                cur_size = parseFloat($size_indicator.html());
 
             if (brief_uploader.state == plupload.STARTED && file_status == plupload.UPLOADING) {
               console.log("canceling upload");
@@ -13415,9 +13417,11 @@ function BlurStack()
               brief_uploader.start();
             } else {
               console.log("removing file");
+              cur_size -= (file.size/1000000);
             }
 
             $file_el.remove();
+            $size_indicator.html(cur_size.toFixed(2));
           });
         },
 
@@ -13444,6 +13448,10 @@ function BlurStack()
 
           // Update hidden input with new filename
           $('#'+file.id).find('input:first').val(response.result.server_filename);
+        },
+
+        FilesRemoved: function(up, files) {
+          console.log(files);
         },
 
         UploadProgress: function(up, file) {
