@@ -48,7 +48,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'portfolio', 'page_title'=>$aClient
       </div><!-- /.screens -->
 
       <div class="thumbs">
-        <span class="instructions">please pick a screen to the right to view in the device above</span>
+        <span class="instructions">want to see more? select a screen to load it in the devices above.</span>
 
         <div class="thumbs-slider">
           <?php foreach($aClient['slides'] as $aSlide) { ?>
