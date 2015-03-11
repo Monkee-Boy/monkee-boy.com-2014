@@ -17,7 +17,7 @@
       </aside>
 
       <div class="panel-content">
-        <h4><a href="<?php echo $aService['url']; ?>" title="<?php echo $aService['title']; ?>"><?php echo $aService['subtitle']; ?></a></h4>
+        <h4><a href="<?php echo $aService['url']; ?>" title="<?php echo $aService['title']; ?>"><?php echo $aService['subtitle']; ?> &raquo;</a></h4>
 
         <p><?php echo $aService['description']; ?></p>
       </div>
