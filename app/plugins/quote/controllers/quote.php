@@ -83,7 +83,7 @@ class quote extends appController {
       )
     );
 
-    $sTo = "quotes@monkee-boy.com"; // 
+    $sTo = "quotes@monkee-boy.com"; //
     $sFrom = "noreply@monkee-boy.com";
     $sSubject = "Request a Quote";
 
@@ -114,6 +114,8 @@ class quote extends appController {
     $this->forward($this->model->ty_content['url']);
   }
   function upload() {
+    $accepted_extensions = array('pdf', 'doc', 'docx');
+
     header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
     header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
     header("Cache-Control: no-store, no-cache, must-revalidate");
@@ -141,6 +143,10 @@ class quote extends appController {
       $extension = pathinfo($fileName)['extension'];
     } else {
       $extension = 'na';
+    }
+
+    if(!in_array($extension, $accepted_extensions)) {
+      die('{"jsonrpc" : "2.0", "error" : {"code": 105, "message": "File type not accepted."}, "id" : "id"}');
     }
 
     $fileName = uniqid('', true).'.'.$extension;
