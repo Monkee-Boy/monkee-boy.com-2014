@@ -899,6 +899,21 @@
     });
   }
 
+  // responsive youtube videos
+  var $video_embeds = $("iframe[src^='http://www.youtube.com'], iframe[src^='https://www.youtube.com']");
+  console.log("there are videos: ", $video_embeds.length);
+  if ($video_embeds.length > 0) {
+    $video_embeds.each(function() {
+      var $video = $(this),
+          height = $video.attr('height'),
+          width = $video.attr('width'),
+          ratio = height/width,
+          $wrapper = $('<div class="video-wrapper" style="padding-bottom:' + ratio*100 + '%" />');
+
+      $video.wrap($wrapper);
+    });
+  }
+
   /**************************************
   ** Header Blur on Scroll
   **************************************/

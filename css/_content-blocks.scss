@@ -8,6 +8,19 @@
   text-align: center;
 }
 
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  iframe {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
 .main-cta {
   margin: 0 0 $paragraph-margin;
   padding: em-calc(60px) 0;
