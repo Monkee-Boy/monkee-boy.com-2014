@@ -134,13 +134,23 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
               "$18,000-$30,000",
               "$31,000-$45,000",
               "$46,000-$60,000",
-              "$61,000+"
+              "$61,000+",
+              "I don't know my budget"
             );
             foreach($aBudget as $option): ?>
             <option value="<?= $option ?>"<?php if($form_data['budget'] === $option){ echo ' selected="selected"'; } ?>><?= $option ?></option>
             <?php endforeach; ?>
           </select>
         </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="left">
+        <label for="budget">Anything else we should know?</label>
+      </div>
+      <div class="right">
+        <div class="input-wrapper"><textarea cols="10" rows="4" id="additional-info" name="additional-info"><?= $form_data['additional-info'] ?></textarea></div>
       </div>
     </div>
     <div class="row">

@@ -70,6 +70,21 @@
       </div>
       <?php endif; ?>
 
+      <?php if(!empty($aQuote['additional-info'])): ?>
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <span class="accordion-toggle">Additional Info</span>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-inner">
+            <div class="controls">
+              <?= $aQuote['additional-info']; ?>
+            </div>
+          </div>
+        </div>
+      </div>
+      <?php endif; ?>
+
       <?php if(!empty($aQuote['attachments'])): ?>
         <div class="accordion-group">
           <div class="accordion-heading">

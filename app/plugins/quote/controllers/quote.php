@@ -76,6 +76,7 @@ class quote extends appController {
         ,"attachments" => json_encode($attachments)
         ,"deadline" => ($_POST['deadline'] === '1')?date('Y-m-d', strtotime($_POST['deadline_date'])):null
         ,"budget" => $_POST['budget']
+        ,"additional_info" => $_POST['additional-info']
         ,"status" => 1
         ,"ip" => $_SERVER['REMOTE_ADDR']
         ,"created_datetime" => date('Y-m-d H:i:s')
@@ -85,7 +86,7 @@ class quote extends appController {
 
     $sTo = "quotes@monkee-boy.com"; //
     $sFrom = "noreply@monkee-boy.com";
-    $sSubject = "Request a Quote";
+    $sSubject = "Request a Quote: ".$_POST['org'];
 
     $sBody = "Name: ".htmlentities($first_name." ".$last_name)."\n";
     $sBody .= "Email: ".htmlentities($email)."\n";
@@ -97,6 +98,10 @@ class quote extends appController {
     if(!empty($_POST['project-desc'])) {
       $sBody .= "\nBrief: \n";
       $sBody .= htmlentities($_POST['project-desc'])."\n\n";
+    }
+    if(!empty($_POST['additional-info'])) {
+      $sBody .= "\nAdditional Info: \n";
+      $sBody .= htmlentities($_POST['additional-info'])."\n\n";
     }
     if(!empty($attachments)) {
       $sBody .= "Attachments: \n";
