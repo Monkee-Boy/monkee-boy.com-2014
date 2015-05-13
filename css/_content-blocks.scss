@@ -22,10 +22,14 @@
 }
 
 .main-cta {
-  margin: 0 0 $paragraph-margin;
+  margin: 0 0 -100px;
   padding: em-calc(60px) 0;
   font-family: $heading-font;
   background: $teal;
+
+  @media #{$medium-down} {
+    margin-bottom: -50px;
+  }
 
   .row {
     margin-bottom: 0;
@@ -34,7 +38,10 @@
   .cta-inner {
     color: #fff;
     @include span(7 of 12);
-    @media #{$small-only} { width: 100%; }
+
+    @media #{$small-only} {
+      width: 100%;
+    }
 
     p {
       margin: 0;

@@ -1658,10 +1658,13 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
     height: 100%; }
 
 .main-cta {
-  margin: 0 0 1.66667em;
+  margin: 0 0 -100px;
   padding: 3.33333em 0;
   font-family: "effra", sans-serif;
   background: #23a38f; }
+  @media only screen and (max-width: 840px) {
+    .main-cta {
+      margin-bottom: -50px; } }
   .main-cta .row {
     margin-bottom: 0; }
   .main-cta .cta-inner {
