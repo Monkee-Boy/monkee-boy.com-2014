@@ -30,7 +30,7 @@
               <?php $this->tplDisplay('subnav/work.php', array('menu'=>$menu,'from'=>'nav')); ?>
             </li>
             <li class="primary has-dropdown">
-              <a href="/contact/" title="" class="nav-contact<?php if($current==='contact'): ?> current<?php endif; ?>">Contact</a>
+              <a href="/contact/request-a-quote/" title="" class="nav-contact<?php if($current==='contact'): ?> current<?php endif; ?>">Contact</a>
               <?php $this->tplDisplay('subnav/contact.php', array('menu'=>$menu,'from'=>'nav')); ?>
             </li>
             <li class="primary"><a href="/blog/" title="" class="nav-blog">The Blog</a></li>

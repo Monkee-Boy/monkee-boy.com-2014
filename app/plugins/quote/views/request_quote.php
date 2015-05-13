@@ -78,7 +78,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
       <div class="right">
         <div id="no-brief" class="switch-target<?php if($form_data['brief'] === '1'){ echo ' active'; } ?>">
           <label for="project-desc" class="quiet">No RFP? No problem!</label>
-          <p>What kind of project do you have and what are your goals?</p>
+          <p>Please tell us about the nature of your project. What are your goals, what do you hope to accomplish, what specific challenges have gotten in your way, what is / isn't working, any advanced functionality or tools you need, etc.</p>
           <div class="input-wrapper"><textarea cols="10" rows="4" id="project-desc" name="project-desc"><?= $form_data['project-desc'] ?></textarea></div>
         </div>
         <div id="brief-upload" class="switch-target<?php if($form_data['brief'] === '0'){ echo ' active'; } ?>">
@@ -131,11 +131,10 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
             <option value="">Select a Budget</option>
             <?php
             $aBudget = array(
-              "$18,000-$30,000",
-              "$31,000-$45,000",
-              "$46,000-$60,000",
-              "$61,000+",
-              "I don't know my budget"
+              "$25,000-50,000",
+              "$50,000-75,000",
+              "$75,000-100,000",
+              "$100,000+"
             );
             foreach($aBudget as $option): ?>
             <option value="<?= $option ?>"<?php if($form_data['budget'] === $option){ echo ' selected="selected"'; } ?>><?= $option ?></option>
