@@ -98,19 +98,34 @@ class news_model extends appModel {
 		return $aArticle;
 	}
 
-	function getLatest() {
-		$aArticle = $this->dbQuery(
-			"SELECT `news`.* FROM `{dbPrefix}news` AS `news`"
-			." WHERE `news`.`active` = 1"
-			." AND `news`.`publish_on` < NOW()"
-			." ORDER BY `news`.`publish_on` DESC"
-			." LIMIT 1"
-			,"row"
-		);
+	function getLatest($limit = null) {
+		if(!empty($limit)) {
+			$return = $this->dbQuery(
+				"SELECT `news`.* FROM `{dbPrefix}news` AS `news`"
+				." WHERE `news`.`active` = 1"
+				." AND `news`.`publish_on` < NOW()"
+				." ORDER BY `news`.`publish_on` DESC"
+				." LIMIT ".$this->dbQuote($limit, "integer")
+				,'all'
+			);
 
-		$this->_getArticleInfo($aArticle);
+			foreach($return as &$aArticle) {
+				$this->_getArticleInfo($aArticle);
+			}
+		} else {
+			$return = $this->dbQuery(
+				"SELECT `news`.* FROM `{dbPrefix}news` AS `news`"
+				." WHERE `news`.`active` = 1"
+				." AND `news`.`publish_on` < NOW()"
+				." ORDER BY `news`.`publish_on` DESC"
+				." LIMIT 1"
+				,'row'
+			);
 
-		return $aArticle;
+			$this->_getArticleInfo($return);
+		}
+
+		return $return;
 	}
 
 	/**

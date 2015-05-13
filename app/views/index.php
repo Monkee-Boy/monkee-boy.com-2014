@@ -143,15 +143,18 @@
       <div class="one-third item-panel">
         <?php
         $oNews = $this->loadModel('news');
-        $aArticle = $oNews->getLatest();
+        $aArticles = $oNews->getLatest(2);
         ?>
         <h4>Latest News</h4>
 
         <div class="item-panel-inside" data-text-align="center">
-          <figure><span class="home-news-icon"></span></figure>
+          <!-- <figure><span class="home-news-icon"></span></figure> -->
+          <?php foreach($aArticles as $aArticle) { ?>
+            <time><?= date("m-d-Y", $aArticle['publish_on']) ?></time>
+            <p><a href="<?= $aArticle['url'] ?>" title="<?= $aArticle['title'] ?>"><?= $aArticle['title'] ?> »</a></p>
+          <?php } ?>
 
-          <p><a href="<?= $aArticle['url'] ?>" title="<?= $aArticle['title'] ?>"><?= $aArticle['title'] ?> »</a></p>
-          <time><?= date("m-d", $aArticle['publish_on']) ?></time>
+          <a href="/who/latest-news/" class="view-more">View All News</a>
         </div>
       </div>
 
