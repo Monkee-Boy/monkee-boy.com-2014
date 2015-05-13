@@ -87,13 +87,12 @@
       <div class="item-callout">
         <h3 data-text-align="center">20 years of amazing results</h3>
 
-        <p><em>You don't need us to tell you that the web changes constantly. What you need is an experienced team to keep up with that change and get results by:</em></p>
+        <p><em>The web changes constantly. You need an experienced team to keep up and get results by:</em></p>
 
         <ul class="list-style-alt">
           <li>Elevating identity with stunning creative assets.</li>
           <li>Increasing website traffic and brand awareness.</li>
-          <li>Converting website visitors into loyal customers.</li>
-          <li>Establishing leadership with valuable content.</li>
+          <li>Converting casual visitors into loyal customers.</li>
         </ul>
       </div>
 
