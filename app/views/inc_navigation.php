@@ -18,7 +18,7 @@
 
           <ul class="main-menu">
             <li class="primary has-dropdown">
-              <a href="/who/why-monkee-boy/" class="nav-who<?php if($current==='who'): ?> current<?php endif; ?>">Who We Are</a>
+              <a href="/who/our-expertise/" class="nav-who<?php if($current==='who'): ?> current<?php endif; ?>">Who We Are</a>
               <?php $this->tplDisplay('subnav/who.php', array('menu'=>$menu,'from'=>'nav')); ?>
             </li>
             <li class="primary has-dropdown">

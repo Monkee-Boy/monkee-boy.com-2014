@@ -1,12 +1,12 @@
 <!--
-@Name: Work With Us
+@Name: Our Expertise
 @Description: Content template that includes by the numbers images.
 @Version: 1.0
 @Restricted: true
 @Author: Monkee-Boy
 -->
 
-<?php $this->tplDisplay("inc_header.php", ['menu'=>'why-monkee-boy', 'sPageTitle'=>$sTitle, 'seo_title'=>$aContent['seo_title'], 'seo_description'=>$aContent['seo_description'], 'seo_keywords'=>$aContent['seo_keywords']]); ?>
+<?php $this->tplDisplay("inc_header.php", ['menu'=>'our-expertise', 'sPageTitle'=>$sTitle, 'seo_title'=>$aContent['seo_title'], 'seo_description'=>$aContent['seo_description'], 'seo_keywords'=>$aContent['seo_keywords']]); ?>
 
   <div class="row page-title">
     <h1><?= $aContent['title']; ?></h1>

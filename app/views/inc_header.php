@@ -76,7 +76,7 @@
     include('inc_blog_navigation.php');
   } else {
     $aSubNav = array(
-      'who' => array('why-monkee-boy','troop','news','join-the-troop'),
+      'who' => array('our-expertise','troop','news','join-the-troop'),
       'what' => array('services','discover','create','evolve'),
       'work' => array('portfolio','testimonials','clients'),
       'contact' => array('contact','request-a-quote')
