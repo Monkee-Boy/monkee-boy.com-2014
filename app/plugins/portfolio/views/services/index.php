@@ -20,6 +20,8 @@
         <h4><a href="<?php echo $aService['url']; ?>" title="<?php echo $aService['title']; ?>"><?php echo $aService['subtitle']; ?> &raquo;</a></h4>
 
         <p><?php echo $aService['description']; ?></p>
+
+        <a href="<?php echo $aService['url']; ?>" title="View These Services" class="button button-alt button-full">View These Services!</a>
       </div>
     </div>
   </div> <!-- /.row -->
