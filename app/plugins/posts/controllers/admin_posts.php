@@ -377,12 +377,31 @@ class admin_posts extends adminController {
 		if(empty($sOrder))
 			$sOrder = 1;
 
+		$sSlug = substr(strtolower(str_replace("--","-",preg_replace("/([^a-z0-9_-]+)/i", "", str_replace(" ","-",trim($_POST["name"]))))),0,100);
+
+		$aCategories = $this->dbQuery(
+			"SELECT `slug` FROM `{dbPrefix}posts_categories`"
+				." ORDER BY `slug`"
+			,"all"
+		);
+
+		if(in_array(array('slug' => $sSlug), $aCategories)) {
+			$i = 1;
+			do {
+				$sTempSlug = substr($sSlug, 0, 100-(strlen($i)+1)).'-'.$i;
+				$i++;
+				$checkDuplicate = in_array(array('slug' => $sTempSlug), $aCategories);
+			} while ($checkDuplicate);
+			$sSlug = $sTempSlug;
+		}
+
 		$this->dbInsert(
 			"posts_categories",
 			array(
 				"name" => $_POST["name"]
 				,"parentid" => $_POST["parent"]
 				,"sort_order" => $sOrder
+				,"slug" => $sSlug
 			)
 		);
 

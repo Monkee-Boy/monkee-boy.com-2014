@@ -34,7 +34,7 @@
           <select name="category" id="category">
             <option value="">Select a Category</option>
             <?php foreach($aCategories as $aCurCategory) { ?>
-              <option value="<?php echo $aCurCategory['id']; ?>"<?php if($aCurCategory['id'] == $_GET['category']) { ?> selected="selected"<?php } ?>><?php echo $aCurCategory['name']; ?></option>
+              <option value="<?php echo $aCurCategory['slug']; ?>"<?php if($aCurCategory['slug'] == $aCategory['slug']) { ?> selected="selected"<?php } ?>><?php echo $aCurCategory['name']; ?></option>
             <?php } ?>
           </select>
         <form>
@@ -99,8 +99,12 @@
   <?php } ?>
 
   $(function(){
-    $('select[name=category]').change(function(){
-      $('form[name=category]').submit();
+    $('select[name=category]').change(function() {
+      if($(this).val() == '') {
+        location = "/blog/";
+      } else {
+        location = "/blog/category/"+$(this).val();
+      }
     });
   });
 

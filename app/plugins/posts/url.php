@@ -40,6 +40,10 @@ $aPluginUrlPatterns = array(
 		"cmd" => "posts",
 		"action" => "rss"
 	),
+  "/blog/category/<slug:[^/]+>/" => array(
+    "cmd" => "posts",
+    "action" => "index"
+  ),
   "/blog/<year:[0-9]+>/<month:[0-9]+>/<tag:[^/]+>/" => array(
     "cmd" => "posts",
     "action" => "post"

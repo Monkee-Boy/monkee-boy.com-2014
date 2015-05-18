@@ -10,11 +10,15 @@ class posts extends appController {
 	function index() {
 		if(!empty($_GET["category"])) {
 			$aCategory = $this->model->getCategory($_GET["category"]);
+		} elseif(isset($this->urlVars->dynamic["slug"]) && !empty($this->urlVars->dynamic["slug"])) {
+			$aCategory = $this->model->getCategory(null, null, $this->urlVars->dynamic["slug"]);
+		} else {
+			$aCategory = array();
 		}
 
 		$aLatestPost = $this->model->getPosts(null, false, false, null, null, 1);
 
-		$aPostPages = array_chunk($this->model->getPosts($_GET["category"], false, false, $aLatestPost[0]['id']), $this->model->perPage);
+		$aPostPages = array_chunk($this->model->getPosts($aCategory["id"], false, false, $aLatestPost[0]['id']), $this->model->perPage);
 		$aPosts = $aPostPages[0];
 
 		if(!empty($aPostPages[1])) {
@@ -107,5 +111,9 @@ class posts extends appController {
 
 		header("Content-Type: application/rss+xml");
 		$this->tplDisplay("rss.php");
+	}
+
+	function category() {
+
 	}
 }

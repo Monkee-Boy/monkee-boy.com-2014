@@ -243,11 +243,13 @@ class posts_model extends appModel {
 	 * @param  string  $sName Unique name for the category or null.
 	 * @return array          Return the category.
 	 */
-	function getCategory($sId = null, $sName = null) {
+	function getCategory($sId = null, $sName = null, $sSlug = null) {
 		if(!empty($sId))
 			$sWhere = " WHERE `id` = ".$this->dbQuote($sId, "integer");
 		elseif(!empty($sName))
 			$sWhere = " WHERE `name` LIKE ".$this->dbQuote($sName, "text");
+		elseif(!empty($sSlug))
+			$sWhere = " WHERE `slug` LIKE ".$this->dbQuote($sSlug, "text");
 		else
 			return false;
 
