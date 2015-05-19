@@ -2,7 +2,7 @@
 @Name: Our Expertise
 @Description: Content template that includes by the numbers images.
 @Version: 1.0
-@Restricted: true
+@Restricted: false
 @Author: Monkee-Boy
 -->
 
