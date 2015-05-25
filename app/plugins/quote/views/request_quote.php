@@ -103,19 +103,33 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
         </label>
         <label class="radio" for="date2">
           Yes, I have a specific date in mind.
-          <input type="radio" id="date2" name="deadline" value="1" class="input-switch" data-switchto="datepicker"<?php if($form_data['deadline'] === '1'){ echo ' checked'; } ?>>
+          <input type="radio" id="date2" name="deadline" value="1" class="input-switch" data-switchto="deadlinedate"<?php if($form_data['deadline'] === '1'){ echo ' checked'; } ?>>
           <span class="control-indicator"></span>
         </label>
       </div>
       <div class="right">
-        <div id="no-date" class="switch-target<?php if($form_data['deadline'] === '0'){ echo ' active'; } ?>">
+        <div id="no-date" class="switch-target<?php if($form_data['deadline'] === '1'){ echo ' active'; } ?>">
           <h5>Cool, we can work with you to plan the project schedule.</h5>
         </div>
-        <div id="datepicker" class="switch-target<?php if($form_data['deadline'] === '1'){ echo ' active'; } ?>">
-          <a href="#" class="datepicker">Pick a Date</a>
-          <div class="date-input<?php if(!empty($form_data['deadline_date'])){ echo " selected"; } ?>">
-            <input type="text" name="deadline_date" value="<?php if(!empty($form_data['deadline_date'])){ echo $form_data['deadline_date']; } else { echo "Select a Date"; } ?>">
-          </div>
+
+        <div id="deadlinedate" class="switch-target select-box<?php if(!empty($form_data['deadline'])){ echo " selected"; } ?>">
+          <select name="deadline_date" id="deadline_date">
+            <option value="">Select a Date</option>
+            <?php
+            $aDeadlineDate = array(
+              "2015-Q3",
+              "2015-Q4",
+              "2016-Q1",
+              "2016-Q2",
+              "2016-Q3",
+              "2016-Q4",
+              "2017",
+              "2018"
+            );
+            foreach($aDeadlineDate as $option): ?>
+            <option value="<?= $option ?>"<?php if($form_data['deadline_date'] === $option){ echo ' selected="selected"'; } ?>><?= $option ?></option>
+            <?php endforeach; ?>
+          </select>
         </div>
       </div>
     </div>

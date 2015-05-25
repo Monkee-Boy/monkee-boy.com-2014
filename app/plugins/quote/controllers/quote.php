@@ -74,7 +74,7 @@ class quote extends appController {
         ,"website" => $_POST['website']
         ,"brief" => $_POST['project-desc']
         ,"attachments" => json_encode($attachments)
-        ,"deadline" => ($_POST['deadline'] === '1')?date('Y-m-d', strtotime($_POST['deadline_date'])):null
+        ,"deadline" => ($_POST['deadline'] === '1')?$_POST['deadline_date']:null
         ,"budget" => $_POST['budget']
         ,"additional_info" => $_POST['additional-info']
         ,"status" => 1
@@ -93,7 +93,7 @@ class quote extends appController {
     $sBody .= "Phone: ".htmlentities($phone)."\n";
     $sBody .= "Organization: ".htmlentities($_POST['org'])."\n";
     $sBody .= "Website: ".htmlentities($_POST['website'])."\n";
-    $sBody .= ($_POST['deadline'] === '1')?"Deadline: ".htmlentities(($_POST['deadline'] === '1')?date('Y-m-d', strtotime($_POST['deadline_date'])):null)."\n":"";
+    $sBody .= ($_POST['deadline'] === '1')?"Deadline: ".htmlentities(($_POST['deadline'] === '1')?$_POST['deadline_date']:null)."\n":"";
     $sBody .= "Budget: ".htmlentities($_POST['budget'])."\n";
     if(!empty($_POST['project-desc'])) {
       $sBody .= "\nBrief: \n";

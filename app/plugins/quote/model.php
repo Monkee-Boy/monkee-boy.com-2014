@@ -57,7 +57,7 @@ class quote_model extends appModel {
       $aQuote['attachments'] = json_decode($aQuote['attachments'], false);
 
       if(!empty($aQuote['deadline'])) {
-        $aQuote['deadline'] = date('m/d/Y', strtotime($aQuote['deadline']));
+        $aQuote['deadline'] = $aQuote['deadline'];
       }
 
       $aQuote['created_datetime'] = strtotime($aQuote['created_datetime']);
