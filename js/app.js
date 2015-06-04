@@ -14081,7 +14081,6 @@ function BlurStack()
     var self = this;
 
     this.$image.on('load', function() {
-
       // position and size image in center
       var containerWidth = self.$el.outerWidth(),
           containerHeight = self.$el.outerHeight(),

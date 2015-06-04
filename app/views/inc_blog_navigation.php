@@ -6,7 +6,7 @@ if($menu === 'blog-post') {
 }
 ?>
 <header role="banner" class="blog-header blur-image<?php if($menu === 'blog') { echo ' listing-page'; } ?>">
-  <img src="<?php echo $header_image; ?>" alt="" class="image-bg">
+  <img src="<?php echo $header_image; ?>" alt="" class="image-bg hide">
   <nav class="blog-nav row" role="navigation">
     <a href="/blog/" class="blog-logo">The Blog</a>
     <ul class="menu-lite main-menu blog-main-menu">
