@@ -22,6 +22,7 @@
   }
   .image-bg, canvas {
     position: absolute;
+    max-width: inherit;
   }
   canvas {
     @include opacity(0);

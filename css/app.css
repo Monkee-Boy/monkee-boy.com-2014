@@ -3913,7 +3913,8 @@ button[type=submit] {
       .blog-header.listing-page {
         padding-bottom: 4.44444em; } }
   .blog-header .image-bg, .blog-header canvas {
-    position: absolute; }
+    position: absolute;
+    max-width: inherit; }
   .blog-header canvas {
     opacity: 0;
     filter: alpha(opacity=0); }

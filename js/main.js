@@ -983,8 +983,10 @@
         $window.on('scroll', blurScroll);
       }
     }).each(function() {
-      // catch cached images -- seems to be causing it to run twice right now
-      //if(this.complete) $(this).load();
+      // catch cached images
+      if(this.complete) {
+        $(this).load();
+      }
     });
   };
 
