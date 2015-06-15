@@ -1853,7 +1853,7 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
     font-size: 16px;
     color: #1a7a6c; }
     .item-panel .item-panel-inside a.view-more:hover, .item-panel .item-panel-inside a.view-more:focus {
-      color: #23a38f; }
+      color: #fcc721; }
 .item-panel.alt .item-panel-inside {
   background: transparent; }
 
@@ -3769,6 +3769,8 @@ button[type=submit] {
   font-weight: normal; }
   .home-pulse .twitter .bottom time a {
     color: #1a7a6c; }
+    .home-pulse .twitter .bottom time a:hover {
+      color: #fcc721; }
 .home-pulse .twitter .bottom .actions {
   float: right;
   list-style: none;

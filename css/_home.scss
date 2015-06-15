@@ -341,6 +341,10 @@
         font-weight: normal;
         a {
           color: $dark-teal;
+
+          &:hover {
+            color: $yellow;
+          }
         }
       }
       .actions {

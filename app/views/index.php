@@ -97,16 +97,14 @@
       </div>
 
       <div class="item-panel">
-        <div class="number">
-          <span class="arrow"></span><span class="value">99<span class="metric">%</span></span>
+        <div class="number" style="font-size: 180px;">
+          <span class="arrow"></span><span class="value">537<span class="metric">%</span></span>
         </div>
 
-        <h3>Increase in mobile visits year over year</h3>
-        <p>The Bullock Texas State History Museum's new website attracted almost double the amount of mobile visitors in Q4 after launch.</p>
+        <h3>ROI in the first 7 months of the program.</h3>
+        <p>DoubleDave's franchisees are seeing a huge increase in online ordering after Monkee-Boy's targeted local search program was initiated.</p>
 
-        <p class="dots" data-dots="dual"><a href="/the-work/bullock-texas-state-history-museum/" title="View Monkee-Boy's work for The Bullock Texas State History Museum.">View the Project</a></p>
-
-
+        <?php /* <p class="dots" data-dots="dual"><a href="/the-work/bullock-texas-state-history-museum/" title="View Monkee-Boy's work for The Bullock Texas State History Museum.">View the Project</a></p><?php */ ?>
       </div>
     </div>
   </div>
