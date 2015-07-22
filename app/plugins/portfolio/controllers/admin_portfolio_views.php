@@ -7,7 +7,7 @@ class admin_portfolio_views extends adminController {
 
     $this->menuPermission("portfolio");
 
-    $this->client = $this->model->getClient($this->urlVars->dynamic['client']);
+    $this->client = $this->model->getClient($this->urlVars->dynamic['client'], true);
     $this->tplAssign('aClient', $this->client);
   }
 
