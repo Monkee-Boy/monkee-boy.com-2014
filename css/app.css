@@ -493,7 +493,7 @@ body.menu-open {
   position: absolute;
   top: 0;
   padding: 15px 0 25px;
-  width: 256px;
+  width: 214px;
   z-index: 10;
   text-align: center;
   background: rgba(255, 255, 255, 0.96);
@@ -524,8 +524,8 @@ body.menu-open {
     transition: all 0.5s ease; }
   .logo a {
     display: block;
-    width: 180px;
-    height: 163px;
+    width: 150px;
+    height: 155px;
     margin: 0 auto;
     max-width: 80%;
     background: url(../images/logo.svg) no-repeat center center;
@@ -581,7 +581,7 @@ body.menu-open {
     .main-nav ul li.primary {
       float: left;
       position: relative;
-      padding: 44px 23px;
+      padding: 22px;
       border-left: 1px solid #000;
       -webkit-transition: background 0.3s ease;
       -moz-transition: background 0.3s ease;
@@ -590,10 +590,10 @@ body.menu-open {
       transition: background 0.3s ease; }
       @media only screen and (min-width: 981px) and (max-width: 1115px) {
         .main-nav ul li.primary {
-          padding: 44px 12px; } }
+          padding: 22px 12px; } }
       @media only screen and (min-width: 841px) and (max-width: 980px) {
         .main-nav ul li.primary {
-          padding: 26px 14px 32px; } }
+          padding: 22px 14px; } }
       .main-nav ul li.primary:first-child {
         border-left: 0; }
       .no-touch .main-nav ul li.primary:hover, .main-nav ul li.primary.active {
@@ -602,9 +602,6 @@ body.menu-open {
           color: #acca41;
           text-decoration: none;
           border-bottom-color: #acca41; }
-          .no-touch .main-nav ul li.primary:hover > a:after, .main-nav ul li.primary.active > a:after {
-            color: #acca41;
-            background-color: #222224; }
         .no-touch .main-nav ul li.primary:hover ul, .main-nav ul li.primary.active ul {
           visibility: visible;
           opacity: 1;
@@ -617,7 +614,7 @@ body.menu-open {
       .main-nav ul li.primary ul {
         position: absolute;
         left: 0;
-        top: 120px;
+        top: 65px;
         width: 250px;
         padding: 1.33333em 0.55556em 0;
         background-color: #222224;
@@ -671,51 +668,13 @@ body.menu-open {
     .main-nav ul .primary > a {
       display: block;
       color: #b2b2b2;
-      font-family: 'effra', sans-serif;
-      font-size: 22px;
+      font-family: "effra", sans-serif;
+      font-size: 18px;
       font-weight: bold;
       text-transform: uppercase;
-      border-bottom: 1px solid #b2b2b2;
-      position: relative;
-      padding-bottom: 21px; }
+      position: relative; }
       .main-nav ul .primary > a.current {
-        color: #fff;
-        border-bottom-color: #fff; }
-        .main-nav ul .primary > a.current:after {
-          color: #fff; }
-      .main-nav ul .primary > a:after {
-        content: '\e600';
-        position: absolute;
-        left: 0;
-        right: 0;
-        display: block;
-        margin: 0 auto;
-        padding: 10px 15px;
-        width: 52px;
-        height: 42px;
-        color: #b2b2b2;
-        font-size: 24px;
-        background: #1c1c1e; }
-      @media only screen and (min-width: 981px) and (max-width: 1115px) {
-        .main-nav ul .primary > a {
-          font-size: 21px; } }
-      @media only screen and (min-width: 841px) and (max-width: 980px) {
-        .main-nav ul .primary > a {
-          font-size: 18px;
-          padding-bottom: 16px; }
-          .main-nav ul .primary > a:after {
-            padding: 5px 9px;
-            width: 42px; } }
-      .main-nav ul .primary > a.nav-who:after {
-        content: ""; }
-      .main-nav ul .primary > a.nav-what:after {
-        content: ""; }
-      .main-nav ul .primary > a.nav-work:after {
-        content: ""; }
-      .main-nav ul .primary > a.nav-contact:after {
-        content: ""; }
-      .main-nav ul .primary > a.nav-blog:after {
-        content: ""; }
+        color: #fff; }
   .main-nav .request-quote {
     display: none; }
   .main-nav.sticky {
@@ -1543,7 +1502,7 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
   button.button-full[type=submit], .upload-box.initial .button-full.add-files, .button-full.news-load-more {
     display: block; }
 
-.icon, .main-nav ul .primary > a:after, .social-links a:before, .social-links a:after, .dots[data-dots='dual']:before, .dots[data-dots='dual']:after, .dots[data-dots='left']:before, .dots[data-dots='right']:after, .service-icon:before, .service-icon:after, .service-icon i:before, .date-input:after, .datepicker thead .prev:after, .datepicker thead .next:after, .port-slider .thumbs-slider .slick-prev:after, .port-slider .thumbs-slider .slick-next:after, .port-slider .instructions:before, .hero-slideshow .slide-trigger:before, .home-pulse .twitter .bottom .actions li a:before, .share-section a:before, .stats-list li:after, .office-cat p:before {
+.icon, .social-links a:before, .social-links a:after, .dots[data-dots='dual']:before, .dots[data-dots='dual']:after, .dots[data-dots='left']:before, .dots[data-dots='right']:after, .service-icon:before, .service-icon:after, .service-icon i:before, .date-input:after, .datepicker thead .prev:after, .datepicker thead .next:after, .port-slider .thumbs-slider .slick-prev:after, .port-slider .thumbs-slider .slick-next:after, .port-slider .instructions:before, .hero-slideshow .slide-trigger:before, .home-pulse .twitter .bottom .actions li a:before, .share-section a:before, .stats-list li:after, .office-cat p:before {
   font-family: "icomoon";
   speak: none;
   font-style: normal;
