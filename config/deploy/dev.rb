@@ -15,6 +15,6 @@ role :web, %w{deploy@habitat.monkee-boy.com}
 
 server 'habitat.monkee-boy.com', user: 'deploy', roles: %w{web}
 
-set :deploy_to, '/var/www/monkee-boy.com/dev'
+set :deploy_to, '/var/www/monkee-boy.com/dev.site'
 set :deploy_env, 'dev'
 set :branch, 'dev'
