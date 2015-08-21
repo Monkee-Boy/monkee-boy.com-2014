@@ -24,9 +24,23 @@ $susy: (
   margin-right: -#{$gutter-width/2}px;
 }
 
+.row-pop-flush {
+  @include container();
+  margin-left: -#{$gutter-width/2}px;
+  margin-right: -#{$gutter-width/2}px;
+}
+
 .full {
   @include span(12 of 12);
   float: none;
+
+  &.center {
+    text-align: center;
+
+    a {
+      text-decoration: underline;
+    }
+  }
 }
 
 .half {
@@ -39,9 +53,62 @@ $susy: (
 
 .one-third {
   @include span(4 of 12);
+  &.rtl {
+    @include span(4 of 12 rtl);
+  }
   @media #{$small-only} {
     width: 100%;
     margin-bottom: $mobile-paragraph-margin;
+  }
+}
+
+.two-third {
+  @include span(8 of 12);
+  &.rtl {
+    @include span(8 of 12 rtl);
+  }
+  @media #{$small-only} {
+    width: 100%;
+    margin-bottom: $mobile-paragraph-margin;
+  }
+}
+
+.row-with-sidebar {
+  .row-content {
+    @include span(6.5 of 12);
+    @media #{$medium-down} {
+      width: 100%;
+      margin-bottom: $mobile-paragraph-margin;
+    }
+  }
+  .row-sidebar {
+    @include span(5 of 12);
+    @include push(0.5);
+    @media #{$medium-down} {
+      width: 100%;
+      margin-left: 0;
+      margin-bottom: $mobile-paragraph-margin;
+      padding: 0;
+    }
+  }
+  &.rtl {
+    .row-content {
+      @include span(6.5 of 12 rtl);
+      @media #{$medium-down} {
+        width: 100%;
+        margin-bottom: $mobile-paragraph-margin;
+      }
+    }
+    .row-sidebar {
+      @include span(5 of 12 rtl);
+      @include post(0.5);
+      margin-left: 0;
+      @media #{$medium-down} {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: $mobile-paragraph-margin;
+      }
+    }
   }
 }
 

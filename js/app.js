@@ -14402,4 +14402,40 @@ function BlurStack()
     flowchart.src = '/images/flowchart404.png';
   }
 
+  $('.equal-height').each(function() {
+    var max_height = 0,
+        children = $(this).children();
+
+    children.each(function() {
+      if(this.clientHeight > max_height) {
+        max_height = this.clientHeight;
+      }
+    });
+
+    children.each(function() {
+      $(this).height(max_height-parseInt($(this).css('padding-top'))-parseInt($(this).css('padding-bottom')));
+    });
+  });
+
+  $(window).on('resize', function() {
+    $('.equal-height').each(function() {
+      var max_height = 0,
+          children = $(this).children();
+
+      children.each(function() {
+        $(this).height('auto');
+      });
+
+      children.each(function() {
+        if(this.clientHeight > max_height) {
+          max_height = this.clientHeight;
+        }
+      });
+
+      children.each(function() {
+        $(this).height(max_height-parseInt($(this).css('padding-top'))-parseInt($(this).css('padding-bottom')));
+      });
+    });
+  });
+
 }(jQuery));

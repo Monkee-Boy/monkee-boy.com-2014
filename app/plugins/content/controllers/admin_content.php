@@ -80,9 +80,9 @@ class admin_content extends adminController
 				,"cta_line2" => $_POST["cta_line2"]
 				,"cta_button" => $_POST["cta_button"]
 				,"active" => $sActive
-				,"created_datetime" => time()
+				,"created_datetime" => date('Y-m-d H:i:s')
 				,"created_by" => $_SESSION["admin"]["userid"]
-				,"updated_datetime" => time()
+				,"updated_datetime" => date('Y-m-d H:i:s')
 				,"updated_by" => $_SESSION["admin"]["userid"]
 			)
 		);
@@ -171,7 +171,7 @@ class admin_content extends adminController
 				,"cta_line2" => $_POST["cta_line2"]
 				,"cta_button" => $_POST["cta_button"]
 				,"active" => $sActive
-				,"updated_datetime" =>time()
+				,"updated_datetime" => date('Y-m-d H:i:s')
 				,"updated_by" => $_SESSION["admin"]["userid"]
 			),
 			$_POST["id"]
