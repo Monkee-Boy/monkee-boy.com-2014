@@ -5,6 +5,8 @@
     <span class="subtitle"><?= $aContent['subtitle'] ?></span>
   </div>
 
+  <?php $this->tplDisplay('inc_subnav.php', array('menu' => 'troop', 'nav' => 'who')); ?>
+
   <ul class="row troop-list">
     <?php foreach($aTroop as $aEmployee): ?>
     <li>

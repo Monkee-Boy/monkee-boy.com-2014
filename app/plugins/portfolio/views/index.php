@@ -7,6 +7,8 @@
     </div>
   </div>
 
+  <?php $this->tplDisplay('inc_subnav.php', array('menu' => 'portfolio', 'nav' => 'work')); ?>
+
   <?php foreach($aPortfolio as $aClient) { ?>
   <div class="row">
     <div class="panel">

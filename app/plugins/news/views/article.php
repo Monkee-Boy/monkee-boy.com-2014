@@ -37,6 +37,8 @@ $this->tplDisplay("inc_header.php", [
     </div>
   </div>
 
+  <?php $this->tplDisplay('inc_subnav.php', array('menu' => 'news', 'nav' => 'who')); ?>
+
   <div class="row">
     <div class="single-column news-article">
       <div class="date"><?= date("m.d.Y", $aArticle['publish_on']) ?></div>

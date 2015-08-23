@@ -9,6 +9,8 @@ $this->tplDisplay("inc_header.php", ['menu'=>'portfolio', 'page_title'=>$aClient
     </div>
   </div> <!-- /.row -->
 
+  <?php $this->tplDisplay('inc_subnav.php', array('menu' => 'portfolio', 'nav' => 'work')); ?>
+
   <?php if(count($aClient['slides']) > 0): ?>
   <?php $slides = 0; ?>
   <div class="row">

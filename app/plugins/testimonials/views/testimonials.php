@@ -8,6 +8,8 @@ $this->tplDisplay("inc_header.php", ['menu'=>'testimonials', 'page_title'=>$aCon
 	</div>
 </div>
 
+<?php $this->tplDisplay('inc_subnav.php', array('menu' => 'testimonials', 'nav' => 'work')); ?>
+
 	<?php if(!empty($aTestimonials)): ?>
 		<?php foreach($aTestimonials as $aTestimonial): ?>
 			<div class="row">

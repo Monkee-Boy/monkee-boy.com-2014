@@ -76,24 +76,20 @@
     include('inc_blog_navigation.php');
   } else {
     $aSubNav = array(
-      'who' => array('our-expertise','troop','news','join-the-troop'),
-      'what' => array('services','discover','create','evolve'),
+      'who' => array('our-expertise', 'services', 'troop','news','join-the-troop'),
+      'how' => array(),
       'work' => array('portfolio','testimonials','clients'),
       'contact' => array('contact','request-a-quote')
     );
 
     if(in_array($menu, $aSubNav['who'])) {
       $this->tplDisplay('inc_navigation.php', array('current' => 'who'));
-      $this->tplDisplay('inc_subnav.php', array('menu' => $menu, 'nav' => 'who'));
-    } elseif(in_array($menu, $aSubNav['what'])) {
-      $this->tplDisplay('inc_navigation.php', array('current' => 'what'));
-      $this->tplDisplay('inc_subnav.php', array('menu' => $menu, 'nav' => 'what'));
+    } elseif(in_array($menu, $aSubNav['how'])) {
+      $this->tplDisplay('inc_navigation.php', array('current' => 'how'));
     } elseif(in_array($menu, $aSubNav['work'])) {
       $this->tplDisplay('inc_navigation.php', array('current' => 'work'));
-      $this->tplDisplay('inc_subnav.php', array('menu' => $menu, 'nav' => 'work'));
     } elseif(in_array($menu, $aSubNav['contact'])) {
       $this->tplDisplay('inc_navigation.php', array('current' => 'contact'));
-      $this->tplDisplay('inc_subnav.php', array('menu' => $menu, 'nav' => 'contact'));
     } else {
       $this->tplDisplay('inc_navigation.php');
     }

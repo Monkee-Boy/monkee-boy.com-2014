@@ -1,7 +1,27 @@
+<?php
+$whoItems = array(
+  array('name' => 'Our Expertise', 'url' => '/who/our-expertise/', 'menu' => 'our-expertise'),
+  array('name' => 'Our Process', 'url' => '/who/our-process/', 'menu' => 'our-process'),
+  array('name' => 'The Troop', 'url' => '/who/the-troop/', 'menu' => 'troop'),
+  array('name' => 'Latest News', 'url' => '/who/latest-news/', 'menu' => 'news'),
+  array('name' => 'Join The Troop', 'url' => '/who/join-the-troop/', 'menu' => 'join-the-troop')
+);
+?>
+
 <ul>
-  <li><a href="/who/our-expertise/"<?php if($menu === 'our-expertise'): ?> class="current"<?php endif; ?>>Our Expertise</a></li>
-  <li><a href="/who/our-process/"<?php if($menu === 'our-process'): ?> class="current"<?php endif; ?>>Our Process</a></li>
-  <li><a href="/who/the-troop/"<?php if($menu === 'troop'): ?> class="current"<?php endif; ?>>The Troop</a></li>
-  <li><a href="/who/latest-news/"<?php if($menu === 'news'): ?> class="current"<?php endif; ?>>Latest News</a></li>
-  <li><a href="/who/join-the-troop/"<?php if($menu === 'join-the-troop'): ?> class="current"<?php endif; ?>>Join the Troop</a></li>
+  <?php foreach($whoItems as $item) { ?>
+    <li><a href="<?= $item['url']; ?>"<?php if($menu === $item['menu']): ?> class="current"<?php endif; ?>><?= $item['name']; ?></a></li>
+  <?php } ?>
 </ul>
+
+<?php if(isset($from) && $from === "subnav") { ?>
+  <div class="select-box select-box-subnav">
+    <select name="select-subnav" id="select-subnav">
+      <option value="">View Subpages</option>
+
+      <?php foreach($whoItems as $item) { ?>
+        <option value="<?= $item['url']; ?>"<?php if($menu === $item['menu']): ?> selected<?php endif; ?>><?= $item['name']; ?></option>
+      <?php } ?>
+    </select>
+  </div>
+<?php } ?>

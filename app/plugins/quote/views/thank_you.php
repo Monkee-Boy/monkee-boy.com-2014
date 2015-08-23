@@ -15,6 +15,8 @@
     </div>
   </div>
 
+  <?php $this->tplDisplay('inc_subnav.php', array('menu' => 'request-a-quote', 'nav' => 'contact')); ?>
+
   <div class="row">
     <div class="single-column content-block">
       <?= $aContent['content']; ?>

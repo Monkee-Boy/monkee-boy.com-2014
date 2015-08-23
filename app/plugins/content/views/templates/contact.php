@@ -16,6 +16,8 @@ $this->tplDisplay("inc_header.php", ['menu'=>'contact', 'sPageTitle'=>$sTitle, '
 	</div>
 </div>
 
+<?php $this->tplDisplay('inc_subnav.php', array('menu' => 'contact', 'nav' => 'contact')); ?>
+
 <div class="row">
 	<div class="full" data-text-align="center">
 		<div id="contact-map"></div>

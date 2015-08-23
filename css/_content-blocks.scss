@@ -131,6 +131,25 @@
   }
 }
 
+.panel.service-panel {
+  position: relative;
+  margin-top: -265px;
+  width: 75%;
+  background: rgba($black, 0.95);
+
+  @media #{$small-only} {
+    margin-top: 0;
+    width: 100%;
+    background: $black;
+  }
+
+  .panel-content {
+    float: none;
+    width: auto;
+    text-align: center;
+  }
+}
+
 /*
   Full Width Panels
   @params:

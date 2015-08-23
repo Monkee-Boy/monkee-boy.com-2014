@@ -1,10 +1,30 @@
-<ul>
-  <li><a href="/how-we-help/content-strategy/"<?php if($menu === 'content-strategy'): ?> class="current"<?php endif; ?>>Content Strategy</a></li>
-  <li><a href="/how-we-help/web-design-and-development/"<?php if($menu === 'web-design-and-development'): ?> class="current"<?php endif; ?>>Web Design and Development</a></li>
-  <li><a href="/how-we-help/analytics/"<?php if($menu === 'analytics'): ?> class="current"<?php endif; ?>>Analytics</a></li>
-  <li><a href="/how-we-help/website-maintenance/"<?php if($menu === 'website-maintenance'): ?> class="current"<?php endif; ?>>Website Maintenance</a></li>
-  <li><a href="/how-we-help/content-marketing/"<?php if($menu === 'content-marketing'): ?> class="current"<?php endif; ?>>Content Marketing</a></li>
-  <li><a href="/how-we-help/social-media/"<?php if($menu === 'social-media'): ?> class="current"<?php endif; ?>>Social Media</a></li>
-  <li><a href="/how-we-help/seo/"<?php if($menu === 'seo'): ?> class="current"<?php endif; ?>>SEO</a></li>
-  <li><a href="/how-we-help/pay-per-click/"<?php if($menu === 'pay-per-click'): ?> class="current"<?php endif; ?>>Pay-Per-Click</a></li>
+<?php
+$howItems = array(
+  array('name' => 'Content Strategy', 'url' => '/how-we-help/content-strategy/', 'menu' => 'content-strategy'),
+  array('name' => 'Web Design and Development', 'url' => '/how-we-help/web-design-and-development/', 'menu' => 'web-design-and-development'),
+  array('name' => 'Analytics', 'url' => '/how-we-help/analytics/', 'menu' => 'analytics'),
+  array('name' => 'Website Maintenance', 'url' => '/how-we-help/website-maintenance/', 'menu' => 'website-maintenance'),
+  array('name' => 'Content Marketing', 'url' => '/how-we-help/content-marketing/', 'menu' => 'content-marketing'),
+  array('name' => 'Social Media', 'url' => '/how-we-help/social-media/', 'menu' => 'social-media'),
+  array('name' => 'SEO', 'url' => '/how-we-help/seo/', 'menu' => 'seo'),
+  array('name' => 'Pay-Per-Click', 'url' => '/how-we-help/pay-per-click/', 'menu' => 'pay-per-click'),
+);
+?>
+
+<ul class="dropdown-extended">
+  <?php foreach($howItems as $item) { ?>
+    <li><a href="<?= $item['url']; ?>"<?php if($menu === $item['menu']): ?> class="current"<?php endif; ?>><?= $item['name']; ?></a></li>
+  <?php } ?>
 </ul>
+
+<?php if(isset($from) && $from === "subnav") { ?>
+  <div class="select-box select-box-subnav">
+    <select name="select-subnav" id="select-subnav">
+      <option value="">View Subpages</option>
+
+      <?php foreach($howItems as $item) { ?>
+        <option value="<?= $item['url']; ?>"<?php if($menu === $item['menu']): ?> selected<?php endif; ?>><?= $item['name']; ?></option>
+      <?php } ?>
+    </select>
+  </div>
+<?php } ?>

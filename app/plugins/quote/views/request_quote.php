@@ -22,6 +22,8 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
     <p class="subtitle"><?php echo $sSubtitle; ?></p>
   </div>
 
+  <?php $this->tplDisplay('inc_subnav.php', array('menu' => 'request-a-quote', 'nav' => 'contact')); ?>
+
   <form action="<?php echo $aContent['url'].'submit-form/' ?>" method="post" name="request-quote" class="request-quote-form" enctype="multipart/form-data">
     <div class="row full">
       <h2 class="form-title">Tell Us a Little About Yourself</h2>

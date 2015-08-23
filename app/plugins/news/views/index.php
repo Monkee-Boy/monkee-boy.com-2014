@@ -32,6 +32,8 @@
     </div>
   </div>
 
+  <?php $this->tplDisplay('inc_subnav.php', array('menu' => 'news', 'nav' => 'who')); ?>
+
   <?php if(!empty($aTopArticle)): ?>
   <div class="row">
     <div class="full news-item top-article">

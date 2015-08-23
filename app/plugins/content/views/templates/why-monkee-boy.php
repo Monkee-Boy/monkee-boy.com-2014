@@ -13,6 +13,8 @@
     <p class="subtitle"><?= $aContent['subtitle']; ?></p>
   </div>
 
+  <?php $this->tplDisplay('inc_subnav.php', array('menu' => 'our-expertise', 'nav' => 'who')); ?>
+
   <div class="row">
     <div class="single-column content-block">
       <?= $aContent['content']; ?>

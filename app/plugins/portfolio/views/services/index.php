@@ -1,4 +1,4 @@
-<?php $this->tplDisplay("inc_header.php", ['menu'=>'services', 'page_title'=>$aServiceContent['title'], 'seo_title'=>$aServiceContent['seo_title'], 'seo_description'=>$aServiceContent['seo_description'], 'seo_keywords'=>$aServiceContent['seo_keywords']]); ?>
+<?php $this->tplDisplay("inc_header.php", ['menu'=>'our-process', 'page_title'=>$aServiceContent['title'], 'seo_title'=>$aServiceContent['seo_title'], 'seo_description'=>$aServiceContent['seo_description'], 'seo_keywords'=>$aServiceContent['seo_keywords']]); ?>
 
   <div class="row">
     <div class="page-title">
@@ -7,21 +7,24 @@
     </div> <!-- /.page-title -->
   </div> <!-- /.row -->
 
+  <?php $this->tplDisplay('inc_subnav.php', array('menu' => 'our-process', 'nav' => 'who')); ?>
+
+  <div class="row">
+		<div class="single-column content-block">
+			<?php echo $aServiceContent['content'] ?>
+		</div>
+	</div>
+
   <?php foreach($aServices as $aService) { ?>
   <div class="row">
-    <div class="panel">
-      <aside class="text-center">
-        <a href="<?php echo $aService['url']; ?>" title="<?php echo $aService['title']; ?>"><img src="<?php echo (!empty($aService['image']))?$aService['image_url']:"http://www.fillmurray.com/g/436/328"; ?>"></a>
+    <img src="<?php echo (!empty($aService['image']))?$aService['image_url']:"http://www.fillmurray.com/g/436/328"; ?>">
 
-        <h2><?php echo $aService['name']; ?></h2>
-      </aside>
-
+    <div class="panel service-panel">
       <div class="panel-content">
-        <h4><a href="<?php echo $aService['url']; ?>" title="<?php echo $aService['title']; ?>"><?php echo $aService['subtitle']; ?> &raquo;</a></h4>
+        <h2><?php echo $aService['name']; ?></h2>
+        <h4><?php echo $aService['subtitle']; ?></h4>
 
         <p><?php echo $aService['description']; ?></p>
-
-        <a href="<?php echo $aService['url']; ?>" title="View These Services" class="button button-alt button-full">View These Services!</a>
       </div>
     </div>
   </div> <!-- /.row -->
