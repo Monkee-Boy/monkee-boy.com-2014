@@ -1,0 +1,81 @@
+svg {
+  .menu-item-text-container, .menu-item-stroke, text, .menu-item-icon-bg, .icon polygon, .icon path {
+    cursor: pointer;
+  }
+
+  .menu-item-text-container {
+    fill: $light-grey;
+    stroke: $darker-light-grey;
+    stroke-width: 4;
+  }
+
+  .menu-item-stroke {
+    fill: none;
+    stroke: $darker-light-grey;
+    stroke-width: 4;
+  }
+
+  .menu-item-icon-bg {
+    fill: #fff;
+    stroke: $darker-light-grey;
+    stroke-width: 7;
+  }
+
+  text {
+    fill: $grey;
+    font-family: $heading-font;
+    font-size: 18px;
+  }
+
+  .icon polygon, .icon path {
+    fill: $grey;
+  }
+
+  a:hover {
+    text-decoration: none;
+
+    .menu-item-text-container {
+      stroke: $grey;
+    }
+
+    .menu-item-stroke {
+      fill: none;
+      stroke: $grey;
+    }
+
+    .menu-item-icon-bg {
+      stroke: $grey;
+    }
+
+    text {
+      text-decoration: none;
+    }
+  }
+
+  .active {
+    text-decoration: none;
+
+    .menu-item-text-container {
+      fill: #fff;
+      stroke: $teal;
+    }
+
+    .menu-item-stroke {
+      fill: none;
+      stroke: $teal;
+    }
+
+    .menu-item-icon-bg {
+      stroke: $teal;
+    }
+
+    text {
+      fill: $teal;
+      text-decoration: none;
+    }
+
+    .icon polygon, .icon path {
+      fill: $black;
+    }
+  }
+}

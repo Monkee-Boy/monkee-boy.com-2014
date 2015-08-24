@@ -14438,4 +14438,19 @@ function BlurStack()
     });
   });
 
+  // Wait for window load so that the SVG has been loaded
+  $(window).on('load', function() {
+    if(typeof current_service_menu !== 'undefined') {
+      var a = document.getElementById("services-menu-svg");
+      // Get the SVG document inside the Object tag
+      var svgDoc = a.contentDocument;
+      // Get one of the SVG items by ID;
+      var svgItem = svgDoc.getElementById("menu-"+current_service_menu);
+
+      if(svgItem) {
+        svgItem.classList.add('active');
+      }
+    }
+  });
+
 }(jQuery));
