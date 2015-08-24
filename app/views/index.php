@@ -1,38 +1,29 @@
 <?php $this->tplDisplay("inc_header.php", ['menu'=>'home']); ?>
 
-  <div class="hero-slideshow loading">
-    <div class="current"></div>
-    <div class="next"></div>
-    <ul class="slider-nav menu-lite">
-      <li class="home active" data-id="1" data-image="/images/home-monkee.png">
-        <a href="#" class="title">Monkee-Boy</a>
-        <div class="slide-caption">
-          <h1>Solve the Web</h1>
-          <?= $this->getSetting('homepage-slider-monkeeboy-text'); ?>
-        </div>
-      </li>
-      <li data-id="2" data-image="/images/home-discover.png">
-        <a href="#" class="title">Discover</a>
-        <div class="slide-caption"><?= $this->getSetting('homepage-slider-discover-text'); ?></div>
-      </li>
-      <li data-id="3" data-image="/images/home-create.png">
-        <a href="#" class="title">Create</a>
-        <div class="slide-caption"><?= $this->getSetting('homepage-slider-create-text'); ?></div>
-      </li>
-      <li data-id="4" data-image="/images/home-evolve.png">
-        <a href="#" class="title">Evolve</a>
-        <div class="slide-caption"><?= $this->getSetting('homepage-slider-evolve-text'); ?></div>
-      </li>
-    </ul>
-    <div class="caption landing-caption">
-      <span class="caption-title"></span>
-      <div class="caption-content">
-        <h1>Solve the Web</h1>
-        <?= $this->getSetting('homepage-slider-monkeeboy-text'); ?>
-      </div>
-      <a href="#" class="slide-trigger">Next Slide</a>
-    </div>
-  </div>
+  <div class="hero-services">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <h1>Solve The Web</h1>
+
+        <p>We're not oracles, but we do know why you're here. You want things. A more impressive website. A digital marketing campaign that customers love. Lots of hi-fives. Nice to meet you!</p>
+
+        <p><strong>We're Monkee-Boy and we can show you how to make it in the jungle.</strong></p>
+      </div> <!-- /.hero-content -->
+
+      <div class="hero-service-list">
+        <ul>
+          <li><a href="/how-we-help/content-strategy/">Content Strategy</a></li>
+          <li><a href="/how-we-help/web-design-and-development/">Web Design and Development</a></li>
+          <li><a href="/how-we-help/analytics/">Analytics</a></li>
+          <li><a href="/how-we-help/website-maintenance/">Website Maintenance</a></li>
+          <li><a href="/how-we-help/content-marketing/">Content Marketing</a></li>
+          <li><a href="/how-we-help/social-media/">Social Media</a></li>
+          <li><a href="/how-we-help/seo/">SEO</a></li>
+          <li><a href="/how-we-help/pay-per-click/">Pay-Per-Click</a></li>
+        </ul>
+      </div> <!-- /.hero-service-list -->
+    </div> <!-- /.hero-inner -->
+  </div> <!-- /.hero-services -->
 
   <?php
   $oPortfolio = $this->loadModel('portfolio');

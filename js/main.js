@@ -653,194 +653,194 @@
   }
 
   // home page hero slideshow
-  var HomeSlideshow = function(el) {
-    this.$el = $(el);
-    this.$current = this.$el.find('.current');
-    this.$next = this.$el.find('.next');
-    this.$nav = this.$el.find('.slider-nav');
-    this.$caption = this.$el.find('.caption');
-    this.maxBlur = 120;
-    this.steps = 3;
-    this.curSlide = 1;
-    this.isMobile = Modernizr.mq('only screen and (max-width:' + medium_break + 'px)');
-  };
-
-  HomeSlideshow.prototype.addBlurCanvas = function(el, source, animate) {
-    var self = this,
-        $img = $('<img width="' + this.width + '" height="' + this.height + '">'),
-        increment = this.maxBlur/this.steps;
-
-    $img.load(function() {
-      console.log("image loads");
-      el.append($img);
-
-      // no canvas for mobile
-      if (!self.isMobile) {
-        // skip first increment for smoother blur
-        for (var i = 1; i < self.steps; i++) {
-          var canvas = document.createElement('canvas');
-
-          canvas.width = self.width;
-          canvas.height = self.height;
-          canvas.className = 'canvas' + i;
-          el.append(canvas);
-
-          stackBlurImage( $img[0], canvas, (increment * i + increment), false );
-        }
-      }
-
-      // if animate is true, immediately animate slide transition
-      if (animate) {
-        self.animate(self.updateSlides);
-      }
-    });
-    $img.attr('src', source);
-  };
-
-  HomeSlideshow.prototype.animate = function(callback, params) {
-    var anim = new TimelineLite(),
-        self = this;
-
-    if (!params) params = [];
-
-    // update slide menu
-    this.$nav.children('li').removeClass('active');
-    this.$nav.children('[data-id=' + this.curSlide + ']').addClass('active');
-
-    if (this.isMobile) {
-      // mobile animation
-      console.log("doing mobile animation");
-
-      anim.to(this.$current, 0.3, { opacity: 0 });
-      anim.to(this.$caption, 0.3, {
-        opacity: 0,
-        onComplete: function() {
-          var curHeight = self.$caption.outerHeight(),
-              innerHeight = self.$caption.height();
-
-          self.$caption.height(innerHeight + 'px');
-          self.updateCaption(self.curSlide);
-
-          // get new height
-          var newHeight = self.$caption.children('.caption-title').height() + self.$caption.children('.caption-content').height() + (curHeight - innerHeight);
-
-          anim.to(self.$caption, 0.3, {
-            opacity: 1,
-            height: newHeight
-          });
-        }
-      }, '-=0.3');
-      anim.to(this.$next, 0.3, { opacity: 1 });
-    } else {
-      // desktop animation with blur
-      console.log("doing desktop animation");
-
-      // animate current slide to blur
-      for (var i = 1; i < this.steps; i++) {
-        anim.to(this.$current.children('.canvas' + i), 0.4, { opacity: 1 }, '-=0.2');
-      }
-
-      // animate caption out
-      anim.to(this.$caption, 0.5, {
-        x: -this.width,
-        ease: Power2.easeIn,
-        onComplete: function() {
-          self.updateCaption(self.curSlide);
-        }
-      }, '-=0.8');
-
-      // fade out current slide
-      anim.to(this.$current, 0.8, { opacity: 0 }, '-=0.5');
-
-      // animate next slide to un-blur
-      for (var n = this.steps-1; n > 0; n--) {
-        anim.to(this.$next.children('.canvas' + n), 0.4, { opacity: 0 }, '-=0.2');
-      }
-
-      // animate caption back in
-      anim.to(this.$caption, 0.4, {
-        x: 0,
-        ease: Power2.easeOut
-      }, '-=0.5');
-    }
-
-    anim.eventCallback('onComplete', callback, params, self);
-
-    anim.play();
-  };
-
-  HomeSlideshow.prototype.updateSlides = function() {
-    var nextID = this.curSlide > 3 ? 1 : this.curSlide + 1,
-        next_slide = this.$nav.children('[data-id=' + nextID + ']'),
-        slide_html = '<div class="next" />';
-
-    // remove previous slide and update current slide
-    this.$current.remove();
-    this.$next.removeClass('next').addClass('current');
-    this.$current = this.$next;
-
-    // create new "next slide"
-    this.$next = $(slide_html);
-    this.$el.append(this.$next);
-    this.addBlurCanvas(this.$next, next_slide.data('image'));
-  };
-
-  HomeSlideshow.prototype.updateCaption = function(i) {
-    var slide = this.$nav.children('[data-id=' + i + ']');
-
-    if (i == 1) {
-      this.$caption.addClass('landing-caption');
-      this.$caption.children('.caption-title').html('');
-    } else {
-      this.$caption.removeClass('landing-caption');
-      this.$caption.children('.caption-title').html( slide.children('.title').text() );
-    }
-    this.$caption.children('.caption-content').html( slide.children('.slide-caption').html() );
-  };
-
-  HomeSlideshow.prototype.init = function(el) {
-    var self = this,
-        image1 = this.$nav.children('[data-id=1]').data('image'),
-        image2 = this.$nav.children('[data-id=2]').data('image');
-
-    this.width = this.$el.width();
-    this.height = this.isMobile ? 'auto' : this.$el.height();
-
-    this.addBlurCanvas(this.$current, image1);
-    this.addBlurCanvas(this.$next, image2);
-
-    // add slide change to arrow
-    this.$el.find('.slide-trigger').on('click', function(e) {
-      e.preventDefault();
-
-      // update current slide id
-      self.curSlide = self.curSlide > 3 ? 1 : self.curSlide + 1;
-
-      self.animate(self.updateSlides);
-    });
-
-    // add slide change to menu links
-    this.$nav.find('a').on('click', function(e) {
-      e.preventDefault();
-
-      var li = $(this).parent(),
-          nextSlide = li.data('id');
-
-      if (nextSlide == self.curSlide) return;
-      if (nextSlide == self.curSlide + 1 || (self.curSlide == 4 && nextSlide == 1)) {
-        self.curSlide = self.curSlide > 3 ? 1 : self.curSlide + 1;
-        self.animate(self.updateSlides);
-      } else {
-        self.curSlide = nextSlide;
-
-        self.$next.html('');
-        self.addBlurCanvas(self.$next, li.data('image'), true);
-      }
-    });
-  };
-
-  var homeSlideshow = new HomeSlideshow($('.hero-slideshow'));
-  homeSlideshow.init();
+  // var HomeSlideshow = function(el) {
+  //   this.$el = $(el);
+  //   this.$current = this.$el.find('.current');
+  //   this.$next = this.$el.find('.next');
+  //   this.$nav = this.$el.find('.slider-nav');
+  //   this.$caption = this.$el.find('.caption');
+  //   this.maxBlur = 120;
+  //   this.steps = 3;
+  //   this.curSlide = 1;
+  //   this.isMobile = Modernizr.mq('only screen and (max-width:' + medium_break + 'px)');
+  // };
+  //
+  // HomeSlideshow.prototype.addBlurCanvas = function(el, source, animate) {
+  //   var self = this,
+  //       $img = $('<img width="' + this.width + '" height="' + this.height + '">'),
+  //       increment = this.maxBlur/this.steps;
+  //
+  //   $img.load(function() {
+  //     console.log("image loads");
+  //     el.append($img);
+  //
+  //     // no canvas for mobile
+  //     if (!self.isMobile) {
+  //       // skip first increment for smoother blur
+  //       for (var i = 1; i < self.steps; i++) {
+  //         var canvas = document.createElement('canvas');
+  //
+  //         canvas.width = self.width;
+  //         canvas.height = self.height;
+  //         canvas.className = 'canvas' + i;
+  //         el.append(canvas);
+  //
+  //         stackBlurImage( $img[0], canvas, (increment * i + increment), false );
+  //       }
+  //     }
+  //
+  //     // if animate is true, immediately animate slide transition
+  //     if (animate) {
+  //       self.animate(self.updateSlides);
+  //     }
+  //   });
+  //   $img.attr('src', source);
+  // };
+  //
+  // HomeSlideshow.prototype.animate = function(callback, params) {
+  //   var anim = new TimelineLite(),
+  //       self = this;
+  //
+  //   if (!params) params = [];
+  //
+  //   // update slide menu
+  //   this.$nav.children('li').removeClass('active');
+  //   this.$nav.children('[data-id=' + this.curSlide + ']').addClass('active');
+  //
+  //   if (this.isMobile) {
+  //     // mobile animation
+  //     console.log("doing mobile animation");
+  //
+  //     anim.to(this.$current, 0.3, { opacity: 0 });
+  //     anim.to(this.$caption, 0.3, {
+  //       opacity: 0,
+  //       onComplete: function() {
+  //         var curHeight = self.$caption.outerHeight(),
+  //             innerHeight = self.$caption.height();
+  //
+  //         self.$caption.height(innerHeight + 'px');
+  //         self.updateCaption(self.curSlide);
+  //
+  //         // get new height
+  //         var newHeight = self.$caption.children('.caption-title').height() + self.$caption.children('.caption-content').height() + (curHeight - innerHeight);
+  //
+  //         anim.to(self.$caption, 0.3, {
+  //           opacity: 1,
+  //           height: newHeight
+  //         });
+  //       }
+  //     }, '-=0.3');
+  //     anim.to(this.$next, 0.3, { opacity: 1 });
+  //   } else {
+  //     // desktop animation with blur
+  //     console.log("doing desktop animation");
+  //
+  //     // animate current slide to blur
+  //     for (var i = 1; i < this.steps; i++) {
+  //       anim.to(this.$current.children('.canvas' + i), 0.4, { opacity: 1 }, '-=0.2');
+  //     }
+  //
+  //     // animate caption out
+  //     anim.to(this.$caption, 0.5, {
+  //       x: -this.width,
+  //       ease: Power2.easeIn,
+  //       onComplete: function() {
+  //         self.updateCaption(self.curSlide);
+  //       }
+  //     }, '-=0.8');
+  //
+  //     // fade out current slide
+  //     anim.to(this.$current, 0.8, { opacity: 0 }, '-=0.5');
+  //
+  //     // animate next slide to un-blur
+  //     for (var n = this.steps-1; n > 0; n--) {
+  //       anim.to(this.$next.children('.canvas' + n), 0.4, { opacity: 0 }, '-=0.2');
+  //     }
+  //
+  //     // animate caption back in
+  //     anim.to(this.$caption, 0.4, {
+  //       x: 0,
+  //       ease: Power2.easeOut
+  //     }, '-=0.5');
+  //   }
+  //
+  //   anim.eventCallback('onComplete', callback, params, self);
+  //
+  //   anim.play();
+  // };
+  //
+  // HomeSlideshow.prototype.updateSlides = function() {
+  //   var nextID = this.curSlide > 3 ? 1 : this.curSlide + 1,
+  //       next_slide = this.$nav.children('[data-id=' + nextID + ']'),
+  //       slide_html = '<div class="next" />';
+  //
+  //   // remove previous slide and update current slide
+  //   this.$current.remove();
+  //   this.$next.removeClass('next').addClass('current');
+  //   this.$current = this.$next;
+  //
+  //   // create new "next slide"
+  //   this.$next = $(slide_html);
+  //   this.$el.append(this.$next);
+  //   this.addBlurCanvas(this.$next, next_slide.data('image'));
+  // };
+  //
+  // HomeSlideshow.prototype.updateCaption = function(i) {
+  //   var slide = this.$nav.children('[data-id=' + i + ']');
+  //
+  //   if (i == 1) {
+  //     this.$caption.addClass('landing-caption');
+  //     this.$caption.children('.caption-title').html('');
+  //   } else {
+  //     this.$caption.removeClass('landing-caption');
+  //     this.$caption.children('.caption-title').html( slide.children('.title').text() );
+  //   }
+  //   this.$caption.children('.caption-content').html( slide.children('.slide-caption').html() );
+  // };
+  //
+  // HomeSlideshow.prototype.init = function(el) {
+  //   var self = this,
+  //       image1 = this.$nav.children('[data-id=1]').data('image'),
+  //       image2 = this.$nav.children('[data-id=2]').data('image');
+  //
+  //   this.width = this.$el.width();
+  //   this.height = this.isMobile ? 'auto' : this.$el.height();
+  //
+  //   this.addBlurCanvas(this.$current, image1);
+  //   this.addBlurCanvas(this.$next, image2);
+  //
+  //   // add slide change to arrow
+  //   this.$el.find('.slide-trigger').on('click', function(e) {
+  //     e.preventDefault();
+  //
+  //     // update current slide id
+  //     self.curSlide = self.curSlide > 3 ? 1 : self.curSlide + 1;
+  //
+  //     self.animate(self.updateSlides);
+  //   });
+  //
+  //   // add slide change to menu links
+  //   this.$nav.find('a').on('click', function(e) {
+  //     e.preventDefault();
+  //
+  //     var li = $(this).parent(),
+  //         nextSlide = li.data('id');
+  //
+  //     if (nextSlide == self.curSlide) return;
+  //     if (nextSlide == self.curSlide + 1 || (self.curSlide == 4 && nextSlide == 1)) {
+  //       self.curSlide = self.curSlide > 3 ? 1 : self.curSlide + 1;
+  //       self.animate(self.updateSlides);
+  //     } else {
+  //       self.curSlide = nextSlide;
+  //
+  //       self.$next.html('');
+  //       self.addBlurCanvas(self.$next, li.data('image'), true);
+  //     }
+  //   });
+  // };
+  //
+  // var homeSlideshow = new HomeSlideshow($('.hero-slideshow'));
+  // homeSlideshow.init();
 
   // troop dropdowns
   $('.troop-list').on('click', '.trigger', function(e) {
@@ -1248,5 +1248,41 @@
     };
     flowchart.src = '/images/flowchart404.png';
   }
+
+  $('.equal-height').each(function() {
+    var max_height = 0,
+        children = $(this).children();
+
+    children.each(function() {
+      if(this.clientHeight > max_height) {
+        max_height = this.clientHeight;
+      }
+    });
+
+    children.each(function() {
+      $(this).height(max_height-parseInt($(this).css('padding-top'))-parseInt($(this).css('padding-bottom')));
+    });
+  });
+
+  $(window).on('resize', function() {
+    $('.equal-height').each(function() {
+      var max_height = 0,
+          children = $(this).children();
+
+      children.each(function() {
+        $(this).height('auto');
+      });
+
+      children.each(function() {
+        if(this.clientHeight > max_height) {
+          max_height = this.clientHeight;
+        }
+      });
+
+      children.each(function() {
+        $(this).height(max_height-parseInt($(this).css('padding-top'))-parseInt($(this).css('padding-bottom')));
+      });
+    });
+  });
 
 }(jQuery));
