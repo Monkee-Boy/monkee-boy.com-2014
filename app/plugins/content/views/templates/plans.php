@@ -13,9 +13,7 @@
     <span class="subtitle"><?php echo $aContent['subtitle'] ?></span>
   </div>
 
-  <?php if($aContent['tag'] === 'join-the-troop') {
-    $this->tplDisplay('inc_subnav.php', array('menu' => 'join-the-troop', 'nav' => 'who'));
-  } ?>
+    <?php $this->tplDisplay('inc_subnav.php', array('menu' => 'how', 'nav' => 'plan-options')); ?>
 
   <div class="row">
     <div class="single-column content-block">
