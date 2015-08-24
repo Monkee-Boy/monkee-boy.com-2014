@@ -1045,6 +1045,7 @@
 
 .featured-clients {
   @include clearfix();
+  margin-bottom: 26px;
 
   li {
     position: relative;
