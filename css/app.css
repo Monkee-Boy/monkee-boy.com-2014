@@ -3019,6 +3019,63 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
       color: #fff;
       text-decoration: underline; }
 
+@media only screen and (max-width: 980px) {
+  #services-menu-svg {
+    display: none; } }
+
+.services-menu-mobile {
+  position: relative;
+  display: none;
+  width: 331px;
+  margin: 0 auto; }
+  @media only screen and (max-width: 980px) {
+    .services-menu-mobile {
+      display: block; } }
+  @media screen and (max-width: 400px) {
+    .services-menu-mobile {
+      width: 290px; } }
+  .services-menu-mobile ul {
+    margin: 0;
+    padding: 0; }
+  .services-menu-mobile li {
+    display: inline-block;
+    list-style: none; }
+  .services-menu-mobile .service-menu-icons {
+    position: relative;
+    left: -22px;
+    height: 150px;
+    margin-bottom: 20px; }
+    @media screen and (max-width: 400px) {
+      .services-menu-mobile .service-menu-icons {
+        left: 2px;
+        height: 115px; } }
+  .services-menu-mobile .services-row-2 {
+    position: absolute;
+    top: 68px;
+    left: 42px;
+    width: 100%; }
+    @media screen and (max-width: 400px) {
+      .services-menu-mobile .services-row-2 {
+        top: 52px;
+        left: 32px; } }
+  .services-menu-mobile .service-icon {
+    font-size: 80px; }
+    @media screen and (max-width: 400px) {
+      .services-menu-mobile .service-icon {
+        font-size: 60px; } }
+    .services-menu-mobile .service-icon:after {
+      color: #dfdfdf; }
+    .services-menu-mobile .service-icon i {
+      color: #b2b2b2; }
+  .services-menu-mobile a:hover {
+    text-decoration: none; }
+    .services-menu-mobile a:hover .service-icon:after {
+      color: #b2b2b2; }
+  .services-menu-mobile .active:after, .services-menu-mobile a:hover .active:after {
+    color: #23a38f; }
+  .services-menu-mobile .active i, .services-menu-mobile a:hover .active i {
+    color: #242529; }
+
 .form-title {
   background-color: #242529;
   text-align: center;
@@ -5902,3 +5959,50 @@ button[type=submit] {
     top: 2430px; }
   #flowchart404.loaded .puppies {
     top: 2590px; }
+
+svg .menu-item-text-container, svg .menu-item-stroke, svg text, svg .menu-item-icon-bg, svg .icon polygon, svg .social-links a:before polygon, .social-links svg a:before polygon, svg .social-links a:after polygon, .social-links svg a:after polygon, svg .dots[data-dots='dual']:before polygon, svg .dots[data-dots='dual']:after polygon, svg .dots[data-dots='left']:before polygon, svg .dots[data-dots='right']:after polygon, svg .service-icon:before polygon, svg .service-icon:after polygon, svg .service-icon i:before polygon, .service-icon svg i:before polygon, svg .service-icon span[class^=icon-seption-]:after polygon, .service-icon svg span[class^=icon-seption-]:after polygon, svg .plan-breakdown .plan-checked:after polygon, .plan-breakdown svg .plan-checked:after polygon, svg .plan-breakdown .plan-unchecked:after polygon, .plan-breakdown svg .plan-unchecked:after polygon, svg .plan-breakdown-mobile .plan-checked:after polygon, .plan-breakdown-mobile svg .plan-checked:after polygon, svg .plan-breakdown-mobile .plan-unchecked:after polygon, .plan-breakdown-mobile svg .plan-unchecked:after polygon, svg .date-input:after polygon, svg .datepicker thead .prev:after polygon, .datepicker thead svg .prev:after polygon, svg .datepicker thead .next:after polygon, .datepicker thead svg .next:after polygon, svg .port-slider .thumbs-slider .slick-prev:after polygon, .port-slider .thumbs-slider svg .slick-prev:after polygon, svg .port-slider .thumbs-slider .slick-next:after polygon, .port-slider .thumbs-slider svg .slick-next:after polygon, svg .port-slider .instructions:before polygon, .port-slider svg .instructions:before polygon, svg .hero-slideshow .slide-trigger:before polygon, .hero-slideshow svg .slide-trigger:before polygon, svg .home-pulse .twitter .bottom .actions li a:before polygon, .home-pulse .twitter .bottom .actions li svg a:before polygon, svg .share-section a:before polygon, .share-section svg a:before polygon, svg .stats-list li:after polygon, .stats-list svg li:after polygon, svg .office-cat p:before polygon, .office-cat svg p:before polygon, svg .icon path, svg .social-links a:before path, .social-links svg a:before path, svg .social-links a:after path, .social-links svg a:after path, svg .dots[data-dots='dual']:before path, svg .dots[data-dots='dual']:after path, svg .dots[data-dots='left']:before path, svg .dots[data-dots='right']:after path, svg .service-icon:before path, svg .service-icon:after path, svg .service-icon i:before path, .service-icon svg i:before path, svg .service-icon span[class^=icon-seption-]:after path, .service-icon svg span[class^=icon-seption-]:after path, svg .plan-breakdown .plan-checked:after path, .plan-breakdown svg .plan-checked:after path, svg .plan-breakdown .plan-unchecked:after path, .plan-breakdown svg .plan-unchecked:after path, svg .plan-breakdown-mobile .plan-checked:after path, .plan-breakdown-mobile svg .plan-checked:after path, svg .plan-breakdown-mobile .plan-unchecked:after path, .plan-breakdown-mobile svg .plan-unchecked:after path, svg .date-input:after path, svg .datepicker thead .prev:after path, .datepicker thead svg .prev:after path, svg .datepicker thead .next:after path, .datepicker thead svg .next:after path, svg .port-slider .thumbs-slider .slick-prev:after path, .port-slider .thumbs-slider svg .slick-prev:after path, svg .port-slider .thumbs-slider .slick-next:after path, .port-slider .thumbs-slider svg .slick-next:after path, svg .port-slider .instructions:before path, .port-slider svg .instructions:before path, svg .hero-slideshow .slide-trigger:before path, .hero-slideshow svg .slide-trigger:before path, svg .home-pulse .twitter .bottom .actions li a:before path, .home-pulse .twitter .bottom .actions li svg a:before path, svg .share-section a:before path, .share-section svg a:before path, svg .stats-list li:after path, .stats-list svg li:after path, svg .office-cat p:before path, .office-cat svg p:before path {
+  cursor: pointer; }
+svg .menu-item-text-container {
+  fill: #ededed;
+  stroke: #dfdfdf;
+  stroke-width: 4; }
+svg .menu-item-stroke {
+  fill: none;
+  stroke: #dfdfdf;
+  stroke-width: 4; }
+svg .menu-item-icon-bg {
+  fill: #fff;
+  stroke: #dfdfdf;
+  stroke-width: 7; }
+svg text {
+  fill: #b2b2b2;
+  font-family: "effra", sans-serif;
+  font-size: 18px; }
+svg .icon polygon, svg .social-links a:before polygon, .social-links svg a:before polygon, svg .social-links a:after polygon, .social-links svg a:after polygon, svg .dots[data-dots='dual']:before polygon, svg .dots[data-dots='dual']:after polygon, svg .dots[data-dots='left']:before polygon, svg .dots[data-dots='right']:after polygon, svg .service-icon:before polygon, svg .service-icon:after polygon, svg .service-icon i:before polygon, .service-icon svg i:before polygon, svg .service-icon span[class^=icon-seption-]:after polygon, .service-icon svg span[class^=icon-seption-]:after polygon, svg .plan-breakdown .plan-checked:after polygon, .plan-breakdown svg .plan-checked:after polygon, svg .plan-breakdown .plan-unchecked:after polygon, .plan-breakdown svg .plan-unchecked:after polygon, svg .plan-breakdown-mobile .plan-checked:after polygon, .plan-breakdown-mobile svg .plan-checked:after polygon, svg .plan-breakdown-mobile .plan-unchecked:after polygon, .plan-breakdown-mobile svg .plan-unchecked:after polygon, svg .date-input:after polygon, svg .datepicker thead .prev:after polygon, .datepicker thead svg .prev:after polygon, svg .datepicker thead .next:after polygon, .datepicker thead svg .next:after polygon, svg .port-slider .thumbs-slider .slick-prev:after polygon, .port-slider .thumbs-slider svg .slick-prev:after polygon, svg .port-slider .thumbs-slider .slick-next:after polygon, .port-slider .thumbs-slider svg .slick-next:after polygon, svg .port-slider .instructions:before polygon, .port-slider svg .instructions:before polygon, svg .hero-slideshow .slide-trigger:before polygon, .hero-slideshow svg .slide-trigger:before polygon, svg .home-pulse .twitter .bottom .actions li a:before polygon, .home-pulse .twitter .bottom .actions li svg a:before polygon, svg .share-section a:before polygon, .share-section svg a:before polygon, svg .stats-list li:after polygon, .stats-list svg li:after polygon, svg .office-cat p:before polygon, .office-cat svg p:before polygon, svg .icon path, svg .social-links a:before path, .social-links svg a:before path, svg .social-links a:after path, .social-links svg a:after path, svg .dots[data-dots='dual']:before path, svg .dots[data-dots='dual']:after path, svg .dots[data-dots='left']:before path, svg .dots[data-dots='right']:after path, svg .service-icon:before path, svg .service-icon:after path, svg .service-icon i:before path, .service-icon svg i:before path, svg .service-icon span[class^=icon-seption-]:after path, .service-icon svg span[class^=icon-seption-]:after path, svg .plan-breakdown .plan-checked:after path, .plan-breakdown svg .plan-checked:after path, svg .plan-breakdown .plan-unchecked:after path, .plan-breakdown svg .plan-unchecked:after path, svg .plan-breakdown-mobile .plan-checked:after path, .plan-breakdown-mobile svg .plan-checked:after path, svg .plan-breakdown-mobile .plan-unchecked:after path, .plan-breakdown-mobile svg .plan-unchecked:after path, svg .date-input:after path, svg .datepicker thead .prev:after path, .datepicker thead svg .prev:after path, svg .datepicker thead .next:after path, .datepicker thead svg .next:after path, svg .port-slider .thumbs-slider .slick-prev:after path, .port-slider .thumbs-slider svg .slick-prev:after path, svg .port-slider .thumbs-slider .slick-next:after path, .port-slider .thumbs-slider svg .slick-next:after path, svg .port-slider .instructions:before path, .port-slider svg .instructions:before path, svg .hero-slideshow .slide-trigger:before path, .hero-slideshow svg .slide-trigger:before path, svg .home-pulse .twitter .bottom .actions li a:before path, .home-pulse .twitter .bottom .actions li svg a:before path, svg .share-section a:before path, .share-section svg a:before path, svg .stats-list li:after path, .stats-list svg li:after path, svg .office-cat p:before path, .office-cat svg p:before path {
+  fill: #b2b2b2; }
+svg a:hover {
+  text-decoration: none; }
+  svg a:hover .menu-item-text-container {
+    stroke: #b2b2b2; }
+  svg a:hover .menu-item-stroke {
+    fill: none;
+    stroke: #b2b2b2; }
+  svg a:hover .menu-item-icon-bg {
+    stroke: #b2b2b2; }
+  svg a:hover text {
+    text-decoration: none; }
+svg .active {
+  text-decoration: none; }
+  svg .active .menu-item-text-container {
+    fill: #fff;
+    stroke: #23a38f; }
+  svg .active .menu-item-stroke {
+    fill: none;
+    stroke: #23a38f; }
+  svg .active .menu-item-icon-bg {
+    stroke: #23a38f; }
+  svg .active text {
+    fill: #23a38f;
+    text-decoration: none; }
+  svg .active .icon polygon, svg .active .social-links a:before polygon, .social-links svg .active a:before polygon, svg .active .social-links a:after polygon, .social-links svg .active a:after polygon, svg .active .dots[data-dots='dual']:before polygon, svg .active .dots[data-dots='dual']:after polygon, svg .active .dots[data-dots='left']:before polygon, svg .active .dots[data-dots='right']:after polygon, svg .active .service-icon:before polygon, svg .active .service-icon:after polygon, svg .active .service-icon i:before polygon, .service-icon svg .active i:before polygon, svg .active .service-icon span[class^=icon-seption-]:after polygon, .service-icon svg .active span[class^=icon-seption-]:after polygon, svg .active .plan-breakdown .plan-checked:after polygon, .plan-breakdown svg .active .plan-checked:after polygon, svg .active .plan-breakdown .plan-unchecked:after polygon, .plan-breakdown svg .active .plan-unchecked:after polygon, svg .active .plan-breakdown-mobile .plan-checked:after polygon, .plan-breakdown-mobile svg .active .plan-checked:after polygon, svg .active .plan-breakdown-mobile .plan-unchecked:after polygon, .plan-breakdown-mobile svg .active .plan-unchecked:after polygon, svg .active .date-input:after polygon, svg .active .datepicker thead .prev:after polygon, .datepicker thead svg .active .prev:after polygon, svg .active .datepicker thead .next:after polygon, .datepicker thead svg .active .next:after polygon, svg .active .port-slider .thumbs-slider .slick-prev:after polygon, .port-slider .thumbs-slider svg .active .slick-prev:after polygon, svg .active .port-slider .thumbs-slider .slick-next:after polygon, .port-slider .thumbs-slider svg .active .slick-next:after polygon, svg .active .port-slider .instructions:before polygon, .port-slider svg .active .instructions:before polygon, svg .active .hero-slideshow .slide-trigger:before polygon, .hero-slideshow svg .active .slide-trigger:before polygon, svg .active .home-pulse .twitter .bottom .actions li a:before polygon, .home-pulse .twitter .bottom .actions li svg .active a:before polygon, svg .active .share-section a:before polygon, .share-section svg .active a:before polygon, svg .active .stats-list li:after polygon, .stats-list svg .active li:after polygon, svg .active .office-cat p:before polygon, .office-cat svg .active p:before polygon, svg .active .icon path, svg .active .social-links a:before path, .social-links svg .active a:before path, svg .active .social-links a:after path, .social-links svg .active a:after path, svg .active .dots[data-dots='dual']:before path, svg .active .dots[data-dots='dual']:after path, svg .active .dots[data-dots='left']:before path, svg .active .dots[data-dots='right']:after path, svg .active .service-icon:before path, svg .active .service-icon:after path, svg .active .service-icon i:before path, .service-icon svg .active i:before path, svg .active .service-icon span[class^=icon-seption-]:after path, .service-icon svg .active span[class^=icon-seption-]:after path, svg .active .plan-breakdown .plan-checked:after path, .plan-breakdown svg .active .plan-checked:after path, svg .active .plan-breakdown .plan-unchecked:after path, .plan-breakdown svg .active .plan-unchecked:after path, svg .active .plan-breakdown-mobile .plan-checked:after path, .plan-breakdown-mobile svg .active .plan-checked:after path, svg .active .plan-breakdown-mobile .plan-unchecked:after path, .plan-breakdown-mobile svg .active .plan-unchecked:after path, svg .active .date-input:after path, svg .active .datepicker thead .prev:after path, .datepicker thead svg .active .prev:after path, svg .active .datepicker thead .next:after path, .datepicker thead svg .active .next:after path, svg .active .port-slider .thumbs-slider .slick-prev:after path, .port-slider .thumbs-slider svg .active .slick-prev:after path, svg .active .port-slider .thumbs-slider .slick-next:after path, .port-slider .thumbs-slider svg .active .slick-next:after path, svg .active .port-slider .instructions:before path, .port-slider svg .active .instructions:before path, svg .active .hero-slideshow .slide-trigger:before path, .hero-slideshow svg .active .slide-trigger:before path, svg .active .home-pulse .twitter .bottom .actions li a:before path, .home-pulse .twitter .bottom .actions li svg .active a:before path, svg .active .share-section a:before path, .share-section svg .active a:before path, svg .active .stats-list li:after path, .stats-list svg .active li:after path, svg .active .office-cat p:before path, .office-cat svg .active p:before path {
+    fill: #242529; }
