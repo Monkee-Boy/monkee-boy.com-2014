@@ -366,6 +366,9 @@ th {
     content: " ";
     display: block;
     clear: both; }
+  @media screen and (max-width: 1200px) {
+    .row.flush-later {
+      margin-bottom: 0; } }
 
 .row-flush {
   max-width: 1200px;
@@ -412,6 +415,9 @@ th {
     text-align: center; }
     .full.center a {
       text-decoration: underline; }
+  @media screen and (max-width: 1200px) {
+    .full.no-gutter-later {
+      padding: 0; } }
 
 .half {
   -webkit-box-sizing: border-box;
@@ -2388,6 +2394,16 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
     .box-of-doom.meet-the-team .meet-the-team-content {
       position: relative;
       z-index: 2; }
+    .box-of-doom.meet-the-team.full-width {
+      background-image: url(../images/home-create.png);
+      padding-left: 70px;
+      padding-right: 70px;
+      margin: 0 15px; }
+      @media screen and (max-width: 1200px) {
+        .box-of-doom.meet-the-team.full-width {
+          margin: 0; } }
+      .box-of-doom.meet-the-team.full-width h3 {
+        color: #fff; }
 
 .case-studies {
   margin-bottom: 30px; }
@@ -2750,6 +2766,124 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
   padding-right: 15px; }
 .featured-clients[data-clients-style='services'] li:before {
   background: rgba(255, 255, 255, 0.5); }
+
+.plan-features {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  float: left;
+  padding-left: 15px;
+  padding-right: 15px; }
+  .plan-features li {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 25%;
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 0;
+    margin-bottom: 25px; }
+    @media only screen and (max-width: 840px) {
+      .plan-features li {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 33.33333%;
+        float: left;
+        padding-left: 15px;
+        padding-right: 15px; } }
+    @media only screen and (max-width: 580px) {
+      .plan-features li {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 50%;
+        float: left;
+        padding-left: 15px;
+        padding-right: 15px; } }
+
+.team-list li {
+  display: inline-block;
+  padding: 5px 15px;
+  list-style: none;
+  text-transform: uppercase;
+  color: #acca41;
+  font-weight: 700;
+  font-size: 1.11111em; }
+
+.plan-row {
+  border-bottom: 4px solid #dfdfdf;
+  padding: 40px 0; }
+  .plan-row:first-child {
+    padding-top: 0;
+    text-align: center;
+    font-size: 3.33333em;
+    color: #242529; }
+    .plan-row:first-child span {
+      font-weight: 700; }
+    .plan-row:first-child .cents {
+      position: relative; }
+      .plan-row:first-child .cents:after {
+        position: absolute;
+        right: 2px;
+        bottom: 4px;
+        left: 2px;
+        content: '';
+        height: 2px;
+        background: #242529; }
+  .plan-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0; }
+  .plan-row .plan-row-left {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 75%;
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-left: 0; }
+    @media only screen and (max-width: 840px) {
+      .plan-row .plan-row-left {
+        width: 100%;
+        padding: 0; } }
+  .plan-row .plan-row-right {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 25%;
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-right: 0;
+    text-align: right; }
+    @media only screen and (max-width: 840px) {
+      .plan-row .plan-row-right {
+        width: 100%;
+        padding: 0;
+        text-align: left; } }
+
+.plan-cta {
+  width: 97.5%;
+  float: left;
+  margin-left: 1.25%;
+  margin-right: 1.25%;
+  padding: 40px;
+  background: #23a38f;
+  color: #fff; }
+  .plan-cta h2 {
+    text-transform: none;
+    color: #fff; }
+    .plan-cta h2 span {
+      font-weight: 700; }
+  .plan-cta a {
+    color: #fff;
+    text-decoration: underline; }
+    .plan-cta a:hover {
+      color: #fff;
+      text-decoration: underline; }
 
 .form-title {
   background-color: #242529;
