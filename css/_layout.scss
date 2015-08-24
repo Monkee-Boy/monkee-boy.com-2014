@@ -386,6 +386,30 @@ body {
       }
     }
   }
+
+  ul.nav-block {
+    text-align: left;
+
+    @media #{$small-only} {
+      display: block;
+    }
+
+    li {
+      margin-left: 12px;
+      margin-bottom: 10px;
+      width: 47%;
+      text-align: center;
+
+      @media #{$medium-down} {
+        width: 100%;
+        margin-left: 0;
+      }
+    }
+
+    a {
+      display: block;
+    }
+  }
 }
 
 .select-box-subnav {

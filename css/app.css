@@ -897,6 +897,22 @@ body.menu-open {
       .sub-nav ul a {
         font-size: 16px;
         font-weight: bold; } }
+.sub-nav ul.nav-block {
+  text-align: left; }
+  @media only screen and (max-width: 580px) {
+    .sub-nav ul.nav-block {
+      display: block; } }
+  .sub-nav ul.nav-block li {
+    margin-left: 12px;
+    margin-bottom: 10px;
+    width: 47%;
+    text-align: center; }
+    @media only screen and (max-width: 840px) {
+      .sub-nav ul.nav-block li {
+        width: 100%;
+        margin-left: 0; } }
+  .sub-nav ul.nav-block a {
+    display: block; }
 
 .select-box-subnav {
   display: none; }
