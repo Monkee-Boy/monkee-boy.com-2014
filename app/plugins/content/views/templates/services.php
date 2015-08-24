@@ -183,12 +183,75 @@
           </div>
 
           <div class="plan-breakdown-col2">
-            <a href="<?= $aServiceContent['chart']['plans'][0]['cta_url']; ?>" class="button"><?= $aServiceContent['chart']['plans'][0]['cta']; ?></a>
+            <a href="<?= $aServiceContent['chart']['plans'][0]['cta_url']; ?>" class="button button-alt"><?= $aServiceContent['chart']['plans'][0]['cta']; ?></a>
           </div>
 
           <div class="plan-breakdown-col3">
-            <a href="<?= $aServiceContent['chart']['plans'][1]['cta_url']; ?>" class="button"><?= $aServiceContent['chart']['plans'][0]['cta']; ?></a>
+            <a href="<?= $aServiceContent['chart']['plans'][1]['cta_url']; ?>" class="button button-alt"><?= $aServiceContent['chart']['plans'][0]['cta']; ?></a>
           </div>
+        </div>
+      </div>
+
+      <div class="plan-breakdown-mobile">
+        <?php foreach($aServiceContent['chart']['plan_breakdown'] as $k => $plan_breakdown) { ?>
+        <div class="plan-simple-breakdown">
+          <div class="plan-breakdown-title">
+            <?= $plan_breakdown['name']; ?>
+          </div>
+
+          <div class="plan-breakdown-rows">
+            <div class="plan-breakdown-row equal-height">
+              <div class="plan-breakdown-col1">
+                <?= $aServiceContent['chart']['plans'][0]['title']; ?>
+              </div>
+              <div class="plan-breakdown-col2">
+                <?php if($plan_breakdown['type'] === 'boolean') { ?>
+                  <div class="plan-<?php if($aServiceContent['chart']['plans'][0]['features'][$k]) { echo 'checked'; } else { echo 'unchecked'; } ?>">&nbsp;</div>
+                <?php } else { ?>
+                  <div class="plan-text"><?= $aServiceContent['chart']['plans'][0]['features'][$k]; ?></div>
+                <?php } ?>
+              </div>
+            </div>
+            <div class="plan-breakdown-row equal-height">
+              <div class="plan-breakdown-col1">
+                <?= $aServiceContent['chart']['plans'][1]['title']; ?>
+              </div>
+              <div class="plan-breakdown-col2">
+                <?php if($plan_breakdown['type'] === 'boolean') { ?>
+                  <div class="plan-<?php if($aServiceContent['chart']['plans'][1]['features'][$k]) { echo 'checked'; } else { echo 'unchecked'; } ?>">&nbsp;</div>
+                <?php } else { ?>
+                  <div class="plan-text"><?= $aServiceContent['chart']['plans'][1]['features'][$k]; ?></div>
+                <?php } ?>
+              </div>
+            </div>
+          </div>
+        </div>
+        <?php } ?>
+
+        <div class="plan-mobile-list-item">
+          <span class="maintenance service-icon"><i></i></span>
+          <div class="plan-title">
+            <span><?= $aServiceContent['chart']['plans'][0]['title']; ?></span> - <sup>$</sup><?= $aServiceContent['chart']['plans'][0]['price']; ?>
+          </div>
+
+          <div class="plan-description">
+            <?= $aServiceContent['chart']['plans'][0]['description']; ?>
+          </div>
+
+          <a href="<?= $aServiceContent['chart']['plans'][0]['cta_url']; ?>" class="button button-alt"><?= $aServiceContent['chart']['plans'][0]['cta']; ?></a>
+        </div>
+
+        <div class="plan-mobile-list-item">
+          <span class="maintenance service-icon"><i></i></span>
+          <div class="plan-title">
+            <span><?= $aServiceContent['chart']['plans'][1]['title']; ?></span> - <sup>$</sup><?= $aServiceContent['chart']['plans'][1]['price']; ?>
+          </div>
+
+          <div class="plan-description">
+            <?= $aServiceContent['chart']['plans'][1]['description']; ?>
+          </div>
+
+          <a href="<?= $aServiceContent['chart']['plans'][1]['cta_url']; ?>" class="button button-alt"><?= $aServiceContent['chart']['plans'][0]['cta']; ?></a>
         </div>
       </div>
 

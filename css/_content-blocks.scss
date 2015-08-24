@@ -833,6 +833,10 @@
 .plan-breakdown {
   margin: 140px 0 40px;
 
+  @media #{$medium-down} {
+    display: none;
+  }
+
   [class^=plan-breakdown-col] {
     position: relative;
     border: 4px solid $darker-light-grey;
@@ -934,6 +938,131 @@
     font-weight: 700;
     font-size: 24px;
     color: $green;
+  }
+}
+
+.plan-breakdown-mobile {
+  display: none;
+
+  @media #{$medium-down} {
+    display: block;
+  }
+
+  .plan-section-description {
+    margin-bottom: 20px;
+  }
+
+  .service-icon {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    @include translate(-50%, 0);
+    font-size: 60px;
+  }
+
+  .plan-mobile-list-item {
+    position: relative;
+    padding-top: 86px;
+    padding-bottom: 40px;
+    text-align: center;
+  }
+
+  .plan-title {
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-family: $heading-font;
+    font-weight: 700;
+    font-size: 24px;
+    color: $black;
+
+    span {
+      color: $teal;
+    }
+  }
+
+  .plan-description {
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-style: italic;
+  }
+
+  .plan-checked:after, .plan-unchecked:after {
+    @extend .icon;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    content: '';
+    @include translate(-50%, -50%);
+    font-size: 40px;
+  }
+
+  .plan-checked:after {
+    content: $icon-plus;
+    color: $green;
+  }
+
+  .plan-unchecked:after {
+    content: $icon-plus;
+    @include transform(translate(-50%, -50%) rotate(45deg));
+    color: $red;
+  }
+
+  .plan-text {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 24px;
+    color: $green;
+  }
+}
+
+.plan-simple-breakdown {
+  margin-bottom: 40px;
+
+  .plan-breakdown-title {
+    text-transform: uppercase;
+    font-family: $heading-font;
+    font-weight: 700;
+    font-size: 22px;
+    color: $black;
+  }
+
+  .plan-breakdown-rows {
+    border-top: 4px solid $darker-light-grey;
+  }
+
+  .plan-breakdown-row {
+    @include clearfix;
+    border-bottom: 4px solid $darker-light-grey;
+  }
+
+  [class^=plan-breakdown-col] {
+    padding: 20px;
+  }
+
+  .plan-breakdown-col1 {
+    @include span(8 of 12);
+    padding-left: 0;
+    border-right: 4px solid $darker-light-grey;
+    text-transform: uppercase;
+    font-family: $heading-font;
+    font-weight: 700;
+    font-size: 18px;
+    color: $teal;
+  }
+
+  .plan-breakdown-col2 {
+    @include span(4 of 12);
+    position: relative;
+    padding-right: 0;
+    text-align: center;
+
+    .plan-text {
+      font-size: 16px;
+    }
+
+    .plan-checked:after, .plan-unchecked:after {
+      font-size: 26px;
+    }
   }
 }
 
