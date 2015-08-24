@@ -672,6 +672,9 @@ body.menu-open {
 .main-nav {
   background: #1c1c1e;
   border-bottom: 4px solid #b2b2b2; }
+  @media only screen and (max-width: 840px) {
+    .main-nav {
+      display: none; } }
   .main-nav ul {
     margin: 0;
     padding: 0;

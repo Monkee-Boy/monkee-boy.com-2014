@@ -129,12 +129,19 @@ body {
 
 .sticky-nav-wrapper {
   height: 7.8em;
-  @media #{$medium-down} { display: none; }
+
+  @media #{$medium-down} {
+    display: none;
+  }
 }
 
 .main-nav {
   background: $dark-black;
   border-bottom: 4px solid $grey;
+
+  @media #{$medium-down} {
+    display: none;
+  }
 
   ul {
     margin: 0;
