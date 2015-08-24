@@ -15,8 +15,45 @@
 
 <div class="row">
   <div class="full">
-    <div class="services">
-      <!-- TODO: Services -->
+    <object type="image/svg+xml" data="/images/service-subnav-svg.svg" id="services-menu-svg"></object>
+    <script>
+    var current_service_menu = '<?= $aContent['tag'] ?>';
+    </script>
+    <div class="services-menu-mobile">
+      <div class="service-menu-icons">
+        <ul class="services-row-1">
+          <li><a href="#"><span class="strategy service-icon"><i></i></span></a></li>
+          <li><a href="#"><span class="design service-icon"><i></i></span></a></li>
+          <li><a href="#"><span class="development service-icon"><i></i></span></a></li>
+          <li><a href="#"><span class="marketing service-icon"><i></i></span></a></li>
+        </ul>
+        <ul class="services-row-2">
+          <li><a href="#"><span class="strategy service-icon"><i></i></span></a></li>
+          <li><a href="#"><span class="design service-icon active"><i></i></span></a></li>
+          <li><a href="#"><span class="development service-icon"><i></i></span></a></li>
+          <li><a href="#"><span class="marketing service-icon"><i></i></span></a></li>
+        </ul>
+      </div>
+      <div class="select-box select-box-service">
+        <select name="select-service">
+          <option value="">View All Services</option>
+
+          <option value="">Strategy</option>
+          <option value="">Lorem Ipsum</option>
+          <option value="">Delor sit amet</option>
+        </select>
+      </div>
+      {footer}
+      <script>
+      $(function(){
+        $('select[name=select-service]').change(function(){
+          if($(this).val() != "") {
+            location.href = $(this).val();
+          }
+        });
+      });
+      </script>
+      {/footer}
     </div>
   </div>
 </div>
