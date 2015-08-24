@@ -47,10 +47,22 @@
   <div class="row-content">
     <h3>Work with our team</h3>
     <p>Putant saperet mediocritatem id cum. Graeco contentiones ei has, sed ex quod inciderint. Vim graece vocibus id, in minimum electram pri, mandamus torquatos voluptatum te ius. Velit laboramus eos ea, oporteat postulant et eos, ei gubergren posidonium vis.</p>
+
     <h3>What it means to be our client</h3>
     <p>Interesset definitiones est ei, eu dolor congue evertitur vim. Dolorem liberavisse sed ea. Ea mei wisi partiendo vulputate, ius rebum regione officiis in. Cu duo facete scaevola antiopam. Elit brute ea nec, quodsi nostrum ullamcorper ad est.</p>
-    <!-- TODO: Logos go here -->
+
+    <ul class="featured-clients styleless" data-clients-style="services">
+      <li>
+        <a href="/client-list/" title="Dell Children's"><img src="/uploads/clients/svg_20.svg" alt="Dell Children's"></a>
+        <span>Client since 2006</span>
+      </li>
+      <li>
+        <a href="/client-list/" title="ABC Home and Commercial Services"><img src="/uploads/clients/svg_4.svg" alt="ABC Home and Commercial Services"></a>
+        <span>Client since 1081</span>
+      </li>
+    </ul>
   </div>
+
   <div class="row-sidebar">
     <div class="box-of-doom meet-the-team">
       <div class="meet-the-team-content">
@@ -67,6 +79,7 @@
   <div class="full">
     <h3>Austin Chamber Case Study</h3>
   </div>
+
   <div class="case-studies">
     <div class="case-study">
       <h4>Challenge</h4>
@@ -77,8 +90,10 @@
         </ul>
       </div>
     </div>
+
     <div class="case-study">
       <h4>Solutions</h4>
+
       <div class="study-content">
         <ul class="list-style-alt">
           <li>Putant saperet mediocritatem id cum. Graeco contentiones ei has, sed ex quod inciderint.</li>
@@ -86,13 +101,16 @@
         </ul>
       </div>
     </div>
+
     <div class="case-study">
       <h4>Results</h4>
+
       <div class="study-content">
         <div class="row-flush">
           <div class="half">
             <div class="study-result"><span>90%</span></div>
           </div>
+
           <div class="half">
             <p>Putant saperet mediocritatem id cum. Graeco contentiones ei has, sed ex quod inciderint.</p>
           </div>
@@ -100,6 +118,7 @@
       </div>
     </div>
   </div>
+
   <div class="full center">
     <a href="#">View Full Case Study</a>
   </div>
@@ -109,9 +128,11 @@
   <div class="full">
     <div class="plans">
       <h2>Plan Comparison</h2>
+
       <div class="plan-section-description single-column">
         <p>Putant saperet mediocritatem id cum. Graeco contentiones ei has, sed ex quod inciderint. Vim graece vocibus id, in minimum electram pri, mandamus torquatos voluptatum te ius. Velit laboramus eos ea, oporteat postulant et eos, ei gubergren posidonium vis.</p>
       </div>
+
       <div class="plan-breakdown">
         <div class="row-flush top-row equal-height">
           <div class="plan-breakdown-col1">
@@ -231,10 +252,12 @@
         <div class="plans-single">
           <div class="plan-single-details">
             <span class="development service-icon"><i></i><span class="icon-seption-star"></span></span>
+
             <h4>Social Media Basic</h4>
             <p>Putant saperet mediocritatem id cum. Graeco contentiones ei has, sed ex quod inciderint.</p>
             <p>Great for: <strong>Startups</strong></p>
           </div>
+
           <div class="plan-single-request">
             <a href="#" class="button">Request Service</a>
           </div>
