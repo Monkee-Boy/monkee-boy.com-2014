@@ -23,21 +23,15 @@
 
 <div class="row row-with-sidebar rtl">
   <div class="row-content">
-    <p class="intro">Lorem ipsum dolor sit amet, te pri vocent blandit. Id placerat incorrupte dissentiet sit, at his natum aperiam diceret, has omnes principes ei. Cu vis viderer alterum imperdiet. Te inermis luptatum neglegentur mel, et per errem sadipscing. Vim ut ocurreret urbanitas. Vel rebum salutandi eu, mea affert scaevola percipitur ad.</p>
-    <p>Putant saperet mediocritatem id cum. Graeco contentiones ei has, sed ex quod inciderint. Vim graece vocibus id, in minimum electram pri, mandamus torquatos voluptatum te ius. Velit laboramus eos ea, oporteat postulant et eos, ei gubergren posidonium vis.</p>
-    <ul class="list-style-alt">
-      <li>Putant saperet</li>
-      <li>Graeco contentiones</li>
-    </ul>
-    <p>Interesset definitiones est ei, eu dolor congue evertitur vim. Dolorem liberavisse sed ea. Ea mei wisi partiendo vulputate, ius rebum regione officiis in. Cu duo facete scaevola antiopam. Elit brute ea nec, quodsi nostrum ullamcorper ad est.</p>
+    <?= $aServiceContent['about']; ?>
   </div>
+
   <div class="row-sidebar">
     <div class="box-of-doom">
-      <h4>Lorem ipsum delor sit amet</h4>
+      <h4><?= $aServiceContent['benefits_title']; ?></h4>
+
       <ul class="list-style-alt">
-        <li>Putant saperet mediocritatem id cum. Graeco contentiones ei has, sed ex quod inciderint.</li>
-        <li>Vim graece vocibus id, in minimum electram pri, mandamus torquatos voluptatum te ius.</li>
-        <li>Velit laboramus eos ea, oporteat postulant et eos, ei gubergren posidonium vis.</li>
+        <?= $aServiceContent['benefits']; ?>
       </ul>
     </div>
   </div>
@@ -45,11 +39,8 @@
 
 <div class="row row-with-sidebar">
   <div class="row-content">
-    <h3>Work with our team</h3>
-    <p>Putant saperet mediocritatem id cum. Graeco contentiones ei has, sed ex quod inciderint. Vim graece vocibus id, in minimum electram pri, mandamus torquatos voluptatum te ius. Velit laboramus eos ea, oporteat postulant et eos, ei gubergren posidonium vis.</p>
-
     <h3>What it means to be our client</h3>
-    <p>Interesset definitiones est ei, eu dolor congue evertitur vim. Dolorem liberavisse sed ea. Ea mei wisi partiendo vulputate, ius rebum regione officiis in. Cu duo facete scaevola antiopam. Elit brute ea nec, quodsi nostrum ullamcorper ad est.</p>
+    <?= $aServiceContent['being_a_client']; ?>
 
     <ul class="featured-clients styleless" data-clients-style="services">
       <li>
@@ -67,9 +58,9 @@
     <div class="box-of-doom meet-the-team">
       <div class="meet-the-team-content">
         <h4>Working with our team</h4>
-        <p>Putant saperet mediocritatem id cum. Graeco contentiones ei has, sed ex quod inciderint. Vim graece vocibus id, in minimum electram pri, mandamus torquatos voluptatum te ius.</p>
-        <p>Interesset definitiones est ei, eu dolor congue evertitur vim. Dolorem liberavisse sed ea. Ea mei wisi partiendo vulputate, ius rebum regione officiis in. Cu duo facete scaevola antiopam.</p>
-        <a href="#" class="button">Meet the team</a>
+        <?= $aServiceContent['our_team']; ?>
+
+        <a href="/who/the-troop/" class="button">Meet The Troop</a>
       </div>
     </div>
   </div>
@@ -127,10 +118,10 @@
 <div class="row">
   <div class="full">
     <div class="plans">
-      <h2>Plan Comparison</h2>
+      <h2><?= $aServiceContent['chart']['title']; ?></h2>
 
       <div class="plan-section-description single-column">
-        <p>Putant saperet mediocritatem id cum. Graeco contentiones ei has, sed ex quod inciderint. Vim graece vocibus id, in minimum electram pri, mandamus torquatos voluptatum te ius. Velit laboramus eos ea, oporteat postulant et eos, ei gubergren posidonium vis.</p>
+        <p><?= $aServiceContent['chart']['intro']; ?></p>
       </div>
 
       <div class="plan-breakdown">
@@ -138,81 +129,69 @@
           <div class="plan-breakdown-col1">
             <span>Plan Includes</span>
           </div>
+
           <div class="plan-breakdown-col2">
-            <span class="development service-icon"><i></i></span>
+            <span class="maintenance service-icon"><i></i></span>
             <div class="plan-title">
-              <span>Base</span> - <sup>$</sup>XXX
+              <span><?= $aServiceContent['chart']['plans'][0]['title']; ?></span> - <sup>$</sup><?= $aServiceContent['chart']['plans'][0]['price']; ?>
             </div>
+
             <div class="plan-description">
-              Putant saperet mediocritatem id cum. Graeco contentiones ei has, sed ex quod inciderint.
+              <?= $aServiceContent['chart']['plans'][0]['description']; ?>
             </div>
           </div>
+
           <div class="plan-breakdown-col3">
-            <span class="development service-icon"><i></i><span class="icon-seption-plus"></span></span>
+            <span class="maintenance service-icon"><i></i><span class="icon-seption-plus"></span></span>
             <div class="plan-title">
-              <span>Base</span> - <sup>$</sup>XXX
+              <span><?= $aServiceContent['chart']['plans'][1]['title']; ?></span> - <sup>$</sup><?= $aServiceContent['chart']['plans'][1]['price']; ?>
             </div>
+
             <div class="plan-description">
-              Putant saperet mediocritatem id cum. Graeco contentiones ei has, sed ex quod inciderint.
+              <?= $aServiceContent['chart']['plans'][1]['description']; ?>
             </div>
           </div>
         </div>
-        <div class="row-flush equal-height">
-          <div class="plan-breakdown-col1">
-            Monthly Borken Link Checks
+
+        <?php foreach($aServiceContent['chart']['plan_breakdown'] as $k => $plan_breakdown) { ?>
+          <div class="row-flush equal-height">
+            <div class="plan-breakdown-col1">
+              <?= $plan_breakdown['name']; ?>
+            </div>
+
+            <div class="plan-breakdown-col2">
+              <?php if($plan_breakdown['type'] === 'boolean') { ?>
+                <div class="plan-<?php if($aServiceContent['chart']['plans'][0]['features'][$k]) { echo 'checked'; } else { echo 'unchecked'; } ?>">&nbsp;</div>
+              <?php } else { ?>
+                <div class="plan-text"><?= $aServiceContent['chart']['plans'][0]['features'][$k]; ?></div>
+              <?php } ?>
+            </div>
+
+            <div class="plan-breakdown-col3">
+              <?php if($plan_breakdown['type'] === 'boolean') { ?>
+                <div class="plan-<?php if($aServiceContent['chart']['plans'][1]['features'][$k]) { echo 'checked'; } else { echo 'unchecked'; } ?>">&nbsp;</div>
+              <?php } else { ?>
+                <div class="plan-text"><?= $aServiceContent['chart']['plans'][1]['features'][$k]; ?></div>
+              <?php } ?>
+            </div>
           </div>
-          <div class="plan-breakdown-col2">
-            <div class="plan-checked">&nbsp;</div>
-          </div>
-          <div class="plan-breakdown-col3">
-            <div class="plan-checked">&nbsp;</div>
-          </div>
-        </div>
-        <div class="row-flush equal-height">
-          <div class="plan-breakdown-col1">
-            Monthly Site Maintenance
-          </div>
-          <div class="plan-breakdown-col2">
-            <div class="plan-text">2 Hrs</div>
-          </div>
-          <div class="plan-breakdown-col3">
-            <div class="plan-text">5 Hrs</div>
-          </div>
-        </div>
-        <div class="row-flush equal-height">
-          <div class="plan-breakdown-col1">
-            Monthly Form Tests
-          </div>
-          <div class="plan-breakdown-col2">
-            <div class="plan-unchecked">&nbsp;</div>
-          </div>
-          <div class="plan-breakdown-col3">
-            <div class="plan-checked">&nbsp;</div>
-          </div>
-        </div>
-        <div class="row-flush equal-height">
-          <div class="plan-breakdown-col1">
-            24/7 Monitoring
-          </div>
-          <div class="plan-breakdown-col2">
-            <div class="plan-unchecked">&nbsp;</div>
-          </div>
-          <div class="plan-breakdown-col3">
-            <div class="plan-checked">&nbsp;</div>
-          </div>
-        </div>
+        <?php } ?>
+
         <div class="row-flush last-row equal-height">
           <div class="plan-breakdown-col1">
             &nbsp;
           </div>
+
           <div class="plan-breakdown-col2">
-            <a href="#" class="button">Learn More</a>
+            <a href="<?= $aServiceContent['chart']['plans'][0]['cta_url']; ?>" class="button"><?= $aServiceContent['chart']['plans'][0]['cta']; ?></a>
           </div>
+
           <div class="plan-breakdown-col3">
-            <a href="#" class="button">Learn More</a>
+            <a href="<?= $aServiceContent['chart']['plans'][1]['cta_url']; ?>" class="button"><?= $aServiceContent['chart']['plans'][0]['cta']; ?></a>
           </div>
         </div>
       </div>
+
       <div class="full center">
         <a href="#">Download a PDF of these comparisons</a>
       </div>

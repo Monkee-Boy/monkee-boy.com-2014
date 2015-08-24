@@ -127,6 +127,11 @@ class content extends appController
 			$aContent = $this->model->getPage(null, $sPage);
 			$this->tplAssign("aContent", $aContent);
 
+			if($aContent["template"] === 'services.php') {
+				$aServiceContent = $this->model->getServiceContent($aContent['tag']);
+				$this->tplAssign("aServiceContent", $aServiceContent);
+			}
+
 			if($this->tplExists("templates/".$sPage.".php"))
 				$this->tplDisplay("templates/".$sPage.".php");
 			else {
