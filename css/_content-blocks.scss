@@ -726,6 +726,21 @@
       position: relative;
       z-index: 2;
     }
+
+    &.full-width {
+      background-image: url(../images/home-create.png);
+      padding-left: 70px;
+      padding-right: 70px;
+      margin: 0 15px;
+
+      @media screen and (max-width: 1200px) {
+        margin: 0;
+      }
+
+      h3 {
+        color: #fff;
+      }
+    }
   }
 }
 
@@ -1089,6 +1104,119 @@
 
     li:before {
       background: rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+
+.plan-features {
+  @include span(12 of 12);
+
+  li {
+    @include span(3 of 12);
+    margin-top: 0;
+    margin-bottom: 25px;
+
+    @media #{$medium-down} {
+      @include span(4 of 12);
+    }
+
+    @media #{$small-only} {
+      @include span(6 of 12);
+    }
+  }
+}
+
+.team-list {
+  li {
+    display: inline-block;
+    padding: 5px 15px;
+    list-style: none;
+    text-transform: uppercase;
+    color: $green;
+    font-weight: 700;
+    font-size: em-calc(20px);
+  }
+}
+
+.plan-row {
+  border-bottom: 4px solid $darker-light-grey;
+  padding: 40px 0;
+
+  &:first-child {
+    padding-top: 0;
+    text-align: center;
+    font-size: em-calc(60px);
+    color: $black;
+
+    span {
+      font-weight: 700;
+    }
+
+    .cents {
+      position: relative;
+
+      &:after {
+        position: absolute;
+        right: 2px;
+        bottom: 4px;
+        left: 2px;
+        content: '';
+        height: 2px;
+        background: $black;
+      }
+    }
+  }
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .plan-row-left {
+    @include span(9 of 12);
+    padding-left: 0;
+
+    @media #{$medium-down} {
+      width: 100%;
+      padding: 0;
+    }
+  }
+
+  .plan-row-right {
+    @include span(3 of 12);
+    padding-right: 0;
+    text-align: right;
+
+    @media #{$medium-down} {
+      width: 100%;
+      padding: 0;
+      text-align: left;
+    }
+  }
+}
+
+.plan-cta {
+  @include span(12 of 12 split);
+  padding: 40px;
+  background: $teal;
+  color: #fff;
+
+  h2 {
+    text-transform: none;
+    color: #fff;
+
+    span {
+      font-weight: 700;
+    }
+  }
+
+  a {
+    color: #fff;
+    text-decoration: underline;
+
+    &:hover {
+      color: #fff;
+      text-decoration: underline;
     }
   }
 }

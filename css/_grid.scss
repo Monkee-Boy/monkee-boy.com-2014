@@ -11,6 +11,12 @@ $susy: (
 .row {
   margin-bottom: $block-margin;
   @include container();
+
+  @media screen and (max-width: 1200px) {
+    &.flush-later {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .row-flush {
@@ -39,6 +45,12 @@ $susy: (
 
     a {
       text-decoration: underline;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    &.no-gutter-later {
+      padding: 0;
     }
   }
 }
