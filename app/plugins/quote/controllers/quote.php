@@ -133,35 +133,44 @@ class quote extends appController {
 
       $contact = PodioContact::create('3372170', $attributes = array(
         'name' => htmlentities($first_name." ".$last_name),
-        'organization' => htmlentities($_POST['org']),
+        'organization' => (!empty($_POST['org']))?$_POST['org']:'Not provided.',
         'phone' => array(htmlentities($phone)),
         'mail' => array(htmlentities($email)),
-        'url' => array(htmlentities($_POST['website']))
+        'url' => array((!empty($_POST['website']))?$_POST['website']:'Not provided.')
       ));
 
-      $file = PodioFile::upload($this->_settings->rootPublic.'uploads/quote/'.$attachment, $attachment);
+      $file_ids = array();
+      if(!empty($attachments)) {
+        foreach($attachments as $name=>$attachment) {
+          $file = PodioFile::upload($this->_settings->rootPublic.'uploads/quote/'.$attachment, $attachment);
+          $file_ids[] = $file->id;
+        }
+      }
 
-      PodioItem::create(
+      $item = PodioItem::create(
         $this->getSetting('podio_app_id'),
         array(
           'fields' => array(
-            'what-is-the-main-service-that-you-need' => $_POST['main-service'],
-            'which-web-maintenance-package-is-right-for-you-2' => $_POST['main-serviceoption'],
-            'do-you-have-a-request-for-proposal-rfp-2' => $_POST['project-desc'],
-            'have-a-project-deadline-2' => $_POST['deadline_date'],
-            'desired-project-date-2' => $_POST['deadline_date'],
-            'have-a-project-budget-2' => htmlentities($_POST['budget']),
-            'notes' => htmlentities($_POST['additional-services']),
-            'anything-else-we-should-know' => htmlentities($_POST['additional-info']),
+            'what-is-the-main-service-that-you-need' => (!empty($_POST['main-service']))?$_POST['main-service']:'Not provided.',
+            'which-web-maintenance-package-is-right-for-you-2' => (!empty($_POST['main-serviceoption']))?$_POST['main-serviceoption']:'Not provided.',
+            'do-you-have-a-request-for-proposal-rfp-2' => (!empty($_POST['project-desc']))?$_POST['project-desc']:'Not provided.',
+            'have-a-project-deadline-2' => (!empty($_POST['deadline_date']))?$_POST['deadline_date']:'Not provided.',
+            'desired-project-date-2' => (!empty($_POST['deadline_date']))?$_POST['deadline_date']:'Not provided.',
+            'have-a-project-budget-2' => (!empty($_POST['budget']))?$_POST['budget']:'Not provided.',
+            'notes' => (!empty($_POST['additional-services']))?$_POST['additional-services']:'Not provided.',
+            'anything-else-we-should-know' => (!empty($_POST['additional-info']))?$_POST['additional-info']:'Not provided.',
             'contacts-at-company' => $contact
-          ),
-          'file_ids' => array($file->id)
+          )
         )
       );
+
+      if(!empty($file_ids)) {
+        PodioItem::update($item->id, array('file_ids' => $file_ids));
+      }
     }
     catch (PodioError $e) {
       // Something went wrong. Examine $e->body['error_description'] for a description of the error.
-      // echo '<pre>'; print_r($e); echo '</pre>';
+      //echo '<pre>'; print_r($e); echo '</pre>'; die();
     }
 
     $_SESSION["quote_form"] = null;
