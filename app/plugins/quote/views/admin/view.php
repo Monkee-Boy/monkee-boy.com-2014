@@ -70,7 +70,38 @@
       </div>
       <?php endif; ?>
 
-      <?php if(!empty($aQuote['additional-info'])): ?>
+      <?php if(!empty($aQuote['main_service'])): ?>
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <span class="accordion-toggle">Services</span>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-inner">
+            <div class="controls">
+              <strong>Primary Service</strong>: <?= $aQuote['main_service']; ?><br />
+              <strong>Service Option</strong>: <?= $aQuote['main_serviceoption']; ?>
+            </div>
+          </div>
+        </div>
+      </div>
+      <?php endif; ?>
+
+      <?php if(!empty($aQuote['additional_services'])): ?>
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <span class="accordion-toggle">Additional Services</span>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-inner">
+            <div class="controls">
+              <?= $aQuote['additional_services']; ?>
+            </div>
+          </div>
+        </div>
+      </div>
+      <?php endif; ?>
+
+      <?php if(!empty($aQuote['additional_info'])): ?>
       <div class="accordion-group">
         <div class="accordion-heading">
           <span class="accordion-toggle">Additional Info</span>
@@ -78,7 +109,7 @@
         <div class="accordion-body">
           <div class="accordion-inner">
             <div class="controls">
-              <?= $aQuote['additional-info']; ?>
+              <?= $aQuote['additional_info']; ?>
             </div>
           </div>
         </div>
