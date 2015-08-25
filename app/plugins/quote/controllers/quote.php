@@ -87,7 +87,7 @@ class quote extends appController {
       )
     );
 
-    $sTo = "james@monkee-boy.com"; // quotes@monkee-boy.com
+    $sTo = "quotes@monkee-boy.com";
     $sFrom = "noreply@monkee-boy.com";
     $sSubject = "Request a Quote: ".$_POST['org'];
 
@@ -125,8 +125,7 @@ class quote extends appController {
     mail($sTo, $sSubject, $sBody, $sHeaders);
 
     $_SESSION["quote_form"] = null;
-    echo '<pre>'; print_r($_POST); die();
-    //$this->forward($this->model->ty_content['url']);
+    $this->forward($this->model->ty_content['url']);
   }
   function upload() {
     $accepted_extensions = array('pdf', 'doc', 'docx');
