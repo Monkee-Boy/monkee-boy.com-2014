@@ -1577,6 +1577,8 @@ blockquote {
     border-left-color: #1a7a6c; }
   .webdesigndevelopment blockquote {
     border-left-color: #1a7a6c; }
+  .unsure blockquote {
+    border-left-color: #1a7a6c; }
 
 hr {
   border: none;
@@ -2214,6 +2216,10 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
     color: #1a7a6c; }
   .service-icon.webdesigndevelopment i:before {
     content: ""; }
+  .service-icon.unsure:after {
+    color: #1a7a6c; }
+  .service-icon.unsure i:before {
+    content: ""; }
 
 .service-icons {
   position: relative;
@@ -2354,6 +2360,8 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
 .service-section.socialmedia .title {
   color: #1a7a6c; }
 .service-section.webdesigndevelopment .title {
+  color: #1a7a6c; }
+.service-section.unsure .title {
   color: #1a7a6c; }
 @media only screen and (max-width: 840px) {
   .service-section .service-icon, .service-section .title {

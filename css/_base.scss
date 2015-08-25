@@ -123,8 +123,9 @@ $icon-seo: "\e63b";
 $icon-socialmedia: "\e63c";
 $icon-webdesigndevelopment: "\e63d";
 $icon-checked: "\e63e";
+$icon-question: "\e63f";
 
 // services
-$services: "strategy" "design" "development" "marketing" "maintenance" "growth" "analytics" "contentmarketing" "contentstrategy" "ppc" "seo" "socialmedia" "webdesigndevelopment";
-$service-colors: $green $dark-green $teal $yellow $dark-teal $dark-yellow $dark-teal $dark-teal $dark-teal $dark-teal $dark-teal $dark-teal $dark-teal;
-$service-icons: $icon-strategy $icon-design $icon-development $icon-marketing $icon-maintenance $icon-growth $icon-analytics $icon-contentmarketing $icon-contentstrategy $icon-ppc $icon-seo $icon-socialmedia $icon-webdesigndevelopment;
+$services: "strategy" "design" "development" "marketing" "maintenance" "growth" "analytics" "contentmarketing" "contentstrategy" "ppc" "seo" "socialmedia" "webdesigndevelopment" "unsure";
+$service-colors: $green $dark-green $teal $yellow $dark-teal $dark-yellow $dark-teal $dark-teal $dark-teal $dark-teal $dark-teal $dark-teal $dark-teal $dark-teal;
+$service-icons: $icon-strategy $icon-design $icon-development $icon-marketing $icon-maintenance $icon-growth $icon-analytics $icon-contentmarketing $icon-contentstrategy $icon-ppc $icon-seo $icon-socialmedia $icon-webdesigndevelopment $icon-question;
