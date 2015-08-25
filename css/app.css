@@ -2135,7 +2135,7 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
   .service-icon.maintenance:after {
     color: #1a7a6c; }
   .service-icon.maintenance i:before {
-    content: ""; }
+    content: ""; }
   .service-icon.growth:after {
     color: #d8ae2a; }
   .service-icon.growth i:before {
@@ -2580,7 +2580,7 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
     transform: translate(-50%, -50%);
     font-size: 40px; }
   .plan-breakdown .plan-checked:after {
-    content: "";
+    content: "";
     color: #acca41; }
   .plan-breakdown .plan-unchecked:after {
     content: "";
