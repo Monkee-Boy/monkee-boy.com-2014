@@ -198,7 +198,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
             <li><a href="#">Some Option Here</a></li>
           </ul>
         </div>
-        <input type="hidden" name="main-service" id="main-service" value="">
+        <input type="hidden" name="main-serviceoption" id="main-serviceoption" value="">
       </div>
       <hr>
     </div>

@@ -125,7 +125,8 @@ class quote extends appController {
     mail($sTo, $sSubject, $sBody, $sHeaders);
 
     $_SESSION["quote_form"] = null;
-    $this->forward($this->model->ty_content['url']);
+    echo '<pre>'; print_r($_POST); die();
+    //$this->forward($this->model->ty_content['url']);
   }
   function upload() {
     $accepted_extensions = array('pdf', 'doc', 'docx');
