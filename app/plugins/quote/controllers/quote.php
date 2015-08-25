@@ -87,7 +87,7 @@ class quote extends appController {
       )
     );
 
-    $sTo = "quotes@monkee-boy.com";
+    $sTo = "james@monkee-boy.com"; // quotes@monkee-boy.com
     $sFrom = "noreply@monkee-boy.com";
     $sSubject = "Request a Quote: ".$_POST['org'];
 
@@ -123,6 +123,46 @@ class quote extends appController {
       ."Reply-To: ".$email;
 
     mail($sTo, $sSubject, $sBody, $sHeaders);
+
+    require_once($this->settings->root.'helpers/Podio/PodioAPI.php');
+
+    Podio::setup($this->getSetting('podio_client_id'), $this->getSetting('podio_client_token'));
+
+    try {
+      Podio::authenticate_with_app($this->getSetting('podio_app_id'), $this->getSetting('podio_app_token'));
+
+      $contact = PodioContact::create('3372170', $attributes = array(
+        'name' => htmlentities($first_name." ".$last_name),
+        'organization' => htmlentities($_POST['org']),
+        'phone' => array(htmlentities($phone)),
+        'mail' => array(htmlentities($email)),
+        'url' => array(htmlentities($_POST['website']))
+      ));
+
+      $file = PodioFile::upload($this->_settings->rootPublic.'uploads/quote/'.$attachment, $attachment);
+
+      PodioItem::create(
+        $this->getSetting('podio_app_id'),
+        array(
+          'fields' => array(
+            'what-is-the-main-service-that-you-need' => $_POST['main-service'],
+            'which-web-maintenance-package-is-right-for-you-2' => $_POST['main-serviceoption'],
+            'do-you-have-a-request-for-proposal-rfp-2' => $_POST['project-desc'],
+            'have-a-project-deadline-2' => $_POST['deadline_date'],
+            'desired-project-date-2' => $_POST['deadline_date'],
+            'have-a-project-budget-2' => htmlentities($_POST['budget']),
+            'notes' => htmlentities($_POST['additional-services']),
+            'anything-else-we-should-know' => htmlentities($_POST['additional-info']),
+            'contacts-at-company' => $contact
+          ),
+          'file_ids' => array($file->id)
+        )
+      );
+    }
+    catch (PodioError $e) {
+      // Something went wrong. Examine $e->body['error_description'] for a description of the error.
+      // echo '<pre>'; print_r($e); echo '</pre>';
+    }
 
     $_SESSION["quote_form"] = null;
     $this->forward($this->model->ty_content['url']);
