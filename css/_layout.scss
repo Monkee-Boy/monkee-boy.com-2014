@@ -410,6 +410,46 @@ body {
       display: block;
     }
   }
+
+  ul.nav-block.alt {
+    li {
+      position: relative;
+      margin-bottom: 55px;
+      text-align: left;
+    }
+
+    .service-icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-size: 80px;
+      -webkit-filter: grayscale(100%);
+      -moz-filter: grayscale(100%);
+      filter: grayscale(100%);
+    }
+
+    a {
+      padding: 25px 0 0 95px;
+      font-size: 24px;
+      font-family: $heading-font;
+      font-weight: bold;
+      border: 0;
+      @include transition(all .4s ease);
+
+      &:hover, &.current {
+        color: $teal;
+        background: none;
+        text-decoration: none;
+        border: 0;
+
+        .service-icon {
+          -webkit-filter: grayscale(0%);
+          -moz-filter: grayscale(0%);
+          filter: grayscale(0%);
+        }
+      }
+    }
+  }
 }
 
 .select-box-subnav {

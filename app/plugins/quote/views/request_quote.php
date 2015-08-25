@@ -66,8 +66,8 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
 
     <div class="row">
       <div class="left">
-        <label for="main-service">What is the main service that you need?</label>
-        <p>Lorem ipsum.</p>
+        <label for="main-service">What Primary Service Do You Need?</label>
+        <p>Let us know how Monkee-Boy can help you solve the web.</p>
       </div>
 
       <div class="right sub-nav">
@@ -92,14 +92,14 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
       var service = $(this);
       var serviceOption = service.data('service-options');
 
-      console.log('Works?');
-
       $('.form-selectService.current').removeClass('current');
       service.addClass('current');
       $('#main-service').val(service.text()); // Set input value to selected service.
 
       $('.service-option').slideUp(300);
-      $('#'+serviceOption).delay(500).slideDown('slow');
+      if(serviceOption !== '') {
+        $('#'+serviceOption).delay(500).slideDown('slow');
+      }
     });
     </script>
     {/footer}
@@ -107,19 +107,84 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
     <div class="service-option hide" id="website-maintenance">
       <div class="row">
         <div class="left">
-          <label for="service-option">What option?</label>
-          <p>Lorem ipsum.</p>
+          <label for="service-option">Which Option Fits Your Needs?</label>
         </div>
 
         <div class="right sub-nav">
-          <ul class="nav-block">
-            <li><a href="#">Some Option Here</a></li>
+          <ul class="nav-block alt">
+            <li><a href="#" class="form-selectServiceOption" data-service-option="Website Maintenance Basic"><span class="maintenance service-icon"><i></i></span> Website Maintenance Basic</a></li>
+            <li><a href="#" class="form-selectServiceOption" data-service-option="Website Maintenance Plus"><span class="maintenance service-icon"><i></i><span class="icon-seption-plus"></span></span> Website Maintenance Plus</a></li>
           </ul>
         </div>
-        <input type="hidden" name="main-service" id="main-service" value="">
       </div>
       <hr>
     </div>
+
+    <div class="service-option hide" id="social-media">
+      <div class="row">
+        <div class="left">
+          <label for="service-option">Which Option Fits Your Needs?</label>
+        </div>
+
+        <div class="right sub-nav">
+          <ul class="nav-block alt">
+            <li><a href="#" class="form-selectServiceOption" data-service-option="Social Media Foundation"><span class="socialmedia service-icon"><i></i></span> Social Media Foundation</a></li>
+            <li><a href="#" class="form-selectServiceOption" data-service-option="Social Media Consulting"><span class="socialmedia service-icon"><i></i><span class="icon-seption-plus"></span></span> Social Media Consulting</a></li>
+            <li><a href="#" class="form-selectServiceOption" data-service-option="Social Media Complete"><span class="socialmedia service-icon"><i></i><span class="icon-seption-star"></span></span> Social Media Complete</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+    </div>
+
+    <div class="service-option hide" id="seo">
+      <div class="row">
+        <div class="left">
+          <label for="service-option">Which Option Fits Your Needs?</label>
+        </div>
+
+        <div class="right sub-nav">
+          <ul class="nav-block alt">
+            <li><a href="#" class="form-selectServiceOption" data-service-option="SEO Foundation"><span class="seo service-icon"><i></i></span> SEO Foundation</a></li>
+            <li><a href="#" class="form-selectServiceOption" data-service-option="SEO Consulting"><span class="seo service-icon"><i></i><span class="icon-seption-plus"></span></span> SEO Consulting</a></li>
+            <li><a href="#" class="form-selectServiceOption" data-service-option="SEO Complete"><span class="seo service-icon"><i></i><span class="icon-seption-star"></span></span> SEO Complete</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+    </div>
+
+    <div class="service-option hide" id="pay-per-click">
+      <div class="row">
+        <div class="left">
+          <label for="service-option">Which Option Fits Your Needs?</label>
+        </div>
+
+        <div class="right sub-nav">
+          <ul class="nav-block alt">
+            <li><a href="#" class="form-selectServiceOption" data-service-option="PPC Foundation"><span class="ppc service-icon"><i></i></span> PPC Foundation</a></li>
+            <li><a href="#" class="form-selectServiceOption" data-service-option="PPC Advanced"><span class="ppc service-icon"><i></i><span class="icon-seption-plus"></span></span> PPC Advanced</a></li>
+            <li><a href="#" class="form-selectServiceOption" data-service-option="PPC Complete"><span class="ppc service-icon"><i></i><span class="icon-seption-star"></span></span> PPC Complete</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+    </div>
+
+    <input type="hidden" name="main-serviceoption" id="main-serviceoption" value="">
+
+    {footer}
+    <script>
+    $('.form-selectServiceOption').on('click', function(event) {
+      event.preventDefault();
+      var serviceOption = $(this);
+
+      $('.form-selectServiceOption.current').removeClass('current');
+      serviceOption.addClass('current');
+      $('#main-serviceoption').val(serviceOption.data('service-option')); // Set input value to selected service option.
+    });
+    </script>
+    {/footer}
 
     <div class="service-option hide" id="social-media">
       <div class="row">
@@ -211,6 +276,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
     <div class="row">
       <div class="left">
         <label for="additional-services">Need any additional services?</label>
+        <p>Please list any other services that are essential to your success on the web (ex: a website design might also need SEO).</p>
       </div>
 
       <div class="right">
