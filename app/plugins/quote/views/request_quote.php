@@ -186,23 +186,6 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
     </script>
     {/footer}
 
-    <div class="service-option hide" id="social-media">
-      <div class="row">
-        <div class="left">
-          <label for="service-option">What option for social media?</label>
-          <p>Lorem ipsum.</p>
-        </div>
-
-        <div class="right sub-nav">
-          <ul class="nav-block">
-            <li><a href="#">Some Option Here</a></li>
-          </ul>
-        </div>
-        <input type="hidden" name="main-serviceoption" id="main-serviceoption" value="">
-      </div>
-      <hr>
-    </div>
-
     <div class="row">
       <div class="left">
         <h4>Have a project deadline?</h4>
