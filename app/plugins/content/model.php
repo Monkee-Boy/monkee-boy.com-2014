@@ -375,6 +375,45 @@ class content_model extends appModel {
           'button' => 'Learn More',
           'url' => '/how-we-help/seo/seo-complete/'
         )
+      ),
+
+      'payperclick' => array(
+        'about' => '<p class="intro">Anyone can set up a few PPC advertisements in Google Adwords and call it PPC management, but at Monkee-Boy, we use extensive customer, market, and keyword research to create campaign strategies that meet your unique goals -- whether those focus on increasing visits, improving conversions, or maximizing your ad budget.</p><p>Then we keep those campaigns under our magnifying glass and make ongoing adjustments to ensure that you get the most out of your PPC advertising.</p><p>PPC is easy when all you try to do is pile on the clicks. Monkee-Boy focuses on finding the right clicks. High-quality leads that cost less to acquire.</p>',
+        'benefits_title' => 'Smart PPC Advertising Can...',
+        'benefits' => '<li>Generate new leads.</li><li>Lower your cost per new lead.</li><li>Identify new keyword opportunities.</li>',
+        'cta' => array(),
+        'service_features' => array(
+          'title' => '',
+          'features' => '<li>PPC Management</li><li>Display Ads</li><li>Google Adwords Management</li><li>PPC Audit</li><li>Retargeting/Remarketing Campaigns</li><li>Bid Optimization</li><li>Conversion Optimization</li><li>Ongoing Reporting</li>',
+        ),
+        'being_a_client' => '<p>We don\'t really like the word client. It implies a relationship where you, the client, don\'t get to participate. That\'s not how Monkee-Boy works. This won\'t be one of those sit-back-and-enjoy-the-ride experiences. A typical Monkee-Boy project is full of epiphanies, exclamations, and visions as we collaboratively explore how you can solve the web.</p><p>In short, when you decide to work with Monkee-Boy you become our partner. We\'ll work on your project as a team. We may even eat lunch together.</p>',
+        'clients' => array(),
+        'our_team' => '<p>Monkee-Boy hires thinkers and problem solvers who also happen to be excellent designers, developers, marketers and strategists. Like zombies, we pick people for their brains.</p><p>The reason is simple. We just think our clients deserve the best: a team of ridiculously smart, web-savvy people ready to solve your problems.</p>',
+        'case_study' => array(),
+        'chart' => array(),
+        'service_plans' => array(
+          array(
+            'title' => 'PPC Foundation',
+            'icon' => 'ppc',
+            'content' => '<p>Monthly PPC strategy and management for a Google Adwords campaign. 200 keyword limit. Conversion tracking. Bid optimization.</p><p>Great For: <strong>Small Businesses</strong>, <strong>Startups</strong></p>',
+            'button' => 'Learn More',
+            'url' => '/how-we-help/pay-per-click/ppc-foundation/'
+          ),
+          array(
+            'title' => 'PPC Advanced',
+            'icon' => 'ppc',
+            'content' => '<p>PPC strategy and management for Adwords/Bing/Yahoo campaigns with retargeting, display ads, phone call tracking, and standard campaign landing pages.</p><p>Great For: <strong>Small to Mid-Size Businesses</strong>, <strong>Startups</strong>, <strong>Large Companies</strong></p>',
+            'button' => 'Learn More',
+            'url' => '/how-we-help/pay-per-click/ppc-advanced/'
+          )
+        ),
+        'service_plan' => array(
+          'title' => 'PPC Complete',
+          'icon' => 'ppc',
+          'content' => '<p>PPC strategy and management for multiple campaigns on all networks with unique ad group landing pages, CRM and email marketing integration, and ongoing conversion optimization.</p><p>Great For: <strong>Small to Mid-Size Businesses</strong>, <strong>Startups</strong>, <strong>Large Companies</strong></p>',
+          'button' => 'Learn More',
+          'url' => '/how-we-help/pay-per-click/ppc-complete/'
+        )
       )
     );
 
