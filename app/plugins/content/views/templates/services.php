@@ -322,20 +322,24 @@
     <div class="full">
       <div class="plans">
         <h2>Service Plans</h2>
+
         <div class="plans-side-by-side row-pop-flush">
           <div class="plan-side">
-            <span class="development service-icon"><i></i></span>
-            <h4>Social Media Basic</h4>
-            <p>Putant saperet mediocritatem id cum. Graeco contentiones ei has, sed ex quod inciderint.</p>
-            <p>Great for: <strong>Startups</strong></p>
-            <a href="#" class="button">View Plan</a>
+            <span class="<?= $aServiceContent['service_plans'][0]['icon']; ?> service-icon"><i></i></span>
+            <h4><?= $aServiceContent['service_plans'][0]['title']; ?></h4>
+
+            <?= $aServiceContent['service_plans'][0]['content']; ?>
+
+            <a href="<?= $aServiceContent['service_plans'][0]['url']; ?>" class="button"><?= $aServiceContent['service_plans'][0]['button']; ?></a>
           </div>
+
           <div class="plan-side">
-            <span class="development service-icon"><i></i><span class="icon-seption-plus"></span></span>
-            <h4>Social Media Basic</h4>
-            <p>Putant saperet mediocritatem id cum. Graeco contentiones ei has, sed ex quod inciderint.</p>
-            <p>Great for: <strong>Startups</strong></p>
-            <a href="#" class="button">View Plan</a>
+            <span class="<?= $aServiceContent['service_plans'][1]['icon']; ?> service-icon"><i></i><span class="icon-seption-plus"></span></span>
+            <h4><?= $aServiceContent['service_plans'][1]['title']; ?></h4>
+
+            <?= $aServiceContent['service_plans'][1]['content']; ?>
+
+            <a href="<?= $aServiceContent['service_plans'][1]['url']; ?>" class="button"><?= $aServiceContent['service_plans'][1]['button']; ?></a>
           </div>
         </div>
       </div>
@@ -350,15 +354,15 @@
         <div class="row-pop-flush">
           <div class="plans-single">
             <div class="plan-single-details">
-              <span class="development service-icon"><i></i><span class="icon-seption-star"></span></span>
+              <span class="<?= $aServiceContent['service_plan']['icon']; ?> service-icon"><i></i><span class="icon-seption-star"></span></span>
 
-              <h4>Social Media Basic</h4>
-              <p>Putant saperet mediocritatem id cum. Graeco contentiones ei has, sed ex quod inciderint.</p>
-              <p>Great for: <strong>Startups</strong></p>
+              <h4><?= $aServiceContent['service_plan']['title']; ?></h4>
+
+              <?= $aServiceContent['service_plan']['content']; ?>
             </div>
 
             <div class="plan-single-request">
-              <a href="#" class="button">Request Service</a>
+              <a href="<?= $aServiceContent['service_plan']['url']; ?>" class="button"><?= $aServiceContent['service_plan']['button']; ?></a>
             </div>
           </div>
         </div>
@@ -368,7 +372,9 @@
 <?php } ?>
 
 <?php
-$this->tplDisplay("inc_cta.php", array('line1' => $aServiceContent['cta']['content'], 'button' => $aServiceContent['cta']['button']));
+if(!empty($aServiceContent['cta'])) {
+  $this->tplDisplay("inc_cta.php", array('line1' => $aServiceContent['cta']['content'], 'button' => $aServiceContent['cta']['button']));
+}
 ?>
 
 <!-- TODO: Add section thing -->

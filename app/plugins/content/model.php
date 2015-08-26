@@ -327,6 +327,54 @@ class content_model extends appModel {
         'chart' => array(),
         'service_plans' => array(),
         'service_plan' => array()
+      ),
+
+      'seo' => array(
+        'about' => '<p class="intro">We won\'t lie to you: we\'re not the type of company that guarantees a #1 ranking in Google.</p><p>We believe in SEO that improves your ranking and brings higher quality traffic to your site, and we\'d urge you to be skeptical of anyone that says they can do otherwise.</p><p>Our SEO efforts focus on creating a long-term stream of traffic that you can count on well into the future, not tricking Google for a temporary boost.</p><p>Our projects typically involve:</p><ul><li>Research into your business, target audiences, and competitors.</li><li>Identifying technical issues that negatively impact rankings and creating a plan to fix them.</li><li>Strategically optimizing content to attract more qualified visitors to your website.</li></ul><p>Google sets a high standard, but we have the SEO analysts and content experts on our marketing team who understand how to meet them, as well as a variety of service options to meet your needs.</p>',
+        'benefits_title' => 'Real SEO Helps You...',
+        'benefits' => '<li>Optimize your website to provide more relevant information for searchers.</li><li>Direct higher quality traffic to your site.</li><li>Identify high-value, high ROI opportunities to outrank competitors.</li>',
+        'cta' => array(),
+        'service_features' => array(
+          'title' => '',
+          'features' => '<li>Technical Audit</li><li>Competitor Analysis</li><li>SEO Strategy</li><li>Local Search</li><li>Inbound Link Building</li><li>Broken Link Optimization</li><li>SEO Gap Analysis</li><li>Conversion Optimization</li><li>Title Tags</li><li>Meta Descriptions</li><li>Copywriting</li>',
+        ),
+        'being_a_client' => '<p>We don\'t really like the word client. It implies a relationship where you, the client, don\'t get to participate. That\'s not how Monkee-Boy works. This won\'t be one of those sit-back-and-enjoy-the-ride experiences. A typical Monkee-Boy project is full of epiphanies, exclamations, and visions as we collaboratively explore how you can solve the web.</p><p>In short, when you decide to work with Monkee-Boy you become our partner. We\'ll work on your project as a team. We may even eat lunch together.</p>',
+        'clients' => array(),
+        'our_team' => '<p>Monkee-Boy hires thinkers and problem solvers who also happen to be excellent designers, developers, marketers and strategists. Like zombies, we pick people for their brains.</p><p>The reason is simple. We just think our clients deserve the best: a team of ridiculously smart, web-savvy people ready to solve your problems.</p>',
+        'case_study' => array(
+          'title' => 'DoubleDave\'s',
+          'challenge' => '<li>Make it easier for hungry pizza lovers to find a local DoubleDave’s franchise and place an order online.</li><li>Improve the visibility of franchises in local search results. </li>',
+          'solutions' => '<li>Mobile-friendly landing pages for each franchise with proper markup for local search performance.</li><li>Submitted new pages to listing websites to acquire quality inbound links.</li>',
+          'results' => array(
+            'result' => '637%',
+            'description' => '<p>ROI based on an increase in ordering events from 2013 to 2014 and the average price of an order.</p>'
+          ),
+          'url' => ''
+        ),
+        'chart' => array(),
+        'service_plans' => array(
+          array(
+            'title' => 'SEO Foundation',
+            'icon' => 'seo',
+            'content' => '<p>Got a limited SEO budget and don\'t know where to start? Our SEO Foundation service is fast and affordable.</p><p>Great For: <strong>Small to Mid-Size Businesses</strong>, <strong>Startups</strong></p>',
+            'button' => 'Learn More',
+            'url' => '/how-we-help/seo/seo-foundation/'
+          ),
+          array(
+            'title' => 'SEO Consulting',
+            'icon' => 'seo',
+            'content' => '<p>For the business that needs SEO strategy, but has an in-house developer to make changes on the website.</p><p>Great For: <strong>Small to Mid-Size Businesses</strong>, <strong>Startups</strong>, <strong>Large Companies</strong></p>',
+            'button' => 'Learn More',
+            'url' => '/how-we-help/seo/seo-consulting/'
+          )
+        ),
+        'service_plan' => array(
+          'title' => 'SEO Complete',
+          'icon' => 'seo',
+          'content' => '<p>Monkee-Boy can be your SEO team in shining armor. We develop a full strategy for your website and manage the project.</p><p>Great For: <strong>Small to Mid-Size Businesses</strong>, <strong>Startups</strong>, <strong>Large Companies</strong></p>',
+          'button' => 'Learn More',
+          'url' => '/how-we-help/seo/seo-complete/'
+        )
       )
     );
 
