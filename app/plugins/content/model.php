@@ -223,7 +223,7 @@ class content_model extends appModel {
               'price' => '380',
               'icon' => 'maintenance',
               'cta' => 'Sign Up',
-              'cta_url' => '#',
+              'cta_url' => '/contact/request-a-quote/',
               'features' => array(
                 'broken_link_checks' => 1,
                 'quality_assurance' => 1,
@@ -247,7 +247,7 @@ class content_model extends appModel {
               'price' => '780',
               'icon' => 'maintenance',
               'cta' => 'Sign Up',
-              'cta_url' => '#',
+              'cta_url' => '/contact/request-a-quote/',
               'features' => array(
                 'broken_link_checks' => 1,
                 'quality_assurance' => 1,
@@ -268,10 +268,7 @@ class content_model extends appModel {
           )
         ),
         'case_study' => null,
-        'clients' => array(
-          array('name' => 'Dell Children\'s', 'logo' => '/uploads/clients/svg_20.svg', 'since' => '2006', 'url' => '/client-list/'),
-          array('name' => 'Dell Children\'s', 'logo' => '/uploads/clients/svg_20.svg', 'since' => '2006', 'url' => '/client-list/')
-        ),
+        'clients' => array(),
         'cta' => array(
           'content' => 'Ready to Start Working Together?',
           'button' => 'Request a Quote'
