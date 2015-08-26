@@ -474,6 +474,27 @@ class content_model extends appModel {
         'chart' => array(),
         'service_plans' => array(),
         'service_plan' => array()
+      ),
+
+      'analytics' => array(
+        'about' => '<p class="intro">At Monkee-Boy, we believe that knowledge drives good decision making. We like to dig into numbers, test ideas, and analyze data before we make big changes to a website.</p><p>If you\'re the same way, then hopefully you already have a robust analytics plan in place to measure the behavior of visitors to your website.</p><p>If not, we can help by creating a custom measurement framework that tracks how well your website accomplishes key business objectives. The wide range of insightful data we can gather will not only empower you and your team to make strategically sound decisions about your website, but also serve as a data-driven guide for your overall business strategy on the web.</p><p>Every second a visitor spends on your website, every button clicked, every form submitted or shopping cart abandoned tells a story about the effectiveness of your site and points to an opportunity for improvement.</p><p>Properly understanding these stories can mean the difference between first place and second in a competitive market.</p>',
+        'benefits_title' => 'Smart Web Analytics Can...',
+        'benefits' => '<li>Identify business opportunities on the web.</li><li>Measure the effectiveness of marketing.</li><li>Increase conversion rates.</li>',
+        'cta' => array(
+          'content' => 'Ready To Start Working Together?',
+          'button' => 'Request a Quote'
+        ),
+        'service_features' => array(
+          'title' => '',
+          'features' => '<li>Google Webmaster Tools</li><li>Custom Ongoing Reporting</li><li>Landing Page Development</li><li>Custom Rules and Filters</li><li>Custom Segmentation</li><li>Ecommerce Tracking</li><li>AdWords Conversion Tracking</li>',
+        ),
+        'being_a_client' => '<p>We don\'t really like the word client. It implies a relationship where you, the client, don\'t get to participate. That\'s not how Monkee-Boy works. This won\'t be one of those sit-back-and-enjoy-the-ride experiences. A typical Monkee-Boy project is full of epiphanies, exclamations, and visions as we collaboratively explore how you can solve the web.</p><p>In short, when you decide to work with Monkee-Boy you become our partner. We\'ll work on your project as a team. We may even eat lunch together.</p>',
+        'clients' => array(),
+        'our_team' => '<p>Monkee-Boy hires thinkers and problem solvers who also happen to be excellent designers, developers, marketers and strategists. Like zombies, we pick people for their brains.</p><p>The reason is simple. We just think our clients deserve the best: a team of ridiculously smart, web-savvy people ready to solve your problems.</p>',
+        'case_study' => array(),
+        'chart' => array(),
+        'service_plans' => array(),
+        'service_plan' => array()
       )
     );
 
