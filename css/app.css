@@ -1799,10 +1799,11 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
     height: 100%; }
 
 .main-cta {
-  margin: 0 0 -100px;
-  padding: 3.33333em 0;
+  margin: 0 15px -100px;
+  padding: 3.33333em;
   font-family: "effra", sans-serif;
-  background: #23a38f; }
+  background: #23a38f;
+  overflow: hidden; }
   @media only screen and (max-width: 840px) {
     .main-cta {
       margin-bottom: -50px; } }
@@ -1822,10 +1823,11 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
         width: 100%; } }
     .main-cta .cta-inner p {
       margin: 0;
-      font-size: 4.22222em; }
+      font-size: 2.66667em;
+      font-weight: bold; }
       @media only screen and (max-width: 980px) {
         .main-cta .cta-inner p {
-          font-size: 40px; } }
+          font-size: 35px; } }
       @media only screen and (max-width: 580px) {
         .main-cta .cta-inner p {
           font-size: 28px; } }
@@ -2554,7 +2556,7 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
       position: relative;
       text-align: center;
       font-family: "effra", sans-serif;
-      font-size: 70px;
+      font-size: 56px;
       font-weight: 700;
       color: #acca41; }
       .case-studies .case-study .study-result:before {

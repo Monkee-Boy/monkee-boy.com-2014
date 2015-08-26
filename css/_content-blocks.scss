@@ -22,10 +22,11 @@
 }
 
 .main-cta {
-  margin: 0 0 -100px;
-  padding: em-calc(60px) 0;
+  margin: 0 15px -100px;
+  padding: em-calc(60px);
   font-family: $heading-font;
   background: $teal;
+  overflow: hidden;
 
   @media #{$medium-down} {
     margin-bottom: -50px;
@@ -45,10 +46,11 @@
 
     p {
       margin: 0;
-      font-size: em-calc(76px);
+      font-size: em-calc(48px);
+      font-weight: bold;
 
       @media #{$large-down} {
-        font-size: 40px;
+        font-size: 35px;
       }
 
       @media #{$small-only} {
@@ -776,7 +778,7 @@
       position: relative;
       text-align: center;
       font-family: $heading-font;
-      font-size: 70px;
+      font-size: 56px;
       font-weight: 700;
       color: $green;
 

@@ -150,6 +150,45 @@ class content_model extends appModel {
   public function getServiceContent($tag) {
     $tag = str_replace('-', "", $tag);
 
+    /*
+    'tag' => array(
+      'about' => '',
+      'benefits_title' => '',
+      'benefits' => '',
+      'cta' => array(
+        'content' => '',
+        'button' => ''
+      ),
+      'service_features' => array(
+        'title' => '',
+        'features' => '<li></li>',
+      ),
+      'being_a_client' => '',
+      'clients' => array(
+        array(
+          'name' => '',
+          'logo' => '',
+          'since' => '',
+          'url' => ''
+        )
+      ),
+      'our_team' => '',
+      'case_study' => array(
+        'title' => '',
+        'challenge' => '<li></li>',
+        'solutions' => '<li></li>',
+        'results' => array(
+          'result' => '',
+          'description' => ''
+        ),
+        'url' => ''
+      ),
+      'chart' => array(),
+      'service_plans' => array(),
+      'service_plan' => array()
+    )
+    */
+
     $content = array(
       'websitemaintenance' => array(
         'about' => '<p class="intro">Many websites become less effective shortly following their launch date due to lackluster maintenance efforts.</p><p>Why does this happen? Well, it\'s pretty simple. The web changes rapidly and without proper maintenance a young website can struggle to keep up. Not to mention the fact that hackers deliberately seek out older, poorly maintained websites to attack because they\'re more likely to have vulnerabilities in the code that were left untended due to subpar maintenance.</p><p>Fortunately, our maintenance team works tirelessly to ensure that every website we manage experiences as few missteps as possible.</p><p>We monitor your site 24/7, complete any security updates or CMS upgrades, perform monthly health checks, and make any changes you send us through our easy-to-use ticketing system.</p><p>Monkee-Boy offers two levels of website maintenance -- one for clients that just need regular checkups and updates and another for those who also need to maintain their SEO.</p>',
@@ -160,6 +199,7 @@ class content_model extends appModel {
         'chart' => array(
           'title' => 'Compare Monthly Maintenance Plans',
           'intro' => 'Monkee-Boy offers two maintenance plans. Our basic option includes everything you need to keep your website healthy month after month. The plus maintenance plan adds SEO to the mix -- for businesses that rely more on search.',
+          'download' => '/uploads/editor/images/mboy-wordpress-plans.pdf',
           'plan_breakdown' => array(
             'broken_link_checks' => array('name' => 'Broken Link Checks', 'type' => 'boolean'),
             'quality_assurance' => array('name' => 'Quality Assurance', 'type' => 'boolean'),
@@ -180,7 +220,7 @@ class content_model extends appModel {
             array(
               'title' => 'Basic',
               'description' => 'Monthly maintenance to keep your website healthy.',
-              'price' => 'XXX',
+              'price' => '380',
               'icon' => 'maintenance',
               'cta' => 'Sign Up',
               'cta_url' => '#',
@@ -204,7 +244,7 @@ class content_model extends appModel {
             array(
               'title' => 'Plus',
               'description' => 'Monthly maintenance plus SEO to keep your website healthy.',
-              'price' => 'XXX',
+              'price' => '780',
               'icon' => 'maintenance',
               'cta' => 'Sign Up',
               'cta_url' => '#',
@@ -227,7 +267,69 @@ class content_model extends appModel {
             )
           )
         ),
-        'case_study' => null
+        'case_study' => null,
+        'clients' => array(
+          array('name' => 'Dell Children\'s', 'logo' => '/uploads/clients/svg_20.svg', 'since' => '2006', 'url' => '/client-list/'),
+          array('name' => 'Dell Children\'s', 'logo' => '/uploads/clients/svg_20.svg', 'since' => '2006', 'url' => '/client-list/')
+        ),
+        'cta' => array(
+          'content' => 'Ready to Start Working Together?',
+          'button' => 'Request a Quote'
+        ),
+        'service_plans' => array(),
+        'service_plan' => array(),
+        'service_features' => array()
+      ),
+
+      'contentstrategy' => array(
+        'about' => '<p class="intro">Have you ever looked at your website or any other part of your web presence and thought: I know we can do a better job...but how do we start?</p><p>Part art and part science, content strategy answers this question by assessing the current state of your content (aka everything your audience can read, see, or experience online -- from product descriptions to thank you messages).</p><p>Using a comprehensive audit, we measure what you currently say and show to people on the web against the needs of your business, the needs of your audiences, and analytics data. (link to analytics page)</p><p>These findings then become the foundation of a measurable blueprint for your web presence that empowers you and your team to leverage content to achieve your business goals, as well as a framework that ensures you always deliver the right message at the right time to your customers -- whether that\'s on your website, in your email communications, or through social media.</p>',
+        'benefits_title' => 'Content Strategy Leads the Way Towards...',
+        'benefits' => '<li>Increased engagement with your brand.</li><li>Higher ROI on digital investments.</li><li>Improved inter-department collaboration.</li>',
+        'cta' => array(
+          'content' => 'Ready to Start Working Together?',
+          'button' => 'Request a Quote'
+        ),
+        'service_features' => array(
+          'title' => '',
+          'features' => '<li>Audience Research</li><li>Messaging Hierarchy</li><li>Persona Development</li><li>Customer Lifecycle</li><li>Content Audit</li><li>Information Architecture</li><li>Content Page Templates</li><li>Workflow &amp; Style Guidelines</li><li>Measurement Plan</li>',
+        ),
+        'being_a_client' => '<p>We don\'t really like the word client. It implies a relationship where you, the client, don\'t get to participate. That\'s not how Monkee-Boy works. This won\'t be one of those sit-back-and-enjoy-the-ride experiences. A typical Monkee-Boy project is full of epiphanies, exclamations, and visions as we collaboratively explore how you can solve the web.</p><p>In short, when you decide to work with Monkee-Boy you become our partner. We\'ll work on your project as a team. We may even eat lunch together.</p>',
+        'clients' => array(),
+        'our_team' => '<p>Monkee-Boy hires thinkers and problem solvers who also happen to be excellent designers, developers, marketers and strategists. Like zombies, we pick people for their brains.</p><p>The reason is simple. We just think our clients deserve the best: a team of ridiculously smart, web-savvy people ready to solve your problems.</p>',
+        'case_study' => array(),
+        'chart' => array(),
+        'service_plans' => array(),
+        'service_plan' => array()
+      ),
+
+      'webdesignanddevelopment' => array(
+        'about' => '<p class="intro">Think about your website...</p><p>Where do you need visitors to go? What do you need them to do? Do you want them to purchase a product? Share an article? Sign up for an account? Invite their friends? Make a donation?</p><p>Your organization\'s success on the web depends on website visitors reaching these goals.</p><p>Well, it just so happens that our strategy, design, and development team builds great looking, interactive websites that guide visitors toward well-defined goals as they journey through a positive and memorable experience with your brand.</p><p>All of our websites feature:</p><ul><li>Responsive, user-centered designs.</li><li>Custom content management systems (CMS) or Wordpress back-ends.</li><li>Content strategy.</li></ul><p>To put it simply, we\'re a no tricks, no gimmicks shop. Just straight up, classy user experience that helps your organization solve the web.</p>',
+        'benefits_title' => 'A New Website Will...',
+        'benefits' => '<li>Attract more new visitors.</li><li>Guide more visitors towards goals integral to your success.</li><li>Empower your brand in a competitive marketplace.</li>',
+        'cta' => array(
+          'content' => 'Ready to Start Working Together?',
+          'button' => 'Request a Quote'
+        ),
+        'service_features' => array(
+          'title' => '',
+          'features' => '<li>Audience Research</li><li>Competitor Analysis</li><li>Messaging Hierarchy</li><li>Persona Development</li><li>Content Strategy</li><li>Responsive Website Design</li><li>User Interface Design (UI)</li><li>User Experience Design (UX)</li><li>Wireframes</li><li>Front-End Web Development</li><li>Back-End Web Development</li><li>Wordpress Development</li><li>Custom Content Management Systems (CMS)</li><li>Copywriting</li><li>Mobile App Design</li>',
+        ),
+        'being_a_client' => '<p>We don\'t really like the word client. It implies a relationship where you, the client, don\'t get to participate. That\'s not how Monkee-Boy works. This won\'t be one of those sit-back-and-enjoy-the-ride experiences. A typical Monkee-Boy project is full of epiphanies, exclamations, and visions as we collaboratively explore how you can solve the web.</p><p>In short, when you decide to work with Monkee-Boy you become our partner. We\'ll work on your project as a team. We may even eat lunch together.</p>',
+        'clients' => array(),
+        'our_team' => '<p>Monkee-Boy hires thinkers and problem solvers who also happen to be excellent designers, developers, marketers and strategists. Like zombies, we pick people for their brains.</p><p>The reason is simple. We just think our clients deserve the best: a team of ridiculously smart, web-savvy people ready to solve your problems.</p>',
+        'case_study' => array(
+          'title' => 'Bullock Texas State History Museum',
+          'challenge' => '<li>Translate the rich, educational opportunities available to visitors at the physical museum into interactive and engaging digital experiences on the web.</li><li>Attract visitors from every corner of the state to the website.</li>',
+          'solutions' => '<li>Interactive homes for the museum\'s artifacts and exhibits that encourage sharing on social media.</li><li>A user-generated story project that invites Texans far and wide to add to The Story of Texas by submitting personal, historically-relevant stories.</li>',
+          'results' => array(
+            'result' => '168%',
+            'description' => '<p>Increase in visits to website from outside the Austin metro area over ten months following launch.</p>'
+          ),
+          'url' => ''
+        ),
+        'chart' => array(),
+        'service_plans' => array(),
+        'service_plan' => array()
       )
     );
 

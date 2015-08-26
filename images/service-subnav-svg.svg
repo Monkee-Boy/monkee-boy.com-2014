@@ -3,7 +3,7 @@
 <!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 1170 270" enable-background="new 0 0 1170 270" xml:space="preserve">
-	<g id="menu-strategy">
+	<g id="menu-content-strategy">
 		<a xlink:href="/how-we-help/content-strategy/" target="_top">
 			<rect class="menu-item-text-container" x="2.1" y="25" stroke-miterlimit="10" width="280" height="48"/>
 			<polyline class="menu-item-stroke" stroke-miterlimit="10" points="142,25 142,2 515,2 515,49 "/>
@@ -22,7 +22,7 @@
 			</g>
 		</a>
 	</g>
-	<g id="menu-web-design">
+	<g id="menu-web-design-and-development">
 		<a xlink:href="/how-we-help/web-design-and-development/" target="_top">
 			<rect class="menu-item-text-container" x="2.1" y="82.2" stroke-miterlimit="10" width="280" height="48"/>
 			<polyline class="menu-item-stroke" stroke-miterlimit="10" points="282,106 334,106 334,93 381,93 "/>
@@ -70,7 +70,7 @@
 			</g>
 		</a>
 	</g>
-	<g id="menu-content">
+	<g id="menu-content-marketing">
 		<a xlink:href="/how-we-help/content-marketing/" target="_top">
 			<rect class="menu-item-text-container" x="888" y="25" stroke-miterlimit="10" width="280" height="48"/>
 			<polyline class="menu-item-stroke" stroke-miterlimit="10" points="1028,25 1028,2 610,2 610,49 "/>
@@ -87,7 +87,7 @@
 			</g>
 		</a>
 	</g>
-	<g id="menu-social">
+	<g id="menu-social-media">
 		<a xlink:href="/how-we-help/social-media/" target="_top">
 			<rect class="menu-item-text-container" x="888" y="82.2" stroke-miterlimit="10" width="280" height="48"/>
 			<polyline class="menu-item-stroke" stroke-miterlimit="10" points="888,106 836,106 836,93 743,93 "/>
@@ -118,7 +118,7 @@
 			</g>
 		</a>
 	</g>
-	<g id="menu-ppc">
+	<g id="menu-pay-per-click">
 		<a xlink:href="/how-we-help/pay-per-click/" target="_top">
 			<rect class="menu-item-text-container" x="888" y="196.4" stroke-miterlimit="10" width="280" height="48"/>
 			<polyline class="menu-item-stroke" stroke-miterlimit="10" points="1023,244 1023,268 657,268 657,220 "/>
