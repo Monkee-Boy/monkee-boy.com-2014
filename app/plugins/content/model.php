@@ -414,6 +414,45 @@ class content_model extends appModel {
           'button' => 'Learn More',
           'url' => '/how-we-help/pay-per-click/ppc-complete/'
         )
+      ),
+
+      'socialmedia' => array(
+        'about' => '<p class="intro">The best social media marketers aren\'t the ones that get the most likes; they\'re the ones that clearly connect their activity on social media to well-defined business objectives.</p><p>That\'s because a good social media strategy draws a line -- often multiple lines -- between what you post on social media and an action you ultimately want your fans to take.</p><p>Are you selling products? Services? Asking for donations? Promoting a membership program? Your social media strategy and execution must provide a path that subtly encourages fans toward these actions.</p><p>Monkee-Boy\'s digital marketing team has the expertise to create and manage this path. We\'ll treat your social media initiatives as part of an overall marketing strategy, not as silos, resulting in a more strategic plan for how and when to leverage social media.</p>',
+        'benefits_title' => 'Good Social Media Marketing Will...',
+        'benefits' => '<li>Drive more traffic to your website from social media.</li><li>Convert casual fans to loyal customers.</li><li>Encourage a community of fans to advertise for you.</li>',
+        'cta' => array(),
+        'service_features' => array(
+          'title' => '',
+          'features' => '<li>Social Media Management</li><li>Social Content Audit</li><li>Profile Optimization</li><li>Content Creation</li><li>Facebook Advertising</li><li>Blog Writing</li><li>Ongoing Reporting</li><li>Ongoing Monitoring</li><li>Editorial Calendar</li><li>Copywriting</li><li>Infographics</li><li>Custom Images</li><li>Contests & Sweepstakes</li>',
+        ),
+        'being_a_client' => '<p>We don\'t really like the word client. It implies a relationship where you, the client, don\'t get to participate. That\'s not how Monkee-Boy works. This won\'t be one of those sit-back-and-enjoy-the-ride experiences. A typical Monkee-Boy project is full of epiphanies, exclamations, and visions as we collaboratively explore how you can solve the web.</p><p>In short, when you decide to work with Monkee-Boy you become our partner. We\'ll work on your project as a team. We may even eat lunch together.</p>',
+        'clients' => array(),
+        'our_team' => '<p>Monkee-Boy hires thinkers and problem solvers who also happen to be excellent designers, developers, marketers and strategists. Like zombies, we pick people for their brains.</p><p>The reason is simple. We just think our clients deserve the best: a team of ridiculously smart, web-savvy people ready to solve your problems.</p>',
+        'case_study' => array(),
+        'chart' => array(),
+        'service_plans' => array(
+          array(
+            'title' => 'Social Media Foundation',
+            'icon' => 'socialmedia',
+            'content' => '<p>MA two-week engagement covering everything you need to get started on social media.</p><p>Great For: <strong>Small Businesses</strong></p>',
+            'button' => 'Learn More',
+            'url' => '/how-we-help/social-media/social-media-foundation/'
+          ),
+          array(
+            'title' => 'Social Media Consulting',
+            'icon' => 'socialmedia',
+            'content' => '<p>A full strategy for businesses and organizations ready to build strong communities on social media.</p><p>Great For: <strong>Small to Mid-Size Businesses</strong>, <strong>Startups</strong>, <strong>Large Companies</strong></p>',
+            'button' => 'Learn More',
+            'url' => '/how-we-help/social-media/social-media-consulting/'
+          )
+        ),
+        'service_plan' => array(
+          'title' => 'Social Media Complete',
+          'icon' => 'socialmedia',
+          'content' => '<p>Full strategy plus social media management and ongoing optimization -- our most comprehensive service.</p><p>Great For: <strong>Small to Mid-Size Businesses</strong>, <strong>Startups</strong>, <strong>Large Companies</strong></p>',
+          'button' => 'Learn More',
+          'url' => '/how-we-help/social-media/social-media-complete/'
+        )
       )
     );
 
