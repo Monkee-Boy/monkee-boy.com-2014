@@ -453,6 +453,27 @@ class content_model extends appModel {
           'button' => 'Learn More',
           'url' => '/how-we-help/social-media/social-media-complete/'
         )
+      ),
+
+      'contentmarketing' => array(
+        'about' => '<p class="intro">Have you ever wondered why some of your competitors seem to get more attention on the web? Their articles and posts crowd your Facebook news feed. Pages linked to their website routinely show up in search results. They\'re more popular on Twitter.</p><p>This is the result of good content strategy.</p><p>These businesses and organizations have successfully identified content that resonates with their target audiences. They\'ve figured out how to consistently create that content, where and how to deliver it, and what to encourage their fans to do after that first point of contact to turn casual interest into into leads and customers.</p><p>Getting to this point is no simple task. To figure out what to say on the web, you must first take a close look at who you are and who you want to reach.</p><p>Monkee-Boy can lead you through this process.</p>',
+        'benefits_title' => 'Great Content Marketing Will...',
+        'benefits' => '<li>Improve Brand Recognition.</li><li>Increase Quality and Quantity of Leads.</li><li>Boost Loyalty Amongst Existing Fans.</li>',
+        'cta' => array(
+          'content' => 'Ready To Start Working Together?',
+          'button' => 'Request a Quote'
+        ),
+        'service_features' => array(
+          'title' => '',
+          'features' => '<li>Content Audit</li><li>Competitive Analysis</li><li>Gap Analysis</li><li>Audience Personas</li><li>Brand Story</li><li>Messaging Hierarchy</li><li>Email Marketing</li><li>Copywriting</li><li>Infographics</li><li>Video</li>',
+        ),
+        'being_a_client' => '<p>We don\'t really like the word client. It implies a relationship where you, the client, don\'t get to participate. That\'s not how Monkee-Boy works. This won\'t be one of those sit-back-and-enjoy-the-ride experiences. A typical Monkee-Boy project is full of epiphanies, exclamations, and visions as we collaboratively explore how you can solve the web.</p><p>In short, when you decide to work with Monkee-Boy you become our partner. We\'ll work on your project as a team. We may even eat lunch together.</p>',
+        'clients' => array(),
+        'our_team' => '<p>Monkee-Boy hires thinkers and problem solvers who also happen to be excellent designers, developers, marketers and strategists. Like zombies, we pick people for their brains.</p><p>The reason is simple. We just think our clients deserve the best: a team of ridiculously smart, web-savvy people ready to solve your problems.</p>',
+        'case_study' => array(),
+        'chart' => array(),
+        'service_plans' => array(),
+        'service_plan' => array()
       )
     );
 
