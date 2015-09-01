@@ -47,7 +47,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
       <div class="right">
         <div id="no-brief" class="switch-target<?php if($form_data['brief'] === '1'){ echo ' active'; } ?>">
           <label for="project-desc" class="quiet">No RFP? No problem!</label>
-          <p>Please tell us about the nature of your project. What are your goals, what do you hope to accomplish, what specific challenges have gotten in your way, what is / isn't working, any advanced functionality or tools you need, etc.</p>
+          <p>Please tell us know a little about your project. What are your goals? What do you hope to accomplish? What specific challenges have gotten in your way? What is/isn't working? Any advanced functionality or tools you need? Etc...</p>
           <div class="input-wrapper"><textarea cols="10" rows="4" id="project-desc" name="project-desc"><?= $form_data['project-desc'] ?></textarea></div>
         </div>
 
