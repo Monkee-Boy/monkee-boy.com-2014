@@ -500,4 +500,159 @@ class content_model extends appModel {
 
     return $content[$tag];
   }
+
+  public function getPlanContent($tag) {
+    $tag = str_replace('-', "", $tag);
+
+    /*
+    'tag' => array(
+      'subnav' => '',
+      'features' => array(
+        'title' => '',
+        'content' => ''
+      ),
+      'team' => array(
+        'content' => '',
+        'members' => ''
+      ),
+      'price' => '',
+      'cta' => array(
+        'title' => '',
+        'content' => '',
+        'button' => ''
+      ),
+      'production_schedule' => array(
+        'title' => '',
+        'content' => ''
+      ),
+      'other_plans' => array(
+        'title' => '',
+        'description' => '',
+        'plans' => array(
+          'title' => '',
+          'description' => '',
+          'link' => ''
+        )
+      )
+    )
+    */
+
+    $content = array(
+      'seofoundation' => array(
+        'subnav' => 'seo',
+        'features' => array(
+          'title' => 'SEO Foundation Features',
+          'content' => '<li>Technical Audit</li><li>Keyword List</li><li>Top SEO Priorities</li><li>Reporting Set Up</li><li>Available Support</li><li>1-Hour Consultation</li><li>Custom Schedule</li><li>Reminder Notificaitons</li>'
+        ),
+        'team' => array(
+          'content' => '<p>Monkee-Boy is a full service digital agency. When you work with our team, you get a troop of experts in SEO, social media, PPC, design, development, content, and analytics who love to collaborate. Unlike firms that just do SEO, we know that search projects sometimes require a little insight from other departments. At Monkee-Boy, that insight is just a desk away. Your team includes an:</p>',
+          'members' => '<li>SEO Analyst</li><li>Digital Marketing Coordinator</li><li>Content Strategist</li><li>Web Developer</li><li>UI/UX Designer</li>'
+        ),
+        'price' => '',
+        'cta' => array(
+          'title' => 'Get In Touch',
+          'content' => '<p>Does this plan sound right to you? Contact us to get started right way. We can\'t wait to get to know your business.</p>',
+          'button' => 'Contact Us'
+        ),
+        'production_schedule' => array(
+          'title' => 'Timeline Delay',
+          'content' => '<p>Due to high demand, it is currently taking us about one week to respond to requests for SEO Foundation.</p>'
+        ),
+        'other_plans' => array(
+          'title' => 'Need <span>Something Different</span>?',
+          'description' => '<p>That\'s okay -- check out our other SEO options:</p>',
+          'plans' => array(
+            array(
+              'title' => 'SEO Consulting',
+              'description' => 'For the business that needs SEO strategy, but has an in-house developer to make changes on the website.',
+              'link' => '/how-we-help/seo/seo-consulting/'
+            ),
+            array(
+              'title' => 'SEO Complete',
+              'description' => 'Monkee-Boy can be your SEO team in shining armor. We develop a full strategy for your website and manage the project.',
+              'link' => '/how-we-help/seo/seo-complete/'
+            )
+          )
+        )
+      ),
+
+      'seoconsulting' => array(
+        'subnav' => 'seo',
+        'features' => array(
+          'title' => 'SEO Consulting Features',
+          'content' => '<li>Technical SEO Audit</li><li>Keyword Research</li><li>Competitive Analysis</li><li>SEO Content Audit</li><li>Gap Analysis</li><li>Copywriting</li><li>Title Tags</li><li>Meta Descriptions</li><li>Ongoing Reporting</li>'
+        ),
+        'team' => array(
+          'content' => '<p>Monkee-Boy is a full service digital agency. When you work with our team, you get a troop of experts in SEO, social media, PPC, design, development, content, and analytics who love to collaborate. Unlike firms that just do SEO, we know that search projects sometimes require a little insight from other departments. At Monkee-Boy, that insight is just a desk away. Your team includes an:</p>',
+          'members' => '<li>SEO Analyst</li><li>Digital Marketing Coordinator</li><li>Content Strategist</li><li>Web Developer</li><li>UI/UX Designer</li>'
+        ),
+        'price' => '',
+        'cta' => array(
+          'title' => 'Get In Touch',
+          'content' => '<p>Does this sound right to you? Contact us to get started right way. We can\'t wait to get to know your business.</p>',
+          'button' => 'Get in Touch'
+        ),
+        'production_schedule' => array(
+          'title' => 'Timeline Delay',
+          'content' => '<p>Due to high demand, it is currently taking us about one week to respond to requests for SEO Full Strategy.</p>'
+        ),
+        'other_plans' => array(
+          'title' => 'Need <span>Something Different</span>?',
+          'description' => '<p>That\'s okay -- check out our other SEO options:</p>',
+          'plans' => array(
+            array(
+              'title' => 'SEO Foundation',
+              'description' => 'Got a limited SEO budget and don\'t know where to start? Our SEO Foundation service is fast and affordable.',
+              'link' => '/how-we-help/seo/seo-foundation/'
+            ),
+            array(
+              'title' => 'SEO Complete',
+              'description' => 'Monkee-Boy can be your SEO team in shining armor. We develop a full strategy for your website and manage the project.',
+              'link' => '/how-we-help/seo/seo-complete/'
+            )
+          )
+        )
+      ),
+
+      'seocomplete' => array(
+        'subnav' => 'seo',
+        'features' => array(
+          'title' => 'SEO Complete Features',
+          'content' => '<li>Link building</li><li>Technical optimization</li><li>Local Search</li><li>Blogging</li><li>Copywriting</li><li>Content Creation</li><li>Content Promotion</li><li>Social Media Enhancements</li><li>Title Tags</li><li>Meta Descriptions</li><li>Technical Audit</li><li>SEO Content Audit</li><li>Gap Analysis</li>'
+        ),
+        'team' => array(
+          'content' => '<p>Monkee-Boy is a full service digital agency. When you work with our team, you get a troop of experts in SEO, social media, PPC, design, development, content, and analytics who love to collaborate. Unlike firms that just do SEO, we know that search projects sometimes require a little insight from other departments. At Monkee-Boy, that insight is just a desk away. Your team includes an:</p>',
+          'members' => '<li>SEO Analyst</li><li>Digital Marketing Coordinator</li><li>Content Strategist</li><li>Web Developer</li><li>UI/UX Designer</li>'
+        ),
+        'price' => '',
+        'cta' => array(
+          'title' => 'Get In Touch',
+          'content' => '<p>Does this sound right to you? Contact us to get started right way. We can\'t wait to get to know your business.</p>',
+          'button' => 'Get in Touch'
+        ),
+        'production_schedule' => array(
+          'title' => 'Timeline Delay',
+          'content' => '<p>Due to high demand, it is currently taking us about one week to respond to requests for SEO Complete.</p>'
+        ),
+        'other_plans' => array(
+          'title' => 'Need <span>Something Different</span>?',
+          'description' => '<p>That\'s okay -- check out our other SEO options:</p>',
+          'plans' => array(
+            array(
+              'title' => 'SEO Foundation',
+              'description' => 'Got a limited SEO budget and don\'t know where to start? Our SEO Foundation service is fast and affordable.',
+              'link' => '/how-we-help/seo/seo-foundation/'
+            ),
+            array(
+              'title' => 'SEO Consulting',
+              'description' => 'For the business that needs SEO strategy, but has an in-house developer to make changes on the website.',
+              'link' => '/how-we-help/seo/seo-consulting/'
+            )
+          )
+        )
+      )
+    );
+
+    return $content[$tag];
+  }
 }

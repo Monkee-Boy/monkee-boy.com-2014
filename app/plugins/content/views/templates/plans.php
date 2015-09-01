@@ -6,14 +6,54 @@
 @Author: Monkee-Boy
 -->
 
-<?php $this->tplDisplay("inc_header.php", ['menu'=>'home']); ?>
+<?php $this->tplDisplay("inc_header.php", ['menu'=>$aContent['tag'], 'sPageTitle'=>$aContent['title'], 'seo_title'=>$aContent['seo_title'], 'seo_description'=>$aContent['seo_description'], 'seo_keywords'=>$aContent['seo_keywords']]); ?>
 
   <div class="row page-title">
     <h1><?php echo $aContent['title'] ?></h1>
     <span class="subtitle"><?php echo $aContent['subtitle'] ?></span>
   </div>
 
-    <?php $this->tplDisplay('inc_subnav.php', array('menu' => 'how', 'nav' => 'plan-options')); ?>
+  <?php
+  $plans_subnav = array(
+    'seo' => array(
+      array('name' => 'SEO Foundation', 'url' => '/how-we-help/seo/seo-foundation/', 'menu' => 'seo-foundation'),
+      array('name' => 'SEO Consulting', 'url' => '/how-we-help/seo/seo-consulting/', 'menu' => 'seo-consulting'),
+      array('name' => 'SEO Complete', 'url' => '/how-we-help/seo/seo-complete/', 'menu' => 'seo-complete')
+    )
+  );
+  ?>
+
+  <div class="row sub-nav">
+    <div class="full">
+      <ul class="dropdown-extended">
+        <?php foreach($plans_subnav[$aPlanContent['subnav']] as $subnav) { ?>
+          <li><a href="<?= $subnav['url']; ?>"<?php if($aContent['tag'] === $subnav['menu']): ?> class="current"<?php endif; ?>><?= $subnav['name']; ?></a></li>
+        <?php } ?>
+      </ul>
+
+      <div class="select-box select-box-subnav">
+        <select name="select-subnav" id="select-subnav">
+          <option value="">View Plans</option>
+
+          <?php foreach($plans_subnav[$aPlanContent['subnav']] as $subnav) { ?>
+            <option value="<?= $subnav['url']; ?>"<?php if($aContent['tag'] === $subnav['menu']): ?> selected<?php endif; ?>><?= $subnav['name']; ?></option>
+          <?php } ?>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  {footer}
+  <script>
+  $(function(){
+    $('select[name=select-subnav]').change(function(){
+      if($(this).val() != "") {
+        location.href = $(this).val();
+      }
+    });
+  });
+  </script>
+  {/footer}
 
   <div class="row">
     <div class="single-column content-block">
@@ -21,80 +61,81 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="plan-features">
-      <h3>Social Media Basic Features</h3>
-      <div class="row-flush">
-        <ul class="list-style-alt">
-          <li>site audit</li>
-          <li>new social images</li>
-          <li>fix broken links</li>
-          <li>lorem ipsum</li>
-          <li>site audit</li>
-          <li>new social images</li>
-          <li>fix broken links</li>
-          <li>lorem ipsum</li>
-          <li>site audit</li>
-          <li>new social images</li>
-          <li>fix broken links</li>
-          <li>lorem ipsum</li>
-        </ul>
+  <?php if(!empty($aPlanContent['features']['content'])) { ?>
+    <div class="row">
+      <div class="plan-features">
+        <h3><?= $aPlanContent['features']['title']; ?></h3>
+        <div class="row-flush">
+          <ul class="list-style-alt">
+            <?= $aPlanContent['features']['content']; ?>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
+  <?php } ?>
 
-  <div class="row flush-later">
-    <div class="box-of-doom meet-the-team full-width">
-      <div class="meet-the-team-content">
-        <h3>Who is on my monkee-boy team?</h3>
-        <p>Curabitur sodales massa nec orci bibendum, ut luctus odio consequat. Aenean sodales facilisis orci, in vulputate magna blandit eu. Curabitur quis orci quis nibh commodo elementum faucibus nec dolor. Integer ut felis ipsum. Vestibulum nibh ex, pretium et congue eget, sollicitudin ac libero. Aliquam aliquet laoreet mi, vel accumsan libero imperdiet id. In hac habitasse platea dictumst. Praesent eget lacus sodales, consequat orci ac, imperdiet ex. Sed rutrum consequat eros, ac vehicula orci laoreet sed.</p>
-        <ul class="team-list">
-          <li>Project Manager</li>
-          <li>Content Strategist</li>
-          <li>Creative Director</li>
-          <li>UI/UX Designer</li>
-          <li>Wordpress Developer</li>
-          <li>Copywriter</li>
-          <li>Maintenance Specialist</li>
-        </ul>
+  <?php if(!empty($aPlanContent['team']['content'])) { ?>
+    <div class="row flush-later">
+      <div class="box-of-doom meet-the-team full-width">
+        <div class="meet-the-team-content">
+          <h3>Who is on my monkee-boy team?</h3>
+          <?= $aPlanContent['team']['content']; ?>
+
+          <?php if(!empty($aPlanContent['team']['members'])) { ?>
+            <ul class="team-list">
+              <?= $aPlanContent['team']['members']; ?>
+            </ul>
+          <?php } ?>
+        </div>
       </div>
     </div>
-  </div>
+  <?php } ?>
 
   <div class="row">
     <div class="full no-gutter-later">
       <div class="plans">
         <div class="plan-row">
-          Social Media Basic Cost: <span><sup>$</sup>555<sup class="cents">00</sup></span>
+          <?php echo $aContent['title'] ?> <?php if(!empty($aPlanContent['price'])) { ?>Cost: <span><sup>$</sup><?= $aPlanContent['price']; ?><sup class="cents">00</sup></span><?php } ?>
         </div>
-        <div class="plan-row">
-          <div class="row-flush">
-            <div class="plan-row-left">
-              <h4>Get In Touch</h4>
-              <p>Curabitur sodales massa nec orci bibendum, ut luctus odio consequat. Aenean sodales facilisis orci, in vulputate magna blandit eu. Curabitur quis orci quis nibh commodo elementum faucibus nec dolor. Integer ut felis ipsum. Vestibulum nibh ex, pretium et congue eget, sollicitudin ac libero.</p>
-            </div>
-            <div class="plan-row-right">
-              <a href="#" class="button">Call us!</a>
+
+        <?php if(!empty($aPlanContent['cta'])) { ?>
+          <div class="plan-row">
+            <div class="row-flush">
+              <div class="plan-row-left">
+                <h4><?= $aPlanContent['cta']['title']; ?></h4>
+                <?= $aPlanContent['cta']['content']; ?>
+              </div>
+
+              <div class="plan-row-right">
+                <a href="/contact/request-a-quote/" class="button"><?= $aPlanContent['cta']['button']; ?></a>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="plan-row">
-          <h4>Production Schedule</h4>
-          <p>Curabitur sodales massa nec orci bibendum, ut luctus odio consequat. Aenean sodales facilisis orci, in vulputate magna blandit eu. Curabitur quis orci quis nibh commodo elementum faucibus nec dolor. Integer ut felis ipsum. Vestibulum nibh ex, pretium et congue eget, sollicitudin ac libero.</p>
-        </div>
+        <?php } ?>
+
+        <?php if(!empty($aPlanContent['production_schedule'])) { ?>
+          <div class="plan-row">
+            <h4><?= $aPlanContent['production_schedule']['title']; ?></h4>
+            <?= $aPlanContent['production_schedule']['content']; ?>
+          </div>
+        <?php } ?>
       </div>
     </div>
   </div>
 
-  <div class="row">
-    <div class="plan-cta">
-      <h2>Need a <span>different plan</span>?</h2>
-      <p>That's ok - check out our other packages:</p>
-      <ul class="list-style-alt">
-        <li><a href="#">Social Media Plus</a>: Curabitur sodales massa nec orci bibendum, ut luctus odio consequat.</li>
-        <li><a href="#">Social Media Custom</a>: Curabitur sodales massa nec orci bibendum, ut luctus odio consequat.</li>
-      </ul>
+  <?php if(!empty($aPlanContent['other_plans'])) { ?>
+    <div class="row">
+      <div class="plan-cta">
+        <h2><?= $aPlanContent['other_plans']['title']; ?></h2>
+        <p><?= $aPlanContent['other_plans']['description']; ?></p>
+
+        <ul class="list-style-alt">
+          <?php foreach($aPlanContent['other_plans']['plans'] as $plan) { ?>
+            <li><a href="<?= $plan['link']; ?>"><?= $plan['title']; ?></a>: <?= $plan['description']; ?></li>
+          <?php } ?>
+        </ul>
+      </div>
     </div>
-  </div>
+  <?php } ?>
 
 <?php $this->tplDisplay("inc_footer.php"); ?>
