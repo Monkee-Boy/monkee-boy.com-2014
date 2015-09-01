@@ -20,7 +20,7 @@
       array('name' => 'SEO Consulting', 'url' => '/how-we-help/seo/seo-consulting/', 'menu' => 'seo-consulting'),
       array('name' => 'SEO Complete', 'url' => '/how-we-help/seo/seo-complete/', 'menu' => 'seo-complete')
     ),
-    'pay-per-click' => array(
+    'ppc' => array(
       array('name' => 'PPC Foundation', 'url' => '/how-we-help/seo/ppc-foundation/', 'menu' => 'ppc-foundation'),
       array('name' => 'PPC Advanced', 'url' => '/how-we-help/pay-per-click/ppc-advanced/', 'menu' => 'ppc-advanced'),
       array('name' => 'PPC Complete', 'url' => '/how-we-help/pay-per-click/ppc-complete/', 'menu' => 'ppc-complete')
