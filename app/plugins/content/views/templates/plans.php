@@ -85,7 +85,7 @@
   <?php } ?>
 
   <?php if(!empty($aPlanContent['team']['content'])) { ?>
-    <div class="row flush-later">
+    <div class="row">
       <div class="box-of-doom meet-the-team full-width">
         <div class="meet-the-team-content">
           <h3>Who is on my monkee-boy team?</h3>
@@ -141,7 +141,7 @@
 
         <ul class="list-style-alt">
           <?php foreach($aPlanContent['other_plans']['plans'] as $plan) { ?>
-            <li><a href="<?= $plan['link']; ?>"><?= $plan['title']; ?></a>: <?= $plan['description']; ?></li>
+            <li><a href="<?= $plan['link']; ?>"><strong><?= $plan['title']; ?></strong></a>: <?= $plan['description']; ?></li>
           <?php } ?>
         </ul>
       </div>
