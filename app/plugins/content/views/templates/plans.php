@@ -24,6 +24,11 @@
       array('name' => 'PPC Foundation', 'url' => '/how-we-help/seo/ppc-foundation/', 'menu' => 'ppc-foundation'),
       array('name' => 'PPC Advanced', 'url' => '/how-we-help/pay-per-click/ppc-advanced/', 'menu' => 'ppc-advanced'),
       array('name' => 'PPC Complete', 'url' => '/how-we-help/pay-per-click/ppc-complete/', 'menu' => 'ppc-complete')
+    ),
+    'socialmedia' => array(
+      array('name' => 'Social Media Foundation', 'url' => '/how-we-help/social-media/social-media-foundation/', 'menu' => 'social-media-foundation'),
+      array('name' => 'Social Media Consulting', 'url' => '/how-we-help/social-media/social-media-consulting/', 'menu' => 'social-media-consulting'),
+      array('name' => 'Social Media Complete', 'url' => '/how-we-help/social-media/social-media-complete/', 'menu' => 'social-media-complete')
     )
   );
   ?>

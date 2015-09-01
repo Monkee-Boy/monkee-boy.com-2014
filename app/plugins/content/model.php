@@ -434,7 +434,7 @@ class content_model extends appModel {
           array(
             'title' => 'Social Media Foundation',
             'icon' => 'socialmedia',
-            'content' => '<p>MA two-week engagement covering everything you need to get started on social media.</p><p>Great For: <strong>Small Businesses</strong></p>',
+            'content' => '<p>A two-week engagement covering everything you need to get started on social media.</p><p>Great For: <strong>Small Businesses</strong></p>',
             'button' => 'Learn More',
             'url' => '/how-we-help/social-media/social-media-foundation/'
           ),
@@ -590,7 +590,7 @@ class content_model extends appModel {
         'cta' => array(
           'title' => 'Get In Touch',
           'content' => '<p>Does this sound right to you? Contact us to get started right way. We can\'t wait to get to know your business.</p>',
-          'button' => 'Get in Touch'
+          'button' => 'Contact Us'
         ),
         'production_schedule' => array(
           'title' => 'Timeline Delay',
@@ -628,7 +628,7 @@ class content_model extends appModel {
         'cta' => array(
           'title' => 'Get In Touch',
           'content' => '<p>Does this sound right to you? Contact us to get started right way. We can\'t wait to get to know your business.</p>',
-          'button' => 'Get in Touch'
+          'button' => 'Contact Us'
         ),
         'production_schedule' => array(
           'title' => 'Timeline Delay',
@@ -666,7 +666,7 @@ class content_model extends appModel {
         'cta' => array(
           'title' => 'Get In Touch',
           'content' => '<p>Does this sound right to you? Contact us to get started right way. We can\'t wait to get to know your business.</p>',
-          'button' => 'Get in Touch'
+          'button' => 'Contact Us'
         ),
         'production_schedule' => array(
           'title' => 'Timeline Delay',
@@ -704,7 +704,7 @@ class content_model extends appModel {
         'cta' => array(
           'title' => 'Get In Touch',
           'content' => '<p>Does this sound right to you? Contact us to get started right way. We can\'t wait to get to know your business.</p>',
-          'button' => 'Get in Touch'
+          'button' => 'Contact Us'
         ),
         'production_schedule' => array(
           'title' => 'Timeline Delay',
@@ -742,7 +742,7 @@ class content_model extends appModel {
         'cta' => array(
           'title' => 'Get In Touch',
           'content' => '<p>Does this sound right to you? Contact us to get started right way. We can\'t wait to get to know your business.</p>',
-          'button' => 'Get in Touch'
+          'button' => 'Contact Us'
         ),
         'production_schedule' => array(
           'title' => 'Timeline Delay',
@@ -761,6 +761,120 @@ class content_model extends appModel {
               'title' => 'PPC Advanced',
               'description' => 'PPC strategy and management for Adwords/Bing/Yahoo campaigns with retargeting, display ads, phone call tracking, and standard campaign landing pages.',
               'link' => '/how-we-help/pay-per-click/ppc-advanced/'
+            )
+          )
+        )
+      ),
+
+      'socialmediafoundation' => array(
+        'subnav' => 'socialmedia',
+        'features' => array(
+          'title' => 'Social Media Foundation Features',
+          'content' => '<li>One-Hour Kickoff</li><li>Channel Strategy</li><li>Profile Optimization</li><li>Image Templates</li><li>Influencer lists</li><li>Voice, Tone, &amp; Curation Guide</li><li>Advertisement Plan</li><li>Measurement Plan</li>'
+        ),
+        'team' => array(
+          'content' => '<p>Monkee-Boy is a full service digital agency. When you work with our team, you get a troop of experts in SEO, social media, PPC, design, development, content, and analytics who love to collaborate. Unlike firms that just do SEO, we know that search projects sometimes require a little insight from other departments. At Monkee-Boy, that insight is just a desk away. Your team includes an:</p>',
+          'members' => '<li>Programs Director</li><li>Content Strategist</li><li>Digital Marketing Coordinator</li><li>SEO Analyst</li>'
+        ),
+        'price' => '',
+        'cta' => array(
+          'title' => 'Get In Touch',
+          'content' => '<p>Does this sound right to you? Contact us to get started right way. We can\'t wait to get to know your business.</p>',
+          'button' => 'Contact Us'
+        ),
+        'production_schedule' => array(
+          'title' => 'Timeline Delay',
+          'content' => '<p>Due to high demand, it is currently taking us about one week to respond to requests for Social Media Foundation.</p>'
+        ),
+        'other_plans' => array(
+          'title' => 'Need <span>Something Different</span>?',
+          'description' => '<p>That\'s okay -- check out our other Social Media options:</p>',
+          'plans' => array(
+            array(
+              'title' => 'Social Media Consulting',
+              'description' => 'A full strategy for businesses and organizations ready to build strong communities on social media.',
+              'link' => '/how-we-help/social-media/social-media-consulting/'
+            ),
+            array(
+              'title' => 'Social Media Complete',
+              'description' => 'Full strategy plus social media management and ongoing optimization -- our most comprehensive service.',
+              'link' => '/how-we-help/social-media/social-media-complete/'
+            )
+          )
+        )
+      ),
+
+      'socialmediaconsulting' => array(
+        'subnav' => 'socialmedia',
+        'features' => array(
+          'title' => 'Social Media Consulting Features',
+          'content' => '<li>Consultation Schedule</li><li>Social Channel Analysis</li><li>Profile/Content Audit</li><li>Brand Messaging Audit</li><li>Profile Optimization</li><li>Competitive Analysis</li><li>Voice &amp; Tone Guide</li><li>Advertisement Plan</li><li>Measurement Plan</li>'
+        ),
+        'team' => array(
+          'content' => '<p>Monkee-Boy is a full service digital agency. When you work with our team, you get a troop of experts in SEO, social media, PPC, design, development, content, and analytics who love to collaborate. Unlike firms that just do SEO, we know that search projects sometimes require a little insight from other departments. At Monkee-Boy, that insight is just a desk away. Your team includes an:</p>',
+          'members' => '<li>Programs Director</li><li>Content Strategist</li><li>Digital Marketing Coordinator</li><li>SEO Analyst</li><li>Web Developer</li><li>UI/UX Designer</li>'
+        ),
+        'price' => '',
+        'cta' => array(
+          'title' => 'Get In Touch',
+          'content' => '<p>Does this sound right to you? Contact us to get started right way. We can\'t wait to get to know your business.</p>',
+          'button' => 'Contact Us'
+        ),
+        'production_schedule' => array(
+          'title' => 'Timeline Delay',
+          'content' => '<p>Due to high demand, it is currently taking us about one week to respond to requests for Social Media Consulting.</p>'
+        ),
+        'other_plans' => array(
+          'title' => 'Need <span>Something Different</span>?',
+          'description' => '<p>That\'s okay -- check out our other Social Media options:</p>',
+          'plans' => array(
+            array(
+              'title' => 'Social Media Foundation',
+              'description' => 'A two-week engagement covering everything you need to get started on social media.',
+              'link' => '/how-we-help/social-media/social-media-foundation/'
+            ),
+            array(
+              'title' => 'Social Media Complete',
+              'description' => 'Full strategy plus social media management and ongoing optimization -- our most comprehensive service.',
+              'link' => '/how-we-help/social-media/social-media-complete/'
+            )
+          )
+        )
+      ),
+
+      'socialmediacomplete' => array(
+        'subnav' => 'socialmedia',
+        'features' => array(
+          'title' => 'Social Media Complete Features',
+          'content' => '<li>Kickoff</li><li>Social Content Audit</li><li>Brand Audit</li><li>Competitive Analysis</li><li>Channel Analysis</li><li>Editorial Calendar</li><li>Content Creation</li><li>Contests</li><li>Blogging</li><li>Facebook Advertising</li><li>Management &amp; Monitoring</li><li>Ongoing Reporting</li>'
+        ),
+        'team' => array(
+          'content' => '<p>Monkee-Boy is a full service digital agency. When you work with our team, you get a troop of experts in SEO, social media, PPC, design, development, content, and analytics who love to collaborate. Unlike firms that just do SEO, we know that search projects sometimes require a little insight from other departments. At Monkee-Boy, that insight is just a desk away. Your team includes an:</p>',
+          'members' => '<li>SEO Analyst</li><li>Programs Director</li><li>Digital Marketing Coordinator</li><li>Content Strategist</li><li>Web Developer</li><li>UI/UX Designer</li>'
+        ),
+        'price' => '',
+        'cta' => array(
+          'title' => 'Get In Touch',
+          'content' => '<p>Does this sound right to you? Contact us to get started right way. We can\'t wait to get to know your business.</p>',
+          'button' => 'Contact Us'
+        ),
+        'production_schedule' => array(
+          'title' => 'Timeline Delay',
+          'content' => '<p>Due to high demand, it is currently taking us about one week to respond to requests for Social Media Complete.</p>'
+        ),
+        'other_plans' => array(
+          'title' => 'Need <span>Something Different</span>?',
+          'description' => '<p>That\'s okay -- check out our other Social Media options:</p>',
+          'plans' => array(
+            array(
+              'title' => 'Social Media Foundation',
+              'description' => 'A two-week engagement covering everything you need to get started on social media.',
+              'link' => '/how-we-help/social-media/social-media-foundation/'
+            ),
+            array(
+              'title' => 'Social Media Consulting',
+              'description' => 'A full strategy for businesses and organizations ready to build strong communities on social media.',
+              'link' => '/how-we-help/social-media/social-media-consulting/'
             )
           )
         )
