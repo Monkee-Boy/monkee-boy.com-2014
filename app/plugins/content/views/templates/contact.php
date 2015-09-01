@@ -7,7 +7,7 @@ if(!empty($aContent)) {
 	$sSubtitle = "Beware of nerf wars";
 }
 
-$this->tplDisplay("inc_header.php", ['menu'=>'contact', 'sPageTitle'=>$sTitle, 'seo_title'=>$aContent['seo_title'], 'seo_description'=>$aContent['seo_description'], 'seo_keywords'=>$aContent['seo_keywords']]); ?>
+$this->tplDisplay("inc_header.php", ['menu'=>'contact', 'page_title'=>$sTitle, 'seo_title'=>$aContent['seo_title'], 'seo_description'=>$aContent['seo_description'], 'seo_keywords'=>$aContent['seo_keywords']]); ?>
 
 <div class="row">
 	<div class="page-title">

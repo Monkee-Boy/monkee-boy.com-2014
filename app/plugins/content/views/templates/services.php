@@ -6,7 +6,7 @@
 @Author: Monkee-Boy
 -->
 
-<?php $this->tplDisplay("inc_header.php", ['menu'=>$aContent['tag'], 'sPageTitle'=>$sTitle, 'seo_title'=>$aContent['seo_title'], 'seo_description'=>$aContent['seo_description'], 'seo_keywords'=>$aContent['seo_keywords']]); ?>
+<?php $this->tplDisplay("inc_header.php", ['menu'=>$aContent['tag'], 'page_title'=>$sTitle, 'seo_title'=>$aContent['seo_title'], 'seo_description'=>$aContent['seo_description'], 'seo_keywords'=>$aContent['seo_keywords']]); ?>
 
 <div class="row page-title">
   <h1><?php echo $aContent['title'] ?></h1>
