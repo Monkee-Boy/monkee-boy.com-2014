@@ -92,6 +92,10 @@
         content: '';
         @include transform(scaleX(0.0001));
         @include transition(transform 250ms ease-in-out);
+
+        @media #{$medium-down} {
+          display: none;
+        }
       }
 
       &:before {

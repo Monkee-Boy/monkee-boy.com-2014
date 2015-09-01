@@ -4359,6 +4359,9 @@ button[type=submit] {
         -ms-transition: transform 250ms ease-in-out;
         -o-transition: transform 250ms ease-in-out;
         transition: transform 250ms ease-in-out; }
+        @media only screen and (max-width: 840px) {
+          .hero-services .hero-service-list a:before, .hero-services .hero-service-list a:after {
+            display: none; } }
       .hero-services .hero-service-list a:before {
         border-top: 4px solid #23a38f; }
       .hero-services .hero-service-list a:after {
