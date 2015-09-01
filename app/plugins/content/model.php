@@ -728,7 +728,7 @@ class content_model extends appModel {
         )
       ),
 
-      'ppcadvanced' => array(
+      'ppccomplete' => array(
         'subnav' => 'ppc',
         'features' => array(
           'title' => 'PPC Complete Features',
