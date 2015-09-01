@@ -78,7 +78,9 @@
       color: $green;
       font-size: 15px;
       font-family: $heading-font;
+      font-weight: 700;
       text-transform: uppercase;
+      letter-spacing: 0.02em;
       @include transition(color 450ms ease);
 
       &:hover, &:active {

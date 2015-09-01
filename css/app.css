@@ -1929,6 +1929,8 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
     float: none;
     width: auto;
     text-align: center; }
+  .panel.service-panel h2 {
+    margin-bottom: 10px; }
 
 /*
   Full Width Panels
@@ -4336,7 +4338,9 @@ button[type=submit] {
       color: #acca41;
       font-size: 15px;
       font-family: "effra", sans-serif;
+      font-weight: 700;
       text-transform: uppercase;
+      letter-spacing: 0.02em;
       -webkit-transition: color 450ms ease;
       -moz-transition: color 450ms ease;
       -ms-transition: color 450ms ease;
