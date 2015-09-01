@@ -650,6 +650,120 @@ class content_model extends appModel {
             )
           )
         )
+      ),
+
+      'ppcfoundation' => array(
+        'subnav' => 'ppc',
+        'features' => array(
+          'title' => 'PPC Foundation Features',
+          'content' => '<li>Audience Research</li><li>Budget Recommendations</li><li>Campaign Setup</li><li>200 Keywords</li><li>Ad Copywriting</li><li>Copy A/B Tests</li><li>Ad Group Creation</li><li>Bidding Plan</li><li>Measurement Plan</li><li>Conversion Tracking</li><li>Analytics Setup</li><li>Monthly Reporting</li>'
+        ),
+        'team' => array(
+          'content' => '<p>Monkee-Boy is a full service digital agency. When you work with our team, you get a troop of experts in SEO, social media, PPC, design, development, content, and analytics who love to collaborate. Unlike firms that just do SEO, we know that search projects sometimes require a little insight from other departments. At Monkee-Boy, that insight is just a desk away. Your team includes an:</p>',
+          'members' => '<li>SEO Analyst</li><li>Digital Marketing Coordinator</li><li>Content Strategist</li><li>Copywriter</li>'
+        ),
+        'price' => '',
+        'cta' => array(
+          'title' => 'Get In Touch',
+          'content' => '<p>Does this sound right to you? Contact us to get started right way. We can\'t wait to get to know your business.</p>',
+          'button' => 'Get in Touch'
+        ),
+        'production_schedule' => array(
+          'title' => 'Timeline Delay',
+          'content' => '<p>Due to high demand, it is currently taking us about one week to respond to requests for PPC Foundation.</p>'
+        ),
+        'other_plans' => array(
+          'title' => 'Need <span>Something Different</span>?',
+          'description' => '<p>That\'s okay -- check out our other PPC options:</p>',
+          'plans' => array(
+            array(
+              'title' => 'PPC Advanced',
+              'description' => 'PPC strategy and management for Adwords/Bing/Yahoo campaigns with retargeting, display ads, phone call tracking, and standard campaign landing pages.',
+              'link' => '/how-we-help/pay-per-click/ppc-advanced/'
+            ),
+            array(
+              'title' => 'PPC Complete',
+              'description' => 'PPC strategy and management for multiple campaigns on all networks with unique ad group landing pages, CRM and email marketing integration, and ongoing conversion optimization.',
+              'link' => '/how-we-help/pay-per-click/ppc-complete/'
+            )
+          )
+        )
+      ),
+
+      'ppcadvanced' => array(
+        'subnav' => 'ppc',
+        'features' => array(
+          'title' => 'PPC Advanced Features',
+          'content' => '<li>Audience Research</li><li>Adwords, Yahoo and Bing</li><li>Budget Recommendations</li><li>Campaign Setup</li><li>Ad Copywriting</li><li>Display Ad Design</li><li>Copy A/B Tests</li><li>Ad Group Creation</li><li>Bidding Plan</li><li>Measurement Plan</li><li>Conversion Tracking</li><li>Call Tracking</li><li>Ad Extensions</li><li>Retargeting</li><li>Analytics Setup</li><li>Monthly Reporting</li>'
+        ),
+        'team' => array(
+          'content' => '<p>Monkee-Boy is a full service digital agency. When you work with our team, you get a troop of experts in SEO, social media, PPC, design, development, content, and analytics who love to collaborate. Unlike firms that just do SEO, we know that search projects sometimes require a little insight from other departments. At Monkee-Boy, that insight is just a desk away. Your team includes an:</p>',
+          'members' => '<li>SEO Analyst</li><li>Digital Marketing Coordinator</li><li>Content Strategist</li><li>Copywriter</li>'
+        ),
+        'price' => '',
+        'cta' => array(
+          'title' => 'Get In Touch',
+          'content' => '<p>Does this sound right to you? Contact us to get started right way. We can\'t wait to get to know your business.</p>',
+          'button' => 'Get in Touch'
+        ),
+        'production_schedule' => array(
+          'title' => 'Timeline Delay',
+          'content' => '<p>Due to high demand, it is currently taking us about one week to respond to requests for PPC Advanced.</p>'
+        ),
+        'other_plans' => array(
+          'title' => 'Need <span>Something Different</span>?',
+          'description' => '<p>That\'s okay -- check out our other PPC options:</p>',
+          'plans' => array(
+            array(
+              'title' => 'PPC Foundation',
+              'description' => 'Monthly PPC strategy and management for a Google Adwords campaign. 200 keyword limit. Conversion tracking. Bid optimization.',
+              'link' => '/how-we-help/pay-per-click/ppc-foundation/'
+            ),
+            array(
+              'title' => 'PPC Complete',
+              'description' => 'PPC strategy and management for multiple campaigns on all networks with unique ad group landing pages, CRM and email marketing integration, and ongoing conversion optimization.',
+              'link' => '/how-we-help/pay-per-click/ppc-complete/'
+            )
+          )
+        )
+      ),
+
+      'ppcadvanced' => array(
+        'subnav' => 'ppc',
+        'features' => array(
+          'title' => 'PPC Complete Features',
+          'content' => '<li>Audience Research</li><li>Adwords, Yahoo and Bing</li><li>Budget Recommendations</li><li>Campaign Setup</li><li>Ad Copywriting</li><li>Display Ad Design</li><li>Copy A/B Tests</li><li>Landing Page A/B Tests</li><li>Advanced Ecommerce Ads</li><li>Ad Group Creation</li><li>Bidding Plan</li><li>Measurement Plan</li><li>Conversion Tracking</li><li>Call Tracking</li><li>Ad Extensions</li><li>Retargeting</li><li>Analytics Setup</li><li>CRM integration</li><li>Email Marketing Integration</li><li>Monthly Reporting</li>'
+        ),
+        'team' => array(
+          'content' => '<p>Monkee-Boy is a full service digital agency. When you work with our team, you get a troop of experts in SEO, social media, PPC, design, development, content, and analytics who love to collaborate. Unlike firms that just do SEO, we know that search projects sometimes require a little insight from other departments. At Monkee-Boy, that insight is just a desk away. Your team includes an:</p>',
+          'members' => '<li>SEO Analyst</li><li>Digital Marketing Coordinator</li><li>Content Strategist</li><li>Web Developer</li><li>UI/UX Designer</li>'
+        ),
+        'price' => '',
+        'cta' => array(
+          'title' => 'Get In Touch',
+          'content' => '<p>Does this sound right to you? Contact us to get started right way. We can\'t wait to get to know your business.</p>',
+          'button' => 'Get in Touch'
+        ),
+        'production_schedule' => array(
+          'title' => 'Timeline Delay',
+          'content' => '<p>Due to high demand, it is currently taking us about one week to respond to requests for PPC Complete.</p>'
+        ),
+        'other_plans' => array(
+          'title' => 'Need <span>Something Different</span>?',
+          'description' => '<p>That\'s okay -- check out our other PPC options:</p>',
+          'plans' => array(
+            array(
+              'title' => 'PPC Foundation',
+              'description' => 'Monthly PPC strategy and management for a Google Adwords campaign. 200 keyword limit. Conversion tracking. Bid optimization.',
+              'link' => '/how-we-help/pay-per-click/ppc-foundation/'
+            ),
+            array(
+              'title' => 'PPC Advanced',
+              'description' => 'PPC strategy and management for Adwords/Bing/Yahoo campaigns with retargeting, display ads, phone call tracking, and standard campaign landing pages.',
+              'link' => '/how-we-help/pay-per-click/ppc-advanced/'
+            )
+          )
+        )
       )
     );
 
