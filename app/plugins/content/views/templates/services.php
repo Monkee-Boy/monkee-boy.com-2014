@@ -23,17 +23,17 @@
     <div class="services-menu-mobile">
       <div class="service-menu-icons">
         <ul class="services-row-1">
-          <li><a href="#"><span class="strategy service-icon"><i></i></span></a></li>
-          <li><a href="#"><span class="design service-icon"><i></i></span></a></li>
-          <li><a href="#"><span class="development service-icon"><i></i></span></a></li>
-          <li><a href="#"><span class="marketing service-icon"><i></i></span></a></li>
+          <li><a href="/how-we-help/content-strategy/"><span class="contentstrategy service-icon<?php if($aContent['tag'] == 'content-strategy') { ?> active <?php } ?>"><i></i></span></a></li>
+          <li><a href="/how-we-help/web-design-and-development/"><span class="webdesigndevelopment service-icon<?php if($aContent['tag'] == 'web-design-and-development') { ?> active <?php } ?>"><i></i></span></a></li>
+          <li><a href="/how-we-help/analytics/"><span class="analytics service-icon<?php if($aContent['tag'] == 'analytics') { ?> active <?php } ?>"><i></i></span></a></li>
+          <li><a href="/how-we-help/website-maintenance"><span class="maintenance service-icon<?php if($aContent['tag'] == 'website-maintenance') { ?> active <?php } ?>"><i></i></span></a></li>
         </ul>
 
         <ul class="services-row-2">
-          <li><a href="#"><span class="strategy service-icon"><i></i></span></a></li>
-          <li><a href="#"><span class="design service-icon active"><i></i></span></a></li>
-          <li><a href="#"><span class="development service-icon"><i></i></span></a></li>
-          <li><a href="#"><span class="marketing service-icon"><i></i></span></a></li>
+          <li><a href="/how-we-help/content-marketing/"><span class="contentmarketing service-icon<?php if($aContent['tag'] == 'content-marketing') { ?> active <?php } ?>"><i></i></span></a></li>
+          <li><a href="/how-we-help/social-media/"><span class="socialmedia service-icon<?php if($aContent['tag'] == 'social-media') { ?> active <?php } ?>"><i></i></span></a></li>
+          <li><a href="/how-we-help/seo/"><span class="seo service-icon<?php if($aContent['tag'] == 'seo') { ?> active <?php } ?>"><i></i></span></a></li>
+          <li><a href="/how-we-help/pay-per-click/"><span class="ppc service-icon<?php if($aContent['tag'] == 'pay-per-click') { ?> active <?php } ?>"><i></i></span></a></li>
         </ul>
       </div>
 
@@ -41,9 +41,14 @@
         <select name="select-service">
           <option value="">View All Services</option>
 
-          <option value="">Strategy</option>
-          <option value="">Lorem Ipsum</option>
-          <option value="">Delor sit amet</option>
+          <option value="/how-we-help/content-strategy/">Content Strategy</option>
+          <option value="/how-we-help/web-design-and-development/">Web Design and Development</option>
+          <option value="/how-we-help/analytics/">Analytics</option>
+          <option value="/how-we-help/website-maintenance/">Website Maintenance</option>
+          <option value="/how-we-help/content-marketing/">Content Marketing</option>
+          <option value="/how-we-help/social-media/">Social Media</option>
+          <option value="/how-we-help/seo/">SEO</option>
+          <option value="/how-we-help/pay-per-click/">Pay-Per-Click</option>
         </select>
       </div>
       {footer}
