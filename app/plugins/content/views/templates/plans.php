@@ -21,7 +21,7 @@
       array('name' => 'SEO Complete', 'url' => '/how-we-help/seo/seo-complete/', 'menu' => 'seo-complete')
     ),
     'ppc' => array(
-      array('name' => 'PPC Foundation', 'url' => '/how-we-help/seo/ppc-foundation/', 'menu' => 'ppc-foundation'),
+      array('name' => 'PPC Foundation', 'url' => '/how-we-help/pay-per-click/ppc-foundation/', 'menu' => 'ppc-foundation'),
       array('name' => 'PPC Advanced', 'url' => '/how-we-help/pay-per-click/ppc-advanced/', 'menu' => 'ppc-advanced'),
       array('name' => 'PPC Complete', 'url' => '/how-we-help/pay-per-click/ppc-complete/', 'menu' => 'ppc-complete')
     ),
