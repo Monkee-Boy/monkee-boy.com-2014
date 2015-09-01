@@ -70,7 +70,7 @@
   <div class="row-content">
     <?= $aServiceContent['about']; ?>
 
-    <a href="#jump" class="button">View Service Options</a>
+    <?php if(!empty($aServiceContent['chart'] || !empty($aServiceContent['service_plans']))) { ?><a href="#jump" class="button">View Service Options</a><?php } ?>
   </div>
 
   <div class="row-sidebar">
