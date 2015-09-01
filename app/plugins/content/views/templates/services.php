@@ -129,7 +129,7 @@
 <?php if(!empty($aServiceContent['case_study'])) { ?>
   <div class="row">
     <div class="full">
-      <h3><?= $aServiceContent['case_study']['title']; ?></h3>
+      <h3><?= $aServiceContent['case_study']['title']; ?> Case Study</h3>
     </div>
 
     <div class="case-studies">

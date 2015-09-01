@@ -192,8 +192,8 @@ class content_model extends appModel {
     $content = array(
       'websitemaintenance' => array(
         'about' => '<p class="intro">Many websites become less effective shortly following their launch date due to lackluster maintenance efforts.</p><p>Why does this happen? Well, it\'s pretty simple. The web changes rapidly and without proper maintenance a young website can struggle to keep up. Not to mention the fact that hackers deliberately seek out older, poorly maintained websites to attack because they\'re more likely to have vulnerabilities in the code that were left untended due to subpar maintenance.</p><p>Fortunately, our maintenance team works tirelessly to ensure that every website we manage experiences as few missteps as possible.</p><p>We monitor your site 24/7, complete any security updates or CMS upgrades, perform monthly health checks, and make any changes you send us through our easy-to-use ticketing system.</p><p>Monkee-Boy offers two levels of website maintenance -- one for clients that just need regular checkups and updates and another for those who also need to maintain their SEO.</p>',
-        'benefits_title' => 'Our Maintenance Team Can...',
-        'benefits' => '<li>Quickly locate, replicate, and fix bugs.</li><li>Perform regular CMS and security upgrades.</li><li>Protect your website from hacking.</li>',
+        'benefits_title' => 'Our Maintenance Team Can Help…',
+        'benefits' => '<li>Quickly locate, replicate, and fix bugs so that your website always operates at a high level.</li><li>Perform regular CMS and security updates.</li><li>Protect your website from hacking.</li>',
         'our_team' => '<p>Monkee-Boy hires thinkers and problem solvers who also happen to be excellent designers, developers, marketers and strategists. Like zombies, we pick people for their brains.</p><p>The reason is simple. We just think our clients deserve the best: a team of ridiculously smart, web-savvy people ready to solve your problems.</p>',
         'being_a_client' => '<p>We don\'t really like the word client. It implies a relationship where you, the client, don\'t get to participate. That\'s not how Monkee-Boy works. This won\'t be one of those sit-back-and-enjoy-the-ride experiences. A typical Monkee-Boy project is full of epiphanies, exclamations, and visions as we collaboratively explore how you can solve the web.</p><p>In short, when you decide to work with Monkee-Boy you become <a href="/the-work/client-list/">our partner</a>. We\'ll work on your project as a team. We may even eat lunch together.</p>',
         'chart' => array(
@@ -243,7 +243,7 @@ class content_model extends appModel {
             ),
             array(
               'title' => 'Plus',
-              'description' => 'Monthly maintenance plus SEO to keep your website healthy.',
+              'description' => 'Monthly Maintenance plus SEO to keep your website healthier.',
               'price' => '780',
               'icon' => 'maintenance',
               'cta' => 'Sign Up',
@@ -269,25 +269,22 @@ class content_model extends appModel {
         ),
         'case_study' => null,
         'clients' => array(),
-        'cta' => array(
-          'content' => 'Ready to Start Working Together?',
-          'button' => 'Request a Quote'
-        ),
+        'cta' => array(),
         'service_plans' => array(),
         'service_plan' => array(),
         'service_features' => array()
       ),
 
       'contentstrategy' => array(
-        'about' => '<p class="intro">Have you ever looked at your website or any other part of your web presence and thought: I know we can do a better job...but how do we start?</p><p>Part art and part science, content strategy answers this question by assessing the current state of your content (aka everything your audience can read, see, or experience online -- from product descriptions to thank you messages).</p><p>Using a comprehensive audit, we measure what you currently say and show to people on the web against the needs of your business, the needs of your audiences, and analytics data. (link to analytics page)</p><p>These findings then become the foundation of a measurable blueprint for your web presence that empowers you and your team to leverage content to achieve your business goals, as well as a framework that ensures you always deliver the right message at the right time to your customers -- whether that\'s on your website, in your email communications, or through social media.</p>',
-        'benefits_title' => 'Content Strategy Leads the Way Towards...',
-        'benefits' => '<li>Increased engagement with your brand.</li><li>Higher ROI on digital investments.</li><li>Improved inter-department collaboration.</li>',
+        'about' => '<p class="intro">Have you ever looked at your website or any other part of your web presence and thought: I know we can do a better job...but how do we start?</p><p>Part art and part science, content strategy answers this question by assessing the current state of your content (aka everything your audience can read, see, or experience online -- from product descriptions to thank you messages).</p><p>Using a comprehensive audit, we measure what you currently say and show to people on the web against the needs of your business, the needs of your audiences, and <a href="/how-we-help/analytics/">analytics data</a>.</p><p>These findings then become the foundation of a measurable blueprint for your web presence that empowers you and your team to leverage content to achieve your business goals, as well as a framework that ensures you always deliver the right message at the right time to your customers -- whether that\'s on your website, in your email communications, or through social media.</p>',
+        'benefits_title' => 'Content Strategy Leads The Way Towards...',
+        'benefits' => '<li>Increased engagement with your brand on the web.</li><li>Higher return-on-investment from your digital properties and marketing campaigns.</li><li>Improved inter-department collaboration at larger organizations.</li>',
         'cta' => array(
           'content' => 'Ready to Start Working Together?',
           'button' => 'Request a Quote'
         ),
         'service_features' => array(
-          'title' => '',
+          'title' => 'Content Strategy Includes:',
           'features' => '<li>Audience Research</li><li>Messaging Hierarchy</li><li>Persona Development</li><li>Customer Lifecycle</li><li>Content Audit</li><li>Information Architecture</li><li>Content Page Templates</li><li>Workflow &amp; Style Guidelines</li><li>Measurement Plan</li>',
         ),
         'being_a_client' => '<p>We don\'t really like the word client. It implies a relationship where you, the client, don\'t get to participate. That\'s not how Monkee-Boy works. This won\'t be one of those sit-back-and-enjoy-the-ride experiences. A typical Monkee-Boy project is full of epiphanies, exclamations, and visions as we collaboratively explore how you can solve the web.</p><p>In short, when you decide to work with Monkee-Boy you become <a href="/the-work/client-list/">our partner</a>. We\'ll work on your project as a team. We may even eat lunch together.</p>',
@@ -301,14 +298,14 @@ class content_model extends appModel {
 
       'webdesignanddevelopment' => array(
         'about' => '<p class="intro">Think about your website...</p><p>Where do you need visitors to go? What do you need them to do? Do you want them to purchase a product? Share an article? Sign up for an account? Invite their friends? Make a donation?</p><p>Your organization\'s success on the web depends on website visitors reaching these goals.</p><p>Well, it just so happens that our strategy, design, and development team builds great looking, interactive websites that guide visitors toward well-defined goals as they journey through a positive and memorable experience with your brand.</p><p>All of our websites feature:</p><ul><li>Responsive, user-centered designs.</li><li>Custom content management systems (CMS) or Wordpress back-ends.</li><li>Content strategy.</li></ul><p>To put it simply, we\'re a no tricks, no gimmicks shop. Just straight up, classy user experience that helps your organization solve the web.</p>',
-        'benefits_title' => 'A New Website Will...',
-        'benefits' => '<li>Attract more new visitors.</li><li>Guide more visitors towards goals integral to your success.</li><li>Empower your brand in a competitive marketplace.</li>',
+        'benefits_title' => 'A New Website Will Help You…',
+        'benefits' => '<li>Attract more new visitors and make a stronger first impression.</li><li>Guide more visitors toward goals integral to your organization’s success.</li><li>Empower your brand to succeed in an increasingly competitive marketplace.</li>',
         'cta' => array(
           'content' => 'Ready to Start Working Together?',
           'button' => 'Request a Quote'
         ),
         'service_features' => array(
-          'title' => '',
+          'title' => 'Web Design and Development Includes:',
           'features' => '<li>Audience Research</li><li>Competitor Analysis</li><li>Messaging Hierarchy</li><li>Persona Development</li><li>Content Strategy</li><li>Responsive Website Design</li><li>User Interface Design (UI)</li><li>User Experience Design (UX)</li><li>Wireframes</li><li>Front-End Web Development</li><li>Back-End Web Development</li><li>Wordpress Development</li><li>Custom Content Management Systems (CMS)</li><li>Copywriting</li><li>Mobile App Design</li>',
         ),
         'being_a_client' => '<p>We don\'t really like the word client. It implies a relationship where you, the client, don\'t get to participate. That\'s not how Monkee-Boy works. This won\'t be one of those sit-back-and-enjoy-the-ride experiences. A typical Monkee-Boy project is full of epiphanies, exclamations, and visions as we collaboratively explore how you can solve the web.</p><p>In short, when you decide to work with Monkee-Boy you become <a href="/the-work/client-list/">our partner</a>. We\'ll work on your project as a team. We may even eat lunch together.</p>',
@@ -332,10 +329,10 @@ class content_model extends appModel {
       'seo' => array(
         'about' => '<p class="intro">We won\'t lie to you: we\'re not the type of company that guarantees a #1 ranking in Google.</p><p>We believe in SEO that improves your ranking and brings higher quality traffic to your site, and we\'d urge you to be skeptical of anyone that says they can do otherwise.</p><p>Our SEO efforts focus on creating a long-term stream of traffic that you can count on well into the future, not tricking Google for a temporary boost.</p><p>Our projects typically involve:</p><ul><li>Research into your business, target audiences, and competitors.</li><li>Identifying technical issues that negatively impact rankings and creating a plan to fix them.</li><li>Strategically optimizing content to attract more qualified visitors to your website.</li></ul><p>Google sets a high standard, but we have the SEO analysts and content experts on our marketing team who understand how to meet them, as well as a variety of service options to meet your needs.</p>',
         'benefits_title' => 'Real SEO Helps You...',
-        'benefits' => '<li>Optimize your website to provide more relevant information for searchers.</li><li>Direct higher quality traffic to your site.</li><li>Identify high-value, high ROI opportunities to outrank competitors.</li>',
+        'benefits' => '<li>Optimize your website to provide more relevant information for searchers, thus improving your ranking in search results.</li><li>Direct higher quality traffic to your site that’s more likely to result in new leads and conversions.</li><li>Identify high-value, high-ROI opportunities to outrank competitors with better content.</li>',
         'cta' => array(),
         'service_features' => array(
-          'title' => '',
+          'title' => 'SEO Includes',
           'features' => '<li>Technical Audit</li><li>Competitor Analysis</li><li>SEO Strategy</li><li>Local Search</li><li>Inbound Link Building</li><li>Broken Link Optimization</li><li>SEO Gap Analysis</li><li>Conversion Optimization</li><li>Title Tags</li><li>Meta Descriptions</li><li>Copywriting</li>',
         ),
         'being_a_client' => '<p>We don\'t really like the word client. It implies a relationship where you, the client, don\'t get to participate. That\'s not how Monkee-Boy works. This won\'t be one of those sit-back-and-enjoy-the-ride experiences. A typical Monkee-Boy project is full of epiphanies, exclamations, and visions as we collaboratively explore how you can solve the web.</p><p>In short, when you decide to work with Monkee-Boy you become <a href="/the-work/client-list/">our partner</a>. We\'ll work on your project as a team. We may even eat lunch together.</p>',
@@ -378,12 +375,12 @@ class content_model extends appModel {
       ),
 
       'payperclick' => array(
-        'about' => '<p class="intro">Anyone can set up a few PPC advertisements in Google Adwords and call it PPC management, but at Monkee-Boy, we use extensive customer, market, and keyword research to create campaign strategies that meet your unique goals -- whether those focus on increasing visits, improving conversions, or maximizing your ad budget.</p><p>Then we keep those campaigns under our magnifying glass and make ongoing adjustments to ensure that you get the most out of your PPC advertising.</p><p>PPC is easy when all you try to do is pile on the clicks. Monkee-Boy focuses on finding the right clicks. High-quality leads that cost less to acquire.</p>',
-        'benefits_title' => 'Smart PPC Advertising Can...',
-        'benefits' => '<li>Generate new leads.</li><li>Lower your cost per new lead.</li><li>Identify new keyword opportunities.</li>',
+        'about' => '<p class="intro">Anyone can set up a few PPC advertisements in Google Adwords and call it PPC management, but at Monkee-Boy we use extensive customer, market, and keyword research to create campaign strategies that meet your unique goals -- whether those focus on increasing visits, improving conversions, or maximizing your ad budget.</p><p>Then we keep those campaigns under our magnifying glass and make ongoing adjustments to ensure that you get the most out of your PPC advertising.</p><p>PPC is easy when all you try to do is pile on the clicks. Monkee-Boy focuses on finding the right clicks. High-quality leads that cost less to acquire.</p>',
+        'benefits_title' => 'Smart PPC Advertising Can Help You…',
+        'benefits' => '<li>Generate new leads.</li><li>Lower you cost per new lead.</li><li>Identify new keyword opportunities for your advertising campaigns.</li>',
         'cta' => array(),
         'service_features' => array(
-          'title' => '',
+          'title' => 'PPC Advertising Includes:',
           'features' => '<li>PPC Management</li><li>Display Ads</li><li>Google Adwords Management</li><li>PPC Audit</li><li>Retargeting/Remarketing Campaigns</li><li>Bid Optimization</li><li>Conversion Optimization</li><li>Ongoing Reporting</li>',
         ),
         'being_a_client' => '<p>We don\'t really like the word client. It implies a relationship where you, the client, don\'t get to participate. That\'s not how Monkee-Boy works. This won\'t be one of those sit-back-and-enjoy-the-ride experiences. A typical Monkee-Boy project is full of epiphanies, exclamations, and visions as we collaboratively explore how you can solve the web.</p><p>In short, when you decide to work with Monkee-Boy you become <a href="/the-work/client-list/">our partner</a>. We\'ll work on your project as a team. We may even eat lunch together.</p>',
@@ -417,12 +414,12 @@ class content_model extends appModel {
       ),
 
       'socialmedia' => array(
-        'about' => '<p class="intro">The best social media marketers aren\'t the ones that get the most likes; they\'re the ones that clearly connect their activity on social media to well-defined business objectives.</p><p>That\'s because a good social media strategy draws a line -- often multiple lines -- between what you post on social media and an action you ultimately want your fans to take.</p><p>Are you selling products? Services? Asking for donations? Promoting a membership program? Your social media strategy and execution must provide a path that subtly encourages fans toward these actions.</p><p>Monkee-Boy\'s digital marketing team has the expertise to create and manage this path. We\'ll treat your social media initiatives as part of an overall marketing strategy, not as silos, resulting in a more strategic plan for how and when to leverage social media.</p>',
-        'benefits_title' => 'Good Social Media Marketing Will...',
-        'benefits' => '<li>Drive more traffic to your website from social media.</li><li>Convert casual fans to loyal customers.</li><li>Encourage a community of fans to advertise for you.</li>',
+        'about' => '<p class="intro">The best social media marketers aren\'t the ones that get the most likes; they\'re the ones that clearly connect their activity on social media to well-defined business objectives.</p><p>That\'s because a good social media strategy draws a line -- often multiple lines -- between what you post on social media and an action you ultimately want your fans to take.</p><p>Are you selling products? Services? Asking for donations? Promoting a membership program? Your social media strategy and execution must provide a path that subtly encourages fans toward these actions.</p><p>Monkee-Boy\'s digital marketing team has the expertise to create and manage this path. We\'ll treat your social media initiatives as part of an overall marketing strategy, not as silos, resulting in a more targeted plan for how and when to leverage social media.</p>',
+        'benefits_title' => 'Good Social Media Marketing Will Help You…',
+        'benefits' => '<li>Drive more traffic to your website from social media.</li><li>Convert casual fans to loyal customers.</li><li>Encourage a community of fans to advertise for you by sharing content with their friends and family members.</li>',
         'cta' => array(),
         'service_features' => array(
-          'title' => '',
+          'title' => 'Social Media Marketing Includes:',
           'features' => '<li>Social Media Management</li><li>Social Content Audit</li><li>Profile Optimization</li><li>Content Creation</li><li>Facebook Advertising</li><li>Blog Writing</li><li>Ongoing Reporting</li><li>Ongoing Monitoring</li><li>Editorial Calendar</li><li>Copywriting</li><li>Infographics</li><li>Custom Images</li><li>Contests & Sweepstakes</li>',
         ),
         'being_a_client' => '<p>We don\'t really like the word client. It implies a relationship where you, the client, don\'t get to participate. That\'s not how Monkee-Boy works. This won\'t be one of those sit-back-and-enjoy-the-ride experiences. A typical Monkee-Boy project is full of epiphanies, exclamations, and visions as we collaboratively explore how you can solve the web.</p><p>In short, when you decide to work with Monkee-Boy you become <a href="/the-work/client-list/">our partner</a>. We\'ll work on your project as a team. We may even eat lunch together.</p>',
@@ -457,14 +454,14 @@ class content_model extends appModel {
 
       'contentmarketing' => array(
         'about' => '<p class="intro">Have you ever wondered why some of your competitors seem to get more attention on the web? Their articles and posts crowd your Facebook news feed. Pages linked to their website routinely show up in search results. They\'re more popular on Twitter.</p><p>This is the result of good content strategy.</p><p>These businesses and organizations have successfully identified content that resonates with their target audiences. They\'ve figured out how to consistently create that content, where and how to deliver it, and what to encourage their fans to do after that first point of contact to turn casual interest into into leads and customers.</p><p>Getting to this point is no simple task. To figure out what to say on the web, you must first take a close look at who you are and who you want to reach.</p><p>Monkee-Boy can lead you through this process.</p>',
-        'benefits_title' => 'Great Content Marketing Will...',
-        'benefits' => '<li>Improve Brand Recognition.</li><li>Increase Quality and Quantity of Leads.</li><li>Boost Loyalty Amongst Existing Fans.</li>',
+        'benefits_title' => 'Great Content Marketing Will Help You…',
+        'benefits' => '<li>Improve brand recognition and visibility on the web.</li><li>Increase the quality and quantity of leads your organization receives.</li><li>Boost loyalty amongst existing fans and turn them into ambassadors for your brand.</li>',
         'cta' => array(
           'content' => 'Ready To Start Working Together?',
           'button' => 'Request a Quote'
         ),
         'service_features' => array(
-          'title' => '',
+          'title' => 'Content Marketing Includes:',
           'features' => '<li>Content Audit</li><li>Competitive Analysis</li><li>Gap Analysis</li><li>Audience Personas</li><li>Brand Story</li><li>Messaging Hierarchy</li><li>Email Marketing</li><li>Copywriting</li><li>Infographics</li><li>Video</li>',
         ),
         'being_a_client' => '<p>We don\'t really like the word client. It implies a relationship where you, the client, don\'t get to participate. That\'s not how Monkee-Boy works. This won\'t be one of those sit-back-and-enjoy-the-ride experiences. A typical Monkee-Boy project is full of epiphanies, exclamations, and visions as we collaboratively explore how you can solve the web.</p><p>In short, when you decide to work with Monkee-Boy you become <a href="/the-work/client-list/">our partner</a>. We\'ll work on your project as a team. We may even eat lunch together.</p>',
@@ -478,14 +475,14 @@ class content_model extends appModel {
 
       'analytics' => array(
         'about' => '<p class="intro">At Monkee-Boy, we believe that knowledge drives good decision making. We like to dig into numbers, test ideas, and analyze data before we make big changes to a website.</p><p>If you\'re the same way, then hopefully you already have a robust analytics plan in place to measure the behavior of visitors to your website.</p><p>If not, we can help by creating a custom measurement framework that tracks how well your website accomplishes key business objectives. The wide range of insightful data we can gather will not only empower you and your team to make strategically sound decisions about your website, but also serve as a data-driven guide for your overall business strategy on the web.</p><p>Every second a visitor spends on your website, every button clicked, every form submitted or shopping cart abandoned tells a story about the effectiveness of your site and points to an opportunity for improvement.</p><p>Properly understanding these stories can mean the difference between first place and second in a competitive market.</p>',
-        'benefits_title' => 'Smart Web Analytics Can...',
-        'benefits' => '<li>Identify business opportunities on the web.</li><li>Measure the effectiveness of marketing.</li><li>Increase conversion rates.</li>',
+        'benefits_title' => 'Smart Website Analytics Can Help You…',
+        'benefits' => '<li>Identify new, data-driven business opportunities to pursue on the web.</li><li>Measure the effectiveness of your marketing campaigns.</li><li>Increase conversion rates through optimization.</li>',
         'cta' => array(
           'content' => 'Ready To Start Working Together?',
           'button' => 'Request a Quote'
         ),
         'service_features' => array(
-          'title' => '',
+          'title' => 'Analytics Includes',
           'features' => '<li>Google Webmaster Tools</li><li>Custom Ongoing Reporting</li><li>Landing Page Development</li><li>Custom Rules and Filters</li><li>Custom Segmentation</li><li>Ecommerce Tracking</li><li>AdWords Conversion Tracking</li>',
         ),
         'being_a_client' => '<p>We don\'t really like the word client. It implies a relationship where you, the client, don\'t get to participate. That\'s not how Monkee-Boy works. This won\'t be one of those sit-back-and-enjoy-the-ride experiences. A typical Monkee-Boy project is full of epiphanies, exclamations, and visions as we collaboratively explore how you can solve the web.</p><p>In short, when you decide to work with Monkee-Boy you become <a href="/the-work/client-list/">our partner</a>. We\'ll work on your project as a team. We may even eat lunch together.</p>',
