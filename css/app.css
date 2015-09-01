@@ -4304,6 +4304,9 @@ button[type=submit] {
         padding: 50px 25px; } }
     .hero-services .hero-content h1, .hero-services .hero-content p {
       color: #fff; }
+    .hero-services .hero-content h1 {
+      margin-bottom: 25px;
+      font-weight: 700; }
     .hero-services .hero-content p {
       font-size: 18px;
       font-family: "effra", sans-serif;
