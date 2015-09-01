@@ -709,6 +709,7 @@
 
     li {
       margin-top: 20px;
+      color: #fff;
     }
   }
 
@@ -731,6 +732,10 @@
     .meet-the-team-content {
       position: relative;
       z-index: 2;
+
+      p {
+        color: #fff;
+      }
     }
 
     &.full-width {
@@ -1234,8 +1239,14 @@
   }
 
   &[data-clients-style='services'] {
+    margin-bottom: 60px;
+
     li {
       @include span(5 of 12);
+
+      @media #{$medium-only} {
+        @include span(11 of 12);
+      }
     }
 
     li:before {
@@ -1251,6 +1262,7 @@
     @include span(3 of 12);
     margin-top: 0;
     margin-bottom: 25px;
+    font-weight: 700;
 
     @media #{$medium-down} {
       @include span(4 of 12);
@@ -1262,7 +1274,7 @@
   }
 }
 
-.team-list {
+ul.team-list {
   li {
     display: inline-block;
     padding: 5px 15px;
@@ -1281,7 +1293,8 @@
   &:first-child {
     padding-top: 0;
     text-align: center;
-    font-size: em-calc(60px);
+    font-family: $heading-font;
+    font-size: em-calc(54px);
     color: $black;
 
     span {

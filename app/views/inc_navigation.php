@@ -21,7 +21,7 @@
             <?php $this->tplDisplay('subnav/who.php', array('menu'=>$menu,'from'=>'nav')); ?>
           </li>
           <li class="primary has-dropdown">
-            <a href="/how-we-help/" title="" class="nav-how<?php if($current==='how'): ?> current<?php endif; ?>">How We Help</a>
+            <a href="/how-we-help/content-strategy/" title="" class="nav-how<?php if($current==='how'): ?> current<?php endif; ?>">How We Help</a>
             <?php $this->tplDisplay('subnav/how.php', array('menu'=>$menu,'from'=>'nav')); ?>
           </li>
           <li class="primary has-dropdown">
