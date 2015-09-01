@@ -2499,6 +2499,10 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
     .box-of-doom ul li {
       margin-top: 20px;
       color: #fff; }
+  .box-of-doom h4 {
+    color: #acca41;
+    font-size: 40px;
+    font-weight: 700; }
   .box-of-doom.meet-the-team {
     position: relative;
     background: url(../images/home-create-thumb.png) no-repeat center center/cover;
@@ -2512,6 +2516,10 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
       z-index: 1;
       content: '';
       background: rgba(36, 37, 41, 0.9); }
+    .box-of-doom.meet-the-team h4 {
+      color: #23a38f;
+      font-size: 24px;
+      font-weight: 700; }
     .box-of-doom.meet-the-team .meet-the-team-content {
       position: relative;
       z-index: 2; }

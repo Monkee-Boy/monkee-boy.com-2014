@@ -294,8 +294,8 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
       <div class="form-part1">
         <label for="firstname">Name*</label>
         <div class="form-step monkee-step">
-          <span class="input-wrapper half"><input type="text" name="firstname" id="firtname" class="validate[required]" placeholder="Jane" value="<?= strip_tags($form_data['firstname']) ?>"></span>
-          <span class="input-wrapper half"><input type="text" name="lastname" id="lastname" class="validate[required]" placeholder="Goodall" value="<?= strip_tags($form_data['lastname']) ?>"></span>
+          <span class="input-wrapper half"><input type="text" name="firstname" id="firtname" class="validate[required]" placeholder="First" value="<?= strip_tags($form_data['firstname']) ?>"></span>
+          <span class="input-wrapper half"><input type="text" name="lastname" id="lastname" class="validate[required]" placeholder="Last" value="<?= strip_tags($form_data['lastname']) ?>"></span>
         </div>
         <label for="email">Email*</label>
         <div class="form-step monkee-step">

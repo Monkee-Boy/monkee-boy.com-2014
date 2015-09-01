@@ -713,6 +713,12 @@
     }
   }
 
+  h4 {
+    color: $green;
+    font-size: 40px;
+    font-weight: 700;
+  }
+
   &.meet-the-team {
     position: relative;
     background: url(../images/home-create-thumb.png) no-repeat center center/cover;
@@ -727,6 +733,12 @@
       z-index: 1;
       content: '';
       background: rgba($black, 0.9);
+    }
+
+    h4 {
+      color: $teal;
+      font-size: 24px;
+      font-weight: 700;
     }
 
     .meet-the-team-content {
