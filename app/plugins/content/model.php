@@ -339,7 +339,7 @@ class content_model extends appModel {
         'clients' => array(),
         'our_team' => '<p>Monkee-Boy hires thinkers and problem solvers who also happen to be excellent designers, developers, marketers and strategists. Like zombies, we pick people for their brains.</p><p>The reason is simple. We just think our clients deserve the best: a team of ridiculously smart, web-savvy people ready to solve your problems.</p>',
         'case_study' => array(
-          'title' => 'DoubleDave\'s',
+          'title' => 'DoubleDave\'s Pizzaworks',
           'challenge' => '<li>Make it easier for hungry pizza lovers to find a local DoubleDave’s franchise and place an order online.</li><li>Improve the visibility of franchises in local search results. </li>',
           'solutions' => '<li>Mobile-friendly landing pages for each franchise with proper markup for local search performance.</li><li>Submitted new pages to listing websites to acquire quality inbound links.</li>',
           'results' => array(
