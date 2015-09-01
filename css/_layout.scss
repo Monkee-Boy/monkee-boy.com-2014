@@ -238,7 +238,9 @@ body {
       }
 
       ul.dropdown-extended {
-        width: 490px;
+        padding-right: em-calc(20);
+        padding-left: em-calc(20);
+        width: 515px;
 
         li {
           float: left;

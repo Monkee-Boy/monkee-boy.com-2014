@@ -771,7 +771,9 @@ body.menu-open {
           color: #fff;
           text-decoration: none; }
       .main-nav ul li.primary ul.dropdown-extended {
-        width: 490px; }
+        padding-right: 1.11111em;
+        padding-left: 1.11111em;
+        width: 515px; }
         .main-nav ul li.primary ul.dropdown-extended li {
           float: left;
           width: 50%; }
