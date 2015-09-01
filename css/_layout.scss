@@ -526,6 +526,7 @@ body {
         background-color: #000;
         margin: 0 em-calc(-8);
         a {
+          display: inline-block;
           font-size: 18px;
           font-family: $heading-font;
           color: $teal;

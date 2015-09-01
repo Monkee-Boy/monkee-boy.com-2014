@@ -150,7 +150,7 @@
 
   function open_mobile_accordion(ul) {
     var $menu_items = ul.children('li'),
-        height = $menu_items.length * 35 + 8; //$menu_items.length * 31 + 8
+        height = $menu_items.length * 38 + 8; //$menu_items.length * 31 + 8
 
     TweenLite.set($menu_items, {
       x: 150,

@@ -1017,6 +1017,7 @@ body.menu-open {
           background-color: #000;
           margin: 0 -0.44444em; }
           .mobile-menu-container .has-dropdown ul a {
+            display: inline-block;
             font-size: 18px;
             font-family: "effra", sans-serif;
             color: #23a38f;
