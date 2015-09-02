@@ -181,7 +181,8 @@ class content_model extends appModel {
           'result' => '',
           'description' => ''
         ),
-        'url' => ''
+        'url' => '',
+        'link_title' => ''
       ),
       'chart' => array(),
       'service_plans' => array(),
@@ -321,7 +322,8 @@ class content_model extends appModel {
             'result' => '168%',
             'description' => '<p>Increase in visits to website from outside the Austin metro area over ten months following launch.</p>'
           ),
-          'url' => ''
+          'url' => '/the-work/bullock-texas-state-history-museum/',
+          'link_text' => 'View Full Project'
         ),
         'chart' => array(),
         'service_plans' => array(),
@@ -348,7 +350,8 @@ class content_model extends appModel {
             'result' => '637%',
             'description' => '<p>ROI based on an increase in ordering events from 2013 to 2014 and the average price of an order.</p>'
           ),
-          'url' => ''
+          'url' => '',
+          'link_text' => ''
         ),
         'chart' => array(),
         'service_plans' => array(

@@ -1,6 +1,6 @@
 <!--
 @Name: Services
-@Description: Showcase of all typography and content blocks.
+@Description:
 @Version: 1.0
 @Restricted: false
 @Author: Monkee-Boy
@@ -170,7 +170,7 @@
     </div>
 
     <div class="full center">
-      <?php if(!empty($aServiceContent['case_study']['url'])) { ?><a href="<?= $aServiceContent['case_study']['url']; ?>">View Full Case Study</a><?php } ?>
+      <?php if(!empty($aServiceContent['case_study']['url'])) { ?><a href="<?= $aServiceContent['case_study']['url']; ?>"><?= $aServiceContent['case_study']['link_text']; ?></a><?php } ?>
     </div>
   </div>
 <?php } ?>
