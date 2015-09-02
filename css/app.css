@@ -4322,7 +4322,7 @@ button[type=submit] {
 
 .hero-services {
   position: relative;
-  margin: -45px auto 125px;
+  margin: -45px auto 120px;
   padding-top: 168px;
   z-index: 2; }
   @media only screen and (max-width: 840px) {
@@ -4349,14 +4349,17 @@ button[type=submit] {
       margin-bottom: 25px;
       font-weight: 700; }
     .hero-services .hero-content p {
+      margin: 1.66667em 0 0 0;
       font-size: 18px;
       font-family: "effra", sans-serif;
       line-height: 30px; }
       @media only screen and (max-width: 840px) {
         .hero-services .hero-content p {
           line-height: 26px; } }
+      .hero-services .hero-content p:first-child {
+        margin-top: 0; }
   .hero-services .hero-service-list {
-    padding: 50px;
+    padding: 25px 50px;
     background: #242529; }
     @media only screen and (max-width: 840px) {
       .hero-services .hero-service-list {
@@ -4367,7 +4370,7 @@ button[type=submit] {
       text-align: center; }
     .hero-services .hero-service-list li {
       display: inline-block;
-      margin: 0 25px 25px; }
+      margin: 0 25px; }
       @media only screen and (max-width: 840px) {
         .hero-services .hero-service-list li {
           display: block;
