@@ -31,41 +31,6 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
 
     <div class="row">
       <div class="left">
-        <h4>Do you have a Request for Proposal (RFP)?</h4>
-        <label class="radio" for="brief1">
-          Not yet, but I can tell you about my project.
-          <input type="radio" id="brief1" name="brief" value="1" class="input-switch" data-switchto="no-brief"<?php if($form_data['brief'] === '1'){ echo ' checked'; } ?>>
-          <span class="control-indicator"></span>
-        </label>
-        <label class="radio" for="brief2">
-          Yes, I do.
-          <input type="radio" id="brief2" name="brief" value="0" class="input-switch" data-switchto="brief-upload"<?php if($form_data['brief'] === '0'){ echo ' checked'; } ?>>
-          <span class="control-indicator"></span>
-        </label>
-      </div>
-
-      <div class="right">
-        <div id="no-brief" class="switch-target<?php if($form_data['brief'] === '1'){ echo ' active'; } ?>">
-          <label for="project-desc" class="quiet">No RFP? No problem!</label>
-          <p>Please tell us know a little about your project. What are your goals? What do you hope to accomplish? What specific challenges have gotten in your way? What is/isn't working? Any advanced functionality or tools you need? Etc...</p>
-          <div class="input-wrapper"><textarea cols="10" rows="4" id="project-desc" name="project-desc"><?= $form_data['project-desc'] ?></textarea></div>
-        </div>
-
-        <div id="brief-upload" class="switch-target<?php if($form_data['brief'] === '0'){ echo ' active'; } ?>">
-          <h5>Great! Upload it here:</h5>
-          <div class="upload-box initial">
-            <div class="uploaded-files"></div>
-            <div class="drop-label">Drag &amp; drop files here <span>or</span></div>
-            <a href="#" class="add-files">browse files!</a>
-            <span class="file-size"><span>0</span> MB of 50 MB</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <hr>
-
-    <div class="row">
-      <div class="left">
         <label for="main-service">What Primary Service Do You Need?</label>
         <p>Let us know how Monkee-Boy can help you solve the web.</p>
       </div>
@@ -73,7 +38,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
       <div class="right sub-nav">
         <ul class="nav-block">
           <li><a href="#" class="form-selectService" data-service-options="">Content Strategy</a></li>
-          <li><a href="#" class="form-selectService" data-service-options="">Web Design and Development</a></li>
+          <li><a href="#" class="form-selectService" data-service-options="design-development">Web Design and Development</a></li>
           <li><a href="#" class="form-selectService" data-service-options="">Analytics</a></li>
           <li><a href="#" class="form-selectService" data-service-options="website-maintenance">Website Maintenance</a></li>
           <li><a href="#" class="form-selectService" data-service-options="">Content Marketing</a></li>
@@ -96,9 +61,15 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
       service.addClass('current');
       $('#main-service').val(service.text()); // Set input value to selected service.
 
-      $('.service-option').slideUp(300);
-      if(serviceOption !== '') {
-        $('#'+serviceOption).delay(500).slideDown('slow');
+      if(serviceOption === 'design-development') {
+        $('.service-option').slideUp(300);
+        $('.js-DesignDevBlock').slideDown('slow');
+      } else {
+        $('.service-option').slideUp(300);
+        $('.js-DesignDevBlock').slideUp(300);
+        if(serviceOption !== '') {
+          $('#'+serviceOption).delay(500).slideDown('slow');
+        }
       }
     });
     </script>
@@ -190,75 +161,113 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
     </script>
     {/footer}
 
-    <div class="row">
-      <div class="left">
-        <h4>Have a project deadline?</h4>
-        <label class="radio" for="date1">
-          Nope. I'm flexible.
-          <input type="radio" id="date1" name="deadline" value="0" class="input-switch" data-switchto="no-date"<?php if($form_data['deadline'] === '1'){ echo ' checked'; } ?>>
-          <span class="control-indicator"></span>
-        </label>
-
-        <label class="radio" for="date2">
-          Yes, I have a specific date in mind.
-          <input type="radio" id="date2" name="deadline" value="1" class="input-switch" data-switchto="deadlinedate"<?php if($form_data['deadline'] === '1'){ echo ' checked'; } ?>>
-          <span class="control-indicator"></span>
-        </label>
-      </div>
-
-      <div class="right">
-        <div id="no-date" class="switch-target<?php if($form_data['deadline'] === '1'){ echo ' active'; } ?>">
-          <h5>Cool, we can work with you to plan the project schedule.</h5>
+    <div class="js-DesignDevBlock hide">
+      <div class="row">
+        <div class="left">
+          <h4>Do you have a Request for Proposal (RFP)?</h4>
+          <label class="radio" for="brief1">
+            Not yet, but I can tell you about my project.
+            <input type="radio" id="brief1" name="brief" value="1" class="input-switch" data-switchto="no-brief"<?php if($form_data['brief'] === '1'){ echo ' checked'; } ?>>
+            <span class="control-indicator"></span>
+          </label>
+          <label class="radio" for="brief2">
+            Yes, I do.
+            <input type="radio" id="brief2" name="brief" value="0" class="input-switch" data-switchto="brief-upload"<?php if($form_data['brief'] === '0'){ echo ' checked'; } ?>>
+            <span class="control-indicator"></span>
+          </label>
         </div>
 
-        <div id="deadlinedate" class="switch-target select-box<?php if(!empty($form_data['deadline'])){ echo " selected"; } ?>">
-          <select name="deadline_date" id="deadline_date">
-            <option value="">Select a Date</option>
-            <?php
-            $aDeadlineDate = array(
-              "2015-Q3",
-              "2015-Q4",
-              "2016-Q1",
-              "2016-Q2",
-              "2016-Q3",
-              "2016-Q4",
-              "2017",
-              "2018"
-            );
-            foreach($aDeadlineDate as $option): ?>
-            <option value="<?= $option ?>"<?php if($form_data['deadline_date'] === $option){ echo ' selected="selected"'; } ?>><?= $option ?></option>
-            <?php endforeach; ?>
-          </select>
+        <div class="right">
+          <div id="no-brief" class="switch-target<?php if($form_data['brief'] === '1'){ echo ' active'; } ?>">
+            <label for="project-desc" class="quiet">No RFP? No problem!</label>
+            <p>Please tell us know a little about your project. What are your goals? What do you hope to accomplish? What specific challenges have gotten in your way? What is/isn't working? Any advanced functionality or tools you need? Etc...</p>
+            <div class="input-wrapper"><textarea cols="10" rows="4" id="project-desc" name="project-desc"><?= $form_data['project-desc'] ?></textarea></div>
+          </div>
+
+          <div id="brief-upload" class="switch-target<?php if($form_data['brief'] === '0'){ echo ' active'; } ?>">
+            <h5>Great! Upload it here:</h5>
+            <div class="upload-box initial">
+              <div class="uploaded-files"></div>
+              <div class="drop-label">Drag &amp; drop files here <span>or</span></div>
+              <a href="#" class="add-files">browse files!</a>
+              <span class="file-size"><span>0</span> MB of 50 MB</span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <hr>
+      <hr>
 
-    <div class="row">
-      <div class="left">
-        <label for="budget">Have a project budget?*</label>
-        <p>Please select your desired project budget and we'll craft a solution just for you.</p>
-      </div>
+      <div class="row">
+        <div class="left">
+          <h4>Have a project deadline?</h4>
+          <label class="radio" for="date1">
+            Nope. I'm flexible.
+            <input type="radio" id="date1" name="deadline" value="0" class="input-switch" data-switchto="no-date"<?php if($form_data['deadline'] === '1'){ echo ' checked'; } ?>>
+            <span class="control-indicator"></span>
+          </label>
 
-      <div class="right">
-        <div class="select-box<?php if(!empty($form_data['budget'])){ echo " selected"; } ?>">
-          <select name="budget" id="budget" class="validate[required]">
-            <option value="">Select a Budget</option>
-            <?php
-            $aBudget = array(
-              "$25,000-50,000",
-              "$50,000-75,000",
-              "$75,000-100,000",
-              "$100,000+"
-            );
-            foreach($aBudget as $option): ?>
-            <option value="<?= $option ?>"<?php if($form_data['budget'] === $option){ echo ' selected="selected"'; } ?>><?= $option ?></option>
-            <?php endforeach; ?>
-          </select>
+          <label class="radio" for="date2">
+            Yes, I have a specific date in mind.
+            <input type="radio" id="date2" name="deadline" value="1" class="input-switch" data-switchto="deadlinedate"<?php if($form_data['deadline'] === '1'){ echo ' checked'; } ?>>
+            <span class="control-indicator"></span>
+          </label>
+        </div>
+
+        <div class="right">
+          <div id="no-date" class="switch-target<?php if($form_data['deadline'] === '1'){ echo ' active'; } ?>">
+            <h5>Cool, we can work with you to plan the project schedule.</h5>
+          </div>
+
+          <div id="deadlinedate" class="switch-target select-box<?php if(!empty($form_data['deadline'])){ echo " selected"; } ?>">
+            <select name="deadline_date" id="deadline_date">
+              <option value="">Select a Date</option>
+              <?php
+              $aDeadlineDate = array(
+                "2015-Q3",
+                "2015-Q4",
+                "2016-Q1",
+                "2016-Q2",
+                "2016-Q3",
+                "2016-Q4",
+                "2017",
+                "2018"
+              );
+              foreach($aDeadlineDate as $option): ?>
+              <option value="<?= $option ?>"<?php if($form_data['deadline_date'] === $option){ echo ' selected="selected"'; } ?>><?= $option ?></option>
+              <?php endforeach; ?>
+            </select>
+          </div>
         </div>
       </div>
-    </div>
-    <hr>
+      <hr>
+
+      <div class="row">
+        <div class="left">
+          <label for="budget">Have a project budget?*</label>
+          <p>Please select your desired project budget and we'll craft a solution just for you.</p>
+        </div>
+
+        <div class="right">
+          <div class="select-box<?php if(!empty($form_data['budget'])){ echo " selected"; } ?>">
+            <select name="budget" id="budget">
+              <option value="">Select a Budget</option>
+              <?php
+              $aBudget = array(
+                "under $25,000",
+                "$25,000-50,000",
+                "$50,000-75,000",
+                "$75,000-100,000",
+                "$100,000+"
+              );
+              foreach($aBudget as $option): ?>
+              <option value="<?= $option ?>"<?php if($form_data['budget'] === $option){ echo ' selected="selected"'; } ?>><?= $option ?></option>
+              <?php endforeach; ?>
+            </select>
+          </div>
+        </div>
+      </div>
+      <hr>
+    </div> <!-- /.js-DesignDevBlock -->
 
     <div class="row">
       <div class="left">
