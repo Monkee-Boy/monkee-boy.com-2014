@@ -2503,7 +2503,8 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
   .box-of-doom h4 {
     color: #acca41;
     font-size: 40px;
-    font-weight: 700; }
+    font-weight: 700;
+    text-transform: none; }
   .box-of-doom.meet-the-team {
     position: relative;
     background: url(../images/home-create-thumb.png) no-repeat center center/cover;
@@ -2520,7 +2521,8 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
     .box-of-doom.meet-the-team h4 {
       color: #23a38f;
       font-size: 24px;
-      font-weight: 700; }
+      font-weight: 700;
+      text-transform: uppercase; }
     .box-of-doom.meet-the-team .meet-the-team-content {
       position: relative;
       z-index: 2; }
