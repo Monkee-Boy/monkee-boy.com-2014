@@ -67,7 +67,7 @@
 </div>
 
 <div class="row row-with-sidebar rtl">
-  <div class="row-content">
+  <div class="row-content content-block">
     <?= $aServiceContent['about']; ?>
 
     <?php if(!empty($aServiceContent['chart'] || !empty($aServiceContent['service_plans']))) { ?><a href="#jump" class="button">View Service Options</a><?php } ?>
@@ -98,7 +98,7 @@
 <?php } ?>
 
 <div class="row row-with-sidebar">
-  <div class="row-content">
+  <div class="row-content content-block">
     <h3>What it means to be our client</h3>
     <?= $aServiceContent['being_a_client']; ?>
 
