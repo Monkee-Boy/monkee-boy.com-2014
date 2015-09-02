@@ -1,29 +1,33 @@
 <?php $this->tplDisplay("inc_header.php", ['menu'=>'home']); ?>
 
-  <div class="hero-services">
-    <div class="hero-inner">
-      <div class="hero-content">
-        <h1>Solve The Web</h1>
+  <div class="hero-container">
+    <div class="hero-bg"></div>
 
-        <p>We're not oracles, but we do know why you're here. You want things. A more impressive website. A digital marketing campaign that customers love. Lots of hi-fives. Nice to meet you!</p>
+    <div class="hero-services">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <h1>Solve The Web</h1>
 
-        <p><strong>We're Monkee-Boy and we can show you how to make it in the jungle.</strong></p>
-      </div> <!-- /.hero-content -->
+          <p>We're not oracles, but we do know why you're here. You want things. A more impressive website. A digital marketing campaign that customers love. Lots of hi-fives. Nice to meet you!</p>
 
-      <div class="hero-service-list">
-        <ul>
-          <li><a href="/how-we-help/content-strategy/">Content Strategy</a></li>
-          <li><a href="/how-we-help/web-design-and-development/">Web Design and Development</a></li>
-          <li><a href="/how-we-help/analytics/">Analytics</a></li>
-          <li><a href="/how-we-help/website-maintenance/">Website Maintenance</a></li>
-          <li><a href="/how-we-help/content-marketing/">Content Marketing</a></li>
-          <li><a href="/how-we-help/social-media/">Social Media</a></li>
-          <li><a href="/how-we-help/seo/">SEO</a></li>
-          <li><a href="/how-we-help/pay-per-click/">Pay-Per-Click</a></li>
-        </ul>
-      </div> <!-- /.hero-service-list -->
-    </div> <!-- /.hero-inner -->
-  </div> <!-- /.hero-services -->
+          <p><strong>We're Monkee-Boy and we can show you how to make it in the jungle.</strong></p>
+        </div> <!-- /.hero-content -->
+
+        <div class="hero-service-list">
+          <ul>
+            <li><a href="/how-we-help/content-strategy/">Content Strategy</a></li>
+            <li><a href="/how-we-help/web-design-and-development/">Web Design and Development</a></li>
+            <li><a href="/how-we-help/analytics/">Analytics</a></li>
+            <li><a href="/how-we-help/website-maintenance/">Website Maintenance</a></li>
+            <li><a href="/how-we-help/content-marketing/">Content Marketing</a></li>
+            <li><a href="/how-we-help/social-media/">Social Media</a></li>
+            <li><a href="/how-we-help/seo/">SEO</a></li>
+            <li><a href="/how-we-help/pay-per-click/">Pay-Per-Click</a></li>
+          </ul>
+        </div> <!-- /.hero-service-list -->
+      </div> <!-- /.hero-inner -->
+    </div> <!-- /.hero-services -->
+  </div> <!-- /.hero-container -->
 
   <?php
   $oPortfolio = $this->loadModel('portfolio');

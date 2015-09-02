@@ -4309,16 +4309,26 @@ button[type=submit] {
   .fullwidth-slider .slick-active:hover .slick-prev, .fullwidth-slider .slick-active:hover .slick-next {
     visibility: visible; }
 
-.hero-services {
-  margin: -45px auto 145px;
-  padding-top: 168px;
+.hero-container {
+  position: relative; }
+
+.hero-bg {
+  position: absolute;
+  width: 100%;
   height: 600px;
-  background: url(/images/homepage-back.png) no-repeat top center; }
+  z-index: 1;
+  background: url(/images/homepage-back.png) top center no-repeat;
+  background-size: cover; }
+
+.hero-services {
+  position: relative;
+  margin: -45px auto 125px;
+  padding-top: 168px;
+  z-index: 2; }
   @media only screen and (max-width: 840px) {
     .hero-services {
       margin-bottom: 50px;
-      padding-top: 75px;
-      height: auto; } }
+      padding-top: 75px; } }
   .hero-services .hero-inner {
     margin: 0 auto 0;
     width: 970px; }
