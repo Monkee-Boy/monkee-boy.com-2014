@@ -4380,31 +4380,25 @@ button[type=submit] {
         text-decoration: none; }
       .hero-services .hero-service-list a:before, .hero-services .hero-service-list a:after {
         display: block;
-        padding-top: 10px;
+        margin: 10px auto;
+        height: 4px;
+        width: 0px;
         content: '';
-        -webkit-transform: scaleX(0.0001);
-        -moz-transform: scaleX(0.0001);
-        -ms-transform: scaleX(0.0001);
-        -o-transform: scaleX(0.0001);
-        transform: scaleX(0.0001);
-        -webkit-transition: transform 250ms ease-in-out;
-        -moz-transition: transform 250ms ease-in-out;
-        -ms-transition: transform 250ms ease-in-out;
-        -o-transition: transform 250ms ease-in-out;
-        transition: transform 250ms ease-in-out; }
+        background: transparent;
+        -webkit-transition: width 0.5s ease, background-color 0.5s ease;
+        -moz-transition: width 0.5s ease, background-color 0.5s ease;
+        -ms-transition: width 0.5s ease, background-color 0.5s ease;
+        -o-transition: width 0.5s ease, background-color 0.5s ease;
+        transition: width 0.5s ease, background-color 0.5s ease; }
         @media only screen and (max-width: 840px) {
           .hero-services .hero-service-list a:before, .hero-services .hero-service-list a:after {
             display: none; } }
-      .hero-services .hero-service-list a:before {
-        border-top: 4px solid #23a38f; }
-      .hero-services .hero-service-list a:after {
-        border-bottom: 4px solid #23a38f; }
+      .hero-services .hero-service-list a:hover:before {
+        background: #23a38f; }
+      .hero-services .hero-service-list a:hover:after {
+        background: #23a38f; }
       .hero-services .hero-service-list a:hover:after, .hero-services .hero-service-list a:hover:before {
-        -webkit-transform: scaleX(1);
-        -moz-transform: scaleX(1);
-        -ms-transform: scaleX(1);
-        -o-transform: scaleX(1);
-        transform: scaleX(1); }
+        width: 100%; }
 
 .hero-slideshow {
   position: relative;

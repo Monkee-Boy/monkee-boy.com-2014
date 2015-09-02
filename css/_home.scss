@@ -90,26 +90,28 @@
 
       &:before, &:after {
         display: block;
-        padding-top: 10px;
+      	margin: 10px auto;
+      	height: 4px;
+      	width: 0px;
         content: '';
-        @include transform(scaleX(0.0001));
-        @include transition(transform 250ms ease-in-out);
+      	background: transparent;
+      	@include transition(width .5s ease, background-color .5s ease);
 
         @media #{$medium-down} {
           display: none;
         }
       }
 
-      &:before {
-        border-top: 4px solid $teal;
+      &:hover:before {
+        background: $teal;
       }
 
-      &:after {
-        border-bottom: 4px solid $teal;
+      &:hover:after {
+        background: $teal;
       }
 
       &:hover:after, &:hover:before {
-        @include transform(scaleX(1));
+        width: 100%;
       }
     }
   }
