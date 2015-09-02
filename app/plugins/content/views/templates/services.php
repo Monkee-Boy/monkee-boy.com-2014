@@ -330,7 +330,7 @@
   <div class="row">
     <div class="full">
       <div class="plans">
-        <h2>Service Plans</h2>
+        <h2>Service Options</h2>
 
         <div class="plans-side-by-side row-pop-flush">
           <div class="plan-side">
