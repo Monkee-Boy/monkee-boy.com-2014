@@ -162,7 +162,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
     </script>
     {/footer}
 
-    <div class="js-DesignDevBlock hide">
+    <div class="js-DesignDevBlock<?php if($_GET['service'] != 'web-design-development') { ?> hide<?php } ?>">
       <div class="row">
         <div class="left">
           <h4>Do you have a Request for Proposal (RFP)?</h4>
