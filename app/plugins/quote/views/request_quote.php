@@ -37,17 +37,18 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
 
       <div class="right sub-nav">
         <ul class="nav-block">
-          <li><a href="#" class="form-selectService" data-service-options="">Content Strategy</a></li>
-          <li><a href="#" class="form-selectService" data-service-options="design-development">Web Design and Development</a></li>
-          <li><a href="#" class="form-selectService" data-service-options="">Analytics</a></li>
-          <li><a href="#" class="form-selectService" data-service-options="website-maintenance">Website Maintenance</a></li>
-          <li><a href="#" class="form-selectService" data-service-options="">Content Marketing</a></li>
-          <li><a href="#" class="form-selectService" data-service-options="social-media">Social Media</a></li>
-          <li><a href="#" class="form-selectService" data-service-options="seo">SEO</a></li>
-          <li><a href="#" class="form-selectService" data-service-options="pay-per-click">Pay-Per-Click</a></li>
+          <li><a href="#" class="form-selectService<?php if($_GET['service'] == 'content-strategy') { ?> current<?php } ?>" data-service-options="">Content Strategy</a></li>
+          <li><a href="#" class="form-selectService<?php if($_GET['service'] == 'web-design-development') { ?> current<?php } ?>" data-service-options="design-development">Web Design and Development</a></li>
+          <li><a href="#" class="form-selectService<?php if($_GET['service'] == 'analytics') { ?> current<?php } ?>" data-service-options="">Analytics</a></li>
+          <li><a href="#" class="form-selectService<?php if($_GET['service'] == 'website-maintenance') { ?> current<?php } ?>" data-service-options="website-maintenance">Website Maintenance</a></li>
+          <li><a href="#" class="form-selectService<?php if($_GET['service'] == 'content-marketing') { ?> current<?php } ?>" data-service-options="">Content Marketing</a></li>
+          <li><a href="#" class="form-selectService<?php if($_GET['service'] == 'social-media') { ?> current<?php } ?>" data-service-options="social-media">Social Media</a></li>
+          <li><a href="#" class="form-selectService<?php if($_GET['service'] == 'seo') { ?> current<?php } ?>" data-service-options="seo">SEO</a></li>
+          <li><a href="#" class="form-selectService<?php if($_GET['service'] == 'ppc') { ?> current<?php } ?>" data-service-options="pay-per-click">Pay-Per-Click</a></li>
         </ul>
       </div>
-      <input type="hidden" name="main-service" id="main-service" value="">
+
+      <input type="hidden" name="main-service" id="main-service" value="<?php if($_GET['service'] == 'content-strategy') { echo 'Content Strategy'; } elseif($_GET['service'] == 'web-design-development') { echo 'Web Design and Development'; } elseif($_GET['service'] == 'analytics') { echo 'Analytics'; } elseif($_GET['service'] == 'website-maintenance') { echo 'Website Maintenance'; } elseif($_GET['service'] == 'content-marketing') { echo 'Content Marketing'; } elseif($_GET['service'] == 'social-media') { echo 'Social Media'; } elseif($_GET['service'] == 'seo') { echo 'SEO'; } elseif($_GET['service'] == 'ppc') { echo 'Pay-Per-Click'; } ?>">
     </div>
     <hr>
     {footer}
@@ -75,7 +76,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
     </script>
     {/footer}
 
-    <div class="service-option hide" id="website-maintenance">
+    <div class="service-option<?php if($_GET['service'] != 'website-maintenance') { ?> hide<?php } ?>" id="website-maintenance">
       <div class="row">
         <div class="left">
           <label for="service-option">Which Option Fits Your Needs?</label>
@@ -83,8 +84,8 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
 
         <div class="right sub-nav">
           <ul class="nav-block alt">
-            <li><a href="#" class="form-selectServiceOption" data-service-option="Website Maintenance Basic"><span class="maintenance service-icon"><i></i></span> Website Maintenance Basic</a></li>
-            <li><a href="#" class="form-selectServiceOption" data-service-option="Website Maintenance Plus"><span class="maintenance service-icon"><i></i><span class="icon-seption-plus"></span></span> Website Maintenance Plus</a></li>
+            <li><a href="#" class="form-selectServiceOption<?php if($_GET['option'] == 'basic') { ?> current<?php } ?>" data-service-option="Website Maintenance Basic"><span class="maintenance service-icon"><i></i></span> Website Maintenance Basic</a></li>
+            <li><a href="#" class="form-selectServiceOption<?php if($_GET['option'] == 'plus') { ?> current<?php } ?>" data-service-option="Website Maintenance Plus"><span class="maintenance service-icon"><i></i><span class="icon-seption-plus"></span></span> Website Maintenance Plus</a></li>
             <li><a href="#" class="form-selectServiceOption" data-service-option="Not sure what package"><span class="unsure service-icon"><i></i></span> Not sure what package</a></li>
           </ul>
         </div>
@@ -92,7 +93,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
       <hr>
     </div>
 
-    <div class="service-option hide" id="social-media">
+    <div class="service-option<?php if($_GET['service'] != 'social-media') { ?> hide<?php } ?>" id="social-media">
       <div class="row">
         <div class="left">
           <label for="service-option">Which Option Fits Your Needs?</label>
@@ -100,9 +101,9 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
 
         <div class="right sub-nav">
           <ul class="nav-block alt">
-            <li><a href="#" class="form-selectServiceOption" data-service-option="Social Media Foundation"><span class="socialmedia service-icon"><i></i></span> Social Media Foundation</a></li>
-            <li><a href="#" class="form-selectServiceOption" data-service-option="Social Media Consulting"><span class="socialmedia service-icon"><i></i><span class="icon-seption-plus"></span></span> Social Media Consulting</a></li>
-            <li><a href="#" class="form-selectServiceOption" data-service-option="Social Media Complete"><span class="socialmedia service-icon"><i></i><span class="icon-seption-star"></span></span> Social Media Complete</a></li>
+            <li><a href="#" class="form-selectServiceOption<?php if($_GET['option'] == 'social-media-foundation') { ?> current<?php } ?>" data-service-option="Social Media Foundation"><span class="socialmedia service-icon"><i></i></span> Social Media Foundation</a></li>
+            <li><a href="#" class="form-selectServiceOption<?php if($_GET['option'] == 'social-media-consulting') { ?> current<?php } ?>" data-service-option="Social Media Consulting"><span class="socialmedia service-icon"><i></i><span class="icon-seption-plus"></span></span> Social Media Consulting</a></li>
+            <li><a href="#" class="form-selectServiceOption<?php if($_GET['option'] == 'social-media-complete') { ?> current<?php } ?>" data-service-option="Social Media Complete"><span class="socialmedia service-icon"><i></i><span class="icon-seption-star"></span></span> Social Media Complete</a></li>
             <li><a href="#" class="form-selectServiceOption" data-service-option="Not sure what package"><span class="unsure service-icon"><i></i></span> Not sure what package</a></li>
           </ul>
         </div>
@@ -110,7 +111,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
       <hr>
     </div>
 
-    <div class="service-option hide" id="seo">
+    <div class="service-option<?php if($_GET['service'] != 'seo') { ?> hide<?php } ?>" id="seo">
       <div class="row">
         <div class="left">
           <label for="service-option">Which Option Fits Your Needs?</label>
@@ -118,9 +119,9 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
 
         <div class="right sub-nav">
           <ul class="nav-block alt">
-            <li><a href="#" class="form-selectServiceOption" data-service-option="SEO Foundation"><span class="seo service-icon"><i></i></span> SEO Foundation</a></li>
-            <li><a href="#" class="form-selectServiceOption" data-service-option="SEO Consulting"><span class="seo service-icon"><i></i><span class="icon-seption-plus"></span></span> SEO Consulting</a></li>
-            <li><a href="#" class="form-selectServiceOption" data-service-option="SEO Complete"><span class="seo service-icon"><i></i><span class="icon-seption-star"></span></span> SEO Complete</a></li>
+            <li><a href="#" class="form-selectServiceOption<?php if($_GET['option'] == 'seo-foundation') { ?> current<?php } ?>" data-service-option="SEO Foundation"><span class="seo service-icon"><i></i></span> SEO Foundation</a></li>
+            <li><a href="#" class="form-selectServiceOption<?php if($_GET['option'] == 'seo-consulting') { ?> current<?php } ?>" data-service-option="SEO Consulting"><span class="seo service-icon"><i></i><span class="icon-seption-plus"></span></span> SEO Consulting</a></li>
+            <li><a href="#" class="form-selectServiceOption<?php if($_GET['option'] == 'seo-complete') { ?> current<?php } ?>" data-service-option="SEO Complete"><span class="seo service-icon"><i></i><span class="icon-seption-star"></span></span> SEO Complete</a></li>
             <li><a href="#" class="form-selectServiceOption" data-service-option="Not sure what package"><span class="unsure service-icon"><i></i></span> Not sure what package</a></li>
           </ul>
         </div>
@@ -128,7 +129,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
       <hr>
     </div>
 
-    <div class="service-option hide" id="pay-per-click">
+    <div class="service-option<?php if($_GET['service'] != 'ppc') { ?> hide<?php } ?>" id="pay-per-click">
       <div class="row">
         <div class="left">
           <label for="service-option">Which Option Fits Your Needs?</label>
@@ -136,9 +137,9 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
 
         <div class="right sub-nav">
           <ul class="nav-block alt">
-            <li><a href="#" class="form-selectServiceOption" data-service-option="PPC Foundation"><span class="ppc service-icon"><i></i></span> PPC Foundation</a></li>
-            <li><a href="#" class="form-selectServiceOption" data-service-option="PPC Advanced"><span class="ppc service-icon"><i></i><span class="icon-seption-plus"></span></span> PPC Advanced</a></li>
-            <li><a href="#" class="form-selectServiceOption" data-service-option="PPC Complete"><span class="ppc service-icon"><i></i><span class="icon-seption-star"></span></span> PPC Complete</a></li>
+            <li><a href="#" class="form-selectServiceOption<?php if($_GET['option'] == 'ppc-foundation') { ?> current<?php } ?>" data-service-option="PPC Foundation"><span class="ppc service-icon"><i></i></span> PPC Foundation</a></li>
+            <li><a href="#" class="form-selectServiceOption<?php if($_GET['option'] == 'ppc-advanced') { ?> current<?php } ?>" data-service-option="PPC Advanced"><span class="ppc service-icon"><i></i><span class="icon-seption-plus"></span></span> PPC Advanced</a></li>
+            <li><a href="#" class="form-selectServiceOption<?php if($_GET['option'] == 'ppc-complete') { ?> current<?php } ?>" data-service-option="PPC Complete"><span class="ppc service-icon"><i></i><span class="icon-seption-star"></span></span> PPC Complete</a></li>
             <li><a href="#" class="form-selectServiceOption" data-service-option="Not sure what package"><span class="unsure service-icon"><i></i></span> Not sure what package</a></li>
           </ul>
         </div>
@@ -146,7 +147,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
       <hr>
     </div>
 
-    <input type="hidden" name="main-serviceoption" id="main-serviceoption" value="">
+    <input type="hidden" name="main-serviceoption" id="main-serviceoption" value="<?php if($_GET['option'] == 'basic') { echo 'Website Maintenance Basic'; } elseif($_GET['option'] == 'plus') { echo 'Website Maintenance Plus'; } elseif($_GET['option'] == 'social-media-foundation') { echo 'Social Media Foundation'; } elseif($_GET['option'] == 'social-media-consulting') { echo 'Social Media Consulting'; } elseif($_GET['option'] == 'social-media-complete') { echo 'Social Media Complete'; } elseif($_GET['option'] == 'seo-foundation') { echo 'SEO Foundation'; } elseif($_GET['option'] == 'seo-consulting') { echo 'SEO Consulting'; } elseif($_GET['option'] == 'seo-complete') { echo 'SEO Complete'; } elseif($_GET['option'] == 'ppc-foundation') { echo 'PPC Foundation'; } elseif($_GET['option'] == 'ppc-advanced') { echo 'PPC Advanced'; } elseif($_GET['option'] == 'ppc-complete') { echo 'PPC Complete'; } ?>">
 
     {footer}
     <script>

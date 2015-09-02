@@ -382,7 +382,7 @@
 
 <?php
 if(!empty($aServiceContent['cta'])) {
-  $this->tplDisplay("inc_cta.php", array('line1' => $aServiceContent['cta']['content'], 'button' => $aServiceContent['cta']['button']));
+  $this->tplDisplay("inc_cta.php", array('line1' => $aServiceContent['cta']['content'], 'button' => $aServiceContent['cta']['button'], 'service' => $aServiceContent['cta']['service']));
 }
 ?>
 

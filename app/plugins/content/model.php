@@ -223,7 +223,7 @@ class content_model extends appModel {
               'price' => '380',
               'icon' => 'maintenance',
               'cta' => 'Sign Up',
-              'cta_url' => '/contact/request-a-quote/',
+              'cta_url' => '/contact/request-a-quote/?service=website-maintenance&option=basic',
               'features' => array(
                 'broken_link_checks' => 1,
                 'quality_assurance' => 1,
@@ -247,7 +247,7 @@ class content_model extends appModel {
               'price' => '780',
               'icon' => 'maintenance',
               'cta' => 'Sign Up',
-              'cta_url' => '/contact/request-a-quote/',
+              'cta_url' => '/contact/request-a-quote/?service=website-maintenance&option=plus',
               'features' => array(
                 'broken_link_checks' => 1,
                 'quality_assurance' => 1,
@@ -281,7 +281,8 @@ class content_model extends appModel {
         'benefits' => '<li>Increased engagement with your brand on the web.</li><li>Higher return-on-investment from your digital properties and marketing campaigns.</li><li>Improved inter-department collaboration at larger organizations.</li>',
         'cta' => array(
           'content' => 'Ready to Start Working Together?',
-          'button' => 'Request a Quote'
+          'button' => 'Request a Quote',
+          'service' => 'content-strategy'
         ),
         'service_features' => array(
           'title' => 'Content Strategy Includes:',
@@ -302,7 +303,8 @@ class content_model extends appModel {
         'benefits' => '<li>Attract more new visitors and make a stronger first impression.</li><li>Guide more visitors toward goals integral to your organization’s success.</li><li>Empower your brand to succeed in an increasingly competitive marketplace.</li>',
         'cta' => array(
           'content' => 'Ready to Start Working Together?',
-          'button' => 'Request a Quote'
+          'button' => 'Request a Quote',
+          'service' => 'web-design-development'
         ),
         'service_features' => array(
           'title' => 'Web Design and Development Includes:',
@@ -458,7 +460,8 @@ class content_model extends appModel {
         'benefits' => '<li>Improve brand recognition and visibility on the web.</li><li>Increase the quality and quantity of leads your organization receives.</li><li>Boost loyalty amongst existing fans and turn them into ambassadors for your brand.</li>',
         'cta' => array(
           'content' => 'Ready To Start Working Together?',
-          'button' => 'Request a Quote'
+          'button' => 'Request a Quote',
+          'service' => 'content-marketing'
         ),
         'service_features' => array(
           'title' => 'Content Marketing Includes:',
@@ -479,7 +482,8 @@ class content_model extends appModel {
         'benefits' => '<li>Identify new, data-driven business opportunities to pursue on the web.</li><li>Measure the effectiveness of your marketing campaigns.</li><li>Increase conversion rates through optimization.</li>',
         'cta' => array(
           'content' => 'Ready To Start Working Together?',
-          'button' => 'Request a Quote'
+          'button' => 'Request a Quote',
+          'service' => 'content-analytics'
         ),
         'service_features' => array(
           'title' => 'Analytics Includes',
@@ -516,7 +520,8 @@ class content_model extends appModel {
       'cta' => array(
         'title' => '',
         'content' => '',
-        'button' => ''
+        'button' => '',
+        'url' => ''
       ),
       'production_schedule' => array(
         'title' => '',
@@ -549,7 +554,8 @@ class content_model extends appModel {
         'cta' => array(
           'title' => 'Get In Touch',
           'content' => '<p>Does this plan sound right to you? Contact us to get started right way. We can\'t wait to get to know your business.</p>',
-          'button' => 'Contact Us'
+          'button' => 'Contact Us',
+          'url' => '/contact/request-a-quote/?service=seo&option=seo-foundation'
         ),
         'production_schedule' => array(
           'title' => 'Timeline Delay',
@@ -587,7 +593,8 @@ class content_model extends appModel {
         'cta' => array(
           'title' => 'Get In Touch',
           'content' => '<p>Does this sound right to you? Contact us to get started right way. We can\'t wait to get to know your business.</p>',
-          'button' => 'Contact Us'
+          'button' => 'Contact Us',
+          'url' => '/contact/request-a-quote/?service=seo&option=seo-consulting'
         ),
         'production_schedule' => array(
           'title' => 'Timeline Delay',
@@ -625,7 +632,8 @@ class content_model extends appModel {
         'cta' => array(
           'title' => 'Get In Touch',
           'content' => '<p>Does this sound right to you? Contact us to get started right way. We can\'t wait to get to know your business.</p>',
-          'button' => 'Contact Us'
+          'button' => 'Contact Us',
+          'url' => '/contact/request-a-quote/?service=seo&option=seo-complete'
         ),
         'production_schedule' => array(
           'title' => 'Timeline Delay',
@@ -663,7 +671,8 @@ class content_model extends appModel {
         'cta' => array(
           'title' => 'Get In Touch',
           'content' => '<p>Does this sound right to you? Contact us to get started right way. We can\'t wait to get to know your business.</p>',
-          'button' => 'Contact Us'
+          'button' => 'Contact Us',
+          'url' => '/contact/request-a-quote/?service=ppc&option=ppc-foundation'
         ),
         'production_schedule' => array(
           'title' => 'Timeline Delay',
@@ -701,7 +710,8 @@ class content_model extends appModel {
         'cta' => array(
           'title' => 'Get In Touch',
           'content' => '<p>Does this sound right to you? Contact us to get started right way. We can\'t wait to get to know your business.</p>',
-          'button' => 'Contact Us'
+          'button' => 'Contact Us',
+          'url' => '/contact/request-a-quote/?service=ppc&option=ppc-advanced'
         ),
         'production_schedule' => array(
           'title' => 'Timeline Delay',
@@ -739,7 +749,8 @@ class content_model extends appModel {
         'cta' => array(
           'title' => 'Get In Touch',
           'content' => '<p>Does this sound right to you? Contact us to get started right way. We can\'t wait to get to know your business.</p>',
-          'button' => 'Contact Us'
+          'button' => 'Contact Us',
+          'url' => '/contact/request-a-quote/?service=ppc&option=ppc-complete'
         ),
         'production_schedule' => array(
           'title' => 'Timeline Delay',
@@ -777,7 +788,8 @@ class content_model extends appModel {
         'cta' => array(
           'title' => 'Get In Touch',
           'content' => '<p>Does this sound right to you? Contact us to get started right way. We can\'t wait to get to know your business.</p>',
-          'button' => 'Contact Us'
+          'button' => 'Contact Us',
+          'url' => '/contact/request-a-quote/?service=social-media&option=social-media-foundation'
         ),
         'production_schedule' => array(
           'title' => 'Timeline Delay',
@@ -815,7 +827,8 @@ class content_model extends appModel {
         'cta' => array(
           'title' => 'Get In Touch',
           'content' => '<p>Does this sound right to you? Contact us to get started right way. We can\'t wait to get to know your business.</p>',
-          'button' => 'Contact Us'
+          'button' => 'Contact Us',
+          'url' => '/contact/request-a-quote/?service=social-media&option=social-media-consulting'
         ),
         'production_schedule' => array(
           'title' => 'Timeline Delay',
@@ -853,7 +866,8 @@ class content_model extends appModel {
         'cta' => array(
           'title' => 'Get In Touch',
           'content' => '<p>Does this sound right to you? Contact us to get started right way. We can\'t wait to get to know your business.</p>',
-          'button' => 'Contact Us'
+          'button' => 'Contact Us',
+          'url' => '/contact/request-a-quote/?service=social-media&option=social-media-complete'
         ),
         'production_schedule' => array(
           'title' => 'Timeline Delay',

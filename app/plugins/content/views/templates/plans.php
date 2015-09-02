@@ -117,7 +117,7 @@
               </div>
 
               <div class="plan-row-right">
-                <a href="/contact/request-a-quote/" class="button"><?= $aPlanContent['cta']['button']; ?></a>
+                <a href="<?= $aPlanContent['cta']['url']; ?>" class="button"><?= $aPlanContent['cta']['button']; ?></a>
               </div>
             </div>
           </div>
