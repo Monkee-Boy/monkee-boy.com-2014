@@ -615,7 +615,7 @@ class content_model extends appModel {
         'subnav' => 'seo',
         'features' => array(
           'title' => 'SEO Complete Features',
-          'content' => '<li>Link building</li><li>Technical optimization</li><li>Local Search</li><li>Blogging</li><li>Copywriting</li><li>Content Creation</li><li>Content Promotion</li><li>Social Media Enhancements</li><li>Title Tags</li><li>Meta Descriptions</li><li>Technical Audit</li><li>SEO Content Audit</li><li>Gap Analysis</li>'
+          'content' => '<li>Link Building</li><li>Technical Optimization</li><li>Local Search</li><li>Blogging</li><li>Copywriting</li><li>Content Creation</li><li>Content Promotion</li><li>Social Media Enhancements</li><li>Title Tags</li><li>Meta Descriptions</li><li>Technical Audit</li><li>SEO Content Audit</li><li>Gap Analysis</li>'
         ),
         'team' => array(
           'content' => '<p>Monkee-Boy is a full service digital agency. When you work with our team, you get a troop of experts in SEO, social media, PPC, design, development, content, and analytics who love to collaborate. Unlike firms that just do SEO, we know that search projects sometimes require a little insight from other departments. At Monkee-Boy, that insight is just a desk away. Your team includes an:</p>',
@@ -656,7 +656,7 @@ class content_model extends appModel {
           'content' => '<li>Audience Research</li><li>Budget Recommendations</li><li>Campaign Setup</li><li>200 Keywords</li><li>Ad Copywriting</li><li>Copy A/B Tests</li><li>Ad Group Creation</li><li>Bidding Plan</li><li>Measurement Plan</li><li>Conversion Tracking</li><li>Analytics Setup</li><li>Monthly Reporting</li>'
         ),
         'team' => array(
-          'content' => '<p>Monkee-Boy is a full service digital agency. When you work with our team, you get a troop of experts in SEO, social media, PPC, design, development, content, and analytics who love to collaborate. Unlike firms that just do SEO, we know that search projects sometimes require a little insight from other departments. At Monkee-Boy, that insight is just a desk away. Your team includes an:</p>',
+          'content' => '<p>Monkee-Boy is a full service digital agency. When you work with our team, you get a troop of experts in SEO, social media, PPC, design, development, content, and analytics who love to collaborate. Unlike firms that just do PPC, we know that pay-per-click advertising projects sometimes require a little insight from other departments. At Monkee-Boy, that insight is just a desk away. Your team includes an:</p>',
           'members' => '<li>SEO Analyst</li><li>Digital Marketing Coordinator</li><li>Content Strategist</li><li>Copywriter</li>'
         ),
         'price' => '',
@@ -694,7 +694,7 @@ class content_model extends appModel {
           'content' => '<li>Audience Research</li><li>Adwords, Yahoo and Bing</li><li>Budget Recommendations</li><li>Campaign Setup</li><li>Ad Copywriting</li><li>Display Ad Design</li><li>Copy A/B Tests</li><li>Ad Group Creation</li><li>Bidding Plan</li><li>Measurement Plan</li><li>Conversion Tracking</li><li>Call Tracking</li><li>Ad Extensions</li><li>Retargeting</li><li>Analytics Setup</li><li>Monthly Reporting</li>'
         ),
         'team' => array(
-          'content' => '<p>Monkee-Boy is a full service digital agency. When you work with our team, you get a troop of experts in SEO, social media, PPC, design, development, content, and analytics who love to collaborate. Unlike firms that just do SEO, we know that search projects sometimes require a little insight from other departments. At Monkee-Boy, that insight is just a desk away. Your team includes an:</p>',
+          'content' => '<p>Monkee-Boy is a full service digital agency. When you work with our team, you get a troop of experts in SEO, social media, PPC, design, development, content, and analytics who love to collaborate. Unlike firms that just do PPC, we know that pay-per-click advertising projects sometimes require a little insight from other departments. At Monkee-Boy, that insight is just a desk away. Your team includes an:</p>',
           'members' => '<li>SEO Analyst</li><li>Digital Marketing Coordinator</li><li>Content Strategist</li><li>Copywriter</li>'
         ),
         'price' => '',
@@ -732,7 +732,7 @@ class content_model extends appModel {
           'content' => '<li>Audience Research</li><li>Adwords, Yahoo and Bing</li><li>Budget Recommendations</li><li>Campaign Setup</li><li>Ad Copywriting</li><li>Display Ad Design</li><li>Copy A/B Tests</li><li>Landing Page A/B Tests</li><li>Advanced Ecommerce Ads</li><li>Ad Group Creation</li><li>Bidding Plan</li><li>Measurement Plan</li><li>Conversion Tracking</li><li>Call Tracking</li><li>Ad Extensions</li><li>Retargeting</li><li>Analytics Setup</li><li>CRM integration</li><li>Email Marketing Integration</li><li>Monthly Reporting</li>'
         ),
         'team' => array(
-          'content' => '<p>Monkee-Boy is a full service digital agency. When you work with our team, you get a troop of experts in SEO, social media, PPC, design, development, content, and analytics who love to collaborate. Unlike firms that just do SEO, we know that search projects sometimes require a little insight from other departments. At Monkee-Boy, that insight is just a desk away. Your team includes an:</p>',
+          'content' => '<p>Monkee-Boy is a full service digital agency. When you work with our team, you get a troop of experts in SEO, social media, PPC, design, development, content, and analytics who love to collaborate. Unlike firms that just do PPC, we know that pay-per-click advertising projects sometimes require a little insight from other departments. At Monkee-Boy, that insight is just a desk away. Your team includes an:</p>',
           'members' => '<li>SEO Analyst</li><li>Digital Marketing Coordinator</li><li>Content Strategist</li><li>Web Developer</li><li>UI/UX Designer</li>'
         ),
         'price' => '',
@@ -767,10 +767,10 @@ class content_model extends appModel {
         'subnav' => 'socialmedia',
         'features' => array(
           'title' => 'Social Media Foundation Features',
-          'content' => '<li>One-Hour Kickoff</li><li>Channel Strategy</li><li>Profile Optimization</li><li>Image Templates</li><li>Influencer lists</li><li>Voice, Tone, &amp; Curation Guide</li><li>Advertisement Plan</li><li>Measurement Plan</li>'
+          'content' => '<li>One-Hour Kickoff</li><li>Channel Strategy</li><li>Profile Optimization</li><li>Image Templates</li><li>Influencer Lists</li><li>Voice, Tone &amp; Curation Guide</li><li>Advertisement Plan</li><li>Measurement Plan</li>'
         ),
         'team' => array(
-          'content' => '<p>Monkee-Boy is a full service digital agency. When you work with our team, you get a troop of experts in SEO, social media, PPC, design, development, content, and analytics who love to collaborate. Unlike firms that just do SEO, we know that search projects sometimes require a little insight from other departments. At Monkee-Boy, that insight is just a desk away. Your team includes an:</p>',
+          'content' => '<p>Monkee-Boy is a full service digital agency. When you work with our team, you get a troop of experts in SEO, social media, PPC, design, development, content, and analytics who love to collaborate. Unlike firms that just do social media, we know that social projects sometimes require a little insight from other departments. At Monkee-Boy, that insight is just a desk away. Your team includes a:</p>',
           'members' => '<li>Programs Director</li><li>Content Strategist</li><li>Digital Marketing Coordinator</li><li>SEO Analyst</li>'
         ),
         'price' => '',
@@ -808,7 +808,7 @@ class content_model extends appModel {
           'content' => '<li>Consultation Schedule</li><li>Social Channel Analysis</li><li>Profile/Content Audit</li><li>Brand Messaging Audit</li><li>Profile Optimization</li><li>Competitive Analysis</li><li>Voice &amp; Tone Guide</li><li>Advertisement Plan</li><li>Measurement Plan</li>'
         ),
         'team' => array(
-          'content' => '<p>Monkee-Boy is a full service digital agency. When you work with our team, you get a troop of experts in SEO, social media, PPC, design, development, content, and analytics who love to collaborate. Unlike firms that just do SEO, we know that search projects sometimes require a little insight from other departments. At Monkee-Boy, that insight is just a desk away. Your team includes an:</p>',
+          'content' => '<p>Monkee-Boy is a full service digital agency. When you work with our team, you get a troop of experts in SEO, social media, PPC, design, development, content, and analytics who love to collaborate. Unlike firms that just do social media, we know that social projects sometimes require a little insight from other departments. At Monkee-Boy, that insight is just a desk away. Your team includes a:</p>',
           'members' => '<li>Programs Director</li><li>Content Strategist</li><li>Digital Marketing Coordinator</li><li>SEO Analyst</li><li>Web Developer</li><li>UI/UX Designer</li>'
         ),
         'price' => '',
@@ -846,7 +846,7 @@ class content_model extends appModel {
           'content' => '<li>Kickoff</li><li>Social Content Audit</li><li>Brand Audit</li><li>Competitive Analysis</li><li>Channel Analysis</li><li>Editorial Calendar</li><li>Content Creation</li><li>Contests</li><li>Blogging</li><li>Facebook Advertising</li><li>Management &amp; Monitoring</li><li>Ongoing Reporting</li>'
         ),
         'team' => array(
-          'content' => '<p>Monkee-Boy is a full service digital agency. When you work with our team, you get a troop of experts in SEO, social media, PPC, design, development, content, and analytics who love to collaborate. Unlike firms that just do SEO, we know that search projects sometimes require a little insight from other departments. At Monkee-Boy, that insight is just a desk away. Your team includes an:</p>',
+          'content' => '<p>Monkee-Boy is a full service digital agency. When you work with our team, you get a troop of experts in SEO, social media, PPC, design, development, content, and analytics who love to collaborate. Unlike firms that just do social media, we know that social projects sometimes require a little insight from other departments. At Monkee-Boy, that insight is just a desk away. Your team includes a:</p>',
           'members' => '<li>SEO Analyst</li><li>Programs Director</li><li>Digital Marketing Coordinator</li><li>Content Strategist</li><li>Web Developer</li><li>UI/UX Designer</li>'
         ),
         'price' => '',
