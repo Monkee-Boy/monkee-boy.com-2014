@@ -1,12 +1,24 @@
 <!--
 @Name: Plans
-@Description: Showcase of all typography and content blocks.
+@Description: 
 @Version: 1.0
 @Restricted: false
 @Author: Monkee-Boy
 -->
 
-<?php $this->tplDisplay("inc_header.php", ['menu'=>$aContent['tag'], 'page_title'=>$aContent['title'], 'seo_title'=>$aContent['seo_title'], 'seo_description'=>$aContent['seo_description'], 'seo_keywords'=>$aContent['seo_keywords']]); ?>
+<?php
+if($aPlanContent['subnav'] == 'seo') {
+  $plan_menu = 'seo';
+} elseif($aPlanContent['subnav'] == 'ppc') {
+  $plan_menu = 'pay-per-click';
+} elseif($aPlanContent['subnav'] == 'socialmedia') {
+  $plan_menu = 'social-media';
+} else {
+  $plan_menu = 'how';
+}
+?>
+
+<?php $this->tplDisplay("inc_header.php", ['menu'=>$plan_menu, 'page_title'=>$aContent['title'], 'seo_title'=>$aContent['seo_title'], 'seo_description'=>$aContent['seo_description'], 'seo_keywords'=>$aContent['seo_keywords']]); ?>
 
   <div class="row page-title">
     <h1><?php echo $aContent['title'] ?></h1>

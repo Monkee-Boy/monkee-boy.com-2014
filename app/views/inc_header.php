@@ -77,7 +77,7 @@
   } else {
     $aSubNav = array(
       'who' => array('our-expertise', 'services', 'troop','news','join-the-troop'),
-      'how' => array(),
+      'how' => array('content-strategy', 'web-design-and-development', 'analytics', 'website-maintenance', 'content-marketing', 'social-media', 'seo', 'pay-per-click'),
       'work' => array('portfolio','testimonials','clients'),
       'contact' => array('contact','request-a-quote')
     );
