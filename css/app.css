@@ -956,6 +956,9 @@ body.menu-open {
     .select-box-subnav {
       display: block; } }
 
+@media only screen and (max-width: 580px) {
+  .page-request-a-quote .select-box-subnav {
+    display: none; } }
 .mobile-menu-container {
   display: none; }
   @media only screen and (max-width: 840px) {
