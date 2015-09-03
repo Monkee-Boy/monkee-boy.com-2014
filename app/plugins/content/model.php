@@ -562,7 +562,7 @@ class content_model extends appModel {
         ),
         'production_schedule' => array(
           'title' => 'Timeline Delay',
-          'content' => '<p>Due to high demand, it is currently taking us about one week to respond to requests for SEO Foundation.</p>'
+          'content' => '' // <p>Due to high demand, it is currently taking us about one week to respond to requests for SEO Foundation.</p>
         ),
         'other_plans' => array(
           'title' => 'Need <span>Something Different</span>?',
@@ -601,7 +601,7 @@ class content_model extends appModel {
         ),
         'production_schedule' => array(
           'title' => 'Timeline Delay',
-          'content' => '<p>Due to high demand, it is currently taking us about one week to respond to requests for SEO Full Strategy.</p>'
+          'content' => '' // <p>Due to high demand, it is currently taking us about one week to respond to requests for SEO Full Strategy.</p>
         ),
         'other_plans' => array(
           'title' => 'Need <span>Something Different</span>?',
@@ -640,7 +640,7 @@ class content_model extends appModel {
         ),
         'production_schedule' => array(
           'title' => 'Timeline Delay',
-          'content' => '<p>Due to high demand, it is currently taking us about one week to respond to requests for SEO Complete.</p>'
+          'content' => '' // <p>Due to high demand, it is currently taking us about one week to respond to requests for SEO Complete.</p>
         ),
         'other_plans' => array(
           'title' => 'Need <span>Something Different</span>?',
@@ -679,7 +679,7 @@ class content_model extends appModel {
         ),
         'production_schedule' => array(
           'title' => 'Timeline Delay',
-          'content' => '<p>Due to high demand, it is currently taking us about one week to respond to requests for PPC Foundation.</p>'
+          'content' => '' // <p>Due to high demand, it is currently taking us about one week to respond to requests for PPC Foundation.</p>
         ),
         'other_plans' => array(
           'title' => 'Need <span>Something Different</span>?',
@@ -718,7 +718,7 @@ class content_model extends appModel {
         ),
         'production_schedule' => array(
           'title' => 'Timeline Delay',
-          'content' => '<p>Due to high demand, it is currently taking us about one week to respond to requests for PPC Advanced.</p>'
+          'content' => '' // <p>Due to high demand, it is currently taking us about one week to respond to requests for PPC Advanced.</p>
         ),
         'other_plans' => array(
           'title' => 'Need <span>Something Different</span>?',
@@ -757,7 +757,7 @@ class content_model extends appModel {
         ),
         'production_schedule' => array(
           'title' => 'Timeline Delay',
-          'content' => '<p>Due to high demand, it is currently taking us about one week to respond to requests for PPC Complete.</p>'
+          'content' => '' // <p>Due to high demand, it is currently taking us about one week to respond to requests for PPC Complete.</p>
         ),
         'other_plans' => array(
           'title' => 'Need <span>Something Different</span>?',
@@ -796,7 +796,7 @@ class content_model extends appModel {
         ),
         'production_schedule' => array(
           'title' => 'Timeline Delay',
-          'content' => '<p>Due to high demand, it is currently taking us about one week to respond to requests for Social Media Foundation.</p>'
+          'content' => '' // <p>Due to high demand, it is currently taking us about one week to respond to requests for Social Media Foundation.</p>
         ),
         'other_plans' => array(
           'title' => 'Need <span>Something Different</span>?',
@@ -835,7 +835,7 @@ class content_model extends appModel {
         ),
         'production_schedule' => array(
           'title' => 'Timeline Delay',
-          'content' => '<p>Due to high demand, it is currently taking us about one week to respond to requests for Social Media Consulting.</p>'
+          'content' => '' // <p>Due to high demand, it is currently taking us about one week to respond to requests for Social Media Consulting.</p>
         ),
         'other_plans' => array(
           'title' => 'Need <span>Something Different</span>?',
@@ -874,7 +874,7 @@ class content_model extends appModel {
         ),
         'production_schedule' => array(
           'title' => 'Timeline Delay',
-          'content' => '<p>Due to high demand, it is currently taking us about one week to respond to requests for Social Media Complete.</p>'
+          'content' => '' // <p>Due to high demand, it is currently taking us about one week to respond to requests for Social Media Complete.</p>
         ),
         'other_plans' => array(
           'title' => 'Need <span>Something Different</span>?',

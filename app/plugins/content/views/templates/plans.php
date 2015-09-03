@@ -1,6 +1,6 @@
 <!--
 @Name: Plans
-@Description: 
+@Description:
 @Version: 1.0
 @Restricted: false
 @Author: Monkee-Boy
@@ -135,7 +135,7 @@ if($aPlanContent['subnav'] == 'seo') {
           </div>
         <?php } ?>
 
-        <?php if(!empty($aPlanContent['production_schedule'])) { ?>
+        <?php if(!empty($aPlanContent['production_schedule']) && !empty($aPlanContent['production_schedule']['content'])) { ?>
           <div class="plan-row">
             <h4><?= $aPlanContent['production_schedule']['title']; ?></h4>
             <?= $aPlanContent['production_schedule']['content']; ?>
