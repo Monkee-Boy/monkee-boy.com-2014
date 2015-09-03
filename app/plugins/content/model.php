@@ -270,7 +270,11 @@ class content_model extends appModel {
         ),
         'case_study' => null,
         'clients' => array(),
-        'cta' => array(),
+        'cta' => array(
+          'content' => 'Don\'t Have Wordpress? Contact Us for Custom Maintenance.',
+          'button' => 'Request a Quote',
+          'service' => 'website-maintenance'
+        ),
         'service_plans' => array(),
         'service_plan' => array(),
         'service_features' => array()
