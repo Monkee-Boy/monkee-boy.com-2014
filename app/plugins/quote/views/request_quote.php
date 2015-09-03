@@ -22,7 +22,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
     <p class="subtitle"><?php echo $sSubtitle; ?></p>
   </div>
 
-  <?php $this->tplDisplay('inc_subnav.php', array('menu' => 'request-a-quote', 'nav' => 'contact')); ?>
+  <?php // $this->tplDisplay('inc_subnav.php', array('menu' => 'request-a-quote', 'nav' => 'contact')); ?>
 
   <form action="<?php echo $aContent['url'].'submit-form/' ?>" method="post" name="request-quote" class="request-quote-form" enctype="multipart/form-data">
     <div class="row full">
@@ -84,9 +84,9 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
 
         <div class="right sub-nav">
           <ul class="nav-block alt">
-            <li><a href="#" class="form-selectServiceOption<?php if($_GET['option'] == 'basic') { ?> current<?php } ?>" data-service-option="Website Maintenance Basic"><span class="maintenance service-icon"><i></i></span> Website Maintenance Basic</a></li>
-            <li><a href="#" class="form-selectServiceOption<?php if($_GET['option'] == 'plus') { ?> current<?php } ?>" data-service-option="Website Maintenance Plus"><span class="maintenance service-icon"><i></i><span class="icon-seption-plus"></span></span> Website Maintenance Plus</a></li>
-            <li><a href="#" class="form-selectServiceOption" data-service-option="Not sure what package"><span class="unsure service-icon"><i></i></span> Not sure what package</a></li>
+            <li><a href="#" class="form-selectServiceOption<?php if($_GET['option'] == 'basic') { ?> current<?php } ?>" data-service-option="WordPress Maintenance Basic"><span class="maintenance service-icon"><i></i></span> WordPress Maintenance Basic</a></li>
+            <li><a href="#" class="form-selectServiceOption<?php if($_GET['option'] == 'plus') { ?> current<?php } ?>" data-service-option="WordPress Maintenance Plus"><span class="maintenance service-icon"><i></i><span class="icon-seption-plus"></span></span> WordPress Maintenance Plus</a></li>
+            <li><a href="#" class="form-selectServiceOption" data-service-option="Not sure"><span class="unsure service-icon"><i></i></span> Not sure</a></li>
           </ul>
         </div>
       </div>
@@ -104,7 +104,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
             <li><a href="#" class="form-selectServiceOption<?php if($_GET['option'] == 'social-media-foundation') { ?> current<?php } ?>" data-service-option="Social Media Foundation"><span class="socialmedia service-icon"><i></i></span> Social Media Foundation</a></li>
             <li><a href="#" class="form-selectServiceOption<?php if($_GET['option'] == 'social-media-consulting') { ?> current<?php } ?>" data-service-option="Social Media Consulting"><span class="socialmedia service-icon"><i></i><span class="icon-seption-plus"></span></span> Social Media Consulting</a></li>
             <li><a href="#" class="form-selectServiceOption<?php if($_GET['option'] == 'social-media-complete') { ?> current<?php } ?>" data-service-option="Social Media Complete"><span class="socialmedia service-icon"><i></i><span class="icon-seption-star"></span></span> Social Media Complete</a></li>
-            <li><a href="#" class="form-selectServiceOption" data-service-option="Not sure what package"><span class="unsure service-icon"><i></i></span> Not sure what package</a></li>
+            <li><a href="#" class="form-selectServiceOption" data-service-option="Not sure"><span class="unsure service-icon"><i></i></span> Not sure</a></li>
           </ul>
         </div>
       </div>
@@ -122,7 +122,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
             <li><a href="#" class="form-selectServiceOption<?php if($_GET['option'] == 'seo-foundation') { ?> current<?php } ?>" data-service-option="SEO Foundation"><span class="seo service-icon"><i></i></span> SEO Foundation</a></li>
             <li><a href="#" class="form-selectServiceOption<?php if($_GET['option'] == 'seo-consulting') { ?> current<?php } ?>" data-service-option="SEO Consulting"><span class="seo service-icon"><i></i><span class="icon-seption-plus"></span></span> SEO Consulting</a></li>
             <li><a href="#" class="form-selectServiceOption<?php if($_GET['option'] == 'seo-complete') { ?> current<?php } ?>" data-service-option="SEO Complete"><span class="seo service-icon"><i></i><span class="icon-seption-star"></span></span> SEO Complete</a></li>
-            <li><a href="#" class="form-selectServiceOption" data-service-option="Not sure what package"><span class="unsure service-icon"><i></i></span> Not sure what package</a></li>
+            <li><a href="#" class="form-selectServiceOption" data-service-option="Not sure"><span class="unsure service-icon"><i></i></span> Not sure</a></li>
           </ul>
         </div>
       </div>
@@ -140,7 +140,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
             <li><a href="#" class="form-selectServiceOption<?php if($_GET['option'] == 'ppc-foundation') { ?> current<?php } ?>" data-service-option="PPC Foundation"><span class="ppc service-icon"><i></i></span> PPC Foundation</a></li>
             <li><a href="#" class="form-selectServiceOption<?php if($_GET['option'] == 'ppc-advanced') { ?> current<?php } ?>" data-service-option="PPC Advanced"><span class="ppc service-icon"><i></i><span class="icon-seption-plus"></span></span> PPC Advanced</a></li>
             <li><a href="#" class="form-selectServiceOption<?php if($_GET['option'] == 'ppc-complete') { ?> current<?php } ?>" data-service-option="PPC Complete"><span class="ppc service-icon"><i></i><span class="icon-seption-star"></span></span> PPC Complete</a></li>
-            <li><a href="#" class="form-selectServiceOption" data-service-option="Not sure what package"><span class="unsure service-icon"><i></i></span> Not sure what package</a></li>
+            <li><a href="#" class="form-selectServiceOption" data-service-option="Not sure"><span class="unsure service-icon"><i></i></span> Not sure</a></li>
           </ul>
         </div>
       </div>
