@@ -199,7 +199,7 @@ class content_model extends appModel {
         'being_a_client' => '<p>We don\'t really like the word client. It implies a relationship where you, the client, don\'t get to participate. That\'s not how Monkee-Boy works. This won\'t be one of those sit-back-and-enjoy-the-ride experiences. A typical Monkee-Boy project is full of epiphanies, exclamations, and visions as we collaboratively explore how you can solve the web.</p><p>In short, when you decide to work with Monkee-Boy you become <a href="/the-work/client-list/">our partner</a>. We\'ll work on your project as a team. We may even eat lunch together.</p>',
         'chart' => array(
           'title' => 'Compare Monthly Maintenance Plans',
-          'intro' => 'Monkee-Boy offers two maintenance plans. Our basic option includes everything you need to keep your website healthy month after month. The plus maintenance plan adds SEO to the mix -- for businesses that rely more on search.',
+          'intro' => 'Monkee-Boy offers two maintenance plans. Our Basic option includes everything you need to keep your website healthy month after month. The Plus maintenance plan adds SEO to the mix -- for businesses that rely more on search.',
           'download' => '/uploads/editor/images/mboy-wordpress-plans.pdf',
           'plan_breakdown' => array(
             'broken_link_checks' => array('name' => 'Broken Link Checks', 'type' => 'boolean'),
@@ -244,7 +244,7 @@ class content_model extends appModel {
             ),
             array(
               'title' => 'Plus',
-              'description' => 'Monthly Maintenance plus SEO to keep your website healthier.',
+              'description' => 'Monthly Maintenance Plus SEO to keep your website healthier.',
               'price' => '780',
               'icon' => 'maintenance',
               'cta' => 'Sign Up',
