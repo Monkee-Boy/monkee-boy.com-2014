@@ -4324,7 +4324,7 @@ button[type=submit] {
 
 .hero-services {
   position: relative;
-  margin: -45px auto 120px;
+  margin: -45px auto 65px;
   padding-top: 168px;
   z-index: 2; }
   @media only screen and (max-width: 840px) {
@@ -4361,7 +4361,7 @@ button[type=submit] {
       .hero-services .hero-content p:first-child {
         margin-top: 0; }
   .hero-services .hero-service-list {
-    padding: 25px 50px;
+    padding: 15px 50px;
     background: #242529; }
     @media only screen and (max-width: 840px) {
       .hero-services .hero-service-list {

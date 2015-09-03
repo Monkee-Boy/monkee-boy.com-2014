@@ -13,7 +13,7 @@
 
 .hero-services {
   position: relative;
-  margin: -45px auto 120px;
+  margin: -45px auto 65px;
   padding-top: 168px;
   z-index: 2;
 
@@ -67,7 +67,7 @@
   }
 
   .hero-service-list {
-    padding: 25px 50px;
+    padding: 15px 50px;
     background: $black;
 
     @media #{$medium-down} {
