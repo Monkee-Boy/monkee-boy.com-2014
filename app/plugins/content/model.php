@@ -192,14 +192,14 @@ class content_model extends appModel {
 
     $content = array(
       'websitemaintenance' => array(
-        'about' => '<p class="intro">Many websites become less effective shortly following their launch date due to lackluster maintenance efforts.</p><p>Why does this happen? Well, it\'s pretty simple. The web changes rapidly and without proper maintenance a young website can struggle to keep up. Not to mention the fact that hackers deliberately seek out older, poorly maintained websites to attack because they\'re more likely to have vulnerabilities in the code that were left untended due to subpar maintenance.</p><p>Fortunately, our maintenance team works tirelessly to ensure that every website we manage experiences as few missteps as possible.</p><p>We monitor your site 24/7, complete any security updates or CMS upgrades, perform monthly health checks, and make any changes you send us through our easy-to-use ticketing system.</p><p>Monkee-Boy offers two levels of website maintenance -- one for clients that just need regular checkups and updates and another for those who also need to maintain their SEO.</p>',
+        'about' => '<p class="intro">Many websites become less effective shortly following their launch date due to lackluster maintenance efforts.</p><p>Why does this happen? Well, it\'s pretty simple. The web changes rapidly and without proper maintenance a young website can struggle to keep up. Not to mention the fact that hackers deliberately seek out older, poorly maintained websites to attack because they\'re more likely to have vulnerabilities in the code that were left untended due to subpar maintenance.</p><p>Fortunately, our maintenance team works tirelessly to ensure that every website we manage experiences as few missteps as possible.</p><p>We monitor your site 24/7, complete any security updates or CMS upgrades, perform monthly health checks, and make any changes you send us through our easy-to-use ticketing system.</p><p>In addition to ad hoc maintenance requests, Monkee-Boy offers two proactive web maintenance options -- one for clients that just need regular checkups and updates and another for those who also need to maintain their SEO.</p>',
         'benefits_title' => 'Our Maintenance Team Can Help…',
         'benefits' => '<li>Quickly locate, replicate, and fix bugs so that your website always operates at a high level.</li><li>Perform regular CMS and security updates.</li><li>Protect your website from hacking.</li><li>Make your website changes quickly and accurately.</li>',
         'our_team' => '<p>Monkee-Boy hires thinkers and problem solvers who also happen to be excellent designers, developers, marketers and strategists. Like zombies, we pick people for their brains.</p><p>The reason is simple. We just think our clients deserve the best: a team of ridiculously smart, web-savvy people ready to solve your problems.</p>',
         'being_a_client' => '<p>We don\'t really like the word client. It implies a relationship where you, the client, don\'t get to participate. That\'s not how Monkee-Boy works. This won\'t be one of those sit-back-and-enjoy-the-ride experiences. A typical Monkee-Boy project is full of epiphanies, exclamations, and visions as we collaboratively explore how you can solve the web.</p><p>In short, when you decide to work with Monkee-Boy you become <a href="/the-work/client-list/">our partner</a>. We\'ll work on your project as a team. We may even eat lunch together.</p>',
         'chart' => array(
           'title' => 'Compare Monthly Maintenance Plans',
-          'intro' => 'Monkee-Boy offers two maintenance plans. Our Basic option includes everything you need to keep your website healthy month after month. The Plus maintenance plan adds SEO to the mix -- for businesses that rely more on search.',
+          'intro' => 'Monkee-Boy offers two maintenance plans for Wordpress websites. Our Basic option includes everything you need to keep your website healthy month after month. The Plus maintenance plan adds SEO to the mix -- for businesses that rely more on search. If you only require periodic assistance (less frequent than monthly), or have a non-wordpress website, please <a href="/contact/request-a-quote/?service=website-maintenance">contact us</a> for a custom quote.',
           'download' => '/uploads/editor/images/mboy-wordpress-plans.pdf',
           'plan_breakdown' => array(
             'broken_link_checks' => array('name' => 'Broken Link Checks', 'type' => 'boolean'),
@@ -486,7 +486,7 @@ class content_model extends appModel {
         'cta' => array(
           'content' => 'Ready To Start Working Together?',
           'button' => 'Request a Quote',
-          'service' => 'content-analytics'
+          'service' => 'analytics'
         ),
         'service_features' => array(
           'title' => 'Analytics Includes',
