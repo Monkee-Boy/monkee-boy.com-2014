@@ -26,7 +26,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
 
   <form action="<?php echo $aContent['url'].'submit-form/' ?>" method="post" name="request-quote" class="request-quote-form" enctype="multipart/form-data">
     <div class="row full">
-      <h2 class="form-title">Tell us about your project</h2>
+      <h2 class="form-title">Tell Us How We Can Help</h2>
     </div>
 
     <div class="row">
