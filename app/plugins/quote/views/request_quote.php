@@ -86,6 +86,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
           <ul class="nav-block alt">
             <li><a href="#" class="form-selectServiceOption<?php if($_GET['option'] == 'basic') { ?> current<?php } ?>" data-service-option="WordPress Maintenance Basic"><span class="maintenance service-icon"><i></i></span> WordPress Maintenance Basic</a></li>
             <li><a href="#" class="form-selectServiceOption<?php if($_GET['option'] == 'plus') { ?> current<?php } ?>" data-service-option="WordPress Maintenance Plus"><span class="maintenance service-icon"><i></i><span class="icon-seption-plus"></span></span> WordPress Maintenance Plus</a></li>
+            <li><a href="#" class="form-selectServiceOption<?php if($_GET['option'] == 'custom') { ?> current<?php } ?>" data-service-option="Custom Maintenance"><span class="maintenance service-icon"><i></i><span class="icon-seption-star"></span></span> Custom Maintenance</a></li>
             <li><a href="#" class="form-selectServiceOption" data-service-option="Not sure"><span class="unsure service-icon"><i></i></span> Not sure</a></li>
           </ul>
         </div>
