@@ -136,7 +136,7 @@ class quote extends appController {
         'organization' => (!empty($_POST['org']))?$_POST['org']:'Not provided.',
         'phone' => array(htmlentities($phone)),
         'mail' => array(htmlentities($email)),
-        'url' => array((!empty($_POST['website']))?$_POST['website']:'Not provided.')
+        'url' => array((!empty($_POST['website']))?$_POST['website']:'')
       ));
 
       $file_ids = array();
