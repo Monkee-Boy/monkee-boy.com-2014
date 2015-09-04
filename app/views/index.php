@@ -15,8 +15,8 @@
 
         <div class="hero-service-list">
           <ul>
-            <li><a href="/how-we-help/content-strategy/">Content Strategy</a></li>
             <li><a href="/how-we-help/web-design-and-development/">Web Design and Development</a></li>
+            <li><a href="/how-we-help/content-strategy/">Content Strategy</a></li>
             <li><a href="/how-we-help/analytics/">Analytics</a></li>
             <li><a href="/how-we-help/website-maintenance/">Website Maintenance</a></li>
             <li><a href="/how-we-help/content-marketing/">Content Marketing</a></li>

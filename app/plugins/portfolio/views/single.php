@@ -145,8 +145,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'portfolio', 'page_title'=>$aClient
   <div class="main-cta">
     <div class="row">
       <div class="cta-inner">
-        <p>Ready to Start</p>
-        <p class="text-right"><strong>Working Together?</strong></p>
+        <p>Ready to Start Working Together?</p>
       </div>
 
       <div class="cta-button">

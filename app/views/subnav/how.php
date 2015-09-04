@@ -1,7 +1,7 @@
 <?php
 $howItems = array(
-  array('name' => 'Content Strategy', 'url' => '/how-we-help/content-strategy/', 'menu' => 'content-strategy'),
   array('name' => 'Web Design and Development', 'url' => '/how-we-help/web-design-and-development/', 'menu' => 'web-design-and-development'),
+  array('name' => 'Content Strategy', 'url' => '/how-we-help/content-strategy/', 'menu' => 'content-strategy'),
   array('name' => 'Analytics', 'url' => '/how-we-help/analytics/', 'menu' => 'analytics'),
   array('name' => 'Website Maintenance', 'url' => '/how-we-help/website-maintenance/', 'menu' => 'website-maintenance'),
   array('name' => 'Content Marketing', 'url' => '/how-we-help/content-marketing/', 'menu' => 'content-marketing'),
