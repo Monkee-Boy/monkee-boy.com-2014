@@ -80,7 +80,7 @@
   <div class="panel-wide home-marketing" data-panel-style="callout">
     <div class="row-flush">
       <div class="item-callout">
-        <h3 data-text-align="center">20 years of amazing results</h3>
+        <h3 data-text-align="center">17 years of amazing results</h3>
 
         <p><em>The web changes constantly. You need an experienced team to keep up and get results by:</em></p>
 
