@@ -1277,6 +1277,7 @@
     margin-top: 0;
     margin-bottom: 25px;
     font-weight: 700;
+    word-wrap: break-word;
 
     @media #{$medium-down} {
       @include span(4 of 12);
