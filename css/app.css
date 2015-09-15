@@ -1831,6 +1831,7 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
   .main-cta .cta-inner.newsletter-inner {
     text-align: center; }
     .main-cta .cta-inner.newsletter-inner p:first-of-type {
+      margin-bottom: 10px;
       font-size: 3.33333em; }
   .main-cta .cta-inner {
     color: #fff; }
