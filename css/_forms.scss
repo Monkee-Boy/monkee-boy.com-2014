@@ -217,8 +217,42 @@ label {
 
 // Newsletter CTA
 .request-newsletter-form {
+  float: left;
+  margin-bottom: 20px;
+  width: 100%;
+
+  .input-wrapper {
+    margin-top: 40px;
+
+    &:before, &:after {
+      display: none;
+    }
+  }
+
   input {
-    padding: em-calc(16, 22) em-calc(80, 22) em-calc(14, 22);
+    color: $dark-grey;
+    transition: all 0.2s ease-in-out;
+    background: rgba(255,255,255,0.97);
+
+    + label {
+      position: absolute;
+      top: 15px;
+      left: 30px;
+      color: $dark-grey;
+      font-weight: 300;
+      transform: translate3d(0, 0, 0);
+      transition: all 0.2s ease-in-out;
+      pointer-events: none;
+
+      &:target {
+        transform: translate3d(0, -50px, 0);
+      }
+    }
+
+    &:focus + label, &:valid + label {
+      color: #fff;
+      transform: translate3d(0, -50px, 0);
+    }
   }
 }
 

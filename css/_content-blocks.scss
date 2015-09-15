@@ -74,7 +74,7 @@
       }
     }
     &.newsletter-inner p:last-of-type {
-        font-size: em-calc(16px);
+        font-size: em-calc(14px);
     }
   }
 
@@ -97,8 +97,9 @@
 
   .newsletter-inner .button {
     @extend .button;
-    display: inline-block !important;
-    padding: em-calc(8, 22) em-calc(80, 22) em-calc(6, 22);
+    display: inline-block;
+    padding: em-calc(14, 22) em-calc(80, 22) em-calc(12, 22);
+    width: 100%;
   }
 }
 

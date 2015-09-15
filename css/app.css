@@ -1848,7 +1848,7 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
       .main-cta .cta-inner p:not:first-of-type {
         font-size: 1.33333em; }
     .main-cta .cta-inner.newsletter-inner p:last-of-type {
-      font-size: 0.88889em; }
+      font-size: 0.77778em; }
   .main-cta .cta-button {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -1876,8 +1876,9 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
       background: #d8ae2a; }
   .main-cta .newsletter-inner .button, .main-cta .newsletter-inner input[type=submit],
   .main-cta .newsletter-inner button[type=submit], .main-cta .newsletter-inner .upload-box.initial .add-files, .upload-box.initial .main-cta .newsletter-inner .add-files, .main-cta .newsletter-inner .news-load-more {
-    display: inline-block !important;
-    padding: 0.36364em 3.63636em 0.27273em; }
+    display: inline-block;
+    padding: 0.63636em 3.63636em 0.54545em;
+    width: 100%; }
 
 .list-style-alt, .content-block ul, .content-block ol {
   list-style: none; }
@@ -3447,8 +3448,32 @@ label {
   font-weight: normal;
   font-style: italic; }
 
-.request-newsletter-form input {
-  padding: 0.72727em 3.63636em 0.63636em; }
+.request-newsletter-form {
+  float: left;
+  margin-bottom: 20px;
+  width: 100%; }
+  .request-newsletter-form .input-wrapper {
+    margin-top: 40px; }
+    .request-newsletter-form .input-wrapper:before, .request-newsletter-form .input-wrapper:after {
+      display: none; }
+  .request-newsletter-form input {
+    color: #5e5e5e;
+    transition: all 0.2s ease-in-out;
+    background: rgba(255, 255, 255, 0.97); }
+    .request-newsletter-form input + label {
+      position: absolute;
+      top: 15px;
+      left: 30px;
+      color: #5e5e5e;
+      font-weight: 300;
+      transform: translate3d(0, 0, 0);
+      transition: all 0.2s ease-in-out;
+      pointer-events: none; }
+      .request-newsletter-form input + label:target {
+        transform: translate3d(0, -50px, 0); }
+    .request-newsletter-form input:focus + label, .request-newsletter-form input:valid + label {
+      color: #fff;
+      transform: translate3d(0, -50px, 0); }
 
 .form-monkee {
   -webkit-box-sizing: border-box;
