@@ -1877,8 +1877,12 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
   .main-cta .newsletter-inner .button, .main-cta .newsletter-inner input[type=submit],
   .main-cta .newsletter-inner button[type=submit], .main-cta .newsletter-inner .upload-box.initial .add-files, .upload-box.initial .main-cta .newsletter-inner .add-files, .main-cta .newsletter-inner .news-load-more {
     display: inline-block;
-    padding: 0.63636em 3.63636em 0.54545em;
+    padding: 0.63636em 2.72727em 0.54545em;
     width: 100%; }
+    @media only screen and (max-width: 580px) {
+      .main-cta .newsletter-inner .button, .main-cta .newsletter-inner input[type=submit],
+      .main-cta .newsletter-inner button[type=submit], .main-cta .newsletter-inner .upload-box.initial .add-files, .upload-box.initial .main-cta .newsletter-inner .add-files, .main-cta .newsletter-inner .news-load-more {
+        padding: 0.63636em 1.81818em 0.54545em; } }
 
 .list-style-alt, .content-block ul, .content-block ol {
   list-style: none; }
@@ -3454,6 +3458,12 @@ label {
   width: 100%; }
   .request-newsletter-form .input-wrapper {
     margin-top: 40px; }
+    @media only screen and (max-width: 980px) {
+      .request-newsletter-form .input-wrapper {
+        width: 100%; } }
+    @media only screen and (max-width: 580px) {
+      .request-newsletter-form .input-wrapper {
+        margin-bottom: 10px; } }
     .request-newsletter-form .input-wrapper:before, .request-newsletter-form .input-wrapper:after {
       display: none; }
   .request-newsletter-form input {

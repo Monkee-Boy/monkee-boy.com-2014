@@ -98,8 +98,11 @@
   .newsletter-inner .button {
     @extend .button;
     display: inline-block;
-    padding: em-calc(14, 22) em-calc(80, 22) em-calc(12, 22);
+    padding: em-calc(14, 22) em-calc(60, 22) em-calc(12, 22);
     width: 100%;
+    @media #{$small-only} {
+      padding: em-calc(14, 22) em-calc(40, 22) em-calc(12, 22);
+    }
   }
 }
 

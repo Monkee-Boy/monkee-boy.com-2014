@@ -224,6 +224,14 @@ label {
   .input-wrapper {
     margin-top: 40px;
 
+    @media #{$large-down} {
+      width: 100%;
+    }
+
+    @media #{$small-only} {
+      margin-bottom: 10px;
+    }
+
     &:before, &:after {
       display: none;
     }
