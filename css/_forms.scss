@@ -215,6 +215,13 @@ label {
   font-style: italic;
 }
 
+// Newsletter CTA
+.request-newsletter-form {
+  input {
+    padding: em-calc(16, 22) em-calc(80, 22) em-calc(14, 22);
+  }
+}
+
 // work with us page layout
 .form-monkee {
   @include span(5 of 12);
