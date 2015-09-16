@@ -5193,23 +5193,25 @@ button[type=submit] {
     width: 100%;
     max-width: 1080px; }
 
-.single-post p.intro {
-  font-size: 1.22222em;
-  font-weight: 500;
-  line-height: 1.4; }
-.single-post blockquote {
-  float: left;
-  width: 62.5%;
-  margin-left: -12.5%;
-  margin-right: 15px;
-  padding-right: 15px; }
-  @media only screen and (max-width: 840px) {
-    .single-post blockquote {
-      margin-left: 0;
-      width: 50%; } }
-  @media only screen and (max-width: 580px) {
-    .single-post blockquote {
-      width: 100%; } }
+.single-post {
+  line-height: 28px; }
+  .single-post p.intro {
+    font-size: 1.22222em;
+    font-weight: 500;
+    line-height: 1.4; }
+  .single-post blockquote {
+    float: left;
+    width: 62.5%;
+    margin-left: -12.5%;
+    margin-right: 15px;
+    padding-right: 15px; }
+    @media only screen and (max-width: 840px) {
+      .single-post blockquote {
+        margin-left: 0;
+        width: 50%; } }
+    @media only screen and (max-width: 580px) {
+      .single-post blockquote {
+        width: 100%; } }
 
 .large-photo {
   background-color: #fff;
