@@ -96,6 +96,13 @@
     </div>
   </div>
 
+  <div class="row">
+    <div class="full">
+      <blockquote class="long-quote">Tip-of-the-tongue syndrome is an experience so common that cultures worldwide have a phrase for it. Cheyenne Indians call it navonotootse’a, which means ‘I have lost it on my tongue’; in Korean it’s hyeu kkedu-te mam-dol-da, which has an even more gorgeous translation: ‘sparkling at the end of my tongue.’ The phenomenon generally lasts only a minute or so; your brain eventually makes the connection. But … when faced with a tip-of-the-tongue moment, many of us have begun to rely instead on the Internet to locate information on the fly. If lifelogging … stores ‘episodic,’ or personal, memories, Internet search engines do the same for a different sort of memory: ‘semantic’ memory, or factual knowledge about the world. When you visit Paris and have a wonderful time drinking champagne at a café, your personal experience is an episodic memory. Your ability to remember that Paris is a city and that champagne is an alcoholic beverage — that’s semantic memory.”</blockquote>
+      <p class="attribution">- Clive Thompson</p>
+    </div>
+  </div>
+
   <div class="main-cta">
     <div class="row">
       <div class="cta-inner">

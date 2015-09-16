@@ -1548,6 +1548,30 @@ blockquote {
   font-style: italic;
   font-size: 1.33333em;
   border-left: 17px solid #fcc721; }
+  blockquote.long-quote {
+    position: relative;
+    padding-left: 5.55556em;
+    width: 730px;
+    color: #666;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 1em;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 30px;
+    border-left: none; }
+    blockquote.long-quote:before {
+      position: absolute;
+      left: -15px;
+      top: -10px;
+      z-index: -1;
+      content: url(/assets/blockquote.png);
+      width: 42px;
+      height: 36px; }
+    blockquote.long-quote + p.attribution {
+      font-family: "Source Sans Pro", sans-serif;
+      font-weight: bold;
+      color: #242529;
+      text-align: right; }
   blockquote cite {
     display: block;
     text-align: right;
@@ -3792,7 +3816,7 @@ button[type=submit] {
   .datepicker table tr td.today, .datepicker table tr td.today:hover, .datepicker table tr td.today.disabled, .datepicker table tr td.today.disabled:hover {
     color: #000;
     background-color: #ff6c5c;
-    border-color: #cc5649; }
+    border-color: #cc564a; }
   .datepicker table tr td.today.active:hover {
     color: #fff; }
   .datepicker table tr td.range, .datepicker table tr td.range:hover, .datepicker table tr td.range.disabled, .datepicker table tr td.range.disabled:hover {
@@ -3800,7 +3824,7 @@ button[type=submit] {
   .datepicker table tr td.range.today, .datepicker table tr td.range.today:hover, .datepicker table tr td.range.today.disabled, .datepicker table tr td.range.today.disabled:hover {
     color: #000;
     background-color: #ff6c5c;
-    border-color: #cc5649; }
+    border-color: #cc564a; }
   .datepicker table tr td.selected, .datepicker table tr td.selected:hover, .datepicker table tr td.selected.disabled, .datepicker table tr td.selected.disabled:hover {
     color: #fff;
     background-color: #ededed;
@@ -3890,7 +3914,7 @@ button[type=submit] {
   text-shadow: 0 1px 0 #fff;
   vertical-align: middle;
   background-color: #acca41;
-  border: solid #89a134;
+  border: solid #8aa234;
   border-width: 1px 0;
   margin-left: -5px;
   margin-right: -5px; }
