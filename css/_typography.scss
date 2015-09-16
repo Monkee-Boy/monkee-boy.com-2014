@@ -159,12 +159,13 @@ blockquote {
 
     &:before {
       position: absolute;
-      left: -10px;
-      top: -10px;
+      left: -30px;
+      top: 20px;
       z-index: -1;
-      content: url(/assets/blockquote.png);
-      width: 42px;
-      height: 36px;
+      content: '“';
+      font-family: $body-font;
+      font-size: em-calc(120px);
+      color: $darker-light-grey;
     }
 
     .attribution {

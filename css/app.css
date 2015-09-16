@@ -1565,12 +1565,13 @@ blockquote {
         width: auto; } }
     blockquote.long-quote:before {
       position: absolute;
-      left: -10px;
-      top: -10px;
+      left: -30px;
+      top: 20px;
       z-index: -1;
-      content: url(/assets/blockquote.png);
-      width: 42px;
-      height: 36px; }
+      content: '“';
+      font-family: "Source Sans Pro", sans-serif;
+      font-size: 6.66667em;
+      color: #dfdfdf; }
     blockquote.long-quote .attribution {
       display: block;
       margin-top: 20px;
