@@ -1550,7 +1550,7 @@ blockquote {
   border-left: 17px solid #fcc721; }
   blockquote.long-quote {
     position: relative;
-    padding-left: 5.55556em;
+    margin: 0 auto;
     width: 730px;
     color: #666;
     font-family: "Source Sans Pro", sans-serif;
@@ -1559,16 +1559,24 @@ blockquote {
     font-weight: 300;
     line-height: 30px;
     border-left: none; }
+    @media only screen and (max-width: 840px) {
+      blockquote.long-quote {
+        padding-left: 0;
+        width: auto; } }
     blockquote.long-quote:before {
       position: absolute;
-      left: -15px;
+      left: -10px;
       top: -10px;
       z-index: -1;
       content: url(/assets/blockquote.png);
       width: 42px;
       height: 36px; }
-    blockquote.long-quote + p.attribution {
+    blockquote.long-quote .attribution {
+      display: block;
+      margin-top: 20px;
       font-family: "Source Sans Pro", sans-serif;
+      font-size: 1em;
+      font-style: normal;
       font-weight: bold;
       color: #242529;
       text-align: right; }
