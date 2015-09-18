@@ -2623,8 +2623,7 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
     text-align: center; }
 
 .plan-breakdown .plan-breakdown-col1 .service-description, .plan-breakdown-mobile .service-description {
-  position: relative;
-  top: 10px;
+  margin-top: 5px;
   font-size: 13px;
   font-style: italic;
   font-weight: 400;
@@ -2763,8 +2762,6 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
     font-size: 16px;
     font-style: italic; }
   .plan-breakdown-mobile .service-description {
-    top: 0;
-    margin-top: 10px;
     margin-bottom: 10px; }
   .plan-breakdown-mobile .plan-checked:after, .plan-breakdown-mobile .plan-unchecked:after {
     position: absolute;
