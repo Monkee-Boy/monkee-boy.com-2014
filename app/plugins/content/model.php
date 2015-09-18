@@ -205,7 +205,7 @@ class content_model extends appModel {
             'broken_link_checks' => array('name' => 'Broken Link Checks', 'description' => 'Ensures links on your site still connect to working webpages and files.', 'type' => 'boolean'),
             'quality_assurance' => array('name' => 'Quality Assurance', 'description' => 'Checks your website for any visual errors.', 'type' => 'boolean'),
             'form_testing' => array('name' => 'Form Testing', 'description' => 'Never lose a lead cause your form stopped working.', 'type' => 'boolean'),
-            'security_updates' => array('name' => 'Security Updates', 'description' => 'All the Wordpress core, plugin, and theme updates your site needs.', 'type' => 'boolean'),
+            'security_updates' => array('name' => 'Security Updates', 'description' => 'All the WordPress core, plugin, and theme updates your site needs.', 'type' => 'boolean'),
             'uptime_monitoring' => array('name' => 'Uptime Monitoring', 'description' => 'Instant alerts straight to our development team if your site goes down.', 'type' => 'boolean'),
             'regular_backups' => array('name' => 'Regular Back-Ups', 'description' => 'An off-site storage insurance policy should you ever lose your site data.', 'type' => 'boolean'),
             'analytics_installation' => array('name' => 'Analytics Installation', 'description' => 'Receive custom reports to your inbox with key data about your website visitors.', 'type' => 'boolean'),
