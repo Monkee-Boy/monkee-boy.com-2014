@@ -856,6 +856,17 @@
   }
 }
 
+%service-description {
+  // margin-top: 10px;
+  position: relative;
+  top: 10px;
+  font-size: 13px;
+  font-style: italic;
+  font-weight: 400;
+  color: $dark-grey;
+  text-transform: none;
+}
+
 .plan-breakdown {
   margin: 140px 0 40px;
 
@@ -877,6 +888,9 @@
     font-weight: 700;
     font-size: 24px;
     color: $black;
+    .service-description {
+      @extend %service-description;
+    }
   }
 
   .plan-breakdown-col2, .plan-breakdown-col3 {
@@ -1010,6 +1024,13 @@
     margin-bottom: 20px;
     font-size: 16px;
     font-style: italic;
+  }
+
+  .service-description {
+    @extend %service-description;
+    top: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
   .plan-checked:after, .plan-unchecked:after {
