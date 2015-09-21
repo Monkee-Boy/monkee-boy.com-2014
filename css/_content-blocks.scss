@@ -856,7 +856,7 @@
   }
 }
 
-%service-description {
+.service-description {
   margin-top: 5px;
   font-size: 13px;
   font-style: italic;
@@ -886,9 +886,6 @@
     font-weight: 700;
     font-size: 24px;
     color: $black;
-    .service-description {
-      @extend %service-description;
-    }
   }
 
   .plan-breakdown-col2, .plan-breakdown-col3 {
@@ -972,6 +969,8 @@
   }
 
   .plan-text {
+    position: relative;
+    top: 15px;
     text-transform: uppercase;
     font-weight: 700;
     font-size: 24px;
@@ -1025,7 +1024,7 @@
   }
 
   .service-description {
-    @extend %service-description;
+    @extend .service-description;
     margin-bottom: 10px;
   }
 
