@@ -2622,14 +2622,6 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
   .plans .plan-section-description {
     text-align: center; }
 
-.plan-breakdown .plan-breakdown-col1 .service-description, .plan-breakdown-mobile .service-description {
-  margin-top: 5px;
-  font-size: 13px;
-  font-style: italic;
-  font-weight: 400;
-  color: #5e5e5e;
-  text-transform: none; }
-
 .plan-breakdown {
   margin: 140px 0 40px; }
   @media only screen and (max-width: 840px) {
@@ -2653,6 +2645,14 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
     font-weight: 700;
     font-size: 24px;
     color: #242529; }
+    .plan-breakdown .plan-breakdown-col1 .service-description {
+      margin-top: 5px;
+      margin-bottom: 0;
+      font-size: 13px;
+      font-style: italic;
+      font-weight: 400;
+      color: #5e5e5e;
+      text-transform: none; }
   .plan-breakdown .plan-breakdown-col2, .plan-breakdown .plan-breakdown-col3 {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -2762,7 +2762,13 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
     font-size: 16px;
     font-style: italic; }
   .plan-breakdown-mobile .service-description {
-    margin-bottom: 10px; }
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 400;
+    color: #5e5e5e;
+    text-transform: none; }
   .plan-breakdown-mobile .plan-checked:after, .plan-breakdown-mobile .plan-unchecked:after {
     position: absolute;
     top: 50%;
