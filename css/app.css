@@ -1542,6 +1542,7 @@ p.intro {
 
 blockquote {
   padding-left: 0.94444em;
+  padding-right: 0.94444em;
   color: #242529;
   font-family: 'effra', sans-serif;
   font-weight: bold;
@@ -1565,12 +1566,14 @@ blockquote {
         width: auto; } }
     blockquote.long-quote:before {
       position: absolute;
-      left: -30px;
-      top: 20px;
+      left: -18px;
+      top: 10px;
       z-index: -1;
       content: '“';
       font-family: "Source Sans Pro", sans-serif;
-      font-size: 6.66667em;
+      font-weight: bold;
+      font-size: 5.55556em;
+      font-style: normal;
       color: #dfdfdf; }
     blockquote.long-quote .attribution {
       display: block;

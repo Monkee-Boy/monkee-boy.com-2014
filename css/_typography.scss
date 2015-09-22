@@ -134,6 +134,7 @@ p.intro {
 
 blockquote {
   padding-left: em-calc(17px);
+  padding-right: em-calc(17px);
   color: $black;
   font-family: 'effra', sans-serif;
   font-weight: bold;
@@ -159,12 +160,14 @@ blockquote {
 
     &:before {
       position: absolute;
-      left: -30px;
-      top: 20px;
+      left: -18px;
+      top: 10px;
       z-index: -1;
       content: '“';
       font-family: $body-font;
-      font-size: em-calc(120px);
+      font-weight: bold;
+      font-size: em-calc(100px);
+      font-style: normal;
       color: $darker-light-grey;
     }
 
