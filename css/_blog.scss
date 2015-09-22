@@ -294,6 +294,19 @@
     margin-right: #{$gutter-width/2}px;
     padding-right: #{$gutter-width/2}px;
 
+    &.long-quote {
+      float: none;
+      width: 730px;
+      margin: em-calc(60px) auto;
+      padding-left: em-calc(50px);
+      padding-right: em-calc(50px);
+
+      &:before {
+        position: absolute;
+        left: 15px;
+      }
+    }
+
     @media #{$medium-down}  {
       margin-left: 0;
       width: 50%;

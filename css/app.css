@@ -1575,7 +1575,7 @@ blockquote {
       font-size: 5.55556em;
       font-style: normal;
       color: #dfdfdf; }
-    blockquote.long-quote .attribution {
+    blockquote.long-quote span {
       display: block;
       margin-top: 20px;
       font-family: "Source Sans Pro", sans-serif;
@@ -5217,6 +5217,15 @@ button[type=submit] {
     margin-left: -12.5%;
     margin-right: 15px;
     padding-right: 15px; }
+    .single-post blockquote.long-quote {
+      float: none;
+      width: 730px;
+      margin: 3.33333em auto;
+      padding-left: 2.77778em;
+      padding-right: 2.77778em; }
+      .single-post blockquote.long-quote:before {
+        position: absolute;
+        left: 15px; }
     @media only screen and (max-width: 840px) {
       .single-post blockquote {
         margin-left: 0;
