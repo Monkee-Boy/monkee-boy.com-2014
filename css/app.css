@@ -1543,12 +1543,48 @@ p.intro {
 
 blockquote {
   padding-left: 0.94444em;
+  padding-right: 0.94444em;
   color: #242529;
   font-family: 'effra', sans-serif;
   font-weight: bold;
   font-style: italic;
   font-size: 1.33333em;
   border-left: 17px solid #fcc721; }
+  blockquote.long-quote {
+    position: relative;
+    margin: 0 auto;
+    width: 730px;
+    color: #666;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 1em;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 30px;
+    border-left: none; }
+    @media only screen and (max-width: 840px) {
+      blockquote.long-quote {
+        padding-left: 0;
+        width: auto; } }
+    blockquote.long-quote:before {
+      position: absolute;
+      left: -18px;
+      top: 10px;
+      z-index: -1;
+      content: '“';
+      font-family: "Source Sans Pro", sans-serif;
+      font-weight: bold;
+      font-size: 5.55556em;
+      font-style: normal;
+      color: #dfdfdf; }
+    blockquote.long-quote span {
+      display: block;
+      margin-top: 20px;
+      font-family: "Source Sans Pro", sans-serif;
+      font-size: 1em;
+      font-style: normal;
+      font-weight: bold;
+      color: #242529;
+      text-align: right; }
   blockquote cite {
     display: block;
     text-align: right;
@@ -5170,23 +5206,34 @@ button[type=submit] {
     width: 100%;
     max-width: 1080px; }
 
-.single-post p.intro {
-  font-size: 1.22222em;
-  font-weight: 500;
-  line-height: 1.4; }
-.single-post blockquote {
-  float: left;
-  width: 62.5%;
-  margin-left: -12.5%;
-  margin-right: 15px;
-  padding-right: 15px; }
-  @media only screen and (max-width: 840px) {
-    .single-post blockquote {
-      margin-left: 0;
-      width: 50%; } }
-  @media only screen and (max-width: 580px) {
-    .single-post blockquote {
-      width: 100%; } }
+.single-post {
+  line-height: 28px; }
+  .single-post p.intro {
+    font-size: 1.22222em;
+    font-weight: 500;
+    line-height: 1.4; }
+  .single-post blockquote {
+    float: left;
+    width: 62.5%;
+    margin-left: -12.5%;
+    margin-right: 15px;
+    padding-right: 15px; }
+    .single-post blockquote.long-quote {
+      float: none;
+      width: 730px;
+      margin: 3.33333em auto;
+      padding-left: 2.77778em;
+      padding-right: 2.77778em; }
+      .single-post blockquote.long-quote:before {
+        position: absolute;
+        left: 15px; }
+    @media only screen and (max-width: 840px) {
+      .single-post blockquote {
+        margin-left: 0;
+        width: 50%; } }
+    @media only screen and (max-width: 580px) {
+      .single-post blockquote {
+        width: 100%; } }
 
 .large-photo {
   background-color: #fff;
