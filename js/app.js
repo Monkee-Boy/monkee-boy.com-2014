@@ -14407,10 +14407,10 @@ function BlurStack()
         children = $(this).children();
 
     children.each(function() {
-      // if(this.clientHeight > max_height) {
-        max_height = this.clientHeight + 30;
+      if(this.clientHeight > max_height) {
+        max_height = this.clientHeight;
         console.log(max_height);
-      // }
+      }
     });
 
     children.each(function() {

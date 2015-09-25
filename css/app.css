@@ -2624,6 +2624,7 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
 
 .service-description, .plan-breakdown-mobile .service-description {
   margin-top: 5px;
+  margin-bottom: 0;
   font-size: 13px;
   font-style: italic;
   font-weight: 400;
