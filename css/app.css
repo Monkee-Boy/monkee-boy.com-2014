@@ -766,14 +766,15 @@ body.menu-open {
           .main-nav ul li.primary li {
             font-size: 18px; } }
         .main-nav ul li.primary li a {
+          display: block;
           color: #b2b2b2;
           padding-right: 12px;
-          padding-left: 12px; }
+          padding-left: 22px; }
         .main-nav ul li.primary li a:hover {
           color: #fff;
           text-decoration: none; }
       .main-nav ul li.primary ul.dropdown-extended {
-        width: 515px; }
+        width: 572px; }
         .main-nav ul li.primary ul.dropdown-extended li {
           float: left;
           width: 50%; }
@@ -3792,7 +3793,7 @@ button[type=submit] {
   .datepicker table tr td.today, .datepicker table tr td.today:hover, .datepicker table tr td.today.disabled, .datepicker table tr td.today.disabled:hover {
     color: #000;
     background-color: #ff6c5c;
-    border-color: #cc5649; }
+    border-color: #cc564a; }
   .datepicker table tr td.today.active:hover {
     color: #fff; }
   .datepicker table tr td.range, .datepicker table tr td.range:hover, .datepicker table tr td.range.disabled, .datepicker table tr td.range.disabled:hover {
@@ -3800,7 +3801,7 @@ button[type=submit] {
   .datepicker table tr td.range.today, .datepicker table tr td.range.today:hover, .datepicker table tr td.range.today.disabled, .datepicker table tr td.range.today.disabled:hover {
     color: #000;
     background-color: #ff6c5c;
-    border-color: #cc5649; }
+    border-color: #cc564a; }
   .datepicker table tr td.selected, .datepicker table tr td.selected:hover, .datepicker table tr td.selected.disabled, .datepicker table tr td.selected.disabled:hover {
     color: #fff;
     background-color: #ededed;
@@ -3890,7 +3891,7 @@ button[type=submit] {
   text-shadow: 0 1px 0 #fff;
   vertical-align: middle;
   background-color: #acca41;
-  border: solid #89a134;
+  border: solid #8aa234;
   border-width: 1px 0;
   margin-left: -5px;
   margin-right: -5px; }
