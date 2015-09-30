@@ -209,7 +209,7 @@ class content_model extends appModel {
             'uptime_monitoring' => array('name' => 'Uptime Monitoring', 'description' => 'Instant alerts straight to our development team if your site goes down.', 'type' => 'boolean'),
             'regular_backups' => array('name' => 'Regular Back-Ups', 'description' => 'An off-site storage insurance policy should you ever lose your site data.', 'type' => 'boolean'),
             'analytics_installation' => array('name' => 'Analytics Installation', 'description' => 'Receive custom reports to your inbox with key data about your website visitors.', 'type' => 'boolean'),
-            'technical_site_updates' => array('name' => 'Technical Site Updates', 'description' => 'Quickly fix technical and SEO issues (plus only) and make additional changes by request.', 'type' => 'string'),
+            'technical_site_updates' => array('name' => 'Site Updates', 'description' => 'Quickly fix technical and SEO issues (plus only) and make additional changes by request.', 'type' => 'string'),
             'site_speed_analysis' => array('name' => 'Site Speed Analysis', 'description' => 'Tests your site’s page load speed, a factor in Google’s search algorithm.', 'type' => 'boolean'),
             'seo_issues_report' => array('name' => 'SEO Issues Monitoring', 'description' => 'Assesses content on your site to identify optimization opportunities.', 'type' => 'boolean'),
             'seo_plugin_maintenance' => array('name' => 'SEO Plugin Maintenance', 'description' => 'Keeps all your Wordpress SEO tools up to date.', 'type' => 'boolean'),
