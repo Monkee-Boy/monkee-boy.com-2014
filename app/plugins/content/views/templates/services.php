@@ -220,6 +220,9 @@
             <div class="row-flush equal-height">
               <div class="plan-breakdown-col1">
                 <?= $plan_breakdown['name']; ?>
+                <p class="service-description">
+                  <?= $plan_breakdown['description']; ?>
+                </p>
               </div>
 
               <div class="plan-breakdown-col2">
@@ -260,6 +263,9 @@
           <div class="plan-simple-breakdown">
             <div class="plan-breakdown-title">
               <?= $plan_breakdown['name']; ?>
+              <p class="service-description">
+                <?= $plan_breakdown['description']; ?>
+              </p>
             </div>
 
             <div class="plan-breakdown-rows">

@@ -202,20 +202,18 @@ class content_model extends appModel {
           'intro' => 'Monkee-Boy offers two maintenance plans for Wordpress websites. Our Basic option includes everything you need to keep your website healthy month after month. The Plus maintenance plan adds SEO to the mix -- for businesses that rely more on search. If you only require periodic assistance (less frequent than monthly), or have a non-wordpress website, please <a href="/contact/request-a-quote/?service=website-maintenance&option=custom">contact us</a> for a custom quote.',
           'download' => '/uploads/editor/images/mboy-wordpress-plans.pdf',
           'plan_breakdown' => array(
-            'broken_link_checks' => array('name' => 'Broken Link Checks', 'type' => 'boolean'),
-            'quality_assurance' => array('name' => 'Quality Assurance', 'type' => 'boolean'),
-            'form_testing' => array('name' => 'Form Testing', 'type' => 'boolean'),
-            'security_updates' => array('name' => 'Security Updates', 'type' => 'boolean'),
-            'uptime_monitoring' => array('name' => 'Uptime Monitoring', 'type' => 'boolean'),
-            'regular_backups' => array('name' => 'Regular Back-Ups', 'type' => 'boolean'),
-            'analytics_installation' => array('name' => 'Analytics Installation', 'type' => 'boolean'),
-            'technical_site_updates' => array('name' => 'Technical Site Updates', 'type' => 'string'),
-            'site_speed_analysis' => array('name' => 'Site Speed Analysis', 'type' => 'boolean'),
-            'seo_content_checks' => array('name' => 'SEO Content Checks', 'type' => 'boolean'),
-            'seo_plugin_maintenance' => array('name' => 'SEO Plugin Maintenance', 'type' => 'boolean'),
-            'seo_issues_report' => array('name' => 'SEO Issues Report', 'type' => 'boolean'),
-            'seo_competition_report' => array('name' => 'SEO Competition Report', 'type' => 'boolean'),
-            'seo_ranking_report' => array('name' => 'SEO Ranking Report', 'type' => 'boolean')
+            'broken_link_checks' => array('name' => 'Broken Link Checks', 'description' => 'Ensures links on your site still connect to working webpages and files.', 'type' => 'boolean'),
+            'quality_assurance' => array('name' => 'Quality Assurance', 'description' => 'Checks your website for any visual errors.', 'type' => 'boolean'),
+            'form_testing' => array('name' => 'Form Testing', 'description' => 'Ensures your website forms are always functioning and collecting leads.', 'type' => 'boolean'),
+            'security_updates' => array('name' => 'Security Updates', 'description' => 'All the WordPress core, plugin, and theme updates your site needs.', 'type' => 'boolean'),
+            'uptime_monitoring' => array('name' => 'Uptime Monitoring', 'description' => 'Instant alerts straight to our development team if your site goes down.', 'type' => 'boolean'),
+            'regular_backups' => array('name' => 'Regular Back-Ups', 'description' => 'An off-site storage insurance policy should you ever lose your site data.', 'type' => 'boolean'),
+            'analytics_installation' => array('name' => 'Analytics Installation', 'description' => 'Receive custom reports to your inbox with key data about your website visitors.', 'type' => 'boolean'),
+            'technical_site_updates' => array('name' => 'Site Updates', 'description' => 'Quickly fix technical and SEO issues (plus only) and make additional changes by request.', 'type' => 'string'),
+            'site_speed_analysis' => array('name' => 'Site Speed Analysis', 'description' => 'Tests your site’s page load speed, a factor in Google’s search algorithm.', 'type' => 'boolean'),
+            'seo_issues_report' => array('name' => 'SEO Issues Monitoring', 'description' => 'Assesses content on your site to identify optimization opportunities.', 'type' => 'boolean'),
+            'seo_plugin_maintenance' => array('name' => 'SEO Plugin Maintenance', 'description' => 'Keeps all your Wordpress SEO tools up to date.', 'type' => 'boolean'),
+            'seo_report' => array('name' => 'SEO Reporting', 'description' => 'A custom report listing any issues fixed and competition and keyword ranking data.', 'type' => 'boolean'),
           ),
           'plans' => array(
             array(
@@ -235,11 +233,9 @@ class content_model extends appModel {
                 'analytics_installation' => 1,
                 'technical_site_updates' => '2 hours',
                 'site_speed_analysis' => 0,
-                'seo_content_checks' => 0,
-                'seo_plugin_maintenance' => 0,
                 'seo_issues_report' => 0,
-                'seo_competition_report' => 0,
-                'seo_ranking_report' => 0
+                'seo_plugin_maintenance' => 0,
+                'seo_report' => 0
               )
             ),
             array(
@@ -259,11 +255,9 @@ class content_model extends appModel {
                 'analytics_installation' => 1,
                 'technical_site_updates' => '5 hours',
                 'site_speed_analysis' => 1,
-                'seo_content_checks' => 1,
-                'seo_plugin_maintenance' => 1,
                 'seo_issues_report' => 1,
-                'seo_competition_report' => 1,
-                'seo_ranking_report' => 1
+                'seo_plugin_maintenance' => 1,
+                'seo_report' => 1
               )
             )
           )

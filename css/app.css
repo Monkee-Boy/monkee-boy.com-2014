@@ -2659,6 +2659,15 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
   .plans .plan-section-description {
     text-align: center; }
 
+.service-description, .plan-breakdown-mobile .service-description {
+  margin-top: 5px;
+  margin-bottom: 0;
+  font-size: 13px;
+  font-style: italic;
+  font-weight: 400;
+  color: #5e5e5e;
+  text-transform: none; }
+
 .plan-breakdown {
   margin: 140px 0 40px; }
   @media only screen and (max-width: 840px) {
@@ -2750,6 +2759,8 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
     transform: translate(-50%, -50%) rotate(45deg);
     color: #ff6c5c; }
   .plan-breakdown .plan-text {
+    position: relative;
+    top: 15px;
     text-transform: uppercase;
     font-weight: 700;
     font-size: 24px;
@@ -2790,6 +2801,8 @@ button[type=submit], .upload-box.initial .add-files, .news-load-more {
     margin-bottom: 20px;
     font-size: 16px;
     font-style: italic; }
+  .plan-breakdown-mobile .service-description {
+    margin-bottom: 10px; }
   .plan-breakdown-mobile .plan-checked:after, .plan-breakdown-mobile .plan-unchecked:after {
     position: absolute;
     top: 50%;
@@ -3829,7 +3842,7 @@ button[type=submit] {
   .datepicker table tr td.today, .datepicker table tr td.today:hover, .datepicker table tr td.today.disabled, .datepicker table tr td.today.disabled:hover {
     color: #000;
     background-color: #ff6c5c;
-    border-color: #cc564a; }
+    border-color: #cc5649; }
   .datepicker table tr td.today.active:hover {
     color: #fff; }
   .datepicker table tr td.range, .datepicker table tr td.range:hover, .datepicker table tr td.range.disabled, .datepicker table tr td.range.disabled:hover {
@@ -3837,7 +3850,7 @@ button[type=submit] {
   .datepicker table tr td.range.today, .datepicker table tr td.range.today:hover, .datepicker table tr td.range.today.disabled, .datepicker table tr td.range.today.disabled:hover {
     color: #000;
     background-color: #ff6c5c;
-    border-color: #cc564a; }
+    border-color: #cc5649; }
   .datepicker table tr td.selected, .datepicker table tr td.selected:hover, .datepicker table tr td.selected.disabled, .datepicker table tr td.selected.disabled:hover {
     color: #fff;
     background-color: #ededed;
@@ -3927,7 +3940,7 @@ button[type=submit] {
   text-shadow: 0 1px 0 #fff;
   vertical-align: middle;
   background-color: #acca41;
-  border: solid #8aa234;
+  border: solid #89a134;
   border-width: 1px 0;
   margin-left: -5px;
   margin-right: -5px; }

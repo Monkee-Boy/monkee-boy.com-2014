@@ -1256,6 +1256,7 @@
     children.each(function() {
       if(this.clientHeight > max_height) {
         max_height = this.clientHeight;
+        console.log(max_height);
       }
     });
 

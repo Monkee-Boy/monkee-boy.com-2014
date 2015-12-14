@@ -856,6 +856,16 @@
   }
 }
 
+.service-description {
+  margin-top: 5px;
+  margin-bottom: 0;
+  font-size: 13px;
+  font-style: italic;
+  font-weight: 400;
+  color: $dark-grey;
+  text-transform: none;
+}
+
 .plan-breakdown {
   margin: 140px 0 40px;
 
@@ -960,6 +970,8 @@
   }
 
   .plan-text {
+    position: relative;
+    top: 15px;
     text-transform: uppercase;
     font-weight: 700;
     font-size: 24px;
@@ -1010,6 +1022,11 @@
     margin-bottom: 20px;
     font-size: 16px;
     font-style: italic;
+  }
+
+  .service-description {
+    @extend .service-description;
+    margin-bottom: 10px;
   }
 
   .plan-checked:after, .plan-unchecked:after {
