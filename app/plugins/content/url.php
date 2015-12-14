@@ -59,6 +59,13 @@ $aPluginUrlPatterns = array(
   "/admin/content/excerpts/delete/<id:[0-9]+>/" => array(
     "cmd" => "admin_content",
     "action" => "excerpts_delete"
+  ),
+  "/maintenance/" => array(
+    "cmd" => "content",
+    "action" => "view",
+    "params" => array(
+      "page" => "website-maintenance"
+    )
   )
 );
 ###############################################
