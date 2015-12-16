@@ -225,8 +225,6 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
               <option value="">Select a Date</option>
               <?php
               $aDeadlineDate = array(
-                "2015-Q3",
-                "2015-Q4",
                 "2016-Q1",
                 "2016-Q2",
                 "2016-Q3",
