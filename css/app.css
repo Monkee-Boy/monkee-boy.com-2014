@@ -3842,7 +3842,7 @@ button[type=submit] {
   .datepicker table tr td.today, .datepicker table tr td.today:hover, .datepicker table tr td.today.disabled, .datepicker table tr td.today.disabled:hover {
     color: #000;
     background-color: #ff6c5c;
-    border-color: #cc5649; }
+    border-color: #cc564a; }
   .datepicker table tr td.today.active:hover {
     color: #fff; }
   .datepicker table tr td.range, .datepicker table tr td.range:hover, .datepicker table tr td.range.disabled, .datepicker table tr td.range.disabled:hover {
@@ -3850,7 +3850,7 @@ button[type=submit] {
   .datepicker table tr td.range.today, .datepicker table tr td.range.today:hover, .datepicker table tr td.range.today.disabled, .datepicker table tr td.range.today.disabled:hover {
     color: #000;
     background-color: #ff6c5c;
-    border-color: #cc5649; }
+    border-color: #cc564a; }
   .datepicker table tr td.selected, .datepicker table tr td.selected:hover, .datepicker table tr td.selected.disabled, .datepicker table tr td.selected.disabled:hover {
     color: #fff;
     background-color: #ededed;
@@ -3940,7 +3940,7 @@ button[type=submit] {
   text-shadow: 0 1px 0 #fff;
   vertical-align: middle;
   background-color: #acca41;
-  border: solid #89a134;
+  border: solid #8aa234;
   border-width: 1px 0;
   margin-left: -5px;
   margin-right: -5px; }
@@ -4373,8 +4373,12 @@ button[type=submit] {
   width: 100%;
   height: 600px;
   z-index: 1;
-  background: url(/images/homepage-back.png) top center no-repeat;
+  background: url(/images/homepage-hero.png) center center no-repeat;
   background-size: cover; }
+  @media only screen and (max-width: 840px) {
+    .hero-bg {
+      background: url(/images/homepage-hero-mobile.png) top center no-repeat;
+      background-size: contain; } }
 
 .hero-services {
   position: relative;
@@ -4384,33 +4388,69 @@ button[type=submit] {
   @media only screen and (max-width: 840px) {
     .hero-services {
       margin-bottom: 50px;
-      padding-top: 75px; } }
+      padding-top: 190px; } }
   .hero-services .hero-inner {
-    margin: 0 auto 0;
+    margin: 240px auto 0;
     width: 970px; }
     @media only screen and (max-width: 840px) {
       .hero-services .hero-inner {
+        margin: 100px auto 0;
+        width: 90%; } }
+    @media only screen and (max-width: 580px) {
+      .hero-services .hero-inner {
+        margin: -25px auto 0;
         width: 90%; } }
   .hero-services .hero-content {
-    padding: 50px 100px;
+    padding: 15px 10px;
     overflow: auto;
     text-align: center;
     background: rgba(36, 37, 41, 0.8); }
     @media only screen and (max-width: 840px) {
       .hero-services .hero-content {
-        padding: 50px 25px; } }
+        padding: 40px 25px; } }
+    @media only screen and (max-width: 580px) {
+      .hero-services .hero-content {
+        padding: 40px 15px; } }
+    .hero-services .hero-content .hero-callout {
+      padding: 0 14px;
+      float: left;
+      display: inline-block;
+      width: 35%; }
+      @media only screen and (max-width: 840px) {
+        .hero-services .hero-content .hero-callout {
+          width: 100%;
+          margin-bottom: 20px; } }
+      @media only screen and (max-width: 580px) {
+        .hero-services .hero-content .hero-callout {
+          padding: 0; } }
+    .hero-services .hero-content .hero-detail {
+      padding: 15px;
+      display: inline-block;
+      width: 65%;
+      text-align: left; }
+      @media only screen and (max-width: 840px) {
+        .hero-services .hero-content .hero-detail {
+          width: 100%; } }
     .hero-services .hero-content h1, .hero-services .hero-content p {
       color: #fff; }
     .hero-services .hero-content h1 {
-      margin-bottom: 25px;
-      font-weight: 700; }
+      font-weight: 700;
+      text-align: right; }
+      @media only screen and (max-width: 840px) {
+        .hero-services .hero-content h1 {
+          font-size: 2.88889em;
+          text-align: center; } }
+      @media only screen and (max-width: 580px) {
+        .hero-services .hero-content h1 {
+          font-size: 2.33333em; } }
     .hero-services .hero-content p {
-      margin: 1.66667em 0 0 0;
+      margin: 0.55556em 0 0 0;
       font-size: 18px;
       font-family: "effra", sans-serif;
       line-height: 30px; }
       @media only screen and (max-width: 840px) {
         .hero-services .hero-content p {
+          margin: 1.66667em 0 0 0;
           line-height: 26px; } }
       .hero-services .hero-content p:first-child {
         margin-top: 0; }
@@ -4419,11 +4459,27 @@ button[type=submit] {
     background: #242529; }
     @media only screen and (max-width: 840px) {
       .hero-services .hero-service-list {
-        padding: 50px 25px; } }
+        padding: 30px 25px; } }
     .hero-services .hero-service-list ul {
       margin: 0;
       padding: 0;
       text-align: center; }
+      @media only screen and (max-width: 840px) {
+        .hero-services .hero-service-list ul {
+          -moz-column-count: 2;
+          -moz-column-gap: 20px;
+          -webkit-column-count: 2;
+          -webkit-column-gap: 20px;
+          column-count: 2;
+          column-gap: 20px; } }
+      @media only screen and (max-width: 580px) {
+        .hero-services .hero-service-list ul {
+          -moz-column-count: 1;
+          -moz-column-gap: 20px;
+          -webkit-column-count: 1;
+          -webkit-column-gap: 20px;
+          column-count: 1;
+          column-gap: 20px; } }
     .hero-services .hero-service-list li {
       display: inline-block;
       margin: 0 25px; }
@@ -4450,7 +4506,6 @@ button[type=submit] {
       .hero-services .hero-service-list a:before, .hero-services .hero-service-list a:after {
         display: block;
         margin: 10px auto;
-        height: 4px;
         width: 0px;
         content: '';
         background: transparent;
@@ -4739,7 +4794,8 @@ button[type=submit] {
     -o-transform: translate(2%, -50%);
     transform: translate(2%, -50%); } }
 .home-portfolio {
-  position: relative; }
+  position: relative;
+  padding-top: 0; }
   .home-portfolio:after {
     content: "";
     position: absolute;

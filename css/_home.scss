@@ -7,8 +7,13 @@
   width: 100%;
   height: 600px;
   z-index: 1;
-  background: url(/images/homepage-back.png) top center no-repeat;
+  background: url(/images/homepage-hero.png) center center no-repeat;
   background-size: cover;
+
+  @media #{$medium-down} {
+    background: url(/images/homepage-hero-mobile.png) top center no-repeat;
+    background-size: contain;
+  }
 }
 
 .hero-services {
@@ -19,26 +24,63 @@
 
   @media #{$medium-down} {
     margin-bottom: 50px;
-    padding-top: 75px;
+    padding-top: 190px;
   }
 
   .hero-inner {
-    margin: 0 auto 0;
+    margin: 240px auto 0;
     width: 970px;
 
     @media #{$medium-down} {
+      margin: 100px auto 0;
+      width: 90%;
+    }
+
+    @media #{$small-only} {
+      margin: -25px auto 0;
       width: 90%;
     }
   }
 
   .hero-content {
-    padding: 50px 100px;
+    padding: 15px 10px;
     overflow: auto;
     text-align: center;
     background: rgba($black, 0.8);
 
     @media #{$medium-down} {
-      padding: 50px 25px;
+      padding: 40px 25px;
+    }
+
+    @media #{$small-only} {
+      padding: 40px 15px;
+    }
+
+    .hero-callout {
+      padding: 0 14px;
+      float: left;
+      display: inline-block;
+      width: 35%;
+
+      @media #{$medium-down} {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      @media #{$small-only} {
+        padding: 0;
+      }
+    }
+
+    .hero-detail {
+      padding: 15px;
+      display: inline-block;
+      width: 65%;
+      text-align: left;
+
+      @media #{$medium-down} {
+        width: 100%;
+      }
     }
 
     h1, p {
@@ -46,17 +88,25 @@
     }
 
     h1 {
-      margin-bottom: 25px;
       font-weight: 700;
+      text-align: right;
+      @media #{$medium-down} {
+        font-size: em-calc(52px);
+        text-align: center;
+      }
+      @media #{$small-only} {
+        font-size: em-calc(42px);
+      }
     }
 
     p {
-      margin: em-calc(30px) 0 0 0;
+      margin: em-calc(10px) 0 0 0;
       font-size: 18px;
       font-family: $heading-font;
       line-height: 30px;
 
       @media #{$medium-down} {
+        margin: em-calc(30px) 0 0 0;
         line-height: 26px;
       }
 
@@ -71,13 +121,31 @@
     background: $black;
 
     @media #{$medium-down} {
-      padding: 50px 25px;
+      padding: 30px 25px;
     }
 
     ul {
       margin: 0;
       padding: 0;
       text-align: center;
+
+      @media #{$medium-down} {
+        -moz-column-count: 2;
+        -moz-column-gap: 20px;
+        -webkit-column-count: 2;
+        -webkit-column-gap: 20px;
+        column-count: 2;
+        column-gap: 20px;
+      }
+
+      @media #{$small-only} {
+        -moz-column-count: 1;
+        -moz-column-gap: 20px;
+        -webkit-column-count: 1;
+        -webkit-column-gap: 20px;
+        column-count: 1;
+        column-gap: 20px;
+      }
     }
 
     li {
@@ -108,7 +176,7 @@
       &:before, &:after {
         display: block;
       	margin: 10px auto;
-      	height: 4px;
+      	// height: 4px;
       	width: 0px;
         content: '';
       	background: transparent;
@@ -326,6 +394,7 @@
 
 .home-portfolio {
   position: relative;
+  padding-top: 0;
 
   &:after {
     content: "";

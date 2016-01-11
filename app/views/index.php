@@ -6,11 +6,18 @@
     <div class="hero-services">
       <div class="hero-inner">
         <div class="hero-content">
-          <h1>Solve The Web</h1>
+          <div class="hero-callout">
+            <h1>Solve The Web</h1>
 
-          <p>We're not oracles, but we do know why you're here. You want things. A more impressive website. A digital marketing campaign that customers love. Lots of hi-fives. Nice to meet you!</p>
+          </div>
 
-          <p><strong>We're Monkee-Boy and we can show you how to make it in the jungle.</strong></p>
+          <div class="hero-detail">
+
+            <p>We're not oracles, but we do know why you're here. You want things. A more impressive website. A digital marketing campaign that customers love. Lots of hi-fives. Nice to meet you!</p>
+
+            <p><strong>We're Monkee-Boy and we can show you how to make it in the jungle.</strong></p>
+
+          </div>
         </div> <!-- /.hero-content -->
 
         <div class="hero-service-list">
