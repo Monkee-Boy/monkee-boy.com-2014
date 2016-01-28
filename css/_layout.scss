@@ -631,6 +631,7 @@ body {
   background: $black;
   border-bottom: 4px solid #000;
   margin-top: em-calc(100, 16);
+  overflow: hidden;
 
   @media #{$medium-down} {
     margin-top: em-calc(50, 16);

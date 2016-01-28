@@ -1131,7 +1131,8 @@ body.menu-open {
   font-size: 16px;
   background: #242529;
   border-bottom: 4px solid #000;
-  margin-top: 6.25em; }
+  margin-top: 6.25em;
+  overflow: hidden; }
   @media only screen and (max-width: 840px) {
     [role="contentinfo"] {
       margin-top: 3.125em; } }
