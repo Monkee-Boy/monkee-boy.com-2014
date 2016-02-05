@@ -682,7 +682,7 @@ body {
     }
     &:hover {
       &:after {
-        @include animation(pewpew 0.5s 2);
+        @include animation(pewpew 0.3s 2);
       }
       a {
         &:before {
