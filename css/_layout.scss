@@ -669,15 +669,17 @@ body {
       margin: 0 5%;
     }
     &:after {
-      content: "";
-      background-color: #000;
       position: absolute;
+      top: -46px;
       left: 50%;
-      bottom: -75px;
-      margin-left: -75px;
-      width: 150px;
-      height: 150px;
-      @include transform(rotate(45deg) skew(5deg, 5deg));
+      margin-left: -100px;
+      display: block;
+      width: 0;
+      height: 0;
+      content: '';
+      border-bottom: 120px solid #000;
+      border-left: 100px solid transparent;
+      border-right: 100px solid transparent;
       @include transition(transform 0.3s ease);
     }
     &:hover {
@@ -754,24 +756,24 @@ body {
 }
 
 @-webkit-keyframes pewpew {
-  0%   { @include transform(rotate(45deg) skewX(5deg) skewY(5deg)); }
-  50% { @include transform(rotate(45deg) skewX(10deg) skewY(10deg)); }
-  100%   { @include transform(rotate(45deg) skewX(5deg) skewY(5deg)); }
+  0%   { @include transform(skewX(5deg) skewY(5deg)); }
+  50% { @include transform(skewX(10deg) skewY(10deg)); }
+  100%   { @include transform(skewX(5deg) skewY(5deg)); }
 }
 @-moz-keyframes pewpew {
-  0%   { @include transform(rotate(45deg) skewX(5deg) skewY(5deg)); }
-  50% { @include transform(rotate(45deg) skewX(10deg) skewY(10deg)); }
-  100%   { @include transform(rotate(45deg) skewX(5deg) skewY(5deg)); }
+  0%   { @include transform(skewX(5deg) skewY(5deg)); }
+  50% { @include transform(skewX(10deg) skewY(10deg)); }
+  100%   { @include transform(skewX(5deg) skewY(5deg)); }
 }
 @-o-keyframes pewpew {
-  0%   { @include transform(rotate(45deg) skewX(5deg) skewY(5deg)); }
-  50% { @include transform(rotate(45deg) skewX(10deg) skewY(10deg)); }
-  100%   { @include transform(rotate(45deg) skewX(5deg) skewY(5deg)); }
+  0%   { @include transform(skewX(5deg) skewY(5deg)); }
+  50% { @include transform(skewX(10deg) skewY(10deg)); }
+  100%   { @include transform(skewX(5deg) skewY(5deg)); }
 }
 @keyframes pewpew {
-  0%   { @include transform(rotate(45deg) skewX(5deg) skewY(5deg)); }
-  50% { @include transform(rotate(45deg) skewX(10deg) skewY(10deg)); }
-  100%   { @include transform(rotate(45deg) skewX(5deg) skewY(5deg)); }
+  0%   { @include transform(skewX(5deg) skewY(5deg)); }
+  50% { @include transform(skewX(10deg) skewY(10deg)); }
+  100%   { @include transform(skewX(5deg) skewY(5deg)); }
 }
 
 /* Helper Classes */
