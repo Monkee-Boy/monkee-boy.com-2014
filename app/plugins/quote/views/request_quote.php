@@ -253,10 +253,11 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
               <option value="">Select a Budget</option>
               <?php
               $aBudget = array(
-                "under $25,000",
-                "$25,000-50,000",
-                "$50,000-75,000",
-                "$75,000-100,000",
+                "$6,000-$12,000",
+                "$12,000-$25,000",
+                "$25,000-$50,000",
+                "$50,000-$75,000",
+                "$75,000-$100,000",
                 "$100,000+"
               );
               foreach($aBudget as $option): ?>
