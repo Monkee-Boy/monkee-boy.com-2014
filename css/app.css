@@ -1131,8 +1131,7 @@ body.menu-open {
   font-size: 16px;
   background: #242529;
   border-bottom: 4px solid #000;
-  margin-top: 6.25em;
-  overflow: hidden; }
+  margin-top: 6.25em; }
   @media only screen and (max-width: 840px) {
     [role="contentinfo"] {
       margin-top: 3.125em; } }
@@ -1198,10 +1197,10 @@ body.menu-open {
       -o-transition: transform 0.3s ease;
       transition: transform 0.3s ease; }
     [role="contentinfo"] .bananas:hover:after {
-      -webkit-animation: pewpew 0.3s 2;
-      -moz-animation: pewpew 0.3s 2;
-      -o-animation: pewpew 0.3s 2;
-      animation: pewpew 0.3s 2; }
+      -webkit-animation: pewpew 0.5s 2;
+      -moz-animation: pewpew 0.5s 2;
+      -o-animation: pewpew 0.5s 2;
+      animation: pewpew 0.5s 2; }
     [role="contentinfo"] .bananas:hover a:before {
       content: "";
       position: absolute;
@@ -1260,80 +1259,128 @@ body.menu-open {
 
 @-webkit-keyframes pewpew {
   0% {
-    -webkit-transform: skewX(5deg) skewY(5deg);
-    -moz-transform: skewX(5deg) skewY(5deg);
-    -ms-transform: skewX(5deg) skewY(5deg);
-    -o-transform: skewX(5deg) skewY(5deg);
-    transform: skewX(5deg) skewY(5deg); }
+    -webkit-transform: skewX(5deg) skewY(3deg);
+    -moz-transform: skewX(5deg) skewY(3deg);
+    -ms-transform: skewX(5deg) skewY(3deg);
+    -o-transform: skewX(5deg) skewY(3deg);
+    transform: skewX(5deg) skewY(3deg); }
+  25% {
+    -webkit-transform: skewX(10deg) skewY(0deg);
+    -moz-transform: skewX(10deg) skewY(0deg);
+    -ms-transform: skewX(10deg) skewY(0deg);
+    -o-transform: skewX(10deg) skewY(0deg);
+    transform: skewX(10deg) skewY(0deg); }
   50% {
-    -webkit-transform: skewX(10deg) skewY(10deg);
-    -moz-transform: skewX(10deg) skewY(10deg);
-    -ms-transform: skewX(10deg) skewY(10deg);
-    -o-transform: skewX(10deg) skewY(10deg);
-    transform: skewX(10deg) skewY(10deg); }
+    -webkit-transform: skewX(5deg) skewY(3deg);
+    -moz-transform: skewX(5deg) skewY(3deg);
+    -ms-transform: skewX(5deg) skewY(3deg);
+    -o-transform: skewX(5deg) skewY(3deg);
+    transform: skewX(5deg) skewY(3deg); }
+  75% {
+    -webkit-transform: skewX(0deg) skewY(0deg);
+    -moz-transform: skewX(0deg) skewY(0deg);
+    -ms-transform: skewX(0deg) skewY(0deg);
+    -o-transform: skewX(0deg) skewY(0deg);
+    transform: skewX(0deg) skewY(0deg); }
   100% {
-    -webkit-transform: skewX(5deg) skewY(5deg);
-    -moz-transform: skewX(5deg) skewY(5deg);
-    -ms-transform: skewX(5deg) skewY(5deg);
-    -o-transform: skewX(5deg) skewY(5deg);
-    transform: skewX(5deg) skewY(5deg); } }
+    -webkit-transform: skewX(5deg) skewY(3deg);
+    -moz-transform: skewX(5deg) skewY(3deg);
+    -ms-transform: skewX(5deg) skewY(3deg);
+    -o-transform: skewX(5deg) skewY(3deg);
+    transform: skewX(5deg) skewY(3deg); } }
 @-moz-keyframes pewpew {
   0% {
-    -webkit-transform: skewX(5deg) skewY(5deg);
-    -moz-transform: skewX(5deg) skewY(5deg);
-    -ms-transform: skewX(5deg) skewY(5deg);
-    -o-transform: skewX(5deg) skewY(5deg);
-    transform: skewX(5deg) skewY(5deg); }
+    -webkit-transform: skewX(5deg) skewY(3deg);
+    -moz-transform: skewX(5deg) skewY(3deg);
+    -ms-transform: skewX(5deg) skewY(3deg);
+    -o-transform: skewX(5deg) skewY(3deg);
+    transform: skewX(5deg) skewY(3deg); }
+  25% {
+    -webkit-transform: skewX(10deg) skewY(0deg);
+    -moz-transform: skewX(10deg) skewY(0deg);
+    -ms-transform: skewX(10deg) skewY(0deg);
+    -o-transform: skewX(10deg) skewY(0deg);
+    transform: skewX(10deg) skewY(0deg); }
   50% {
-    -webkit-transform: skewX(10deg) skewY(10deg);
-    -moz-transform: skewX(10deg) skewY(10deg);
-    -ms-transform: skewX(10deg) skewY(10deg);
-    -o-transform: skewX(10deg) skewY(10deg);
-    transform: skewX(10deg) skewY(10deg); }
+    -webkit-transform: skewX(5deg) skewY(3deg);
+    -moz-transform: skewX(5deg) skewY(3deg);
+    -ms-transform: skewX(5deg) skewY(3deg);
+    -o-transform: skewX(5deg) skewY(3deg);
+    transform: skewX(5deg) skewY(3deg); }
+  75% {
+    -webkit-transform: skewX(0deg) skewY(0deg);
+    -moz-transform: skewX(0deg) skewY(0deg);
+    -ms-transform: skewX(0deg) skewY(0deg);
+    -o-transform: skewX(0deg) skewY(0deg);
+    transform: skewX(0deg) skewY(0deg); }
   100% {
-    -webkit-transform: skewX(5deg) skewY(5deg);
-    -moz-transform: skewX(5deg) skewY(5deg);
-    -ms-transform: skewX(5deg) skewY(5deg);
-    -o-transform: skewX(5deg) skewY(5deg);
-    transform: skewX(5deg) skewY(5deg); } }
+    -webkit-transform: skewX(5deg) skewY(3deg);
+    -moz-transform: skewX(5deg) skewY(3deg);
+    -ms-transform: skewX(5deg) skewY(3deg);
+    -o-transform: skewX(5deg) skewY(3deg);
+    transform: skewX(5deg) skewY(3deg); } }
 @-o-keyframes pewpew {
   0% {
-    -webkit-transform: skewX(5deg) skewY(5deg);
-    -moz-transform: skewX(5deg) skewY(5deg);
-    -ms-transform: skewX(5deg) skewY(5deg);
-    -o-transform: skewX(5deg) skewY(5deg);
-    transform: skewX(5deg) skewY(5deg); }
+    -webkit-transform: skewX(5deg) skewY(3deg);
+    -moz-transform: skewX(5deg) skewY(3deg);
+    -ms-transform: skewX(5deg) skewY(3deg);
+    -o-transform: skewX(5deg) skewY(3deg);
+    transform: skewX(5deg) skewY(3deg); }
+  25% {
+    -webkit-transform: skewX(10deg) skewY(0deg);
+    -moz-transform: skewX(10deg) skewY(0deg);
+    -ms-transform: skewX(10deg) skewY(0deg);
+    -o-transform: skewX(10deg) skewY(0deg);
+    transform: skewX(10deg) skewY(0deg); }
   50% {
-    -webkit-transform: skewX(10deg) skewY(10deg);
-    -moz-transform: skewX(10deg) skewY(10deg);
-    -ms-transform: skewX(10deg) skewY(10deg);
-    -o-transform: skewX(10deg) skewY(10deg);
-    transform: skewX(10deg) skewY(10deg); }
+    -webkit-transform: skewX(5deg) skewY(3deg);
+    -moz-transform: skewX(5deg) skewY(3deg);
+    -ms-transform: skewX(5deg) skewY(3deg);
+    -o-transform: skewX(5deg) skewY(3deg);
+    transform: skewX(5deg) skewY(3deg); }
+  75% {
+    -webkit-transform: skewX(0deg) skewY(0deg);
+    -moz-transform: skewX(0deg) skewY(0deg);
+    -ms-transform: skewX(0deg) skewY(0deg);
+    -o-transform: skewX(0deg) skewY(0deg);
+    transform: skewX(0deg) skewY(0deg); }
   100% {
-    -webkit-transform: skewX(5deg) skewY(5deg);
-    -moz-transform: skewX(5deg) skewY(5deg);
-    -ms-transform: skewX(5deg) skewY(5deg);
-    -o-transform: skewX(5deg) skewY(5deg);
-    transform: skewX(5deg) skewY(5deg); } }
+    -webkit-transform: skewX(5deg) skewY(3deg);
+    -moz-transform: skewX(5deg) skewY(3deg);
+    -ms-transform: skewX(5deg) skewY(3deg);
+    -o-transform: skewX(5deg) skewY(3deg);
+    transform: skewX(5deg) skewY(3deg); } }
 @keyframes pewpew {
   0% {
-    -webkit-transform: skewX(5deg) skewY(5deg);
-    -moz-transform: skewX(5deg) skewY(5deg);
-    -ms-transform: skewX(5deg) skewY(5deg);
-    -o-transform: skewX(5deg) skewY(5deg);
-    transform: skewX(5deg) skewY(5deg); }
+    -webkit-transform: skewX(5deg) skewY(3deg);
+    -moz-transform: skewX(5deg) skewY(3deg);
+    -ms-transform: skewX(5deg) skewY(3deg);
+    -o-transform: skewX(5deg) skewY(3deg);
+    transform: skewX(5deg) skewY(3deg); }
+  25% {
+    -webkit-transform: skewX(10deg) skewY(0deg);
+    -moz-transform: skewX(10deg) skewY(0deg);
+    -ms-transform: skewX(10deg) skewY(0deg);
+    -o-transform: skewX(10deg) skewY(0deg);
+    transform: skewX(10deg) skewY(0deg); }
   50% {
-    -webkit-transform: skewX(10deg) skewY(10deg);
-    -moz-transform: skewX(10deg) skewY(10deg);
-    -ms-transform: skewX(10deg) skewY(10deg);
-    -o-transform: skewX(10deg) skewY(10deg);
-    transform: skewX(10deg) skewY(10deg); }
+    -webkit-transform: skewX(5deg) skewY(3deg);
+    -moz-transform: skewX(5deg) skewY(3deg);
+    -ms-transform: skewX(5deg) skewY(3deg);
+    -o-transform: skewX(5deg) skewY(3deg);
+    transform: skewX(5deg) skewY(3deg); }
+  75% {
+    -webkit-transform: skewX(0deg) skewY(0deg);
+    -moz-transform: skewX(0deg) skewY(0deg);
+    -ms-transform: skewX(0deg) skewY(0deg);
+    -o-transform: skewX(0deg) skewY(0deg);
+    transform: skewX(0deg) skewY(0deg); }
   100% {
-    -webkit-transform: skewX(5deg) skewY(5deg);
-    -moz-transform: skewX(5deg) skewY(5deg);
-    -ms-transform: skewX(5deg) skewY(5deg);
-    -o-transform: skewX(5deg) skewY(5deg);
-    transform: skewX(5deg) skewY(5deg); } }
+    -webkit-transform: skewX(5deg) skewY(3deg);
+    -moz-transform: skewX(5deg) skewY(3deg);
+    -ms-transform: skewX(5deg) skewY(3deg);
+    -o-transform: skewX(5deg) skewY(3deg);
+    transform: skewX(5deg) skewY(3deg); } }
 /* Helper Classes */
 .pull-left {
   float: left; }
