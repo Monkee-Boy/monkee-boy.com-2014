@@ -1,6 +1,6 @@
 <?php
 $whoItems = array(
-  array('name' => 'Our Expertise', 'url' => '/who/our-expertise/', 'menu' => 'our-expertise'),
+  array('name' => 'Our Approach', 'url' => '/who/our-approach/', 'menu' => 'our-approach'),
   array('name' => 'Our Process', 'url' => '/who/our-process/', 'menu' => 'our-process'),
   array('name' => 'The Troop', 'url' => '/who/the-troop/', 'menu' => 'troop'),
   array('name' => 'Latest News', 'url' => '/who/latest-news/', 'menu' => 'news'),
