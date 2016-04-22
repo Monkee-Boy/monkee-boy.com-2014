@@ -16,26 +16,14 @@ $aPluginUrlPatterns = array(
     "cmd" => "testimonials",
     "action" => "index"
   ),
-  "/<parent:[a-z0-9_\-/]+>/testimonials/" => array(
-		"cmd" => "testimonials",
-		"action" => "index"
-	),
   "/testimonials/<tag:[^/]+>/" => array(
     "cmd" => "testimonials",
     "action" => "testimonial"
   ),
-	"/<parent:[a-z0-9_\-/]+>/testimonials/<tag:[^/]+>/" => array(
-		"cmd" => "testimonials",
-		"action" => "testimonial"
-	),
   "/testimonials/<id:[0-9]+>/" => array(
     "cmd" => "testimonials",
     "action" => "index"
   ),
-	"/<parent:[a-z0-9_\-/]+>/testimonials/<id:[0-9]+>/" => array(
-		"cmd" => "testimonials",
-		"action" => "index"
-	),
 	"/admin/testimonials/" => array(
         "cmd" => "admin_testimonials",
         "action" => "index"
@@ -83,6 +71,18 @@ $aPluginUrlPatterns = array(
 	"/admin/testimonials/categories/sort/<id:[0-9]+>/<sort:[a-z]+>/" => array(
         "cmd" => "admin_testimonials",
         "action" => "categories_sort"
-    )
+    ),
+    "/<parent:[a-z0-9_\-/]+>/testimonials/" => array(
+  		"cmd" => "testimonials",
+  		"action" => "index"
+  	),
+  	"/<parent:[a-z0-9_\-/]+>/testimonials/<tag:[^/]+>/" => array(
+  		"cmd" => "testimonials",
+  		"action" => "testimonial"
+  	),
+  	"/<parent:[a-z0-9_\-/]+>/testimonials/<id:[0-9]+>/" => array(
+  		"cmd" => "testimonials",
+  		"action" => "index"
+  	)
 );
 ###############################################
