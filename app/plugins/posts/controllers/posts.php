@@ -104,13 +104,13 @@ class posts extends appController {
 	}
 
 	function rss() {
-		$aPosts = array_slice($this->model->getPosts($_GET["category"]), 0, 15);
+		$aPosts = array_slice($this->model->getPosts($_GET['category']), 0, 15);
 
-		$this->tplAssign("domain", $_SERVER["SERVER_NAME"]);
-		$this->tplAssign("aPosts", $aPosts);
+		$this->tplAssign('domain', $_SERVER["SERVER_NAME"]);
+		$this->tplAssign('aPosts', $aPosts);
 
 		header("Content-Type: application/rss+xml");
-		$this->tplDisplay("rss.php");
+		$this->tplDisplay('rss.php');
 	}
 
 	function category() {
