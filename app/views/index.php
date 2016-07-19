@@ -183,7 +183,7 @@
           if($oTwitter !== false):
             $aStatuses = $oTwitter->get('statuses/user_timeline', array('count'=>1));
             $oStatus = array_shift($aStatuses); ?>
-            <img src="<?= str_replace('_normal.png', '_bigger.png', $oStatus->user->profile_image_url) ?>" title="monkeeboy" class="profile_image">
+            <img src="<?= str_replace('_normal.png', '_bigger.png', $oStatus->user->profile_image_url_https) ?>" title="monkeeboy" class="profile_image">
             <div class="user">
               <div class="name"><?= $oStatus->user->name ?></div>
               <a href="<?= $oStatus->user->url ?>" title="@<?= $oStatus->user->screen_name ?>">@<?= $oStatus->user->screen_name ?></a>
