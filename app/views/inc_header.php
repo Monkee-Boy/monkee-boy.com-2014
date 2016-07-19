@@ -55,7 +55,7 @@
 
   <link rel="stylesheet" href="/css/app.min.css?v=2">
 
-  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
   <script src="//use.typekit.net/shc0zig.js"></script>
   <script>try{Typekit.load();}catch(e){}</script>
 
