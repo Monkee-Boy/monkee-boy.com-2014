@@ -120,7 +120,7 @@ $this->tplDisplay("inc_header.php", [
 
   {footer}
   <script>var shareUrl = 'http://www.monkee-boy.com<?php echo $aPost['url']; ?>';
-  $.getJSON('http://count.donreach.com/?url=' + encodeURIComponent(shareUrl) + "&callback=?", function (data) {
+  $.getJSON('https://count.donreach.com/?url=' + encodeURIComponent(shareUrl) + "&callback=?", function (data) {
    shares = data.shares;
 
    $('.social-twitter-count').html(shares.twitter);
