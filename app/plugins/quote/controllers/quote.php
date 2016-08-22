@@ -72,14 +72,8 @@ class quote extends appController {
         ,"phone" => $phone
         ,"organization" => $_POST['org']
         ,"website" => $_POST['website']
-        ,"brief" => $_POST['project-desc']
         ,"attachments" => json_encode($attachments)
-        ,"deadline" => ($_POST['deadline'] === '1')?$_POST['deadline_date']:null
-        ,"budget" => $_POST['budget']
         ,"additional_info" => $_POST['additional-info']
-        ,"additional_services" => $_POST['additional-services']
-        ,"main_service" => $_POST['main-service']
-        ,"main_serviceoption" => $_POST['main-serviceoption']
         ,"status" => 1
         ,"ip" => $_SERVER['REMOTE_ADDR']
         ,"created_datetime" => date('Y-m-d H:i:s')
@@ -87,7 +81,7 @@ class quote extends appController {
       )
     );
 
-    $sTo = "quotes@monkee-boy.com";
+    $sTo = "quotes@monkee-boy.com,james@monkee-boy.com";
     $sFrom = "noreply@monkee-boy.com";
     $sSubject = "Request a Quote: ".$_POST['org'];
 
@@ -96,26 +90,14 @@ class quote extends appController {
     $sBody .= "Phone: ".htmlentities($phone)."\n";
     $sBody .= "Organization: ".htmlentities($_POST['org'])."\n";
     $sBody .= "Website: ".htmlentities($_POST['website'])."\n";
-    $sBody .= ($_POST['deadline'] === '1')?"Deadline: ".htmlentities(($_POST['deadline'] === '1')?$_POST['deadline_date']:null)."\n":"";
-    $sBody .= "Budget: ".htmlentities($_POST['budget'])."\n";
-    if(!empty($_POST['project-desc'])) {
-      $sBody .= "\nBrief: \n";
-      $sBody .= htmlentities($_POST['project-desc'])."\n\n";
-    }
-    $sBody .= "Primary Service: ".htmlentities($_POST['main-service'])."\n";
-    $sBody .= "Primary Service Option: ".htmlentities($_POST['main-serviceoption'])."\n";
     if(!empty($_POST['additional-info'])) {
       $sBody .= "\nAdditional Info: \n";
       $sBody .= htmlentities($_POST['additional-info'])."\n\n";
     }
-    if(!empty($_POST['additional-services'])) {
-      $sBody .= "\nAdditional Services: \n";
-      $sBody .= htmlentities($_POST['additional-services'])."\n\n";
-    }
     if(!empty($attachments)) {
       $sBody .= "Attachments: \n";
       foreach($attachments as $name=>$attachment) {
-        $sBody .= "- http://monkee-boy.com/uploads/quote/".$attachment." (".$name.")\n";
+        $sBody .= "- https://www.monkee-boy.com/uploads/quote/".$attachment." (".$name.")\n";
       }
     }
 
