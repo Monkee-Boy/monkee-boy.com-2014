@@ -28,14 +28,9 @@ class quote extends appController {
   function submit_form() {
     $aErrors = array();
 
-    $first_name = trim($_POST['firstname']);
-    if(empty($first_name)) {
-      $aErrors[] = "Missing first name.";
-    }
-
-    $last_name = trim($_POST['lastname']);
-    if(empty($last_name)) {
-      $aErrors[] = "Missing last name.";
+    $name = trim($_POST['name']);
+    if(empty($name)) {
+      $aErrors[] = "Missing name.";
     }
 
     $email = trim($_POST['email']);
@@ -48,6 +43,26 @@ class quote extends appController {
     $phone = trim($_POST['phone']);
     if(empty($phone)) {
       $aErrors[] = "Missing phone number.";
+    }
+
+    $org = trim($_POST['org']);
+    if(empty($org)) {
+      $aErrors[] = "Missing organization.";
+    }
+
+    $website = trim($_POST['website']);
+    if(empty($website)) {
+      $aErrors[] = "Missing website.";
+    }
+
+    $additional_info = trim($_POST['additional_info']);
+    if(empty($additional_info)) {
+      $aErrors[] = "Missing what kind of help you are looking for.";
+    }
+
+    $budget = trim($_POST['budget']);
+    if(empty($budget)) {
+      $aErrors[] = "Missing budget.";
     }
 
     if(!empty($aErrors)) {
@@ -66,12 +81,12 @@ class quote extends appController {
     $sID = $this->dbInsert(
       "work_with_us",
       array(
-        "first_name" => $first_name
-        ,"last_name" => $last_name
+        "name" => $name
         ,"email" => $email
         ,"phone" => $phone
         ,"organization" => $_POST['org']
         ,"website" => $_POST['website']
+        ,"budget" => $_POST['budget']
         ,"attachments" => json_encode($attachments)
         ,"additional_info" => $_POST['additional-info']
         ,"status" => 1
@@ -81,11 +96,12 @@ class quote extends appController {
       )
     );
 
-    $sTo = "quotes@monkee-boy.com";
+    //$sTo = "quotes@monkee-boy.com";
+    $sTo = "james@monkee-boy.com";
     $sFrom = "noreply@monkee-boy.com";
     $sSubject = "Request a Quote: ".$_POST['org'];
 
-    $sBody = "Name: ".htmlentities($first_name." ".$last_name)."\n";
+    $sBody = "Name: ".htmlentities($name)."\n";
     $sBody .= "Email: ".htmlentities($email)."\n";
     $sBody .= "Phone: ".htmlentities($phone)."\n";
     $sBody .= "Organization: ".htmlentities($_POST['org'])."\n";
@@ -100,6 +116,7 @@ class quote extends appController {
         $sBody .= "- https://www.monkee-boy.com/uploads/quote/".$attachment." (".$name.")\n";
       }
     }
+    $sBody .= "Budget: ".htmlentities($_POST['budget'])."\n";
 
     $sHeaders = "From: ".$sFrom."\r\n"
       ."Reply-To: ".$email;
@@ -114,7 +131,7 @@ class quote extends appController {
       Podio::authenticate_with_app($this->getSetting('podio_app_id'), $this->getSetting('podio_app_token'));
 
       $contact = PodioContact::create('3372170', $attributes = array(
-        'name' => htmlentities($first_name." ".$last_name),
+        'name' => htmlentities($name),
         'organization' => (!empty($_POST['org']))?$_POST['org']:'Not provided.',
         'phone' => array(htmlentities($phone)),
         'mail' => array(htmlentities($email)),

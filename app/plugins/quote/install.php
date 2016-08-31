@@ -11,8 +11,7 @@ if($sPluginStatus == 1) {
 $aTables = array(
   'work_with_us' => 'CREATE TABLE `{dbPrefix}work_with_us` (
     `id` int(11) unsigned NOT NULL auto_increment,
-    `first_name` varchar(100),
-    `last_name` varchar(100),
+    `name` varchar(100),
     `email` varchar(100),
     `phone` varchar(20),
     `organization` varchar(255),

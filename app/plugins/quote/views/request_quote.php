@@ -35,10 +35,9 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
       </div><!-- /form-monkee -->
 
       <div class="form-part1">
-        <label for="firstname">Name*</label>
+        <label for="name">Name*</label>
         <div class="form-step monkee-step">
-          <span class="input-wrapper half"><input type="text" name="firstname" id="firtname" class="validate[required]" placeholder="First" value="<?= strip_tags($form_data['firstname']) ?>"></span>
-          <span class="input-wrapper half"><input type="text" name="lastname" id="lastname" class="validate[required]" placeholder="Last" value="<?= strip_tags($form_data['lastname']) ?>"></span>
+          <span class="input-wrapper"><input type="text" name="name" id="name" class="validate[required]" value="<?= strip_tags($form_data['name']) ?>"></span>
         </div>
 
         <label for="email">Email*</label>
@@ -51,32 +50,40 @@ $this->tplDisplay("inc_header.php", ['menu'=>'request-a-quote', 'sPageTitle'=>$s
           <span class="input-wrapper"><input type="tel" name="phone" id="phone" class="validate[required,custom[phone],minSize[7],maxSize[14]]" value="<?= strip_tags($form_data['phone']) ?>"></span>
         </div>
 
-        <label for="org">Organization</label>
+        <label for="org">Organization*</label>
         <div class="form-step">
-          <span class="input-wrapper"><input type="text" name="org" id="org" class="org" value="<?= strip_tags($form_data['org']) ?>"></span>
+          <span class="input-wrapper"><input type="text" name="org" id="org" class="org validate[required]" value="<?= strip_tags($form_data['org']) ?>"></span>
         </div>
 
-        <label for="url">Website URL</label>
+        <label for="url">Website URL*</label>
         <div class="form-step">
-          <span class="input-wrapper"><input type="text" name="website" id="url" class="url" value="<?= strip_tags($form_data['website']); ?>"></span>
+          <span class="input-wrapper"><input type="text" name="website" id="url" class="url validate[required]" value="<?= strip_tags($form_data['website']); ?>"></span>
         </div>
 
         <hr>
 
-        <label for="form-additional_info">How can we help?</label>
+        <label for="form-additional_info">What kind of help are you looking for?*</label>
         <div class="form-step">
-          <div class="input-wrapper"><textarea cols="10" rows="4" id="form-additional_info" name="additional_info"><?= $form_data['additional_info'] ?></textarea></div>
+          <div class="input-wrapper"><textarea cols="10" rows="4" id="form-additional_info" name="additional_info" class="validate[required]"><?= $form_data['additional_info'] ?></textarea></div>
         </div>
 
         <div id="brief-upload" class="active">
-            <label for="form-additionaldetails">Have additional details?</label>
-            <div class="upload-box initial">
-              <div class="uploaded-files"></div>
-              <div class="drop-label">Drag &amp; drop file here <span>or</span></div>
-              <a href="#" class="add-files">browse files!</a>
-              <span class="file-size"><span>0</span> MB of 50 MB</span>
-            </div>
+          <label for="form-additionaldetails">Have additional details?</label>
+          <div class="upload-box initial">
+            <div class="uploaded-files"></div>
+            <div class="drop-label">Drag &amp; drop file here <span>or</span></div>
+            <a href="#" class="add-files">browse files!</a>
+            <span class="file-size"><span>0</span> MB of 50 MB</span>
           </div>
+        </div>
+
+        <hr>
+
+        <label for="budget">Budget*</label>
+        <div class="form-step">
+          <p style="margin-left: .83333em; margin-right: .83333em;">Our team can handle almost any size project. What budget range has been allocated to this project?</p>
+          <span class="input-wrapper"><input type="text" name="budget" id="budget" class="validate[required]" value="<?= strip_tags($form_data['budget']); ?>"></span>
+        </div>
       </div><!-- /.form-part1 -->
     </div>
 
