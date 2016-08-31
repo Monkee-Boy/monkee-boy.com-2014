@@ -47,14 +47,14 @@ class quote_model extends appModel {
   }
   private function _getQuoteInfo(&$aQuote) {
     if(!empty($aQuote)) {
-      $aQuote['first_name'] = htmlspecialchars(stripslashes($aQuote['first_name']));
-      $aQuote['last_name'] = htmlspecialchars(stripslashes($aQuote['last_name']));
+      $aQuote['name'] = htmlspecialchars(stripslashes($aQuote['name']));
       $aQuote['email'] = htmlspecialchars(stripslashes($aQuote['email']));
       $aQuote['phone'] = htmlspecialchars(stripslashes($aQuote['phone']));
       $aQuote['organization'] = htmlspecialchars(stripslashes($aQuote['organization']));
       $aQuote['website'] = htmlspecialchars(stripslashes($aQuote['website']));
       $aQuote['breif'] = nl2br(htmlspecialchars(stripslashes($aQuote['breif'])));
       $aQuote['attachments'] = json_decode($aQuote['attachments'], false);
+      $aQuote['budget'] = htmlspecialchars(stripslashes($aQuote['budget']));
 
       if(!empty($aQuote['deadline'])) {
         $aQuote['deadline'] = $aQuote['deadline'];
@@ -62,8 +62,6 @@ class quote_model extends appModel {
 
       $aQuote['created_datetime'] = strtotime($aQuote['created_datetime']);
       $aQuote['updated_datetime'] = strtotime($aQuote['updated_datetime']);
-
-      $aQuote['name'] = $aQuote['first_name'].' '.$aQuote['last_name'];
     }
   }
 }

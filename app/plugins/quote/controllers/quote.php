@@ -96,8 +96,7 @@ class quote extends appController {
       )
     );
 
-    //$sTo = "quotes@monkee-boy.com";
-    $sTo = "james@monkee-boy.com";
+    $sTo = "quotes@monkee-boy.com";
     $sFrom = "noreply@monkee-boy.com";
     $sSubject = "Request a Quote: ".$_POST['org'];
 
