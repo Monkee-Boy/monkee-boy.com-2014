@@ -86,7 +86,7 @@ class quote extends appController {
         ,"phone" => $phone
         ,"organization" => $org
         ,"website" => $website
-        ,"budget" => $$budget
+        ,"budget" => $budget
         ,"attachments" => json_encode($attachments)
         ,"additional_info" => $additional_info
         ,"status" => 1
