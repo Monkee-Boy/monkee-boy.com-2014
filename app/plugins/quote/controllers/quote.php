@@ -73,8 +73,8 @@ class quote extends appController {
 
     $attachments = array();
     if(!empty($_POST['attachments_name'])) {
-      foreach($_POST['attachments_name'] as $i=>$name) {
-        $attachments[$name] = $_POST['attachments_realname'][$i];
+      foreach($_POST['attachments_name'] as $i=>$attachment_name) {
+        $attachments[$attachment_name] = $_POST['attachments_realname'][$i];
       }
     }
 
