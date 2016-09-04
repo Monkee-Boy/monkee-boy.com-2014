@@ -47,7 +47,13 @@ class quote_model extends appModel {
   }
   private function _getQuoteInfo(&$aQuote) {
     if(!empty($aQuote)) {
-      $aQuote['name'] = htmlspecialchars(stripslashes($aQuote['name']));
+      if(!empty($aQuote['first_name']) && !empty($aQuote['last_name'])) {
+        $aQuote['name'] = htmlspecialchars(stripslashes($aQuote['first_name'])) . ' ' . htmlspecialchars(stripslashes($aQuote['last_name']));
+      } elseif(!empty($aQuote['name'])) {
+        $aQuote['name'] = htmlspecialchars(stripslashes($aQuote['name']));
+      } else {
+        $aQuote['name'] = 'No name provided.';
+      }
       $aQuote['email'] = htmlspecialchars(stripslashes($aQuote['email']));
       $aQuote['phone'] = htmlspecialchars(stripslashes($aQuote['phone']));
       $aQuote['organization'] = htmlspecialchars(stripslashes($aQuote['organization']));
