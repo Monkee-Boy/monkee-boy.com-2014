@@ -84,11 +84,11 @@ class quote extends appController {
         "name" => $name
         ,"email" => $email
         ,"phone" => $phone
-        ,"organization" => $_POST['org']
-        ,"website" => $_POST['website']
-        ,"budget" => $_POST['budget']
+        ,"organization" => $org
+        ,"website" => $website
+        ,"budget" => $$budget
         ,"attachments" => json_encode($attachments)
-        ,"additional_info" => $_POST['additional-info']
+        ,"additional_info" => $additional_info
         ,"status" => 1
         ,"ip" => $_SERVER['REMOTE_ADDR']
         ,"created_datetime" => date('Y-m-d H:i:s')
@@ -103,11 +103,11 @@ class quote extends appController {
     $sBody = "Name: ".htmlentities($name)."\n";
     $sBody .= "Email: ".htmlentities($email)."\n";
     $sBody .= "Phone: ".htmlentities($phone)."\n";
-    $sBody .= "Organization: ".htmlentities($_POST['org'])."\n";
-    $sBody .= "Website: ".htmlentities($_POST['website'])."\n";
-    if(!empty($_POST['additional-info'])) {
+    $sBody .= "Organization: ".htmlentities($org)."\n";
+    $sBody .= "Website: ".htmlentities($website)."\n";
+    if(!empty($additional_info)) {
       $sBody .= "\nAdditional Info: \n";
-      $sBody .= htmlentities($_POST['additional-info'])."\n\n";
+      $sBody .= htmlentities($additional_info)."\n\n";
     }
     if(!empty($attachments)) {
       $sBody .= "Attachments: \n";
@@ -115,7 +115,7 @@ class quote extends appController {
         $sBody .= "- https://www.monkee-boy.com/uploads/quote/".$attachment." (".$name.")\n";
       }
     }
-    $sBody .= "Budget: ".htmlentities($_POST['budget'])."\n";
+    $sBody .= "Budget: ".htmlentities($budget)."\n";
 
     $sHeaders = "From: ".$sFrom."\r\n"
       ."Reply-To: ".$email;
