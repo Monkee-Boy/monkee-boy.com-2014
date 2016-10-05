@@ -66,6 +66,6 @@ $this->tplDisplay("inc_header.php", ['menu'=>'contact', 'page_title'=>$sTitle, '
 	</div>
 </div>
 
-<script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script>
+<script src="https://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script>
 
 <?php $this->tplDisplay("inc_footer.php"); ?>
