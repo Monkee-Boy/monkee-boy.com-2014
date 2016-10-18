@@ -1540,6 +1540,27 @@ h5 {
   text-transform: uppercase;
   margin: 0 0 1em; }
 
+.fancy {
+  color: #1c1c1e;
+  overflow: hidden; }
+  .fancy span {
+    display: inline-block;
+    position: relative; }
+  .fancy span:before, .fancy span:after {
+    content: "";
+    position: absolute;
+    height: 12px;
+    border-bottom: 2px solid #b2b2b2;
+    border-top: 2px solid #b2b2b2;
+    top: 18px;
+    width: 600px; }
+  .fancy span:before {
+    right: 100%;
+    margin-right: 15px; }
+  .fancy span:after {
+    left: 100%;
+    margin-left: 15px; }
+
 .section-head .subtitle {
   display: block;
   margin-bottom: -8px; }
