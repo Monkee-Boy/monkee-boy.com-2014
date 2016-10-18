@@ -93,6 +93,13 @@
                   <textarea name="other_services_2" id="form-shortdescription" class="span12" style="height:95px;"><?php echo $aClient['other_services_2']; ?></textarea>
                 </div> <!-- /.controls -->
               </div> <!-- /.control-group -->
+
+              <div class="control-group">
+                <label class="control-label" for="form-shortdescription">Other Services (Col 3)</label>
+                <div class="controls">
+                  <textarea name="other_services_3" id="form-shortdescription" class="span12" style="height:95px;"><?php echo $aClient['other_services_3']; ?></textarea>
+                </div> <!-- /.controls -->
+              </div> <!-- /.control-group -->
             </div> <!--/.accordion-inner -->
           </div> <!-- /.accordion-body -->
         </div> <!-- /.accordion-group -->

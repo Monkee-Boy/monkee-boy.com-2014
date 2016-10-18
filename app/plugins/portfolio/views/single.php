@@ -66,46 +66,24 @@ $this->tplDisplay("inc_header.php", ['menu'=>'portfolio', 'page_title'=>$aClient
   </div> <!-- /.row -->
   <?php endif; ?>
 
-  <div class="panel">
-    <aside class="text-center">
-      <img src="/uploads/portfolio/<?= $aClient['logo']; ?>" alt="<?= $aClient['name']; ?> Logo">
-    </aside>
-
-    <div class="panel-content">
-      <h4><?= $aClient['name']; ?></h4>
-
-      <?= $aClient['synopsis']; ?>
-
-      <?php if(!empty($aClient['website'])) { ?><a href="<?= $aClient['website']; ?>" title="View Site" class="button" target="_blank">View The Site!</a><?php } ?>
-      <?php if(!empty($aClient['case_study'])) { ?><a href="<?= $aClient['case_study']; ?>" title="Read the case study." class="button button-alt">Read The Case Study!</a><?php } ?>
-    </div>
-  </div>
-
   <div class="row vspace-extra">
-    <div class="full">
-      <h2 data-text-align="center">Services</h2>
-      <ul class="service-icons portfolio">
-        <?php foreach($aClient['services'] as $aService) { ?>
-        <li><span class="<?= $aService['tag']; ?> service-icon"><i></i></span><?= $aService['name']; ?></li>
-        <?php } ?>
-      </ul>
-    </div> <!-- /.full -->
-  </div> <!-- /.row -->
+    <h2 data-text-align="center" class="fancy"><span>Project Highlights</span></h2>
 
-  <div class="row vspace-extra">
-    <div class="single-column">
-      <h3 data-text-align="center">Features</h3>
-
-      <div class="row-pop">
-        <div class="half">
-          <?= $aClient['other_services_1']; ?>
-        </div>
-
-        <div class="half">
-          <?= $aClient['other_services_2']; ?>
-        </div>
+    <div class="row-pop">
+      <div class="one-third">
+        <?= $aClient['other_services_1']; ?>
       </div>
 
+      <div class="one-third">
+        <?= $aClient['other_services_2']; ?>
+      </div>
+
+      <div class="one-third">
+        <?= $aClient['other_services_3']; ?>
+      </div>
+    </div>
+
+    <div class="single-column">
       <div class="row">
         <ul class="unstyled quote-slider">
           <?php if(!empty($aClient['quotes'])) {
