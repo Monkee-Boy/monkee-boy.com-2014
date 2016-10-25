@@ -1,7 +1,7 @@
 <?php
 class Form
 {
-	public function Form($aSetting) {
+	public function __construct($aSetting) {
 		$sType = preg_replace("/(\[.*)/", "", $aSetting["type"]);
 
 		if(!class_exists("Form_Field"))
