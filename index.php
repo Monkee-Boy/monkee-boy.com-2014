@@ -174,7 +174,8 @@ if(count($aUrlPatterns[$pattern]) > 0) {
 	}
 
 	// Call method given by url pattern
-	$oClass->$aUrlPatterns[$pattern]['action']();
+	$action = $aUrlPatterns[$pattern]['action'];
+	$oClass->$action();
 } else {
 	$oApp->error('404');
 }

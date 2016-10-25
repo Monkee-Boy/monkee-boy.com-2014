@@ -4,14 +4,14 @@
 *
 * Basically this is algorithm provides a block cipher in ofb mode (output feedback mode)
 *
-* @author	Marc Wöhlken, Quadracom - Partnerschaft für Mediengestaltung, Bremen <woehlken@quadracom.de>
-* @copyright Copyright 2006 Marc W&ouml;hlken, Quadracom - Partnerschaft für Mediengestaltung, Bremen
+* @author	Marc Wï¿½hlken, Quadracom - Partnerschaft fï¿½r Mediengestaltung, Bremen <woehlken@quadracom.de>
+* @copyright Copyright 2006 Marc W&ouml;hlken, Quadracom - Partnerschaft fï¿½r Mediengestaltung, Bremen
 * @version Version 1.1, first public release
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *
 * @package hash_encryption
 **/
-	
+
 class hash_crypt {
 	/**
 	 * Hashed value of the user provided encryption key
@@ -21,17 +21,17 @@ class hash_crypt {
 	/**
 	 * String length of hashed values using the current algorithm
 	 * @var	int
-	 **/	
+	 **/
 	var $hash_lenth;
 	/**
 	 * Switch base64 enconding on / off
 	 * @var	bool	true = use base64, false = binary output / input
-	 **/	
+	 **/
 	var $base64;
 	/**
 	 * Secret value added to randomize output and protect the user provided key
 	 * @var	string	Change this value to add more randomness to your encryption
-	 **/	
+	 **/
 	var $salt = 'Change this to any secret value you like. "d41d8cd98f00b204e9800998ecf8427e" might be a good example.';
 
 	/**
@@ -42,22 +42,22 @@ class hash_crypt {
 	 * @param	boold	$base64	Enable base64 en- / decoding
 	 * @return mixed
 	 */
-	function hash_crypt($key,$base64 = true) {
+	function __construct($key,$base64 = true) {
 		// Toggle base64 usage on / off
 		$this->base64 = $base64;
-		
+
 		// Instead of using the key directly we compress it using a hash function
 		$this->hash_key = $this->_hash($key);
-		
+
 		// Remember length of hashvalues for later use
 		$this->hash_length = strlen($this->hash_key);
 	}
-	
+
 	function set_salt($salt)
 	{
 		$this->salt = $salt;
 	}
-		
+
 	/**
 	 * Method used for encryption
 	 * @param	string	$string	Message to be encrypted
@@ -65,10 +65,10 @@ class hash_crypt {
 	 */
 	function encrypt($string) {
 		$iv = $this->_generate_iv();
-		
+
 		// Clear output
 		$out = '';
-		
+
 		// First block of output is ($this->hash_hey XOR IV)
 		for($c=0;$c < $this->hash_length;$c++) {
 			$out .= chr(ord($iv[$c]) ^ ord($this->hash_key[$c]));
@@ -93,7 +93,7 @@ class hash_crypt {
 		if($this->base64) $out = base64_encode($out);
 		return $out;
 	}
-	
+
 	/**
 	 * Method used for decryption
 	 * @param	string	$string	Message to be decrypted
@@ -102,14 +102,14 @@ class hash_crypt {
 	function decrypt($string) {
 		// Apply base64 decoding if necessary
 		if($this->base64) $string = base64_decode($string);
-		
+
 		// Extract encrypted IV from input
 		$tmp_iv = substr($string,0,$this->hash_length);
-		
+
 		// Extract encrypted message from input
 		$string = substr($string,$this->hash_length,strlen($string) - $this->hash_length);
 		$iv = $out = '';
-		
+
 		// Regenerate IV by xor-ing encrypted IV from block 1 and $this->hashed_key
 		// Mathematics: (IV XOR KeY) XOR Key = IV
 		for($c=0;$c < $this->hash_length;$c++) {
@@ -118,7 +118,7 @@ class hash_crypt {
 		// Use IV as key for decrypting the first block cyphertext
 		$key = $iv;
 		$c = 0;
-		
+
 		// Loop through the whole input string
 		while($c < strlen($string)) {
 			// If we have used all characters of the current key we switch to a new one
@@ -159,7 +159,7 @@ class hash_crypt {
 		}
 		return $out;
 	}
-	
+
 	/**
 	 * Generate a random string to initialize encryption
 	 *
@@ -176,7 +176,7 @@ class hash_crypt {
 	function _generate_iv() {
 		// Initialize pseudo random generator
 		srand ((double)microtime()*1000000);
-		
+
 		// Collect random data.
 		// Add as many "pseudo" random sources as you can find.
 		// Possible sources: Memory usage, diskusage, file and directory content...
@@ -186,7 +186,7 @@ class hash_crypt {
 		$iv .= serialize($GLOBALS);
 		return $this->_hash($iv);
 	}
-	
+
 	/**
 	 * Convert hexadecimal value to a binary string
 	 *
