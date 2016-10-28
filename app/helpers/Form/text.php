@@ -3,13 +3,13 @@ class Form_text extends Form_Field
 {
 	private $_options;
 	private $_setting;
-	
+
 	/* __constructor */
-	public function Form_text($aSetting) {
+	public function __construct($aSetting) {
 		$this->_setting = $aSetting;
 		$this->_options = $this->getOptions($aSetting["type"]);
 	}
-	
+
 	public function html() {
 		$sHTML = '<div class="control-group">';
 		$sHTML .= '<label class="control-label" for="form-'.urlencode(stripslashes($this->_setting["title"])).'">'.stripslashes($this->_setting["title"]).'</label>';
@@ -35,7 +35,7 @@ class Form_text extends Form_Field
 		if(!empty($this->_setting["text"]))
 			$sHTML .= '<p class="help-block">'.$this->getText($this->_setting["text"]).'</p>';
 		$sHTML .= '</div></div>';
-		
+
 		return $sHTML;
 	}
 	public function value($sSpecialChars = true) {
