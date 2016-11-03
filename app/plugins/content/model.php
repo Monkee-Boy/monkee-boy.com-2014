@@ -213,7 +213,7 @@ class content_model extends appModel {
             'technical_site_updates' => array('name' => 'Site Updates', 'description' => 'Quickly fix technical and SEO issues (plus only) and make additional changes by request.', 'type' => 'string'),
             'site_speed_analysis' => array('name' => 'Site Speed Analysis', 'description' => 'Tests your site’s page load speed, a factor in Google’s search algorithm.', 'type' => 'boolean'),
             'seo_issues_report' => array('name' => 'SEO Issues Monitoring', 'description' => 'Assesses content on your site to identify optimization opportunities.', 'type' => 'boolean'),
-            'seo_plugin_maintenance' => array('name' => 'SEO Plugin Maintenance', 'description' => 'Keeps all your Wordpress SEO tools up to date.', 'type' => 'boolean'),
+            'seo_plugin_maintenance' => array('name' => 'SEO Plugin Maintenance', 'description' => 'Keeps all your WordPress SEO tools up to date.', 'type' => 'boolean'),
             'seo_report' => array('name' => 'SEO Reporting', 'description' => 'A custom report listing any issues fixed and competition and keyword ranking data.', 'type' => 'boolean'),
           ),
           'plans' => array(
@@ -268,7 +268,7 @@ class content_model extends appModel {
         'case_study' => null,
         'clients' => array(),
         'cta' => array(
-          'content' => 'Don\'t Have Wordpress? Contact Us for Custom Maintenance.',
+          'content' => 'Don\'t Have WordPress? Contact Us for Custom Maintenance.',
           'button' => 'Request a Quote',
           'service' => 'website-maintenance'
         ),
