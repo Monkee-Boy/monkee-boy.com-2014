@@ -199,9 +199,10 @@ class content_model extends appModel {
         'being_a_client' => '<p>We don\'t really like the word client. It implies a relationship where you, the client, don\'t get to participate. That\'s not how Monkee-Boy works. This won\'t be one of those sit-back-and-enjoy-the-ride experiences. A typical Monkee-Boy project is full of epiphanies, exclamations, and visions as we collaboratively explore how you can solve the web.</p><p>In short, when you decide to work with Monkee-Boy you become <a href="/the-work/client-list/">our partner</a>. We\'ll work on your project as a team. We may even eat lunch together.</p>',
         'chart' => array(
           'title' => 'Compare Monthly Maintenance Plans',
-          'intro' => 'Monkee-Boy offers two maintenance plans for Wordpress websites. Our Basic option includes everything you need to keep your website healthy month after month. The Plus maintenance plan adds SEO to the mix -- for businesses that rely more on search. If you only require periodic assistance (less frequent than monthly), or have a non-wordpress website, please <a href="/contact/request-a-quote/?service=website-maintenance&option=custom">contact us</a> for a custom quote.',
-          'download' => '/uploads/editor/images/mboy-wordpress-plans.pdf',
+          'intro' => 'Monkee-Boy offers two maintenance plans for WordPress websites. Our Basic option includes everything you need to keep your website healthy month after month. The Plus maintenance plan adds SEO to the mix -- for businesses that rely more on search. If you only require periodic assistance (less frequent than monthly), or have a non-WordPress website, please <a href="/contact/request-a-quote/?service=website-maintenance&option=custom">contact us</a> for a custom quote.',
+          'download' => '',
           'plan_breakdown' => array(
+            'secure_wordpress_hosting' => array('name' => 'Secure WordPress Hosting', 'description' => 'Brute force security, daily/weekly/monthly offsite backups, security scans, and uptime monitoring.', 'type' => 'boolean'),
             'broken_link_checks' => array('name' => 'Broken Link Checks', 'description' => 'Ensures links on your site still connect to working webpages and files.', 'type' => 'boolean'),
             'quality_assurance' => array('name' => 'Quality Assurance', 'description' => 'Checks your website for any visual errors.', 'type' => 'boolean'),
             'form_testing' => array('name' => 'Form Testing', 'description' => 'Ensures your website forms are always functioning and collecting leads.', 'type' => 'boolean'),
@@ -212,18 +213,19 @@ class content_model extends appModel {
             'technical_site_updates' => array('name' => 'Site Updates', 'description' => 'Quickly fix technical and SEO issues (plus only) and make additional changes by request.', 'type' => 'string'),
             'site_speed_analysis' => array('name' => 'Site Speed Analysis', 'description' => 'Tests your site’s page load speed, a factor in Google’s search algorithm.', 'type' => 'boolean'),
             'seo_issues_report' => array('name' => 'SEO Issues Monitoring', 'description' => 'Assesses content on your site to identify optimization opportunities.', 'type' => 'boolean'),
-            'seo_plugin_maintenance' => array('name' => 'SEO Plugin Maintenance', 'description' => 'Keeps all your Wordpress SEO tools up to date.', 'type' => 'boolean'),
+            'seo_plugin_maintenance' => array('name' => 'SEO Plugin Maintenance', 'description' => 'Keeps all your WordPress SEO tools up to date.', 'type' => 'boolean'),
             'seo_report' => array('name' => 'SEO Reporting', 'description' => 'A custom report listing any issues fixed and competition and keyword ranking data.', 'type' => 'boolean'),
           ),
           'plans' => array(
             array(
               'title' => 'Basic',
               'description' => 'Monthly maintenance to keep your website healthy.',
-              'price' => '380',
+              'price' => '450',
               'icon' => 'maintenance',
               'cta' => 'Sign Up',
               'cta_url' => '/contact/request-a-quote/?service=website-maintenance&option=basic',
               'features' => array(
+                'secure_wordpress_hosting' => 1,
                 'broken_link_checks' => 1,
                 'quality_assurance' => 1,
                 'form_testing' => 1,
@@ -241,11 +243,12 @@ class content_model extends appModel {
             array(
               'title' => 'Plus',
               'description' => 'Monthly Maintenance Plus SEO to keep your website healthier.',
-              'price' => '780',
+              'price' => '900',
               'icon' => 'maintenance',
               'cta' => 'Sign Up',
               'cta_url' => '/contact/request-a-quote/?service=website-maintenance&option=plus',
               'features' => array(
+                'secure_wordpress_hosting' => 1,
                 'broken_link_checks' => 1,
                 'quality_assurance' => 1,
                 'form_testing' => 1,
@@ -265,7 +268,7 @@ class content_model extends appModel {
         'case_study' => null,
         'clients' => array(),
         'cta' => array(
-          'content' => 'Don\'t Have Wordpress? Contact Us for Custom Maintenance.',
+          'content' => 'Don\'t Have WordPress? Contact Us for Custom Maintenance.',
           'button' => 'Request a Quote',
           'service' => 'website-maintenance'
         ),

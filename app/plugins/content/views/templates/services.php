@@ -324,9 +324,11 @@
           </div>
         </div>
 
-        <div class="full center">
-          <a href="<?= $aServiceContent['chart']['download']; ?>">Download a PDF With More Information About These Plans</a>
-        </div>
+        <?php if(isset($aServiceContent['chart']['download']) && !empty($aServiceContent['chart']['download'])) { ?>
+          <div class="full center">
+            <a href="<?= $aServiceContent['chart']['download']; ?>">Download a PDF With More Information About These Plans</a>
+          </div>
+        <?php } ?>
       </div>
     </div>
   </div>

@@ -87,26 +87,27 @@
   <div class="panel-wide home-marketing" data-panel-style="callout">
     <div class="row-flush">
       <div class="item-callout">
-        <h3 data-text-align="center">17 years of amazing results</h3>
+        <h3 data-text-align="center">Proven Web Experts Since 1998</h3>
 
-        <p><em>The web changes constantly. You need an experienced team to keep up and get results by:</em></p>
+        <p><em>Monkee-Boy has been helping clients of all shapes and sizes solve the web through a proven approach of:</em></p>
 
         <ul class="list-style-alt">
-          <li>Elevating identity with stunning creative assets.</li>
-          <li>Increasing website traffic and brand awareness.</li>
-          <li>Converting casual visitors into loyal customers.</li>
+          <li>Creating research-based digital strategies that focus on both business and user goals.</li>
+          <li>Designing beautiful and unique experiences that look great and get results.</li>
+          <li>Developing pragmatic tools and functionality through WordPress and fully custom solutions.</li>
+          <li>Growing businesses online through dedicated digital marketing and maintenance programs.</li>
         </ul>
       </div>
 
       <div class="item-panel">
         <div class="number" style="font-size: 180px;">
-          <span class="arrow"></span><span class="value">537<span class="metric">%</span></span>
+          <span class="arrow"></span><span class="value">116<span class="metric">%</span></span>
         </div>
 
-        <h3>ROI in the first 7 months of the program.</h3>
-        <p>DoubleDave's franchisees are seeing a huge increase in online ordering after Monkee-Boy's targeted local search program was initiated.</p>
+        <h3>Increase in Organic Search Visits.</h3>
+        <p>When tasked with promoting Texas history beyond the physical walls of the Bullock Texas State History Museum, Monkee-Boy delivered incredible results within the first 3 months.</p>
 
-        <?php /* <p class="dots" data-dots="dual"><a href="/the-work/bullock-texas-state-history-museum/" title="View Monkee-Boy's work for The Bullock Texas State History Museum.">View the Project</a></p><?php */ ?>
+        <p class="dots" data-dots="dual"><a href="/the-work/bullock-texas-state-history-museum/" title="View Monkee-Boy's work for The Bullock Texas State History Museum.">View the Project</a></p>
       </div>
     </div>
   </div>
