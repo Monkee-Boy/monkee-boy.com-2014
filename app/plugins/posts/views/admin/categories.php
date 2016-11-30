@@ -63,7 +63,7 @@
 										<label class="control-label" for="form-parent">Parent</label>
 										<div class="controls">
 											<select name="parent" id="form-parent" class="span12">
-												<option value=""<?php if(empty($aCategoryEdit['parent'])){ echo ' selected="selected"'; } ?>None</option>
+												<option value="0"<?php if(empty($aCategoryEdit['parent'])){ echo ' selected="selected"'; } ?>None</option>
 												<?php foreach($aCategories as $aCategory): ?>
 													<option value="<?= $aCategory['id'] ?>"<?php if($aCategoryEdit['parent']['id'] == $aCategory['id']){ echo ' selected="selected"'; } ?>><?= $aCategory['name'] ?></option>
 												<?php endforeach; ?>
@@ -96,7 +96,7 @@
 										<label class="control-label" for="form-parent">Parent</label>
 										<div class="controls">
 											<select name="parent" id="form-parent" class="span12">
-												<option value="">None</option>
+												<option value="0">None</option>
 												<?php foreach($aCategories as $aCategory): ?>
 													<option value="<?= $aCategory['id'] ?>"><?= $aCategory['name'] ?></option>
 												<?php endforeach; ?>
