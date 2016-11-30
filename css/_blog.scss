@@ -521,3 +521,33 @@
     }
   }
 }
+
+/* Unique Post CSS */
+.holiday-song-container {
+  float: left;
+  width: 100%;
+  margin-bottom: 65px;
+  padding-bottom: 65px;
+  border-bottom: 2px solid $green;
+
+  iframe {
+    float: left;
+    margin-right: 25px;
+  }
+
+  &.alt iframe {
+    float: right;
+    margin-left: 25px;
+  }
+
+  h3 {
+    margin-bottom: 13px;
+    text-transform: none;
+  }
+
+  .album {
+    font-size: 18px;
+    color: $teal;
+    text-transform: uppercase;
+  }
+}
