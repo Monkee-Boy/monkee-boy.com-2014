@@ -26,7 +26,7 @@ class admin_quote extends adminController {
       "work_with_us",
       array(
         "status" => $_POST["status"]
-        ,"updated_datetime" => 'NOW()'
+        ,"updated_datetime" => date('Y-m-d H:i:s')
         ,"updated_by" => $_SESSION["admin"]["userid"]
       ),
       $_POST["id"]

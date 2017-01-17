@@ -72,9 +72,9 @@ class admin_galleries extends adminController {
 				,"description" => $_POST["description"]
 				,"sort_order" => $sOrder
 				,"active" => $this->boolCheck($_POST["active"])
-				,"created_datetime" => 'NOW()'
+				,"created_datetime" => date('Y-m-d H:i:s')
 				,"created_by" => $_SESSION["admin"]["userid"]
-				,"updated_datetime" => 'NOW()'
+				,"updated_datetime" => date('Y-m-d H:i:s')
 				,"updated_by" => $_SESSION["admin"]["userid"]
 			)
 		);
@@ -148,7 +148,7 @@ class admin_galleries extends adminController {
 				"name" => $_POST["name"]
 				,"description" => $_POST["description"]
 				,"active" => $this->boolCheck($_POST["active"])
-				,"updated_datetime" => 'NOW()'
+				,"updated_datetime" => date('Y-m-d H:i:s')
 				,"updated_by" => $_SESSION["admin"]["userid"]
 			),
 			$_POST["id"]

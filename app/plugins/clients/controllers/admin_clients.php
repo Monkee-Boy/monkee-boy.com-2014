@@ -63,9 +63,9 @@ class admin_clients extends adminController {
         "website" => $_POST["website"],
         "sort_order" => $sOrder,
         "active" => $this->boolCheck($_POST["active"]),
-        "created_datetime" => 'NOW()',
+        "created_datetime" => date('Y-m-d H:i:s'),
         "created_by" => $_SESSION["admin"]["userid"],
-        "updated_datetime" => 'NOW()',
+        "updated_datetime" => date('Y-m-d H:i:s'),
         "updated_by" => $_SESSION["admin"]["userid"]
       )
     );
@@ -179,7 +179,7 @@ class admin_clients extends adminController {
         "website" => $_POST["website"],
         "sort_order" => $sOrder,
         "active" => $this->boolCheck($_POST["active"]),
-        "updated_datetime" => 'NOW()',
+        "updated_datetime" => date('Y-m-d H:i:s'),
         "updated_by" => $_SESSION["admin"]["userid"]
       ),
       $_POST["id"]
