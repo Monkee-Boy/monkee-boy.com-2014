@@ -255,9 +255,9 @@ class admin_content extends adminController
 				,"tag" => substr(str_replace("--","-",preg_replace("/([^a-z0-9_-]+)/i", "", str_replace(" ","-",trim($_POST["tag"])))),0,255)
 				,"content" => $_POST["content"]
 				,"description" => $_POST["description"]
-				,"created_datetime" => time()
+				,"created_datetime" => 'NOW()'
 				,"created_by" => $_SESSION["admin"]["userid"]
-				,"updated_datetime" => time()
+				,"updated_datetime" => 'NOW()'
 				,"updated_by" => $_SESSION["admin"]["userid"]
 			)
 		);
@@ -317,7 +317,7 @@ class admin_content extends adminController
 			array(
 				"title" => $_POST["title"]
 				,"content" => $_POST["content"]
-				,"updated_datetime" => time()
+				,"updated_datetime" => 'NOW()'
 				,"updated_by" => $_SESSION["admin"]["userid"]
 			),
 			$_POST["id"]

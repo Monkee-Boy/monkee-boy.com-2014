@@ -26,7 +26,7 @@ class admin_quote extends adminController {
       "work_with_us",
       array(
         "status" => $_POST["status"]
-        ,"updated_datetime" => time()
+        ,"updated_datetime" => 'NOW()'
         ,"updated_by" => $_SESSION["admin"]["userid"]
       ),
       $_POST["id"]
@@ -36,7 +36,7 @@ class admin_quote extends adminController {
   }
   function delete() {
     $aQuote = $this->model->getQuote($this->urlVars->dynamic["id"]);
-    
+
     $this->dbDelete("work_with_us", $this->urlVars->dynamic["id"]);
 
     if(!empty($aQuote['attachments'])) {
