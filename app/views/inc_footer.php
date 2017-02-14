@@ -12,7 +12,7 @@ if(isset($aContent)) {
         <li><a href="/blog/" title="Blog" class="blog">Blog</a></li>
         <li><a href="https://twitter.com/monkeeboy" title="Twitter" class="twitter">Twitter</a></li>
         <li><a href="https://www.facebook.com/monkeeboyweb" title="Facebook" class="facebook">Facebook</a></li>
-        <li><a href="https://plus.google.com/102739090440232730366/posts" title="Google Plus" class="gplus">Google Plus</a></li>
+        <li><a href="https://plus.google.com/+MonkeeBoyWebDesignIncAustin" title="Google Plus" class="gplus">Google Plus</a></li>
         <li><a href="http://instagram.com/monkeeboyweb" title="Instagram" class="instagram">Instagram</a></li>
         <li><a href="http://www.pinterest.com/monkeeboy/" title="Pinterest" class="pinterest">Pinterest</a></li>
       </ul>
