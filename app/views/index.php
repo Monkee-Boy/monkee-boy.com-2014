@@ -13,9 +13,10 @@
 
           <div class="hero-detail">
 
-            <p>We're not oracles, but we do know why you're here. You want things. A more impressive website. A digital marketing campaign that customers love. Lots of hi-fives. Nice to meet you!</p>
+            <p>Batman had Alfred. Sherlock had Watson. Luke had Yoda. Who is your trusted advisor? In the fast-paced world of the web, we know it's a jungle out there.</p>
 
-            <p><strong>We're Monkee-Boy and we can show you how to make it in the jungle.</strong></p>
+            <p><strong>Nice to meet you! We're Monkee-Boy.</strong></p>
+            <p><strong>We are experts in digital, turn heroes into superheroes, and can help you solve the web too. </strong></p>
 
           </div>
         </div> <!-- /.hero-content -->
