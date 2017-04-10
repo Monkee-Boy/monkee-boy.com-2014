@@ -4457,7 +4457,7 @@ button[type=submit] {
       margin-bottom: 50px;
       padding-top: 190px; } }
   .hero-services .hero-inner {
-    margin: 240px auto 0;
+    margin: 210px auto 0;
     width: 970px; }
     @media only screen and (max-width: 840px) {
       .hero-services .hero-inner {
@@ -4498,6 +4498,8 @@ button[type=submit] {
       @media only screen and (max-width: 840px) {
         .hero-services .hero-content .hero-detail {
           width: 100%; } }
+      .hero-services .hero-content .hero-detail #we-are {
+        color: palette(yellow); }
     .hero-services .hero-content h1, .hero-services .hero-content p {
       color: #fff; }
     .hero-services .hero-content h1 {

@@ -28,7 +28,7 @@
   }
 
   .hero-inner {
-    margin: 240px auto 0;
+    margin: 210px auto 0;
     width: 970px;
 
     @media #{$medium-down} {
@@ -80,6 +80,10 @@
 
       @media #{$medium-down} {
         width: 100%;
+      }
+
+      #we-are {
+        color: palette(yellow);
       }
     }
 
