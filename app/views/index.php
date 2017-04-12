@@ -15,7 +15,7 @@
 
             <p>Batman had Alfred. Sherlock had Watson. Luke had Yoda. Who is your trusted advisor? In the fast-paced world of the web, we know it's a jungle out there. Nice to meet you!</p>
 
-            <p><strong>We're Monkee-Boy</strong> - experts in digital, turn heroes into superheroes, and can help you solve the web too.</p>
+            <p><strong>We're Monkee-Boy</strong>. We are experts in digital, turn heroes into superheroes, and can help you solve the web too.</p>
 
           </div>
         </div> <!-- /.hero-content -->
