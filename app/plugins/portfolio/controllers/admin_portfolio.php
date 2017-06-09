@@ -69,6 +69,12 @@ class admin_portfolio extends adminController {
     if(empty($sOrder))
       $sOrder = 1;
 
+    if(empty($_POST["gallery"])) {
+      $gallery_id = null;
+    } else {
+      $gallery_id = $_POST["gallery"];
+    }
+
     $sID = $this->dbInsert(
       "portfolio",
       array(
@@ -83,7 +89,7 @@ class admin_portfolio extends adminController {
         "other_services_2" => $_POST["other_services_2"],
         "other_services_3" => $_POST["other_services_3"],
         "quotes" => json_encode($_POST["quotes"]),
-        "galleryid" => $_POST["gallery"],
+        "galleryid" => $gallery_id,
         "active" => $this->boolCheck($_POST["active"]),
         "seo_title" => $_POST["seo_title"],
         "seo_description" => $_POST["seo_description"],
