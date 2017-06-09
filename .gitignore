@@ -8,3 +8,4 @@ node_modules/
 fonts/icomoon/
 *.psd
 .capistrano
+log/
