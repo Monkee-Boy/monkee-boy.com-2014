@@ -24,7 +24,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'contact', 'page_title'=>$sTitle, '
 
 		<h2>9390 Research Blvd. Bldg II, Suite 425, Austin, TX 78759</h2>
 
-		<p><a href="https://maps.google.com?daddr=9390+Research+Blvd.+Bldg+II,+Suite 425,+Austin,+TX+78759" target="_blank">Get Directions to Monkee-Boy World Headquarters</a></p>
+		<p><a href="https://www.google.com/maps/dir//9390+Research+Blvd,+Austin,+TX+78759/@30.383167,-97.7785571,13z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x8644cb78dd511803:0xd64e79b84be26668!2m2!1d-97.7435376!2d30.3830976" target="_blank">Get Directions to Monkee-Boy World Headquarters</a></p>
 	</div>
 </div>
 
