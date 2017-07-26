@@ -32,36 +32,7 @@ $this->tplDisplay("inc_header.php", ['menu'=>'contact', 'page_title'=>$sTitle, '
 	<div class="row">
 		<div class="full" data-text-align="center">
 			<span class="subtitle">give us a ring</span>
-			<h2>phone directory</h2>
-		</div>
-
-		<div class="half">
-			<div class="accordion">
-				<a href="#" class="trigger">Sales Team</a>
-				<div class="content">
-					<p>512-335-2221 &bull; ext. 100</p>
-				</div>
-			</div><!-- /.accordion -->
-			<div class="accordion">
-				<a href="#" class="trigger">Maintenance + Support Team</a>
-				<div class="content">
-					<p>512-335-2221 &bull; ext. 110</p>
-				</div>
-			</div><!-- /.accordion -->
-		</div>
-		<div class="half">
-			<div class="accordion">
-				<a href="#" class="trigger">Marketing Team</a>
-				<div class="content">
-					<p>512-335-2221 &bull; ext. 101</p>
-				</div>
-			</div><!-- /.accordion -->
-			<div class="accordion">
-				<a href="#" class="trigger">Management Team</a>
-				<div class="content">
-					<p>512-335-2221 &bull; ext. 100</p>
-				</div>
-			</div><!-- /.accordion -->
+			<h2>(512) 335-2221</h2>
 		</div>
 	</div>
 </div>
