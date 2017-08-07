@@ -24,12 +24,12 @@
             <td class="small center">
               <span class="hidden"><?= $aSlide['sort_order'] ?></span>
               <?php if($aSlide['sort_order'] != $minSort): ?>
-                <a href="/admin/portfolio/sort/<?= $aSlide['id'] ?>/up/" title="Move Up One"><img src="/images/icons/bullet_arrow_up.png" style="width:16px;height:16px;"></a>
+                <a href="/admin/portfolio/<?= $aClient['id'] ?>/slides/sort/<?= $aSlide['id'] ?>/up/" title="Move Up One"><img src="/images/icons/bullet_arrow_up.png" style="width:16px;height:16px;"></a>
               <?php else: ?>
                 <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" style="width:16px;height:16px;">
               <?php endif; ?>
               <?php if($aSlide['sort_order'] != $maxSort && count($aSlides) > 1): ?>
-                <a href="/admin/portfolio/sort/<?= $aSlide['id'] ?>/down/" title="Move Down One"><img src="/images/icons/bullet_arrow_down.png" style="width:16px;height:16px;"></a>
+                <a href="/admin/portfolio/<?= $aClient['id'] ?>/slides/sort/<?= $aSlide['id'] ?>/down/" title="Move Down One"><img src="/images/icons/bullet_arrow_down.png" style="width:16px;height:16px;"></a>
               <?php else: ?>
                 <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" style="width:16px;height:16px;">
               <?php endif; ?>
