@@ -15,5 +15,5 @@ role :web, %w{deploy@habitat.monkee-boy.com}
 
 server 'habitat.monkee-boy.com', user: 'deploy', roles: %w{web}
 
-set :deploy_to, '/var/www/monkee-boy.com/www' # Should be _ or www depending on redirects.
+set :deploy_to, '/var/www/monkee-boy.com/www.2015' # Should be _ or www depending on redirects.
 set :deploy_env, 'production'
